@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Io.Gate.GateApi</AssemblyName>
+    <PackageId>Io.Gate.GateApi</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Gate.io</Authors>
+    <Company>Gate.io</Company>
+    <AssemblyTitle>Gate API C# client library</AssemblyTitle>
+    <Description>C# client SDK for Gate API</Description>
+    <Copyright>No Copyright</Copyright>
+    <RootNamespace>Io.Gate.GateApi</RootNamespace>
+    <Version>4.15.4</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Io.Gate.GateApi.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/gateio/gateapi-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Refer to https://github.com/gateio/gateapi-csharp/releases</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="1.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>

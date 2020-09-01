@@ -1,0 +1,45 @@
+
+# Io.Gate.GateApi.Model.Contract
+
+Futures contract details
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Name** | **string** | Futures contract | [optional] 
+**Type** | **string** | Futures contract type | [optional] 
+**QuantoMultiplier** | **string** | Multiplier used in converting from invoicing to settlement currency in quanto futures | [optional] 
+**LeverageMin** | **string** | Minimum leverage | [optional] 
+**LeverageMax** | **string** | Maximum leverage | [optional] 
+**MaintenanceRate** | **string** | Maintenance rate of margin | [optional] 
+**MarkType** | **string** | Mark price type, internal - based on internal trading, index - based on external index price | [optional] 
+**MarkPrice** | **string** | Current mark price | [optional] 
+**IndexPrice** | **string** | Current index price | [optional] 
+**LastPrice** | **string** | Last trading price | [optional] 
+**MakerFeeRate** | **string** | Maker fee rate, where negative means rebate | [optional] 
+**TakerFeeRate** | **string** | Taker fee rate | [optional] 
+**OrderPriceRound** | **string** | Minimum order price increment | [optional] 
+**MarkPriceRound** | **string** | Minimum mark price increment | [optional] 
+**FundingRate** | **string** | Current funding rate | [optional] 
+**FundingInterval** | **int** | Funding application interval, unit in seconds | [optional] 
+**FundingNextApply** | **decimal** | Next funding time | [optional] 
+**RiskLimitBase** | **string** | Risk limit base | [optional] 
+**RiskLimitStep** | **string** | Step of adjusting risk limit | [optional] 
+**RiskLimitMax** | **string** | Maximum risk limit the contract allowed | [optional] 
+**OrderSizeMin** | **long** | Minimum order size the contract allowed | [optional] 
+**OrderSizeMax** | **long** | Maximum order size the contract allowed | [optional] 
+**OrderPriceDeviate** | **string** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate | [optional] 
+**RefDiscountRate** | **string** | Referral fee rate discount | [optional] 
+**RefRebateRate** | **string** | Referrer commission rate | [optional] 
+**OrderbookId** | **long** | Current orderbook ID | [optional] 
+**TradeId** | **long** | Current trade ID | [optional] 
+**TradeSize** | **long** | Historical accumulation trade size | [optional] 
+**PositionSize** | **long** | Current total long position size | [optional] 
+**ConfigChangeTime** | **decimal** | Configuration&#39;s last changed time | [optional] 
+**InDelisting** | **bool** | Contract is delisting | [optional] 
+**OrdersLimit** | **int** | Maximum number of open orders | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
