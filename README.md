@@ -84,6 +84,8 @@ namespace Example
 }
 ```
 
+For a more complete API usage example, refer to the demo application in [example](example) directory
+
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
