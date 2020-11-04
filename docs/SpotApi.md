@@ -230,7 +230,7 @@ No authorization required
 
 <a name="listorderbook"></a>
 # **ListOrderBook**
-> OrderBook ListOrderBook (string currencyPair, string interval = null, int? limit = null)
+> OrderBook ListOrderBook (string currencyPair, string interval = null, int? limit = null, bool? withId = null)
 
 Retrieve order book
 
@@ -256,11 +256,12 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var interval = "\"0\"";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to "0")
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
+            var withId = false;  // bool? | Return order book ID (optional)  (default to false)
 
             try
             {
                 // Retrieve order book
-                OrderBook result = apiInstance.ListOrderBook(currencyPair, interval, limit);
+                OrderBook result = apiInstance.ListOrderBook(currencyPair, interval, limit, withId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -282,6 +283,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Currency pair | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **bool?**| Return order book ID | [optional] [default to false]
 
 ### Return type
 

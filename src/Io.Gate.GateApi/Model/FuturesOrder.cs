@@ -189,14 +189,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Order creation time</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
-        public decimal CreateTime { get; private set; }
+        public double CreateTime { get; private set; }
 
         /// <summary>
         /// Order finished time. Not returned if order is open
         /// </summary>
         /// <value>Order finished time. Not returned if order is open</value>
         [DataMember(Name="finish_time", EmitDefaultValue=false)]
-        public decimal FinishTime { get; private set; }
+        public double FinishTime { get; private set; }
 
         /// <summary>
         /// Futures contract

@@ -112,8 +112,8 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
@@ -193,8 +193,8 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
@@ -346,8 +346,8 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 

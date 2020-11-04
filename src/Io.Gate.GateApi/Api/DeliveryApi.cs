@@ -112,7 +112,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
-        List<FuturesTrade> ListDeliveryTrades (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?));
+        List<FuturesTrade> ListDeliveryTrades (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// Futures trading history
@@ -128,7 +128,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
-        ApiResponse<List<FuturesTrade>> ListDeliveryTradesWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?));
+        ApiResponse<List<FuturesTrade>> ListDeliveryTradesWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Get futures candlesticks
         /// </summary>
@@ -143,7 +143,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
-        List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string));
+        List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
         /// <summary>
         /// Get futures candlesticks
@@ -159,7 +159,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
-        ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string));
+        ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
         /// List futures tickers
         /// </summary>
@@ -829,7 +829,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
-        Task<List<FuturesTrade>> ListDeliveryTradesAsync (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?));
+        Task<List<FuturesTrade>> ListDeliveryTradesAsync (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// Futures trading history
@@ -845,7 +845,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
-        Task<ApiResponse<List<FuturesTrade>>> ListDeliveryTradesAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?));
+        Task<ApiResponse<List<FuturesTrade>>> ListDeliveryTradesAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Get futures candlesticks
         /// </summary>
@@ -860,7 +860,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
-        Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string));
+        Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
         /// <summary>
         /// Get futures candlesticks
@@ -876,7 +876,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
-        Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string));
+        Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
         /// List futures tickers
         /// </summary>
@@ -1974,7 +1974,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
-        public List<FuturesTrade> ListDeliveryTrades (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?))
+        public List<FuturesTrade> ListDeliveryTrades (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?))
         {
              ApiResponse<List<FuturesTrade>> localVarResponse = ListDeliveryTradesWithHttpInfo(settle, contract, limit, lastId, from, to);
              return localVarResponse.Data;
@@ -1991,7 +1991,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
-        public ApiResponse<List<FuturesTrade>> ListDeliveryTradesWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?))
+        public ApiResponse<List<FuturesTrade>> ListDeliveryTradesWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2060,7 +2060,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
-        public async Task<List<FuturesTrade>> ListDeliveryTradesAsync (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?))
+        public async Task<List<FuturesTrade>> ListDeliveryTradesAsync (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<FuturesTrade>> localVarResponse = await ListDeliveryTradesAsyncWithHttpInfo(settle, contract, limit, lastId, from, to);
              return localVarResponse.Data;
@@ -2078,7 +2078,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesTrade>>> ListDeliveryTradesAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), decimal? from = default(decimal?), decimal? to = default(decimal?))
+        public async Task<ApiResponse<List<FuturesTrade>>> ListDeliveryTradesAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), string lastId = default(string), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2149,7 +2149,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
-        public List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string))
+        public List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
              ApiResponse<List<FuturesCandlestick>> localVarResponse = ListDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
              return localVarResponse.Data;
@@ -2166,7 +2166,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
-        public ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string))
+        public ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2235,7 +2235,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
-        public async Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string))
+        public async Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<FuturesCandlestick>> localVarResponse = await ListDeliveryCandlesticksAsyncWithHttpInfo(settle, contract, from, to, limit, interval);
              return localVarResponse.Data;
@@ -2253,7 +2253,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, decimal? from = default(decimal?), decimal? to = default(decimal?), int? limit = default(int?), string interval = default(string))
+        public async Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)

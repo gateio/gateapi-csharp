@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="size">Trading size.</param>
         /// <param name="price">Trading price.</param>
         /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</param>
-        public MyFuturesTrade(long id = default(long), decimal createTime = default(decimal), string contract = default(string), string orderId = default(string), long size = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?))
+        public MyFuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?))
         {
             this.Id = id;
             this.CreateTime = createTime;
@@ -90,7 +90,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Trading time</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
-        public decimal CreateTime { get; set; }
+        public double CreateTime { get; set; }
 
         /// <summary>
         /// Futures contract

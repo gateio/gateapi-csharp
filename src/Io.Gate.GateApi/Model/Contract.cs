@@ -119,7 +119,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="configChangeTime">Configuration&#39;s last changed time.</param>
         /// <param name="inDelisting">Contract is delisting.</param>
         /// <param name="ordersLimit">Maximum number of open orders.</param>
-        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), decimal fundingNextApply = default(decimal), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), decimal configChangeTime = default(decimal), bool inDelisting = default(bool), int ordersLimit = default(int))
+        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int))
         {
             this.Name = name;
             this.Type = type;
@@ -258,7 +258,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Next funding time</value>
         [DataMember(Name="funding_next_apply", EmitDefaultValue=false)]
-        public decimal FundingNextApply { get; set; }
+        public double FundingNextApply { get; set; }
 
         /// <summary>
         /// Risk limit base
@@ -349,7 +349,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Configuration&#39;s last changed time</value>
         [DataMember(Name="config_change_time", EmitDefaultValue=false)]
-        public decimal ConfigChangeTime { get; set; }
+        public double ConfigChangeTime { get; set; }
 
         /// <summary>
         /// Contract is delisting

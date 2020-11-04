@@ -7,7 +7,7 @@ data point in every timestamp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**T** | **decimal** | Unix timestamp in seconds | [optional] 
+**T** | **double** | Unix timestamp in seconds | [optional] 
 **V** | **long** | size volume. Only returned if &#x60;contract&#x60; is not prefixed | [optional] 
 **C** | **string** | Close price | [optional] 
 **H** | **string** | Highest price | [optional] 

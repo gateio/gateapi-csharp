@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="h">Highest price.</param>
         /// <param name="l">Lowest price.</param>
         /// <param name="o">Open price.</param>
-        public FuturesCandlestick(decimal t = default(decimal), long v = default(long), string c = default(string), string h = default(string), string l = default(string), string o = default(string))
+        public FuturesCandlestick(double t = default(double), long v = default(long), string c = default(string), string h = default(string), string l = default(string), string o = default(string))
         {
             this.T = t;
             this.V = v;
@@ -54,7 +54,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Unix timestamp in seconds</value>
         [DataMember(Name="t", EmitDefaultValue=false)]
-        public decimal T { get; set; }
+        public double T { get; set; }
 
         /// <summary>
         /// size volume. Only returned if &#x60;contract&#x60; is not prefixed

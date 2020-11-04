@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **long** | Trade ID | [optional] 
-**CreateTime** | **decimal** | Trading time | [optional] 
+**CreateTime** | **double** | Trading time | [optional] 
 **Contract** | **string** | Futures contract | [optional] 
 **Size** | **long** | Trading size | [optional] 
 **Price** | **string** | Trading price | [optional] 

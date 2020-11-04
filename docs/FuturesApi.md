@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**ListFuturesTickers**](FuturesApi.md#listfuturestickers) | **GET** /futures/{settle}/tickers | List futures tickers
 [**ListFuturesFundingRateHistory**](FuturesApi.md#listfuturesfundingratehistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
 [**ListFuturesInsuranceLedger**](FuturesApi.md#listfuturesinsuranceledger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
+[**ListContractStats**](FuturesApi.md#listcontractstats) | **GET** /futures/{settle}/contract_stats | Futures stats
 [**ListFuturesAccounts**](FuturesApi.md#listfuturesaccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**ListFuturesAccountBook**](FuturesApi.md#listfuturesaccountbook) | **GET** /futures/{settle}/account_book | Query account book
 [**ListPositions**](FuturesApi.md#listpositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -623,6 +624,81 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listcontractstats"></a>
+# **ListContractStats**
+> List&lt;ContractStat&gt; ListContractStats (string settle, string contract, string interval = null, int? limit = null)
+
+Futures stats
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListContractStatsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract
+            var interval = "5m";  // string |  (optional)  (default to 5m)
+            var limit = 30;  // int? |  (optional)  (default to 30)
+
+            try
+            {
+                // Futures stats
+                List<ContractStat> result = apiInstance.ListContractStats(settle, contract, interval, limit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.ListContractStats: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract | 
+ **interval** | **string**|  | [optional] [default to 5m]
+ **limit** | **int?**|  | [optional] [default to 30]
+
+### Return type
+
+[**List&lt;ContractStat&gt;**](ContractStat.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

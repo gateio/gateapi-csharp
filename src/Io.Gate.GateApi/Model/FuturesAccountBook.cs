@@ -101,7 +101,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="balance">Balance after change.</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate.</param>
         /// <param name="text">Comment.</param>
-        public FuturesAccountBook(decimal time = default(decimal), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string))
+        public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string))
         {
             this.Time = time;
             this.Change = change;
@@ -115,7 +115,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Change time</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
-        public decimal Time { get; set; }
+        public double Time { get; set; }
 
         /// <summary>
         /// Change amount

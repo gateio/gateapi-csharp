@@ -38,15 +38,24 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderBook" /> class.
         /// </summary>
+        /// <param name="id">Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;.</param>
         /// <param name="asks">Asks order depth (required).</param>
         /// <param name="bids">Bids order depth (required).</param>
-        public OrderBook(List<List<string>> asks = default(List<List<string>>), List<List<string>> bids = default(List<List<string>>))
+        public OrderBook(long id = default(long), List<List<string>> asks = default(List<List<string>>), List<List<string>> bids = default(List<List<string>>))
         {
             // to ensure "asks" is required (not null)
             this.Asks = asks ?? throw new ArgumentNullException("asks", "asks is a required property for OrderBook and cannot be null");
             // to ensure "bids" is required (not null)
             this.Bids = bids ?? throw new ArgumentNullException("bids", "bids is a required property for OrderBook and cannot be null");
+            this.Id = id;
         }
+
+        /// <summary>
+        /// Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;
+        /// </summary>
+        /// <value>Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public long Id { get; set; }
 
         /// <summary>
         /// Asks order depth
@@ -70,6 +79,7 @@ namespace Io.Gate.GateApi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderBook {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Asks: ").Append(Asks).Append("\n");
             sb.Append("  Bids: ").Append(Bids).Append("\n");
             sb.Append("}\n");
@@ -107,6 +117,10 @@ namespace Io.Gate.GateApi.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
+                ) && 
+                (
                     this.Asks == input.Asks ||
                     this.Asks != null &&
                     input.Asks != null &&
@@ -129,6 +143,7 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Asks != null)
                     hashCode = hashCode * 59 + this.Asks.GetHashCode();
                 if (this.Bids != null)

@@ -145,14 +145,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Creation time</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
-        public decimal CreateTime { get; private set; }
+        public double CreateTime { get; private set; }
 
         /// <summary>
         /// Finished time
         /// </summary>
         /// <value>Finished time</value>
         [DataMember(Name="finish_time", EmitDefaultValue=false)]
-        public decimal FinishTime { get; private set; }
+        public double FinishTime { get; private set; }
 
         /// <summary>
         /// ID of the newly created order on condition triggered

@@ -25,73 +25,62 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// PositionClose
+    /// ContractStat
     /// </summary>
     [DataContract]
-    public partial class PositionClose :  IEquatable<PositionClose>, IValidatableObject
+    public partial class ContractStat :  IEquatable<ContractStat>, IValidatableObject
     {
         /// <summary>
-        /// Position side, long or short
+        /// Initializes a new instance of the <see cref="ContractStat" /> class.
         /// </summary>
-        /// <value>Position side, long or short</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SideEnum
+        /// <param name="time">Stat timestamp.</param>
+        /// <param name="lsrTaker">Long/short account number ratio.</param>
+        /// <param name="lsrAccount">Long/short taker size ratio.</param>
+        /// <param name="liqSize">Liquidation size.</param>
+        /// <param name="openInterest">Open interest.</param>
+        public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long liqSize = default(long), long openInterest = default(long))
         {
-            /// <summary>
-            /// Enum Long for value: long
-            /// </summary>
-            [EnumMember(Value = "long")]
-            Long = 1,
-
-            /// <summary>
-            /// Enum Short for value: short
-            /// </summary>
-            [EnumMember(Value = "short")]
-            Short = 2
-
+            this.Time = time;
+            this.LsrTaker = lsrTaker;
+            this.LsrAccount = lsrAccount;
+            this.LiqSize = liqSize;
+            this.OpenInterest = openInterest;
         }
 
         /// <summary>
-        /// Position side, long or short
+        /// Stat timestamp
         /// </summary>
-        /// <value>Position side, long or short</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
-        public SideEnum? Side { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PositionClose" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        public PositionClose()
-        {
-        }
-
-        /// <summary>
-        /// Position close time
-        /// </summary>
-        /// <value>Position close time</value>
+        /// <value>Stat timestamp</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
-        public double Time { get; private set; }
+        public long Time { get; set; }
 
         /// <summary>
-        /// Futures contract
+        /// Long/short account number ratio
         /// </summary>
-        /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
-        public string Contract { get; private set; }
+        /// <value>Long/short account number ratio</value>
+        [DataMember(Name="lsr_taker", EmitDefaultValue=false)]
+        public decimal LsrTaker { get; set; }
 
         /// <summary>
-        /// PNL
+        /// Long/short taker size ratio
         /// </summary>
-        /// <value>PNL</value>
-        [DataMember(Name="pnl", EmitDefaultValue=false)]
-        public string Pnl { get; private set; }
+        /// <value>Long/short taker size ratio</value>
+        [DataMember(Name="lsr_account", EmitDefaultValue=false)]
+        public decimal LsrAccount { get; set; }
 
         /// <summary>
-        /// Text of close order
+        /// Liquidation size
         /// </summary>
-        /// <value>Text of close order</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
-        public string Text { get; private set; }
+        /// <value>Liquidation size</value>
+        [DataMember(Name="liq_size", EmitDefaultValue=false)]
+        public long LiqSize { get; set; }
+
+        /// <summary>
+        /// Open interest
+        /// </summary>
+        /// <value>Open interest</value>
+        [DataMember(Name="open_interest", EmitDefaultValue=false)]
+        public long OpenInterest { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,12 +89,12 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PositionClose {\n");
+            sb.Append("class ContractStat {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  Contract: ").Append(Contract).Append("\n");
-            sb.Append("  Side: ").Append(Side).Append("\n");
-            sb.Append("  Pnl: ").Append(Pnl).Append("\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  LsrTaker: ").Append(LsrTaker).Append("\n");
+            sb.Append("  LsrAccount: ").Append(LsrAccount).Append("\n");
+            sb.Append("  LiqSize: ").Append(LiqSize).Append("\n");
+            sb.Append("  OpenInterest: ").Append(OpenInterest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,15 +115,15 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PositionClose);
+            return this.Equals(input as ContractStat);
         }
 
         /// <summary>
-        /// Returns true if PositionClose instances are equal
+        /// Returns true if ContractStat instances are equal
         /// </summary>
-        /// <param name="input">Instance of PositionClose to be compared</param>
+        /// <param name="input">Instance of ContractStat to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PositionClose input)
+        public bool Equals(ContractStat input)
         {
             if (input == null)
                 return false;
@@ -145,23 +134,20 @@ namespace Io.Gate.GateApi.Model
                     this.Time.Equals(input.Time)
                 ) && 
                 (
-                    this.Contract == input.Contract ||
-                    (this.Contract != null &&
-                    this.Contract.Equals(input.Contract))
+                    this.LsrTaker == input.LsrTaker ||
+                    this.LsrTaker.Equals(input.LsrTaker)
                 ) && 
                 (
-                    this.Side == input.Side ||
-                    this.Side.Equals(input.Side)
+                    this.LsrAccount == input.LsrAccount ||
+                    this.LsrAccount.Equals(input.LsrAccount)
                 ) && 
                 (
-                    this.Pnl == input.Pnl ||
-                    (this.Pnl != null &&
-                    this.Pnl.Equals(input.Pnl))
+                    this.LiqSize == input.LiqSize ||
+                    this.LiqSize.Equals(input.LiqSize)
                 ) && 
                 (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
+                    this.OpenInterest == input.OpenInterest ||
+                    this.OpenInterest.Equals(input.OpenInterest)
                 );
         }
 
@@ -175,13 +161,10 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Time.GetHashCode();
-                if (this.Contract != null)
-                    hashCode = hashCode * 59 + this.Contract.GetHashCode();
-                hashCode = hashCode * 59 + this.Side.GetHashCode();
-                if (this.Pnl != null)
-                    hashCode = hashCode * 59 + this.Pnl.GetHashCode();
-                if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                hashCode = hashCode * 59 + this.LsrTaker.GetHashCode();
+                hashCode = hashCode * 59 + this.LsrAccount.GetHashCode();
+                hashCode = hashCode * 59 + this.LiqSize.GetHashCode();
+                hashCode = hashCode * 59 + this.OpenInterest.GetHashCode();
                 return hashCode;
             }
         }

@@ -98,8 +98,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>OrderBook</returns>
-        OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?));
+        OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
         /// Retrieve order book
@@ -111,8 +112,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>ApiResponse of OrderBook</returns>
-        ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?));
+        ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
         /// Retrieve market trades
         /// </summary>
@@ -500,8 +502,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>Task of OrderBook</returns>
-        Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?));
+        Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
         /// Retrieve order book
@@ -513,8 +516,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>Task of ApiResponse (OrderBook)</returns>
-        Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?));
+        Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
         /// Retrieve market trades
         /// </summary>
@@ -1272,10 +1276,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>OrderBook</returns>
-        public OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?))
+        public OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
-             ApiResponse<OrderBook> localVarResponse = ListOrderBookWithHttpInfo(currencyPair, interval, limit);
+             ApiResponse<OrderBook> localVarResponse = ListOrderBookWithHttpInfo(currencyPair, interval, limit, withId);
              return localVarResponse.Data;
         }
 
@@ -1286,8 +1291,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>ApiResponse of OrderBook</returns>
-        public ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?))
+        public ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -1318,6 +1324,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (withId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "with_id", withId));
+            }
 
 
             // make the HTTP request
@@ -1339,10 +1349,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>Task of OrderBook</returns>
-        public async Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?))
+        public async Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<OrderBook> localVarResponse = await ListOrderBookAsyncWithHttpInfo(currencyPair, interval, limit);
+             Io.Gate.GateApi.Client.ApiResponse<OrderBook> localVarResponse = await ListOrderBookAsyncWithHttpInfo(currencyPair, interval, limit, withId);
              return localVarResponse.Data;
 
         }
@@ -1354,8 +1365,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID (optional, default to false)</param>
         /// <returns>Task of ApiResponse (OrderBook)</returns>
-        public async Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?))
+        public async Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -1386,6 +1398,10 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (withId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "with_id", withId));
             }
 
 

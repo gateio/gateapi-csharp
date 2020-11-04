@@ -253,7 +253,7 @@ No authorization required
 
 <a name="listdeliverytrades"></a>
 # **ListDeliveryTrades**
-> List&lt;FuturesTrade&gt; ListDeliveryTrades (string settle, string contract, int? limit = null, string lastId = null, decimal? from = null, decimal? to = null)
+> List&lt;FuturesTrade&gt; ListDeliveryTrades (string settle, string contract, int? limit = null, string lastId = null, long? from = null, long? to = null)
 
 Futures trading history
 
@@ -278,8 +278,8 @@ namespace Example
             var contract = "BTC_USDT_20200814";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range (optional) 
-            var from = 1546905600F;  // decimal? | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional) 
-            var to = 1546935600F;  // decimal? | Specify end time in Unix seconds, default to current time (optional) 
+            var from = 1546905600;  // long? | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional) 
+            var to = 1546935600;  // long? | Specify end time in Unix seconds, default to current time (optional) 
 
             try
             {
@@ -307,8 +307,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional] 
- **from** | **decimal?**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional] 
- **to** | **decimal?**| Specify end time in Unix seconds, default to current time | [optional] 
+ **from** | **long?**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional] 
+ **to** | **long?**| Specify end time in Unix seconds, default to current time | [optional] 
 
 ### Return type
 
@@ -332,7 +332,7 @@ No authorization required
 
 <a name="listdeliverycandlesticks"></a>
 # **ListDeliveryCandlesticks**
-> List&lt;FuturesCandlestick&gt; ListDeliveryCandlesticks (string settle, string contract, decimal? from = null, decimal? to = null, int? limit = null, string interval = null)
+> List&lt;FuturesCandlestick&gt; ListDeliveryCandlesticks (string settle, string contract, long? from = null, long? to = null, int? limit = null, string interval = null)
 
 Get futures candlesticks
 
@@ -357,8 +357,8 @@ namespace Example
             var apiInstance = new DeliveryApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var from = 1546905600F;  // decimal? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
-            var to = 1546935600F;  // decimal? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
+            var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
+            var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
             var interval = "5m";  // string | Interval time between data points (optional)  (default to 5m)
 
@@ -386,8 +386,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **from** | **decimal?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
- **to** | **decimal?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
+ **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
+ **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **limit** | **int?**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **interval** | **string**| Interval time between data points | [optional] [default to 5m]
 

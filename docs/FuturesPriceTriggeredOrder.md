@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **Trigger** | [**FuturesPriceTrigger**](FuturesPriceTrigger.md) |  | 
 **Id** | **long** | Auto order ID | [optional] [readonly] 
 **User** | **int** | User ID | [optional] [readonly] 
-**CreateTime** | **decimal** | Creation time | [optional] [readonly] 
-**FinishTime** | **decimal** | Finished time | [optional] [readonly] 
+**CreateTime** | **double** | Creation time | [optional] [readonly] 
+**FinishTime** | **double** | Finished time | [optional] [readonly] 
 **TradeId** | **long** | ID of the newly created order on condition triggered | [optional] [readonly] 
 **Status** | **string** | Order status. | [optional] [readonly] 
 **FinishAs** | **string** | How order is finished | [optional] [readonly] 

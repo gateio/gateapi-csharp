@@ -47,6 +47,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;MarginCurrencyPair&gt;</returns>
         ApiResponse<List<MarginCurrencyPair>> ListMarginCurrencyPairsWithHttpInfo ();
         /// <summary>
+        /// Query one single margin currency pair
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>MarginCurrencyPair</returns>
+        MarginCurrencyPair GetMarginCurrencyPair (string currencyPair);
+
+        /// <summary>
+        /// Query one single margin currency pair
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>ApiResponse of MarginCurrencyPair</returns>
+        ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair);
+        /// <summary>
         /// Order book of lending loans
         /// </summary>
         /// <remarks>
@@ -433,6 +454,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;MarginCurrencyPair&gt;)</returns>
         Task<ApiResponse<List<MarginCurrencyPair>>> ListMarginCurrencyPairsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Query one single margin currency pair
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of MarginCurrencyPair</returns>
+        Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair);
+
+        /// <summary>
+        /// Query one single margin currency pair
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
+        Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair);
         /// <summary>
         /// Order book of lending loans
         /// </summary>
@@ -1005,6 +1047,119 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMarginCurrencyPairs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>MarginCurrencyPair</returns>
+        public MarginCurrencyPair GetMarginCurrencyPair (string currencyPair)
+        {
+             ApiResponse<MarginCurrencyPair> localVarResponse = GetMarginCurrencyPairWithHttpInfo(currencyPair);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>ApiResponse of MarginCurrencyPair</returns>
+        public ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair)
+        {
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of MarginCurrencyPair</returns>
+        public async Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<MarginCurrencyPair> localVarResponse = await GetMarginCurrencyPairAsyncWithHttpInfo(currencyPair);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
+        public async Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair)
+        {
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

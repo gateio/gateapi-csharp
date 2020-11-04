@@ -232,6 +232,33 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;InsuranceRecord&gt;</returns>
         ApiResponse<List<InsuranceRecord>> ListFuturesInsuranceLedgerWithHttpInfo (string settle, int? limit = default(int?));
         /// <summary>
+        /// Futures stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>List&lt;ContractStat&gt;</returns>
+        List<ContractStat> ListContractStats (string settle, string contract, string interval = default(string), int? limit = default(int?));
+
+        /// <summary>
+        /// Futures stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>ApiResponse of List&lt;ContractStat&gt;</returns>
+        ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        /// <summary>
         /// Query futures account
         /// </summary>
         /// <remarks>
@@ -946,6 +973,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;InsuranceRecord&gt;)</returns>
         Task<ApiResponse<List<InsuranceRecord>>> ListFuturesInsuranceLedgerAsyncWithHttpInfo (string settle, int? limit = default(int?));
+        /// <summary>
+        /// Futures stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>Task of List&lt;ContractStat&gt;</returns>
+        Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, string interval = default(string), int? limit = default(int?));
+
+        /// <summary>
+        /// Futures stats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>Task of ApiResponse (List&lt;ContractStat&gt;)</returns>
+        Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
         /// <summary>
         /// Query futures account
         /// </summary>
@@ -2692,6 +2746,157 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFuturesInsuranceLedger", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Futures stats 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>List&lt;ContractStat&gt;</returns>
+        public List<ContractStat> ListContractStats (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        {
+             ApiResponse<List<ContractStat>> localVarResponse = ListContractStatsWithHttpInfo(settle, contract, interval, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Futures stats 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>ApiResponse of List&lt;ContractStat&gt;</returns>
+        public ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListContractStats");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->ListContractStats");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<ContractStat>>("/futures/{settle}/contract_stats", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListContractStats", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Futures stats 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>Task of List&lt;ContractStat&gt;</returns>
+        public async Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<ContractStat>> localVarResponse = await ListContractStatsAsyncWithHttpInfo(settle, contract, interval, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Futures stats 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="interval"> (optional, default to 5m)</param>
+        /// <param name="limit"> (optional, default to 30)</param>
+        /// <returns>Task of ApiResponse (List&lt;ContractStat&gt;)</returns>
+        public async Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListContractStats");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->ListContractStats");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (interval != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "interval", interval));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ContractStat>>("/futures/{settle}/contract_stats", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListContractStats", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
