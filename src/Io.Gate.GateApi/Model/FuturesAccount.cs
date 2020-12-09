@@ -40,7 +40,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="available">Available balance to transfer out or trade.</param>
         /// <param name="point">POINT amount.</param>
         /// <param name="currency">Settle currency.</param>
-        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string))
+        /// <param name="inDualMode">Whether dual mode is enabled.</param>
+        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool))
         {
             this.Total = total;
             this.UnrealisedPnl = unrealisedPnl;
@@ -49,6 +50,7 @@ namespace Io.Gate.GateApi.Model
             this.Available = available;
             this.Point = point;
             this.Currency = currency;
+            this.InDualMode = inDualMode;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// Whether dual mode is enabled
+        /// </summary>
+        /// <value>Whether dual mode is enabled</value>
+        [DataMember(Name="in_dual_mode", EmitDefaultValue=false)]
+        public bool InDualMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("  Point: ").Append(Point).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  InDualMode: ").Append(InDualMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +193,10 @@ namespace Io.Gate.GateApi.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.InDualMode == input.InDualMode ||
+                    this.InDualMode.Equals(input.InDualMode)
                 );
         }
 
@@ -209,6 +223,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Point.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                hashCode = hashCode * 59 + this.InDualMode.GetHashCode();
                 return hashCode;
             }
         }

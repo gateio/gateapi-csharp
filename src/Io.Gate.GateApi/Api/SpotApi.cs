@@ -125,8 +125,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string));
+        List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
 
         /// <summary>
         /// Retrieve market trades
@@ -138,8 +139,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string));
+        ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
@@ -215,7 +217,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
-        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -226,7 +228,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
-        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -529,8 +531,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string));
+        Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
 
         /// <summary>
         /// Retrieve market trades
@@ -542,8 +545,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string));
+        Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
@@ -619,7 +623,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
-        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -630,7 +634,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
-        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1425,10 +1429,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string))
+        public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
-             ApiResponse<List<Trade>> localVarResponse = ListTradesWithHttpInfo(currencyPair, limit, lastId);
+             ApiResponse<List<Trade>> localVarResponse = ListTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
              return localVarResponse.Data;
         }
 
@@ -1439,8 +1444,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string))
+        public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -1471,6 +1477,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_id", lastId));
             }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
 
 
             // make the HTTP request
@@ -1492,10 +1502,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string))
+        public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListTradesAsyncWithHttpInfo(currencyPair, limit, lastId);
+             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListTradesAsyncWithHttpInfo(currencyPair, limit, lastId, reverse);
              return localVarResponse.Data;
 
         }
@@ -1507,8 +1518,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
+        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string))
+        public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -1539,6 +1551,10 @@ namespace Io.Gate.GateApi.Api
             if (lastId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_id", lastId));
+            }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
             }
 
 
@@ -1947,7 +1963,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1959,7 +1975,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -2005,7 +2021,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -2018,7 +2034,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>

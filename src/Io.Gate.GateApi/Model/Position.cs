@@ -31,18 +31,53 @@ namespace Io.Gate.GateApi.Model
     public partial class Position :  IEquatable<Position>, IValidatableObject
     {
         /// <summary>
+        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+        /// </summary>
+        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DualModeEnum
+        {
+            /// <summary>
+            /// Enum Single for value: single
+            /// </summary>
+            [EnumMember(Value = "single")]
+            Single = 1,
+
+            /// <summary>
+            /// Enum Duallong for value: dual_long
+            /// </summary>
+            [EnumMember(Value = "dual_long")]
+            Duallong = 2,
+
+            /// <summary>
+            /// Enum Dualshort for value: dual_short
+            /// </summary>
+            [EnumMember(Value = "dual_short")]
+            Dualshort = 3
+
+        }
+
+        /// <summary>
+        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+        /// </summary>
+        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode</value>
+        [DataMember(Name="dual_mode", EmitDefaultValue=false)]
+        public DualModeEnum? DualMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Position" /> class.
         /// </summary>
         /// <param name="leverage">Position leverage. 0 means cross margin; positive number means isolated margin.</param>
         /// <param name="riskLimit">Position risk limit.</param>
         /// <param name="margin">Position margin.</param>
         /// <param name="closeOrder">closeOrder.</param>
-        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder))
+        /// <param name="dualMode">Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode.</param>
+        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), DualModeEnum? dualMode = default(DualModeEnum?))
         {
             this.Leverage = leverage;
             this.RiskLimit = riskLimit;
             this.Margin = margin;
             this.CloseOrder = closeOrder;
+            this.DualMode = dualMode;
         }
 
         /// <summary>
@@ -220,6 +255,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  AdlRanking: ").Append(AdlRanking).Append("\n");
             sb.Append("  PendingOrders: ").Append(PendingOrders).Append("\n");
             sb.Append("  CloseOrder: ").Append(CloseOrder).Append("\n");
+            sb.Append("  DualMode: ").Append(DualMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -354,6 +390,10 @@ namespace Io.Gate.GateApi.Model
                     this.CloseOrder == input.CloseOrder ||
                     (this.CloseOrder != null &&
                     this.CloseOrder.Equals(input.CloseOrder))
+                ) && 
+                (
+                    this.DualMode == input.DualMode ||
+                    this.DualMode.Equals(input.DualMode)
                 );
         }
 
@@ -404,6 +444,7 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.PendingOrders.GetHashCode();
                 if (this.CloseOrder != null)
                     hashCode = hashCode * 59 + this.CloseOrder.GetHashCode();
+                hashCode = hashCode * 59 + this.DualMode.GetHashCode();
                 return hashCode;
             }
         }

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**ListFuturesFundingRateHistory**](FuturesApi.md#listfuturesfundingratehistory) | **GET** /futures/{settle}/funding_rate | Funding rate history
 [**ListFuturesInsuranceLedger**](FuturesApi.md#listfuturesinsuranceledger) | **GET** /futures/{settle}/insurance | Futures insurance balance history
 [**ListContractStats**](FuturesApi.md#listcontractstats) | **GET** /futures/{settle}/contract_stats | Futures stats
+[**ListLiquidatedOrders**](FuturesApi.md#listliquidatedorders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
 [**ListFuturesAccounts**](FuturesApi.md#listfuturesaccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**ListFuturesAccountBook**](FuturesApi.md#listfuturesaccountbook) | **GET** /futures/{settle}/account_book | Query account book
 [**ListPositions**](FuturesApi.md#listpositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -20,6 +21,11 @@ Method | HTTP request | Description
 [**UpdatePositionMargin**](FuturesApi.md#updatepositionmargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin
 [**UpdatePositionLeverage**](FuturesApi.md#updatepositionleverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage
 [**UpdatePositionRiskLimit**](FuturesApi.md#updatepositionrisklimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit
+[**SetDualMode**](FuturesApi.md#setdualmode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode
+[**GetDualModePosition**](FuturesApi.md#getdualmodeposition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode
+[**UpdateDualModePositionMargin**](FuturesApi.md#updatedualmodepositionmargin) | **POST** /futures/{settle}/dual_comp/positions/{contract}/margin | Update position margin in dual mode
+[**UpdateDualModePositionLeverage**](FuturesApi.md#updatedualmodepositionleverage) | **POST** /futures/{settle}/dual_comp/positions/{contract}/leverage | Update position leverage in dual mode
+[**UpdateDualModePositionRiskLimit**](FuturesApi.md#updatedualmodepositionrisklimit) | **POST** /futures/{settle}/dual_comp/positions/{contract}/risk_limit | Update position risk limit in dual mode
 [**ListFuturesOrders**](FuturesApi.md#listfuturesorders) | **GET** /futures/{settle}/orders | List futures orders
 [**CreateFuturesOrder**](FuturesApi.md#createfuturesorder) | **POST** /futures/{settle}/orders | Create a futures order
 [**CancelFuturesOrders**](FuturesApi.md#cancelfuturesorders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
@@ -629,7 +635,7 @@ No authorization required
 
 <a name="listcontractstats"></a>
 # **ListContractStats**
-> List&lt;ContractStat&gt; ListContractStats (string settle, string contract, string interval = null, int? limit = null)
+> List&lt;ContractStat&gt; ListContractStats (string settle, string contract, long? from = null, string interval = null, int? limit = null)
 
 Futures stats
 
@@ -652,13 +658,14 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
             var contract = "BTC_USD";  // string | Futures contract
+            var from = 1604561000;  // long? | Start timestamp (optional) 
             var interval = "5m";  // string |  (optional)  (default to 5m)
             var limit = 30;  // int? |  (optional)  (default to 30)
 
             try
             {
                 // Futures stats
-                List<ContractStat> result = apiInstance.ListContractStats(settle, contract, interval, limit);
+                List<ContractStat> result = apiInstance.ListContractStats(settle, contract, from, interval, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -679,12 +686,92 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | [default to btc]
  **contract** | **string**| Futures contract | 
+ **from** | **long?**| Start timestamp | [optional] 
  **interval** | **string**|  | [optional] [default to 5m]
  **limit** | **int?**|  | [optional] [default to 30]
 
 ### Return type
 
 [**List&lt;ContractStat&gt;**](ContractStat.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listliquidatedorders"></a>
+# **ListLiquidatedOrders**
+> List&lt;FuturesLiquidate&gt; ListLiquidatedOrders (string settle, string contract = null, long? from = null, long? to = null, int? limit = null)
+
+Retrieve liquidation history
+
+Interval between `from` and `to` cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListLiquidatedOrdersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
+            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+
+            try
+            {
+                // Retrieve liquidation history
+                List<FuturesLiquidate> result = apiInstance.ListLiquidatedOrders(settle, contract, from, to, limit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.ListLiquidatedOrders: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
+ **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+
+### Return type
+
+[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
 
 ### Authorization
 
@@ -1218,6 +1305,379 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Position information |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setdualmode"></a>
+# **SetDualMode**
+> FuturesAccount SetDualMode (string settle, bool dualMode)
+
+Enable or disable dual mode
+
+Before setting dual mode, make sure all positions are closed and no orders are open
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetDualModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var dualMode = true;  // bool | Whether to enable dual mode
+
+            try
+            {
+                // Enable or disable dual mode
+                FuturesAccount result = apiInstance.SetDualMode(settle, dualMode);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.SetDualMode: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **dualMode** | **bool**| Whether to enable dual mode | 
+
+### Return type
+
+[**FuturesAccount**](FuturesAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getdualmodeposition"></a>
+# **GetDualModePosition**
+> List&lt;Position&gt; GetDualModePosition (string settle, string contract)
+
+Retrieve position detail in dual mode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetDualModePositionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract
+
+            try
+            {
+                // Retrieve position detail in dual mode
+                List<Position> result = apiInstance.GetDualModePosition(settle, contract);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.GetDualModePosition: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract | 
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatedualmodepositionmargin"></a>
+# **UpdateDualModePositionMargin**
+> List&lt;Position&gt; UpdateDualModePositionMargin (string settle, string contract, string change)
+
+Update position margin in dual mode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class UpdateDualModePositionMarginExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract
+            var change = "0.01";  // string | Margin change. Use positive number to increase margin, negative number otherwise.
+
+            try
+            {
+                // Update position margin in dual mode
+                List<Position> result = apiInstance.UpdateDualModePositionMargin(settle, contract, change);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.UpdateDualModePositionMargin: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract | 
+ **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. | 
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatedualmodepositionleverage"></a>
+# **UpdateDualModePositionLeverage**
+> List&lt;Position&gt; UpdateDualModePositionLeverage (string settle, string contract, string leverage)
+
+Update position leverage in dual mode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class UpdateDualModePositionLeverageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract
+            var leverage = "10";  // string | New position leverage
+
+            try
+            {
+                // Update position leverage in dual mode
+                List<Position> result = apiInstance.UpdateDualModePositionLeverage(settle, contract, leverage);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.UpdateDualModePositionLeverage: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract | 
+ **leverage** | **string**| New position leverage | 
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatedualmodepositionrisklimit"></a>
+# **UpdateDualModePositionRiskLimit**
+> List&lt;Position&gt; UpdateDualModePositionRiskLimit (string settle, string contract, string riskLimit)
+
+Update position risk limit in dual mode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class UpdateDualModePositionRiskLimitExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "btc";  // string | Settle currency (default to btc)
+            var contract = "BTC_USD";  // string | Futures contract
+            var riskLimit = "10";  // string | New position risk limit
+
+            try
+            {
+                // Update position risk limit in dual mode
+                List<Position> result = apiInstance.UpdateDualModePositionRiskLimit(settle, contract, riskLimit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.UpdateDualModePositionRiskLimit: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | [default to btc]
+ **contract** | **string**| Futures contract | 
+ **riskLimit** | **string**| New position risk limit | 
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

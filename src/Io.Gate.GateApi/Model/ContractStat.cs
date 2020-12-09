@@ -36,14 +36,16 @@ namespace Io.Gate.GateApi.Model
         /// <param name="time">Stat timestamp.</param>
         /// <param name="lsrTaker">Long/short account number ratio.</param>
         /// <param name="lsrAccount">Long/short taker size ratio.</param>
-        /// <param name="liqSize">Liquidation size.</param>
+        /// <param name="longLiqSize">Long liquidation size.</param>
+        /// <param name="shortLiqSize">Short liquidation size.</param>
         /// <param name="openInterest">Open interest.</param>
-        public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long liqSize = default(long), long openInterest = default(long))
+        public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long longLiqSize = default(long), long shortLiqSize = default(long), long openInterest = default(long))
         {
             this.Time = time;
             this.LsrTaker = lsrTaker;
             this.LsrAccount = lsrAccount;
-            this.LiqSize = liqSize;
+            this.LongLiqSize = longLiqSize;
+            this.ShortLiqSize = shortLiqSize;
             this.OpenInterest = openInterest;
         }
 
@@ -69,11 +71,18 @@ namespace Io.Gate.GateApi.Model
         public decimal LsrAccount { get; set; }
 
         /// <summary>
-        /// Liquidation size
+        /// Long liquidation size
         /// </summary>
-        /// <value>Liquidation size</value>
-        [DataMember(Name="liq_size", EmitDefaultValue=false)]
-        public long LiqSize { get; set; }
+        /// <value>Long liquidation size</value>
+        [DataMember(Name="long_liq_size", EmitDefaultValue=false)]
+        public long LongLiqSize { get; set; }
+
+        /// <summary>
+        /// Short liquidation size
+        /// </summary>
+        /// <value>Short liquidation size</value>
+        [DataMember(Name="short_liq_size", EmitDefaultValue=false)]
+        public long ShortLiqSize { get; set; }
 
         /// <summary>
         /// Open interest
@@ -93,7 +102,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  LsrTaker: ").Append(LsrTaker).Append("\n");
             sb.Append("  LsrAccount: ").Append(LsrAccount).Append("\n");
-            sb.Append("  LiqSize: ").Append(LiqSize).Append("\n");
+            sb.Append("  LongLiqSize: ").Append(LongLiqSize).Append("\n");
+            sb.Append("  ShortLiqSize: ").Append(ShortLiqSize).Append("\n");
             sb.Append("  OpenInterest: ").Append(OpenInterest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,8 +152,12 @@ namespace Io.Gate.GateApi.Model
                     this.LsrAccount.Equals(input.LsrAccount)
                 ) && 
                 (
-                    this.LiqSize == input.LiqSize ||
-                    this.LiqSize.Equals(input.LiqSize)
+                    this.LongLiqSize == input.LongLiqSize ||
+                    this.LongLiqSize.Equals(input.LongLiqSize)
+                ) && 
+                (
+                    this.ShortLiqSize == input.ShortLiqSize ||
+                    this.ShortLiqSize.Equals(input.ShortLiqSize)
                 ) && 
                 (
                     this.OpenInterest == input.OpenInterest ||
@@ -163,7 +177,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Time.GetHashCode();
                 hashCode = hashCode * 59 + this.LsrTaker.GetHashCode();
                 hashCode = hashCode * 59 + this.LsrAccount.GetHashCode();
-                hashCode = hashCode * 59 + this.LiqSize.GetHashCode();
+                hashCode = hashCode * 59 + this.LongLiqSize.GetHashCode();
+                hashCode = hashCode * 59 + this.ShortLiqSize.GetHashCode();
                 hashCode = hashCode * 59 + this.OpenInterest.GetHashCode();
                 return hashCode;
             }

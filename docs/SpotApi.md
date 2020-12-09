@@ -307,7 +307,7 @@ No authorization required
 
 <a name="listtrades"></a>
 # **ListTrades**
-> List&lt;Trade&gt; ListTrades (string currencyPair, int? limit = null, string lastId = null)
+> List&lt;Trade&gt; ListTrades (string currencyPair, int? limit = null, string lastId = null, bool? reverse = null)
 
 Retrieve market trades
 
@@ -331,11 +331,12 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
+            var reverse = false;  // bool? | Whether to retrieve records whose IDs are smaller than `last_id`'s. Default to larger ones.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified. (optional)  (default to false)
 
             try
             {
                 // Retrieve market trades
-                List<Trade> result = apiInstance.ListTrades(currencyPair, limit, lastId);
+                List<Trade> result = apiInstance.ListTrades(currencyPair, limit, lastId, reverse);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -357,6 +358,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Currency pair | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
+ **reverse** | **bool?**| Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
 
 ### Return type
 
@@ -605,7 +607,7 @@ Name | Type | Description  | Notes
 
 Create a batch of orders
 
-Batch orders requirements:  1. custom order field `text` is required 2. At most 4 currency pairs, maximum 5 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. `account` must be identical for all orders 
+Batch orders requirements:  1. custom order field `text` is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. `account` must be identical for all orders 
 
 ### Example
 ```csharp

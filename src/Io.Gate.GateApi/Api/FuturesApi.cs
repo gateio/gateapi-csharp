@@ -240,10 +240,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>List&lt;ContractStat&gt;</returns>
-        List<ContractStat> ListContractStats (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        List<ContractStat> ListContractStats (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
 
         /// <summary>
         /// Futures stats
@@ -254,10 +255,40 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>ApiResponse of List&lt;ContractStat&gt;</returns>
-        ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
+        /// <summary>
+        /// Retrieve liquidation history
+        /// </summary>
+        /// <remarks>
+        /// Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>List&lt;FuturesLiquidate&gt;</returns>
+        List<FuturesLiquidate> ListLiquidatedOrders (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?));
+
+        /// <summary>
+        /// Retrieve liquidation history
+        /// </summary>
+        /// <remarks>
+        /// Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;FuturesLiquidate&gt;</returns>
+        ApiResponse<List<FuturesLiquidate>> ListLiquidatedOrdersWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?));
         /// <summary>
         /// Query futures account
         /// </summary>
@@ -427,6 +458,127 @@ namespace Io.Gate.GateApi.Api
         /// <param name="riskLimit">New position risk limit</param>
         /// <returns>ApiResponse of Position</returns>
         ApiResponse<Position> UpdatePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit);
+        /// <summary>
+        /// Enable or disable dual mode
+        /// </summary>
+        /// <remarks>
+        /// Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>FuturesAccount</returns>
+        FuturesAccount SetDualMode (string settle, bool dualMode);
+
+        /// <summary>
+        /// Enable or disable dual mode
+        /// </summary>
+        /// <remarks>
+        /// Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>ApiResponse of FuturesAccount</returns>
+        ApiResponse<FuturesAccount> SetDualModeWithHttpInfo (string settle, bool dualMode);
+        /// <summary>
+        /// Retrieve position detail in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        List<Position> GetDualModePosition (string settle, string contract);
+
+        /// <summary>
+        /// Retrieve position detail in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        ApiResponse<List<Position>> GetDualModePositionWithHttpInfo (string settle, string contract);
+        /// <summary>
+        /// Update position margin in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        List<Position> UpdateDualModePositionMargin (string settle, string contract, string change);
+
+        /// <summary>
+        /// Update position margin in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change);
+        /// <summary>
+        /// Update position leverage in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage);
+
+        /// <summary>
+        /// Update position leverage in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage);
+        /// <summary>
+        /// Update position risk limit in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        List<Position> UpdateDualModePositionRiskLimit (string settle, string contract, string riskLimit);
+
+        /// <summary>
+        /// Update position risk limit in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        ApiResponse<List<Position>> UpdateDualModePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
         /// List futures orders
         /// </summary>
@@ -982,10 +1134,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>Task of List&lt;ContractStat&gt;</returns>
-        Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
 
         /// <summary>
         /// Futures stats
@@ -996,10 +1149,40 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>Task of ApiResponse (List&lt;ContractStat&gt;)</returns>
-        Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
+        /// <summary>
+        /// Retrieve liquidation history
+        /// </summary>
+        /// <remarks>
+        /// Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;FuturesLiquidate&gt;</returns>
+        Task<List<FuturesLiquidate>> ListLiquidatedOrdersAsync (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?));
+
+        /// <summary>
+        /// Retrieve liquidation history
+        /// </summary>
+        /// <remarks>
+        /// Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesLiquidate&gt;)</returns>
+        Task<ApiResponse<List<FuturesLiquidate>>> ListLiquidatedOrdersAsyncWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?));
         /// <summary>
         /// Query futures account
         /// </summary>
@@ -1169,6 +1352,127 @@ namespace Io.Gate.GateApi.Api
         /// <param name="riskLimit">New position risk limit</param>
         /// <returns>Task of ApiResponse (Position)</returns>
         Task<ApiResponse<Position>> UpdatePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit);
+        /// <summary>
+        /// Enable or disable dual mode
+        /// </summary>
+        /// <remarks>
+        /// Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>Task of FuturesAccount</returns>
+        Task<FuturesAccount> SetDualModeAsync (string settle, bool dualMode);
+
+        /// <summary>
+        /// Enable or disable dual mode
+        /// </summary>
+        /// <remarks>
+        /// Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>Task of ApiResponse (FuturesAccount)</returns>
+        Task<ApiResponse<FuturesAccount>> SetDualModeAsyncWithHttpInfo (string settle, bool dualMode);
+        /// <summary>
+        /// Retrieve position detail in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        Task<List<Position>> GetDualModePositionAsync (string settle, string contract);
+
+        /// <summary>
+        /// Retrieve position detail in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        Task<ApiResponse<List<Position>>> GetDualModePositionAsyncWithHttpInfo (string settle, string contract);
+        /// <summary>
+        /// Update position margin in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change);
+
+        /// <summary>
+        /// Update position margin in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change);
+        /// <summary>
+        /// Update position leverage in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage);
+
+        /// <summary>
+        /// Update position leverage in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage);
+        /// <summary>
+        /// Update position risk limit in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        Task<List<Position>> UpdateDualModePositionRiskLimitAsync (string settle, string contract, string riskLimit);
+
+        /// <summary>
+        /// Update position risk limit in dual mode
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        Task<ApiResponse<List<Position>>> UpdateDualModePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
         /// List futures orders
         /// </summary>
@@ -2758,12 +3062,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>List&lt;ContractStat&gt;</returns>
-        public List<ContractStat> ListContractStats (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public List<ContractStat> ListContractStats (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?))
         {
-             ApiResponse<List<ContractStat>> localVarResponse = ListContractStatsWithHttpInfo(settle, contract, interval, limit);
+             ApiResponse<List<ContractStat>> localVarResponse = ListContractStatsWithHttpInfo(settle, contract, from, interval, limit);
              return localVarResponse.Data;
         }
 
@@ -2773,10 +3078,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>ApiResponse of List&lt;ContractStat&gt;</returns>
-        public ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2804,6 +3110,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
             if (interval != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "interval", interval));
@@ -2832,12 +3142,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>Task of List&lt;ContractStat&gt;</returns>
-        public async Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public async Task<List<ContractStat>> ListContractStatsAsync (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<ContractStat>> localVarResponse = await ListContractStatsAsyncWithHttpInfo(settle, contract, interval, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<ContractStat>> localVarResponse = await ListContractStatsAsyncWithHttpInfo(settle, contract, from, interval, limit);
              return localVarResponse.Data;
 
         }
@@ -2848,10 +3159,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="from">Start timestamp (optional)</param>
         /// <param name="interval"> (optional, default to 5m)</param>
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>Task of ApiResponse (List&lt;ContractStat&gt;)</returns>
-        public async Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public async Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2880,6 +3192,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
             if (interval != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "interval", interval));
@@ -2897,6 +3213,167 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListContractStats", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve liquidation history Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>List&lt;FuturesLiquidate&gt;</returns>
+        public List<FuturesLiquidate> ListLiquidatedOrders (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?))
+        {
+             ApiResponse<List<FuturesLiquidate>> localVarResponse = ListLiquidatedOrdersWithHttpInfo(settle, contract, from, to, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve liquidation history Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;FuturesLiquidate&gt;</returns>
+        public ApiResponse<List<FuturesLiquidate>> ListLiquidatedOrdersWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListLiquidatedOrders");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<FuturesLiquidate>>("/futures/{settle}/liq_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLiquidatedOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve liquidation history Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;FuturesLiquidate&gt;</returns>
+        public async Task<List<FuturesLiquidate>> ListLiquidatedOrdersAsync (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesLiquidate>> localVarResponse = await ListLiquidatedOrdersAsyncWithHttpInfo(settle, contract, from, to, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve liquidation history Interval between &#x60;from&#x60; and &#x60;to&#x60; cannot exceeds 3600. Some private fields will not be returned in public endpoints. Refer to field description for detail.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesLiquidate&gt;)</returns>
+        public async Task<ApiResponse<List<FuturesLiquidate>>> ListLiquidatedOrdersAsyncWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListLiquidatedOrders");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FuturesLiquidate>>("/futures/{settle}/liq_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLiquidatedOrders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3862,6 +4339,695 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePositionRiskLimit", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Enable or disable dual mode Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>FuturesAccount</returns>
+        public FuturesAccount SetDualMode (string settle, bool dualMode)
+        {
+             ApiResponse<FuturesAccount> localVarResponse = SetDualModeWithHttpInfo(settle, dualMode);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable or disable dual mode Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>ApiResponse of FuturesAccount</returns>
+        public ApiResponse<FuturesAccount> SetDualModeWithHttpInfo (string settle, bool dualMode)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->SetDualMode");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dual_mode", dualMode));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<FuturesAccount>("/futures/{settle}/dual_mode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetDualMode", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Enable or disable dual mode Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>Task of FuturesAccount</returns>
+        public async Task<FuturesAccount> SetDualModeAsync (string settle, bool dualMode)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<FuturesAccount> localVarResponse = await SetDualModeAsyncWithHttpInfo(settle, dualMode);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Enable or disable dual mode Before setting dual mode, make sure all positions are closed and no orders are open
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="dualMode">Whether to enable dual mode</param>
+        /// <returns>Task of ApiResponse (FuturesAccount)</returns>
+        public async Task<ApiResponse<FuturesAccount>> SetDualModeAsyncWithHttpInfo (string settle, bool dualMode)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->SetDualMode");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dual_mode", dualMode));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FuturesAccount>("/futures/{settle}/dual_mode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetDualMode", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve position detail in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        public List<Position> GetDualModePosition (string settle, string contract)
+        {
+             ApiResponse<List<Position>> localVarResponse = GetDualModePositionWithHttpInfo(settle, contract);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve position detail in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        public ApiResponse<List<Position>> GetDualModePositionWithHttpInfo (string settle, string contract)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetDualModePosition");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->GetDualModePosition");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDualModePosition", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve position detail in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        public async Task<List<Position>> GetDualModePositionAsync (string settle, string contract)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await GetDualModePositionAsyncWithHttpInfo(settle, contract);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve position detail in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        public async Task<ApiResponse<List<Position>>> GetDualModePositionAsyncWithHttpInfo (string settle, string contract)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetDualModePosition");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->GetDualModePosition");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDualModePosition", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position margin in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        public List<Position> UpdateDualModePositionMargin (string settle, string contract, string change)
+        {
+             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionMarginWithHttpInfo(settle, contract, change);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update position margin in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        public ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'change' is set
+            if (change == null)
+                throw new ApiException(400, "Missing required parameter 'change' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "change", change));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/margin", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionMargin", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position margin in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        public async Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionMarginAsyncWithHttpInfo(settle, contract, change);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update position margin in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'change' is set
+            if (change == null)
+                throw new ApiException(400, "Missing required parameter 'change' when calling FuturesApi->UpdateDualModePositionMargin");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "change", change));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/margin", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionMargin", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position leverage in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        public List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage)
+        {
+             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionLeverageWithHttpInfo(settle, contract, leverage);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update position leverage in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        public ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+            // verify the required parameter 'leverage' is set
+            if (leverage == null)
+                throw new ApiException(400, "Missing required parameter 'leverage' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/leverage", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionLeverage", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position leverage in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        public async Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionLeverageAsyncWithHttpInfo(settle, contract, leverage);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update position leverage in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="leverage">New position leverage</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+            // verify the required parameter 'leverage' is set
+            if (leverage == null)
+                throw new ApiException(400, "Missing required parameter 'leverage' when calling FuturesApi->UpdateDualModePositionLeverage");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/leverage", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionLeverage", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position risk limit in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>List&lt;Position&gt;</returns>
+        public List<Position> UpdateDualModePositionRiskLimit (string settle, string contract, string riskLimit)
+        {
+             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionRiskLimitWithHttpInfo(settle, contract, riskLimit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update position risk limit in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>ApiResponse of List&lt;Position&gt;</returns>
+        public ApiResponse<List<Position>> UpdateDualModePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+            // verify the required parameter 'riskLimit' is set
+            if (riskLimit == null)
+                throw new ApiException(400, "Missing required parameter 'riskLimit' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "risk_limit", riskLimit));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/risk_limit", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionRiskLimit", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update position risk limit in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>Task of List&lt;Position&gt;</returns>
+        public async Task<List<Position>> UpdateDualModePositionRiskLimitAsync (string settle, string contract, string riskLimit)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionRiskLimitAsyncWithHttpInfo(settle, contract, riskLimit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update position risk limit in dual mode 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract</param>
+        /// <param name="riskLimit">New position risk limit</param>
+        /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
+        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+            // verify the required parameter 'contract' is set
+            if (contract == null)
+                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+            // verify the required parameter 'riskLimit' is set
+            if (riskLimit == null)
+                throw new ApiException(400, "Missing required parameter 'riskLimit' when calling FuturesApi->UpdateDualModePositionRiskLimit");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "risk_limit", riskLimit));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<Position>>("/futures/{settle}/dual_comp/positions/{contract}/risk_limit", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateDualModePositionRiskLimit", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
