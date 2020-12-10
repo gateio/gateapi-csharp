@@ -1796,7 +1796,7 @@ namespace Example
             var apiInstance = new DeliveryApi(config);
             var settle = "usdt";  // string | Settle currency
             var status = "status_example";  // string | List orders based on status
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
@@ -1947,7 +1947,7 @@ namespace Example
 
             var apiInstance = new DeliveryApi(config);
             var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
 
             try
             {

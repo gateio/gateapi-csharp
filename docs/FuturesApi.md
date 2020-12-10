@@ -207,7 +207,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
 
@@ -282,7 +282,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range (optional) 
             var from = 1546905600;  // long? | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional) 
@@ -363,7 +363,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
@@ -442,7 +442,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
 
             try
             {
@@ -513,7 +513,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
 
             try
@@ -657,7 +657,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var from = 1604561000;  // long? | Start timestamp (optional) 
             var interval = "5m";  // string |  (optional)  (default to 5m)
             var limit = 30;  // int? |  (optional)  (default to 30)
@@ -736,7 +736,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
@@ -1709,7 +1709,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var status = "open";  // string | List orders based on status
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -1869,7 +1869,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
             var side = "ask";  // string | All bids or asks. Both included in not specified (optional) 
 
             try
@@ -2092,7 +2092,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var order = 12345;  // long? | Futures order ID, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -2175,7 +2175,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
 
             try
@@ -2250,7 +2250,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var at = 0;  // int? | Specify a liquidation timestamp (optional)  (default to 0)
 
@@ -2328,7 +2328,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
             var status = "status_example";  // string | List orders based on status
-            var contract = "BTC_USD";  // string | Futures contract, return related data only if specified (optional) 
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
@@ -2479,7 +2479,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract
 
             try
             {
