@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
+[**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 
 
 <a name="getdepositaddress"></a>
@@ -523,6 +524,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;WithdrawStatus&gt;**](WithdrawStatus.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsubaccountbalances"></a>
+# **ListSubAccountBalances**
+> List&lt;SubAccountBalance&gt; ListSubAccountBalances (string subUid = null)
+
+Retrieve sub account balances
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSubAccountBalancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+
+            try
+            {
+                // Retrieve sub account balances
+                List<SubAccountBalance> result = apiInstance.ListSubAccountBalances(subUid);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSubAccountBalances: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+
+### Return type
+
+[**List&lt;SubAccountBalance&gt;**](SubAccountBalance.md)
 
 ### Authorization
 

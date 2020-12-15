@@ -198,6 +198,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieved specified currency related data (optional)</param>
         /// <returns>ApiResponse of List&lt;WithdrawStatus&gt;</returns>
         ApiResponse<List<WithdrawStatus>> ListWithdrawStatusWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// Retrieve sub account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountBalance&gt;</returns>
+        List<SubAccountBalance> ListSubAccountBalances (string subUid = default(string));
+
+        /// <summary>
+        /// Retrieve sub account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
+        ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string));
         #endregion Synchronous Operations
     }
 
@@ -378,6 +399,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieved specified currency related data (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;WithdrawStatus&gt;)</returns>
         Task<ApiResponse<List<WithdrawStatus>>> ListWithdrawStatusAsyncWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// Retrieve sub account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountBalance&gt;</returns>
+        Task<List<SubAccountBalance>> ListSubAccountBalancesAsync (string subUid = default(string));
+
+        /// <summary>
+        /// Retrieve sub account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
+        Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string));
         #endregion Asynchronous Operations
     }
 
@@ -1443,6 +1485,121 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListWithdrawStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve sub account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountBalance&gt;</returns>
+        public List<SubAccountBalance> ListSubAccountBalances (string subUid = default(string))
+        {
+             ApiResponse<List<SubAccountBalance>> localVarResponse = ListSubAccountBalancesWithHttpInfo(subUid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve sub account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
+        public ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubAccountBalance>>("/wallet/sub_account_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve sub account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountBalance&gt;</returns>
+        public async Task<List<SubAccountBalance>> ListSubAccountBalancesAsync (string subUid = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SubAccountBalance>> localVarResponse = await ListSubAccountBalancesAsyncWithHttpInfo(subUid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve sub account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
+        public async Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubAccountBalance>>("/wallet/sub_account_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountBalances", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
