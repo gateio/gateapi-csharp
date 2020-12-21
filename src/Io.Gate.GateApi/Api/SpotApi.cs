@@ -28,6 +28,46 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// List all currencies&#39; detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Currency&gt;</returns>
+        List<Currency> ListCurrencies ();
+
+        /// <summary>
+        /// List all currencies&#39; detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
+        ApiResponse<List<Currency>> ListCurrenciesWithHttpInfo ();
+        /// <summary>
+        /// Get detail of one particular currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Currency</returns>
+        Currency GetCurrency (string currency);
+
+        /// <summary>
+        /// Get detail of one particular currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of Currency</returns>
+        ApiResponse<Currency> GetCurrencyWithHttpInfo (string currency);
+        /// <summary>
         /// List all currency pairs supported
         /// </summary>
         /// <remarks>
@@ -433,6 +473,46 @@ namespace Io.Gate.GateApi.Api
     public interface ISpotApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// List all currencies&#39; detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Currency&gt;</returns>
+        Task<List<Currency>> ListCurrenciesAsync ();
+
+        /// <summary>
+        /// List all currencies&#39; detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
+        Task<ApiResponse<List<Currency>>> ListCurrenciesAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get detail of one particular currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of Currency</returns>
+        Task<Currency> GetCurrencyAsync (string currency);
+
+        /// <summary>
+        /// Get detail of one particular currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (Currency)</returns>
+        Task<ApiResponse<Currency>> GetCurrencyAsyncWithHttpInfo (string currency);
         /// <summary>
         /// List all currency pairs supported
         /// </summary>
@@ -948,6 +1028,218 @@ namespace Io.Gate.GateApi.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// List all currencies&#39; detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Currency&gt;</returns>
+        public List<Currency> ListCurrencies ()
+        {
+             ApiResponse<List<Currency>> localVarResponse = ListCurrenciesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all currencies&#39; detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
+        public ApiResponse<List<Currency>> ListCurrenciesWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Currency>>("/spot/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all currencies&#39; detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Currency&gt;</returns>
+        public async Task<List<Currency>> ListCurrenciesAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Currency>> localVarResponse = await ListCurrenciesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List all currencies&#39; detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
+        public async Task<ApiResponse<List<Currency>>> ListCurrenciesAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Currency>>("/spot/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get detail of one particular currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Currency</returns>
+        public Currency GetCurrency (string currency)
+        {
+             ApiResponse<Currency> localVarResponse = GetCurrencyWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get detail of one particular currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of Currency</returns>
+        public ApiResponse<Currency> GetCurrencyWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling SpotApi->GetCurrency");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Currency>("/spot/currencies/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCurrency", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get detail of one particular currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of Currency</returns>
+        public async Task<Currency> GetCurrencyAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Currency> localVarResponse = await GetCurrencyAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get detail of one particular currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (Currency)</returns>
+        public async Task<ApiResponse<Currency>> GetCurrencyAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling SpotApi->GetCurrency");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Currency>("/spot/currencies/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCurrency", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
