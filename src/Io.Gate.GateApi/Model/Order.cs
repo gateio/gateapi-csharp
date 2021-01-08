@@ -187,8 +187,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amount">Trade amount (required).</param>
         /// <param name="price">Order price (required).</param>
         /// <param name="timeInForce">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee (default to TimeInForceEnum.Gtc).</param>
+        /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders.</param>
         /// <param name="autoBorrow">Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough..</param>
-        public Order(string text = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, AccountEnum? account = AccountEnum.Spot, SideEnum side = default(SideEnum), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, bool autoBorrow = default(bool))
+        public Order(string text = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, AccountEnum? account = AccountEnum.Spot, SideEnum side = default(SideEnum), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string iceberg = default(string), bool autoBorrow = default(bool))
         {
             // to ensure "currencyPair" is required (not null)
             this.CurrencyPair = currencyPair ?? throw new ArgumentNullException("currencyPair", "currencyPair is a required property for Order and cannot be null");
@@ -201,6 +202,7 @@ namespace Io.Gate.GateApi.Model
             this.Type = type;
             this.Account = account;
             this.TimeInForce = timeInForce;
+            this.Iceberg = iceberg;
             this.AutoBorrow = autoBorrow;
         }
 
@@ -252,6 +254,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Order price</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
         public string Price { get; set; }
+
+        /// <summary>
+        /// Amount to display for the iceberg order. Null or 0 for normal orders
+        /// </summary>
+        /// <value>Amount to display for the iceberg order. Null or 0 for normal orders</value>
+        [DataMember(Name="iceberg", EmitDefaultValue=false)]
+        public string Iceberg { get; set; }
 
         /// <summary>
         /// Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough.
@@ -350,6 +359,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
+            sb.Append("  Iceberg: ").Append(Iceberg).Append("\n");
             sb.Append("  AutoBorrow: ").Append(AutoBorrow).Append("\n");
             sb.Append("  Left: ").Append(Left).Append("\n");
             sb.Append("  FillPrice: ").Append(FillPrice).Append("\n");
@@ -451,6 +461,11 @@ namespace Io.Gate.GateApi.Model
                     this.TimeInForce.Equals(input.TimeInForce)
                 ) && 
                 (
+                    this.Iceberg == input.Iceberg ||
+                    (this.Iceberg != null &&
+                    this.Iceberg.Equals(input.Iceberg))
+                ) && 
+                (
                     this.AutoBorrow == input.AutoBorrow ||
                     this.AutoBorrow.Equals(input.AutoBorrow)
                 ) && 
@@ -533,6 +548,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
+                if (this.Iceberg != null)
+                    hashCode = hashCode * 59 + this.Iceberg.GetHashCode();
                 hashCode = hashCode * 59 + this.AutoBorrow.GetHashCode();
                 if (this.Left != null)
                     hashCode = hashCode * 59 + this.Left.GetHashCode();

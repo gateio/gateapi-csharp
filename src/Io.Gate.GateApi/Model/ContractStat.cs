@@ -46,7 +46,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="openInterestUsd">Open interest volume(quote currency).</param>
         /// <param name="topLsrAccount">Top trader long/short account ratio.</param>
         /// <param name="topLsrSize">Top trader long/short position ratio.</param>
-        public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long longLiqSize = default(long), decimal longLiqAmount = default(decimal), decimal longLiqUsd = default(decimal), long shortLiqSize = default(long), decimal shortLiqAmount = default(decimal), decimal shortLiqUsd = default(decimal), long openInterest = default(long), decimal openInterestUsd = default(decimal), string topLsrAccount = default(string), string topLsrSize = default(string))
+        public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long longLiqSize = default(long), decimal longLiqAmount = default(decimal), decimal longLiqUsd = default(decimal), long shortLiqSize = default(long), decimal shortLiqAmount = default(decimal), decimal shortLiqUsd = default(decimal), long openInterest = default(long), decimal openInterestUsd = default(decimal), decimal topLsrAccount = default(decimal), decimal topLsrSize = default(decimal))
         {
             this.Time = time;
             this.LsrTaker = lsrTaker;
@@ -145,14 +145,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Top trader long/short account ratio</value>
         [DataMember(Name="top_lsr_account", EmitDefaultValue=false)]
-        public string TopLsrAccount { get; set; }
+        public decimal TopLsrAccount { get; set; }
 
         /// <summary>
         /// Top trader long/short position ratio
         /// </summary>
         /// <value>Top trader long/short position ratio</value>
         [DataMember(Name="top_lsr_size", EmitDefaultValue=false)]
-        public string TopLsrSize { get; set; }
+        public decimal TopLsrSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -255,13 +255,11 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.TopLsrAccount == input.TopLsrAccount ||
-                    (this.TopLsrAccount != null &&
-                    this.TopLsrAccount.Equals(input.TopLsrAccount))
+                    this.TopLsrAccount.Equals(input.TopLsrAccount)
                 ) && 
                 (
                     this.TopLsrSize == input.TopLsrSize ||
-                    (this.TopLsrSize != null &&
-                    this.TopLsrSize.Equals(input.TopLsrSize))
+                    this.TopLsrSize.Equals(input.TopLsrSize)
                 );
         }
 
@@ -285,10 +283,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.ShortLiqUsd.GetHashCode();
                 hashCode = hashCode * 59 + this.OpenInterest.GetHashCode();
                 hashCode = hashCode * 59 + this.OpenInterestUsd.GetHashCode();
-                if (this.TopLsrAccount != null)
-                    hashCode = hashCode * 59 + this.TopLsrAccount.GetHashCode();
-                if (this.TopLsrSize != null)
-                    hashCode = hashCode * 59 + this.TopLsrSize.GetHashCode();
+                hashCode = hashCode * 59 + this.TopLsrAccount.GetHashCode();
+                hashCode = hashCode * 59 + this.TopLsrSize.GetHashCode();
                 return hashCode;
             }
         }

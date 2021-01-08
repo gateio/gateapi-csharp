@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **ShortLiqUsd** | **decimal** | Short liquidation volume(quote currency) | [optional] 
 **OpenInterest** | **long** | Open interest size | [optional] 
 **OpenInterestUsd** | **decimal** | Open interest volume(quote currency) | [optional] 
-**TopLsrAccount** | **string** | Top trader long/short account ratio | [optional] 
-**TopLsrSize** | **string** | Top trader long/short position ratio | [optional] 
+**TopLsrAccount** | **decimal** | Top trader long/short account ratio | [optional] 
+**TopLsrSize** | **decimal** | Top trader long/short position ratio | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
