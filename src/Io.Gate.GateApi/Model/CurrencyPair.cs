@@ -81,11 +81,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amountPrecision">Amount scale.</param>
         /// <param name="precision">Price scale.</param>
         /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
-        /// <param name="etfNetValue">ETF net value.</param>
-        /// <param name="etfPreNetValue">ETF previous net value at re-balancing time.</param>
-        /// <param name="etfPreTimestamp">ETF previous re-balancing time.</param>
-        /// <param name="etfLeverage">ETF current leverage.</param>
-        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), string etfNetValue = default(string), string etfPreNetValue = default(string), long etfPreTimestamp = default(long), string etfLeverage = default(string))
+        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?))
         {
             this.Id = id;
             this.Base = _base;
@@ -96,10 +92,6 @@ namespace Io.Gate.GateApi.Model
             this.AmountPrecision = amountPrecision;
             this.Precision = precision;
             this.TradeStatus = tradeStatus;
-            this.EtfNetValue = etfNetValue;
-            this.EtfPreNetValue = etfPreNetValue;
-            this.EtfPreTimestamp = etfPreTimestamp;
-            this.EtfLeverage = etfLeverage;
         }
 
         /// <summary>
@@ -159,34 +151,6 @@ namespace Io.Gate.GateApi.Model
         public int Precision { get; set; }
 
         /// <summary>
-        /// ETF net value
-        /// </summary>
-        /// <value>ETF net value</value>
-        [DataMember(Name="etf_net_value", EmitDefaultValue=false)]
-        public string EtfNetValue { get; set; }
-
-        /// <summary>
-        /// ETF previous net value at re-balancing time
-        /// </summary>
-        /// <value>ETF previous net value at re-balancing time</value>
-        [DataMember(Name="etf_pre_net_value", EmitDefaultValue=false)]
-        public string EtfPreNetValue { get; set; }
-
-        /// <summary>
-        /// ETF previous re-balancing time
-        /// </summary>
-        /// <value>ETF previous re-balancing time</value>
-        [DataMember(Name="etf_pre_timestamp", EmitDefaultValue=false)]
-        public long EtfPreTimestamp { get; set; }
-
-        /// <summary>
-        /// ETF current leverage
-        /// </summary>
-        /// <value>ETF current leverage</value>
-        [DataMember(Name="etf_leverage", EmitDefaultValue=false)]
-        public string EtfLeverage { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -203,10 +167,6 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  AmountPrecision: ").Append(AmountPrecision).Append("\n");
             sb.Append("  Precision: ").Append(Precision).Append("\n");
             sb.Append("  TradeStatus: ").Append(TradeStatus).Append("\n");
-            sb.Append("  EtfNetValue: ").Append(EtfNetValue).Append("\n");
-            sb.Append("  EtfPreNetValue: ").Append(EtfPreNetValue).Append("\n");
-            sb.Append("  EtfPreTimestamp: ").Append(EtfPreTimestamp).Append("\n");
-            sb.Append("  EtfLeverage: ").Append(EtfLeverage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -282,25 +242,6 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.TradeStatus == input.TradeStatus ||
                     this.TradeStatus.Equals(input.TradeStatus)
-                ) && 
-                (
-                    this.EtfNetValue == input.EtfNetValue ||
-                    (this.EtfNetValue != null &&
-                    this.EtfNetValue.Equals(input.EtfNetValue))
-                ) && 
-                (
-                    this.EtfPreNetValue == input.EtfPreNetValue ||
-                    (this.EtfPreNetValue != null &&
-                    this.EtfPreNetValue.Equals(input.EtfPreNetValue))
-                ) && 
-                (
-                    this.EtfPreTimestamp == input.EtfPreTimestamp ||
-                    this.EtfPreTimestamp.Equals(input.EtfPreTimestamp)
-                ) && 
-                (
-                    this.EtfLeverage == input.EtfLeverage ||
-                    (this.EtfLeverage != null &&
-                    this.EtfLeverage.Equals(input.EtfLeverage))
                 );
         }
 
@@ -328,13 +269,6 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.AmountPrecision.GetHashCode();
                 hashCode = hashCode * 59 + this.Precision.GetHashCode();
                 hashCode = hashCode * 59 + this.TradeStatus.GetHashCode();
-                if (this.EtfNetValue != null)
-                    hashCode = hashCode * 59 + this.EtfNetValue.GetHashCode();
-                if (this.EtfPreNetValue != null)
-                    hashCode = hashCode * 59 + this.EtfPreNetValue.GetHashCode();
-                hashCode = hashCode * 59 + this.EtfPreTimestamp.GetHashCode();
-                if (this.EtfLeverage != null)
-                    hashCode = hashCode * 59 + this.EtfLeverage.GetHashCode();
                 return hashCode;
             }
         }
