@@ -89,6 +89,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="id">Trade ID.</param>
         /// <param name="createTime">Trading time.</param>
+        /// <param name="createTimeMs">Trading time, with millisecond precision.</param>
         /// <param name="side">Order side.</param>
         /// <param name="role">Trade role.</param>
         /// <param name="amount">Trade amount.</param>
@@ -98,10 +99,11 @@ namespace Io.Gate.GateApi.Model
         /// <param name="feeCurrency">Fee currency unit. No value in public endpoints.</param>
         /// <param name="pointFee">Point used to deduct fee.</param>
         /// <param name="gtFee">GT used to deduct fee.</param>
-        public Trade(string id = default(string), string createTime = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string))
+        public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
+            this.CreateTimeMs = createTimeMs;
             this.Side = side;
             this.Role = role;
             this.Amount = amount;
@@ -126,6 +128,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Trading time</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public string CreateTime { get; set; }
+
+        /// <summary>
+        /// Trading time, with millisecond precision
+        /// </summary>
+        /// <value>Trading time, with millisecond precision</value>
+        [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
+        public string CreateTimeMs { get; set; }
 
         /// <summary>
         /// Trade amount
@@ -186,6 +195,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class Trade {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
+            sb.Append("  CreateTimeMs: ").Append(CreateTimeMs).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -238,6 +248,11 @@ namespace Io.Gate.GateApi.Model
                     this.CreateTime == input.CreateTime ||
                     (this.CreateTime != null &&
                     this.CreateTime.Equals(input.CreateTime))
+                ) && 
+                (
+                    this.CreateTimeMs == input.CreateTimeMs ||
+                    (this.CreateTimeMs != null &&
+                    this.CreateTimeMs.Equals(input.CreateTimeMs))
                 ) && 
                 (
                     this.Side == input.Side ||
@@ -297,6 +312,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CreateTime != null)
                     hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
+                if (this.CreateTimeMs != null)
+                    hashCode = hashCode * 59 + this.CreateTimeMs.GetHashCode();
                 hashCode = hashCode * 59 + this.Side.GetHashCode();
                 hashCode = hashCode * 59 + this.Role.GetHashCode();
                 if (this.Amount != null)
