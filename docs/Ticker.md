@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Low24h** | **string** | Lowest price in 24h | [optional] 
 **EtfNetValue** | **string** | ETF net value | [optional] 
 **EtfPreNetValue** | **string** | ETF previous net value at re-balancing time | [optional] 
-**EtfPreTimestamp** | **long** | ETF previous re-balancing time | [optional] 
+**EtfPreTimestamp** | **long?** | ETF previous re-balancing time | [optional] 
 **EtfLeverage** | **string** | ETF current leverage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

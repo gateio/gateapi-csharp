@@ -183,7 +183,7 @@ No authorization required
 
 <a name="listfuturesorderbook"></a>
 # **ListFuturesOrderBook**
-> FuturesOrderBook ListFuturesOrderBook (string settle, string contract, string interval = null, int? limit = null)
+> FuturesOrderBook ListFuturesOrderBook (string settle, string contract, string interval = null, int? limit = null, bool? withId = null)
 
 Futures order book
 
@@ -210,11 +210,12 @@ namespace Example
             var contract = "BTC_USDT";  // string | Futures contract
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
+            var withId = false;  // bool? | Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional)  (default to false)
 
             try
             {
                 // Futures order book
-                FuturesOrderBook result = apiInstance.ListFuturesOrderBook(settle, contract, interval, limit);
+                FuturesOrderBook result = apiInstance.ListFuturesOrderBook(settle, contract, interval, limit, withId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -237,6 +238,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **bool?**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 
@@ -2151,7 +2153,7 @@ Name | Type | Description  | Notes
 
 <a name="listpositionclose"></a>
 # **ListPositionClose**
-> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null)
+> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null)
 
 List position close history
 
@@ -2177,11 +2179,12 @@ namespace Example
             var settle = "btc";  // string | Settle currency (default to btc)
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
             {
                 // List position close history
-                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit);
+                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2203,6 +2206,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | [default to btc]
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 

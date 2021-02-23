@@ -82,8 +82,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
-        FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
         /// Futures order book
@@ -96,8 +97,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
-        ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
         /// Futures trading history
         /// </summary>
@@ -799,8 +801,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
-        Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
         /// Futures order book
@@ -813,8 +816,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
-        Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?));
+        Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
         /// Futures trading history
         /// </summary>
@@ -1820,10 +1824,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
-        public FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
-             ApiResponse<FuturesOrderBook> localVarResponse = ListDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit);
+             ApiResponse<FuturesOrderBook> localVarResponse = ListDeliveryOrderBookWithHttpInfo(settle, contract, interval, limit, withId);
              return localVarResponse.Data;
         }
 
@@ -1835,8 +1840,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
-        public ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -1872,6 +1878,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (withId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "with_id", withId));
+            }
 
 
             // make the HTTP request
@@ -1894,10 +1904,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
-        public async Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public async Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<FuturesOrderBook> localVarResponse = await ListDeliveryOrderBookAsyncWithHttpInfo(settle, contract, interval, limit);
+             Io.Gate.GateApi.Client.ApiResponse<FuturesOrderBook> localVarResponse = await ListDeliveryOrderBookAsyncWithHttpInfo(settle, contract, interval, limit, withId);
              return localVarResponse.Data;
 
         }
@@ -1910,8 +1921,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
-        public async Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?))
+        public async Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -1947,6 +1959,10 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (withId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "with_id", withId));
             }
 
 

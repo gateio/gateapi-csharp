@@ -176,7 +176,7 @@ No authorization required
 
 <a name="listdeliveryorderbook"></a>
 # **ListDeliveryOrderBook**
-> FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = null, int? limit = null)
+> FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = null, int? limit = null, bool? withId = null)
 
 Futures order book
 
@@ -203,11 +203,12 @@ namespace Example
             var contract = "BTC_USDT_20200814";  // string | Futures contract
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
+            var withId = false;  // bool? | Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional)  (default to false)
 
             try
             {
                 // Futures order book
-                FuturesOrderBook result = apiInstance.ListDeliveryOrderBook(settle, contract, interval, limit);
+                FuturesOrderBook result = apiInstance.ListDeliveryOrderBook(settle, contract, interval, limit, withId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -230,6 +231,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **withId** | **bool?**| Whether order book update ID would be returned. This ID increments by 1 on every order book update | [optional] [default to false]
 
 ### Return type
 

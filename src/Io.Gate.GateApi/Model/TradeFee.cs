@@ -41,7 +41,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="gtMakerFee">Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled.</param>
         /// <param name="loanFee">Loan fee rate of margin lending.</param>
         /// <param name="pointType">Point type. 0 - Initial version. 1 - new version since 202009.</param>
-        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string))
+        /// <param name="futuresTakerFee">Futures trading taker fee.</param>
+        /// <param name="futuresMakerFee">Future trading maker fee.</param>
+        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string futuresTakerFee = default(string), string futuresMakerFee = default(string))
         {
             this.UserId = userId;
             this.TakerFee = takerFee;
@@ -51,6 +53,8 @@ namespace Io.Gate.GateApi.Model
             this.GtMakerFee = gtMakerFee;
             this.LoanFee = loanFee;
             this.PointType = pointType;
+            this.FuturesTakerFee = futuresTakerFee;
+            this.FuturesMakerFee = futuresMakerFee;
         }
 
         /// <summary>
@@ -110,6 +114,20 @@ namespace Io.Gate.GateApi.Model
         public string PointType { get; set; }
 
         /// <summary>
+        /// Futures trading taker fee
+        /// </summary>
+        /// <value>Futures trading taker fee</value>
+        [DataMember(Name="futures_taker_fee", EmitDefaultValue=false)]
+        public string FuturesTakerFee { get; set; }
+
+        /// <summary>
+        /// Future trading maker fee
+        /// </summary>
+        /// <value>Future trading maker fee</value>
+        [DataMember(Name="futures_maker_fee", EmitDefaultValue=false)]
+        public string FuturesMakerFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +143,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  GtMakerFee: ").Append(GtMakerFee).Append("\n");
             sb.Append("  LoanFee: ").Append(LoanFee).Append("\n");
             sb.Append("  PointType: ").Append(PointType).Append("\n");
+            sb.Append("  FuturesTakerFee: ").Append(FuturesTakerFee).Append("\n");
+            sb.Append("  FuturesMakerFee: ").Append(FuturesMakerFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +216,16 @@ namespace Io.Gate.GateApi.Model
                     this.PointType == input.PointType ||
                     (this.PointType != null &&
                     this.PointType.Equals(input.PointType))
+                ) && 
+                (
+                    this.FuturesTakerFee == input.FuturesTakerFee ||
+                    (this.FuturesTakerFee != null &&
+                    this.FuturesTakerFee.Equals(input.FuturesTakerFee))
+                ) && 
+                (
+                    this.FuturesMakerFee == input.FuturesMakerFee ||
+                    (this.FuturesMakerFee != null &&
+                    this.FuturesMakerFee.Equals(input.FuturesMakerFee))
                 );
         }
 
@@ -222,6 +252,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.LoanFee.GetHashCode();
                 if (this.PointType != null)
                     hashCode = hashCode * 59 + this.PointType.GetHashCode();
+                if (this.FuturesTakerFee != null)
+                    hashCode = hashCode * 59 + this.FuturesTakerFee.GetHashCode();
+                if (this.FuturesMakerFee != null)
+                    hashCode = hashCode * 59 + this.FuturesMakerFee.GetHashCode();
                 return hashCode;
             }
         }

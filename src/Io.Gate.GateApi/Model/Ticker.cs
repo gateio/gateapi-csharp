@@ -46,7 +46,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="etfPreNetValue">ETF previous net value at re-balancing time.</param>
         /// <param name="etfPreTimestamp">ETF previous re-balancing time.</param>
         /// <param name="etfLeverage">ETF current leverage.</param>
-        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string highestBid = default(string), string changePercentage = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long etfPreTimestamp = default(long), string etfLeverage = default(string))
+        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string highestBid = default(string), string changePercentage = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
         {
             this.CurrencyPair = currencyPair;
             this.Last = last;
@@ -137,21 +137,21 @@ namespace Io.Gate.GateApi.Model
         /// ETF previous net value at re-balancing time
         /// </summary>
         /// <value>ETF previous net value at re-balancing time</value>
-        [DataMember(Name="etf_pre_net_value", EmitDefaultValue=false)]
+        [DataMember(Name="etf_pre_net_value", EmitDefaultValue=true)]
         public string EtfPreNetValue { get; set; }
 
         /// <summary>
         /// ETF previous re-balancing time
         /// </summary>
         /// <value>ETF previous re-balancing time</value>
-        [DataMember(Name="etf_pre_timestamp", EmitDefaultValue=false)]
-        public long EtfPreTimestamp { get; set; }
+        [DataMember(Name="etf_pre_timestamp", EmitDefaultValue=true)]
+        public long? EtfPreTimestamp { get; set; }
 
         /// <summary>
         /// ETF current leverage
         /// </summary>
         /// <value>ETF current leverage</value>
-        [DataMember(Name="etf_leverage", EmitDefaultValue=false)]
+        [DataMember(Name="etf_leverage", EmitDefaultValue=true)]
         public string EtfLeverage { get; set; }
 
         /// <summary>
@@ -266,7 +266,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.EtfPreTimestamp == input.EtfPreTimestamp ||
-                    this.EtfPreTimestamp.Equals(input.EtfPreTimestamp)
+                    (this.EtfPreTimestamp != null &&
+                    this.EtfPreTimestamp.Equals(input.EtfPreTimestamp))
                 ) && 
                 (
                     this.EtfLeverage == input.EtfLeverage ||
@@ -306,7 +307,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.EtfNetValue.GetHashCode();
                 if (this.EtfPreNetValue != null)
                     hashCode = hashCode * 59 + this.EtfPreNetValue.GetHashCode();
-                hashCode = hashCode * 59 + this.EtfPreTimestamp.GetHashCode();
+                if (this.EtfPreTimestamp != null)
+                    hashCode = hashCode * 59 + this.EtfPreTimestamp.GetHashCode();
                 if (this.EtfLeverage != null)
                     hashCode = hashCode * 59 + this.EtfLeverage.GetHashCode();
                 return hashCode;

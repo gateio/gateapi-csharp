@@ -35,13 +35,15 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="id">Trade ID.</param>
         /// <param name="createTime">Trading time.</param>
+        /// <param name="createTimeMs">Trading time, with milliseconds set to 3 decimal places..</param>
         /// <param name="contract">Futures contract.</param>
         /// <param name="size">Trading size.</param>
         /// <param name="price">Trading price.</param>
-        public FuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), long size = default(long), string price = default(string))
+        public FuturesTrade(long id = default(long), double createTime = default(double), double createTimeMs = default(double), string contract = default(string), long size = default(long), string price = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
+            this.CreateTimeMs = createTimeMs;
             this.Contract = contract;
             this.Size = size;
             this.Price = price;
@@ -60,6 +62,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Trading time</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; set; }
+
+        /// <summary>
+        /// Trading time, with milliseconds set to 3 decimal places.
+        /// </summary>
+        /// <value>Trading time, with milliseconds set to 3 decimal places.</value>
+        [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
+        public double CreateTimeMs { get; set; }
 
         /// <summary>
         /// Futures contract
@@ -92,6 +101,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class FuturesTrade {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
+            sb.Append("  CreateTimeMs: ").Append(CreateTimeMs).Append("\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
@@ -138,6 +148,10 @@ namespace Io.Gate.GateApi.Model
                     this.CreateTime.Equals(input.CreateTime)
                 ) && 
                 (
+                    this.CreateTimeMs == input.CreateTimeMs ||
+                    this.CreateTimeMs.Equals(input.CreateTimeMs)
+                ) && 
+                (
                     this.Contract == input.Contract ||
                     (this.Contract != null &&
                     this.Contract.Equals(input.Contract))
@@ -164,6 +178,7 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
+                hashCode = hashCode * 59 + this.CreateTimeMs.GetHashCode();
                 if (this.Contract != null)
                     hashCode = hashCode * 59 + this.Contract.GetHashCode();
                 hashCode = hashCode * 59 + this.Size.GetHashCode();

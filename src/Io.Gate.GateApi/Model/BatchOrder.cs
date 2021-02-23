@@ -185,7 +185,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amount">Trade amount.</param>
         /// <param name="price">Order price.</param>
         /// <param name="timeInForce">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee (default to TimeInForceEnum.Gtc).</param>
-        /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders.</param>
+        /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally.</param>
         /// <param name="autoBorrow">Used in margin trading(i.e. &#x60;account&#x60; is &#x60;margin&#x60;) to allow automatic loan of insufficient part if balance is not enough..</param>
         public BatchOrder(string text = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, AccountEnum? account = AccountEnum.Spot, SideEnum? side = default(SideEnum?), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string iceberg = default(string), bool autoBorrow = default(bool))
         {
@@ -275,9 +275,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// Amount to display for the iceberg order. Null or 0 for normal orders
+        /// Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally
         /// </summary>
-        /// <value>Amount to display for the iceberg order. Null or 0 for normal orders</value>
+        /// <value>Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the amount totally</value>
         [DataMember(Name="iceberg", EmitDefaultValue=false)]
         public string Iceberg { get; set; }
 

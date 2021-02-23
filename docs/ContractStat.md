@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **LsrTaker** | **decimal** | Long/short account number ratio | [optional] 
 **LsrAccount** | **decimal** | Long/short taker size ratio | [optional] 
 **LongLiqSize** | **long** | Long liquidation size | [optional] 
-**LongLiqAmount** | **decimal** | Long liquidation amount(base currency) | [optional] 
-**LongLiqUsd** | **decimal** | Long liquidation volume(quote currency) | [optional] 
+**LongLiqAmount** | **double** | Long liquidation amount(base currency) | [optional] 
+**LongLiqUsd** | **double** | Long liquidation volume(quote currency) | [optional] 
 **ShortLiqSize** | **long** | Short liquidation size | [optional] 
-**ShortLiqAmount** | **decimal** | Short liquidation amount(base currency) | [optional] 
-**ShortLiqUsd** | **decimal** | Short liquidation volume(quote currency) | [optional] 
+**ShortLiqAmount** | **double** | Short liquidation amount(base currency) | [optional] 
+**ShortLiqUsd** | **double** | Short liquidation volume(quote currency) | [optional] 
 **OpenInterest** | **long** | Open interest size | [optional] 
-**OpenInterestUsd** | **decimal** | Open interest volume(quote currency) | [optional] 
-**TopLsrAccount** | **decimal** | Top trader long/short account ratio | [optional] 
-**TopLsrSize** | **decimal** | Top trader long/short position ratio | [optional] 
+**OpenInterestUsd** | **double** | Open interest volume(quote currency) | [optional] 
+**TopLsrAccount** | **double** | Top trader long/short account ratio | [optional] 
+**TopLsrSize** | **double** | Top trader long/short position ratio | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
