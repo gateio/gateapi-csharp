@@ -215,7 +215,7 @@ namespace Io.Gate.GateApi.Api
         /// Query user trading fee rates
         /// </summary>
         /// <remarks>
-        /// 
+        /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -226,7 +226,7 @@ namespace Io.Gate.GateApi.Api
         /// Query user trading fee rates
         /// </summary>
         /// <remarks>
-        /// 
+        /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -661,7 +661,7 @@ namespace Io.Gate.GateApi.Api
         /// Query user trading fee rates
         /// </summary>
         /// <remarks>
-        /// 
+        /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -672,7 +672,7 @@ namespace Io.Gate.GateApi.Api
         /// Query user trading fee rates
         /// </summary>
         /// <remarks>
-        /// 
+        /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2025,7 +2025,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates 
+        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2037,7 +2037,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates 
+        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2081,7 +2081,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates 
+        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2094,7 +2094,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates 
+        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>

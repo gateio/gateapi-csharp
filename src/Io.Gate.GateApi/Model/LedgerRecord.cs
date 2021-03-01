@@ -83,11 +83,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerRecord" /> class.
         /// </summary>
-        /// <param name="amount">Trade amount (required).</param>
-        /// <param name="currency">Record currency (required).</param>
+        /// <param name="amount">Currency amount (required).</param>
+        /// <param name="currency">Currency name (required).</param>
         /// <param name="address">Withdrawal address. Required for withdrawals.</param>
         /// <param name="memo">Extra withdrawal memo.</param>
-        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string))
+        /// <param name="chain">Name of the chain used in withdrawals.</param>
+        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
         {
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for LedgerRecord and cannot be null");
@@ -95,6 +96,7 @@ namespace Io.Gate.GateApi.Model
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for LedgerRecord and cannot be null");
             this.Address = address;
             this.Memo = memo;
+            this.Chain = chain;
         }
 
         /// <summary>
@@ -112,23 +114,23 @@ namespace Io.Gate.GateApi.Model
         public string Txid { get; private set; }
 
         /// <summary>
-        /// Record time
+        /// Operation time
         /// </summary>
-        /// <value>Record time</value>
+        /// <value>Operation time</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public string Timestamp { get; private set; }
 
         /// <summary>
-        /// Trade amount
+        /// Currency amount
         /// </summary>
-        /// <value>Trade amount</value>
+        /// <value>Currency amount</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Record currency
+        /// Currency name
         /// </summary>
-        /// <value>Record currency</value>
+        /// <value>Currency name</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 
@@ -147,6 +149,13 @@ namespace Io.Gate.GateApi.Model
         public string Memo { get; set; }
 
         /// <summary>
+        /// Name of the chain used in withdrawals
+        /// </summary>
+        /// <value>Name of the chain used in withdrawals</value>
+        [DataMember(Name="chain", EmitDefaultValue=false)]
+        public string Chain { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -162,6 +171,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Memo: ").Append(Memo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Chain: ").Append(Chain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -234,6 +244,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Chain == input.Chain ||
+                    (this.Chain != null &&
+                    this.Chain.Equals(input.Chain))
                 );
         }
 
@@ -261,6 +276,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.Memo != null)
                     hashCode = hashCode * 59 + this.Memo.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Chain != null)
+                    hashCode = hashCode * 59 + this.Chain.GetHashCode();
                 return hashCode;
             }
         }

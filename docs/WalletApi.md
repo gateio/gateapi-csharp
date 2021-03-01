@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
+[**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
 
 
 <a name="getdepositaddress"></a>
@@ -609,6 +610,73 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettradefee"></a>
+# **GetTradeFee**
+> TradeFee GetTradeFee ()
+
+Retrieve personal trading fee
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetTradeFeeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+
+            try
+            {
+                // Retrieve personal trading fee
+                TradeFee result = apiInstance.GetTradeFee();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.GetTradeFee: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TradeFee**](TradeFee.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

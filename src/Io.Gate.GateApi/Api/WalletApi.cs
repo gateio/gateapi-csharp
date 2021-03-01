@@ -219,6 +219,25 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
         ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Retrieve personal trading fee
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TradeFee</returns>
+        TradeFee GetTradeFee ();
+
+        /// <summary>
+        /// Retrieve personal trading fee
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TradeFee</returns>
+        ApiResponse<TradeFee> GetTradeFeeWithHttpInfo ();
         #endregion Synchronous Operations
     }
 
@@ -420,6 +439,25 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Retrieve personal trading fee
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of TradeFee</returns>
+        Task<TradeFee> GetTradeFeeAsync ();
+
+        /// <summary>
+        /// Retrieve personal trading fee
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (TradeFee)</returns>
+        Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -1600,6 +1638,109 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSubAccountBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve personal trading fee 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TradeFee</returns>
+        public TradeFee GetTradeFee ()
+        {
+             ApiResponse<TradeFee> localVarResponse = GetTradeFeeWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve personal trading fee 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TradeFee</returns>
+        public ApiResponse<TradeFee> GetTradeFeeWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TradeFee>("/wallet/fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTradeFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve personal trading fee 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of TradeFee</returns>
+        public async Task<TradeFee> GetTradeFeeAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetTradeFeeAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve personal trading fee 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (TradeFee)</returns>
+        public async Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TradeFee>("/wallet/fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTradeFee", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
