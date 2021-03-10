@@ -1,13 +1,11 @@
 
-# Io.Gate.GateApi.Model.DepositAddress
+# Io.Gate.GateApi.Model.AutoRepaySetting
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Currency** | **string** | Currency detail | 
-**Address** | **string** | Deposit address | 
-**MultichainAddress** | [**List&lt;MultiChainAddressItem&gt;**](MultiChainAddressItem.md) |  | [optional] 
+**Status** | **string** | Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

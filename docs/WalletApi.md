@@ -40,7 +40,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "currency_example";  // string | Currency name
+            var currency = "USDT";  // string | Currency name
 
             try
             {
@@ -406,6 +406,8 @@ Name | Type | Description  | Notes
 > void TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
 
 Transfer between main and sub accounts
+
+Support transferring with sub user's spot or futures account. Note that only main user's spot account is used no matter which sub user's account is operated.
 
 ### Example
 ```csharp

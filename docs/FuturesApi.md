@@ -64,7 +64,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
 
             try
             {
@@ -88,7 +88,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
 
 ### Return type
 
@@ -133,8 +133,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
 
             try
             {
@@ -158,7 +158,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
 
 ### Return type
@@ -206,7 +206,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
@@ -234,7 +234,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
@@ -283,7 +283,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use `from` and `to` instead to limit time range (optional) 
@@ -312,7 +312,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **lastId** | **string**| Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional] 
@@ -364,7 +364,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
@@ -393,7 +393,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
@@ -443,7 +443,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
 
             try
@@ -468,7 +468,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
 
 ### Return type
@@ -514,7 +514,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
 
@@ -540,7 +540,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
 
@@ -587,7 +587,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
 
             try
@@ -612,7 +612,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
 
 ### Return type
@@ -658,7 +658,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var from = 1604561000;  // long? | Start timestamp (optional) 
             var interval = "5m";  // string |  (optional)  (default to 5m)
@@ -686,7 +686,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **from** | **long?**| Start timestamp | [optional] 
  **interval** | **string**|  | [optional] [default to 5m]
@@ -737,7 +737,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
@@ -765,7 +765,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
@@ -816,7 +816,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
 
             try
             {
@@ -840,7 +840,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
 
 ### Return type
 
@@ -887,7 +887,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
@@ -915,7 +915,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
@@ -966,7 +966,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
 
             try
             {
@@ -990,7 +990,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
 
 ### Return type
 
@@ -1037,8 +1037,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
 
             try
             {
@@ -1062,7 +1062,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
 
 ### Return type
@@ -1110,8 +1110,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var change = "0.01";  // string | Margin change. Use positive number to increase margin, negative number otherwise.
 
             try
@@ -1136,7 +1136,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. | 
 
@@ -1185,8 +1185,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var leverage = "10";  // string | New position leverage
 
             try
@@ -1211,7 +1211,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **leverage** | **string**| New position leverage | 
 
@@ -1260,8 +1260,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var riskLimit = "10";  // string | New position risk limit
 
             try
@@ -1286,7 +1286,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **riskLimit** | **string**| New position risk limit | 
 
@@ -1337,7 +1337,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var dualMode = true;  // bool | Whether to enable dual mode
 
             try
@@ -1362,7 +1362,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **dualMode** | **bool**| Whether to enable dual mode | 
 
 ### Return type
@@ -1410,8 +1410,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
 
             try
             {
@@ -1435,7 +1435,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
 
 ### Return type
@@ -1483,8 +1483,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var change = "0.01";  // string | Margin change. Use positive number to increase margin, negative number otherwise.
 
             try
@@ -1509,7 +1509,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. | 
 
@@ -1558,8 +1558,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var leverage = "10";  // string | New position leverage
 
             try
@@ -1584,7 +1584,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **leverage** | **string**| New position leverage | 
 
@@ -1633,8 +1633,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
-            var contract = "BTC_USD";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
             var riskLimit = "10";  // string | New position risk limit
 
             try
@@ -1659,7 +1659,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **riskLimit** | **string**| New position risk limit | 
 
@@ -1710,7 +1710,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var status = "open";  // string | List orders based on status
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
@@ -1740,7 +1740,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **status** | **string**| List orders based on status | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
@@ -1795,7 +1795,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var futuresOrder = new FuturesOrder(); // FuturesOrder | 
 
             try
@@ -1820,7 +1820,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  | 
 
 ### Return type
@@ -1870,7 +1870,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var side = "ask";  // string | All bids or asks. Both included in not specified (optional) 
 
@@ -1896,7 +1896,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **side** | **string**| All bids or asks. Both included in not specified | [optional] 
 
@@ -1947,7 +1947,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | ID returned on order successfully being created
 
             try
@@ -1972,7 +1972,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **orderId** | **string**| ID returned on order successfully being created | 
 
 ### Return type
@@ -2020,7 +2020,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | ID returned on order successfully being created
 
             try
@@ -2045,7 +2045,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **orderId** | **string**| ID returned on order successfully being created | 
 
 ### Return type
@@ -2093,7 +2093,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var order = 12345;  // long? | Futures order ID, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
@@ -2123,7 +2123,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **order** | **long?**| Futures order ID, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
@@ -2176,7 +2176,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -2203,7 +2203,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
@@ -2253,7 +2253,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var at = 0;  // int? | Specify a liquidation timestamp (optional)  (default to 0)
@@ -2280,7 +2280,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **at** | **int?**| Specify a liquidation timestamp | [optional] [default to 0]
@@ -2330,7 +2330,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var status = "status_example";  // string | List orders based on status
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
@@ -2358,7 +2358,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **status** | **string**| List orders based on status | 
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
@@ -2409,7 +2409,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
 
             try
@@ -2434,7 +2434,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  | 
 
 ### Return type
@@ -2482,7 +2482,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
 
             try
@@ -2507,7 +2507,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
 
 ### Return type
@@ -2555,7 +2555,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var orderId = "orderId_example";  // string | ID returned on order successfully being created
 
             try
@@ -2580,7 +2580,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **orderId** | **string**| ID returned on order successfully being created | 
 
 ### Return type
@@ -2628,7 +2628,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FuturesApi(config);
-            var settle = "btc";  // string | Settle currency (default to btc)
+            var settle = "usdt";  // string | Settle currency
             var orderId = "orderId_example";  // string | ID returned on order successfully being created
 
             try
@@ -2653,7 +2653,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | [default to btc]
+ **settle** | **string**| Settle currency | 
  **orderId** | **string**| ID returned on order successfully being created | 
 
 ### Return type

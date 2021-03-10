@@ -25,35 +25,46 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FundingRateRecord
+    /// AutoRepaySetting
     /// </summary>
     [DataContract]
-    public partial class FundingRateRecord :  IEquatable<FundingRateRecord>, IValidatableObject
+    public partial class AutoRepaySetting :  IEquatable<AutoRepaySetting>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingRateRecord" /> class.
+        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
         /// </summary>
-        /// <param name="t">Unix timestamp in seconds.</param>
-        /// <param name="r">Funding rate.</param>
-        public FundingRateRecord(long t = default(long), string r = default(string))
+        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
         {
-            this.T = t;
-            this.R = r;
+            /// <summary>
+            /// Enum True for value: true
+            /// </summary>
+            [EnumMember(Value = "true")]
+            True = 1,
+
+            /// <summary>
+            /// Enum False for value: false
+            /// </summary>
+            [EnumMember(Value = "false")]
+            False = 2
+
         }
 
         /// <summary>
-        /// Unix timestamp in seconds
+        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
         /// </summary>
-        /// <value>Unix timestamp in seconds</value>
-        [DataMember(Name="t", EmitDefaultValue=false)]
-        public long T { get; set; }
-
+        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
-        /// Funding rate
+        /// Initializes a new instance of the <see cref="AutoRepaySetting" /> class.
         /// </summary>
-        /// <value>Funding rate</value>
-        [DataMember(Name="r", EmitDefaultValue=false)]
-        public string R { get; set; }
+        /// <param name="status">Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.</param>
+        public AutoRepaySetting(StatusEnum? status = default(StatusEnum?))
+        {
+            this.Status = status;
+        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +73,8 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FundingRateRecord {\n");
-            sb.Append("  T: ").Append(T).Append("\n");
-            sb.Append("  R: ").Append(R).Append("\n");
+            sb.Append("class AutoRepaySetting {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,28 +95,23 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingRateRecord);
+            return this.Equals(input as AutoRepaySetting);
         }
 
         /// <summary>
-        /// Returns true if FundingRateRecord instances are equal
+        /// Returns true if AutoRepaySetting instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingRateRecord to be compared</param>
+        /// <param name="input">Instance of AutoRepaySetting to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingRateRecord input)
+        public bool Equals(AutoRepaySetting input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.T == input.T ||
-                    this.T.Equals(input.T)
-                ) && 
-                (
-                    this.R == input.R ||
-                    (this.R != null &&
-                    this.R.Equals(input.R))
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -119,9 +124,7 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.T.GetHashCode();
-                if (this.R != null)
-                    hashCode = hashCode * 59 + this.R.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }
