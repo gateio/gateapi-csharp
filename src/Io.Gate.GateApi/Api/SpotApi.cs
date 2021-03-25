@@ -398,7 +398,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Order</returns>
         Order GetOrder (string orderId, string currencyPair);
@@ -410,7 +410,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair);
@@ -421,7 +421,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Order</returns>
         Order CancelOrder (string orderId, string currencyPair);
@@ -433,7 +433,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair);
@@ -464,6 +464,121 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">List all trades of specified order (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string));
+        /// <summary>
+        /// Retrieve running auto order list
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// Retrieve running auto order list
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// Create a price-triggered order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>TriggerOrderResponse</returns>
+        TriggerOrderResponse CreateSpotPriceTriggeredOrder (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
+
+        /// <summary>
+        /// Create a price-triggered order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>ApiResponse of TriggerOrderResponse</returns>
+        ApiResponse<TriggerOrderResponse> CreateSpotPriceTriggeredOrderWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
+        /// <summary>
+        /// Cancel all open orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string));
+
+        /// <summary>
+        /// Cancel all open orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string));
+        /// <summary>
+        /// Get a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>SpotPriceTriggeredOrder</returns>
+        SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId);
+
+        /// <summary>
+        /// Get a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
+        ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId);
+        /// <summary>
+        /// Cancel a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>SpotPriceTriggeredOrder</returns>
+        SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId);
+
+        /// <summary>
+        /// Cancel a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
+        ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         #endregion Synchronous Operations
     }
 
@@ -844,7 +959,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of Order</returns>
         Task<Order> GetOrderAsync (string orderId, string currencyPair);
@@ -856,7 +971,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair);
@@ -867,7 +982,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of Order</returns>
         Task<Order> CancelOrderAsync (string orderId, string currencyPair);
@@ -879,7 +994,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair);
@@ -910,6 +1025,121 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">List all trades of specified order (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string));
+        /// <summary>
+        /// Retrieve running auto order list
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// Retrieve running auto order list
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
+        Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// Create a price-triggered order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>Task of TriggerOrderResponse</returns>
+        Task<TriggerOrderResponse> CreateSpotPriceTriggeredOrderAsync (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
+
+        /// <summary>
+        /// Create a price-triggered order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>Task of ApiResponse (TriggerOrderResponse)</returns>
+        Task<ApiResponse<TriggerOrderResponse>> CreateSpotPriceTriggeredOrderAsyncWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
+        /// <summary>
+        /// Cancel all open orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string));
+
+        /// <summary>
+        /// Cancel all open orders
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
+        Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string));
+        /// <summary>
+        /// Get a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of SpotPriceTriggeredOrder</returns>
+        Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId);
+
+        /// <summary>
+        /// Get a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
+        Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
+        /// <summary>
+        /// Cancel a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of SpotPriceTriggeredOrder</returns>
+        Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId);
+
+        /// <summary>
+        /// Cancel a single order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
+        Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         #endregion Asynchronous Operations
     }
 
@@ -3038,7 +3268,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Order</returns>
         public Order GetOrder (string orderId, string currencyPair)
@@ -3051,7 +3281,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair)
@@ -3102,7 +3332,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> GetOrderAsync (string orderId, string currencyPair)
@@ -3116,7 +3346,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair)
@@ -3169,7 +3399,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Order</returns>
         public Order CancelOrder (string orderId, string currencyPair)
@@ -3182,7 +3412,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair)
@@ -3233,7 +3463,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> CancelOrderAsync (string orderId, string currencyPair)
@@ -3247,7 +3477,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair)
@@ -3443,6 +3673,651 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMyTrades", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve running auto order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<List<SpotPriceTriggeredOrder>> localVarResponse = ListSpotPriceTriggeredOrdersWithHttpInfo(status, market, account, limit, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve running auto order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+                throw new ApiException(400, "Missing required parameter 'status' when calling SpotApi->ListSpotPriceTriggeredOrders");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SpotPriceTriggeredOrder>>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSpotPriceTriggeredOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve running auto order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public async Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SpotPriceTriggeredOrder>> localVarResponse = await ListSpotPriceTriggeredOrdersAsyncWithHttpInfo(status, market, account, limit, offset);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve running auto order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">List orders based on status</param>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
+        public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+                throw new ApiException(400, "Missing required parameter 'status' when calling SpotApi->ListSpotPriceTriggeredOrders");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SpotPriceTriggeredOrder>>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSpotPriceTriggeredOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a price-triggered order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>TriggerOrderResponse</returns>
+        public TriggerOrderResponse CreateSpotPriceTriggeredOrder (SpotPriceTriggeredOrder spotPriceTriggeredOrder)
+        {
+             ApiResponse<TriggerOrderResponse> localVarResponse = CreateSpotPriceTriggeredOrderWithHttpInfo(spotPriceTriggeredOrder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a price-triggered order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>ApiResponse of TriggerOrderResponse</returns>
+        public ApiResponse<TriggerOrderResponse> CreateSpotPriceTriggeredOrderWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder)
+        {
+            // verify the required parameter 'spotPriceTriggeredOrder' is set
+            if (spotPriceTriggeredOrder == null)
+                throw new ApiException(400, "Missing required parameter 'spotPriceTriggeredOrder' when calling SpotApi->CreateSpotPriceTriggeredOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = spotPriceTriggeredOrder;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TriggerOrderResponse>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateSpotPriceTriggeredOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a price-triggered order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>Task of TriggerOrderResponse</returns>
+        public async Task<TriggerOrderResponse> CreateSpotPriceTriggeredOrderAsync (SpotPriceTriggeredOrder spotPriceTriggeredOrder)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<TriggerOrderResponse> localVarResponse = await CreateSpotPriceTriggeredOrderAsyncWithHttpInfo(spotPriceTriggeredOrder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a price-triggered order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="spotPriceTriggeredOrder"></param>
+        /// <returns>Task of ApiResponse (TriggerOrderResponse)</returns>
+        public async Task<ApiResponse<TriggerOrderResponse>> CreateSpotPriceTriggeredOrderAsyncWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder)
+        {
+            // verify the required parameter 'spotPriceTriggeredOrder' is set
+            if (spotPriceTriggeredOrder == null)
+                throw new ApiException(400, "Missing required parameter 'spotPriceTriggeredOrder' when calling SpotApi->CreateSpotPriceTriggeredOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = spotPriceTriggeredOrder;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TriggerOrderResponse>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateSpotPriceTriggeredOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel all open orders 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string))
+        {
+             ApiResponse<List<SpotPriceTriggeredOrder>> localVarResponse = CancelSpotPriceTriggeredOrderListWithHttpInfo(market, account);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel all open orders 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<List<SpotPriceTriggeredOrder>>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSpotPriceTriggeredOrderList", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel all open orders 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
+        public async Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SpotPriceTriggeredOrder>> localVarResponse = await CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo(market, account);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel all open orders 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="account">Trading account (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
+        public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<SpotPriceTriggeredOrder>>("/spot/price_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSpotPriceTriggeredOrderList", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>SpotPriceTriggeredOrder</returns>
+        public SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId)
+        {
+             ApiResponse<SpotPriceTriggeredOrder> localVarResponse = GetSpotPriceTriggeredOrderWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
+        public ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->GetSpotPriceTriggeredOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SpotPriceTriggeredOrder>("/spot/price_orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSpotPriceTriggeredOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of SpotPriceTriggeredOrder</returns>
+        public async Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<SpotPriceTriggeredOrder> localVarResponse = await GetSpotPriceTriggeredOrderAsyncWithHttpInfo(orderId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
+        public async Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->GetSpotPriceTriggeredOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SpotPriceTriggeredOrder>("/spot/price_orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSpotPriceTriggeredOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>SpotPriceTriggeredOrder</returns>
+        public SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId)
+        {
+             ApiResponse<SpotPriceTriggeredOrder> localVarResponse = CancelSpotPriceTriggeredOrderWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
+        public ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->CancelSpotPriceTriggeredOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<SpotPriceTriggeredOrder>("/spot/price_orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSpotPriceTriggeredOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of SpotPriceTriggeredOrder</returns>
+        public async Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<SpotPriceTriggeredOrder> localVarResponse = await CancelSpotPriceTriggeredOrderAsyncWithHttpInfo(orderId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel a single order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
+        public async Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->CancelSpotPriceTriggeredOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<SpotPriceTriggeredOrder>("/spot/price_orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelSpotPriceTriggeredOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

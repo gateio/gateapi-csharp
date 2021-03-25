@@ -14,6 +14,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Newtonsoft.Json;
@@ -31,7 +32,7 @@ namespace Io.Gate.GateApi.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "4.19.4";
+        public const string Version = "4.20.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -102,7 +103,7 @@ namespace Io.Gate.GateApi.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/4.19.4/csharp";
+            UserAgent = "OpenAPI-Generator/4.20.0/csharp";
             BasePath = "https://api.gateio.ws/api/v4";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
 
@@ -269,6 +270,12 @@ namespace Io.Gate.GateApi.Client
         /// <value>The API secret.</value>
         public string ApiV4Secret { get; set; }
 
+        /// <summary>
+        /// Gets or sets the WebProxy used to send HTTP request
+        /// </summary>
+        /// <value>The proxy used.</value>
+        public IWebProxy Proxy { get; set;  }
+
         #endregion Properties
 
         #region Methods
@@ -280,8 +287,8 @@ namespace Io.Gate.GateApi.Client
         {
             string report = "C# SDK (Io.Gate.GateApi) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
-            report += "    Version of the API: 4.19.4\n";
-            report += "    SDK Package Version: 4.19.4\n";
+            report += "    Version of the API: 4.20.0\n";
+            report += "    SDK Package Version: 4.20.0\n";
 
             return report;
         }
@@ -326,7 +333,8 @@ namespace Io.Gate.GateApi.Client
                 Password = second.Password ?? first.Password,
                 AccessToken = second.AccessToken ?? first.AccessToken,
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
-                DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat
+                DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
+                Proxy = second.Proxy ?? first.Proxy
             };
             return config;
         }

@@ -670,7 +670,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>FuturesOrder</returns>
         FuturesOrder GetFuturesOrder (string settle, string orderId);
 
@@ -682,7 +682,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         ApiResponse<FuturesOrder> GetFuturesOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -693,7 +693,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>FuturesOrder</returns>
         FuturesOrder CancelFuturesOrder (string settle, string orderId);
 
@@ -705,7 +705,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -1568,7 +1568,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of FuturesOrder</returns>
         Task<FuturesOrder> GetFuturesOrderAsync (string settle, string orderId);
 
@@ -1580,7 +1580,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         Task<ApiResponse<FuturesOrder>> GetFuturesOrderAsyncWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -1591,7 +1591,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of FuturesOrder</returns>
         Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId);
 
@@ -1603,7 +1603,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -5528,7 +5528,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>FuturesOrder</returns>
         public FuturesOrder GetFuturesOrder (string settle, string orderId)
         {
@@ -5541,7 +5541,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         public ApiResponse<FuturesOrder> GetFuturesOrderWithHttpInfo (string settle, string orderId)
         {
@@ -5592,7 +5592,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of FuturesOrder</returns>
         public async Task<FuturesOrder> GetFuturesOrderAsync (string settle, string orderId)
         {
@@ -5606,7 +5606,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         public async Task<ApiResponse<FuturesOrder>> GetFuturesOrderAsyncWithHttpInfo (string settle, string orderId)
         {
@@ -5659,7 +5659,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>FuturesOrder</returns>
         public FuturesOrder CancelFuturesOrder (string settle, string orderId)
         {
@@ -5672,7 +5672,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         public ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId)
         {
@@ -5723,7 +5723,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of FuturesOrder</returns>
         public async Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId)
         {
@@ -5737,7 +5737,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         public async Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId)
         {

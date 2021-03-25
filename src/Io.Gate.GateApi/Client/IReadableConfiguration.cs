@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Io.Gate.GateApi.Client
@@ -97,5 +98,11 @@ namespace Io.Gate.GateApi.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         X509CertificateCollection ClientCertificates { get; }
+
+        /// <summary>
+        /// Get WebProxy used to send HTTP request
+        /// </summary>
+        /// <value>WebProxy.</value>
+        IWebProxy Proxy { get; }
     }
 }

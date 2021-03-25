@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CancelOrder" /> class.
         /// </summary>
         /// <param name="currencyPair">Order currency pair (required).</param>
-        /// <param name="id">Order ID (required).</param>
+        /// <param name="id">Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation (required).</param>
         public CancelOrder(string currencyPair = default(string), string id = default(string))
         {
             // to ensure "currencyPair" is required (not null)
@@ -56,9 +56,9 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Order ID
+        /// Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 

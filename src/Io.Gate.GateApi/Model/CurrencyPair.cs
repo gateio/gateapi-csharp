@@ -81,7 +81,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amountPrecision">Amount scale.</param>
         /// <param name="precision">Price scale.</param>
         /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
-        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?))
+        /// <param name="sellStart">允许卖出时间，秒级 Unix 时间戳.</param>
+        /// <param name="buyStart">允许买入时间，秒级 Unix 时间戳.</param>
+        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long))
         {
             this.Id = id;
             this.Base = _base;
@@ -92,6 +94,8 @@ namespace Io.Gate.GateApi.Model
             this.AmountPrecision = amountPrecision;
             this.Precision = precision;
             this.TradeStatus = tradeStatus;
+            this.SellStart = sellStart;
+            this.BuyStart = buyStart;
         }
 
         /// <summary>
@@ -151,6 +155,20 @@ namespace Io.Gate.GateApi.Model
         public int Precision { get; set; }
 
         /// <summary>
+        /// 允许卖出时间，秒级 Unix 时间戳
+        /// </summary>
+        /// <value>允许卖出时间，秒级 Unix 时间戳</value>
+        [DataMember(Name="sell_start", EmitDefaultValue=false)]
+        public long SellStart { get; set; }
+
+        /// <summary>
+        /// 允许买入时间，秒级 Unix 时间戳
+        /// </summary>
+        /// <value>允许买入时间，秒级 Unix 时间戳</value>
+        [DataMember(Name="buy_start", EmitDefaultValue=false)]
+        public long BuyStart { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -167,6 +185,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  AmountPrecision: ").Append(AmountPrecision).Append("\n");
             sb.Append("  Precision: ").Append(Precision).Append("\n");
             sb.Append("  TradeStatus: ").Append(TradeStatus).Append("\n");
+            sb.Append("  SellStart: ").Append(SellStart).Append("\n");
+            sb.Append("  BuyStart: ").Append(BuyStart).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,6 +262,14 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.TradeStatus == input.TradeStatus ||
                     this.TradeStatus.Equals(input.TradeStatus)
+                ) && 
+                (
+                    this.SellStart == input.SellStart ||
+                    this.SellStart.Equals(input.SellStart)
+                ) && 
+                (
+                    this.BuyStart == input.BuyStart ||
+                    this.BuyStart.Equals(input.BuyStart)
                 );
         }
 
@@ -269,6 +297,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.AmountPrecision.GetHashCode();
                 hashCode = hashCode * 59 + this.Precision.GetHashCode();
                 hashCode = hashCode * 59 + this.TradeStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.SellStart.GetHashCode();
+                hashCode = hashCode * 59 + this.BuyStart.GetHashCode();
                 return hashCode;
             }
         }
