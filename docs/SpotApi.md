@@ -1437,7 +1437,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var status = "status_example";  // string | List orders based on status
-            var market = "BTC_USDT";  // string | 交易市场 (optional) 
+            var market = "BTC_USDT";  // string | Currency pair (optional) 
             var account = "account_example";  // string | Trading account (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -1465,7 +1465,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| List orders based on status | 
- **market** | **string**| 交易市场 | [optional] 
+ **market** | **string**| Currency pair | [optional] 
  **account** | **string**| Trading account | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
@@ -1586,7 +1586,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var market = "BTC_USDT";  // string | 交易市场 (optional) 
+            var market = "BTC_USDT";  // string | Currency pair (optional) 
             var account = "account_example";  // string | Trading account (optional) 
 
             try
@@ -1611,7 +1611,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **market** | **string**| 交易市场 | [optional] 
+ **market** | **string**| Currency pair | [optional] 
  **account** | **string**| Trading account | [optional] 
 
 ### Return type

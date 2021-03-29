@@ -81,8 +81,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amountPrecision">Amount scale.</param>
         /// <param name="precision">Price scale.</param>
         /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
-        /// <param name="sellStart">允许卖出时间，秒级 Unix 时间戳.</param>
-        /// <param name="buyStart">允许买入时间，秒级 Unix 时间戳.</param>
+        /// <param name="sellStart">Sell start unix timestamp in seconds.</param>
+        /// <param name="buyStart">Buy start unix timestamp in seconds.</param>
         public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long))
         {
             this.Id = id;
@@ -155,16 +155,16 @@ namespace Io.Gate.GateApi.Model
         public int Precision { get; set; }
 
         /// <summary>
-        /// 允许卖出时间，秒级 Unix 时间戳
+        /// Sell start unix timestamp in seconds
         /// </summary>
-        /// <value>允许卖出时间，秒级 Unix 时间戳</value>
+        /// <value>Sell start unix timestamp in seconds</value>
         [DataMember(Name="sell_start", EmitDefaultValue=false)]
         public long SellStart { get; set; }
 
         /// <summary>
-        /// 允许买入时间，秒级 Unix 时间戳
+        /// Buy start unix timestamp in seconds
         /// </summary>
-        /// <value>允许买入时间，秒级 Unix 时间戳</value>
+        /// <value>Buy start unix timestamp in seconds</value>
         [DataMember(Name="buy_start", EmitDefaultValue=false)]
         public long BuyStart { get; set; }
 

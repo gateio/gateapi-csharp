@@ -472,7 +472,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -487,7 +487,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -521,7 +521,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string));
@@ -533,7 +533,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string));
@@ -1033,7 +1033,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -1048,7 +1048,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -1082,7 +1082,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string));
@@ -1094,7 +1094,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string));
@@ -3684,7 +3684,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -3700,7 +3700,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -3765,7 +3765,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -3782,7 +3782,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">List orders based on status</param>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -3967,7 +3967,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all open orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string))
@@ -3980,7 +3980,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all open orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string))
@@ -4029,7 +4029,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all open orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public async Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string))
@@ -4043,7 +4043,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all open orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">交易市场 (optional)</param>
+        /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string))

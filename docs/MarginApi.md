@@ -1366,7 +1366,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var status = "true";  // string | New auto repayment status. `on` - enabled, `off` - disabled
+            var status = "on";  // string | New auto repayment status. `on` - enabled, `off` - disabled
 
             try
             {
