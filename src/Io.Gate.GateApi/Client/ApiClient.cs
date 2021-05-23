@@ -81,7 +81,7 @@ namespace Io.Gate.GateApi.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal object Deserialize(IRestResponse response, Type type)
         {
-            IList<Parameter> headers = response.Headers;
+            var headers = response.Headers;
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;
@@ -344,25 +344,24 @@ namespace Io.Gate.GateApi.Client
             {
                 request.OnBeforeRequest = http =>
                 {
-                    http.Headers.Add(new HttpHeader {Name = "KEY", Value = configuration.ApiV4Key});
-                    var timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
-                    http.Headers.Add(new HttpHeader {Name = "Timestamp", Value = timestamp.ToString()});
+                    http.Headers.Add(new HttpHeader("KEY", configuration.ApiV4Key));
+                    long timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+                    http.Headers.Add(new HttpHeader("Timestamp", timestamp.ToString()));
                     using (SHA512 sha512Hash = SHA512.Create())
                     {
                         var sourceBytes = Encoding.UTF8.GetBytes(http.RequestBody ?? "");
                         var hashBytes = sha512Hash.ComputeHash(sourceBytes);
                         var bodyHash = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
                         var queryString = string.IsNullOrEmpty(http.Url.Query) ? "" : http.Url.Query.Substring(1);
-                        var signatureString = String.Format("{0}\n{1}\n{2}\n{3}\n{4}", request.Method, http.Url.AbsolutePath,
-                            queryString, bodyHash, timestamp);
+                        var signatureString = $"{request.Method}\n{http.Url.AbsolutePath}\n{queryString}\n{bodyHash}\n{timestamp}";
 
                         using (HMACSHA512 hmac = new HMACSHA512(Encoding.UTF8.GetBytes(configuration.ApiV4Secret)))
                         {
                             var signature = hmac.ComputeHash(Encoding.UTF8.GetBytes(signatureString));
-                            http.Headers.Add(new HttpHeader {
-                                Name = "SIGN",
-                                Value = BitConverter.ToString(signature).Replace("-", "").ToLowerInvariant()
-                            });
+                            http.Headers.Add(new HttpHeader(
+                                "SIGN",
+                                BitConverter.ToString(signature).Replace("-", "").ToLowerInvariant()
+                            ));
                         }
                     }
                 };
@@ -414,14 +413,27 @@ namespace Io.Gate.GateApi.Client
             client.ClearHandlers();
             if (req.JsonSerializer is IDeserializer existingDeserializer)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                client.AddHandler("application/json", () => existingDeserializer);
+                client.AddHandler("text/json", () => existingDeserializer);
+                client.AddHandler("text/x-json", () => existingDeserializer);
+                client.AddHandler("text/javascript", () => existingDeserializer);
+                client.AddHandler("*+json", () => existingDeserializer);
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                var customDeserializer = new CustomJsonCodec(configuration);
+                client.AddHandler("application/json", () => customDeserializer);
+                client.AddHandler("text/json", () => customDeserializer);
+                client.AddHandler("text/x-json", () => customDeserializer);
+                client.AddHandler("text/javascript", () => customDeserializer);
+                client.AddHandler("*+json", () => customDeserializer);
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
+            var xmlDeserializer = new XmlDeserializer();
+            client.AddHandler("application/xml", () => xmlDeserializer);
+            client.AddHandler("text/xml", () => xmlDeserializer);
+            client.AddHandler("*+xml", () => xmlDeserializer);
+            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -489,14 +501,27 @@ namespace Io.Gate.GateApi.Client
             var existingDeserializer = req.JsonSerializer as IDeserializer;
             if (existingDeserializer != null)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                client.AddHandler("application/json", () => existingDeserializer);
+                client.AddHandler("text/json", () => existingDeserializer);
+                client.AddHandler("text/x-json", () => existingDeserializer);
+                client.AddHandler("text/javascript", () => existingDeserializer);
+                client.AddHandler("*+json", () => existingDeserializer);
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                var customDeserializer = new CustomJsonCodec(configuration);
+                client.AddHandler("application/json", () => customDeserializer);
+                client.AddHandler("text/json", () => customDeserializer);
+                client.AddHandler("text/x-json", () => customDeserializer);
+                client.AddHandler("text/javascript", () => customDeserializer);
+                client.AddHandler("*+json", () => customDeserializer);
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
+            var xmlDeserializer = new XmlDeserializer();
+            client.AddHandler("application/xml", () => xmlDeserializer);
+            client.AddHandler("text/xml", () => xmlDeserializer);
+            client.AddHandler("*+xml", () => xmlDeserializer);
+            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
