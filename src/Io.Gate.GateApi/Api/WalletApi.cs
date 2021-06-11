@@ -110,7 +110,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -121,7 +121,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -330,7 +330,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -341,7 +341,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1022,7 +1022,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1033,7 +1033,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1078,7 +1078,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1090,7 +1090,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>

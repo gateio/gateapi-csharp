@@ -1162,7 +1162,7 @@ Name | Type | Description  | Notes
 
 <a name="updatepositionleverage"></a>
 # **UpdatePositionLeverage**
-> Position UpdatePositionLeverage (string settle, string contract, string leverage)
+> Position UpdatePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = null)
 
 Update position leverage
 
@@ -1188,11 +1188,12 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var leverage = "10";  // string | New position leverage
+            var crossLeverageLimit = "10";  // string | Cross margin leverage(valid only when `leverage` is 0) (optional) 
 
             try
             {
                 // Update position leverage
-                Position result = apiInstance.UpdatePositionLeverage(settle, contract, leverage);
+                Position result = apiInstance.UpdatePositionLeverage(settle, contract, leverage, crossLeverageLimit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1214,6 +1215,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **leverage** | **string**| New position leverage | 
+ **crossLeverageLimit** | **string**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional] 
 
 ### Return type
 
@@ -1460,7 +1462,7 @@ Name | Type | Description  | Notes
 
 <a name="updatedualmodepositionmargin"></a>
 # **UpdateDualModePositionMargin**
-> List&lt;Position&gt; UpdateDualModePositionMargin (string settle, string contract, string change)
+> List&lt;Position&gt; UpdateDualModePositionMargin (string settle, string contract, string change, string dualSide)
 
 Update position margin in dual mode
 
@@ -1486,11 +1488,12 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var change = "0.01";  // string | Margin change. Use positive number to increase margin, negative number otherwise.
+            var dualSide = "dual_long";  // string | Long or short position
 
             try
             {
                 // Update position margin in dual mode
-                List<Position> result = apiInstance.UpdateDualModePositionMargin(settle, contract, change);
+                List<Position> result = apiInstance.UpdateDualModePositionMargin(settle, contract, change, dualSide);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1512,6 +1515,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. | 
+ **dualSide** | **string**| Long or short position | 
 
 ### Return type
 

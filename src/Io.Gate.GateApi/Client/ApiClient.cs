@@ -344,9 +344,9 @@ namespace Io.Gate.GateApi.Client
             {
                 request.OnBeforeRequest = http =>
                 {
-                    http.Headers.Add(new HttpHeader("KEY", configuration.ApiV4Key));
+                    http.Headers.Add(new HttpHeader{Name = "KEY", Value = configuration.ApiV4Key});
                     long timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
-                    http.Headers.Add(new HttpHeader("Timestamp", timestamp.ToString()));
+                    http.Headers.Add(new HttpHeader{Name = "Timestamp", Value = timestamp.ToString()});
                     using (SHA512 sha512Hash = SHA512.Create())
                     {
                         var sourceBytes = Encoding.UTF8.GetBytes(http.RequestBody ?? "");
@@ -358,10 +358,10 @@ namespace Io.Gate.GateApi.Client
                         using (HMACSHA512 hmac = new HMACSHA512(Encoding.UTF8.GetBytes(configuration.ApiV4Secret)))
                         {
                             var signature = hmac.ComputeHash(Encoding.UTF8.GetBytes(signatureString));
-                            http.Headers.Add(new HttpHeader(
-                                "SIGN",
-                                BitConverter.ToString(signature).Replace("-", "").ToLowerInvariant()
-                            ));
+                            http.Headers.Add(new HttpHeader{
+                                Name = "SIGN",
+                                Value = BitConverter.ToString(signature).Replace("-", "").ToLowerInvariant()
+                            });
                         }
                     }
                 };

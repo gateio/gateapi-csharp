@@ -25,48 +25,39 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Account currency detail
+    /// CrossMarginBalance
     /// </summary>
     [DataContract]
-    public partial class MarginAccountCurrency :  IEquatable<MarginAccountCurrency>, IValidatableObject
+    public partial class CrossMarginBalance :  IEquatable<CrossMarginBalance>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarginAccountCurrency" /> class.
+        /// Initializes a new instance of the <see cref="CrossMarginBalance" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="available">Amount suitable for margin trading..</param>
-        /// <param name="locked">Locked amount, used in margin trading.</param>
+        /// <param name="available">Available amount.</param>
+        /// <param name="freeze">Locked amount.</param>
         /// <param name="borrowed">Borrowed amount.</param>
         /// <param name="interest">Interests unpaid.</param>
-        public MarginAccountCurrency(string currency = default(string), string available = default(string), string locked = default(string), string borrowed = default(string), string interest = default(string))
+        public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string))
         {
-            this.Currency = currency;
             this.Available = available;
-            this.Locked = locked;
+            this.Freeze = freeze;
             this.Borrowed = borrowed;
             this.Interest = interest;
         }
 
         /// <summary>
-        /// Currency name
+        /// Available amount
         /// </summary>
-        /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// Amount suitable for margin trading.
-        /// </summary>
-        /// <value>Amount suitable for margin trading.</value>
+        /// <value>Available amount</value>
         [DataMember(Name="available", EmitDefaultValue=false)]
         public string Available { get; set; }
 
         /// <summary>
-        /// Locked amount, used in margin trading
+        /// Locked amount
         /// </summary>
-        /// <value>Locked amount, used in margin trading</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
-        public string Locked { get; set; }
+        /// <value>Locked amount</value>
+        [DataMember(Name="freeze", EmitDefaultValue=false)]
+        public string Freeze { get; set; }
 
         /// <summary>
         /// Borrowed amount
@@ -89,10 +80,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MarginAccountCurrency {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("class CrossMarginBalance {\n");
             sb.Append("  Available: ").Append(Available).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("  Freeze: ").Append(Freeze).Append("\n");
             sb.Append("  Borrowed: ").Append(Borrowed).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("}\n");
@@ -115,34 +105,29 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MarginAccountCurrency);
+            return this.Equals(input as CrossMarginBalance);
         }
 
         /// <summary>
-        /// Returns true if MarginAccountCurrency instances are equal
+        /// Returns true if CrossMarginBalance instances are equal
         /// </summary>
-        /// <param name="input">Instance of MarginAccountCurrency to be compared</param>
+        /// <param name="input">Instance of CrossMarginBalance to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MarginAccountCurrency input)
+        public bool Equals(CrossMarginBalance input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
                     this.Available == input.Available ||
                     (this.Available != null &&
                     this.Available.Equals(input.Available))
                 ) && 
                 (
-                    this.Locked == input.Locked ||
-                    (this.Locked != null &&
-                    this.Locked.Equals(input.Locked))
+                    this.Freeze == input.Freeze ||
+                    (this.Freeze != null &&
+                    this.Freeze.Equals(input.Freeze))
                 ) && 
                 (
                     this.Borrowed == input.Borrowed ||
@@ -165,12 +150,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.Available != null)
                     hashCode = hashCode * 59 + this.Available.GetHashCode();
-                if (this.Locked != null)
-                    hashCode = hashCode * 59 + this.Locked.GetHashCode();
+                if (this.Freeze != null)
+                    hashCode = hashCode * 59 + this.Freeze.GetHashCode();
                 if (this.Borrowed != null)
                     hashCode = hashCode * 59 + this.Borrowed.GetHashCode();
                 if (this.Interest != null)

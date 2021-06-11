@@ -38,13 +38,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="succeeded">Whether cancellation succeeded.</param>
         /// <param name="label">Error label when failed to cancel the order; emtpy if succeeded.</param>
         /// <param name="message">Error message when failed to cancel the order; empty if succeeded.</param>
-        public CancelOrderResult(string currencyPair = default(string), string id = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string))
+        /// <param name="account">Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;.</param>
+        public CancelOrderResult(string currencyPair = default(string), string id = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string account = default(string))
         {
             this.CurrencyPair = currencyPair;
             this.Id = id;
             this.Succeeded = succeeded;
             this.Label = label;
             this.Message = message;
+            this.Account = account;
         }
 
         /// <summary>
@@ -83,6 +85,13 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; set; }
 
         /// <summary>
+        /// Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;
+        /// </summary>
+        /// <value>Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;</value>
+        [DataMember(Name="account", EmitDefaultValue=false)]
+        public string Account { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Succeeded: ").Append(Succeeded).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +162,11 @@ namespace Io.Gate.GateApi.Model
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 );
         }
 
@@ -173,6 +188,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Label.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Account != null)
+                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 return hashCode;
             }
         }

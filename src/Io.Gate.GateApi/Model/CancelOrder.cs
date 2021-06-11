@@ -40,12 +40,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="currencyPair">Order currency pair (required).</param>
         /// <param name="id">Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation (required).</param>
-        public CancelOrder(string currencyPair = default(string), string id = default(string))
+        /// <param name="account">If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;.</param>
+        public CancelOrder(string currencyPair = default(string), string id = default(string), string account = default(string))
         {
             // to ensure "currencyPair" is required (not null)
             this.CurrencyPair = currencyPair ?? throw new ArgumentNullException("currencyPair", "currencyPair is a required property for CancelOrder and cannot be null");
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id", "id is a required property for CancelOrder and cannot be null");
+            this.Account = account;
         }
 
         /// <summary>
@@ -63,6 +65,13 @@ namespace Io.Gate.GateApi.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
+        /// </summary>
+        /// <value>If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;</value>
+        [DataMember(Name="account", EmitDefaultValue=false)]
+        public string Account { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +81,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class CancelOrder {\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +125,11 @@ namespace Io.Gate.GateApi.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 );
         }
 
@@ -131,6 +146,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Account != null)
+                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 return hashCode;
             }
         }

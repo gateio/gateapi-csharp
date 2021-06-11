@@ -819,11 +819,11 @@ Name | Type | Description  | Notes
 
 <a name="listallopenorders"></a>
 # **ListAllOpenOrders**
-> List&lt;OpenOrders&gt; ListAllOpenOrders (int? page = null, int? limit = null)
+> List&lt;OpenOrders&gt; ListAllOpenOrders (int? page = null, int? limit = null, string account = null)
 
 List all open orders
 
-List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned
+List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -846,11 +846,12 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records returned in one page in each currency pair (optional)  (default to 100)
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
             {
                 // List all open orders
-                List<OpenOrders> result = apiInstance.ListAllOpenOrders(page, limit);
+                List<OpenOrders> result = apiInstance.ListAllOpenOrders(page, limit, account);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -871,6 +872,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
 
@@ -894,9 +896,11 @@ Name | Type | Description  | Notes
 
 <a name="listorders"></a>
 # **ListOrders**
-> List&lt;Order&gt; ListOrders (string currencyPair, string status, int? page = null, int? limit = null)
+> List&lt;Order&gt; ListOrders (string currencyPair, string status, int? page = null, int? limit = null, string account = null)
 
 List orders
+
+Spot and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -921,11 +925,12 @@ namespace Example
             var status = "open";  // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
             {
                 // List orders
-                List<Order> result = apiInstance.ListOrders(currencyPair, status, page, limit);
+                List<Order> result = apiInstance.ListOrders(currencyPair, status, page, limit, account);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -948,6 +953,7 @@ Name | Type | Description  | Notes
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
 
@@ -974,6 +980,8 @@ Name | Type | Description  | Notes
 > Order CreateOrder (Order order)
 
 Create an order
+
+You can place orders with spot, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide totally. Note that the hidden part's fee will be charged using taker's fee rate. 
 
 ### Example
 ```csharp
@@ -1045,6 +1053,8 @@ Name | Type | Description  | Notes
 > List&lt;Order&gt; CancelOrders (string currencyPair, string side = null, string account = null)
 
 Cancel all `open` orders in specified currency pair
+
+If `account` is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set `account` to cancel only orders within the specified account
 
 ### Example
 ```csharp
@@ -1190,9 +1200,11 @@ Name | Type | Description  | Notes
 
 <a name="getorder"></a>
 # **GetOrder**
-> Order GetOrder (string orderId, string currencyPair)
+> Order GetOrder (string orderId, string currencyPair, string account = null)
 
 Get a single order
+
+Spot and margin orders are queried by default. If cross margin orders are needed, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -1215,11 +1227,12 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
             {
                 // Get a single order
-                Order result = apiInstance.GetOrder(orderId, currencyPair);
+                Order result = apiInstance.GetOrder(orderId, currencyPair, account);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1240,6 +1253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
 
@@ -1263,9 +1277,11 @@ Name | Type | Description  | Notes
 
 <a name="cancelorder"></a>
 # **CancelOrder**
-> Order CancelOrder (string orderId, string currencyPair)
+> Order CancelOrder (string orderId, string currencyPair, string account = null)
 
 Cancel a single order
+
+Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -1288,11 +1304,12 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
             {
                 // Cancel a single order
-                Order result = apiInstance.CancelOrder(orderId, currencyPair);
+                Order result = apiInstance.CancelOrder(orderId, currencyPair, account);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1313,6 +1330,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
 
@@ -1336,9 +1354,11 @@ Name | Type | Description  | Notes
 
 <a name="listmytrades"></a>
 # **ListMyTrades**
-> List&lt;Trade&gt; ListMyTrades (string currencyPair, int? limit = null, int? page = null, string orderId = null)
+> List&lt;Trade&gt; ListMyTrades (string currencyPair, int? limit = null, int? page = null, string orderId = null, string account = null)
 
 List personal trading history
+
+Spot and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -1363,11 +1383,12 @@ namespace Example
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | List all trades of specified order (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
             {
                 // List personal trading history
-                List<Trade> result = apiInstance.ListMyTrades(currencyPair, limit, page, orderId);
+                List<Trade> result = apiInstance.ListMyTrades(currencyPair, limit, page, orderId, account);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1390,6 +1411,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| List all trades of specified order | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
 

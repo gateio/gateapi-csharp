@@ -71,13 +71,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="margin">Position margin.</param>
         /// <param name="closeOrder">closeOrder.</param>
         /// <param name="mode">Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode.</param>
-        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), ModeEnum? mode = default(ModeEnum?))
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).</param>
+        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), ModeEnum? mode = default(ModeEnum?), string crossLeverageLimit = default(string))
         {
             this.Leverage = leverage;
             this.RiskLimit = riskLimit;
             this.Margin = margin;
             this.CloseOrder = closeOrder;
             this.Mode = mode;
+            this.CrossLeverageLimit = crossLeverageLimit;
         }
 
         /// <summary>
@@ -223,8 +225,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Gets or Sets CloseOrder
         /// </summary>
-        [DataMember(Name="close_order", EmitDefaultValue=false)]
+        [DataMember(Name="close_order", EmitDefaultValue=true)]
         public PositionCloseOrder CloseOrder { get; set; }
+
+        /// <summary>
+        /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)
+        /// </summary>
+        /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)</value>
+        [DataMember(Name="cross_leverage_limit", EmitDefaultValue=false)]
+        public string CrossLeverageLimit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -256,6 +265,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  PendingOrders: ").Append(PendingOrders).Append("\n");
             sb.Append("  CloseOrder: ").Append(CloseOrder).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  CrossLeverageLimit: ").Append(CrossLeverageLimit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -394,6 +404,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Mode == input.Mode ||
                     this.Mode.Equals(input.Mode)
+                ) && 
+                (
+                    this.CrossLeverageLimit == input.CrossLeverageLimit ||
+                    (this.CrossLeverageLimit != null &&
+                    this.CrossLeverageLimit.Equals(input.CrossLeverageLimit))
                 );
         }
 
@@ -445,6 +460,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.CloseOrder != null)
                     hashCode = hashCode * 59 + this.CloseOrder.GetHashCode();
                 hashCode = hashCode * 59 + this.Mode.GetHashCode();
+                if (this.CrossLeverageLimit != null)
+                    hashCode = hashCode * 59 + this.CrossLeverageLimit.GetHashCode();
                 return hashCode;
             }
         }

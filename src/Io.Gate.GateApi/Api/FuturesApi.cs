@@ -420,8 +420,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Position</returns>
-        Position UpdatePositionLeverage (string settle, string contract, string leverage);
+        Position UpdatePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
 
         /// <summary>
         /// Update position leverage
@@ -433,8 +434,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>ApiResponse of Position</returns>
-        ApiResponse<Position> UpdatePositionLeverageWithHttpInfo (string settle, string contract, string leverage);
+        ApiResponse<Position> UpdatePositionLeverageWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
         /// <summary>
         /// Update position risk limit
         /// </summary>
@@ -516,8 +518,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>List&lt;Position&gt;</returns>
-        List<Position> UpdateDualModePositionMargin (string settle, string contract, string change);
+        List<Position> UpdateDualModePositionMargin (string settle, string contract, string change, string dualSide);
 
         /// <summary>
         /// Update position margin in dual mode
@@ -529,8 +532,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
-        ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change);
+        ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change, string dualSide);
         /// <summary>
         /// Update position leverage in dual mode
         /// </summary>
@@ -1318,8 +1322,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of Position</returns>
-        Task<Position> UpdatePositionLeverageAsync (string settle, string contract, string leverage);
+        Task<Position> UpdatePositionLeverageAsync (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
 
         /// <summary>
         /// Update position leverage
@@ -1331,8 +1336,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of ApiResponse (Position)</returns>
-        Task<ApiResponse<Position>> UpdatePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage);
+        Task<ApiResponse<Position>> UpdatePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
         /// <summary>
         /// Update position risk limit
         /// </summary>
@@ -1414,8 +1420,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
-        Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change);
+        Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change, string dualSide);
 
         /// <summary>
         /// Update position margin in dual mode
@@ -1427,8 +1434,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
-        Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change);
+        Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change, string dualSide);
         /// <summary>
         /// Update position leverage in dual mode
         /// </summary>
@@ -4082,10 +4090,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Position</returns>
-        public Position UpdatePositionLeverage (string settle, string contract, string leverage)
+        public Position UpdatePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
-             ApiResponse<Position> localVarResponse = UpdatePositionLeverageWithHttpInfo(settle, contract, leverage);
+             ApiResponse<Position> localVarResponse = UpdatePositionLeverageWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
              return localVarResponse.Data;
         }
 
@@ -4096,8 +4105,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>ApiResponse of Position</returns>
-        public ApiResponse<Position> UpdatePositionLeverageWithHttpInfo (string settle, string contract, string leverage)
+        public ApiResponse<Position> UpdatePositionLeverageWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4130,6 +4140,10 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+            if (crossLeverageLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cross_leverage_limit", crossLeverageLimit));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4153,10 +4167,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of Position</returns>
-        public async Task<Position> UpdatePositionLeverageAsync (string settle, string contract, string leverage)
+        public async Task<Position> UpdatePositionLeverageAsync (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<Position> localVarResponse = await UpdatePositionLeverageAsyncWithHttpInfo(settle, contract, leverage);
+             Io.Gate.GateApi.Client.ApiResponse<Position> localVarResponse = await UpdatePositionLeverageAsyncWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
              return localVarResponse.Data;
 
         }
@@ -4168,8 +4183,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of ApiResponse (Position)</returns>
-        public async Task<ApiResponse<Position>> UpdatePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage)
+        public async Task<ApiResponse<Position>> UpdatePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4203,6 +4219,10 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+            if (crossLeverageLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cross_leverage_limit", crossLeverageLimit));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4626,10 +4646,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>List&lt;Position&gt;</returns>
-        public List<Position> UpdateDualModePositionMargin (string settle, string contract, string change)
+        public List<Position> UpdateDualModePositionMargin (string settle, string contract, string change, string dualSide)
         {
-             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionMarginWithHttpInfo(settle, contract, change);
+             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionMarginWithHttpInfo(settle, contract, change, dualSide);
              return localVarResponse.Data;
         }
 
@@ -4640,8 +4661,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
-        public ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change)
+        public ApiResponse<List<Position>> UpdateDualModePositionMarginWithHttpInfo (string settle, string contract, string change, string dualSide)
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4654,6 +4676,10 @@ namespace Io.Gate.GateApi.Api
             // verify the required parameter 'change' is set
             if (change == null)
                 throw new ApiException(400, "Missing required parameter 'change' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'dualSide' is set
+            if (dualSide == null)
+                throw new ApiException(400, "Missing required parameter 'dualSide' when calling FuturesApi->UpdateDualModePositionMargin");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -4674,6 +4700,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "change", change));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dual_side", dualSide));
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4697,10 +4724,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
-        public async Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change)
+        public async Task<List<Position>> UpdateDualModePositionMarginAsync (string settle, string contract, string change, string dualSide)
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionMarginAsyncWithHttpInfo(settle, contract, change);
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionMarginAsyncWithHttpInfo(settle, contract, change, dualSide);
              return localVarResponse.Data;
 
         }
@@ -4712,8 +4740,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="change">Margin change. Use positive number to increase margin, negative number otherwise.</param>
+        /// <param name="dualSide">Long or short position</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
-        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change)
+        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionMarginAsyncWithHttpInfo (string settle, string contract, string change, string dualSide)
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4726,6 +4755,10 @@ namespace Io.Gate.GateApi.Api
             // verify the required parameter 'change' is set
             if (change == null)
                 throw new ApiException(400, "Missing required parameter 'change' when calling FuturesApi->UpdateDualModePositionMargin");
+
+            // verify the required parameter 'dualSide' is set
+            if (dualSide == null)
+                throw new ApiException(400, "Missing required parameter 'dualSide' when calling FuturesApi->UpdateDualModePositionMargin");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -4747,6 +4780,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "change", change));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "dual_side", dualSide));
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

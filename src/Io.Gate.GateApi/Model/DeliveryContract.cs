@@ -130,7 +130,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="underlying">Underlying.</param>
         /// <param name="cycle">Cycle type, e.g. WEEKLY, QUARTERLY.</param>
         /// <param name="type">Futures contract type.</param>
-        /// <param name="quantoMultiplier">Multiplier used in converting from invoicing to settlement currency in quanto futures.</param>
+        /// <param name="quantoMultiplier">Multiplier used in converting from invoicing to settlement currency.</param>
         /// <param name="leverageMin">Minimum leverage.</param>
         /// <param name="leverageMax">Maximum leverage.</param>
         /// <param name="maintenanceRate">Maintenance rate of margin.</param>
@@ -221,9 +221,9 @@ namespace Io.Gate.GateApi.Model
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Multiplier used in converting from invoicing to settlement currency in quanto futures
+        /// Multiplier used in converting from invoicing to settlement currency
         /// </summary>
-        /// <value>Multiplier used in converting from invoicing to settlement currency in quanto futures</value>
+        /// <value>Multiplier used in converting from invoicing to settlement currency</value>
         [DataMember(Name="quanto_multiplier", EmitDefaultValue=false)]
         public string QuantoMultiplier { get; set; }
 

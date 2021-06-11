@@ -25,27 +25,50 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Account currency detail
+    /// CrossMarginRepayment
     /// </summary>
     [DataContract]
-    public partial class MarginAccountCurrency :  IEquatable<MarginAccountCurrency>, IValidatableObject
+    public partial class CrossMarginRepayment :  IEquatable<CrossMarginRepayment>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarginAccountCurrency" /> class.
+        /// Initializes a new instance of the <see cref="CrossMarginRepayment" /> class.
         /// </summary>
+        /// <param name="id">Loan record ID.</param>
+        /// <param name="createTime">Repayment time.</param>
+        /// <param name="loanId">Borrow loan ID.</param>
         /// <param name="currency">Currency name.</param>
-        /// <param name="available">Amount suitable for margin trading..</param>
-        /// <param name="locked">Locked amount, used in margin trading.</param>
-        /// <param name="borrowed">Borrowed amount.</param>
-        /// <param name="interest">Interests unpaid.</param>
-        public MarginAccountCurrency(string currency = default(string), string available = default(string), string locked = default(string), string borrowed = default(string), string interest = default(string))
+        /// <param name="principal">Repaid principal.</param>
+        /// <param name="interest">Repaid interest.</param>
+        public CrossMarginRepayment(string id = default(string), long createTime = default(long), string loanId = default(string), string currency = default(string), string principal = default(string), string interest = default(string))
         {
+            this.Id = id;
+            this.CreateTime = createTime;
+            this.LoanId = loanId;
             this.Currency = currency;
-            this.Available = available;
-            this.Locked = locked;
-            this.Borrowed = borrowed;
+            this.Principal = principal;
             this.Interest = interest;
         }
+
+        /// <summary>
+        /// Loan record ID
+        /// </summary>
+        /// <value>Loan record ID</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Repayment time
+        /// </summary>
+        /// <value>Repayment time</value>
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        public long CreateTime { get; set; }
+
+        /// <summary>
+        /// Borrow loan ID
+        /// </summary>
+        /// <value>Borrow loan ID</value>
+        [DataMember(Name="loan_id", EmitDefaultValue=false)]
+        public string LoanId { get; set; }
 
         /// <summary>
         /// Currency name
@@ -55,30 +78,16 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Amount suitable for margin trading.
+        /// Repaid principal
         /// </summary>
-        /// <value>Amount suitable for margin trading.</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
-        public string Available { get; set; }
+        /// <value>Repaid principal</value>
+        [DataMember(Name="principal", EmitDefaultValue=false)]
+        public string Principal { get; set; }
 
         /// <summary>
-        /// Locked amount, used in margin trading
+        /// Repaid interest
         /// </summary>
-        /// <value>Locked amount, used in margin trading</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
-        public string Locked { get; set; }
-
-        /// <summary>
-        /// Borrowed amount
-        /// </summary>
-        /// <value>Borrowed amount</value>
-        [DataMember(Name="borrowed", EmitDefaultValue=false)]
-        public string Borrowed { get; set; }
-
-        /// <summary>
-        /// Interests unpaid
-        /// </summary>
-        /// <value>Interests unpaid</value>
+        /// <value>Repaid interest</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; set; }
 
@@ -89,11 +98,12 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MarginAccountCurrency {\n");
+            sb.Append("class CrossMarginRepayment {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
+            sb.Append("  LoanId: ").Append(LoanId).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Available: ").Append(Available).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
-            sb.Append("  Borrowed: ").Append(Borrowed).Append("\n");
+            sb.Append("  Principal: ").Append(Principal).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,39 +125,43 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MarginAccountCurrency);
+            return this.Equals(input as CrossMarginRepayment);
         }
 
         /// <summary>
-        /// Returns true if MarginAccountCurrency instances are equal
+        /// Returns true if CrossMarginRepayment instances are equal
         /// </summary>
-        /// <param name="input">Instance of MarginAccountCurrency to be compared</param>
+        /// <param name="input">Instance of CrossMarginRepayment to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MarginAccountCurrency input)
+        public bool Equals(CrossMarginRepayment input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.CreateTime == input.CreateTime ||
+                    this.CreateTime.Equals(input.CreateTime)
+                ) && 
+                (
+                    this.LoanId == input.LoanId ||
+                    (this.LoanId != null &&
+                    this.LoanId.Equals(input.LoanId))
+                ) && 
+                (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.Available == input.Available ||
-                    (this.Available != null &&
-                    this.Available.Equals(input.Available))
-                ) && 
-                (
-                    this.Locked == input.Locked ||
-                    (this.Locked != null &&
-                    this.Locked.Equals(input.Locked))
-                ) && 
-                (
-                    this.Borrowed == input.Borrowed ||
-                    (this.Borrowed != null &&
-                    this.Borrowed.Equals(input.Borrowed))
+                    this.Principal == input.Principal ||
+                    (this.Principal != null &&
+                    this.Principal.Equals(input.Principal))
                 ) && 
                 (
                     this.Interest == input.Interest ||
@@ -165,14 +179,15 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
+                if (this.LoanId != null)
+                    hashCode = hashCode * 59 + this.LoanId.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                if (this.Available != null)
-                    hashCode = hashCode * 59 + this.Available.GetHashCode();
-                if (this.Locked != null)
-                    hashCode = hashCode * 59 + this.Locked.GetHashCode();
-                if (this.Borrowed != null)
-                    hashCode = hashCode * 59 + this.Borrowed.GetHashCode();
+                if (this.Principal != null)
+                    hashCode = hashCode * 59 + this.Principal.GetHashCode();
                 if (this.Interest != null)
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
                 return hashCode;

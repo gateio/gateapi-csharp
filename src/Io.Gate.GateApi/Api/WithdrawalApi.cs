@@ -48,6 +48,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="ledgerRecord"></param>
         /// <returns>ApiResponse of LedgerRecord</returns>
         ApiResponse<LedgerRecord> WithdrawWithHttpInfo (LedgerRecord ledgerRecord);
+        /// <summary>
+        /// Cancel withdrawal with specified ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>LedgerRecord</returns>
+        LedgerRecord CancelWithdrawal (string withdrawalId);
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>ApiResponse of LedgerRecord</returns>
+        ApiResponse<LedgerRecord> CancelWithdrawalWithHttpInfo (string withdrawalId);
         #endregion Synchronous Operations
     }
 
@@ -78,6 +99,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="ledgerRecord"></param>
         /// <returns>Task of ApiResponse (LedgerRecord)</returns>
         Task<ApiResponse<LedgerRecord>> WithdrawAsyncWithHttpInfo (LedgerRecord ledgerRecord);
+        /// <summary>
+        /// Cancel withdrawal with specified ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>Task of LedgerRecord</returns>
+        Task<LedgerRecord> CancelWithdrawalAsync (string withdrawalId);
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>Task of ApiResponse (LedgerRecord)</returns>
+        Task<ApiResponse<LedgerRecord>> CancelWithdrawalAsyncWithHttpInfo (string withdrawalId);
         #endregion Asynchronous Operations
     }
 
@@ -311,6 +353,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Withdraw", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>LedgerRecord</returns>
+        public LedgerRecord CancelWithdrawal (string withdrawalId)
+        {
+             ApiResponse<LedgerRecord> localVarResponse = CancelWithdrawalWithHttpInfo(withdrawalId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>ApiResponse of LedgerRecord</returns>
+        public ApiResponse<LedgerRecord> CancelWithdrawalWithHttpInfo (string withdrawalId)
+        {
+            // verify the required parameter 'withdrawalId' is set
+            if (withdrawalId == null)
+                throw new ApiException(400, "Missing required parameter 'withdrawalId' when calling WithdrawalApi->CancelWithdrawal");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("withdrawal_id", ClientUtils.ParameterToString(withdrawalId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<LedgerRecord>("/withdrawals/{withdrawal_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelWithdrawal", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>Task of LedgerRecord</returns>
+        public async Task<LedgerRecord> CancelWithdrawalAsync (string withdrawalId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<LedgerRecord> localVarResponse = await CancelWithdrawalAsyncWithHttpInfo(withdrawalId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel withdrawal with specified ID 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="withdrawalId"></param>
+        /// <returns>Task of ApiResponse (LedgerRecord)</returns>
+        public async Task<ApiResponse<LedgerRecord>> CancelWithdrawalAsyncWithHttpInfo (string withdrawalId)
+        {
+            // verify the required parameter 'withdrawalId' is set
+            if (withdrawalId == null)
+                throw new ApiException(400, "Missing required parameter 'withdrawalId' when calling WithdrawalApi->CancelWithdrawal");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("withdrawal_id", ClientUtils.ParameterToString(withdrawalId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<LedgerRecord>("/withdrawals/{withdrawal_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelWithdrawal", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

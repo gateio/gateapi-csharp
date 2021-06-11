@@ -466,6 +466,186 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</param>
         /// <returns>ApiResponse of AutoRepaySetting</returns>
         ApiResponse<AutoRepaySetting> SetAutoRepayWithHttpInfo (string status);
+        /// <summary>
+        /// Currencies supported by cross margin.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;CrossMarginCurrency&gt;</returns>
+        List<CrossMarginCurrency> ListCrossMarginCurrencies ();
+
+        /// <summary>
+        /// Currencies supported by cross margin.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;CrossMarginCurrency&gt;</returns>
+        ApiResponse<List<CrossMarginCurrency>> ListCrossMarginCurrenciesWithHttpInfo ();
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>CrossMarginCurrency</returns>
+        CrossMarginCurrency GetCrossMarginCurrency (string currency);
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of CrossMarginCurrency</returns>
+        ApiResponse<CrossMarginCurrency> GetCrossMarginCurrencyWithHttpInfo (string currency);
+        /// <summary>
+        /// Retrieve cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CrossMarginAccount</returns>
+        CrossMarginAccount GetCrossMarginAccount ();
+
+        /// <summary>
+        /// Retrieve cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CrossMarginAccount</returns>
+        ApiResponse<CrossMarginAccount> GetCrossMarginAccountWithHttpInfo ();
+        /// <summary>
+        /// List cross margin borrow history
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>List&lt;CrossMarginLoan&gt;</returns>
+        List<CrossMarginLoan> ListCrossMarginLoans (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+
+        /// <summary>
+        /// List cross margin borrow history
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
+        ApiResponse<List<CrossMarginLoan>> ListCrossMarginLoansWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+        /// <summary>
+        /// Create a cross margin borrow loan
+        /// </summary>
+        /// <remarks>
+        /// Borrow amount cannot be less than currency minimum borrow amount
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>CrossMarginLoan</returns>
+        CrossMarginLoan CreateCrossMarginLoan (CrossMarginLoan crossMarginLoan);
+
+        /// <summary>
+        /// Create a cross margin borrow loan
+        /// </summary>
+        /// <remarks>
+        /// Borrow amount cannot be less than currency minimum borrow amount
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>ApiResponse of CrossMarginLoan</returns>
+        ApiResponse<CrossMarginLoan> CreateCrossMarginLoanWithHttpInfo (CrossMarginLoan crossMarginLoan);
+        /// <summary>
+        /// Retrieve single borrow loan detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>CrossMarginLoan</returns>
+        CrossMarginLoan GetCrossMarginLoan (string loanId);
+
+        /// <summary>
+        /// Retrieve single borrow loan detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>ApiResponse of CrossMarginLoan</returns>
+        ApiResponse<CrossMarginLoan> GetCrossMarginLoanWithHttpInfo (string loanId);
+        /// <summary>
+        /// Retrieve cross margin repayments
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>List&lt;CrossMarginRepayment&gt;</returns>
+        List<CrossMarginRepayment> ListCrossMarginRepayments (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+
+        /// <summary>
+        /// Retrieve cross margin repayments
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
+        ApiResponse<List<CrossMarginRepayment>> ListCrossMarginRepaymentsWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+        /// <summary>
+        /// Repay cross margin loan
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>List&lt;CrossMarginLoan&gt;</returns>
+        List<CrossMarginLoan> RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest);
+
+        /// <summary>
+        /// Repay cross margin loan
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
+        ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         #endregion Synchronous Operations
     }
 
@@ -914,6 +1094,186 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">New auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</param>
         /// <returns>Task of ApiResponse (AutoRepaySetting)</returns>
         Task<ApiResponse<AutoRepaySetting>> SetAutoRepayAsyncWithHttpInfo (string status);
+        /// <summary>
+        /// Currencies supported by cross margin.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;CrossMarginCurrency&gt;</returns>
+        Task<List<CrossMarginCurrency>> ListCrossMarginCurrenciesAsync ();
+
+        /// <summary>
+        /// Currencies supported by cross margin.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginCurrency&gt;)</returns>
+        Task<ApiResponse<List<CrossMarginCurrency>>> ListCrossMarginCurrenciesAsyncWithHttpInfo ();
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of CrossMarginCurrency</returns>
+        Task<CrossMarginCurrency> GetCrossMarginCurrencyAsync (string currency);
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (CrossMarginCurrency)</returns>
+        Task<ApiResponse<CrossMarginCurrency>> GetCrossMarginCurrencyAsyncWithHttpInfo (string currency);
+        /// <summary>
+        /// Retrieve cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CrossMarginAccount</returns>
+        Task<CrossMarginAccount> GetCrossMarginAccountAsync ();
+
+        /// <summary>
+        /// Retrieve cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CrossMarginAccount)</returns>
+        Task<ApiResponse<CrossMarginAccount>> GetCrossMarginAccountAsyncWithHttpInfo ();
+        /// <summary>
+        /// List cross margin borrow history
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
+        Task<List<CrossMarginLoan>> ListCrossMarginLoansAsync (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+
+        /// <summary>
+        /// List cross margin borrow history
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
+        Task<ApiResponse<List<CrossMarginLoan>>> ListCrossMarginLoansAsyncWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+        /// <summary>
+        /// Create a cross margin borrow loan
+        /// </summary>
+        /// <remarks>
+        /// Borrow amount cannot be less than currency minimum borrow amount
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>Task of CrossMarginLoan</returns>
+        Task<CrossMarginLoan> CreateCrossMarginLoanAsync (CrossMarginLoan crossMarginLoan);
+
+        /// <summary>
+        /// Create a cross margin borrow loan
+        /// </summary>
+        /// <remarks>
+        /// Borrow amount cannot be less than currency minimum borrow amount
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
+        Task<ApiResponse<CrossMarginLoan>> CreateCrossMarginLoanAsyncWithHttpInfo (CrossMarginLoan crossMarginLoan);
+        /// <summary>
+        /// Retrieve single borrow loan detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>Task of CrossMarginLoan</returns>
+        Task<CrossMarginLoan> GetCrossMarginLoanAsync (string loanId);
+
+        /// <summary>
+        /// Retrieve single borrow loan detail
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
+        Task<ApiResponse<CrossMarginLoan>> GetCrossMarginLoanAsyncWithHttpInfo (string loanId);
+        /// <summary>
+        /// Retrieve cross margin repayments
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of List&lt;CrossMarginRepayment&gt;</returns>
+        Task<List<CrossMarginRepayment>> ListCrossMarginRepaymentsAsync (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+
+        /// <summary>
+        /// Retrieve cross margin repayments
+        /// </summary>
+        /// <remarks>
+        /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
+        Task<ApiResponse<List<CrossMarginRepayment>>> ListCrossMarginRepaymentsAsyncWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
+        /// <summary>
+        /// Repay cross margin loan
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
+        Task<List<CrossMarginLoan>> RepayCrossMarginLoanAsync (CrossMarginRepayRequest crossMarginRepayRequest);
+
+        /// <summary>
+        /// Repay cross margin loan
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
+        Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         #endregion Asynchronous Operations
     }
 
@@ -3493,6 +3853,996 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetAutoRepay", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Currencies supported by cross margin. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;CrossMarginCurrency&gt;</returns>
+        public List<CrossMarginCurrency> ListCrossMarginCurrencies ()
+        {
+             ApiResponse<List<CrossMarginCurrency>> localVarResponse = ListCrossMarginCurrenciesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Currencies supported by cross margin. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;CrossMarginCurrency&gt;</returns>
+        public ApiResponse<List<CrossMarginCurrency>> ListCrossMarginCurrenciesWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CrossMarginCurrency>>("/margin/cross/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Currencies supported by cross margin. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;CrossMarginCurrency&gt;</returns>
+        public async Task<List<CrossMarginCurrency>> ListCrossMarginCurrenciesAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CrossMarginCurrency>> localVarResponse = await ListCrossMarginCurrenciesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Currencies supported by cross margin. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginCurrency&gt;)</returns>
+        public async Task<ApiResponse<List<CrossMarginCurrency>>> ListCrossMarginCurrenciesAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CrossMarginCurrency>>("/margin/cross/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>CrossMarginCurrency</returns>
+        public CrossMarginCurrency GetCrossMarginCurrency (string currency)
+        {
+             ApiResponse<CrossMarginCurrency> localVarResponse = GetCrossMarginCurrencyWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of CrossMarginCurrency</returns>
+        public ApiResponse<CrossMarginCurrency> GetCrossMarginCurrencyWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginCurrency");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CrossMarginCurrency>("/margin/cross/currencies/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginCurrency", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of CrossMarginCurrency</returns>
+        public async Task<CrossMarginCurrency> GetCrossMarginCurrencyAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginCurrency> localVarResponse = await GetCrossMarginCurrencyAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve detail of one single currency supported by cross margin 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (CrossMarginCurrency)</returns>
+        public async Task<ApiResponse<CrossMarginCurrency>> GetCrossMarginCurrencyAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginCurrency");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginCurrency>("/margin/cross/currencies/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginCurrency", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>CrossMarginAccount</returns>
+        public CrossMarginAccount GetCrossMarginAccount ()
+        {
+             ApiResponse<CrossMarginAccount> localVarResponse = GetCrossMarginAccountWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of CrossMarginAccount</returns>
+        public ApiResponse<CrossMarginAccount> GetCrossMarginAccountWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CrossMarginAccount>("/margin/cross/accounts", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of CrossMarginAccount</returns>
+        public async Task<CrossMarginAccount> GetCrossMarginAccountAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginAccount> localVarResponse = await GetCrossMarginAccountAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (CrossMarginAccount)</returns>
+        public async Task<ApiResponse<CrossMarginAccount>> GetCrossMarginAccountAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginAccount>("/margin/cross/accounts", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>List&lt;CrossMarginLoan&gt;</returns>
+        public List<CrossMarginLoan> ListCrossMarginLoans (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+             ApiResponse<List<CrossMarginLoan>> localVarResponse = ListCrossMarginLoansWithHttpInfo(status, currency, limit, offset, reverse);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
+        public ApiResponse<List<CrossMarginLoan>> ListCrossMarginLoansWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CrossMarginLoan>>("/margin/cross/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
+        public async Task<List<CrossMarginLoan>> ListCrossMarginLoansAsync (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CrossMarginLoan>> localVarResponse = await ListCrossMarginLoansAsyncWithHttpInfo(status, currency, limit, offset, reverse);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
+        public async Task<ApiResponse<List<CrossMarginLoan>>> ListCrossMarginLoansAsyncWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CrossMarginLoan>>("/margin/cross/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>CrossMarginLoan</returns>
+        public CrossMarginLoan CreateCrossMarginLoan (CrossMarginLoan crossMarginLoan)
+        {
+             ApiResponse<CrossMarginLoan> localVarResponse = CreateCrossMarginLoanWithHttpInfo(crossMarginLoan);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>ApiResponse of CrossMarginLoan</returns>
+        public ApiResponse<CrossMarginLoan> CreateCrossMarginLoanWithHttpInfo (CrossMarginLoan crossMarginLoan)
+        {
+            // verify the required parameter 'crossMarginLoan' is set
+            if (crossMarginLoan == null)
+                throw new ApiException(400, "Missing required parameter 'crossMarginLoan' when calling MarginApi->CreateCrossMarginLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = crossMarginLoan;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CrossMarginLoan>("/margin/cross/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>Task of CrossMarginLoan</returns>
+        public async Task<CrossMarginLoan> CreateCrossMarginLoanAsync (CrossMarginLoan crossMarginLoan)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginLoan> localVarResponse = await CreateCrossMarginLoanAsyncWithHttpInfo(crossMarginLoan);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginLoan"></param>
+        /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
+        public async Task<ApiResponse<CrossMarginLoan>> CreateCrossMarginLoanAsyncWithHttpInfo (CrossMarginLoan crossMarginLoan)
+        {
+            // verify the required parameter 'crossMarginLoan' is set
+            if (crossMarginLoan == null)
+                throw new ApiException(400, "Missing required parameter 'crossMarginLoan' when calling MarginApi->CreateCrossMarginLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = crossMarginLoan;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CrossMarginLoan>("/margin/cross/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve single borrow loan detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>CrossMarginLoan</returns>
+        public CrossMarginLoan GetCrossMarginLoan (string loanId)
+        {
+             ApiResponse<CrossMarginLoan> localVarResponse = GetCrossMarginLoanWithHttpInfo(loanId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve single borrow loan detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>ApiResponse of CrossMarginLoan</returns>
+        public ApiResponse<CrossMarginLoan> GetCrossMarginLoanWithHttpInfo (string loanId)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetCrossMarginLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CrossMarginLoan>("/margin/cross/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve single borrow loan detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>Task of CrossMarginLoan</returns>
+        public async Task<CrossMarginLoan> GetCrossMarginLoanAsync (string loanId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginLoan> localVarResponse = await GetCrossMarginLoanAsyncWithHttpInfo(loanId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve single borrow loan detail 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Borrow loan ID</param>
+        /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
+        public async Task<ApiResponse<CrossMarginLoan>> GetCrossMarginLoanAsyncWithHttpInfo (string loanId)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetCrossMarginLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginLoan>("/margin/cross/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>List&lt;CrossMarginRepayment&gt;</returns>
+        public List<CrossMarginRepayment> ListCrossMarginRepayments (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+             ApiResponse<List<CrossMarginRepayment>> localVarResponse = ListCrossMarginRepaymentsWithHttpInfo(currency, loanId, limit, offset, reverse);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
+        public ApiResponse<List<CrossMarginRepayment>> ListCrossMarginRepaymentsWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (loanId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CrossMarginRepayment>>("/margin/cross/repayments", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginRepayments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of List&lt;CrossMarginRepayment&gt;</returns>
+        public async Task<List<CrossMarginRepayment>> ListCrossMarginRepaymentsAsync (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CrossMarginRepayment>> localVarResponse = await ListCrossMarginRepaymentsAsyncWithHttpInfo(currency, loanId, limit, offset, reverse);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency"> (optional)</param>
+        /// <param name="loanId"> (optional)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
+        public async Task<ApiResponse<List<CrossMarginRepayment>>> ListCrossMarginRepaymentsAsyncWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (loanId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (reverse != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CrossMarginRepayment>>("/margin/cross/repayments", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginRepayments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Repay cross margin loan 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>List&lt;CrossMarginLoan&gt;</returns>
+        public List<CrossMarginLoan> RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest)
+        {
+             ApiResponse<List<CrossMarginLoan>> localVarResponse = RepayCrossMarginLoanWithHttpInfo(crossMarginRepayRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Repay cross margin loan 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
+        public ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest)
+        {
+            // verify the required parameter 'crossMarginRepayRequest' is set
+            if (crossMarginRepayRequest == null)
+                throw new ApiException(400, "Missing required parameter 'crossMarginRepayRequest' when calling MarginApi->RepayCrossMarginLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = crossMarginRepayRequest;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<CrossMarginLoan>>("/margin/cross/repayments", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RepayCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Repay cross margin loan 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
+        public async Task<List<CrossMarginLoan>> RepayCrossMarginLoanAsync (CrossMarginRepayRequest crossMarginRepayRequest)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CrossMarginLoan>> localVarResponse = await RepayCrossMarginLoanAsyncWithHttpInfo(crossMarginRepayRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Repay cross margin loan 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="crossMarginRepayRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
+        public async Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest)
+        {
+            // verify the required parameter 'crossMarginRepayRequest' is set
+            if (crossMarginRepayRequest == null)
+                throw new ApiException(400, "Missing required parameter 'crossMarginRepayRequest' when calling MarginApi->RepayCrossMarginLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = crossMarginRepayRequest;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<CrossMarginLoan>>("/margin/cross/repayments", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RepayCrossMarginLoan", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
