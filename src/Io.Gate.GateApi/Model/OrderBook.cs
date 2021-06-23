@@ -39,15 +39,19 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OrderBook" /> class.
         /// </summary>
         /// <param name="id">Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;.</param>
+        /// <param name="current">Response data generation timestamp in milliseconds.</param>
+        /// <param name="update">Order book changed timestamp in milliseconds.</param>
         /// <param name="asks">Asks order depth (required).</param>
         /// <param name="bids">Bids order depth (required).</param>
-        public OrderBook(long id = default(long), List<List<string>> asks = default(List<List<string>>), List<List<string>> bids = default(List<List<string>>))
+        public OrderBook(long id = default(long), long current = default(long), long update = default(long), List<List<string>> asks = default(List<List<string>>), List<List<string>> bids = default(List<List<string>>))
         {
             // to ensure "asks" is required (not null)
             this.Asks = asks ?? throw new ArgumentNullException("asks", "asks is a required property for OrderBook and cannot be null");
             // to ensure "bids" is required (not null)
             this.Bids = bids ?? throw new ArgumentNullException("bids", "bids is a required property for OrderBook and cannot be null");
             this.Id = id;
+            this.Current = current;
+            this.Update = update;
         }
 
         /// <summary>
@@ -56,6 +60,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; set; }
+
+        /// <summary>
+        /// Response data generation timestamp in milliseconds
+        /// </summary>
+        /// <value>Response data generation timestamp in milliseconds</value>
+        [DataMember(Name="current", EmitDefaultValue=false)]
+        public long Current { get; set; }
+
+        /// <summary>
+        /// Order book changed timestamp in milliseconds
+        /// </summary>
+        /// <value>Order book changed timestamp in milliseconds</value>
+        [DataMember(Name="update", EmitDefaultValue=false)]
+        public long Update { get; set; }
 
         /// <summary>
         /// Asks order depth
@@ -80,6 +98,8 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class OrderBook {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Current: ").Append(Current).Append("\n");
+            sb.Append("  Update: ").Append(Update).Append("\n");
             sb.Append("  Asks: ").Append(Asks).Append("\n");
             sb.Append("  Bids: ").Append(Bids).Append("\n");
             sb.Append("}\n");
@@ -121,6 +141,14 @@ namespace Io.Gate.GateApi.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
+                    this.Current == input.Current ||
+                    this.Current.Equals(input.Current)
+                ) && 
+                (
+                    this.Update == input.Update ||
+                    this.Update.Equals(input.Update)
+                ) && 
+                (
                     this.Asks == input.Asks ||
                     this.Asks != null &&
                     input.Asks != null &&
@@ -144,6 +172,8 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.Current.GetHashCode();
+                hashCode = hashCode * 59 + this.Update.GetHashCode();
                 if (this.Asks != null)
                     hashCode = hashCode * 59 + this.Asks.GetHashCode();
                 if (this.Bids != null)

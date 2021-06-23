@@ -25,30 +25,97 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// MarginAccountBook
+    /// CrossMarginAccountBook
     /// </summary>
     [DataContract]
-    public partial class MarginAccountBook :  IEquatable<MarginAccountBook>, IValidatableObject
+    public partial class CrossMarginAccountBook :  IEquatable<CrossMarginAccountBook>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MarginAccountBook" /> class.
+        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+        /// </summary>
+        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum In for value: in
+            /// </summary>
+            [EnumMember(Value = "in")]
+            In = 1,
+
+            /// <summary>
+            /// Enum Out for value: out
+            /// </summary>
+            [EnumMember(Value = "out")]
+            Out = 2,
+
+            /// <summary>
+            /// Enum Repay for value: repay
+            /// </summary>
+            [EnumMember(Value = "repay")]
+            Repay = 3,
+
+            /// <summary>
+            /// Enum Borrow for value: borrow
+            /// </summary>
+            [EnumMember(Value = "borrow")]
+            Borrow = 4,
+
+            /// <summary>
+            /// Enum Neworder for value: new_order
+            /// </summary>
+            [EnumMember(Value = "new_order")]
+            Neworder = 5,
+
+            /// <summary>
+            /// Enum Orderfill for value: order_fill
+            /// </summary>
+            [EnumMember(Value = "order_fill")]
+            Orderfill = 6,
+
+            /// <summary>
+            /// Enum Referralfee for value: referral_fee
+            /// </summary>
+            [EnumMember(Value = "referral_fee")]
+            Referralfee = 7,
+
+            /// <summary>
+            /// Enum Orderfee for value: order_fee
+            /// </summary>
+            [EnumMember(Value = "order_fee")]
+            Orderfee = 8,
+
+            /// <summary>
+            /// Enum Unknown for value: unknown
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown = 9
+
+        }
+
+        /// <summary>
+        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+        /// </summary>
+        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CrossMarginAccountBook" /> class.
         /// </summary>
         /// <param name="id">Balance change record ID.</param>
-        /// <param name="time">Balance changed timestamp.</param>
-        /// <param name="timeMs">Account changed timestamp in milliseconds.</param>
+        /// <param name="time">Account changed timestamp in milliseconds.</param>
         /// <param name="currency">Currency changed.</param>
-        /// <param name="currencyPair">Account currency pair.</param>
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
-        public MarginAccountBook(string id = default(string), string time = default(string), long timeMs = default(long), string currency = default(string), string currencyPair = default(string), string change = default(string), string balance = default(string))
+        /// <param name="type">Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type.</param>
+        public CrossMarginAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Id = id;
             this.Time = time;
-            this.TimeMs = timeMs;
             this.Currency = currency;
-            this.CurrencyPair = currencyPair;
             this.Change = change;
             this.Balance = balance;
+            this.Type = type;
         }
 
         /// <summary>
@@ -59,18 +126,11 @@ namespace Io.Gate.GateApi.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Balance changed timestamp
-        /// </summary>
-        /// <value>Balance changed timestamp</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
-        public string Time { get; set; }
-
-        /// <summary>
         /// Account changed timestamp in milliseconds
         /// </summary>
         /// <value>Account changed timestamp in milliseconds</value>
-        [DataMember(Name="time_ms", EmitDefaultValue=false)]
-        public long TimeMs { get; set; }
+        [DataMember(Name="time", EmitDefaultValue=false)]
+        public long Time { get; set; }
 
         /// <summary>
         /// Currency changed
@@ -78,13 +138,6 @@ namespace Io.Gate.GateApi.Model
         /// <value>Currency changed</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
-
-        /// <summary>
-        /// Account currency pair
-        /// </summary>
-        /// <value>Account currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
-        public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Amount changed. Positive value means transferring in, while negative out
@@ -107,14 +160,13 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MarginAccountBook {\n");
+            sb.Append("class CrossMarginAccountBook {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  TimeMs: ").Append(TimeMs).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Change: ").Append(Change).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,15 +187,15 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MarginAccountBook);
+            return this.Equals(input as CrossMarginAccountBook);
         }
 
         /// <summary>
-        /// Returns true if MarginAccountBook instances are equal
+        /// Returns true if CrossMarginAccountBook instances are equal
         /// </summary>
-        /// <param name="input">Instance of MarginAccountBook to be compared</param>
+        /// <param name="input">Instance of CrossMarginAccountBook to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MarginAccountBook input)
+        public bool Equals(CrossMarginAccountBook input)
         {
             if (input == null)
                 return false;
@@ -156,22 +208,12 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.Time == input.Time ||
-                    (this.Time != null &&
-                    this.Time.Equals(input.Time))
-                ) && 
-                (
-                    this.TimeMs == input.TimeMs ||
-                    this.TimeMs.Equals(input.TimeMs)
+                    this.Time.Equals(input.Time)
                 ) && 
                 (
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.CurrencyPair == input.CurrencyPair ||
-                    (this.CurrencyPair != null &&
-                    this.CurrencyPair.Equals(input.CurrencyPair))
                 ) && 
                 (
                     this.Change == input.Change ||
@@ -182,6 +224,10 @@ namespace Io.Gate.GateApi.Model
                     this.Balance == input.Balance ||
                     (this.Balance != null &&
                     this.Balance.Equals(input.Balance))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -196,17 +242,14 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.TimeMs.GetHashCode();
+                hashCode = hashCode * 59 + this.Time.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                if (this.CurrencyPair != null)
-                    hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Change != null)
                     hashCode = hashCode * 59 + this.Change.GetHashCode();
                 if (this.Balance != null)
                     hashCode = hashCode * 59 + this.Balance.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

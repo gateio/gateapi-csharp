@@ -39,15 +39,19 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FuturesOrderBook" /> class.
         /// </summary>
         /// <param name="id">Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response.</param>
+        /// <param name="current">Response data generation timestamp.</param>
+        /// <param name="update">Order book changed timestamp.</param>
         /// <param name="asks">Asks order depth (required).</param>
         /// <param name="bids">Bids order depth (required).</param>
-        public FuturesOrderBook(long id = default(long), List<FuturesOrderBookItem> asks = default(List<FuturesOrderBookItem>), List<FuturesOrderBookItem> bids = default(List<FuturesOrderBookItem>))
+        public FuturesOrderBook(long id = default(long), double current = default(double), double update = default(double), List<FuturesOrderBookItem> asks = default(List<FuturesOrderBookItem>), List<FuturesOrderBookItem> bids = default(List<FuturesOrderBookItem>))
         {
             // to ensure "asks" is required (not null)
             this.Asks = asks ?? throw new ArgumentNullException("asks", "asks is a required property for FuturesOrderBook and cannot be null");
             // to ensure "bids" is required (not null)
             this.Bids = bids ?? throw new ArgumentNullException("bids", "bids is a required property for FuturesOrderBook and cannot be null");
             this.Id = id;
+            this.Current = current;
+            this.Update = update;
         }
 
         /// <summary>
@@ -56,6 +60,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; set; }
+
+        /// <summary>
+        /// Response data generation timestamp
+        /// </summary>
+        /// <value>Response data generation timestamp</value>
+        [DataMember(Name="current", EmitDefaultValue=false)]
+        public double Current { get; set; }
+
+        /// <summary>
+        /// Order book changed timestamp
+        /// </summary>
+        /// <value>Order book changed timestamp</value>
+        [DataMember(Name="update", EmitDefaultValue=false)]
+        public double Update { get; set; }
 
         /// <summary>
         /// Asks order depth
@@ -80,6 +98,8 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class FuturesOrderBook {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Current: ").Append(Current).Append("\n");
+            sb.Append("  Update: ").Append(Update).Append("\n");
             sb.Append("  Asks: ").Append(Asks).Append("\n");
             sb.Append("  Bids: ").Append(Bids).Append("\n");
             sb.Append("}\n");
@@ -121,6 +141,14 @@ namespace Io.Gate.GateApi.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
+                    this.Current == input.Current ||
+                    this.Current.Equals(input.Current)
+                ) && 
+                (
+                    this.Update == input.Update ||
+                    this.Update.Equals(input.Update)
+                ) && 
+                (
                     this.Asks == input.Asks ||
                     this.Asks != null &&
                     input.Asks != null &&
@@ -144,6 +172,8 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.Current.GetHashCode();
+                hashCode = hashCode * 59 + this.Update.GetHashCode();
                 if (this.Asks != null)
                     hashCode = hashCode * 59 + this.Asks.GetHashCode();
                 if (this.Bids != null)

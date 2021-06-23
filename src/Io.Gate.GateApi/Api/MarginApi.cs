@@ -113,7 +113,7 @@ namespace Io.Gate.GateApi.Api
         /// List margin account balance change history
         /// </summary>
         /// <remarks>
-        /// Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -129,7 +129,7 @@ namespace Io.Gate.GateApi.Api
         /// List margin account balance change history
         /// </summary>
         /// <remarks>
-        /// Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -526,6 +526,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginAccount</returns>
         ApiResponse<CrossMarginAccount> GetCrossMarginAccountWithHttpInfo ();
         /// <summary>
+        /// Retrieve cross margin account change history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>List&lt;CrossMarginAccountBook&gt;</returns>
+        List<CrossMarginAccountBook> ListCrossMarginAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+
+        /// <summary>
+        /// Retrieve cross margin account change history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginAccountBook&gt;</returns>
+        ApiResponse<List<CrossMarginAccountBook>> ListCrossMarginAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        /// <summary>
         /// List cross margin borrow history
         /// </summary>
         /// <remarks>
@@ -741,7 +772,7 @@ namespace Io.Gate.GateApi.Api
         /// List margin account balance change history
         /// </summary>
         /// <remarks>
-        /// Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -757,7 +788,7 @@ namespace Io.Gate.GateApi.Api
         /// List margin account balance change history
         /// </summary>
         /// <remarks>
-        /// Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -1153,6 +1184,37 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CrossMarginAccount)</returns>
         Task<ApiResponse<CrossMarginAccount>> GetCrossMarginAccountAsyncWithHttpInfo ();
+        /// <summary>
+        /// Retrieve cross margin account change history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>Task of List&lt;CrossMarginAccountBook&gt;</returns>
+        Task<List<CrossMarginAccountBook>> ListCrossMarginAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+
+        /// <summary>
+        /// Retrieve cross margin account change history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginAccountBook&gt;)</returns>
+        Task<ApiResponse<List<CrossMarginAccountBook>>> ListCrossMarginAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
         /// List cross margin borrow history
         /// </summary>
@@ -1835,7 +1897,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List margin account balance change history Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// List margin account balance change history Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -1852,7 +1914,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List margin account balance change history Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// List margin account balance change history Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -1921,7 +1983,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List margin account balance change history Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// List margin account balance change history Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -1939,7 +2001,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List margin account balance change history Only transferring from or to margin account are provided for now. Time range allows 30 days at most
+        /// List margin account balance change history Only transferals from and to margin account are provided for now. Time range allows 30 days at most
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
@@ -4168,6 +4230,181 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCrossMarginAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account change history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>List&lt;CrossMarginAccountBook&gt;</returns>
+        public List<CrossMarginAccountBook> ListCrossMarginAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+             ApiResponse<List<CrossMarginAccountBook>> localVarResponse = ListCrossMarginAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account change history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>ApiResponse of List&lt;CrossMarginAccountBook&gt;</returns>
+        public ApiResponse<List<CrossMarginAccountBook>> ListCrossMarginAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CrossMarginAccountBook>>("/margin/cross/account_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginAccountBook", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account change history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>Task of List&lt;CrossMarginAccountBook&gt;</returns>
+        public async Task<List<CrossMarginAccountBook>> ListCrossMarginAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CrossMarginAccountBook>> localVarResponse = await ListCrossMarginAccountBookAsyncWithHttpInfo(currency, from, to, page, limit, type);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve cross margin account change history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Filter by currency (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;CrossMarginAccountBook&gt;)</returns>
+        public async Task<ApiResponse<List<CrossMarginAccountBook>>> ListCrossMarginAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CrossMarginAccountBook>>("/margin/cross/account_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCrossMarginAccountBook", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
