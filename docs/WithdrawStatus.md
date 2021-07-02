@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **WithdrawAmountMini** | **string** | Minimum withdrawal amount | [optional] 
 **WithdrawDayLimitRemain** | **string** | Daily withdrawal amount left | [optional] 
 **WithdrawEachtimeLimit** | **string** | Maximum amount for each withdrawal | [optional] 
+**WithdrawFixOnChains** | **Dictionary&lt;string, string&gt;** | Fixed withdrawal fee on multiple chains | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

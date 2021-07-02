@@ -467,6 +467,29 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of AutoRepaySetting</returns>
         ApiResponse<AutoRepaySetting> SetAutoRepayWithHttpInfo (string status);
         /// <summary>
+        /// Max transferable amount for specified margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>MarginTransferable</returns>
+        MarginTransferable GetMarginTransferable (string currency, string currencyPair = default(string));
+
+        /// <summary>
+        /// Max transferable amount for specified margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>ApiResponse of MarginTransferable</returns>
+        ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string));
+        /// <summary>
         /// Currencies supported by cross margin.
         /// </summary>
         /// <remarks>
@@ -677,6 +700,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="crossMarginRepayRequest"></param>
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
         ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>CrossMarginTransferable</returns>
+        CrossMarginTransferable GetCrossMarginTransferable (string currency);
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>ApiResponse of CrossMarginTransferable</returns>
+        ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency);
         #endregion Synchronous Operations
     }
 
@@ -1126,6 +1170,29 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (AutoRepaySetting)</returns>
         Task<ApiResponse<AutoRepaySetting>> SetAutoRepayAsyncWithHttpInfo (string status);
         /// <summary>
+        /// Max transferable amount for specified margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of MarginTransferable</returns>
+        Task<MarginTransferable> GetMarginTransferableAsync (string currency, string currencyPair = default(string));
+
+        /// <summary>
+        /// Max transferable amount for specified margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of ApiResponse (MarginTransferable)</returns>
+        Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string));
+        /// <summary>
         /// Currencies supported by cross margin.
         /// </summary>
         /// <remarks>
@@ -1336,6 +1403,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="crossMarginRepayRequest"></param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
         Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>Task of CrossMarginTransferable</returns>
+        Task<CrossMarginTransferable> GetCrossMarginTransferableAsync (string currency);
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
+        Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency);
         #endregion Asynchronous Operations
     }
 
@@ -3922,6 +4010,135 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Max transferable amount for specified margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>MarginTransferable</returns>
+        public MarginTransferable GetMarginTransferable (string currency, string currencyPair = default(string))
+        {
+             ApiResponse<MarginTransferable> localVarResponse = GetMarginTransferableWithHttpInfo(currency, currencyPair);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>ApiResponse of MarginTransferable</returns>
+        public ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetMarginTransferable");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginTransferable>("/margin/transferable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of MarginTransferable</returns>
+        public async Task<MarginTransferable> GetMarginTransferableAsync (string currency, string currencyPair = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<MarginTransferable> localVarResponse = await GetMarginTransferableAsyncWithHttpInfo(currency, currencyPair);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of ApiResponse (MarginTransferable)</returns>
+        public async Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetMarginTransferable");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginTransferable>("/margin/transferable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Currencies supported by cross margin. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5080,6 +5297,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RepayCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>CrossMarginTransferable</returns>
+        public CrossMarginTransferable GetCrossMarginTransferable (string currency)
+        {
+             ApiResponse<CrossMarginTransferable> localVarResponse = GetCrossMarginTransferableWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>ApiResponse of CrossMarginTransferable</returns>
+        public ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginTransferable");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CrossMarginTransferable>("/margin/cross/transferable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>Task of CrossMarginTransferable</returns>
+        public async Task<CrossMarginTransferable> GetCrossMarginTransferableAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginTransferable> localVarResponse = await GetCrossMarginTransferableAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Max transferable amount for specified cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
+        public async Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginTransferable");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginTransferable>("/margin/cross/transferable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginTransferable", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

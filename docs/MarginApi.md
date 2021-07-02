@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**UpdateLoanRecord**](MarginApi.md#updateloanrecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**GetAutoRepayStatus**](MarginApi.md#getautorepaystatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**SetAutoRepay**](MarginApi.md#setautorepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
+[**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
 [**ListCrossMarginCurrencies**](MarginApi.md#listcrossmargincurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**GetCrossMarginCurrency**](MarginApi.md#getcrossmargincurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**GetCrossMarginAccount**](MarginApi.md#getcrossmarginaccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -32,6 +33,7 @@ Method | HTTP request | Description
 [**GetCrossMarginLoan**](MarginApi.md#getcrossmarginloan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 [**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 [**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Repay cross margin loan
+[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
 
 
 <a name="listmargincurrencypairs"></a>
@@ -1421,6 +1423,79 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getmargintransferable"></a>
+# **GetMarginTransferable**
+> MarginTransferable GetMarginTransferable (string currency, string currencyPair = null)
+
+Max transferable amount for specified margin currency
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMarginTransferableExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currency = "BTC";  // string | Retrieved specified currency related data
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
+
+            try
+            {
+                // Max transferable amount for specified margin currency
+                MarginTransferable result = apiInstance.GetMarginTransferable(currency, currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetMarginTransferable: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieved specified currency related data | 
+ **currencyPair** | **string**| Currency pair | [optional] 
+
+### Return type
+
+[**MarginTransferable**](MarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listcrossmargincurrencies"></a>
 # **ListCrossMarginCurrencies**
 > List&lt;CrossMarginCurrency&gt; ListCrossMarginCurrencies ()
@@ -2079,6 +2154,77 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Loan repaid |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcrossmargintransferable"></a>
+# **GetCrossMarginTransferable**
+> CrossMarginTransferable GetCrossMarginTransferable (string currency)
+
+Max transferable amount for specified cross margin currency
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetCrossMarginTransferableExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currency = "BTC";  // string | Retrieved specified currency related data
+
+            try
+            {
+                // Max transferable amount for specified cross margin currency
+                CrossMarginTransferable result = apiInstance.GetCrossMarginTransferable(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetCrossMarginTransferable: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieved specified currency related data | 
+
+### Return type
+
+[**CrossMarginTransferable**](CrossMarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

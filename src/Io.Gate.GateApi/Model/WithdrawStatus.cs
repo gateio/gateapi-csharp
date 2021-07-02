@@ -43,7 +43,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="withdrawAmountMini">Minimum withdrawal amount.</param>
         /// <param name="withdrawDayLimitRemain">Daily withdrawal amount left.</param>
         /// <param name="withdrawEachtimeLimit">Maximum amount for each withdrawal.</param>
-        public WithdrawStatus(string currency = default(string), string name = default(string), string nameCn = default(string), string deposit = default(string), string withdrawPercent = default(string), string withdrawFix = default(string), string withdrawDayLimit = default(string), string withdrawAmountMini = default(string), string withdrawDayLimitRemain = default(string), string withdrawEachtimeLimit = default(string))
+        /// <param name="withdrawFixOnChains">Fixed withdrawal fee on multiple chains.</param>
+        public WithdrawStatus(string currency = default(string), string name = default(string), string nameCn = default(string), string deposit = default(string), string withdrawPercent = default(string), string withdrawFix = default(string), string withdrawDayLimit = default(string), string withdrawAmountMini = default(string), string withdrawDayLimitRemain = default(string), string withdrawEachtimeLimit = default(string), Dictionary<string, string> withdrawFixOnChains = default(Dictionary<string, string>))
         {
             this.Currency = currency;
             this.Name = name;
@@ -55,6 +56,7 @@ namespace Io.Gate.GateApi.Model
             this.WithdrawAmountMini = withdrawAmountMini;
             this.WithdrawDayLimitRemain = withdrawDayLimitRemain;
             this.WithdrawEachtimeLimit = withdrawEachtimeLimit;
+            this.WithdrawFixOnChains = withdrawFixOnChains;
         }
 
         /// <summary>
@@ -128,6 +130,13 @@ namespace Io.Gate.GateApi.Model
         public string WithdrawEachtimeLimit { get; set; }
 
         /// <summary>
+        /// Fixed withdrawal fee on multiple chains
+        /// </summary>
+        /// <value>Fixed withdrawal fee on multiple chains</value>
+        [DataMember(Name="withdraw_fix_on_chains", EmitDefaultValue=false)]
+        public Dictionary<string, string> WithdrawFixOnChains { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  WithdrawAmountMini: ").Append(WithdrawAmountMini).Append("\n");
             sb.Append("  WithdrawDayLimitRemain: ").Append(WithdrawDayLimitRemain).Append("\n");
             sb.Append("  WithdrawEachtimeLimit: ").Append(WithdrawEachtimeLimit).Append("\n");
+            sb.Append("  WithdrawFixOnChains: ").Append(WithdrawFixOnChains).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +238,12 @@ namespace Io.Gate.GateApi.Model
                     this.WithdrawEachtimeLimit == input.WithdrawEachtimeLimit ||
                     (this.WithdrawEachtimeLimit != null &&
                     this.WithdrawEachtimeLimit.Equals(input.WithdrawEachtimeLimit))
+                ) && 
+                (
+                    this.WithdrawFixOnChains == input.WithdrawFixOnChains ||
+                    this.WithdrawFixOnChains != null &&
+                    input.WithdrawFixOnChains != null &&
+                    this.WithdrawFixOnChains.SequenceEqual(input.WithdrawFixOnChains)
                 );
         }
 
@@ -260,6 +276,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.WithdrawDayLimitRemain.GetHashCode();
                 if (this.WithdrawEachtimeLimit != null)
                     hashCode = hashCode * 59 + this.WithdrawEachtimeLimit.GetHashCode();
+                if (this.WithdrawFixOnChains != null)
+                    hashCode = hashCode * 59 + this.WithdrawFixOnChains.GetHashCode();
                 return hashCode;
             }
         }

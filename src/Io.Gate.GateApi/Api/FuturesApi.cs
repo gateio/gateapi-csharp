@@ -756,8 +756,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;PositionClose&gt;</returns>
-        List<PositionClose> ListPositionClose (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+        List<PositionClose> ListPositionClose (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List position close history
@@ -770,8 +772,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;PositionClose&gt;</returns>
-        ApiResponse<List<PositionClose>> ListPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<PositionClose>> ListPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// List liquidation history
         /// </summary>
@@ -1658,8 +1662,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;PositionClose&gt;</returns>
-        Task<List<PositionClose>> ListPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+        Task<List<PositionClose>> ListPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List position close history
@@ -1672,8 +1678,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;PositionClose&gt;)</returns>
-        Task<ApiResponse<List<PositionClose>>> ListPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+        Task<ApiResponse<List<PositionClose>>> ListPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// List liquidation history
         /// </summary>
@@ -6016,10 +6024,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;PositionClose&gt;</returns>
-        public List<PositionClose> ListPositionClose (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        public List<PositionClose> ListPositionClose (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             ApiResponse<List<PositionClose>> localVarResponse = ListPositionCloseWithHttpInfo(settle, contract, limit, offset);
+             ApiResponse<List<PositionClose>> localVarResponse = ListPositionCloseWithHttpInfo(settle, contract, limit, offset, from, to);
              return localVarResponse.Data;
         }
 
@@ -6031,8 +6041,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;PositionClose&gt;</returns>
-        public ApiResponse<List<PositionClose>> ListPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        public ApiResponse<List<PositionClose>> ListPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6067,6 +6079,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -6091,10 +6111,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;PositionClose&gt;</returns>
-        public async Task<List<PositionClose>> ListPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        public async Task<List<PositionClose>> ListPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<PositionClose>> localVarResponse = await ListPositionCloseAsyncWithHttpInfo(settle, contract, limit, offset);
+             Io.Gate.GateApi.Client.ApiResponse<List<PositionClose>> localVarResponse = await ListPositionCloseAsyncWithHttpInfo(settle, contract, limit, offset, from, to);
              return localVarResponse.Data;
 
         }
@@ -6107,8 +6129,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;PositionClose&gt;)</returns>
-        public async Task<ApiResponse<List<PositionClose>>> ListPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        public async Task<ApiResponse<List<PositionClose>>> ListPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6143,6 +6167,14 @@ namespace Io.Gate.GateApi.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
 
             // authentication (apiv4) required

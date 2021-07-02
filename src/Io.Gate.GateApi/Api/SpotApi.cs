@@ -306,7 +306,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -321,7 +321,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -452,10 +452,10 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
@@ -467,10 +467,10 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
@@ -877,7 +877,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -892,7 +892,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -1023,10 +1023,10 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
@@ -1038,10 +1038,10 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
@@ -2766,7 +2766,7 @@ namespace Io.Gate.GateApi.Api
         /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -2782,7 +2782,7 @@ namespace Io.Gate.GateApi.Api
         /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -2848,7 +2848,7 @@ namespace Io.Gate.GateApi.Api
         /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -2865,7 +2865,7 @@ namespace Io.Gate.GateApi.Api
         /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
@@ -3598,10 +3598,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         public List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
@@ -3614,10 +3614,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
@@ -3679,10 +3679,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         public async Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
@@ -3696,10 +3696,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="orderId">List all trades of specified order (optional)</param>
+        /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))

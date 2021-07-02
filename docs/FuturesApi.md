@@ -2157,7 +2157,7 @@ Name | Type | Description  | Notes
 
 <a name="listpositionclose"></a>
 # **ListPositionClose**
-> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null)
+> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
 List position close history
 
@@ -2184,11 +2184,13 @@ namespace Example
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
 
             try
             {
                 // List position close history
-                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit, offset);
+                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2211,6 +2213,8 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
 
 ### Return type
 

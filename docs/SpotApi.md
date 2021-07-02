@@ -921,7 +921,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
+            var currencyPair = "BTC_USDT";  // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
             var status = "open";  // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
@@ -949,7 +949,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
+ **currencyPair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. | 
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
@@ -1379,10 +1379,10 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
+            var currencyPair = "BTC_USDT";  // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
             var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var orderId = "12345";  // string | List all trades of specified order (optional) 
+            var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
             var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
 
             try
@@ -1407,10 +1407,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
+ **currencyPair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. | 
  **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
- **orderId** | **string**| List all trades of specified order | [optional] 
+ **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
 
 ### Return type
