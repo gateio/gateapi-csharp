@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="address">Deposit address.</param>
         /// <param name="paymentId">Notes that some currencies required(e.g., Tag, Memo) when depositing.</param>
         /// <param name="paymentName">Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;.</param>
-        /// <param name="obtainFailed">Whether address is obtained. 0 means success. 1 is failure, which needs retries.</param>
+        /// <param name="obtainFailed">The obtain failed status- 0: address successfully obtained- 1: failed to obtain address.</param>
         public MultiChainAddressItem(string chain = default(string), string address = default(string), string paymentId = default(string), string paymentName = default(string), int obtainFailed = default(int))
         {
             this.Chain = chain;
@@ -76,9 +76,9 @@ namespace Io.Gate.GateApi.Model
         public string PaymentName { get; set; }
 
         /// <summary>
-        /// Whether address is obtained. 0 means success. 1 is failure, which needs retries
+        /// The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
         /// </summary>
-        /// <value>Whether address is obtained. 0 means success. 1 is failure, which needs retries</value>
+        /// <value>The obtain failed status- 0: address successfully obtained- 1: failed to obtain address</value>
         [DataMember(Name="obtain_failed", EmitDefaultValue=false)]
         public int ObtainFailed { get; set; }
 

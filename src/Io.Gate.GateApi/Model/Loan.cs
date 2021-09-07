@@ -108,24 +108,26 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Loan currency (required).</param>
         /// <param name="rate">Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set.</param>
         /// <param name="amount">Loan amount (required).</param>
-        /// <param name="days">Loan days (required).</param>
-        /// <param name="autoRenew">Auto renew the loan on expiration (default to false).</param>
-        /// <param name="currencyPair">Currency pair. Required for borrowing side.</param>
+        /// <param name="days">Loan days. Only 10 is supported for now.</param>
+        /// <param name="autoRenew">Whether to auto renew the loan upon expiration (default to false).</param>
+        /// <param name="currencyPair">Currency pair. Required if borrowing.</param>
         /// <param name="feeRate">Loan fee rate.</param>
-        /// <param name="origId">Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not.</param>
-        public Loan(SideEnum side = default(SideEnum), string currency = default(string), string rate = default(string), string amount = default(string), int days = default(int), bool autoRenew = false, string currencyPair = default(string), string feeRate = default(string), string origId = default(string))
+        /// <param name="origId">Original loan ID of the loan if auto-renewed, otherwise equals to id.</param>
+        /// <param name="text">User defined custom ID.</param>
+        public Loan(SideEnum side = default(SideEnum), string currency = default(string), string rate = default(string), string amount = default(string), int days = default(int), bool autoRenew = false, string currencyPair = default(string), string feeRate = default(string), string origId = default(string), string text = default(string))
         {
             this.Side = side;
             // to ensure "currency" is required (not null)
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for Loan and cannot be null");
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for Loan and cannot be null");
-            this.Days = days;
             this.Rate = rate;
+            this.Days = days;
             this.AutoRenew = autoRenew;
             this.CurrencyPair = currencyPair;
             this.FeeRate = feeRate;
             this.OrigId = origId;
+            this.Text = text;
         }
 
         /// <summary>
@@ -171,30 +173,30 @@ namespace Io.Gate.GateApi.Model
         public string Amount { get; set; }
 
         /// <summary>
-        /// Loan days
+        /// Loan days. Only 10 is supported for now
         /// </summary>
-        /// <value>Loan days</value>
+        /// <value>Loan days. Only 10 is supported for now</value>
         [DataMember(Name="days", EmitDefaultValue=false)]
         public int Days { get; set; }
 
         /// <summary>
-        /// Auto renew the loan on expiration
+        /// Whether to auto renew the loan upon expiration
         /// </summary>
-        /// <value>Auto renew the loan on expiration</value>
+        /// <value>Whether to auto renew the loan upon expiration</value>
         [DataMember(Name="auto_renew", EmitDefaultValue=false)]
         public bool AutoRenew { get; set; }
 
         /// <summary>
-        /// Currency pair. Required for borrowing side
+        /// Currency pair. Required if borrowing
         /// </summary>
-        /// <value>Currency pair. Required for borrowing side</value>
+        /// <value>Currency pair. Required if borrowing</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Amount not lending out
+        /// Amount not lent out yet
         /// </summary>
-        /// <value>Amount not lending out</value>
+        /// <value>Amount not lent out yet</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public string Left { get; private set; }
 
@@ -213,9 +215,9 @@ namespace Io.Gate.GateApi.Model
         public string PaidInterest { get; private set; }
 
         /// <summary>
-        /// Interest not repaid
+        /// Outstanding interest yet to be paid
         /// </summary>
-        /// <value>Interest not repaid</value>
+        /// <value>Outstanding interest yet to be paid</value>
         [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 
@@ -227,11 +229,18 @@ namespace Io.Gate.GateApi.Model
         public string FeeRate { get; set; }
 
         /// <summary>
-        /// Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not
+        /// Original loan ID of the loan if auto-renewed, otherwise equals to id
         /// </summary>
-        /// <value>Original loan ID if the loan is auto-renewed. Equal to &#x60;id&#x60; if not</value>
+        /// <value>Original loan ID of the loan if auto-renewed, otherwise equals to id</value>
         [DataMember(Name="orig_id", EmitDefaultValue=false)]
         public string OrigId { get; set; }
+
+        /// <summary>
+        /// User defined custom ID
+        /// </summary>
+        /// <value>User defined custom ID</value>
+        [DataMember(Name="text", EmitDefaultValue=false)]
+        public string Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -258,6 +267,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  UnpaidInterest: ").Append(UnpaidInterest).Append("\n");
             sb.Append("  FeeRate: ").Append(FeeRate).Append("\n");
             sb.Append("  OrigId: ").Append(OrigId).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -372,6 +382,11 @@ namespace Io.Gate.GateApi.Model
                     this.OrigId == input.OrigId ||
                     (this.OrigId != null &&
                     this.OrigId.Equals(input.OrigId))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -414,6 +429,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.FeeRate.GetHashCode();
                 if (this.OrigId != null)
                     hashCode = hashCode * 59 + this.OrigId.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }

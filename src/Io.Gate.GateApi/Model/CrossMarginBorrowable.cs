@@ -25,44 +25,35 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FundingBookItem
+    /// CrossMarginBorrowable
     /// </summary>
     [DataContract]
-    public partial class FundingBookItem :  IEquatable<FundingBookItem>, IValidatableObject
+    public partial class CrossMarginBorrowable :  IEquatable<CrossMarginBorrowable>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingBookItem" /> class.
+        /// Initializes a new instance of the <see cref="CrossMarginBorrowable" /> class.
         /// </summary>
-        /// <param name="rate">Loan rate.</param>
-        /// <param name="amount">Borrowable amount.</param>
-        /// <param name="days">The number of days till the loan repayment&#39;s dateline.</param>
-        public FundingBookItem(string rate = default(string), string amount = default(string), int days = default(int))
+        /// <param name="currency">Currency detail.</param>
+        /// <param name="amount">Max borrowable amount.</param>
+        public CrossMarginBorrowable(string currency = default(string), string amount = default(string))
         {
-            this.Rate = rate;
+            this.Currency = currency;
             this.Amount = amount;
-            this.Days = days;
         }
 
         /// <summary>
-        /// Loan rate
+        /// Currency detail
         /// </summary>
-        /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
-        public string Rate { get; set; }
+        /// <value>Currency detail</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// Borrowable amount
+        /// Max borrowable amount
         /// </summary>
-        /// <value>Borrowable amount</value>
+        /// <value>Max borrowable amount</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; set; }
-
-        /// <summary>
-        /// The number of days till the loan repayment&#39;s dateline
-        /// </summary>
-        /// <value>The number of days till the loan repayment&#39;s dateline</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
-        public int Days { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +62,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FundingBookItem {\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("class CrossMarginBorrowable {\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Days: ").Append(Days).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,33 +85,29 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingBookItem);
+            return this.Equals(input as CrossMarginBorrowable);
         }
 
         /// <summary>
-        /// Returns true if FundingBookItem instances are equal
+        /// Returns true if CrossMarginBorrowable instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingBookItem to be compared</param>
+        /// <param name="input">Instance of CrossMarginBorrowable to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingBookItem input)
+        public bool Equals(CrossMarginBorrowable input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Rate == input.Rate ||
-                    (this.Rate != null &&
-                    this.Rate.Equals(input.Rate))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
-                ) && 
-                (
-                    this.Days == input.Days ||
-                    this.Days.Equals(input.Days)
                 );
         }
 
@@ -134,11 +120,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Rate != null)
-                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                hashCode = hashCode * 59 + this.Days.GetHashCode();
                 return hashCode;
             }
         }

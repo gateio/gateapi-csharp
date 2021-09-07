@@ -113,9 +113,9 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; private set; }
 
         /// <summary>
-        /// Extra messages of how order is finished
+        /// Additional remarks on how the order was finished
         /// </summary>
-        /// <value>Extra messages of how order is finished</value>
+        /// <value>Additional remarks on how the order was finished</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; private set; }
 

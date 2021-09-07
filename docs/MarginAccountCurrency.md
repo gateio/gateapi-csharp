@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.MarginAccountCurrency
 
-Account currency detail
+Account currency details
 
 ## Properties
 
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Available** | **string** | Amount suitable for margin trading. | [optional] 
 **Locked** | **string** | Locked amount, used in margin trading | [optional] 
 **Borrowed** | **string** | Borrowed amount | [optional] 
-**Interest** | **string** | Interests unpaid | [optional] 
+**Interest** | **string** | Unpaid interests | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

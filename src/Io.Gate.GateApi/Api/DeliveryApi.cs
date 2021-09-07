@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
         FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
@@ -97,7 +97,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
         ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
@@ -109,8 +109,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
@@ -125,8 +125,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
@@ -142,7 +142,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
@@ -158,7 +158,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
@@ -193,7 +193,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;InsuranceRecord&gt;</returns>
         List<InsuranceRecord> ListDeliveryInsuranceLedger (string settle, int? limit = default(int?));
 
@@ -205,7 +205,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;InsuranceRecord&gt;</returns>
         ApiResponse<List<InsuranceRecord>> ListDeliveryInsuranceLedgerWithHttpInfo (string settle, int? limit = default(int?));
         /// <summary>
@@ -237,7 +237,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -252,7 +252,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -381,13 +381,13 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -398,13 +398,13 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -414,7 +414,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -426,7 +426,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -437,12 +437,12 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
         List<FuturesOrder> CancelDeliveryOrders (string settle, string contract, string side = default(string));
 
@@ -450,23 +450,23 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
         ApiResponse<List<FuturesOrder>> CancelDeliveryOrdersWithHttpInfo (string settle, string contract, string side = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesOrder</returns>
         FuturesOrder GetDeliveryOrder (string settle, string orderId);
 
@@ -474,11 +474,11 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         ApiResponse<FuturesOrder> GetDeliveryOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -489,7 +489,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesOrder</returns>
         FuturesOrder CancelDeliveryOrder (string settle, string orderId);
 
@@ -501,7 +501,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         ApiResponse<FuturesOrder> CancelDeliveryOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -514,7 +514,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -531,7 +531,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -546,7 +546,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;PositionClose&gt;</returns>
         List<PositionClose> ListDeliveryPositionClose (string settle, string contract = default(string), int? limit = default(int?));
 
@@ -559,7 +559,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;PositionClose&gt;</returns>
         ApiResponse<List<PositionClose>> ListDeliveryPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?));
         /// <summary>
@@ -571,7 +571,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>List&lt;FuturesLiquidate&gt;</returns>
         List<FuturesLiquidate> ListDeliveryLiquidates (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -585,7 +585,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesLiquidate&gt;</returns>
         ApiResponse<List<FuturesLiquidate>> ListDeliveryLiquidatesWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -598,7 +598,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>List&lt;DeliverySettlement&gt;</returns>
         List<DeliverySettlement> ListDeliverySettlements (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -612,7 +612,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;DeliverySettlement&gt;</returns>
         ApiResponse<List<DeliverySettlement>> ListDeliverySettlementsWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -624,9 +624,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         List<FuturesPriceTriggeredOrder> ListPriceTriggeredDeliveryOrders (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -639,9 +639,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<FuturesPriceTriggeredOrder>> ListPriceTriggeredDeliveryOrdersWithHttpInfo (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -699,7 +699,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesPriceTriggeredOrder</returns>
         FuturesPriceTriggeredOrder GetPriceTriggeredDeliveryOrder (string settle, string orderId);
 
@@ -711,7 +711,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesPriceTriggeredOrder</returns>
         ApiResponse<FuturesPriceTriggeredOrder> GetPriceTriggeredDeliveryOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -722,7 +722,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesPriceTriggeredOrder</returns>
         FuturesPriceTriggeredOrder CancelPriceTriggeredDeliveryOrder (string settle, string orderId);
 
@@ -734,7 +734,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesPriceTriggeredOrder</returns>
         ApiResponse<FuturesPriceTriggeredOrder> CancelPriceTriggeredDeliveryOrderWithHttpInfo (string settle, string orderId);
         #endregion Synchronous Operations
@@ -801,7 +801,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
         Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
@@ -816,7 +816,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
         Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
@@ -828,8 +828,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
@@ -844,8 +844,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
@@ -861,7 +861,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
@@ -877,7 +877,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
@@ -912,7 +912,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;InsuranceRecord&gt;</returns>
         Task<List<InsuranceRecord>> ListDeliveryInsuranceLedgerAsync (string settle, int? limit = default(int?));
 
@@ -924,7 +924,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;InsuranceRecord&gt;)</returns>
         Task<ApiResponse<List<InsuranceRecord>>> ListDeliveryInsuranceLedgerAsyncWithHttpInfo (string settle, int? limit = default(int?));
         /// <summary>
@@ -956,7 +956,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -971,7 +971,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -1100,13 +1100,13 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -1117,13 +1117,13 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -1133,7 +1133,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1145,7 +1145,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1156,12 +1156,12 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
         Task<List<FuturesOrder>> CancelDeliveryOrdersAsync (string settle, string contract, string side = default(string));
 
@@ -1169,23 +1169,23 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
         Task<ApiResponse<List<FuturesOrder>>> CancelDeliveryOrdersAsyncWithHttpInfo (string settle, string contract, string side = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesOrder</returns>
         Task<FuturesOrder> GetDeliveryOrderAsync (string settle, string orderId);
 
@@ -1193,11 +1193,11 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         Task<ApiResponse<FuturesOrder>> GetDeliveryOrderAsyncWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -1208,7 +1208,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesOrder</returns>
         Task<FuturesOrder> CancelDeliveryOrderAsync (string settle, string orderId);
 
@@ -1220,7 +1220,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         Task<ApiResponse<FuturesOrder>> CancelDeliveryOrderAsyncWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -1233,7 +1233,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -1250,7 +1250,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -1265,7 +1265,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;PositionClose&gt;</returns>
         Task<List<PositionClose>> ListDeliveryPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?));
 
@@ -1278,7 +1278,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;PositionClose&gt;)</returns>
         Task<ApiResponse<List<PositionClose>>> ListDeliveryPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?));
         /// <summary>
@@ -1290,7 +1290,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesLiquidate&gt;</returns>
         Task<List<FuturesLiquidate>> ListDeliveryLiquidatesAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -1304,7 +1304,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesLiquidate&gt;)</returns>
         Task<ApiResponse<List<FuturesLiquidate>>> ListDeliveryLiquidatesAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -1317,7 +1317,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>Task of List&lt;DeliverySettlement&gt;</returns>
         Task<List<DeliverySettlement>> ListDeliverySettlementsAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -1331,7 +1331,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;DeliverySettlement&gt;)</returns>
         Task<ApiResponse<List<DeliverySettlement>>> ListDeliverySettlementsAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
@@ -1343,9 +1343,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         Task<List<FuturesPriceTriggeredOrder>> ListPriceTriggeredDeliveryOrdersAsync (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -1358,9 +1358,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> ListPriceTriggeredDeliveryOrdersAsyncWithHttpInfo (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -1418,7 +1418,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesPriceTriggeredOrder</returns>
         Task<FuturesPriceTriggeredOrder> GetPriceTriggeredDeliveryOrderAsync (string settle, string orderId);
 
@@ -1430,7 +1430,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesPriceTriggeredOrder)</returns>
         Task<ApiResponse<FuturesPriceTriggeredOrder>> GetPriceTriggeredDeliveryOrderAsyncWithHttpInfo (string settle, string orderId);
         /// <summary>
@@ -1441,7 +1441,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesPriceTriggeredOrder</returns>
         Task<FuturesPriceTriggeredOrder> CancelPriceTriggeredDeliveryOrderAsync (string settle, string orderId);
 
@@ -1453,7 +1453,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesPriceTriggeredOrder)</returns>
         Task<ApiResponse<FuturesPriceTriggeredOrder>> CancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo (string settle, string orderId);
         #endregion Asynchronous Operations
@@ -1824,7 +1824,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
         public FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -1840,7 +1840,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
         public ApiResponse<FuturesOrderBook> ListDeliveryOrderBookWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -1904,7 +1904,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
         public async Task<FuturesOrderBook> ListDeliveryOrderBookAsync (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -1921,7 +1921,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
         /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Whether order book update ID would be returned. This ID increments by 1 on every order book update (optional, default to false)</param>
+        /// <param name="withId">Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
         public async Task<ApiResponse<FuturesOrderBook>> ListDeliveryOrderBookAsyncWithHttpInfo (string settle, string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -1985,8 +1985,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
@@ -2002,8 +2002,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
@@ -2071,8 +2071,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
@@ -2089,8 +2089,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="lastId">Specify list staring point using the id of last record in previous list-query results  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="lastId">Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range (optional)</param>
         /// <param name="from">Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  (optional)</param>
         /// <param name="to">Specify end time in Unix seconds, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
@@ -2162,7 +2162,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         public List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
@@ -2179,7 +2179,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         public ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
@@ -2248,7 +2248,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         public async Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
@@ -2266,7 +2266,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="contract">Futures contract</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         public async Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
@@ -2459,7 +2459,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;InsuranceRecord&gt;</returns>
         public List<InsuranceRecord> ListDeliveryInsuranceLedger (string settle, int? limit = default(int?))
         {
@@ -2472,7 +2472,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;InsuranceRecord&gt;</returns>
         public ApiResponse<List<InsuranceRecord>> ListDeliveryInsuranceLedgerWithHttpInfo (string settle, int? limit = default(int?))
         {
@@ -2520,7 +2520,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;InsuranceRecord&gt;</returns>
         public async Task<List<InsuranceRecord>> ListDeliveryInsuranceLedgerAsync (string settle, int? limit = default(int?))
         {
@@ -2534,7 +2534,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;InsuranceRecord&gt;)</returns>
         public async Task<ApiResponse<List<InsuranceRecord>>> ListDeliveryInsuranceLedgerAsyncWithHttpInfo (string settle, int? limit = default(int?))
         {
@@ -2701,7 +2701,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -2717,7 +2717,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -2782,7 +2782,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -2799,7 +2799,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
@@ -3545,13 +3545,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -3563,13 +3563,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -3639,13 +3639,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -3658,13 +3658,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -3736,7 +3736,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3749,7 +3749,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3801,7 +3801,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3815,7 +3815,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3869,12 +3869,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
         public List<FuturesOrder> CancelDeliveryOrders (string settle, string contract, string side = default(string))
         {
@@ -3883,12 +3883,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
         public ApiResponse<List<FuturesOrder>> CancelDeliveryOrdersWithHttpInfo (string settle, string contract, string side = default(string))
         {
@@ -3939,12 +3939,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
         public async Task<List<FuturesOrder>> CancelDeliveryOrdersAsync (string settle, string contract, string side = default(string))
         {
@@ -3954,12 +3954,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
         public async Task<ApiResponse<List<FuturesOrder>>> CancelDeliveryOrdersAsyncWithHttpInfo (string settle, string contract, string side = default(string))
         {
@@ -4012,11 +4012,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesOrder</returns>
         public FuturesOrder GetDeliveryOrder (string settle, string orderId)
         {
@@ -4025,11 +4025,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         public ApiResponse<FuturesOrder> GetDeliveryOrderWithHttpInfo (string settle, string orderId)
         {
@@ -4076,11 +4076,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesOrder</returns>
         public async Task<FuturesOrder> GetDeliveryOrderAsync (string settle, string orderId)
         {
@@ -4090,11 +4090,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved 60 seconds after cancellation
+        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         public async Task<ApiResponse<FuturesOrder>> GetDeliveryOrderAsyncWithHttpInfo (string settle, string orderId)
         {
@@ -4147,7 +4147,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesOrder</returns>
         public FuturesOrder CancelDeliveryOrder (string settle, string orderId)
         {
@@ -4160,7 +4160,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
         public ApiResponse<FuturesOrder> CancelDeliveryOrderWithHttpInfo (string settle, string orderId)
         {
@@ -4211,7 +4211,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesOrder</returns>
         public async Task<FuturesOrder> CancelDeliveryOrderAsync (string settle, string orderId)
         {
@@ -4225,7 +4225,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         public async Task<ApiResponse<FuturesOrder>> CancelDeliveryOrderAsyncWithHttpInfo (string settle, string orderId)
         {
@@ -4280,7 +4280,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -4298,7 +4298,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -4373,7 +4373,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -4392,7 +4392,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
         /// <param name="order">Futures order ID, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="countTotal">Whether to return total number matched. Default to 0(no return) (optional, default to 0)</param>
@@ -4468,7 +4468,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;PositionClose&gt;</returns>
         public List<PositionClose> ListDeliveryPositionClose (string settle, string contract = default(string), int? limit = default(int?))
         {
@@ -4482,7 +4482,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;PositionClose&gt;</returns>
         public ApiResponse<List<PositionClose>> ListDeliveryPositionCloseWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?))
         {
@@ -4537,7 +4537,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;PositionClose&gt;</returns>
         public async Task<List<PositionClose>> ListDeliveryPositionCloseAsync (string settle, string contract = default(string), int? limit = default(int?))
         {
@@ -4552,7 +4552,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;PositionClose&gt;)</returns>
         public async Task<ApiResponse<List<PositionClose>>> ListDeliveryPositionCloseAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?))
         {
@@ -4609,7 +4609,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>List&lt;FuturesLiquidate&gt;</returns>
         public List<FuturesLiquidate> ListDeliveryLiquidates (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4624,7 +4624,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesLiquidate&gt;</returns>
         public ApiResponse<List<FuturesLiquidate>> ListDeliveryLiquidatesWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4684,7 +4684,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesLiquidate&gt;</returns>
         public async Task<List<FuturesLiquidate>> ListDeliveryLiquidatesAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4700,7 +4700,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesLiquidate&gt;)</returns>
         public async Task<ApiResponse<List<FuturesLiquidate>>> ListDeliveryLiquidatesAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4762,7 +4762,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>List&lt;DeliverySettlement&gt;</returns>
         public List<DeliverySettlement> ListDeliverySettlements (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4777,7 +4777,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;DeliverySettlement&gt;</returns>
         public ApiResponse<List<DeliverySettlement>> ListDeliverySettlementsWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4837,7 +4837,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>Task of List&lt;DeliverySettlement&gt;</returns>
         public async Task<List<DeliverySettlement>> ListDeliverySettlementsAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4853,7 +4853,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;DeliverySettlement&gt;)</returns>
         public async Task<ApiResponse<List<DeliverySettlement>>> ListDeliverySettlementsAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
@@ -4914,9 +4914,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         public List<FuturesPriceTriggeredOrder> ListPriceTriggeredDeliveryOrders (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -4930,9 +4930,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<FuturesPriceTriggeredOrder>> ListPriceTriggeredDeliveryOrdersWithHttpInfo (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -4996,9 +4996,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
         public async Task<List<FuturesPriceTriggeredOrder>> ListPriceTriggeredDeliveryOrdersAsync (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -5013,9 +5013,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> ListPriceTriggeredDeliveryOrdersAsyncWithHttpInfo (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -5345,7 +5345,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesPriceTriggeredOrder</returns>
         public FuturesPriceTriggeredOrder GetPriceTriggeredDeliveryOrder (string settle, string orderId)
         {
@@ -5358,7 +5358,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesPriceTriggeredOrder</returns>
         public ApiResponse<FuturesPriceTriggeredOrder> GetPriceTriggeredDeliveryOrderWithHttpInfo (string settle, string orderId)
         {
@@ -5409,7 +5409,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesPriceTriggeredOrder</returns>
         public async Task<FuturesPriceTriggeredOrder> GetPriceTriggeredDeliveryOrderAsync (string settle, string orderId)
         {
@@ -5423,7 +5423,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<FuturesPriceTriggeredOrder>> GetPriceTriggeredDeliveryOrderAsyncWithHttpInfo (string settle, string orderId)
         {
@@ -5476,7 +5476,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>FuturesPriceTriggeredOrder</returns>
         public FuturesPriceTriggeredOrder CancelPriceTriggeredDeliveryOrder (string settle, string orderId)
         {
@@ -5489,7 +5489,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of FuturesPriceTriggeredOrder</returns>
         public ApiResponse<FuturesPriceTriggeredOrder> CancelPriceTriggeredDeliveryOrderWithHttpInfo (string settle, string orderId)
         {
@@ -5540,7 +5540,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of FuturesPriceTriggeredOrder</returns>
         public async Task<FuturesPriceTriggeredOrder> CancelPriceTriggeredDeliveryOrderAsync (string settle, string orderId)
         {
@@ -5554,7 +5554,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (FuturesPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<FuturesPriceTriggeredOrder>> CancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo (string settle, string orderId)
         {

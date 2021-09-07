@@ -98,7 +98,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="orderId">Related order ID. No value in public endpoints.</param>
         /// <param name="fee">Fee deducted. No value in public endpoints.</param>
         /// <param name="feeCurrency">Fee currency unit. No value in public endpoints.</param>
-        /// <param name="pointFee">Point used to deduct fee.</param>
+        /// <param name="pointFee">Points used to deduct fee.</param>
         /// <param name="gtFee">GT used to deduct fee.</param>
         public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string))
         {
@@ -181,9 +181,9 @@ namespace Io.Gate.GateApi.Model
         public string FeeCurrency { get; set; }
 
         /// <summary>
-        /// Point used to deduct fee
+        /// Points used to deduct fee
         /// </summary>
-        /// <value>Point used to deduct fee</value>
+        /// <value>Points used to deduct fee</value>
         [DataMember(Name="point_fee", EmitDefaultValue=false)]
         public string PointFee { get; set; }
 

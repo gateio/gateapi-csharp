@@ -36,7 +36,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="available">Available amount.</param>
         /// <param name="freeze">Locked amount.</param>
         /// <param name="borrowed">Borrowed amount.</param>
-        /// <param name="interest">Interests unpaid.</param>
+        /// <param name="interest">Unpaid interests.</param>
         public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string))
         {
             this.Available = available;
@@ -67,9 +67,9 @@ namespace Io.Gate.GateApi.Model
         public string Borrowed { get; set; }
 
         /// <summary>
-        /// Interests unpaid
+        /// Unpaid interests
         /// </summary>
-        /// <value>Interests unpaid</value>
+        /// <value>Unpaid interests</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; set; }
 

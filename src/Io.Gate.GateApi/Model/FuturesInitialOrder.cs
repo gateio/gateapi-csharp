@@ -71,7 +71,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="close">Set to true if trying to close the position (default to false).</param>
         /// <param name="tif">Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
         /// <param name="text">How the order is created. Possible values are: web, api and app.</param>
-        /// <param name="reduceOnly">Set to true to create an reduce-only order (default to false).</param>
+        /// <param name="reduceOnly">Set to true to create a reduce-only order (default to false).</param>
         public FuturesInitialOrder(string contract = default(string), long size = default(long), string price = default(string), bool close = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), bool reduceOnly = false)
         {
             // to ensure "contract" is required (not null)
@@ -121,9 +121,9 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// Set to true to create an reduce-only order
+        /// Set to true to create a reduce-only order
         /// </summary>
-        /// <value>Set to true to create an reduce-only order</value>
+        /// <value>Set to true to create a reduce-only order</value>
         [DataMember(Name="reduce_only", EmitDefaultValue=false)]
         public bool ReduceOnly { get; set; }
 

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class Transfer :  IEquatable<Transfer>, IValidatableObject
     {
         /// <summary>
-        /// Account transferred from
+        /// Account to transfer from
         /// </summary>
-        /// <value>Account transferred from</value>
+        /// <value>Account to transfer from</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FromEnum
         {
@@ -70,15 +70,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account transferred from
+        /// Account to transfer from
         /// </summary>
-        /// <value>Account transferred from</value>
+        /// <value>Account to transfer from</value>
         [DataMember(Name="from", EmitDefaultValue=false)]
         public FromEnum From { get; set; }
         /// <summary>
-        /// Account transferred to
+        /// Account to transfer to
         /// </summary>
-        /// <value>Account transferred to</value>
+        /// <value>Account to transfer to</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ToEnum
         {
@@ -115,9 +115,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account transferred to
+        /// Account to transfer to
         /// </summary>
-        /// <value>Account transferred to</value>
+        /// <value>Account to transfer to</value>
         [DataMember(Name="to", EmitDefaultValue=false)]
         public ToEnum To { get; set; }
         /// <summary>
@@ -129,8 +129,8 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="Transfer" /> class.
         /// </summary>
         /// <param name="currency">Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency (required).</param>
-        /// <param name="from">Account transferred from (required).</param>
-        /// <param name="to">Account transferred to (required).</param>
+        /// <param name="from">Account to transfer from (required).</param>
+        /// <param name="to">Account to transfer to (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
         /// <param name="currencyPair">Margin currency pair. Required if transfer from or to margin account.</param>
         /// <param name="settle">Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;.</param>

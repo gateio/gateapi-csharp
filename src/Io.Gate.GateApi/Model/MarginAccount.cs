@@ -34,11 +34,15 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="MarginAccount" /> class.
         /// </summary>
         /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="locked">Whether account is locked.</param>
+        /// <param name="risk">Current risk rate of margin account.</param>
         /// <param name="_base">_base.</param>
         /// <param name="quote">quote.</param>
-        public MarginAccount(string currencyPair = default(string), MarginAccountCurrency _base = default(MarginAccountCurrency), MarginAccountCurrency quote = default(MarginAccountCurrency))
+        public MarginAccount(string currencyPair = default(string), bool locked = default(bool), string risk = default(string), MarginAccountCurrency _base = default(MarginAccountCurrency), MarginAccountCurrency quote = default(MarginAccountCurrency))
         {
             this.CurrencyPair = currencyPair;
+            this.Locked = locked;
+            this.Risk = risk;
             this.Base = _base;
             this.Quote = quote;
         }
@@ -49,6 +53,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>Currency pair</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; set; }
+
+        /// <summary>
+        /// Whether account is locked
+        /// </summary>
+        /// <value>Whether account is locked</value>
+        [DataMember(Name="locked", EmitDefaultValue=false)]
+        public bool Locked { get; set; }
+
+        /// <summary>
+        /// Current risk rate of margin account
+        /// </summary>
+        /// <value>Current risk rate of margin account</value>
+        [DataMember(Name="risk", EmitDefaultValue=false)]
+        public string Risk { get; set; }
 
         /// <summary>
         /// Gets or Sets Base
@@ -71,6 +89,8 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class MarginAccount {\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
+            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("  Risk: ").Append(Risk).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
             sb.Append("}\n");
@@ -113,6 +133,15 @@ namespace Io.Gate.GateApi.Model
                     this.CurrencyPair.Equals(input.CurrencyPair))
                 ) && 
                 (
+                    this.Locked == input.Locked ||
+                    this.Locked.Equals(input.Locked)
+                ) && 
+                (
+                    this.Risk == input.Risk ||
+                    (this.Risk != null &&
+                    this.Risk.Equals(input.Risk))
+                ) && 
+                (
                     this.Base == input.Base ||
                     (this.Base != null &&
                     this.Base.Equals(input.Base))
@@ -135,6 +164,9 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this.CurrencyPair != null)
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
+                hashCode = hashCode * 59 + this.Locked.GetHashCode();
+                if (this.Risk != null)
+                    hashCode = hashCode * 59 + this.Risk.GetHashCode();
                 if (this.Base != null)
                     hashCode = hashCode * 59 + this.Base.GetHashCode();
                 if (this.Quote != null)

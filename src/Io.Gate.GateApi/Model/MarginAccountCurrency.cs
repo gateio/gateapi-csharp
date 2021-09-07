@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Account currency detail
+    /// Account currency details
     /// </summary>
     [DataContract]
     public partial class MarginAccountCurrency :  IEquatable<MarginAccountCurrency>, IValidatableObject
@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="available">Amount suitable for margin trading..</param>
         /// <param name="locked">Locked amount, used in margin trading.</param>
         /// <param name="borrowed">Borrowed amount.</param>
-        /// <param name="interest">Interests unpaid.</param>
+        /// <param name="interest">Unpaid interests.</param>
         public MarginAccountCurrency(string currency = default(string), string available = default(string), string locked = default(string), string borrowed = default(string), string interest = default(string))
         {
             this.Currency = currency;
@@ -76,9 +76,9 @@ namespace Io.Gate.GateApi.Model
         public string Borrowed { get; set; }
 
         /// <summary>
-        /// Interests unpaid
+        /// Unpaid interests
         /// </summary>
-        /// <value>Interests unpaid</value>
+        /// <value>Unpaid interests</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; set; }
 

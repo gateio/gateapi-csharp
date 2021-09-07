@@ -49,7 +49,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="fundingRate">Funding rate.</param>
         /// <param name="fundingRateIndicative">Indicative Funding rate in next period.</param>
         /// <param name="indexPrice">Index price.</param>
-        /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types.</param>
+        /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
         public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string))
         {
             this.Contract = contract;
@@ -184,9 +184,9 @@ namespace Io.Gate.GateApi.Model
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types
+        /// Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types
         /// </summary>
-        /// <value>Exchange rate of base currency and settlement currency in Quanto contract. Not existed in contract of other types</value>
+        /// <value>Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types</value>
         [DataMember(Name="quanto_base_rate", EmitDefaultValue=false)]
         public string QuantoBaseRate { get; set; }
 

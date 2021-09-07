@@ -8,6 +8,8 @@ Margin account detail. &#x60;base&#x60; refers to base currency, while &#x60;quo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrencyPair** | **string** | Currency pair | [optional] 
+**Locked** | **bool** | Whether account is locked | [optional] 
+**Risk** | **string** | Current risk rate of margin account | [optional] 
 **Base** | [**MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 **Quote** | [**MarginAccountCurrency**](MarginAccountCurrency.md) |  | [optional] 
 

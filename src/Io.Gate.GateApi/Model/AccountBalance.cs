@@ -25,44 +25,67 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FundingBookItem
+    /// Total balances calculated with specified currency unit
     /// </summary>
     [DataContract]
-    public partial class FundingBookItem :  IEquatable<FundingBookItem>, IValidatableObject
+    public partial class AccountBalance :  IEquatable<AccountBalance>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingBookItem" /> class.
+        /// Currency
         /// </summary>
-        /// <param name="rate">Loan rate.</param>
-        /// <param name="amount">Borrowable amount.</param>
-        /// <param name="days">The number of days till the loan repayment&#39;s dateline.</param>
-        public FundingBookItem(string rate = default(string), string amount = default(string), int days = default(int))
+        /// <value>Currency</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CurrencyEnum
         {
-            this.Rate = rate;
-            this.Amount = amount;
-            this.Days = days;
+            /// <summary>
+            /// Enum BTC for value: BTC
+            /// </summary>
+            [EnumMember(Value = "BTC")]
+            BTC = 1,
+
+            /// <summary>
+            /// Enum CNY for value: CNY
+            /// </summary>
+            [EnumMember(Value = "CNY")]
+            CNY = 2,
+
+            /// <summary>
+            /// Enum USD for value: USD
+            /// </summary>
+            [EnumMember(Value = "USD")]
+            USD = 3,
+
+            /// <summary>
+            /// Enum USDT for value: USDT
+            /// </summary>
+            [EnumMember(Value = "USDT")]
+            USDT = 4
+
         }
 
         /// <summary>
-        /// Loan rate
+        /// Currency
         /// </summary>
-        /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
-        public string Rate { get; set; }
+        /// <value>Currency</value>
+        [DataMember(Name="currency", EmitDefaultValue=false)]
+        public CurrencyEnum? Currency { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountBalance" /> class.
+        /// </summary>
+        /// <param name="amount">Account total balance amount.</param>
+        /// <param name="currency">Currency.</param>
+        public AccountBalance(string amount = default(string), CurrencyEnum? currency = default(CurrencyEnum?))
+        {
+            this.Amount = amount;
+            this.Currency = currency;
+        }
 
         /// <summary>
-        /// Borrowable amount
+        /// Account total balance amount
         /// </summary>
-        /// <value>Borrowable amount</value>
+        /// <value>Account total balance amount</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; set; }
-
-        /// <summary>
-        /// The number of days till the loan repayment&#39;s dateline
-        /// </summary>
-        /// <value>The number of days till the loan repayment&#39;s dateline</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
-        public int Days { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +94,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FundingBookItem {\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("class AccountBalance {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Days: ").Append(Days).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,33 +117,28 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingBookItem);
+            return this.Equals(input as AccountBalance);
         }
 
         /// <summary>
-        /// Returns true if FundingBookItem instances are equal
+        /// Returns true if AccountBalance instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingBookItem to be compared</param>
+        /// <param name="input">Instance of AccountBalance to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingBookItem input)
+        public bool Equals(AccountBalance input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Rate == input.Rate ||
-                    (this.Rate != null &&
-                    this.Rate.Equals(input.Rate))
-                ) && 
-                (
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
-                    this.Days == input.Days ||
-                    this.Days.Equals(input.Days)
+                    this.Currency == input.Currency ||
+                    this.Currency.Equals(input.Currency)
                 );
         }
 
@@ -134,11 +151,9 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Rate != null)
-                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                hashCode = hashCode * 59 + this.Days.GetHashCode();
+                hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 return hashCode;
             }
         }

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesPriceTrigger :  IEquatable<FuturesPriceTrigger>, IValidatableObject
     {
         /// <summary>
-        /// How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently
+        /// How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
         /// </summary>
-        /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently</value>
+        /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StrategyTypeEnum
         {
@@ -50,9 +50,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently
+        /// How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
         /// </summary>
-        /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently</value>
+        /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently</value>
         [DataMember(Name="strategy_type", EmitDefaultValue=false)]
         public StrategyTypeEnum? StrategyType { get; set; }
         /// <summary>
@@ -113,11 +113,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPriceTrigger" /> class.
         /// </summary>
-        /// <param name="strategyType">How the order will be triggered   - &#x60;0&#x60;: by price, which means order will be triggered on price condition satisfied  - &#x60;1&#x60;: by price gap, which means order will be triggered on gap of recent two prices of specified &#x60;price_type&#x60; satisfied.  Only &#x60;0&#x60; is supported currently.</param>
+        /// <param name="strategyType">How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently.</param>
         /// <param name="priceType">Price type. 0 - latest deal price, 1 - mark price, 2 - index price.</param>
         /// <param name="price">Value of price on price triggered, or price gap on price gap triggered.</param>
         /// <param name="rule">Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60;.</param>
-        /// <param name="expiration">How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out.</param>
+        /// <param name="expiration">How long (in seconds) to wait for the condition to be triggered before cancelling the order..</param>
         public FuturesPriceTrigger(StrategyTypeEnum? strategyType = default(StrategyTypeEnum?), PriceTypeEnum? priceType = default(PriceTypeEnum?), string price = default(string), RuleEnum? rule = default(RuleEnum?), int expiration = default(int))
         {
             this.StrategyType = strategyType;
@@ -135,9 +135,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+        /// How long (in seconds) to wait for the condition to be triggered before cancelling the order.
         /// </summary>
-        /// <value>How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out</value>
+        /// <value>How long (in seconds) to wait for the condition to be triggered before cancelling the order.</value>
         [DataMember(Name="expiration", EmitDefaultValue=false)]
         public int Expiration { get; set; }
 

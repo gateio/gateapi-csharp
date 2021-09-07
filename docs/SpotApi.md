@@ -4,10 +4,10 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListCurrencies**](SpotApi.md#listcurrencies) | **GET** /spot/currencies | List all currencies&#39; detail
-[**GetCurrency**](SpotApi.md#getcurrency) | **GET** /spot/currencies/{currency} | Get detail of one particular currency
+[**ListCurrencies**](SpotApi.md#listcurrencies) | **GET** /spot/currencies | List all currencies&#39; details
+[**GetCurrency**](SpotApi.md#getcurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 [**ListCurrencyPairs**](SpotApi.md#listcurrencypairs) | **GET** /spot/currency_pairs | List all currency pairs supported
-[**GetCurrencyPair**](SpotApi.md#getcurrencypair) | **GET** /spot/currency_pairs/{currency_pair} | Get detail of one single order
+[**GetCurrencyPair**](SpotApi.md#getcurrencypair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc order
 [**ListTickers**](SpotApi.md#listtickers) | **GET** /spot/tickers | Retrieve ticker information
 [**ListOrderBook**](SpotApi.md#listorderbook) | **GET** /spot/order_book | Retrieve order book
 [**ListTrades**](SpotApi.md#listtrades) | **GET** /spot/trades | Retrieve market trades
@@ -34,7 +34,7 @@ Method | HTTP request | Description
 # **ListCurrencies**
 > List&lt;Currency&gt; ListCurrencies ()
 
-List all currencies' detail
+List all currencies' details
 
 ### Example
 ```csharp
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // List all currencies' detail
+                // List all currencies' details
                 List<Currency> result = apiInstance.ListCurrencies();
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ No authorization required
 # **GetCurrency**
 > Currency GetCurrency (string currency)
 
-Get detail of one particular currency
+Get details of a specific currency
 
 ### Example
 ```csharp
@@ -122,7 +122,7 @@ namespace Example
 
             try
             {
-                // Get detail of one particular currency
+                // Get details of a specific currency
                 Currency result = apiInstance.GetCurrency(currency);
                 Debug.WriteLine(result);
             }
@@ -233,7 +233,7 @@ No authorization required
 # **GetCurrencyPair**
 > CurrencyPair GetCurrencyPair (string currencyPair)
 
-Get detail of one single order
+Get details of a specifc order
 
 ### Example
 ```csharp
@@ -256,7 +256,7 @@ namespace Example
 
             try
             {
-                // Get detail of one single order
+                // Get details of a specifc order
                 CurrencyPair result = apiInstance.GetCurrencyPair(currencyPair);
                 Debug.WriteLine(result);
             }
@@ -375,7 +375,7 @@ No authorization required
 
 Retrieve order book
 
-Order book will be sorted by price from high to low on bids; reversed on asks
+Order book will be sorted by price from high to low on bids; low to high on asks
 
 ### Example
 ```csharp
@@ -470,9 +470,9 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
-            var reverse = false;  // bool? | Whether to retrieve records whose IDs are smaller than `last_id`'s. Default to larger ones.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified. (optional)  (default to false)
+            var reverse = false;  // bool? | Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified. (optional)  (default to false)
 
             try
             {
@@ -497,9 +497,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Currency pair | 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
- **reverse** | **bool?**| Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
+ **reverse** | **bool?**| Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
 
 ### Return type
 
@@ -527,7 +527,7 @@ No authorization required
 
 Market candlesticks
 
-Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying `from`, `to` and `interval`
+Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
 
 ### Example
 ```csharp
@@ -547,7 +547,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var limit = 100;  // int? | Maximum recent data points returned. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var interval = "30m";  // string | Interval time between data points (optional)  (default to 30m)
@@ -575,7 +575,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Currency pair | 
- **limit** | **int?**| Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
+ **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **interval** | **string**| Interval time between data points | [optional] [default to 30m]
@@ -698,7 +698,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data (optional) 
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
 
             try
             {
@@ -722,7 +722,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | [optional] 
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
 
 ### Return type
 
@@ -896,11 +896,11 @@ Name | Type | Description  | Notes
 
 <a name="listorders"></a>
 # **ListOrders**
-> List&lt;Order&gt; ListOrders (string currencyPair, string status, int? page = null, int? limit = null, string account = null)
+> List&lt;Order&gt; ListOrders (string currencyPair, string status, int? page = null, int? limit = null, string account = null, long? from = null, long? to = null, string side = null)
 
 List orders
 
-Spot and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`
+Spot and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`  When `status` is `open`, i.e., listing open orders, only pagination parameters `page` and `limit` are supported and `limit` cannot be larger than 100. Query by `side` and time range parameters `from` and `to` are not supported.  When `status` is `finished`, i.e., listing finished orders, pagination parameters, time range parameters `from` and `to`, and `side` parameters are all supported.
 
 ### Example
 ```csharp
@@ -924,13 +924,16 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
             var status = "open";  // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
             var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
+            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
 
             try
             {
                 // List orders
-                List<Order> result = apiInstance.ListOrders(currencyPair, status, page, limit, account);
+                List<Order> result = apiInstance.ListOrders(currencyPair, status, page, limit, account, from, to, side);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -952,8 +955,11 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. | 
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | 
  **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **to** | **long?**| Time range ending, default to current time | [optional] 
+ **side** | **string**| All bids or asks. Both included if not specified | [optional] 
 
 ### Return type
 
@@ -981,7 +987,7 @@ Name | Type | Description  | Notes
 
 Create an order
 
-You can place orders with spot, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide totally. Note that the hidden part's fee will be charged using taker's fee rate. 
+You can place orders with spot, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. 
 
 ### Example
 ```csharp
@@ -1076,7 +1082,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var side = "sell";  // string | All bids or asks. Both included in not specified (optional) 
+            var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
             var account = "spot";  // string | Specify account type. Default to all account types being included (optional) 
 
             try
@@ -1102,7 +1108,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Currency pair | 
- **side** | **string**| All bids or asks. Both included in not specified | [optional] 
+ **side** | **string**| All bids or asks. Both included if not specified | [optional] 
  **account** | **string**| Specify account type. Default to all account types being included | [optional] 
 
 ### Return type
@@ -1354,11 +1360,11 @@ Name | Type | Description  | Notes
 
 <a name="listmytrades"></a>
 # **ListMyTrades**
-> List&lt;Trade&gt; ListMyTrades (string currencyPair, int? limit = null, int? page = null, string orderId = null, string account = null)
+> List&lt;Trade&gt; ListMyTrades (string currencyPair, int? limit = null, int? page = null, string orderId = null, string account = null, long? from = null, long? to = null)
 
 List personal trading history
 
-Spot and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`
+Spot and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range
 
 ### Example
 ```csharp
@@ -1380,15 +1386,17 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
             var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
+            var to = 56;  // long? | Time range ending, default to current time (optional) 
 
             try
             {
                 // List personal trading history
-                List<Trade> result = apiInstance.ListMyTrades(currencyPair, limit, page, orderId, account);
+                List<Trade> result = apiInstance.ListMyTrades(currencyPair, limit, page, orderId, account, from, to);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1408,10 +1416,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones. | 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **to** | **long?**| Time range ending, default to current time | [optional] 
 
 ### Return type
 
@@ -1458,10 +1468,10 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var status = "status_example";  // string | List orders based on status
+            var status = "status_example";  // string | Only list the orders with this status
             var market = "BTC_USDT";  // string | Currency pair (optional) 
             var account = "account_example";  // string | Trading account (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
@@ -1486,10 +1496,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| List orders based on status | 
+ **status** | **string**| Only list the orders with this status | 
  **market** | **string**| Currency pair | [optional] 
  **account** | **string**| Trading account | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -1681,7 +1691,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var orderId = "orderId_example";  // string | ID returned on order successfully being created
+            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID
 
             try
             {
@@ -1705,7 +1715,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **string**| ID returned on order successfully being created | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID | 
 
 ### Return type
 
@@ -1752,7 +1762,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var orderId = "orderId_example";  // string | ID returned on order successfully being created
+            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID
 
             try
             {
@@ -1776,7 +1786,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **string**| ID returned on order successfully being created | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID | 
 
 ### Return type
 

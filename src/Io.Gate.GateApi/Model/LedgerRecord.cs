@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class LedgerRecord :  IEquatable<LedgerRecord>, IValidatableObject
     {
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation</value>
+        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -70,9 +70,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation
+        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: waiting for manual approval - BCODE: GateCode operation</value>
+        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -86,7 +86,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amount">Currency amount (required).</param>
         /// <param name="currency">Currency name (required).</param>
         /// <param name="address">Withdrawal address. Required for withdrawals.</param>
-        /// <param name="memo">Extra withdrawal memo.</param>
+        /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
         /// <param name="chain">Name of the chain used in withdrawals.</param>
         public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
         {
@@ -142,9 +142,9 @@ namespace Io.Gate.GateApi.Model
         public string Address { get; set; }
 
         /// <summary>
-        /// Extra withdrawal memo
+        /// Additional remarks with regards to the withdrawal
         /// </summary>
-        /// <value>Extra withdrawal memo</value>
+        /// <value>Additional remarks with regards to the withdrawal</value>
         [DataMember(Name="memo", EmitDefaultValue=false)]
         public string Memo { get; set; }
 

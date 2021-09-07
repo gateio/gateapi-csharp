@@ -137,9 +137,9 @@ namespace Io.Gate.GateApi.Model
         public string RepaidInterest { get; private set; }
 
         /// <summary>
-        /// Interest not repaid
+        /// Outstanding interest yet to be paid
         /// </summary>
-        /// <value>Interest not repaid</value>
+        /// <value>Outstanding interest yet to be paid</value>
         [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 

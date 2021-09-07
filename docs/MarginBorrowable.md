@@ -1,13 +1,13 @@
 
-# Io.Gate.GateApi.Model.FundingBookItem
+# Io.Gate.GateApi.Model.MarginBorrowable
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rate** | **string** | Loan rate | [optional] 
-**Amount** | **string** | Borrowable amount | [optional] 
-**Days** | **int** | The number of days till the loan repayment&#39;s dateline | [optional] 
+**Currency** | **string** | Currency detail | [optional] 
+**CurrencyPair** | **string** | Currency pair | [optional] 
+**Amount** | **string** | Max borrowable amount | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

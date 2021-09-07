@@ -58,7 +58,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -73,7 +73,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -87,7 +87,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         List<LedgerRecord> ListDeposits (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -102,7 +102,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         ApiResponse<List<LedgerRecord>> ListDepositsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -128,7 +128,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TransferWithHttpInfo (Transfer transfer);
         /// <summary>
-        /// Transfer records between main and sub accounts
+        /// Retrieve transfer records between main and sub accounts
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
@@ -137,13 +137,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SubAccountTransfer&gt;</returns>
         List<SubAccountTransfer> ListSubAccountTransfers (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Transfer records between main and sub accounts
+        /// Retrieve transfer records between main and sub accounts
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
@@ -152,7 +152,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SubAccountTransfer&gt;</returns>
         ApiResponse<List<SubAccountTransfer>> ListSubAccountTransfersWithHttpInfo (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -184,7 +184,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;WithdrawStatus&gt;</returns>
         List<WithdrawStatus> ListWithdrawStatus (string currency = default(string));
 
@@ -195,7 +195,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;WithdrawStatus&gt;</returns>
         ApiResponse<List<WithdrawStatus>> ListWithdrawStatusWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -226,8 +226,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>TradeFee</returns>
-        TradeFee GetTradeFee ();
+        TradeFee GetTradeFee (string currencyPair = default(string));
 
         /// <summary>
         /// Retrieve personal trading fee
@@ -236,8 +237,30 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>ApiResponse of TradeFee</returns>
-        ApiResponse<TradeFee> GetTradeFeeWithHttpInfo ();
+        ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string));
+        /// <summary>
+        /// Retrieve user&#39;s total balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>TotalBalance</returns>
+        TotalBalance GetTotalBalance (string currency = default(string));
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>ApiResponse of TotalBalance</returns>
+        ApiResponse<TotalBalance> GetTotalBalanceWithHttpInfo (string currency = default(string));
         #endregion Synchronous Operations
     }
 
@@ -278,7 +301,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -293,7 +316,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -307,7 +330,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         Task<List<LedgerRecord>> ListDepositsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -322,7 +345,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         Task<ApiResponse<List<LedgerRecord>>> ListDepositsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -348,7 +371,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> TransferAsyncWithHttpInfo (Transfer transfer);
         /// <summary>
-        /// Transfer records between main and sub accounts
+        /// Retrieve transfer records between main and sub accounts
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
@@ -357,13 +380,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SubAccountTransfer&gt;</returns>
         Task<List<SubAccountTransfer>> ListSubAccountTransfersAsync (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Transfer records between main and sub accounts
+        /// Retrieve transfer records between main and sub accounts
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
@@ -372,7 +395,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountTransfer&gt;)</returns>
         Task<ApiResponse<List<SubAccountTransfer>>> ListSubAccountTransfersAsyncWithHttpInfo (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -404,7 +427,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;WithdrawStatus&gt;</returns>
         Task<List<WithdrawStatus>> ListWithdrawStatusAsync (string currency = default(string));
 
@@ -415,7 +438,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;WithdrawStatus&gt;)</returns>
         Task<ApiResponse<List<WithdrawStatus>>> ListWithdrawStatusAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -446,8 +469,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>Task of TradeFee</returns>
-        Task<TradeFee> GetTradeFeeAsync ();
+        Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string));
 
         /// <summary>
         /// Retrieve personal trading fee
@@ -456,8 +480,30 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>Task of ApiResponse (TradeFee)</returns>
-        Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo ();
+        Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string));
+        /// <summary>
+        /// Retrieve user&#39;s total balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>Task of TotalBalance</returns>
+        Task<TotalBalance> GetTotalBalanceAsync (string currency = default(string));
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>Task of ApiResponse (TotalBalance)</returns>
+        Task<ApiResponse<TotalBalance>> GetTotalBalanceAsyncWithHttpInfo (string currency = default(string));
         #endregion Asynchronous Operations
     }
 
@@ -702,7 +748,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         public List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -718,7 +764,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         public ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -782,7 +828,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         public async Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -799,7 +845,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         public async Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -865,7 +911,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         public List<LedgerRecord> ListDeposits (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -881,7 +927,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         public ApiResponse<List<LedgerRecord>> ListDepositsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -945,7 +991,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         public async Task<List<LedgerRecord>> ListDepositsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -962,7 +1008,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         public async Task<ApiResponse<List<LedgerRecord>>> ListDepositsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1137,13 +1183,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+        /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SubAccountTransfer&gt;</returns>
         public List<SubAccountTransfer> ListSubAccountTransfers (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1153,13 +1199,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+        /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SubAccountTransfer&gt;</returns>
         public ApiResponse<List<SubAccountTransfer>> ListSubAccountTransfersWithHttpInfo (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1217,13 +1263,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+        /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SubAccountTransfer&gt;</returns>
         public async Task<List<SubAccountTransfer>> ListSubAccountTransfersAsync (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1234,13 +1280,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
+        /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountTransfer&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountTransfer>>> ListSubAccountTransfersAsyncWithHttpInfo (string subUid = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1418,7 +1464,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve withdrawal status 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;WithdrawStatus&gt;</returns>
         public List<WithdrawStatus> ListWithdrawStatus (string currency = default(string))
         {
@@ -1430,7 +1476,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve withdrawal status 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;WithdrawStatus&gt;</returns>
         public ApiResponse<List<WithdrawStatus>> ListWithdrawStatusWithHttpInfo (string currency = default(string))
         {
@@ -1474,7 +1520,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve withdrawal status 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;WithdrawStatus&gt;</returns>
         public async Task<List<WithdrawStatus>> ListWithdrawStatusAsync (string currency = default(string))
         {
@@ -1487,7 +1533,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve withdrawal status 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;WithdrawStatus&gt;)</returns>
         public async Task<ApiResponse<List<WithdrawStatus>>> ListWithdrawStatusAsyncWithHttpInfo (string currency = default(string))
         {
@@ -1648,10 +1694,11 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve personal trading fee 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>TradeFee</returns>
-        public TradeFee GetTradeFee ()
+        public TradeFee GetTradeFee (string currencyPair = default(string))
         {
-             ApiResponse<TradeFee> localVarResponse = GetTradeFeeWithHttpInfo();
+             ApiResponse<TradeFee> localVarResponse = GetTradeFeeWithHttpInfo(currencyPair);
              return localVarResponse.Data;
         }
 
@@ -1659,8 +1706,9 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve personal trading fee 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>ApiResponse of TradeFee</returns>
-        public ApiResponse<TradeFee> GetTradeFeeWithHttpInfo ()
+        public ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1678,6 +1726,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1698,10 +1750,11 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve personal trading fee 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>Task of TradeFee</returns>
-        public async Task<TradeFee> GetTradeFeeAsync ()
+        public async Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetTradeFeeAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetTradeFeeAsyncWithHttpInfo(currencyPair);
              return localVarResponse.Data;
 
         }
@@ -1710,8 +1763,9 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve personal trading fee 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>Task of ApiResponse (TradeFee)</returns>
-        public async Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo ()
+        public async Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1730,6 +1784,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1741,6 +1799,121 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTradeFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>TotalBalance</returns>
+        public TotalBalance GetTotalBalance (string currency = default(string))
+        {
+             ApiResponse<TotalBalance> localVarResponse = GetTotalBalanceWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>ApiResponse of TotalBalance</returns>
+        public ApiResponse<TotalBalance> GetTotalBalanceWithHttpInfo (string currency = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<TotalBalance>("/wallet/total_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTotalBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>Task of TotalBalance</returns>
+        public async Task<TotalBalance> GetTotalBalanceAsync (string currency = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<TotalBalance> localVarResponse = await GetTotalBalanceAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve user&#39;s total balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
+        /// <returns>Task of ApiResponse (TotalBalance)</returns>
+        public async Task<ApiResponse<TotalBalance>> GetTotalBalanceAsyncWithHttpInfo (string currency = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TotalBalance>("/wallet/total_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTotalBalance", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

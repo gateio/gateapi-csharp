@@ -18,12 +18,13 @@ Method | HTTP request | Description
 [**UpdateLoan**](MarginApi.md#updateloan) | **PATCH** /margin/loans/{loan_id} | Modify a loan
 [**ListLoanRepayments**](MarginApi.md#listloanrepayments) | **GET** /margin/loans/{loan_id}/repayment | List loan repayment records
 [**RepayLoan**](MarginApi.md#repayloan) | **POST** /margin/loans/{loan_id}/repayment | Repay a loan
-[**ListLoanRecords**](MarginApi.md#listloanrecords) | **GET** /margin/loan_records | List repayment records of specified loan
+[**ListLoanRecords**](MarginApi.md#listloanrecords) | **GET** /margin/loan_records | List repayment records of a specific loan
 [**GetLoanRecord**](MarginApi.md#getloanrecord) | **GET** /margin/loan_records/{loan_record_id} | Get one single loan record
 [**UpdateLoanRecord**](MarginApi.md#updateloanrecord) | **PATCH** /margin/loan_records/{loan_record_id} | Modify a loan record
 [**GetAutoRepayStatus**](MarginApi.md#getautorepaystatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**SetAutoRepay**](MarginApi.md#setautorepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
-[**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Max transferable amount for specified margin currency
+[**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
+[**GetMarginBorrowable**](MarginApi.md#getmarginborrowable) | **GET** /margin/borrowable | Get the max borrowable amount for a specific margin currency
 [**ListCrossMarginCurrencies**](MarginApi.md#listcrossmargincurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
 [**GetCrossMarginCurrency**](MarginApi.md#getcrossmargincurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
 [**GetCrossMarginAccount**](MarginApi.md#getcrossmarginaccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
@@ -33,7 +34,8 @@ Method | HTTP request | Description
 [**GetCrossMarginLoan**](MarginApi.md#getcrossmarginloan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
 [**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
 [**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Repay cross margin loan
-[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Max transferable amount for specified cross margin currency
+[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+[**GetCrossMarginBorrowable**](MarginApi.md#getcrossmarginborrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
 
 <a name="listmargincurrencypairs"></a>
@@ -193,7 +195,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data
+            var currency = "BTC";  // string | Retrieve data of the specified currency
 
             try
             {
@@ -217,7 +219,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | 
+ **currency** | **string**| Retrieve data of the specified currency | 
 
 ### Return type
 
@@ -342,7 +344,7 @@ namespace Example
             var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 56;  // long? | Time range ending, default to current time (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
             try
             {
@@ -371,7 +373,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -418,7 +420,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data (optional) 
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
 
             try
             {
@@ -442,7 +444,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | [optional] 
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
 
 ### Return type
 
@@ -491,12 +493,12 @@ namespace Example
             var apiInstance = new MarginApi(config);
             var status = "open";  // string | Loan status
             var side = "lend";  // string | Lend or borrow
-            var currency = "BTC";  // string | Retrieved specified currency related data (optional) 
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
             var sortBy = "rate";  // string | Specify which field is used to sort. `create_time` or `rate` is supported. Default to `create_time` (optional) 
             var reverseSort = false;  // bool? | Whether to sort in descending order. Default to `true` (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
             try
             {
@@ -522,12 +524,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Loan status | 
  **side** | **string**| Lend or borrow | 
- **currency** | **string**| Retrieved specified currency related data | [optional] 
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **currencyPair** | **string**| Currency pair | [optional] 
  **sortBy** | **string**| Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; | [optional] 
  **reverseSort** | **bool?**| Whether to sort in descending order. Default to &#x60;true&#x60; | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -645,8 +647,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data
-            var ids = "123,234,345";  // string | Lending loan ID list separated by `,`. Maximum of 20 IDs are allowed in one request
+            var currency = "BTC";  // string | Retrieve data of the specified currency
+            var ids = "123,234,345";  // string | A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request
 
             try
             {
@@ -670,8 +672,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | 
- **ids** | **string**| Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request | 
+ **currency** | **string**| Retrieve data of the specified currency | 
+ **ids** | **string**| A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request | 
 
 ### Return type
 
@@ -772,7 +774,7 @@ Name | Type | Description  | Notes
 
 Cancel lending loan
 
-Only lending loans can be cancelled
+Only lent loans can be cancelled
 
 ### Example
 ```csharp
@@ -794,7 +796,7 @@ namespace Example
 
             var apiInstance = new MarginApi(config);
             var loanId = "12345";  // string | Loan ID
-            var currency = "BTC";  // string | Retrieved specified currency related data
+            var currency = "BTC";  // string | Retrieve data of the specified currency
 
             try
             {
@@ -819,7 +821,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | **string**| Loan ID | 
- **currency** | **string**| Retrieved specified currency related data | 
+ **currency** | **string**| Retrieve data of the specified currency | 
 
 ### Return type
 
@@ -1064,7 +1066,7 @@ Name | Type | Description  | Notes
 # **ListLoanRecords**
 > List&lt;LoanRecord&gt; ListLoanRecords (string loanId, string status = null, int? page = null, int? limit = null)
 
-List repayment records of specified loan
+List repayment records of a specific loan
 
 ### Example
 ```csharp
@@ -1088,11 +1090,11 @@ namespace Example
             var loanId = "12345";  // string | Loan ID
             var status = "loaned";  // string | Loan record status (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
             try
             {
-                // List repayment records of specified loan
+                // List repayment records of a specific loan
                 List<LoanRecord> result = apiInstance.ListLoanRecords(loanId, status, page, limit);
                 Debug.WriteLine(result);
             }
@@ -1115,7 +1117,7 @@ Name | Type | Description  | Notes
  **loanId** | **string**| Loan ID | 
  **status** | **string**| Loan record status | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 
@@ -1427,7 +1429,7 @@ Name | Type | Description  | Notes
 # **GetMarginTransferable**
 > MarginTransferable GetMarginTransferable (string currency, string currencyPair = null)
 
-Max transferable amount for specified margin currency
+Get the max transferable amount for a specific margin currency
 
 ### Example
 ```csharp
@@ -1448,12 +1450,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data
+            var currency = "BTC";  // string | Retrieve data of the specified currency
             var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
 
             try
             {
-                // Max transferable amount for specified margin currency
+                // Get the max transferable amount for a specific margin currency
                 MarginTransferable result = apiInstance.GetMarginTransferable(currency, currencyPair);
                 Debug.WriteLine(result);
             }
@@ -1473,12 +1475,85 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | 
+ **currency** | **string**| Retrieve data of the specified currency | 
  **currencyPair** | **string**| Currency pair | [optional] 
 
 ### Return type
 
 [**MarginTransferable**](MarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmarginborrowable"></a>
+# **GetMarginBorrowable**
+> MarginBorrowable GetMarginBorrowable (string currency, string currencyPair = null)
+
+Get the max borrowable amount for a specific margin currency
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMarginBorrowableExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currency = "BTC";  // string | Retrieve data of the specified currency
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
+
+            try
+            {
+                // Get the max borrowable amount for a specific margin currency
+                MarginBorrowable result = apiInstance.GetMarginBorrowable(currency, currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetMarginBorrowable: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | 
+ **currencyPair** | **string**| Currency pair | [optional] 
+
+### Return type
+
+[**MarginBorrowable**](MarginBorrowable.md)
 
 ### Authorization
 
@@ -1728,8 +1803,8 @@ namespace Example
             var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 56;  // long? | Time range ending, default to current time (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
-            var type = "borrow";  // string | Filter by account change type. All types are returned if not specified. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var type = "borrow";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
 
             try
             {
@@ -1757,8 +1832,8 @@ Name | Type | Description  | Notes
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
- **type** | **string**| Filter by account change type. All types are returned if not specified. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional] 
 
 ### Return type
 
@@ -1809,7 +1884,7 @@ namespace Example
             var apiInstance = new MarginApi(config);
             var status = 56;  // int | Filter by status. Supported values are 2 and 3.
             var currency = "currency_example";  // string | Filter by currency (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var reverse = true;  // bool? | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results (optional)  (default to true)
 
@@ -1837,7 +1912,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **int**| Filter by status. Supported values are 2 and 3. | 
  **currency** | **string**| Filter by currency | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool?**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -2034,7 +2109,7 @@ namespace Example
             var apiInstance = new MarginApi(config);
             var currency = "BTC";  // string |  (optional) 
             var loanId = "12345";  // string |  (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var reverse = true;  // bool? | Whether to sort in descending order, which is the default. Set `reverse=false` to return ascending results (optional)  (default to true)
 
@@ -2062,7 +2137,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**|  | [optional] 
  **loanId** | **string**|  | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **reverse** | **bool?**| Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results | [optional] [default to true]
 
@@ -2161,7 +2236,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginTransferable**
 > CrossMarginTransferable GetCrossMarginTransferable (string currency)
 
-Max transferable amount for specified cross margin currency
+Get the max transferable amount for a specific cross margin currency
 
 ### Example
 ```csharp
@@ -2182,11 +2257,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data
+            var currency = "BTC";  // string | Retrieve data of the specified currency
 
             try
             {
-                // Max transferable amount for specified cross margin currency
+                // Get the max transferable amount for a specific cross margin currency
                 CrossMarginTransferable result = apiInstance.GetCrossMarginTransferable(currency);
                 Debug.WriteLine(result);
             }
@@ -2206,11 +2281,82 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | 
+ **currency** | **string**| Retrieve data of the specified currency | 
 
 ### Return type
 
 [**CrossMarginTransferable**](CrossMarginTransferable.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcrossmarginborrowable"></a>
+# **GetCrossMarginBorrowable**
+> CrossMarginBorrowable GetCrossMarginBorrowable (string currency)
+
+Get the max borrowable amount for a specific cross margin currency
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetCrossMarginBorrowableExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currency = "BTC";  // string | Retrieve data of the specified currency
+
+            try
+            {
+                // Get the max borrowable amount for a specific cross margin currency
+                CrossMarginBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetCrossMarginBorrowable: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | 
+
+### Return type
+
+[**CrossMarginBorrowable**](CrossMarginBorrowable.md)
 
 ### Authorization
 

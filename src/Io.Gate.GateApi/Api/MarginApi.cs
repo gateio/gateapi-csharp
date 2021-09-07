@@ -74,7 +74,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>List&lt;FundingBookItem&gt;</returns>
         List<FundingBookItem> ListFundingBook (string currency);
 
@@ -85,7 +85,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
         ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency);
         /// <summary>
@@ -121,7 +121,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;MarginAccountBook&gt;</returns>
         List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
@@ -137,7 +137,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;MarginAccountBook&gt;</returns>
         ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -147,7 +147,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;FundingAccount&gt;</returns>
         List<FundingAccount> ListFundingAccounts (string currency = default(string));
 
@@ -158,7 +158,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;FundingAccount&gt;</returns>
         ApiResponse<List<FundingAccount>> ListFundingAccountsWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -170,12 +170,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;Loan&gt;</returns>
         List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
 
@@ -188,12 +188,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
         ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -224,8 +224,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Loan</returns>
         Loan MergeLoans (string currency, string ids);
 
@@ -236,8 +236,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>ApiResponse of Loan</returns>
         ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids);
         /// <summary>
@@ -267,11 +267,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel lending loan
         /// </summary>
         /// <remarks>
-        /// Only lending loans can be cancelled
+        /// Only lent loans can be cancelled
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Loan</returns>
         Loan CancelLoan (string loanId, string currency);
 
@@ -279,11 +279,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel lending loan
         /// </summary>
         /// <remarks>
-        /// Only lending loans can be cancelled
+        /// Only lent loans can be cancelled
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of Loan</returns>
         ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency);
         /// <summary>
@@ -354,7 +354,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Loan</returns>
         ApiResponse<Loan> RepayLoanWithHttpInfo (string loanId, RepayRequest repayRequest);
         /// <summary>
-        /// List repayment records of specified loan
+        /// List repayment records of a specific loan
         /// </summary>
         /// <remarks>
         /// 
@@ -363,12 +363,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;LoanRecord&gt;</returns>
         List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List repayment records of specified loan
+        /// List repayment records of a specific loan
         /// </summary>
         /// <remarks>
         /// 
@@ -377,7 +377,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
         ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -467,28 +467,51 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of AutoRepaySetting</returns>
         ApiResponse<AutoRepaySetting> SetAutoRepayWithHttpInfo (string status);
         /// <summary>
-        /// Max transferable amount for specified margin currency
+        /// Get the max transferable amount for a specific margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>MarginTransferable</returns>
         MarginTransferable GetMarginTransferable (string currency, string currencyPair = default(string));
 
         /// <summary>
-        /// Max transferable amount for specified margin currency
+        /// Get the max transferable amount for a specific margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>ApiResponse of MarginTransferable</returns>
         ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string));
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>MarginBorrowable</returns>
+        MarginBorrowable GetMarginBorrowable (string currency, string currencyPair = default(string));
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>ApiResponse of MarginBorrowable</returns>
+        ApiResponse<MarginBorrowable> GetMarginBorrowableWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
         /// Currencies supported by cross margin.
         /// </summary>
@@ -559,8 +582,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>List&lt;CrossMarginAccountBook&gt;</returns>
         List<CrossMarginAccountBook> ListCrossMarginAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
@@ -575,8 +598,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginAccountBook&gt;</returns>
         ApiResponse<List<CrossMarginAccountBook>> ListCrossMarginAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
@@ -588,7 +611,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>List&lt;CrossMarginLoan&gt;</returns>
@@ -603,7 +626,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
@@ -659,7 +682,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>List&lt;CrossMarginRepayment&gt;</returns>
@@ -674,7 +697,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
@@ -701,26 +724,47 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
         ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
-        /// Max transferable amount for specified cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>CrossMarginTransferable</returns>
         CrossMarginTransferable GetCrossMarginTransferable (string currency);
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of CrossMarginTransferable</returns>
         ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency);
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>CrossMarginBorrowable</returns>
+        CrossMarginBorrowable GetCrossMarginBorrowable (string currency);
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of CrossMarginBorrowable</returns>
+        ApiResponse<CrossMarginBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency);
         #endregion Synchronous Operations
     }
 
@@ -777,7 +821,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
         Task<List<FundingBookItem>> ListFundingBookAsync (string currency);
 
@@ -788,7 +832,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
         Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency);
         /// <summary>
@@ -824,7 +868,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;MarginAccountBook&gt;</returns>
         Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
@@ -840,7 +884,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;MarginAccountBook&gt;)</returns>
         Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -850,7 +894,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;FundingAccount&gt;</returns>
         Task<List<FundingAccount>> ListFundingAccountsAsync (string currency = default(string));
 
@@ -861,7 +905,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FundingAccount&gt;)</returns>
         Task<ApiResponse<List<FundingAccount>>> ListFundingAccountsAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -873,12 +917,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;Loan&gt;</returns>
         Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
 
@@ -891,12 +935,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
         Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -927,8 +971,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Task of Loan</returns>
         Task<Loan> MergeLoansAsync (string currency, string ids);
 
@@ -939,8 +983,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Task of ApiResponse (Loan)</returns>
         Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids);
         /// <summary>
@@ -970,11 +1014,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel lending loan
         /// </summary>
         /// <remarks>
-        /// Only lending loans can be cancelled
+        /// Only lent loans can be cancelled
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of Loan</returns>
         Task<Loan> CancelLoanAsync (string loanId, string currency);
 
@@ -982,11 +1026,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel lending loan
         /// </summary>
         /// <remarks>
-        /// Only lending loans can be cancelled
+        /// Only lent loans can be cancelled
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (Loan)</returns>
         Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency);
         /// <summary>
@@ -1057,7 +1101,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Loan)</returns>
         Task<ApiResponse<Loan>> RepayLoanAsyncWithHttpInfo (string loanId, RepayRequest repayRequest);
         /// <summary>
-        /// List repayment records of specified loan
+        /// List repayment records of a specific loan
         /// </summary>
         /// <remarks>
         /// 
@@ -1066,12 +1110,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;LoanRecord&gt;</returns>
         Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List repayment records of specified loan
+        /// List repayment records of a specific loan
         /// </summary>
         /// <remarks>
         /// 
@@ -1080,7 +1124,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
         Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
@@ -1170,28 +1214,51 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (AutoRepaySetting)</returns>
         Task<ApiResponse<AutoRepaySetting>> SetAutoRepayAsyncWithHttpInfo (string status);
         /// <summary>
-        /// Max transferable amount for specified margin currency
+        /// Get the max transferable amount for a specific margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>Task of MarginTransferable</returns>
         Task<MarginTransferable> GetMarginTransferableAsync (string currency, string currencyPair = default(string));
 
         /// <summary>
-        /// Max transferable amount for specified margin currency
+        /// Get the max transferable amount for a specific margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>Task of ApiResponse (MarginTransferable)</returns>
         Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string));
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of MarginBorrowable</returns>
+        Task<MarginBorrowable> GetMarginBorrowableAsync (string currency, string currencyPair = default(string));
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of ApiResponse (MarginBorrowable)</returns>
+        Task<ApiResponse<MarginBorrowable>> GetMarginBorrowableAsyncWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
         /// Currencies supported by cross margin.
         /// </summary>
@@ -1262,8 +1329,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>Task of List&lt;CrossMarginAccountBook&gt;</returns>
         Task<List<CrossMarginAccountBook>> ListCrossMarginAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
@@ -1278,8 +1345,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginAccountBook&gt;)</returns>
         Task<ApiResponse<List<CrossMarginAccountBook>>> ListCrossMarginAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
@@ -1291,7 +1358,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
@@ -1306,7 +1373,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
@@ -1362,7 +1429,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of List&lt;CrossMarginRepayment&gt;</returns>
@@ -1377,7 +1444,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
@@ -1404,26 +1471,47 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
         Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
-        /// Max transferable amount for specified cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of CrossMarginTransferable</returns>
         Task<CrossMarginTransferable> GetCrossMarginTransferableAsync (string currency);
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
         Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency);
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of CrossMarginBorrowable</returns>
+        Task<CrossMarginBorrowable> GetCrossMarginBorrowableAsync (string currency);
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (CrossMarginBorrowable)</returns>
+        Task<ApiResponse<CrossMarginBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency);
         #endregion Asynchronous Operations
     }
 
@@ -1760,7 +1848,7 @@ namespace Io.Gate.GateApi.Api
         /// Order book of lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>List&lt;FundingBookItem&gt;</returns>
         public List<FundingBookItem> ListFundingBook (string currency)
         {
@@ -1772,7 +1860,7 @@ namespace Io.Gate.GateApi.Api
         /// Order book of lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
         public ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency)
         {
@@ -1815,7 +1903,7 @@ namespace Io.Gate.GateApi.Api
         /// Order book of lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
         public async Task<List<FundingBookItem>> ListFundingBookAsync (string currency)
         {
@@ -1828,7 +1916,7 @@ namespace Io.Gate.GateApi.Api
         /// Order book of lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
         public async Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency)
         {
@@ -1993,7 +2081,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;MarginAccountBook&gt;</returns>
         public List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2010,7 +2098,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;MarginAccountBook&gt;</returns>
         public ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2079,7 +2167,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;MarginAccountBook&gt;</returns>
         public async Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2097,7 +2185,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;MarginAccountBook&gt;)</returns>
         public async Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2163,7 +2251,7 @@ namespace Io.Gate.GateApi.Api
         /// Funding account list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;FundingAccount&gt;</returns>
         public List<FundingAccount> ListFundingAccounts (string currency = default(string))
         {
@@ -2175,7 +2263,7 @@ namespace Io.Gate.GateApi.Api
         /// Funding account list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;FundingAccount&gt;</returns>
         public ApiResponse<List<FundingAccount>> ListFundingAccountsWithHttpInfo (string currency = default(string))
         {
@@ -2219,7 +2307,7 @@ namespace Io.Gate.GateApi.Api
         /// Funding account list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;FundingAccount&gt;</returns>
         public async Task<List<FundingAccount>> ListFundingAccountsAsync (string currency = default(string))
         {
@@ -2232,7 +2320,7 @@ namespace Io.Gate.GateApi.Api
         /// Funding account list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FundingAccount&gt;)</returns>
         public async Task<ApiResponse<List<FundingAccount>>> ListFundingAccountsAsyncWithHttpInfo (string currency = default(string))
         {
@@ -2280,12 +2368,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;Loan&gt;</returns>
         public List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2299,12 +2387,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
         public ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2380,12 +2468,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;Loan&gt;</returns>
         public async Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2400,12 +2488,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Loan status</param>
         /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
         /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
         public async Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
         {
@@ -2600,8 +2688,8 @@ namespace Io.Gate.GateApi.Api
         /// Merge multiple lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Loan</returns>
         public Loan MergeLoans (string currency, string ids)
         {
@@ -2613,8 +2701,8 @@ namespace Io.Gate.GateApi.Api
         /// Merge multiple lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>ApiResponse of Loan</returns>
         public ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids)
         {
@@ -2664,8 +2752,8 @@ namespace Io.Gate.GateApi.Api
         /// Merge multiple lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Task of Loan</returns>
         public async Task<Loan> MergeLoansAsync (string currency, string ids)
         {
@@ -2678,8 +2766,8 @@ namespace Io.Gate.GateApi.Api
         /// Merge multiple lending loans 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
-        /// <param name="ids">Lending loan ID list separated by &#x60;,&#x60;. Maximum of 20 IDs are allowed in one request</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
         /// <returns>Task of ApiResponse (Loan)</returns>
         public async Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids)
         {
@@ -2859,11 +2947,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel lending loan Only lending loans can be cancelled
+        /// Cancel lending loan Only lent loans can be cancelled
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Loan</returns>
         public Loan CancelLoan (string loanId, string currency)
         {
@@ -2872,11 +2960,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel lending loan Only lending loans can be cancelled
+        /// Cancel lending loan Only lent loans can be cancelled
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of Loan</returns>
         public ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency)
         {
@@ -2923,11 +3011,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel lending loan Only lending loans can be cancelled
+        /// Cancel lending loan Only lent loans can be cancelled
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of Loan</returns>
         public async Task<Loan> CancelLoanAsync (string loanId, string currency)
         {
@@ -2937,11 +3025,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel lending loan Only lending loans can be cancelled
+        /// Cancel lending loan Only lent loans can be cancelled
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (Loan)</returns>
         public async Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency)
         {
@@ -3373,13 +3461,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List repayment records of specified loan 
+        /// List repayment records of a specific loan 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;LoanRecord&gt;</returns>
         public List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3388,13 +3476,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List repayment records of specified loan 
+        /// List repayment records of a specific loan 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
         public ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3448,13 +3536,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List repayment records of specified loan 
+        /// List repayment records of a specific loan 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;LoanRecord&gt;</returns>
         public async Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3464,13 +3552,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List repayment records of specified loan 
+        /// List repayment records of a specific loan 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Loan ID</param>
         /// <param name="status">Loan record status (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
         public async Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -4010,10 +4098,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified margin currency 
+        /// Get the max transferable amount for a specific margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>MarginTransferable</returns>
         public MarginTransferable GetMarginTransferable (string currency, string currencyPair = default(string))
@@ -4023,10 +4111,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified margin currency 
+        /// Get the max transferable amount for a specific margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>ApiResponse of MarginTransferable</returns>
         public ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string))
@@ -4073,10 +4161,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified margin currency 
+        /// Get the max transferable amount for a specific margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>Task of MarginTransferable</returns>
         public async Task<MarginTransferable> GetMarginTransferableAsync (string currency, string currencyPair = default(string))
@@ -4087,10 +4175,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified margin currency 
+        /// Get the max transferable amount for a specific margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <param name="currencyPair">Currency pair (optional)</param>
         /// <returns>Task of ApiResponse (MarginTransferable)</returns>
         public async Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string))
@@ -4132,6 +4220,135 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarginTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>MarginBorrowable</returns>
+        public MarginBorrowable GetMarginBorrowable (string currency, string currencyPair = default(string))
+        {
+             ApiResponse<MarginBorrowable> localVarResponse = GetMarginBorrowableWithHttpInfo(currency, currencyPair);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>ApiResponse of MarginBorrowable</returns>
+        public ApiResponse<MarginBorrowable> GetMarginBorrowableWithHttpInfo (string currency, string currencyPair = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetMarginBorrowable");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginBorrowable>("/margin/borrowable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginBorrowable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of MarginBorrowable</returns>
+        public async Task<MarginBorrowable> GetMarginBorrowableAsync (string currency, string currencyPair = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<MarginBorrowable> localVarResponse = await GetMarginBorrowableAsyncWithHttpInfo(currency, currencyPair);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <returns>Task of ApiResponse (MarginBorrowable)</returns>
+        public async Task<ApiResponse<MarginBorrowable>> GetMarginBorrowableAsyncWithHttpInfo (string currency, string currencyPair = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetMarginBorrowable");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginBorrowable>("/margin/borrowable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginBorrowable", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4461,8 +4678,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>List&lt;CrossMarginAccountBook&gt;</returns>
         public List<CrossMarginAccountBook> ListCrossMarginAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -4478,8 +4695,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginAccountBook&gt;</returns>
         public ApiResponse<List<CrossMarginAccountBook>> ListCrossMarginAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -4547,8 +4764,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>Task of List&lt;CrossMarginAccountBook&gt;</returns>
         public async Task<List<CrossMarginAccountBook>> ListCrossMarginAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -4565,8 +4782,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
-        /// <param name="type">Filter by account change type. All types are returned if not specified. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginAccountBook&gt;)</returns>
         public async Task<ApiResponse<List<CrossMarginAccountBook>>> ListCrossMarginAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -4634,7 +4851,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>List&lt;CrossMarginLoan&gt;</returns>
@@ -4650,7 +4867,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
@@ -4711,7 +4928,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of List&lt;CrossMarginLoan&gt;</returns>
@@ -4728,7 +4945,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
@@ -5027,7 +5244,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>List&lt;CrossMarginRepayment&gt;</returns>
@@ -5043,7 +5260,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
@@ -5107,7 +5324,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of List&lt;CrossMarginRepayment&gt;</returns>
@@ -5124,7 +5341,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
         /// <param name="loanId"> (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <param name="reverse">Whether to sort in descending order, which is the default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results (optional, default to true)</param>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
@@ -5304,10 +5521,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>CrossMarginTransferable</returns>
         public CrossMarginTransferable GetCrossMarginTransferable (string currency)
         {
@@ -5316,10 +5533,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>ApiResponse of CrossMarginTransferable</returns>
         public ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency)
         {
@@ -5361,10 +5578,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of CrossMarginTransferable</returns>
         public async Task<CrossMarginTransferable> GetCrossMarginTransferableAsync (string currency)
         {
@@ -5374,10 +5591,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Max transferable amount for specified cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
         public async Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency)
         {
@@ -5414,6 +5631,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCrossMarginTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>CrossMarginBorrowable</returns>
+        public CrossMarginBorrowable GetCrossMarginBorrowable (string currency)
+        {
+             ApiResponse<CrossMarginBorrowable> localVarResponse = GetCrossMarginBorrowableWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of CrossMarginBorrowable</returns>
+        public ApiResponse<CrossMarginBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginBorrowable");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<CrossMarginBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginBorrowable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of CrossMarginBorrowable</returns>
+        public async Task<CrossMarginBorrowable> GetCrossMarginBorrowableAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<CrossMarginBorrowable> localVarResponse = await GetCrossMarginBorrowableAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific cross margin currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (CrossMarginBorrowable)</returns>
+        public async Task<ApiResponse<CrossMarginBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->GetCrossMarginBorrowable");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginBorrowable", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

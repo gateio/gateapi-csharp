@@ -103,7 +103,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CrossMarginAccountBook" /> class.
         /// </summary>
         /// <param name="id">Balance change record ID.</param>
-        /// <param name="time">Account changed timestamp in milliseconds.</param>
+        /// <param name="time">The timestamp of the change (in milliseconds).</param>
         /// <param name="currency">Currency changed.</param>
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
@@ -126,9 +126,9 @@ namespace Io.Gate.GateApi.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Account changed timestamp in milliseconds
+        /// The timestamp of the change (in milliseconds)
         /// </summary>
-        /// <value>Account changed timestamp in milliseconds</value>
+        /// <value>The timestamp of the change (in milliseconds)</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
         public long Time { get; set; }
 

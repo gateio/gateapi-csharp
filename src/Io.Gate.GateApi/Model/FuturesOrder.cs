@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesOrder :  IEquatable<FuturesOrder>, IValidatableObject
     {
         /// <summary>
-        /// How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
         /// </summary>
-        /// <value>How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
+        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -88,9 +88,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
         /// </summary>
-        /// <value>How the order is finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
+        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
@@ -163,7 +163,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="contract">Futures contract (required).</param>
         /// <param name="size">Order size. Specify positive number to make a bid, and negative number to ask (required).</param>
-        /// <param name="iceberg">Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size.</param>
+        /// <param name="iceberg">Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size.</param>
         /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.</param>
         /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 (default to false).</param>
         /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
@@ -197,9 +197,9 @@ namespace Io.Gate.GateApi.Model
         public int User { get; private set; }
 
         /// <summary>
-        /// Order creation time
+        /// Creation time of order
         /// </summary>
-        /// <value>Order creation time</value>
+        /// <value>Creation time of order</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
@@ -225,9 +225,9 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
-        /// Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size
+        /// Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size
         /// </summary>
-        /// <value>Display size for iceberg order. 0 for non-iceberg. Note that you would pay the taker fee for the hidden size</value>
+        /// <value>Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size</value>
         [DataMember(Name="iceberg", EmitDefaultValue=false)]
         public long Iceberg { get; set; }
 

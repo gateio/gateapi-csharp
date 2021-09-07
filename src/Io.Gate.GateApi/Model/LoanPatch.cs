@@ -68,7 +68,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Loan currency (required).</param>
         /// <param name="side">Loan side. Possible values are &#x60;lend&#x60; and &#x60;borrow&#x60;. For &#x60;LoanRecord&#x60; patching, only &#x60;lend&#x60; is supported (required).</param>
         /// <param name="autoRenew">Auto renew (required).</param>
-        /// <param name="currencyPair">Currency pair. Required for borrowing side.</param>
+        /// <param name="currencyPair">Currency pair. Required if borrowing.</param>
         /// <param name="loanId">Loan ID. Required for &#x60;LoanRecord&#x60; patching.</param>
         public LoanPatch(string currency = default(string), SideEnum side = default(SideEnum), bool autoRenew = default(bool), string currencyPair = default(string), string loanId = default(string))
         {
@@ -95,9 +95,9 @@ namespace Io.Gate.GateApi.Model
         public bool AutoRenew { get; set; }
 
         /// <summary>
-        /// Currency pair. Required for borrowing side
+        /// Currency pair. Required if borrowing
         /// </summary>
-        /// <value>Currency pair. Required for borrowing side</value>
+        /// <value>Currency pair. Required if borrowing</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; set; }
 

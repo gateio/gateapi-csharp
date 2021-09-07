@@ -209,9 +209,9 @@ namespace Io.Gate.GateApi.Model
         public string HistoryPoint { get; private set; }
 
         /// <summary>
-        /// ADL ranking, range from 1 to 5
+        /// ADL ranking, ranging from 1 to 5
         /// </summary>
-        /// <value>ADL ranking, range from 1 to 5</value>
+        /// <value>ADL ranking, ranging from 1 to 5</value>
         [DataMember(Name="adl_ranking", EmitDefaultValue=false)]
         public int AdlRanking { get; private set; }
 

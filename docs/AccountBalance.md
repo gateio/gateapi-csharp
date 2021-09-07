@@ -1,13 +1,14 @@
 
-# Io.Gate.GateApi.Model.FundingBookItem
+# Io.Gate.GateApi.Model.AccountBalance
+
+Total balances calculated with specified currency unit
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rate** | **string** | Loan rate | [optional] 
-**Amount** | **string** | Borrowable amount | [optional] 
-**Days** | **int** | The number of days till the loan repayment&#39;s dateline | [optional] 
+**Amount** | **string** | Account total balance amount | [optional] 
+**Currency** | **string** | Currency | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

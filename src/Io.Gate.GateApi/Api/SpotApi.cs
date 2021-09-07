@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List all currencies&#39; detail
+        /// List all currencies&#39; details
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<Currency> ListCurrencies ();
 
         /// <summary>
-        /// List all currencies&#39; detail
+        /// List all currencies&#39; details
         /// </summary>
         /// <remarks>
         /// 
@@ -47,7 +47,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
         ApiResponse<List<Currency>> ListCurrenciesWithHttpInfo ();
         /// <summary>
-        /// Get detail of one particular currency
+        /// Get details of a specific currency
         /// </summary>
         /// <remarks>
         /// 
@@ -58,7 +58,7 @@ namespace Io.Gate.GateApi.Api
         Currency GetCurrency (string currency);
 
         /// <summary>
-        /// Get detail of one particular currency
+        /// Get details of a specific currency
         /// </summary>
         /// <remarks>
         /// 
@@ -87,7 +87,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CurrencyPair&gt;</returns>
         ApiResponse<List<CurrencyPair>> ListCurrencyPairsWithHttpInfo ();
         /// <summary>
-        /// Get detail of one single order
+        /// Get details of a specifc order
         /// </summary>
         /// <remarks>
         /// 
@@ -98,7 +98,7 @@ namespace Io.Gate.GateApi.Api
         CurrencyPair GetCurrencyPair (string currencyPair);
 
         /// <summary>
-        /// Get detail of one single order
+        /// Get details of a specifc order
         /// </summary>
         /// <remarks>
         /// 
@@ -132,7 +132,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve order book
         /// </summary>
         /// <remarks>
-        /// Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Order book will be sorted by price from high to low on bids; low to high on asks
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -146,7 +146,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve order book
         /// </summary>
         /// <remarks>
-        /// Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Order book will be sorted by price from high to low on bids; low to high on asks
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -163,9 +163,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
 
@@ -177,20 +177,20 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
         /// <remarks>
-        /// Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -201,11 +201,11 @@ namespace Io.Gate.GateApi.Api
         /// Market candlesticks
         /// </summary>
         /// <remarks>
-        /// Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -239,7 +239,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;SpotAccount&gt;</returns>
         List<SpotAccount> ListSpotAccounts (string currency = default(string));
 
@@ -250,7 +250,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccount&gt;</returns>
         ApiResponse<List<SpotAccount>> ListSpotAccountsWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -303,36 +303,42 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
-        List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string));
+        List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
 
         /// <summary>
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string));
+        ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
         /// <summary>
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -343,7 +349,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -357,7 +363,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string));
@@ -370,7 +376,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
@@ -449,31 +455,35 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
+        List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
+        ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -481,10 +491,10 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -496,10 +506,10 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -554,7 +564,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId);
 
@@ -565,7 +575,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         /// <summary>
@@ -575,7 +585,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId);
 
@@ -586,7 +596,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         #endregion Synchronous Operations
@@ -599,7 +609,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List all currencies&#39; detail
+        /// List all currencies&#39; details
         /// </summary>
         /// <remarks>
         /// 
@@ -609,7 +619,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<Currency>> ListCurrenciesAsync ();
 
         /// <summary>
-        /// List all currencies&#39; detail
+        /// List all currencies&#39; details
         /// </summary>
         /// <remarks>
         /// 
@@ -618,7 +628,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
         Task<ApiResponse<List<Currency>>> ListCurrenciesAsyncWithHttpInfo ();
         /// <summary>
-        /// Get detail of one particular currency
+        /// Get details of a specific currency
         /// </summary>
         /// <remarks>
         /// 
@@ -629,7 +639,7 @@ namespace Io.Gate.GateApi.Api
         Task<Currency> GetCurrencyAsync (string currency);
 
         /// <summary>
-        /// Get detail of one particular currency
+        /// Get details of a specific currency
         /// </summary>
         /// <remarks>
         /// 
@@ -658,7 +668,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CurrencyPair&gt;)</returns>
         Task<ApiResponse<List<CurrencyPair>>> ListCurrencyPairsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get detail of one single order
+        /// Get details of a specifc order
         /// </summary>
         /// <remarks>
         /// 
@@ -669,7 +679,7 @@ namespace Io.Gate.GateApi.Api
         Task<CurrencyPair> GetCurrencyPairAsync (string currencyPair);
 
         /// <summary>
-        /// Get detail of one single order
+        /// Get details of a specifc order
         /// </summary>
         /// <remarks>
         /// 
@@ -703,7 +713,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve order book
         /// </summary>
         /// <remarks>
-        /// Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Order book will be sorted by price from high to low on bids; low to high on asks
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -717,7 +727,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve order book
         /// </summary>
         /// <remarks>
-        /// Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Order book will be sorted by price from high to low on bids; low to high on asks
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -734,9 +744,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
 
@@ -748,20 +758,20 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
         /// <remarks>
-        /// Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -772,11 +782,11 @@ namespace Io.Gate.GateApi.Api
         /// Market candlesticks
         /// </summary>
         /// <remarks>
-        /// Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -810,7 +820,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;SpotAccount&gt;</returns>
         Task<List<SpotAccount>> ListSpotAccountsAsync (string currency = default(string));
 
@@ -821,7 +831,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccount&gt;)</returns>
         Task<ApiResponse<List<SpotAccount>>> ListSpotAccountsAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
@@ -874,36 +884,42 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
-        Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string));
+        Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
 
         /// <summary>
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string));
+        Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
         /// <summary>
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -914,7 +930,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -928,7 +944,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string));
@@ -941,7 +957,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
@@ -1020,31 +1036,35 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
+        Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string));
+        Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -1052,10 +1072,10 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -1067,10 +1087,10 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
@@ -1125,7 +1145,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId);
 
@@ -1136,7 +1156,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         /// <summary>
@@ -1146,7 +1166,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId);
 
@@ -1157,7 +1177,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         #endregion Asynchronous Operations
@@ -1281,7 +1301,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; detail 
+        /// List all currencies&#39; details 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Currency&gt;</returns>
@@ -1292,7 +1312,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; detail 
+        /// List all currencies&#39; details 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
@@ -1329,7 +1349,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; detail 
+        /// List all currencies&#39; details 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Currency&gt;</returns>
@@ -1341,7 +1361,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; detail 
+        /// List all currencies&#39; details 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
@@ -1380,7 +1400,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one particular currency 
+        /// Get details of a specific currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1392,7 +1412,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one particular currency 
+        /// Get details of a specific currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1435,7 +1455,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one particular currency 
+        /// Get details of a specific currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1448,7 +1468,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one particular currency 
+        /// Get details of a specific currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1592,7 +1612,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one single order 
+        /// Get details of a specifc order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1604,7 +1624,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one single order 
+        /// Get details of a specifc order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1647,7 +1667,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one single order 
+        /// Get details of a specifc order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1660,7 +1680,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of one single order 
+        /// Get details of a specifc order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1816,7 +1836,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Retrieve order book Order book will be sorted by price from high to low on bids; low to high on asks
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1831,7 +1851,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Retrieve order book Order book will be sorted by price from high to low on bids; low to high on asks
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1889,7 +1909,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Retrieve order book Order book will be sorted by price from high to low on bids; low to high on asks
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1905,7 +1925,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Order book will be sorted by price from high to low on bids; reversed on asks
+        /// Retrieve order book Order book will be sorted by price from high to low on bids; low to high on asks
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1969,9 +1989,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
@@ -1984,9 +2004,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
@@ -2042,9 +2062,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
@@ -2058,9 +2078,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether to retrieve records whose IDs are smaller than &#x60;last_id&#x60;&#39;s. Default to larger ones.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
         {
@@ -2114,11 +2134,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -2130,11 +2150,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -2193,11 +2213,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -2210,11 +2230,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points are returned in one query. Be sure not to exceed the limit when specifying &#x60;from&#x60;, &#x60;to&#x60; and &#x60;interval&#x60;
+        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum recent data points returned. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
+        /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
@@ -2393,7 +2413,7 @@ namespace Io.Gate.GateApi.Api
         /// List spot accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>List&lt;SpotAccount&gt;</returns>
         public List<SpotAccount> ListSpotAccounts (string currency = default(string))
         {
@@ -2405,7 +2425,7 @@ namespace Io.Gate.GateApi.Api
         /// List spot accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccount&gt;</returns>
         public ApiResponse<List<SpotAccount>> ListSpotAccountsWithHttpInfo (string currency = default(string))
         {
@@ -2449,7 +2469,7 @@ namespace Io.Gate.GateApi.Api
         /// List spot accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of List&lt;SpotAccount&gt;</returns>
         public async Task<List<SpotAccount>> ListSpotAccountsAsync (string currency = default(string))
         {
@@ -2462,7 +2482,7 @@ namespace Io.Gate.GateApi.Api
         /// List spot accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieved specified currency related data (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccount&gt;)</returns>
         public async Task<ApiResponse<List<SpotAccount>>> ListSpotAccountsAsyncWithHttpInfo (string currency = default(string))
         {
@@ -2763,32 +2783,38 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
-        public List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string))
+        public List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
-             ApiResponse<List<Order>> localVarResponse = ListOrdersWithHttpInfo(currencyPair, status, page, limit, account);
+             ApiResponse<List<Order>> localVarResponse = ListOrdersWithHttpInfo(currencyPair, status, page, limit, account, from, to, side);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        public ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string))
+        public ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -2828,6 +2854,18 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (side != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -2845,33 +2883,39 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
-        public async Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string))
+        public async Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Order>> localVarResponse = await ListOrdersAsyncWithHttpInfo(currencyPair, status, page, limit, account);
+             Io.Gate.GateApi.Client.ApiResponse<List<Order>> localVarResponse = await ListOrdersAsyncWithHttpInfo(currencyPair, status, page, limit, account, from, to, side);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        public async Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string))
+        public async Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -2912,6 +2956,18 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (side != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -2930,7 +2986,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -2942,7 +2998,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -2988,7 +3044,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3001,7 +3057,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide totally. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
+        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3053,7 +3109,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         public List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string))
@@ -3067,7 +3123,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         public ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
@@ -3122,7 +3178,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         public async Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string))
@@ -3137,7 +3193,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="side">All bids or asks. Both included in not specified (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         public async Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
@@ -3595,32 +3651,36 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        public List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
+        public List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
-             ApiResponse<List<Trade>> localVarResponse = ListMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account);
+             ApiResponse<List<Trade>> localVarResponse = ListMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
+        public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -3659,6 +3719,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3676,33 +3744,37 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        public async Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
+        public async Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListMyTradesAsyncWithHttpInfo(currencyPair, limit, page, orderId, account);
+             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListMyTradesAsyncWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string))
+        public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -3742,6 +3814,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3763,10 +3843,10 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve running auto order list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -3779,10 +3859,10 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve running auto order list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -3844,10 +3924,10 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve running auto order list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public async Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -3861,10 +3941,10 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve running auto order list 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">List orders based on status</param>
+        /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
         /// <param name="account">Trading account (optional)</param>
-        /// <param name="limit">Maximum number of records returned in one list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
@@ -4174,7 +4254,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         public SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId)
         {
@@ -4186,7 +4266,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         public ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId)
         {
@@ -4231,7 +4311,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         public async Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId)
         {
@@ -4244,7 +4324,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
         {
@@ -4291,7 +4371,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         public SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId)
         {
@@ -4303,7 +4383,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         public ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId)
         {
@@ -4348,7 +4428,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         public async Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId)
         {
@@ -4361,7 +4441,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">ID returned on order successfully being created</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
         {

@@ -36,7 +36,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Currency name.</param>
         /// <param name="available">Available assets to lend, which is identical to spot account &#x60;available&#x60;.</param>
         /// <param name="locked">Locked amount. i.e. amount in &#x60;open&#x60; loans.</param>
-        /// <param name="lent">Amount that is loaned but not repaid.</param>
+        /// <param name="lent">Outstanding loan amount yet to be repaid.</param>
         /// <param name="totalLent">Amount used for lending. total_lent &#x3D; lent + locked.</param>
         public FundingAccount(string currency = default(string), string available = default(string), string locked = default(string), string lent = default(string), string totalLent = default(string))
         {
@@ -69,9 +69,9 @@ namespace Io.Gate.GateApi.Model
         public string Locked { get; set; }
 
         /// <summary>
-        /// Amount that is loaned but not repaid
+        /// Outstanding loan amount yet to be repaid
         /// </summary>
-        /// <value>Amount that is loaned but not repaid</value>
+        /// <value>Outstanding loan amount yet to be repaid</value>
         [DataMember(Name="lent", EmitDefaultValue=false)]
         public string Lent { get; set; }
 

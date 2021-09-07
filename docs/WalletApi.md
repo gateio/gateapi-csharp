@@ -8,11 +8,12 @@ Method | HTTP request | Description
 [**ListWithdrawals**](WalletApi.md#listwithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
 [**ListDeposits**](WalletApi.md#listdeposits) | **GET** /wallet/deposits | Retrieve deposit records
 [**Transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
-[**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Transfer records between main and sub accounts
+[**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
+[**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
 
 <a name="getdepositaddress"></a>
@@ -116,7 +117,7 @@ namespace Example
             var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
             var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
@@ -144,7 +145,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -197,7 +198,7 @@ namespace Example
             var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
             var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
@@ -225,7 +226,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -324,7 +325,7 @@ void (empty response body)
 # **ListSubAccountTransfers**
 > List&lt;SubAccountTransfer&gt; ListSubAccountTransfers (string subUid = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Transfer records between main and sub accounts
+Retrieve transfer records between main and sub accounts
 
 Record time range cannot exceed 30 days  > Note: only records after 2020-04-10 can be retrieved
 
@@ -350,12 +351,12 @@ namespace Example
             var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
             var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records returned in one list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
             {
-                // Transfer records between main and sub accounts
+                // Retrieve transfer records between main and sub accounts
                 List<SubAccountTransfer> result = apiInstance.ListSubAccountTransfers(subUid, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -378,7 +379,7 @@ Name | Type | Description  | Notes
  **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records returned in one list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -498,7 +499,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "BTC";  // string | Retrieved specified currency related data (optional) 
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
 
             try
             {
@@ -522,7 +523,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieved specified currency related data | [optional] 
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
 
 ### Return type
 
@@ -617,7 +618,7 @@ Name | Type | Description  | Notes
 
 <a name="gettradefee"></a>
 # **GetTradeFee**
-> TradeFee GetTradeFee ()
+> TradeFee GetTradeFee (string currencyPair = null)
 
 Retrieve personal trading fee
 
@@ -640,11 +641,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
+            var currencyPair = "BTC_USDT";  // string | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional) 
 
             try
             {
                 // Retrieve personal trading fee
-                TradeFee result = apiInstance.GetTradeFee();
+                TradeFee result = apiInstance.GetTradeFee(currencyPair);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -660,7 +662,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional] 
 
 ### Return type
 
@@ -679,6 +684,77 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettotalbalance"></a>
+# **GetTotalBalance**
+> TotalBalance GetTotalBalance (string currency = null)
+
+Retrieve user's total balances
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetTotalBalanceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var currency = "\"USDT\"";  // string | Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional)  (default to "USDT")
+
+            try
+            {
+                // Retrieve user's total balances
+                TotalBalance result = apiInstance.GetTotalBalance(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.GetTotalBalance: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. | [optional] [default to &quot;USDT&quot;]
+
+### Return type
+
+[**TotalBalance**](TotalBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Request is valid and is successfully responded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

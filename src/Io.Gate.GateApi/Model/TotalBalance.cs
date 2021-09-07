@@ -25,44 +25,34 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FundingBookItem
+    /// 用户总资产信息
     /// </summary>
     [DataContract]
-    public partial class FundingBookItem :  IEquatable<FundingBookItem>, IValidatableObject
+    public partial class TotalBalance :  IEquatable<TotalBalance>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingBookItem" /> class.
+        /// Initializes a new instance of the <see cref="TotalBalance" /> class.
         /// </summary>
-        /// <param name="rate">Loan rate.</param>
-        /// <param name="amount">Borrowable amount.</param>
-        /// <param name="days">The number of days till the loan repayment&#39;s dateline.</param>
-        public FundingBookItem(string rate = default(string), string amount = default(string), int days = default(int))
+        /// <param name="total">total.</param>
+        /// <param name="details">Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account.</param>
+        public TotalBalance(AccountBalance total = default(AccountBalance), Dictionary<string, AccountBalance> details = default(Dictionary<string, AccountBalance>))
         {
-            this.Rate = rate;
-            this.Amount = amount;
-            this.Days = days;
+            this.Total = total;
+            this.Details = details;
         }
 
         /// <summary>
-        /// Loan rate
+        /// Gets or Sets Total
         /// </summary>
-        /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
-        public string Rate { get; set; }
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public AccountBalance Total { get; set; }
 
         /// <summary>
-        /// Borrowable amount
+        /// Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account
         /// </summary>
-        /// <value>Borrowable amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
-        public string Amount { get; set; }
-
-        /// <summary>
-        /// The number of days till the loan repayment&#39;s dateline
-        /// </summary>
-        /// <value>The number of days till the loan repayment&#39;s dateline</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
-        public int Days { get; set; }
+        /// <value>Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account</value>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Dictionary<string, AccountBalance> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +61,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FundingBookItem {\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Days: ").Append(Days).Append("\n");
+            sb.Append("class TotalBalance {\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,33 +84,30 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingBookItem);
+            return this.Equals(input as TotalBalance);
         }
 
         /// <summary>
-        /// Returns true if FundingBookItem instances are equal
+        /// Returns true if TotalBalance instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingBookItem to be compared</param>
+        /// <param name="input">Instance of TotalBalance to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingBookItem input)
+        public bool Equals(TotalBalance input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Rate == input.Rate ||
-                    (this.Rate != null &&
-                    this.Rate.Equals(input.Rate))
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 ) && 
                 (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
-                ) && 
-                (
-                    this.Days == input.Days ||
-                    this.Days.Equals(input.Days)
+                    this.Details == input.Details ||
+                    this.Details != null &&
+                    input.Details != null &&
+                    this.Details.SequenceEqual(input.Details)
                 );
         }
 
@@ -134,11 +120,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Rate != null)
-                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
-                if (this.Amount != null)
-                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                hashCode = hashCode * 59 + this.Days.GetHashCode();
+                if (this.Total != null)
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.Details != null)
+                    hashCode = hashCode * 59 + this.Details.GetHashCode();
                 return hashCode;
             }
         }

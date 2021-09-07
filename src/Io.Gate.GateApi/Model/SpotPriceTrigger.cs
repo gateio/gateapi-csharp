@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="price">Trigger price (required).</param>
         /// <param name="rule">Price trigger condition  - &gt;&#x3D;: triggered when market price larger than or equal to &#x60;price&#x60; field - &lt;&#x3D;: triggered when market price less than or equal to &#x60;price&#x60; field  (required).</param>
-        /// <param name="expiration">How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out (required).</param>
+        /// <param name="expiration">How long (in seconds) to wait for the condition to be triggered before cancelling the order. (required).</param>
         public SpotPriceTrigger(string price = default(string), RuleEnum rule = default(RuleEnum), int expiration = default(int))
         {
             // to ensure "price" is required (not null)
@@ -84,9 +84,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out
+        /// How long (in seconds) to wait for the condition to be triggered before cancelling the order.
         /// </summary>
-        /// <value>How many seconds will the order wait for the condition being triggered. Order will be cancelled on timed out</value>
+        /// <value>How long (in seconds) to wait for the condition to be triggered before cancelling the order.</value>
         [DataMember(Name="expiration", EmitDefaultValue=false)]
         public int Expiration { get; set; }
 

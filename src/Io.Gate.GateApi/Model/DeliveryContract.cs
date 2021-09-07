@@ -159,9 +159,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="refRebateRate">Referrer commission rate.</param>
         /// <param name="orderbookId">Current orderbook ID.</param>
         /// <param name="tradeId">Current trade ID.</param>
-        /// <param name="tradeSize">Historical accumulation trade size.</param>
+        /// <param name="tradeSize">Historical accumulated trade size.</param>
         /// <param name="positionSize">Current total long position size.</param>
-        /// <param name="configChangeTime">Configuration&#39;s last changed time.</param>
+        /// <param name="configChangeTime">Last changed time of configuration.</param>
         /// <param name="inDelisting">Contract is delisting.</param>
         /// <param name="ordersLimit">Maximum number of open orders.</param>
         public DeliveryContract(string name = default(string), string underlying = default(string), CycleEnum? cycle = default(CycleEnum?), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string basisRate = default(string), string basisValue = default(string), string basisImpactValue = default(string), string settlePrice = default(string), int settlePriceInterval = default(int), int settlePriceDuration = default(int), long expireTime = default(long), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int))
@@ -417,9 +417,9 @@ namespace Io.Gate.GateApi.Model
         public long TradeId { get; set; }
 
         /// <summary>
-        /// Historical accumulation trade size
+        /// Historical accumulated trade size
         /// </summary>
-        /// <value>Historical accumulation trade size</value>
+        /// <value>Historical accumulated trade size</value>
         [DataMember(Name="trade_size", EmitDefaultValue=false)]
         public long TradeSize { get; set; }
 
@@ -431,9 +431,9 @@ namespace Io.Gate.GateApi.Model
         public long PositionSize { get; set; }
 
         /// <summary>
-        /// Configuration&#39;s last changed time
+        /// Last changed time of configuration
         /// </summary>
-        /// <value>Configuration&#39;s last changed time</value>
+        /// <value>Last changed time of configuration</value>
         [DataMember(Name="config_change_time", EmitDefaultValue=false)]
         public double ConfigChangeTime { get; set; }
 

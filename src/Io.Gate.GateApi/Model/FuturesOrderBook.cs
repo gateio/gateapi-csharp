@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesOrderBook" /> class.
         /// </summary>
-        /// <param name="id">Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response.</param>
+        /// <param name="id">Order Book ID. Increases by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response.</param>
         /// <param name="current">Response data generation timestamp.</param>
         /// <param name="update">Order book changed timestamp.</param>
         /// <param name="asks">Asks order depth (required).</param>
@@ -55,9 +55,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response
+        /// Order Book ID. Increases by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response
         /// </summary>
-        /// <value>Order Book ID. Increase by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response</value>
+        /// <value>Order Book ID. Increases by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; set; }
 

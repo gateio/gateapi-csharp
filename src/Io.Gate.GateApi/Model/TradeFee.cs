@@ -36,7 +36,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="userId">User ID.</param>
         /// <param name="takerFee">taker fee rate.</param>
         /// <param name="makerFee">maker fee rate.</param>
-        /// <param name="gtDiscount">Is GT deduction is enabled.</param>
+        /// <param name="gtDiscount">If GT deduction is enabled.</param>
         /// <param name="gtTakerFee">Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled.</param>
         /// <param name="gtMakerFee">Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled.</param>
         /// <param name="loanFee">Loan fee rate of margin lending.</param>
@@ -79,9 +79,9 @@ namespace Io.Gate.GateApi.Model
         public string MakerFee { get; set; }
 
         /// <summary>
-        /// Is GT deduction is enabled
+        /// If GT deduction is enabled
         /// </summary>
-        /// <value>Is GT deduction is enabled</value>
+        /// <value>If GT deduction is enabled</value>
         [DataMember(Name="gt_discount", EmitDefaultValue=false)]
         public bool GtDiscount { get; set; }
 
