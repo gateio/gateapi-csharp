@@ -154,6 +154,33 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="tif", EmitDefaultValue=false)]
         public TifEnum? Tif { get; set; }
         /// <summary>
+        /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+        /// </summary>
+        /// <value>Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AutoSizeEnum
+        {
+            /// <summary>
+            /// Enum Long for value: close_long
+            /// </summary>
+            [EnumMember(Value = "close_long")]
+            Long = 1,
+
+            /// <summary>
+            /// Enum Short for value: close_short
+            /// </summary>
+            [EnumMember(Value = "close_short")]
+            Short = 2
+
+        }
+
+        /// <summary>
+        /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+        /// </summary>
+        /// <value>Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0</value>
+        [DataMember(Name="auto_size", EmitDefaultValue=false)]
+        public AutoSizeEnum? AutoSize { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FuturesOrder" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -169,7 +196,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
         /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only (default to TifEnum.Gtc).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance .</param>
-        public FuturesOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, TifEnum? tif = TifEnum.Gtc, string text = default(string))
+        /// <param name="autoSize">Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0.</param>
+        public FuturesOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), AutoSizeEnum? autoSize = default(AutoSizeEnum?))
         {
             // to ensure "contract" is required (not null)
             this.Contract = contract ?? throw new ArgumentNullException("contract", "contract is a required property for FuturesOrder and cannot be null");
@@ -180,6 +208,7 @@ namespace Io.Gate.GateApi.Model
             this.ReduceOnly = reduceOnly;
             this.Tif = tif;
             this.Text = text;
+            this.AutoSize = autoSize;
         }
 
         /// <summary>
@@ -345,6 +374,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Tkfr: ").Append(Tkfr).Append("\n");
             sb.Append("  Mkfr: ").Append(Mkfr).Append("\n");
             sb.Append("  Refu: ").Append(Refu).Append("\n");
+            sb.Append("  AutoSize: ").Append(AutoSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -472,6 +502,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Refu == input.Refu ||
                     this.Refu.Equals(input.Refu)
+                ) && 
+                (
+                    this.AutoSize == input.AutoSize ||
+                    this.AutoSize.Equals(input.AutoSize)
                 );
         }
 
@@ -512,6 +546,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.Mkfr != null)
                     hashCode = hashCode * 59 + this.Mkfr.GetHashCode();
                 hashCode = hashCode * 59 + this.Refu.GetHashCode();
+                hashCode = hashCode * 59 + this.AutoSize.GetHashCode();
                 return hashCode;
             }
         }

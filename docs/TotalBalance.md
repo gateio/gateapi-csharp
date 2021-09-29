@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.TotalBalance
 
-用户总资产信息
+User&#39;s balance in all accounts
 
 ## Properties
 
