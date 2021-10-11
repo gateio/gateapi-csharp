@@ -51,35 +51,35 @@ namespace Io.Gate.GateApi.Model
         /// Name of the chain
         /// </summary>
         /// <value>Name of the chain</value>
-        [DataMember(Name="chain", EmitDefaultValue=false)]
+        [DataMember(Name="chain")]
         public string Chain { get; set; }
 
         /// <summary>
         /// Deposit address
         /// </summary>
         /// <value>Deposit address</value>
-        [DataMember(Name="address", EmitDefaultValue=false)]
+        [DataMember(Name="address")]
         public string Address { get; set; }
 
         /// <summary>
         /// Notes that some currencies required(e.g., Tag, Memo) when depositing
         /// </summary>
         /// <value>Notes that some currencies required(e.g., Tag, Memo) when depositing</value>
-        [DataMember(Name="payment_id", EmitDefaultValue=false)]
+        [DataMember(Name="payment_id")]
         public string PaymentId { get; set; }
 
         /// <summary>
         /// Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;
         /// </summary>
         /// <value>Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;</value>
-        [DataMember(Name="payment_name", EmitDefaultValue=false)]
+        [DataMember(Name="payment_name")]
         public string PaymentName { get; set; }
 
         /// <summary>
         /// The obtain failed status- 0: address successfully obtained- 1: failed to obtain address
         /// </summary>
         /// <value>The obtain failed status- 0: address successfully obtained- 1: failed to obtain address</value>
-        [DataMember(Name="obtain_failed", EmitDefaultValue=false)]
+        [DataMember(Name="obtain_failed")]
         public int ObtainFailed { get; set; }
 
         /// <summary>

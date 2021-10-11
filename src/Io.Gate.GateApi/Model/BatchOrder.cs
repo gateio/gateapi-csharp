@@ -61,7 +61,7 @@ namespace Io.Gate.GateApi.Model
         /// Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
         /// </summary>
         /// <value>Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Order type. limit - limit order
@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Model
         /// Order type. limit - limit order
         /// </summary>
         /// <value>Order type. limit - limit order</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
@@ -115,7 +115,7 @@ namespace Io.Gate.GateApi.Model
         /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
         /// </summary>
         /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account</value>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name="account")]
         public AccountEnum? Account { get; set; }
         /// <summary>
         /// Order side
@@ -142,7 +142,7 @@ namespace Io.Gate.GateApi.Model
         /// Order side
         /// </summary>
         /// <value>Order side</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum? Side { get; set; }
         /// <summary>
         /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
@@ -175,7 +175,7 @@ namespace Io.Gate.GateApi.Model
         /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
         /// </summary>
         /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee</value>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
+        [DataMember(Name="time_in_force")]
         public TimeInForceEnum? TimeInForce { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchOrder" /> class.
@@ -216,175 +216,175 @@ namespace Io.Gate.GateApi.Model
         /// User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
         /// </summary>
         /// <value>User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) </value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
         /// Whether the batch of orders succeeded
         /// </summary>
         /// <value>Whether the batch of orders succeeded</value>
-        [DataMember(Name="succeeded", EmitDefaultValue=false)]
+        [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
         /// Error label, if any, otherwise an empty string
         /// </summary>
         /// <value>Error label, if any, otherwise an empty string</value>
-        [DataMember(Name="label", EmitDefaultValue=false)]
+        [DataMember(Name="label")]
         public string Label { get; set; }
 
         /// <summary>
         /// Detailed error message, if any, otherwise an empty string
         /// </summary>
         /// <value>Detailed error message, if any, otherwise an empty string</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        [DataMember(Name="message")]
         public string Message { get; set; }
 
         /// <summary>
         /// Order ID
         /// </summary>
         /// <value>Order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation time of order
         /// </summary>
         /// <value>Creation time of order</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public string CreateTime { get; private set; }
 
         /// <summary>
         /// Last modification time of order
         /// </summary>
         /// <value>Last modification time of order</value>
-        [DataMember(Name="update_time", EmitDefaultValue=false)]
+        [DataMember(Name="update_time")]
         public string UpdateTime { get; private set; }
 
         /// <summary>
         /// Creation time of order (in milliseconds)
         /// </summary>
         /// <value>Creation time of order (in milliseconds)</value>
-        [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
+        [DataMember(Name="create_time_ms")]
         public long CreateTimeMs { get; private set; }
 
         /// <summary>
         /// Last modification time of order (in milliseconds)
         /// </summary>
         /// <value>Last modification time of order (in milliseconds)</value>
-        [DataMember(Name="update_time_ms", EmitDefaultValue=false)]
+        [DataMember(Name="update_time_ms")]
         public long UpdateTimeMs { get; private set; }
 
         /// <summary>
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Trade amount
         /// </summary>
         /// <value>Trade amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Order price
         /// </summary>
         /// <value>Order price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
         /// </summary>
         /// <value>Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely</value>
-        [DataMember(Name="iceberg", EmitDefaultValue=false)]
+        [DataMember(Name="iceberg")]
         public string Iceberg { get; set; }
 
         /// <summary>
         /// Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough.
         /// </summary>
         /// <value>Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough.</value>
-        [DataMember(Name="auto_borrow", EmitDefaultValue=false)]
+        [DataMember(Name="auto_borrow")]
         public bool AutoBorrow { get; set; }
 
         /// <summary>
         /// Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; cannot be both set to true in one order.
         /// </summary>
         /// <value>Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; cannot be both set to true in one order.</value>
-        [DataMember(Name="auto_repay", EmitDefaultValue=false)]
+        [DataMember(Name="auto_repay")]
         public bool AutoRepay { get; set; }
 
         /// <summary>
         /// Amount left to fill
         /// </summary>
         /// <value>Amount left to fill</value>
-        [DataMember(Name="left", EmitDefaultValue=false)]
+        [DataMember(Name="left")]
         public string Left { get; private set; }
 
         /// <summary>
         /// Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
         /// </summary>
         /// <value>Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;</value>
-        [DataMember(Name="fill_price", EmitDefaultValue=false)]
+        [DataMember(Name="fill_price")]
         public string FillPrice { get; private set; }
 
         /// <summary>
         /// Total filled in quote currency
         /// </summary>
         /// <value>Total filled in quote currency</value>
-        [DataMember(Name="filled_total", EmitDefaultValue=false)]
+        [DataMember(Name="filled_total")]
         public string FilledTotal { get; private set; }
 
         /// <summary>
         /// Fee deducted
         /// </summary>
         /// <value>Fee deducted</value>
-        [DataMember(Name="fee", EmitDefaultValue=false)]
+        [DataMember(Name="fee")]
         public string Fee { get; private set; }
 
         /// <summary>
         /// Fee currency unit
         /// </summary>
         /// <value>Fee currency unit</value>
-        [DataMember(Name="fee_currency", EmitDefaultValue=false)]
+        [DataMember(Name="fee_currency")]
         public string FeeCurrency { get; private set; }
 
         /// <summary>
         /// Points used to deduct fee
         /// </summary>
         /// <value>Points used to deduct fee</value>
-        [DataMember(Name="point_fee", EmitDefaultValue=false)]
+        [DataMember(Name="point_fee")]
         public string PointFee { get; private set; }
 
         /// <summary>
         /// GT used to deduct fee
         /// </summary>
         /// <value>GT used to deduct fee</value>
-        [DataMember(Name="gt_fee", EmitDefaultValue=false)]
+        [DataMember(Name="gt_fee")]
         public string GtFee { get; private set; }
 
         /// <summary>
         /// Whether GT fee discount is used
         /// </summary>
         /// <value>Whether GT fee discount is used</value>
-        [DataMember(Name="gt_discount", EmitDefaultValue=false)]
+        [DataMember(Name="gt_discount")]
         public bool GtDiscount { get; private set; }
 
         /// <summary>
         /// Rebated fee
         /// </summary>
         /// <value>Rebated fee</value>
-        [DataMember(Name="rebated_fee", EmitDefaultValue=false)]
+        [DataMember(Name="rebated_fee")]
         public string RebatedFee { get; private set; }
 
         /// <summary>
         /// Rebated fee currency unit
         /// </summary>
         /// <value>Rebated fee currency unit</value>
-        [DataMember(Name="rebated_fee_currency", EmitDefaultValue=false)]
+        [DataMember(Name="rebated_fee_currency")]
         public string RebatedFeeCurrency { get; private set; }
 
         /// <summary>

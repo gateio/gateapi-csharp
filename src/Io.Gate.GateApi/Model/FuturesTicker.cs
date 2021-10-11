@@ -75,119 +75,119 @@ namespace Io.Gate.GateApi.Model
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
         /// Last trading price
         /// </summary>
         /// <value>Last trading price</value>
-        [DataMember(Name="last", EmitDefaultValue=false)]
+        [DataMember(Name="last")]
         public string Last { get; set; }
 
         /// <summary>
         /// Change percentage.
         /// </summary>
         /// <value>Change percentage.</value>
-        [DataMember(Name="change_percentage", EmitDefaultValue=false)]
+        [DataMember(Name="change_percentage")]
         public string ChangePercentage { get; set; }
 
         /// <summary>
         /// Contract total size
         /// </summary>
         /// <value>Contract total size</value>
-        [DataMember(Name="total_size", EmitDefaultValue=false)]
+        [DataMember(Name="total_size")]
         public string TotalSize { get; set; }
 
         /// <summary>
         /// Lowest trading price in recent 24h
         /// </summary>
         /// <value>Lowest trading price in recent 24h</value>
-        [DataMember(Name="low_24h", EmitDefaultValue=false)]
+        [DataMember(Name="low_24h")]
         public string Low24h { get; set; }
 
         /// <summary>
         /// Highest trading price in recent 24h
         /// </summary>
         /// <value>Highest trading price in recent 24h</value>
-        [DataMember(Name="high_24h", EmitDefaultValue=false)]
+        [DataMember(Name="high_24h")]
         public string High24h { get; set; }
 
         /// <summary>
         /// Trade size in recent 24h
         /// </summary>
         /// <value>Trade size in recent 24h</value>
-        [DataMember(Name="volume_24h", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h")]
         public string Volume24h { get; set; }
 
         /// <summary>
         /// Trade volumes in recent 24h in BTC(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)
         /// </summary>
         /// <value>Trade volumes in recent 24h in BTC(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)</value>
-        [DataMember(Name="volume_24h_btc", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h_btc")]
         public string Volume24hBtc { get; set; }
 
         /// <summary>
         /// Trade volumes in recent 24h in USD(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)
         /// </summary>
         /// <value>Trade volumes in recent 24h in USD(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead)</value>
-        [DataMember(Name="volume_24h_usd", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h_usd")]
         public string Volume24hUsd { get; set; }
 
         /// <summary>
         /// Trade volume in recent 24h, in base currency
         /// </summary>
         /// <value>Trade volume in recent 24h, in base currency</value>
-        [DataMember(Name="volume_24h_base", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h_base")]
         public string Volume24hBase { get; set; }
 
         /// <summary>
         /// Trade volume in recent 24h, in quote currency
         /// </summary>
         /// <value>Trade volume in recent 24h, in quote currency</value>
-        [DataMember(Name="volume_24h_quote", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h_quote")]
         public string Volume24hQuote { get; set; }
 
         /// <summary>
         /// Trade volume in recent 24h, in settle currency
         /// </summary>
         /// <value>Trade volume in recent 24h, in settle currency</value>
-        [DataMember(Name="volume_24h_settle", EmitDefaultValue=false)]
+        [DataMember(Name="volume_24h_settle")]
         public string Volume24hSettle { get; set; }
 
         /// <summary>
         /// Recent mark price
         /// </summary>
         /// <value>Recent mark price</value>
-        [DataMember(Name="mark_price", EmitDefaultValue=false)]
+        [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
         /// Funding rate
         /// </summary>
         /// <value>Funding rate</value>
-        [DataMember(Name="funding_rate", EmitDefaultValue=false)]
+        [DataMember(Name="funding_rate")]
         public string FundingRate { get; set; }
 
         /// <summary>
         /// Indicative Funding rate in next period
         /// </summary>
         /// <value>Indicative Funding rate in next period</value>
-        [DataMember(Name="funding_rate_indicative", EmitDefaultValue=false)]
+        [DataMember(Name="funding_rate_indicative")]
         public string FundingRateIndicative { get; set; }
 
         /// <summary>
         /// Index price
         /// </summary>
         /// <value>Index price</value>
-        [DataMember(Name="index_price", EmitDefaultValue=false)]
+        [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
         /// Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types
         /// </summary>
         /// <value>Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types</value>
-        [DataMember(Name="quanto_base_rate", EmitDefaultValue=false)]
+        [DataMember(Name="quanto_base_rate")]
         public string QuantoBaseRate { get; set; }
 
         /// <summary>

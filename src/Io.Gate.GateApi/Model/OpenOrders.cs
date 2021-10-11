@@ -47,20 +47,20 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Total open orders in this currency pair
         /// </summary>
         /// <value>Total open orders in this currency pair</value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total")]
         public int Total { get; set; }
 
         /// <summary>
         /// Gets or Sets Orders
         /// </summary>
-        [DataMember(Name="orders", EmitDefaultValue=false)]
+        [DataMember(Name="orders")]
         public List<Order> Orders { get; set; }
 
         /// <summary>

@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// Cycle type, e.g. WEEKLY, QUARTERLY
         /// </summary>
         /// <value>Cycle type, e.g. WEEKLY, QUARTERLY</value>
-        [DataMember(Name="cycle", EmitDefaultValue=false)]
+        [DataMember(Name="cycle")]
         public CycleEnum? Cycle { get; set; }
         /// <summary>
         /// Futures contract type
@@ -94,7 +94,7 @@ namespace Io.Gate.GateApi.Model
         /// Futures contract type
         /// </summary>
         /// <value>Futures contract type</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Mark price type, internal - based on internal trading, index - based on external index price
@@ -121,7 +121,7 @@ namespace Io.Gate.GateApi.Model
         /// Mark price type, internal - based on internal trading, index - based on external index price
         /// </summary>
         /// <value>Mark price type, internal - based on internal trading, index - based on external index price</value>
-        [DataMember(Name="mark_type", EmitDefaultValue=false)]
+        [DataMember(Name="mark_type")]
         public MarkTypeEnum? MarkType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryContract" /> class.
@@ -210,245 +210,245 @@ namespace Io.Gate.GateApi.Model
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Underlying
         /// </summary>
         /// <value>Underlying</value>
-        [DataMember(Name="underlying", EmitDefaultValue=false)]
+        [DataMember(Name="underlying")]
         public string Underlying { get; set; }
 
         /// <summary>
         /// Multiplier used in converting from invoicing to settlement currency
         /// </summary>
         /// <value>Multiplier used in converting from invoicing to settlement currency</value>
-        [DataMember(Name="quanto_multiplier", EmitDefaultValue=false)]
+        [DataMember(Name="quanto_multiplier")]
         public string QuantoMultiplier { get; set; }
 
         /// <summary>
         /// Minimum leverage
         /// </summary>
         /// <value>Minimum leverage</value>
-        [DataMember(Name="leverage_min", EmitDefaultValue=false)]
+        [DataMember(Name="leverage_min")]
         public string LeverageMin { get; set; }
 
         /// <summary>
         /// Maximum leverage
         /// </summary>
         /// <value>Maximum leverage</value>
-        [DataMember(Name="leverage_max", EmitDefaultValue=false)]
+        [DataMember(Name="leverage_max")]
         public string LeverageMax { get; set; }
 
         /// <summary>
         /// Maintenance rate of margin
         /// </summary>
         /// <value>Maintenance rate of margin</value>
-        [DataMember(Name="maintenance_rate", EmitDefaultValue=false)]
+        [DataMember(Name="maintenance_rate")]
         public string MaintenanceRate { get; set; }
 
         /// <summary>
         /// Current mark price
         /// </summary>
         /// <value>Current mark price</value>
-        [DataMember(Name="mark_price", EmitDefaultValue=false)]
+        [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
         /// Current index price
         /// </summary>
         /// <value>Current index price</value>
-        [DataMember(Name="index_price", EmitDefaultValue=false)]
+        [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
         /// Last trading price
         /// </summary>
         /// <value>Last trading price</value>
-        [DataMember(Name="last_price", EmitDefaultValue=false)]
+        [DataMember(Name="last_price")]
         public string LastPrice { get; set; }
 
         /// <summary>
         /// Maker fee rate, where negative means rebate
         /// </summary>
         /// <value>Maker fee rate, where negative means rebate</value>
-        [DataMember(Name="maker_fee_rate", EmitDefaultValue=false)]
+        [DataMember(Name="maker_fee_rate")]
         public string MakerFeeRate { get; set; }
 
         /// <summary>
         /// Taker fee rate
         /// </summary>
         /// <value>Taker fee rate</value>
-        [DataMember(Name="taker_fee_rate", EmitDefaultValue=false)]
+        [DataMember(Name="taker_fee_rate")]
         public string TakerFeeRate { get; set; }
 
         /// <summary>
         /// Minimum order price increment
         /// </summary>
         /// <value>Minimum order price increment</value>
-        [DataMember(Name="order_price_round", EmitDefaultValue=false)]
+        [DataMember(Name="order_price_round")]
         public string OrderPriceRound { get; set; }
 
         /// <summary>
         /// Minimum mark price increment
         /// </summary>
         /// <value>Minimum mark price increment</value>
-        [DataMember(Name="mark_price_round", EmitDefaultValue=false)]
+        [DataMember(Name="mark_price_round")]
         public string MarkPriceRound { get; set; }
 
         /// <summary>
         /// Fair basis rate
         /// </summary>
         /// <value>Fair basis rate</value>
-        [DataMember(Name="basis_rate", EmitDefaultValue=false)]
+        [DataMember(Name="basis_rate")]
         public string BasisRate { get; set; }
 
         /// <summary>
         /// Fair basis value
         /// </summary>
         /// <value>Fair basis value</value>
-        [DataMember(Name="basis_value", EmitDefaultValue=false)]
+        [DataMember(Name="basis_value")]
         public string BasisValue { get; set; }
 
         /// <summary>
         /// Funding used for calculating impact bid, ask price
         /// </summary>
         /// <value>Funding used for calculating impact bid, ask price</value>
-        [DataMember(Name="basis_impact_value", EmitDefaultValue=false)]
+        [DataMember(Name="basis_impact_value")]
         public string BasisImpactValue { get; set; }
 
         /// <summary>
         /// Settle price
         /// </summary>
         /// <value>Settle price</value>
-        [DataMember(Name="settle_price", EmitDefaultValue=false)]
+        [DataMember(Name="settle_price")]
         public string SettlePrice { get; set; }
 
         /// <summary>
         /// Settle price update interval
         /// </summary>
         /// <value>Settle price update interval</value>
-        [DataMember(Name="settle_price_interval", EmitDefaultValue=false)]
+        [DataMember(Name="settle_price_interval")]
         public int SettlePriceInterval { get; set; }
 
         /// <summary>
         /// Settle price update duration in seconds
         /// </summary>
         /// <value>Settle price update duration in seconds</value>
-        [DataMember(Name="settle_price_duration", EmitDefaultValue=false)]
+        [DataMember(Name="settle_price_duration")]
         public int SettlePriceDuration { get; set; }
 
         /// <summary>
         /// Contract expiry timestamp
         /// </summary>
         /// <value>Contract expiry timestamp</value>
-        [DataMember(Name="expire_time", EmitDefaultValue=false)]
+        [DataMember(Name="expire_time")]
         public long ExpireTime { get; set; }
 
         /// <summary>
         /// Risk limit base
         /// </summary>
         /// <value>Risk limit base</value>
-        [DataMember(Name="risk_limit_base", EmitDefaultValue=false)]
+        [DataMember(Name="risk_limit_base")]
         public string RiskLimitBase { get; set; }
 
         /// <summary>
         /// Step of adjusting risk limit
         /// </summary>
         /// <value>Step of adjusting risk limit</value>
-        [DataMember(Name="risk_limit_step", EmitDefaultValue=false)]
+        [DataMember(Name="risk_limit_step")]
         public string RiskLimitStep { get; set; }
 
         /// <summary>
         /// Maximum risk limit the contract allowed
         /// </summary>
         /// <value>Maximum risk limit the contract allowed</value>
-        [DataMember(Name="risk_limit_max", EmitDefaultValue=false)]
+        [DataMember(Name="risk_limit_max")]
         public string RiskLimitMax { get; set; }
 
         /// <summary>
         /// Minimum order size the contract allowed
         /// </summary>
         /// <value>Minimum order size the contract allowed</value>
-        [DataMember(Name="order_size_min", EmitDefaultValue=false)]
+        [DataMember(Name="order_size_min")]
         public long OrderSizeMin { get; set; }
 
         /// <summary>
         /// Maximum order size the contract allowed
         /// </summary>
         /// <value>Maximum order size the contract allowed</value>
-        [DataMember(Name="order_size_max", EmitDefaultValue=false)]
+        [DataMember(Name="order_size_max")]
         public long OrderSizeMax { get; set; }
 
         /// <summary>
         /// deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate
         /// </summary>
         /// <value>deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate</value>
-        [DataMember(Name="order_price_deviate", EmitDefaultValue=false)]
+        [DataMember(Name="order_price_deviate")]
         public string OrderPriceDeviate { get; set; }
 
         /// <summary>
         /// Referral fee rate discount
         /// </summary>
         /// <value>Referral fee rate discount</value>
-        [DataMember(Name="ref_discount_rate", EmitDefaultValue=false)]
+        [DataMember(Name="ref_discount_rate")]
         public string RefDiscountRate { get; set; }
 
         /// <summary>
         /// Referrer commission rate
         /// </summary>
         /// <value>Referrer commission rate</value>
-        [DataMember(Name="ref_rebate_rate", EmitDefaultValue=false)]
+        [DataMember(Name="ref_rebate_rate")]
         public string RefRebateRate { get; set; }
 
         /// <summary>
         /// Current orderbook ID
         /// </summary>
         /// <value>Current orderbook ID</value>
-        [DataMember(Name="orderbook_id", EmitDefaultValue=false)]
+        [DataMember(Name="orderbook_id")]
         public long OrderbookId { get; set; }
 
         /// <summary>
         /// Current trade ID
         /// </summary>
         /// <value>Current trade ID</value>
-        [DataMember(Name="trade_id", EmitDefaultValue=false)]
+        [DataMember(Name="trade_id")]
         public long TradeId { get; set; }
 
         /// <summary>
         /// Historical accumulated trade size
         /// </summary>
         /// <value>Historical accumulated trade size</value>
-        [DataMember(Name="trade_size", EmitDefaultValue=false)]
+        [DataMember(Name="trade_size")]
         public long TradeSize { get; set; }
 
         /// <summary>
         /// Current total long position size
         /// </summary>
         /// <value>Current total long position size</value>
-        [DataMember(Name="position_size", EmitDefaultValue=false)]
+        [DataMember(Name="position_size")]
         public long PositionSize { get; set; }
 
         /// <summary>
         /// Last changed time of configuration
         /// </summary>
         /// <value>Last changed time of configuration</value>
-        [DataMember(Name="config_change_time", EmitDefaultValue=false)]
+        [DataMember(Name="config_change_time")]
         public double ConfigChangeTime { get; set; }
 
         /// <summary>
         /// Contract is delisting
         /// </summary>
         /// <value>Contract is delisting</value>
-        [DataMember(Name="in_delisting", EmitDefaultValue=false)]
+        [DataMember(Name="in_delisting")]
         public bool InDelisting { get; set; }
 
         /// <summary>
         /// Maximum number of open orders
         /// </summary>
         /// <value>Maximum number of open orders</value>
-        [DataMember(Name="orders_limit", EmitDefaultValue=false)]
+        [DataMember(Name="orders_limit")]
         public int OrdersLimit { get; set; }
 
         /// <summary>

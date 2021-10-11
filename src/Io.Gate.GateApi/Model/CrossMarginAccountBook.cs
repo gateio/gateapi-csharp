@@ -97,7 +97,7 @@ namespace Io.Gate.GateApi.Model
         /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
         /// </summary>
         /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginAccountBook" /> class.
@@ -122,35 +122,35 @@ namespace Io.Gate.GateApi.Model
         /// Balance change record ID
         /// </summary>
         /// <value>Balance change record ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// The timestamp of the change (in milliseconds)
         /// </summary>
         /// <value>The timestamp of the change (in milliseconds)</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time")]
         public long Time { get; set; }
 
         /// <summary>
         /// Currency changed
         /// </summary>
         /// <value>Currency changed</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Amount changed. Positive value means transferring in, while negative out
         /// </summary>
         /// <value>Amount changed. Positive value means transferring in, while negative out</value>
-        [DataMember(Name="change", EmitDefaultValue=false)]
+        [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
         /// Balance after change
         /// </summary>
         /// <value>Balance after change</value>
-        [DataMember(Name="balance", EmitDefaultValue=false)]
+        [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>

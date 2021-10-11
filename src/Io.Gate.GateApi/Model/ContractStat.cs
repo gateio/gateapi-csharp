@@ -67,91 +67,91 @@ namespace Io.Gate.GateApi.Model
         /// Stat timestamp
         /// </summary>
         /// <value>Stat timestamp</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time")]
         public long Time { get; set; }
 
         /// <summary>
         /// Long/short account number ratio
         /// </summary>
         /// <value>Long/short account number ratio</value>
-        [DataMember(Name="lsr_taker", EmitDefaultValue=false)]
+        [DataMember(Name="lsr_taker")]
         public decimal LsrTaker { get; set; }
 
         /// <summary>
         /// Long/short taker size ratio
         /// </summary>
         /// <value>Long/short taker size ratio</value>
-        [DataMember(Name="lsr_account", EmitDefaultValue=false)]
+        [DataMember(Name="lsr_account")]
         public decimal LsrAccount { get; set; }
 
         /// <summary>
         /// Long liquidation size
         /// </summary>
         /// <value>Long liquidation size</value>
-        [DataMember(Name="long_liq_size", EmitDefaultValue=false)]
+        [DataMember(Name="long_liq_size")]
         public long LongLiqSize { get; set; }
 
         /// <summary>
         /// Long liquidation amount(base currency)
         /// </summary>
         /// <value>Long liquidation amount(base currency)</value>
-        [DataMember(Name="long_liq_amount", EmitDefaultValue=false)]
+        [DataMember(Name="long_liq_amount")]
         public double LongLiqAmount { get; set; }
 
         /// <summary>
         /// Long liquidation volume(quote currency)
         /// </summary>
         /// <value>Long liquidation volume(quote currency)</value>
-        [DataMember(Name="long_liq_usd", EmitDefaultValue=false)]
+        [DataMember(Name="long_liq_usd")]
         public double LongLiqUsd { get; set; }
 
         /// <summary>
         /// Short liquidation size
         /// </summary>
         /// <value>Short liquidation size</value>
-        [DataMember(Name="short_liq_size", EmitDefaultValue=false)]
+        [DataMember(Name="short_liq_size")]
         public long ShortLiqSize { get; set; }
 
         /// <summary>
         /// Short liquidation amount(base currency)
         /// </summary>
         /// <value>Short liquidation amount(base currency)</value>
-        [DataMember(Name="short_liq_amount", EmitDefaultValue=false)]
+        [DataMember(Name="short_liq_amount")]
         public double ShortLiqAmount { get; set; }
 
         /// <summary>
         /// Short liquidation volume(quote currency)
         /// </summary>
         /// <value>Short liquidation volume(quote currency)</value>
-        [DataMember(Name="short_liq_usd", EmitDefaultValue=false)]
+        [DataMember(Name="short_liq_usd")]
         public double ShortLiqUsd { get; set; }
 
         /// <summary>
         /// Open interest size
         /// </summary>
         /// <value>Open interest size</value>
-        [DataMember(Name="open_interest", EmitDefaultValue=false)]
+        [DataMember(Name="open_interest")]
         public long OpenInterest { get; set; }
 
         /// <summary>
         /// Open interest volume(quote currency)
         /// </summary>
         /// <value>Open interest volume(quote currency)</value>
-        [DataMember(Name="open_interest_usd", EmitDefaultValue=false)]
+        [DataMember(Name="open_interest_usd")]
         public double OpenInterestUsd { get; set; }
 
         /// <summary>
         /// Top trader long/short account ratio
         /// </summary>
         /// <value>Top trader long/short account ratio</value>
-        [DataMember(Name="top_lsr_account", EmitDefaultValue=false)]
+        [DataMember(Name="top_lsr_account")]
         public double TopLsrAccount { get; set; }
 
         /// <summary>
         /// Top trader long/short position ratio
         /// </summary>
         /// <value>Top trader long/short position ratio</value>
-        [DataMember(Name="top_lsr_size", EmitDefaultValue=false)]
+        [DataMember(Name="top_lsr_size")]
         public double TopLsrSize { get; set; }
 
         /// <summary>

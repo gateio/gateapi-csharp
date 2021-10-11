@@ -45,14 +45,14 @@ namespace Io.Gate.GateApi.Model
         /// Unix timestamp in seconds
         /// </summary>
         /// <value>Unix timestamp in seconds</value>
-        [DataMember(Name="t", EmitDefaultValue=false)]
+        [DataMember(Name="t")]
         public long T { get; set; }
 
         /// <summary>
         /// Insurance balance
         /// </summary>
         /// <value>Insurance balance</value>
-        [DataMember(Name="b", EmitDefaultValue=false)]
+        [DataMember(Name="b")]
         public string B { get; set; }
 
         /// <summary>

@@ -49,28 +49,28 @@ namespace Io.Gate.GateApi.Model
         /// Available amount
         /// </summary>
         /// <value>Available amount</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
         /// Locked amount
         /// </summary>
         /// <value>Locked amount</value>
-        [DataMember(Name="freeze", EmitDefaultValue=false)]
+        [DataMember(Name="freeze")]
         public string Freeze { get; set; }
 
         /// <summary>
         /// Borrowed amount
         /// </summary>
         /// <value>Borrowed amount</value>
-        [DataMember(Name="borrowed", EmitDefaultValue=false)]
+        [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 
         /// <summary>
         /// Unpaid interests
         /// </summary>
         /// <value>Unpaid interests</value>
-        [DataMember(Name="interest", EmitDefaultValue=false)]
+        [DataMember(Name="interest")]
         public string Interest { get; set; }
 
         /// <summary>

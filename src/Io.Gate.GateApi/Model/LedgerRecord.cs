@@ -85,7 +85,7 @@ namespace Io.Gate.GateApi.Model
         /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
         /// </summary>
         /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerRecord" /> class.
@@ -115,56 +115,56 @@ namespace Io.Gate.GateApi.Model
         /// Record ID
         /// </summary>
         /// <value>Record ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; private set; }
 
         /// <summary>
         /// Hash record of the withdrawal
         /// </summary>
         /// <value>Hash record of the withdrawal</value>
-        [DataMember(Name="txid", EmitDefaultValue=false)]
+        [DataMember(Name="txid")]
         public string Txid { get; private set; }
 
         /// <summary>
         /// Operation time
         /// </summary>
         /// <value>Operation time</value>
-        [DataMember(Name="timestamp", EmitDefaultValue=false)]
+        [DataMember(Name="timestamp")]
         public string Timestamp { get; private set; }
 
         /// <summary>
         /// Currency amount
         /// </summary>
         /// <value>Currency amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Withdrawal address. Required for withdrawals
         /// </summary>
         /// <value>Withdrawal address. Required for withdrawals</value>
-        [DataMember(Name="address", EmitDefaultValue=false)]
+        [DataMember(Name="address")]
         public string Address { get; set; }
 
         /// <summary>
         /// Additional remarks with regards to the withdrawal
         /// </summary>
         /// <value>Additional remarks with regards to the withdrawal</value>
-        [DataMember(Name="memo", EmitDefaultValue=false)]
+        [DataMember(Name="memo")]
         public string Memo { get; set; }
 
         /// <summary>
         /// Name of the chain used in withdrawals
         /// </summary>
         /// <value>Name of the chain used in withdrawals</value>
-        [DataMember(Name="chain", EmitDefaultValue=false)]
+        [DataMember(Name="chain")]
         public string Chain { get; set; }
 
         /// <summary>

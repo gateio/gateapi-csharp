@@ -57,56 +57,56 @@ namespace Io.Gate.GateApi.Model
         /// Total assets, total &#x3D; position_margin + order_margin + available
         /// </summary>
         /// <value>Total assets, total &#x3D; position_margin + order_margin + available</value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total")]
         public string Total { get; set; }
 
         /// <summary>
         /// Unrealized PNL
         /// </summary>
         /// <value>Unrealized PNL</value>
-        [DataMember(Name="unrealised_pnl", EmitDefaultValue=false)]
+        [DataMember(Name="unrealised_pnl")]
         public string UnrealisedPnl { get; set; }
 
         /// <summary>
         /// Position margin
         /// </summary>
         /// <value>Position margin</value>
-        [DataMember(Name="position_margin", EmitDefaultValue=false)]
+        [DataMember(Name="position_margin")]
         public string PositionMargin { get; set; }
 
         /// <summary>
         /// Order margin of unfinished orders
         /// </summary>
         /// <value>Order margin of unfinished orders</value>
-        [DataMember(Name="order_margin", EmitDefaultValue=false)]
+        [DataMember(Name="order_margin")]
         public string OrderMargin { get; set; }
 
         /// <summary>
         /// Available balance to transfer out or trade
         /// </summary>
         /// <value>Available balance to transfer out or trade</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
         /// POINT amount
         /// </summary>
         /// <value>POINT amount</value>
-        [DataMember(Name="point", EmitDefaultValue=false)]
+        [DataMember(Name="point")]
         public string Point { get; set; }
 
         /// <summary>
         /// Settle currency
         /// </summary>
         /// <value>Settle currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Whether dual mode is enabled
         /// </summary>
         /// <value>Whether dual mode is enabled</value>
-        [DataMember(Name="in_dual_mode", EmitDefaultValue=false)]
+        [DataMember(Name="in_dual_mode")]
         public bool InDualMode { get; set; }
 
         /// <summary>

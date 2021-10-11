@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// Currency
         /// </summary>
         /// <value>Currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public CurrencyEnum? Currency { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountBalance" /> class.
@@ -84,7 +84,7 @@ namespace Io.Gate.GateApi.Model
         /// Account total balance amount
         /// </summary>
         /// <value>Account total balance amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>

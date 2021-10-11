@@ -44,14 +44,14 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Gets or Sets Total
         /// </summary>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total")]
         public AccountBalance Total { get; set; }
 
         /// <summary>
         /// Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account
         /// </summary>
         /// <value>Total balances in different accounts  - cross_margin: cross margin account - spot: spot account - finance: finance account - margin: margin account - quant: quant account - futures: futures account - delivery: delivery account - warrant: warrant account - cbbc: cbbc account</value>
-        [DataMember(Name="details", EmitDefaultValue=false)]
+        [DataMember(Name="details")]
         public Dictionary<string, AccountBalance> Details { get; set; }
 
         /// <summary>

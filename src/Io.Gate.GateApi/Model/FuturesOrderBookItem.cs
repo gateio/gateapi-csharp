@@ -45,14 +45,14 @@ namespace Io.Gate.GateApi.Model
         /// Price
         /// </summary>
         /// <value>Price</value>
-        [DataMember(Name="p", EmitDefaultValue=false)]
+        [DataMember(Name="p")]
         public string P { get; set; }
 
         /// <summary>
         /// Size
         /// </summary>
         /// <value>Size</value>
-        [DataMember(Name="s", EmitDefaultValue=false)]
+        [DataMember(Name="s")]
         public long S { get; set; }
 
         /// <summary>

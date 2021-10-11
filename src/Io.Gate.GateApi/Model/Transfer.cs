@@ -73,7 +73,7 @@ namespace Io.Gate.GateApi.Model
         /// Account to transfer from
         /// </summary>
         /// <value>Account to transfer from</value>
-        [DataMember(Name="from", EmitDefaultValue=false)]
+        [DataMember(Name="from")]
         public FromEnum From { get; set; }
         /// <summary>
         /// Account to transfer to
@@ -118,7 +118,7 @@ namespace Io.Gate.GateApi.Model
         /// Account to transfer to
         /// </summary>
         /// <value>Account to transfer to</value>
-        [DataMember(Name="to", EmitDefaultValue=false)]
+        [DataMember(Name="to")]
         public ToEnum To { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Transfer" /> class.
@@ -150,28 +150,28 @@ namespace Io.Gate.GateApi.Model
         /// Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency
         /// </summary>
         /// <value>Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Transfer amount
         /// </summary>
         /// <value>Transfer amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Margin currency pair. Required if transfer from or to margin account
         /// </summary>
         /// <value>Margin currency pair. Required if transfer from or to margin account</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;
         /// </summary>
         /// <value>Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;</value>
-        [DataMember(Name="settle", EmitDefaultValue=false)]
+        [DataMember(Name="settle")]
         public string Settle { get; set; }
 
         /// <summary>

@@ -61,7 +61,7 @@ namespace Io.Gate.GateApi.Model
         /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
         /// </summary>
         /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode</value>
-        [DataMember(Name="mode", EmitDefaultValue=false)]
+        [DataMember(Name="mode")]
         public ModeEnum? Mode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Position" /> class.
@@ -86,153 +86,153 @@ namespace Io.Gate.GateApi.Model
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user", EmitDefaultValue=false)]
+        [DataMember(Name="user")]
         public long User { get; private set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; private set; }
 
         /// <summary>
         /// Position size
         /// </summary>
         /// <value>Position size</value>
-        [DataMember(Name="size", EmitDefaultValue=false)]
+        [DataMember(Name="size")]
         public long Size { get; private set; }
 
         /// <summary>
         /// Position leverage. 0 means cross margin; positive number means isolated margin
         /// </summary>
         /// <value>Position leverage. 0 means cross margin; positive number means isolated margin</value>
-        [DataMember(Name="leverage", EmitDefaultValue=false)]
+        [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 
         /// <summary>
         /// Position risk limit
         /// </summary>
         /// <value>Position risk limit</value>
-        [DataMember(Name="risk_limit", EmitDefaultValue=false)]
+        [DataMember(Name="risk_limit")]
         public string RiskLimit { get; set; }
 
         /// <summary>
         /// Maximum leverage under current risk limit
         /// </summary>
         /// <value>Maximum leverage under current risk limit</value>
-        [DataMember(Name="leverage_max", EmitDefaultValue=false)]
+        [DataMember(Name="leverage_max")]
         public string LeverageMax { get; private set; }
 
         /// <summary>
         /// Maintenance rate under current risk limit
         /// </summary>
         /// <value>Maintenance rate under current risk limit</value>
-        [DataMember(Name="maintenance_rate", EmitDefaultValue=false)]
+        [DataMember(Name="maintenance_rate")]
         public string MaintenanceRate { get; private set; }
 
         /// <summary>
         /// Position value calculated in settlement currency
         /// </summary>
         /// <value>Position value calculated in settlement currency</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value")]
         public string Value { get; private set; }
 
         /// <summary>
         /// Position margin
         /// </summary>
         /// <value>Position margin</value>
-        [DataMember(Name="margin", EmitDefaultValue=false)]
+        [DataMember(Name="margin")]
         public string Margin { get; set; }
 
         /// <summary>
         /// Entry price
         /// </summary>
         /// <value>Entry price</value>
-        [DataMember(Name="entry_price", EmitDefaultValue=false)]
+        [DataMember(Name="entry_price")]
         public string EntryPrice { get; private set; }
 
         /// <summary>
         /// Liquidation price
         /// </summary>
         /// <value>Liquidation price</value>
-        [DataMember(Name="liq_price", EmitDefaultValue=false)]
+        [DataMember(Name="liq_price")]
         public string LiqPrice { get; private set; }
 
         /// <summary>
         /// Current mark price
         /// </summary>
         /// <value>Current mark price</value>
-        [DataMember(Name="mark_price", EmitDefaultValue=false)]
+        [DataMember(Name="mark_price")]
         public string MarkPrice { get; private set; }
 
         /// <summary>
         /// Unrealized PNL
         /// </summary>
         /// <value>Unrealized PNL</value>
-        [DataMember(Name="unrealised_pnl", EmitDefaultValue=false)]
+        [DataMember(Name="unrealised_pnl")]
         public string UnrealisedPnl { get; private set; }
 
         /// <summary>
         /// Realized PNL
         /// </summary>
         /// <value>Realized PNL</value>
-        [DataMember(Name="realised_pnl", EmitDefaultValue=false)]
+        [DataMember(Name="realised_pnl")]
         public string RealisedPnl { get; private set; }
 
         /// <summary>
         /// History realized PNL
         /// </summary>
         /// <value>History realized PNL</value>
-        [DataMember(Name="history_pnl", EmitDefaultValue=false)]
+        [DataMember(Name="history_pnl")]
         public string HistoryPnl { get; private set; }
 
         /// <summary>
         /// PNL of last position close
         /// </summary>
         /// <value>PNL of last position close</value>
-        [DataMember(Name="last_close_pnl", EmitDefaultValue=false)]
+        [DataMember(Name="last_close_pnl")]
         public string LastClosePnl { get; private set; }
 
         /// <summary>
         /// Realized POINT PNL
         /// </summary>
         /// <value>Realized POINT PNL</value>
-        [DataMember(Name="realised_point", EmitDefaultValue=false)]
+        [DataMember(Name="realised_point")]
         public string RealisedPoint { get; private set; }
 
         /// <summary>
         /// History realized POINT PNL
         /// </summary>
         /// <value>History realized POINT PNL</value>
-        [DataMember(Name="history_point", EmitDefaultValue=false)]
+        [DataMember(Name="history_point")]
         public string HistoryPoint { get; private set; }
 
         /// <summary>
         /// ADL ranking, ranging from 1 to 5
         /// </summary>
         /// <value>ADL ranking, ranging from 1 to 5</value>
-        [DataMember(Name="adl_ranking", EmitDefaultValue=false)]
+        [DataMember(Name="adl_ranking")]
         public int AdlRanking { get; private set; }
 
         /// <summary>
         /// Current open orders
         /// </summary>
         /// <value>Current open orders</value>
-        [DataMember(Name="pending_orders", EmitDefaultValue=false)]
+        [DataMember(Name="pending_orders")]
         public int PendingOrders { get; private set; }
 
         /// <summary>
         /// Gets or Sets CloseOrder
         /// </summary>
-        [DataMember(Name="close_order", EmitDefaultValue=true)]
+        [DataMember(Name="close_order")]
         public PositionCloseOrder CloseOrder { get; set; }
 
         /// <summary>
         /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)
         /// </summary>
         /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)</value>
-        [DataMember(Name="cross_leverage_limit", EmitDefaultValue=false)]
+        [DataMember(Name="cross_leverage_limit")]
         public string CrossLeverageLimit { get; set; }
 
         /// <summary>

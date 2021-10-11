@@ -91,7 +91,7 @@ namespace Io.Gate.GateApi.Model
         /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
         /// </summary>
         /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
-        [DataMember(Name="finish_as", EmitDefaultValue=false)]
+        [DataMember(Name="finish_as")]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
         /// Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished
@@ -118,7 +118,7 @@ namespace Io.Gate.GateApi.Model
         /// Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished
         /// </summary>
         /// <value>Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
@@ -151,7 +151,7 @@ namespace Io.Gate.GateApi.Model
         /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
         /// </summary>
         /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only</value>
-        [DataMember(Name="tif", EmitDefaultValue=false)]
+        [DataMember(Name="tif")]
         public TifEnum? Tif { get; set; }
         /// <summary>
         /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
@@ -178,7 +178,7 @@ namespace Io.Gate.GateApi.Model
         /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
         /// </summary>
         /// <value>Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0</value>
-        [DataMember(Name="auto_size", EmitDefaultValue=false)]
+        [DataMember(Name="auto_size")]
         public AutoSizeEnum? AutoSize { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesOrder" /> class.
@@ -215,133 +215,133 @@ namespace Io.Gate.GateApi.Model
         /// Futures order ID
         /// </summary>
         /// <value>Futures order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; private set; }
 
         /// <summary>
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user", EmitDefaultValue=false)]
+        [DataMember(Name="user")]
         public int User { get; private set; }
 
         /// <summary>
         /// Creation time of order
         /// </summary>
         /// <value>Creation time of order</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public double CreateTime { get; private set; }
 
         /// <summary>
         /// Order finished time. Not returned if order is open
         /// </summary>
         /// <value>Order finished time. Not returned if order is open</value>
-        [DataMember(Name="finish_time", EmitDefaultValue=false)]
+        [DataMember(Name="finish_time")]
         public double FinishTime { get; private set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
         /// Order size. Specify positive number to make a bid, and negative number to ask
         /// </summary>
         /// <value>Order size. Specify positive number to make a bid, and negative number to ask</value>
-        [DataMember(Name="size", EmitDefaultValue=false)]
+        [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
         /// Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size
         /// </summary>
         /// <value>Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size</value>
-        [DataMember(Name="iceberg", EmitDefaultValue=false)]
+        [DataMember(Name="iceberg")]
         public long Iceberg { get; set; }
 
         /// <summary>
         /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
         /// </summary>
         /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
         /// </summary>
         /// <value>Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0</value>
-        [DataMember(Name="close", EmitDefaultValue=false)]
+        [DataMember(Name="close")]
         public bool Close { get; set; }
 
         /// <summary>
         /// Is the order to close position
         /// </summary>
         /// <value>Is the order to close position</value>
-        [DataMember(Name="is_close", EmitDefaultValue=false)]
+        [DataMember(Name="is_close")]
         public bool IsClose { get; private set; }
 
         /// <summary>
         /// Set as &#x60;true&#x60; to be reduce-only order
         /// </summary>
         /// <value>Set as &#x60;true&#x60; to be reduce-only order</value>
-        [DataMember(Name="reduce_only", EmitDefaultValue=false)]
+        [DataMember(Name="reduce_only")]
         public bool ReduceOnly { get; set; }
 
         /// <summary>
         /// Is the order reduce-only
         /// </summary>
         /// <value>Is the order reduce-only</value>
-        [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
+        [DataMember(Name="is_reduce_only")]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
         /// Is the order for liquidation
         /// </summary>
         /// <value>Is the order for liquidation</value>
-        [DataMember(Name="is_liq", EmitDefaultValue=false)]
+        [DataMember(Name="is_liq")]
         public bool IsLiq { get; private set; }
 
         /// <summary>
         /// Size left to be traded
         /// </summary>
         /// <value>Size left to be traded</value>
-        [DataMember(Name="left", EmitDefaultValue=false)]
+        [DataMember(Name="left")]
         public long Left { get; private set; }
 
         /// <summary>
         /// Fill price of the order
         /// </summary>
         /// <value>Fill price of the order</value>
-        [DataMember(Name="fill_price", EmitDefaultValue=false)]
+        [DataMember(Name="fill_price")]
         public string FillPrice { get; private set; }
 
         /// <summary>
         /// User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance 
         /// </summary>
         /// <value>User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance </value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
         /// Taker fee
         /// </summary>
         /// <value>Taker fee</value>
-        [DataMember(Name="tkfr", EmitDefaultValue=false)]
+        [DataMember(Name="tkfr")]
         public string Tkfr { get; private set; }
 
         /// <summary>
         /// Maker fee
         /// </summary>
         /// <value>Maker fee</value>
-        [DataMember(Name="mkfr", EmitDefaultValue=false)]
+        [DataMember(Name="mkfr")]
         public string Mkfr { get; private set; }
 
         /// <summary>
         /// Reference user ID
         /// </summary>
         /// <value>Reference user ID</value>
-        [DataMember(Name="refu", EmitDefaultValue=false)]
+        [DataMember(Name="refu")]
         public int Refu { get; private set; }
 
         /// <summary>

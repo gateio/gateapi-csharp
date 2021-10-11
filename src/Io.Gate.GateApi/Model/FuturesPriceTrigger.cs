@@ -53,7 +53,7 @@ namespace Io.Gate.GateApi.Model
         /// How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
         /// </summary>
         /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently</value>
-        [DataMember(Name="strategy_type", EmitDefaultValue=false)]
+        [DataMember(Name="strategy_type")]
         public StrategyTypeEnum? StrategyType { get; set; }
         /// <summary>
         /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price
@@ -83,7 +83,7 @@ namespace Io.Gate.GateApi.Model
         /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price
         /// </summary>
         /// <value>Price type. 0 - latest deal price, 1 - mark price, 2 - index price</value>
-        [DataMember(Name="price_type", EmitDefaultValue=false)]
+        [DataMember(Name="price_type")]
         public PriceTypeEnum? PriceType { get; set; }
         /// <summary>
         /// Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60;
@@ -108,7 +108,7 @@ namespace Io.Gate.GateApi.Model
         /// Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60;
         /// </summary>
         /// <value>Trigger condition type  - &#x60;1&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &gt;&#x3D; &#x60;price&#x60; - &#x60;2&#x60;: calculated price based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; &lt;&#x3D; &#x60;price&#x60;</value>
-        [DataMember(Name="rule", EmitDefaultValue=false)]
+        [DataMember(Name="rule")]
         public RuleEnum? Rule { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPriceTrigger" /> class.
@@ -131,14 +131,14 @@ namespace Io.Gate.GateApi.Model
         /// Value of price on price triggered, or price gap on price gap triggered
         /// </summary>
         /// <value>Value of price on price triggered, or price gap on price gap triggered</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// How long (in seconds) to wait for the condition to be triggered before cancelling the order.
         /// </summary>
         /// <value>How long (in seconds) to wait for the condition to be triggered before cancelling the order.</value>
-        [DataMember(Name="expiration", EmitDefaultValue=false)]
+        [DataMember(Name="expiration")]
         public int Expiration { get; set; }
 
         /// <summary>

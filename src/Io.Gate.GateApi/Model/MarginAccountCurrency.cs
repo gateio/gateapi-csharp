@@ -51,35 +51,35 @@ namespace Io.Gate.GateApi.Model
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Amount suitable for margin trading.
         /// </summary>
         /// <value>Amount suitable for margin trading.</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
         /// Locked amount, used in margin trading
         /// </summary>
         /// <value>Locked amount, used in margin trading</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
+        [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>
         /// Borrowed amount
         /// </summary>
         /// <value>Borrowed amount</value>
-        [DataMember(Name="borrowed", EmitDefaultValue=false)]
+        [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 
         /// <summary>
         /// Unpaid interests
         /// </summary>
         /// <value>Unpaid interests</value>
-        [DataMember(Name="interest", EmitDefaultValue=false)]
+        [DataMember(Name="interest")]
         public string Interest { get; set; }
 
         /// <summary>

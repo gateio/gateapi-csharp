@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
         /// </summary>
         /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
-        [DataMember(Name="direction", EmitDefaultValue=false)]
+        [DataMember(Name="direction")]
         public DirectionEnum Direction { get; set; }
         /// <summary>
         /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account
@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Model
         /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account
         /// </summary>
         /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account</value>
-        [DataMember(Name="sub_account_type", EmitDefaultValue=false)]
+        [DataMember(Name="sub_account_type")]
         public SubAccountTypeEnum? SubAccountType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountTransfer" /> class.
@@ -113,42 +113,42 @@ namespace Io.Gate.GateApi.Model
         /// Transfer currency name
         /// </summary>
         /// <value>Transfer currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Sub account user ID
         /// </summary>
         /// <value>Sub account user ID</value>
-        [DataMember(Name="sub_account", EmitDefaultValue=false)]
+        [DataMember(Name="sub_account")]
         public string SubAccount { get; set; }
 
         /// <summary>
         /// Transfer amount
         /// </summary>
         /// <value>Transfer amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Main account user ID
         /// </summary>
         /// <value>Main account user ID</value>
-        [DataMember(Name="uid", EmitDefaultValue=false)]
+        [DataMember(Name="uid")]
         public string Uid { get; private set; }
 
         /// <summary>
         /// Transfer timestamp
         /// </summary>
         /// <value>Transfer timestamp</value>
-        [DataMember(Name="timest", EmitDefaultValue=false)]
+        [DataMember(Name="timest")]
         public string Timest { get; private set; }
 
         /// <summary>
         /// Where the operation is initiated from
         /// </summary>
         /// <value>Where the operation is initiated from</value>
-        [DataMember(Name="source", EmitDefaultValue=false)]
+        [DataMember(Name="source")]
         public string Source { get; private set; }
 
         /// <summary>

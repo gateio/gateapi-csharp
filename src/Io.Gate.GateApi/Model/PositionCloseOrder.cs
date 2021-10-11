@@ -47,21 +47,21 @@ namespace Io.Gate.GateApi.Model
         /// Close order ID
         /// </summary>
         /// <value>Close order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
         /// Close order price
         /// </summary>
         /// <value>Close order price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Is the close order from liquidation
         /// </summary>
         /// <value>Is the close order from liquidation</value>
-        [DataMember(Name="is_liq", EmitDefaultValue=false)]
+        [DataMember(Name="is_liq")]
         public bool IsLiq { get; set; }
 
         /// <summary>

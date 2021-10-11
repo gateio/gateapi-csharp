@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
         /// </summary>
         /// <value>How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold</value>
-        [DataMember(Name="trade_status", EmitDefaultValue=false)]
+        [DataMember(Name="trade_status")]
         public TradeStatusEnum? TradeStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyPair" /> class.
@@ -102,70 +102,70 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Base currency
         /// </summary>
         /// <value>Base currency</value>
-        [DataMember(Name="base", EmitDefaultValue=false)]
+        [DataMember(Name="base")]
         public string Base { get; set; }
 
         /// <summary>
         /// Quote currency
         /// </summary>
         /// <value>Quote currency</value>
-        [DataMember(Name="quote", EmitDefaultValue=false)]
+        [DataMember(Name="quote")]
         public string Quote { get; set; }
 
         /// <summary>
         /// Trading fee
         /// </summary>
         /// <value>Trading fee</value>
-        [DataMember(Name="fee", EmitDefaultValue=false)]
+        [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
         /// Minimum amount of base currency to trade, &#x60;null&#x60; means no limit
         /// </summary>
         /// <value>Minimum amount of base currency to trade, &#x60;null&#x60; means no limit</value>
-        [DataMember(Name="min_base_amount", EmitDefaultValue=false)]
+        [DataMember(Name="min_base_amount")]
         public string MinBaseAmount { get; set; }
 
         /// <summary>
         /// Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit
         /// </summary>
         /// <value>Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit</value>
-        [DataMember(Name="min_quote_amount", EmitDefaultValue=false)]
+        [DataMember(Name="min_quote_amount")]
         public string MinQuoteAmount { get; set; }
 
         /// <summary>
         /// Amount scale
         /// </summary>
         /// <value>Amount scale</value>
-        [DataMember(Name="amount_precision", EmitDefaultValue=false)]
+        [DataMember(Name="amount_precision")]
         public int AmountPrecision { get; set; }
 
         /// <summary>
         /// Price scale
         /// </summary>
         /// <value>Price scale</value>
-        [DataMember(Name="precision", EmitDefaultValue=false)]
+        [DataMember(Name="precision")]
         public int Precision { get; set; }
 
         /// <summary>
         /// Sell start unix timestamp in seconds
         /// </summary>
         /// <value>Sell start unix timestamp in seconds</value>
-        [DataMember(Name="sell_start", EmitDefaultValue=false)]
+        [DataMember(Name="sell_start")]
         public long SellStart { get; set; }
 
         /// <summary>
         /// Buy start unix timestamp in seconds
         /// </summary>
         /// <value>Buy start unix timestamp in seconds</value>
-        [DataMember(Name="buy_start", EmitDefaultValue=false)]
+        [DataMember(Name="buy_start")]
         public long BuyStart { get; set; }
 
         /// <summary>

@@ -67,91 +67,91 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Last trading price
         /// </summary>
         /// <value>Last trading price</value>
-        [DataMember(Name="last", EmitDefaultValue=false)]
+        [DataMember(Name="last")]
         public string Last { get; set; }
 
         /// <summary>
         /// Lowest ask
         /// </summary>
         /// <value>Lowest ask</value>
-        [DataMember(Name="lowest_ask", EmitDefaultValue=false)]
+        [DataMember(Name="lowest_ask")]
         public string LowestAsk { get; set; }
 
         /// <summary>
         /// Highest bid
         /// </summary>
         /// <value>Highest bid</value>
-        [DataMember(Name="highest_bid", EmitDefaultValue=false)]
+        [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
 
         /// <summary>
         /// Change percentage.
         /// </summary>
         /// <value>Change percentage.</value>
-        [DataMember(Name="change_percentage", EmitDefaultValue=false)]
+        [DataMember(Name="change_percentage")]
         public string ChangePercentage { get; set; }
 
         /// <summary>
         /// Base currency trade volume
         /// </summary>
         /// <value>Base currency trade volume</value>
-        [DataMember(Name="base_volume", EmitDefaultValue=false)]
+        [DataMember(Name="base_volume")]
         public string BaseVolume { get; set; }
 
         /// <summary>
         /// Quote currency trade volume
         /// </summary>
         /// <value>Quote currency trade volume</value>
-        [DataMember(Name="quote_volume", EmitDefaultValue=false)]
+        [DataMember(Name="quote_volume")]
         public string QuoteVolume { get; set; }
 
         /// <summary>
         /// Highest price in 24h
         /// </summary>
         /// <value>Highest price in 24h</value>
-        [DataMember(Name="high_24h", EmitDefaultValue=false)]
+        [DataMember(Name="high_24h")]
         public string High24h { get; set; }
 
         /// <summary>
         /// Lowest price in 24h
         /// </summary>
         /// <value>Lowest price in 24h</value>
-        [DataMember(Name="low_24h", EmitDefaultValue=false)]
+        [DataMember(Name="low_24h")]
         public string Low24h { get; set; }
 
         /// <summary>
         /// ETF net value
         /// </summary>
         /// <value>ETF net value</value>
-        [DataMember(Name="etf_net_value", EmitDefaultValue=false)]
+        [DataMember(Name="etf_net_value")]
         public string EtfNetValue { get; set; }
 
         /// <summary>
         /// ETF previous net value at re-balancing time
         /// </summary>
         /// <value>ETF previous net value at re-balancing time</value>
-        [DataMember(Name="etf_pre_net_value", EmitDefaultValue=true)]
+        [DataMember(Name="etf_pre_net_value")]
         public string EtfPreNetValue { get; set; }
 
         /// <summary>
         /// ETF previous re-balancing time
         /// </summary>
         /// <value>ETF previous re-balancing time</value>
-        [DataMember(Name="etf_pre_timestamp", EmitDefaultValue=true)]
+        [DataMember(Name="etf_pre_timestamp")]
         public long? EtfPreTimestamp { get; set; }
 
         /// <summary>
         /// ETF current leverage
         /// </summary>
         /// <value>ETF current leverage</value>
-        [DataMember(Name="etf_leverage", EmitDefaultValue=true)]
+        [DataMember(Name="etf_leverage")]
         public string EtfLeverage { get; set; }
 
         /// <summary>

@@ -52,14 +52,14 @@ namespace Io.Gate.GateApi.Model
         /// Repayment currency
         /// </summary>
         /// <value>Repayment currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Repayment amount
         /// </summary>
         /// <value>Repayment amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>

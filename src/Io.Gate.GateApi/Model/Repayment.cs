@@ -49,28 +49,28 @@ namespace Io.Gate.GateApi.Model
         /// Loan record ID
         /// </summary>
         /// <value>Loan record ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Repayment time
         /// </summary>
         /// <value>Repayment time</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public string CreateTime { get; set; }
 
         /// <summary>
         /// Repaid principal
         /// </summary>
         /// <value>Repaid principal</value>
-        [DataMember(Name="principal", EmitDefaultValue=false)]
+        [DataMember(Name="principal")]
         public string Principal { get; set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="interest", EmitDefaultValue=false)]
+        [DataMember(Name="interest")]
         public string Interest { get; set; }
 
         /// <summary>

@@ -54,20 +54,20 @@ namespace Io.Gate.GateApi.Model
         /// Currency detail
         /// </summary>
         /// <value>Currency detail</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Deposit address
         /// </summary>
         /// <value>Deposit address</value>
-        [DataMember(Name="address", EmitDefaultValue=false)]
+        [DataMember(Name="address")]
         public string Address { get; set; }
 
         /// <summary>
         /// Gets or Sets MultichainAddresses
         /// </summary>
-        [DataMember(Name="multichain_addresses", EmitDefaultValue=false)]
+        [DataMember(Name="multichain_addresses")]
         public List<MultiChainAddressItem> MultichainAddresses { get; set; }
 
         /// <summary>

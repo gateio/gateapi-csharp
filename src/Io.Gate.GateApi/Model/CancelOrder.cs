@@ -54,21 +54,21 @@ namespace Io.Gate.GateApi.Model
         /// Order currency pair
         /// </summary>
         /// <value>Order currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation
         /// </summary>
         /// <value>Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
         /// </summary>
         /// <value>If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;</value>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name="account")]
         public string Account { get; set; }
 
         /// <summary>

@@ -55,49 +55,49 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Base currency
         /// </summary>
         /// <value>Base currency</value>
-        [DataMember(Name="base", EmitDefaultValue=false)]
+        [DataMember(Name="base")]
         public string Base { get; set; }
 
         /// <summary>
         /// Quote currency
         /// </summary>
         /// <value>Quote currency</value>
-        [DataMember(Name="quote", EmitDefaultValue=false)]
+        [DataMember(Name="quote")]
         public string Quote { get; set; }
 
         /// <summary>
         /// Leverage
         /// </summary>
         /// <value>Leverage</value>
-        [DataMember(Name="leverage", EmitDefaultValue=false)]
+        [DataMember(Name="leverage")]
         public int Leverage { get; set; }
 
         /// <summary>
         /// Minimum base currency to loan, &#x60;null&#x60; means no limit
         /// </summary>
         /// <value>Minimum base currency to loan, &#x60;null&#x60; means no limit</value>
-        [DataMember(Name="min_base_amount", EmitDefaultValue=false)]
+        [DataMember(Name="min_base_amount")]
         public string MinBaseAmount { get; set; }
 
         /// <summary>
         /// Minimum quote currency to loan, &#x60;null&#x60; means no limit
         /// </summary>
         /// <value>Minimum quote currency to loan, &#x60;null&#x60; means no limit</value>
-        [DataMember(Name="min_quote_amount", EmitDefaultValue=false)]
+        [DataMember(Name="min_quote_amount")]
         public string MinQuoteAmount { get; set; }
 
         /// <summary>
         /// Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. &#x60;null&#x60; means no limit
         /// </summary>
         /// <value>Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. &#x60;null&#x60; means no limit</value>
-        [DataMember(Name="max_quote_amount", EmitDefaultValue=false)]
+        [DataMember(Name="max_quote_amount")]
         public string MaxQuoteAmount { get; set; }
 
         /// <summary>

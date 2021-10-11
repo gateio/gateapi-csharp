@@ -58,35 +58,35 @@ namespace Io.Gate.GateApi.Model
         /// Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;
         /// </summary>
         /// <value>Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
         /// The timestamp of the response data being generated (in milliseconds)
         /// </summary>
         /// <value>The timestamp of the response data being generated (in milliseconds)</value>
-        [DataMember(Name="current", EmitDefaultValue=false)]
+        [DataMember(Name="current")]
         public long Current { get; set; }
 
         /// <summary>
         /// The timestamp of when the orderbook last changed (in milliseconds)
         /// </summary>
         /// <value>The timestamp of when the orderbook last changed (in milliseconds)</value>
-        [DataMember(Name="update", EmitDefaultValue=false)]
+        [DataMember(Name="update")]
         public long Update { get; set; }
 
         /// <summary>
         /// Asks order depth
         /// </summary>
         /// <value>Asks order depth</value>
-        [DataMember(Name="asks", EmitDefaultValue=false)]
+        [DataMember(Name="asks")]
         public List<List<string>> Asks { get; set; }
 
         /// <summary>
         /// Bids order depth
         /// </summary>
         /// <value>Bids order depth</value>
-        [DataMember(Name="bids", EmitDefaultValue=false)]
+        [DataMember(Name="bids")]
         public List<List<string>> Bids { get; set; }
 
         /// <summary>

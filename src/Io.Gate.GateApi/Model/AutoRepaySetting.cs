@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
         /// </summary>
         /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoRepaySetting" /> class.

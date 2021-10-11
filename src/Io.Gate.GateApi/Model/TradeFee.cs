@@ -61,70 +61,70 @@ namespace Io.Gate.GateApi.Model
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user_id", EmitDefaultValue=false)]
+        [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
         /// taker fee rate
         /// </summary>
         /// <value>taker fee rate</value>
-        [DataMember(Name="taker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="taker_fee")]
         public string TakerFee { get; set; }
 
         /// <summary>
         /// maker fee rate
         /// </summary>
         /// <value>maker fee rate</value>
-        [DataMember(Name="maker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="maker_fee")]
         public string MakerFee { get; set; }
 
         /// <summary>
         /// If GT deduction is enabled
         /// </summary>
         /// <value>If GT deduction is enabled</value>
-        [DataMember(Name="gt_discount", EmitDefaultValue=false)]
+        [DataMember(Name="gt_discount")]
         public bool GtDiscount { get; set; }
 
         /// <summary>
         /// Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled
         /// </summary>
         /// <value>Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled</value>
-        [DataMember(Name="gt_taker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="gt_taker_fee")]
         public string GtTakerFee { get; set; }
 
         /// <summary>
         /// Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled
         /// </summary>
         /// <value>Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled</value>
-        [DataMember(Name="gt_maker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="gt_maker_fee")]
         public string GtMakerFee { get; set; }
 
         /// <summary>
         /// Loan fee rate of margin lending
         /// </summary>
         /// <value>Loan fee rate of margin lending</value>
-        [DataMember(Name="loan_fee", EmitDefaultValue=false)]
+        [DataMember(Name="loan_fee")]
         public string LoanFee { get; set; }
 
         /// <summary>
         /// Point type. 0 - Initial version. 1 - new version since 202009
         /// </summary>
         /// <value>Point type. 0 - Initial version. 1 - new version since 202009</value>
-        [DataMember(Name="point_type", EmitDefaultValue=false)]
+        [DataMember(Name="point_type")]
         public string PointType { get; set; }
 
         /// <summary>
         /// Futures trading taker fee
         /// </summary>
         /// <value>Futures trading taker fee</value>
-        [DataMember(Name="futures_taker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="futures_taker_fee")]
         public string FuturesTakerFee { get; set; }
 
         /// <summary>
         /// Future trading maker fee
         /// </summary>
         /// <value>Future trading maker fee</value>
-        [DataMember(Name="futures_maker_fee", EmitDefaultValue=false)]
+        [DataMember(Name="futures_maker_fee")]
         public string FuturesMakerFee { get; set; }
 
         /// <summary>

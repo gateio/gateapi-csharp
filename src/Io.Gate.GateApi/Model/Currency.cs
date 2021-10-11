@@ -53,42 +53,42 @@ namespace Io.Gate.GateApi.Model
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string _Currency { get; set; }
 
         /// <summary>
         /// Whether currency is de-listed
         /// </summary>
         /// <value>Whether currency is de-listed</value>
-        [DataMember(Name="delisted", EmitDefaultValue=false)]
+        [DataMember(Name="delisted")]
         public bool Delisted { get; set; }
 
         /// <summary>
         /// Whether currency&#39;s withdrawal is disabled
         /// </summary>
         /// <value>Whether currency&#39;s withdrawal is disabled</value>
-        [DataMember(Name="withdraw_disabled", EmitDefaultValue=false)]
+        [DataMember(Name="withdraw_disabled")]
         public bool WithdrawDisabled { get; set; }
 
         /// <summary>
         /// Whether currency&#39;s withdrawal is delayed
         /// </summary>
         /// <value>Whether currency&#39;s withdrawal is delayed</value>
-        [DataMember(Name="withdraw_delayed", EmitDefaultValue=false)]
+        [DataMember(Name="withdraw_delayed")]
         public bool WithdrawDelayed { get; set; }
 
         /// <summary>
         /// Whether currency&#39;s deposit is disabled
         /// </summary>
         /// <value>Whether currency&#39;s deposit is disabled</value>
-        [DataMember(Name="deposit_disabled", EmitDefaultValue=false)]
+        [DataMember(Name="deposit_disabled")]
         public bool DepositDisabled { get; set; }
 
         /// <summary>
         /// Whether currency&#39;s trading is disabled
         /// </summary>
         /// <value>Whether currency&#39;s trading is disabled</value>
-        [DataMember(Name="trade_disabled", EmitDefaultValue=false)]
+        [DataMember(Name="trade_disabled")]
         public bool TradeDisabled { get; set; }
 
         /// <summary>

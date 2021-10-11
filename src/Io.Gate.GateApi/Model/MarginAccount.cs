@@ -51,33 +51,33 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Whether account is locked
         /// </summary>
         /// <value>Whether account is locked</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
+        [DataMember(Name="locked")]
         public bool Locked { get; set; }
 
         /// <summary>
         /// Current risk rate of margin account
         /// </summary>
         /// <value>Current risk rate of margin account</value>
-        [DataMember(Name="risk", EmitDefaultValue=false)]
+        [DataMember(Name="risk")]
         public string Risk { get; set; }
 
         /// <summary>
         /// Gets or Sets Base
         /// </summary>
-        [DataMember(Name="base", EmitDefaultValue=false)]
+        [DataMember(Name="base")]
         public MarginAccountCurrency Base { get; set; }
 
         /// <summary>
         /// Gets or Sets Quote
         /// </summary>
-        [DataMember(Name="quote", EmitDefaultValue=false)]
+        [DataMember(Name="quote")]
         public MarginAccountCurrency Quote { get; set; }
 
         /// <summary>

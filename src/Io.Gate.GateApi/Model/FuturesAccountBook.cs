@@ -91,7 +91,7 @@ namespace Io.Gate.GateApi.Model
         /// Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
         /// </summary>
         /// <value>Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesAccountBook" /> class.
@@ -114,28 +114,28 @@ namespace Io.Gate.GateApi.Model
         /// Change time
         /// </summary>
         /// <value>Change time</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time")]
         public double Time { get; set; }
 
         /// <summary>
         /// Change amount
         /// </summary>
         /// <value>Change amount</value>
-        [DataMember(Name="change", EmitDefaultValue=false)]
+        [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
         /// Balance after change
         /// </summary>
         /// <value>Balance after change</value>
-        [DataMember(Name="balance", EmitDefaultValue=false)]
+        [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>
         /// Comment
         /// </summary>
         /// <value>Comment</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>

@@ -58,7 +58,7 @@ namespace Io.Gate.GateApi.Model
         /// Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
         /// </summary>
         /// <value>Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginLoan" /> class.
@@ -84,63 +84,63 @@ namespace Io.Gate.GateApi.Model
         /// Borrow loan ID
         /// </summary>
         /// <value>Borrow loan ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation timestamp, in milliseconds
         /// </summary>
         /// <value>Creation timestamp, in milliseconds</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public long CreateTime { get; private set; }
 
         /// <summary>
         /// Update timestamp, in milliseconds
         /// </summary>
         /// <value>Update timestamp, in milliseconds</value>
-        [DataMember(Name="update_time", EmitDefaultValue=false)]
+        [DataMember(Name="update_time")]
         public long UpdateTime { get; private set; }
 
         /// <summary>
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Borrowed amount
         /// </summary>
         /// <value>Borrowed amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// User defined custom ID
         /// </summary>
         /// <value>User defined custom ID</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
         /// Repaid amount
         /// </summary>
         /// <value>Repaid amount</value>
-        [DataMember(Name="repaid", EmitDefaultValue=false)]
+        [DataMember(Name="repaid")]
         public string Repaid { get; private set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="repaid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="repaid_interest")]
         public string RepaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="unpaid_interest")]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>

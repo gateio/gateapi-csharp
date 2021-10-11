@@ -47,21 +47,21 @@ namespace Io.Gate.GateApi.Model
         /// Currency detail
         /// </summary>
         /// <value>Currency detail</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Available amount
         /// </summary>
         /// <value>Available amount</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
         /// Locked amount, used in trading
         /// </summary>
         /// <value>Locked amount, used in trading</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
+        [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>

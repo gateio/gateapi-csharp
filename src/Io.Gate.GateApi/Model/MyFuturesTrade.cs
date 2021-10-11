@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
         /// </summary>
         /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;</value>
-        [DataMember(Name="role", EmitDefaultValue=false)]
+        [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MyFuturesTrade" /> class.
@@ -82,42 +82,42 @@ namespace Io.Gate.GateApi.Model
         /// Trade ID
         /// </summary>
         /// <value>Trade ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
         /// Trading time
         /// </summary>
         /// <value>Trading time</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
         /// Order ID related
         /// </summary>
         /// <value>Order ID related</value>
-        [DataMember(Name="order_id", EmitDefaultValue=false)]
+        [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
         /// Trading size
         /// </summary>
         /// <value>Trading size</value>
-        [DataMember(Name="size", EmitDefaultValue=false)]
+        [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
         /// Trading price
         /// </summary>
         /// <value>Trading price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>

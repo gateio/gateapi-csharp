@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Loan record status
         /// </summary>
         /// <value>Loan record status</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LoanRecord" /> class.
@@ -92,91 +92,91 @@ namespace Io.Gate.GateApi.Model
         /// Loan record ID
         /// </summary>
         /// <value>Loan record ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Loan ID the record belongs to
         /// </summary>
         /// <value>Loan ID the record belongs to</value>
-        [DataMember(Name="loan_id", EmitDefaultValue=false)]
+        [DataMember(Name="loan_id")]
         public string LoanId { get; set; }
 
         /// <summary>
         /// Loan time
         /// </summary>
         /// <value>Loan time</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public string CreateTime { get; set; }
 
         /// <summary>
         /// Expiration time
         /// </summary>
         /// <value>Expiration time</value>
-        [DataMember(Name="expire_time", EmitDefaultValue=false)]
+        [DataMember(Name="expire_time")]
         public string ExpireTime { get; set; }
 
         /// <summary>
         /// Garbled user ID
         /// </summary>
         /// <value>Garbled user ID</value>
-        [DataMember(Name="borrow_user_id", EmitDefaultValue=false)]
+        [DataMember(Name="borrow_user_id")]
         public string BorrowUserId { get; set; }
 
         /// <summary>
         /// Loan currency
         /// </summary>
         /// <value>Loan currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Loan rate
         /// </summary>
         /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
+        [DataMember(Name="rate")]
         public string Rate { get; set; }
 
         /// <summary>
         /// Loan amount
         /// </summary>
         /// <value>Loan amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Loan days
         /// </summary>
         /// <value>Loan days</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
+        [DataMember(Name="days")]
         public int Days { get; set; }
 
         /// <summary>
         /// Whether the record will auto renew on expiration
         /// </summary>
         /// <value>Whether the record will auto renew on expiration</value>
-        [DataMember(Name="auto_renew", EmitDefaultValue=false)]
+        [DataMember(Name="auto_renew")]
         public bool AutoRenew { get; set; }
 
         /// <summary>
         /// Repaid amount
         /// </summary>
         /// <value>Repaid amount</value>
-        [DataMember(Name="repaid", EmitDefaultValue=false)]
+        [DataMember(Name="repaid")]
         public string Repaid { get; set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="paid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="paid_interest")]
         public string PaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="unpaid_interest")]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>

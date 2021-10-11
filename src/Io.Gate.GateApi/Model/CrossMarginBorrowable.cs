@@ -45,14 +45,14 @@ namespace Io.Gate.GateApi.Model
         /// Currency detail
         /// </summary>
         /// <value>Currency detail</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Max borrowable amount
         /// </summary>
         /// <value>Max borrowable amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>

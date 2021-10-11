@@ -43,7 +43,7 @@ namespace Io.Gate.GateApi.Model
         /// Auto order ID
         /// </summary>
         /// <value>Auto order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>

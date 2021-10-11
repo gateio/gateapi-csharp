@@ -57,56 +57,56 @@ namespace Io.Gate.GateApi.Model
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Loan rate
         /// </summary>
         /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
+        [DataMember(Name="rate")]
         public string Rate { get; set; }
 
         /// <summary>
         /// Currency precision
         /// </summary>
         /// <value>Currency precision</value>
-        [DataMember(Name="prec", EmitDefaultValue=false)]
+        [DataMember(Name="prec")]
         public string Prec { get; set; }
 
         /// <summary>
         /// Currency value discount, which is used in total value calculation
         /// </summary>
         /// <value>Currency value discount, which is used in total value calculation</value>
-        [DataMember(Name="discount", EmitDefaultValue=false)]
+        [DataMember(Name="discount")]
         public string Discount { get; set; }
 
         /// <summary>
         /// Minimum currency borrow amount. Unit is currency itself
         /// </summary>
         /// <value>Minimum currency borrow amount. Unit is currency itself</value>
-        [DataMember(Name="min_borrow_amount", EmitDefaultValue=false)]
+        [DataMember(Name="min_borrow_amount")]
         public string MinBorrowAmount { get; set; }
 
         /// <summary>
         /// Maximum borrow value allowed per user, in USDT
         /// </summary>
         /// <value>Maximum borrow value allowed per user, in USDT</value>
-        [DataMember(Name="user_max_borrow_amount", EmitDefaultValue=false)]
+        [DataMember(Name="user_max_borrow_amount")]
         public string UserMaxBorrowAmount { get; set; }
 
         /// <summary>
         /// Maximum borrow value allowed for this currency, in USDT
         /// </summary>
         /// <value>Maximum borrow value allowed for this currency, in USDT</value>
-        [DataMember(Name="total_max_borrow_amount", EmitDefaultValue=false)]
+        [DataMember(Name="total_max_borrow_amount")]
         public string TotalMaxBorrowAmount { get; set; }
 
         /// <summary>
         /// Price change between this currency and USDT
         /// </summary>
         /// <value>Price change between this currency and USDT</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>

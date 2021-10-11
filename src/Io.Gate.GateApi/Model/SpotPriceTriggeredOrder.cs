@@ -54,69 +54,69 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Gets or Sets Trigger
         /// </summary>
-        [DataMember(Name="trigger", EmitDefaultValue=false)]
+        [DataMember(Name="trigger")]
         public SpotPriceTrigger Trigger { get; set; }
 
         /// <summary>
         /// Gets or Sets Put
         /// </summary>
-        [DataMember(Name="put", EmitDefaultValue=false)]
+        [DataMember(Name="put")]
         public SpotPricePutOrder Put { get; set; }
 
         /// <summary>
         /// Auto order ID
         /// </summary>
         /// <value>Auto order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public long Id { get; private set; }
 
         /// <summary>
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user", EmitDefaultValue=false)]
+        [DataMember(Name="user")]
         public int User { get; private set; }
 
         /// <summary>
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="market", EmitDefaultValue=false)]
+        [DataMember(Name="market")]
         public string Market { get; set; }
 
         /// <summary>
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        [DataMember(Name="ctime", EmitDefaultValue=false)]
+        [DataMember(Name="ctime")]
         public double Ctime { get; private set; }
 
         /// <summary>
         /// Finished time
         /// </summary>
         /// <value>Finished time</value>
-        [DataMember(Name="ftime", EmitDefaultValue=false)]
+        [DataMember(Name="ftime")]
         public double Ftime { get; private set; }
 
         /// <summary>
         /// ID of the newly created order on condition triggered
         /// </summary>
         /// <value>ID of the newly created order on condition triggered</value>
-        [DataMember(Name="fired_order_id", EmitDefaultValue=false)]
+        [DataMember(Name="fired_order_id")]
         public long FiredOrderId { get; private set; }
 
         /// <summary>
         /// Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired 
         /// </summary>
         /// <value>Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public string Status { get; private set; }
 
         /// <summary>
         /// Additional remarks on how the order was finished
         /// </summary>
         /// <value>Additional remarks on how the order was finished</value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
+        [DataMember(Name="reason")]
         public string Reason { get; private set; }
 
         /// <summary>

@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system
         /// </summary>
         /// <value>Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Loan side
@@ -94,7 +94,7 @@ namespace Io.Gate.GateApi.Model
         /// Loan side
         /// </summary>
         /// <value>Loan side</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Loan" /> class.
@@ -134,112 +134,112 @@ namespace Io.Gate.GateApi.Model
         /// Loan ID
         /// </summary>
         /// <value>Loan ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public string CreateTime { get; private set; }
 
         /// <summary>
         /// Repay time of the loan. No value will be returned for lending loan
         /// </summary>
         /// <value>Repay time of the loan. No value will be returned for lending loan</value>
-        [DataMember(Name="expire_time", EmitDefaultValue=false)]
+        [DataMember(Name="expire_time")]
         public string ExpireTime { get; private set; }
 
         /// <summary>
         /// Loan currency
         /// </summary>
         /// <value>Loan currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
         /// </summary>
         /// <value>Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
+        [DataMember(Name="rate")]
         public string Rate { get; set; }
 
         /// <summary>
         /// Loan amount
         /// </summary>
         /// <value>Loan amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Loan days. Only 10 is supported for now
         /// </summary>
         /// <value>Loan days. Only 10 is supported for now</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
+        [DataMember(Name="days")]
         public int Days { get; set; }
 
         /// <summary>
         /// Whether to auto renew the loan upon expiration
         /// </summary>
         /// <value>Whether to auto renew the loan upon expiration</value>
-        [DataMember(Name="auto_renew", EmitDefaultValue=false)]
+        [DataMember(Name="auto_renew")]
         public bool AutoRenew { get; set; }
 
         /// <summary>
         /// Currency pair. Required if borrowing
         /// </summary>
         /// <value>Currency pair. Required if borrowing</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Amount not lent out yet
         /// </summary>
         /// <value>Amount not lent out yet</value>
-        [DataMember(Name="left", EmitDefaultValue=false)]
+        [DataMember(Name="left")]
         public string Left { get; private set; }
 
         /// <summary>
         /// Repaid amount
         /// </summary>
         /// <value>Repaid amount</value>
-        [DataMember(Name="repaid", EmitDefaultValue=false)]
+        [DataMember(Name="repaid")]
         public string Repaid { get; private set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="paid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="paid_interest")]
         public string PaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
+        [DataMember(Name="unpaid_interest")]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>
         /// Loan fee rate
         /// </summary>
         /// <value>Loan fee rate</value>
-        [DataMember(Name="fee_rate", EmitDefaultValue=false)]
+        [DataMember(Name="fee_rate")]
         public string FeeRate { get; set; }
 
         /// <summary>
         /// Original loan ID of the loan if auto-renewed, otherwise equals to id
         /// </summary>
         /// <value>Original loan ID of the loan if auto-renewed, otherwise equals to id</value>
-        [DataMember(Name="orig_id", EmitDefaultValue=false)]
+        [DataMember(Name="orig_id")]
         public string OrigId { get; set; }
 
         /// <summary>
         /// User defined custom ID
         /// </summary>
         /// <value>User defined custom ID</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>

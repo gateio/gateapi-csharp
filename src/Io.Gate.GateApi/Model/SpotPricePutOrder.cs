@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Order side  - buy: buy side - sell: sell side
         /// </summary>
         /// <value>Order side  - buy: buy side - sell: sell side</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
         /// Trading type  - normal: spot trading - margin: margin trading
@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Model
         /// Trading type  - normal: spot trading - margin: margin trading
         /// </summary>
         /// <value>Trading type  - normal: spot trading - margin: margin trading</value>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name="account")]
         public AccountEnum Account { get; set; }
         /// <summary>
         /// time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only 
@@ -109,7 +109,7 @@ namespace Io.Gate.GateApi.Model
         /// time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only 
         /// </summary>
         /// <value>time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only </value>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
+        [DataMember(Name="time_in_force")]
         public TimeInForceEnum? TimeInForce { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotPricePutOrder" /> class.
@@ -142,21 +142,21 @@ namespace Io.Gate.GateApi.Model
         /// Order type, default to &#x60;limit&#x60;
         /// </summary>
         /// <value>Order type, default to &#x60;limit&#x60;</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type")]
         public string Type { get; set; }
 
         /// <summary>
         /// Order price
         /// </summary>
         /// <value>Order price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Order amount
         /// </summary>
         /// <value>Order amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>

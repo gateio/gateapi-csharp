@@ -45,14 +45,14 @@ namespace Io.Gate.GateApi.Model
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="uid", EmitDefaultValue=false)]
+        [DataMember(Name="uid")]
         public string Uid { get; set; }
 
         /// <summary>
         /// Available balances of currencies
         /// </summary>
         /// <value>Available balances of currencies</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public Dictionary<string, string> Available { get; set; }
 
         /// <summary>

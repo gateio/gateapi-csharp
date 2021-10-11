@@ -53,42 +53,42 @@ namespace Io.Gate.GateApi.Model
         /// Order currency pair
         /// </summary>
         /// <value>Order currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Order ID
         /// </summary>
         /// <value>Order ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Whether cancellation succeeded
         /// </summary>
         /// <value>Whether cancellation succeeded</value>
-        [DataMember(Name="succeeded", EmitDefaultValue=false)]
+        [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
         /// Error label when failed to cancel the order; emtpy if succeeded
         /// </summary>
         /// <value>Error label when failed to cancel the order; emtpy if succeeded</value>
-        [DataMember(Name="label", EmitDefaultValue=false)]
+        [DataMember(Name="label")]
         public string Label { get; set; }
 
         /// <summary>
         /// Error message when failed to cancel the order; empty if succeeded
         /// </summary>
         /// <value>Error message when failed to cancel the order; empty if succeeded</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        [DataMember(Name="message")]
         public string Message { get; set; }
 
         /// <summary>
         /// Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <value>Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;</value>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name="account")]
         public string Account { get; set; }
 
         /// <summary>

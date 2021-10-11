@@ -22,7 +22,7 @@ namespace Io.Gate.GateApi.Client
         /// <summary>
         /// Gate API exception label
         /// </summary>
-        [DataMember(Name = "label", EmitDefaultValue = false)]
+        [DataMember(Name = "label")]
         public string ErrorLabel { get; set; }
 
         /// <summary>

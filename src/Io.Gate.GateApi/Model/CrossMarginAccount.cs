@@ -55,48 +55,48 @@ namespace Io.Gate.GateApi.Model
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user_id", EmitDefaultValue=false)]
+        [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
         /// Whether account is locked
         /// </summary>
         /// <value>Whether account is locked</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
+        [DataMember(Name="locked")]
         public bool Locked { get; set; }
 
         /// <summary>
         /// Gets or Sets Balances
         /// </summary>
-        [DataMember(Name="balances", EmitDefaultValue=false)]
+        [DataMember(Name="balances")]
         public Dictionary<string, CrossMarginBalance> Balances { get; set; }
 
         /// <summary>
         /// Total account value in USDT, i.e., the sum of all currencies&#39; &#x60;(available+freeze)*price*discount&#x60;
         /// </summary>
         /// <value>Total account value in USDT, i.e., the sum of all currencies&#39; &#x60;(available+freeze)*price*discount&#x60;</value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total")]
         public string Total { get; set; }
 
         /// <summary>
         /// Total borrowed value in USDT, i.e., the sum of all currencies&#39; &#x60;borrowed*price*discount&#x60;
         /// </summary>
         /// <value>Total borrowed value in USDT, i.e., the sum of all currencies&#39; &#x60;borrowed*price*discount&#x60;</value>
-        [DataMember(Name="borrowed", EmitDefaultValue=false)]
+        [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 
         /// <summary>
         /// Total unpaid interests in USDT, i.e., the sum of all currencies&#39; &#x60;interest*price*discount&#x60;
         /// </summary>
         /// <value>Total unpaid interests in USDT, i.e., the sum of all currencies&#39; &#x60;interest*price*discount&#x60;</value>
-        [DataMember(Name="interest", EmitDefaultValue=false)]
+        [DataMember(Name="interest")]
         public string Interest { get; set; }
 
         /// <summary>
         /// Risk rate. When it belows 110%, liquidation will be triggered. Calculation formula: &#x60;total / (borrowed+interest)&#x60;
         /// </summary>
         /// <value>Risk rate. When it belows 110%, liquidation will be triggered. Calculation formula: &#x60;total / (borrowed+interest)&#x60;</value>
-        [DataMember(Name="risk", EmitDefaultValue=false)]
+        [DataMember(Name="risk")]
         public string Risk { get; set; }
 
         /// <summary>

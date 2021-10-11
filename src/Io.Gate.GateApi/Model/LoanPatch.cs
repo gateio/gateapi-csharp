@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Loan side. Possible values are &#x60;lend&#x60; and &#x60;borrow&#x60;. For &#x60;LoanRecord&#x60; patching, only &#x60;lend&#x60; is supported
         /// </summary>
         /// <value>Loan side. Possible values are &#x60;lend&#x60; and &#x60;borrow&#x60;. For &#x60;LoanRecord&#x60; patching, only &#x60;lend&#x60; is supported</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LoanPatch" /> class.
@@ -84,28 +84,28 @@ namespace Io.Gate.GateApi.Model
         /// Loan currency
         /// </summary>
         /// <value>Loan currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Auto renew
         /// </summary>
         /// <value>Auto renew</value>
-        [DataMember(Name="auto_renew", EmitDefaultValue=false)]
+        [DataMember(Name="auto_renew")]
         public bool AutoRenew { get; set; }
 
         /// <summary>
         /// Currency pair. Required if borrowing
         /// </summary>
         /// <value>Currency pair. Required if borrowing</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Loan ID. Required for &#x60;LoanRecord&#x60; patching
         /// </summary>
         /// <value>Loan ID. Required for &#x60;LoanRecord&#x60; patching</value>
-        [DataMember(Name="loan_id", EmitDefaultValue=false)]
+        [DataMember(Name="loan_id")]
         public string LoanId { get; set; }
 
         /// <summary>

@@ -51,35 +51,35 @@ namespace Io.Gate.GateApi.Model
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Available assets to lend, which is identical to spot account &#x60;available&#x60;
         /// </summary>
         /// <value>Available assets to lend, which is identical to spot account &#x60;available&#x60;</value>
-        [DataMember(Name="available", EmitDefaultValue=false)]
+        [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
         /// Locked amount. i.e. amount in &#x60;open&#x60; loans
         /// </summary>
         /// <value>Locked amount. i.e. amount in &#x60;open&#x60; loans</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
+        [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>
         /// Outstanding loan amount yet to be repaid
         /// </summary>
         /// <value>Outstanding loan amount yet to be repaid</value>
-        [DataMember(Name="lent", EmitDefaultValue=false)]
+        [DataMember(Name="lent")]
         public string Lent { get; set; }
 
         /// <summary>
         /// Amount used for lending. total_lent &#x3D; lent + locked
         /// </summary>
         /// <value>Amount used for lending. total_lent &#x3D; lent + locked</value>
-        [DataMember(Name="total_lent", EmitDefaultValue=false)]
+        [DataMember(Name="total_lent")]
         public string TotalLent { get; set; }
 
         /// <summary>

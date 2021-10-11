@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Order side
         /// </summary>
         /// <value>Order side</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum? Side { get; set; }
         /// <summary>
         /// Trade role
@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Model
         /// Trade role
         /// </summary>
         /// <value>Trade role</value>
-        [DataMember(Name="role", EmitDefaultValue=false)]
+        [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Trade" /> class.
@@ -121,77 +121,77 @@ namespace Io.Gate.GateApi.Model
         /// Trade ID
         /// </summary>
         /// <value>Trade ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Trading time
         /// </summary>
         /// <value>Trading time</value>
-        [DataMember(Name="create_time", EmitDefaultValue=false)]
+        [DataMember(Name="create_time")]
         public string CreateTime { get; set; }
 
         /// <summary>
         /// Trading time, with millisecond precision
         /// </summary>
         /// <value>Trading time, with millisecond precision</value>
-        [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
+        [DataMember(Name="create_time_ms")]
         public string CreateTimeMs { get; set; }
 
         /// <summary>
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Trade amount
         /// </summary>
         /// <value>Trade amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// Order price
         /// </summary>
         /// <value>Order price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Related order ID. No value in public endpoints
         /// </summary>
         /// <value>Related order ID. No value in public endpoints</value>
-        [DataMember(Name="order_id", EmitDefaultValue=false)]
+        [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
         /// Fee deducted. No value in public endpoints
         /// </summary>
         /// <value>Fee deducted. No value in public endpoints</value>
-        [DataMember(Name="fee", EmitDefaultValue=false)]
+        [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
         /// Fee currency unit. No value in public endpoints
         /// </summary>
         /// <value>Fee currency unit. No value in public endpoints</value>
-        [DataMember(Name="fee_currency", EmitDefaultValue=false)]
+        [DataMember(Name="fee_currency")]
         public string FeeCurrency { get; set; }
 
         /// <summary>
         /// Points used to deduct fee
         /// </summary>
         /// <value>Points used to deduct fee</value>
-        [DataMember(Name="point_fee", EmitDefaultValue=false)]
+        [DataMember(Name="point_fee")]
         public string PointFee { get; set; }
 
         /// <summary>
         /// GT used to deduct fee
         /// </summary>
         /// <value>GT used to deduct fee</value>
-        [DataMember(Name="gt_fee", EmitDefaultValue=false)]
+        [DataMember(Name="gt_fee")]
         public string GtFee { get; set; }
 
         /// <summary>

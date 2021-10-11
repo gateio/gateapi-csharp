@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
         /// </summary>
         /// <value>Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
-        [DataMember(Name="tif", EmitDefaultValue=false)]
+        [DataMember(Name="tif")]
         public TifEnum? Tif { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesInitialOrder" /> class.
@@ -89,56 +89,56 @@ namespace Io.Gate.GateApi.Model
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
         /// Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position
         /// </summary>
         /// <value>Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position</value>
-        [DataMember(Name="size", EmitDefaultValue=false)]
+        [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
         /// Order price. Set to 0 to use market price
         /// </summary>
         /// <value>Order price. Set to 0 to use market price</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
         /// Set to true if trying to close the position
         /// </summary>
         /// <value>Set to true if trying to close the position</value>
-        [DataMember(Name="close", EmitDefaultValue=false)]
+        [DataMember(Name="close")]
         public bool Close { get; set; }
 
         /// <summary>
         /// How the order is created. Possible values are: web, api and app
         /// </summary>
         /// <value>How the order is created. Possible values are: web, api and app</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
         /// Set to true to create a reduce-only order
         /// </summary>
         /// <value>Set to true to create a reduce-only order</value>
-        [DataMember(Name="reduce_only", EmitDefaultValue=false)]
+        [DataMember(Name="reduce_only")]
         public bool ReduceOnly { get; set; }
 
         /// <summary>
         /// Is the order reduce-only
         /// </summary>
         /// <value>Is the order reduce-only</value>
-        [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
+        [DataMember(Name="is_reduce_only")]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
         /// Is the order to close position
         /// </summary>
         /// <value>Is the order to close position</value>
-        [DataMember(Name="is_close", EmitDefaultValue=false)]
+        [DataMember(Name="is_close")]
         public bool IsClose { get; private set; }
 
         /// <summary>

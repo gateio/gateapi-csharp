@@ -53,42 +53,42 @@ namespace Io.Gate.GateApi.Model
         /// Unix timestamp in seconds
         /// </summary>
         /// <value>Unix timestamp in seconds</value>
-        [DataMember(Name="t", EmitDefaultValue=false)]
+        [DataMember(Name="t")]
         public double T { get; set; }
 
         /// <summary>
         /// size volume. Only returned if &#x60;contract&#x60; is not prefixed
         /// </summary>
         /// <value>size volume. Only returned if &#x60;contract&#x60; is not prefixed</value>
-        [DataMember(Name="v", EmitDefaultValue=false)]
+        [DataMember(Name="v")]
         public long V { get; set; }
 
         /// <summary>
         /// Close price
         /// </summary>
         /// <value>Close price</value>
-        [DataMember(Name="c", EmitDefaultValue=false)]
+        [DataMember(Name="c")]
         public string C { get; set; }
 
         /// <summary>
         /// Highest price
         /// </summary>
         /// <value>Highest price</value>
-        [DataMember(Name="h", EmitDefaultValue=false)]
+        [DataMember(Name="h")]
         public string H { get; set; }
 
         /// <summary>
         /// Lowest price
         /// </summary>
         /// <value>Lowest price</value>
-        [DataMember(Name="l", EmitDefaultValue=false)]
+        [DataMember(Name="l")]
         public string L { get; set; }
 
         /// <summary>
         /// Open price
         /// </summary>
         /// <value>Open price</value>
-        [DataMember(Name="o", EmitDefaultValue=false)]
+        [DataMember(Name="o")]
         public string O { get; set; }
 
         /// <summary>

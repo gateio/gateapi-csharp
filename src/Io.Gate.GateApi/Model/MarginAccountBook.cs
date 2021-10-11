@@ -55,49 +55,49 @@ namespace Io.Gate.GateApi.Model
         /// Balance change record ID
         /// </summary>
         /// <value>Balance change record ID</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Balance changed timestamp
         /// </summary>
         /// <value>Balance changed timestamp</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time")]
         public string Time { get; set; }
 
         /// <summary>
         /// The timestamp of the change (in milliseconds)
         /// </summary>
         /// <value>The timestamp of the change (in milliseconds)</value>
-        [DataMember(Name="time_ms", EmitDefaultValue=false)]
+        [DataMember(Name="time_ms")]
         public long TimeMs { get; set; }
 
         /// <summary>
         /// Currency changed
         /// </summary>
         /// <value>Currency changed</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Account currency pair
         /// </summary>
         /// <value>Account currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Amount changed. Positive value means transferring in, while negative out
         /// </summary>
         /// <value>Amount changed. Positive value means transferring in, while negative out</value>
-        [DataMember(Name="change", EmitDefaultValue=false)]
+        [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
         /// Balance after change
         /// </summary>
         /// <value>Balance after change</value>
-        [DataMember(Name="balance", EmitDefaultValue=false)]
+        [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>

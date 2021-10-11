@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Position side, long or short
         /// </summary>
         /// <value>Position side, long or short</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
+        [DataMember(Name="side")]
         public SideEnum? Side { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PositionClose" /> class.
@@ -69,28 +69,28 @@ namespace Io.Gate.GateApi.Model
         /// Position close time
         /// </summary>
         /// <value>Position close time</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time")]
         public double Time { get; private set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract", EmitDefaultValue=false)]
+        [DataMember(Name="contract")]
         public string Contract { get; private set; }
 
         /// <summary>
         /// PNL
         /// </summary>
         /// <value>PNL</value>
-        [DataMember(Name="pnl", EmitDefaultValue=false)]
+        [DataMember(Name="pnl")]
         public string Pnl { get; private set; }
 
         /// <summary>
         /// Text of close order
         /// </summary>
         /// <value>Text of close order</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
+        [DataMember(Name="text")]
         public string Text { get; private set; }
 
         /// <summary>

@@ -47,21 +47,21 @@ namespace Io.Gate.GateApi.Model
         /// Loan rate
         /// </summary>
         /// <value>Loan rate</value>
-        [DataMember(Name="rate", EmitDefaultValue=false)]
+        [DataMember(Name="rate")]
         public string Rate { get; set; }
 
         /// <summary>
         /// Borrowable amount
         /// </summary>
         /// <value>Borrowable amount</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
         /// The number of days till the loan repayment&#39;s dateline
         /// </summary>
         /// <value>The number of days till the loan repayment&#39;s dateline</value>
-        [DataMember(Name="days", EmitDefaultValue=false)]
+        [DataMember(Name="days")]
         public int Days { get; set; }
 
         /// <summary>

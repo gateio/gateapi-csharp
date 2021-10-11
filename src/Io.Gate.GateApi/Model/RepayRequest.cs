@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Repay mode. all - repay all; partial - repay only some portion
         /// </summary>
         /// <value>Repay mode. all - repay all; partial - repay only some portion</value>
-        [DataMember(Name="mode", EmitDefaultValue=false)]
+        [DataMember(Name="mode")]
         public ModeEnum Mode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRequest" /> class.
@@ -83,21 +83,21 @@ namespace Io.Gate.GateApi.Model
         /// Currency pair
         /// </summary>
         /// <value>Currency pair</value>
-        [DataMember(Name="currency_pair", EmitDefaultValue=false)]
+        [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
         /// Loan currency
         /// </summary>
         /// <value>Loan currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
         /// Repay amount. Required in &#x60;partial&#x60; mode
         /// </summary>
         /// <value>Repay amount. Required in &#x60;partial&#x60; mode</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
