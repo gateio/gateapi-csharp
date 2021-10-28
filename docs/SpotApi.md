@@ -448,9 +448,11 @@ No authorization required
 
 <a name="listtrades"></a>
 # **ListTrades**
-> List&lt;Trade&gt; ListTrades (string currencyPair, int? limit = null, string lastId = null, bool? reverse = null)
+> List&lt;Trade&gt; ListTrades (string currencyPair, int? limit = null, string lastId = null, bool? reverse = null, long? from = null, long? to = null, int? page = null)
 
 Retrieve market trades
+
+You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
 
 ### Example
 ```csharp
@@ -473,11 +475,14 @@ namespace Example
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
             var reverse = false;  // bool? | Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When `last_id` is specified. Set `reverse` to `true` to trace back trading history; `false` to retrieve latest tradings.  No effect if `last_id` is not specified. (optional)  (default to false)
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
 
             try
             {
                 // Retrieve market trades
-                List<Trade> result = apiInstance.ListTrades(currencyPair, limit, lastId, reverse);
+                List<Trade> result = apiInstance.ListTrades(currencyPair, limit, lastId, reverse, from, to, page);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -500,6 +505,9 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
  **reverse** | **bool?**| Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. | [optional] [default to false]
+ **from** | **long?**| Start timestamp of the query | [optional] 
+ **to** | **long?**| Time range ending, default to current time | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -926,8 +934,8 @@ namespace Example
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
             var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
 
             try
@@ -957,7 +965,7 @@ Name | Type | Description  | Notes
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
 
@@ -1390,8 +1398,8 @@ namespace Example
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
             var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
 
             try
             {
@@ -1420,7 +1428,7 @@ Name | Type | Description  | Notes
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
  **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
 
 ### Return type

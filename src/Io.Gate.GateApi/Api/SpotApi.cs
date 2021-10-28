@@ -159,29 +159,35 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// 
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
+        List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
 
         /// <summary>
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// 
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
+        ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
@@ -311,7 +317,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
@@ -329,7 +335,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
@@ -463,7 +469,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
@@ -480,7 +486,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
@@ -740,29 +746,35 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// 
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
+        Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
 
         /// <summary>
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// 
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?));
+        Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
         /// <summary>
         /// Market candlesticks
         /// </summary>
@@ -892,7 +904,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
@@ -910,7 +922,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
@@ -1044,7 +1056,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
@@ -1061,7 +1073,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
@@ -1985,30 +1997,36 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades 
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
+        public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
-             ApiResponse<List<Trade>> localVarResponse = ListTradesWithHttpInfo(currencyPair, limit, lastId, reverse);
+             ApiResponse<List<Trade>> localVarResponse = ListTradesWithHttpInfo(currencyPair, limit, lastId, reverse, from, to, page);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve market trades 
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
+        public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -2043,6 +2061,18 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
 
 
             // make the HTTP request
@@ -2058,31 +2088,37 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades 
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
+        public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListTradesAsyncWithHttpInfo(currencyPair, limit, lastId, reverse);
+             Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListTradesAsyncWithHttpInfo(currencyPair, limit, lastId, reverse, from, to, page);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Retrieve market trades 
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?))
+        public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -2117,6 +2153,18 @@ namespace Io.Gate.GateApi.Api
             if (reverse != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse", reverse));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
 
@@ -2791,7 +2839,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
@@ -2810,7 +2858,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
@@ -2891,7 +2939,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
@@ -2911,7 +2959,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
@@ -3659,7 +3707,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         public List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
@@ -3677,7 +3725,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
@@ -3752,7 +3800,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         public async Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
@@ -3771,7 +3819,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))

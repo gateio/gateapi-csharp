@@ -118,7 +118,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -134,7 +134,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -579,7 +579,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -595,7 +595,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -865,7 +865,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -881,7 +881,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1326,7 +1326,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1342,7 +1342,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -2078,7 +2078,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -2095,7 +2095,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -2164,7 +2164,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -2182,7 +2182,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -4675,7 +4675,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -4692,7 +4692,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -4761,7 +4761,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -4779,7 +4779,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>

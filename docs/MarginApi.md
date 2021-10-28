@@ -341,8 +341,8 @@ namespace Example
             var apiInstance = new MarginApi(config);
             var currency = "currency_example";  // string | List records related to specified currency only. If specified, `currency_pair` is also required. (optional) 
             var currencyPair = "currencyPair_example";  // string | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional] 
  **currencyPair** | **string**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -1800,8 +1800,8 @@ namespace Example
 
             var apiInstance = new MarginApi(config);
             var currency = "currency_example";  // string | Filter by currency (optional) 
-            var from = 56;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 56;  // long? | Time range ending, default to current time (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var type = "borrow";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
@@ -1829,7 +1829,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Filter by currency | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
