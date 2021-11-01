@@ -169,14 +169,14 @@ namespace Io.Gate.GateApi.Model
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="paid_interest")]
+        [DataMember(Name="paid_interest", EmitDefaultValue=false)]
         public string PaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest")]
+        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>

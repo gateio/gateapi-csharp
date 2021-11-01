@@ -42,63 +42,63 @@ namespace Io.Gate.GateApi.Model
         /// Liquidation time
         /// </summary>
         /// <value>Liquidation time</value>
-        [DataMember(Name="time")]
+        [DataMember(Name="time", EmitDefaultValue=false)]
         public long Time { get; private set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract")]
+        [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
         /// Position leverage
         /// </summary>
         /// <value>Position leverage</value>
-        [DataMember(Name="leverage")]
+        [DataMember(Name="leverage", EmitDefaultValue=false)]
         public string Leverage { get; private set; }
 
         /// <summary>
         /// Position size
         /// </summary>
         /// <value>Position size</value>
-        [DataMember(Name="size")]
+        [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
         /// <summary>
         /// Position margin
         /// </summary>
         /// <value>Position margin</value>
-        [DataMember(Name="margin")]
+        [DataMember(Name="margin", EmitDefaultValue=false)]
         public string Margin { get; private set; }
 
         /// <summary>
         /// Average entry price
         /// </summary>
         /// <value>Average entry price</value>
-        [DataMember(Name="entry_price")]
+        [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
         /// Settled price
         /// </summary>
         /// <value>Settled price</value>
-        [DataMember(Name="settle_price")]
+        [DataMember(Name="settle_price", EmitDefaultValue=false)]
         public string SettlePrice { get; private set; }
 
         /// <summary>
         /// Profit
         /// </summary>
         /// <value>Profit</value>
-        [DataMember(Name="profit")]
+        [DataMember(Name="profit", EmitDefaultValue=false)]
         public string Profit { get; private set; }
 
         /// <summary>
         /// Fee deducted
         /// </summary>
         /// <value>Fee deducted</value>
-        [DataMember(Name="fee")]
+        [DataMember(Name="fee", EmitDefaultValue=false)]
         public string Fee { get; private set; }
 
         /// <summary>

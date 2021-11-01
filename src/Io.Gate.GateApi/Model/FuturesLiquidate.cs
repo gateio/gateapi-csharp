@@ -42,84 +42,84 @@ namespace Io.Gate.GateApi.Model
         /// Liquidation time
         /// </summary>
         /// <value>Liquidation time</value>
-        [DataMember(Name="time")]
+        [DataMember(Name="time", EmitDefaultValue=false)]
         public long Time { get; private set; }
 
         /// <summary>
         /// Futures contract
         /// </summary>
         /// <value>Futures contract</value>
-        [DataMember(Name="contract")]
+        [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
         /// Position leverage. Not returned in public endpoints.
         /// </summary>
         /// <value>Position leverage. Not returned in public endpoints.</value>
-        [DataMember(Name="leverage")]
+        [DataMember(Name="leverage", EmitDefaultValue=false)]
         public string Leverage { get; private set; }
 
         /// <summary>
         /// Position size
         /// </summary>
         /// <value>Position size</value>
-        [DataMember(Name="size")]
+        [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
         /// <summary>
         /// Position margin. Not returned in public endpoints.
         /// </summary>
         /// <value>Position margin. Not returned in public endpoints.</value>
-        [DataMember(Name="margin")]
+        [DataMember(Name="margin", EmitDefaultValue=false)]
         public string Margin { get; private set; }
 
         /// <summary>
         /// Average entry price. Not returned in public endpoints.
         /// </summary>
         /// <value>Average entry price. Not returned in public endpoints.</value>
-        [DataMember(Name="entry_price")]
+        [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
         /// Liquidation price. Not returned in public endpoints.
         /// </summary>
         /// <value>Liquidation price. Not returned in public endpoints.</value>
-        [DataMember(Name="liq_price")]
+        [DataMember(Name="liq_price", EmitDefaultValue=false)]
         public string LiqPrice { get; private set; }
 
         /// <summary>
         /// Mark price. Not returned in public endpoints.
         /// </summary>
         /// <value>Mark price. Not returned in public endpoints.</value>
-        [DataMember(Name="mark_price")]
+        [DataMember(Name="mark_price", EmitDefaultValue=false)]
         public string MarkPrice { get; private set; }
 
         /// <summary>
         /// Liquidation order ID. Not returned in public endpoints.
         /// </summary>
         /// <value>Liquidation order ID. Not returned in public endpoints.</value>
-        [DataMember(Name="order_id")]
+        [DataMember(Name="order_id", EmitDefaultValue=false)]
         public long OrderId { get; private set; }
 
         /// <summary>
         /// Liquidation order price
         /// </summary>
         /// <value>Liquidation order price</value>
-        [DataMember(Name="order_price")]
+        [DataMember(Name="order_price", EmitDefaultValue=false)]
         public string OrderPrice { get; private set; }
 
         /// <summary>
         /// Liquidation order average taker price
         /// </summary>
         /// <value>Liquidation order average taker price</value>
-        [DataMember(Name="fill_price")]
+        [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
         /// Liquidation order maker size
         /// </summary>
         /// <value>Liquidation order maker size</value>
-        [DataMember(Name="left")]
+        [DataMember(Name="left", EmitDefaultValue=false)]
         public long Left { get; private set; }
 
         /// <summary>

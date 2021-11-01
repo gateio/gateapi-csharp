@@ -123,9 +123,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="side">Order side  - buy: buy side - sell: sell side (required).</param>
         /// <param name="price">Order price (required).</param>
         /// <param name="amount">Order amount (required).</param>
-        /// <param name="account">Trading type  - normal: spot trading - margin: margin trading (required).</param>
-        /// <param name="timeInForce">time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only .</param>
-        public SpotPricePutOrder(string type = "limit", SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = default(AccountEnum), TimeInForceEnum? timeInForce = default(TimeInForceEnum?))
+        /// <param name="account">Trading type  - normal: spot trading - margin: margin trading (required) (default to AccountEnum.Normal).</param>
+        /// <param name="timeInForce">time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  (default to TimeInForceEnum.Gtc).</param>
+        public SpotPricePutOrder(string type = "limit", SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc)
         {
             this.Side = side;
             // to ensure "price" is required (not null)

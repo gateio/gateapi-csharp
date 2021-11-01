@@ -61,7 +61,7 @@ namespace Io.Gate.GateApi.Model
         /// Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled
         /// </summary>
         /// <value>Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Order type. limit - limit order
@@ -244,35 +244,35 @@ namespace Io.Gate.GateApi.Model
         /// Order ID
         /// </summary>
         /// <value>Order ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation time of order
         /// </summary>
         /// <value>Creation time of order</value>
-        [DataMember(Name="create_time")]
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
         public string CreateTime { get; private set; }
 
         /// <summary>
         /// Last modification time of order
         /// </summary>
         /// <value>Last modification time of order</value>
-        [DataMember(Name="update_time")]
+        [DataMember(Name="update_time", EmitDefaultValue=false)]
         public string UpdateTime { get; private set; }
 
         /// <summary>
         /// Creation time of order (in milliseconds)
         /// </summary>
         /// <value>Creation time of order (in milliseconds)</value>
-        [DataMember(Name="create_time_ms")]
+        [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
         public long CreateTimeMs { get; private set; }
 
         /// <summary>
         /// Last modification time of order (in milliseconds)
         /// </summary>
         /// <value>Last modification time of order (in milliseconds)</value>
-        [DataMember(Name="update_time_ms")]
+        [DataMember(Name="update_time_ms", EmitDefaultValue=false)]
         public long UpdateTimeMs { get; private set; }
 
         /// <summary>
@@ -321,70 +321,70 @@ namespace Io.Gate.GateApi.Model
         /// Amount left to fill
         /// </summary>
         /// <value>Amount left to fill</value>
-        [DataMember(Name="left")]
+        [DataMember(Name="left", EmitDefaultValue=false)]
         public string Left { get; private set; }
 
         /// <summary>
         /// Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
         /// </summary>
         /// <value>Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;</value>
-        [DataMember(Name="fill_price")]
+        [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
         /// Total filled in quote currency
         /// </summary>
         /// <value>Total filled in quote currency</value>
-        [DataMember(Name="filled_total")]
+        [DataMember(Name="filled_total", EmitDefaultValue=false)]
         public string FilledTotal { get; private set; }
 
         /// <summary>
         /// Fee deducted
         /// </summary>
         /// <value>Fee deducted</value>
-        [DataMember(Name="fee")]
+        [DataMember(Name="fee", EmitDefaultValue=false)]
         public string Fee { get; private set; }
 
         /// <summary>
         /// Fee currency unit
         /// </summary>
         /// <value>Fee currency unit</value>
-        [DataMember(Name="fee_currency")]
+        [DataMember(Name="fee_currency", EmitDefaultValue=false)]
         public string FeeCurrency { get; private set; }
 
         /// <summary>
         /// Points used to deduct fee
         /// </summary>
         /// <value>Points used to deduct fee</value>
-        [DataMember(Name="point_fee")]
+        [DataMember(Name="point_fee", EmitDefaultValue=false)]
         public string PointFee { get; private set; }
 
         /// <summary>
         /// GT used to deduct fee
         /// </summary>
         /// <value>GT used to deduct fee</value>
-        [DataMember(Name="gt_fee")]
+        [DataMember(Name="gt_fee", EmitDefaultValue=false)]
         public string GtFee { get; private set; }
 
         /// <summary>
         /// Whether GT fee discount is used
         /// </summary>
         /// <value>Whether GT fee discount is used</value>
-        [DataMember(Name="gt_discount")]
+        [DataMember(Name="gt_discount", EmitDefaultValue=false)]
         public bool GtDiscount { get; private set; }
 
         /// <summary>
         /// Rebated fee
         /// </summary>
         /// <value>Rebated fee</value>
-        [DataMember(Name="rebated_fee")]
+        [DataMember(Name="rebated_fee", EmitDefaultValue=false)]
         public string RebatedFee { get; private set; }
 
         /// <summary>
         /// Rebated fee currency unit
         /// </summary>
         /// <value>Rebated fee currency unit</value>
-        [DataMember(Name="rebated_fee_currency")]
+        [DataMember(Name="rebated_fee_currency", EmitDefaultValue=false)]
         public string RebatedFeeCurrency { get; private set; }
 
         /// <summary>

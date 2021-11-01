@@ -55,7 +55,7 @@ namespace Io.Gate.GateApi.Model
         /// Order status.
         /// </summary>
         /// <value>Order status.</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// How order is finished
@@ -94,7 +94,7 @@ namespace Io.Gate.GateApi.Model
         /// How order is finished
         /// </summary>
         /// <value>How order is finished</value>
-        [DataMember(Name="finish_as")]
+        [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPriceTriggeredOrder" /> class.
@@ -130,42 +130,42 @@ namespace Io.Gate.GateApi.Model
         /// Auto order ID
         /// </summary>
         /// <value>Auto order ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user")]
+        [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        [DataMember(Name="create_time")]
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
         /// <summary>
         /// Finished time
         /// </summary>
         /// <value>Finished time</value>
-        [DataMember(Name="finish_time")]
+        [DataMember(Name="finish_time", EmitDefaultValue=false)]
         public double FinishTime { get; private set; }
 
         /// <summary>
         /// ID of the newly created order on condition triggered
         /// </summary>
         /// <value>ID of the newly created order on condition triggered</value>
-        [DataMember(Name="trade_id")]
+        [DataMember(Name="trade_id", EmitDefaultValue=false)]
         public long TradeId { get; private set; }
 
         /// <summary>
         /// Additional remarks on how the order was finished
         /// </summary>
         /// <value>Additional remarks on how the order was finished</value>
-        [DataMember(Name="reason")]
+        [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; private set; }
 
         /// <summary>

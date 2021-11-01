@@ -67,7 +67,7 @@ namespace Io.Gate.GateApi.Model
         /// Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system
         /// </summary>
         /// <value>Loan status  open - not fully loaned loaned - all loaned out for lending loan; loaned in for borrowing side finished - loan is finished, either being all repaid or cancelled by the lender auto_repaid - automatically repaid by the system</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Loan side
@@ -134,21 +134,21 @@ namespace Io.Gate.GateApi.Model
         /// Loan ID
         /// </summary>
         /// <value>Loan ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        [DataMember(Name="create_time")]
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
         public string CreateTime { get; private set; }
 
         /// <summary>
         /// Repay time of the loan. No value will be returned for lending loan
         /// </summary>
         /// <value>Repay time of the loan. No value will be returned for lending loan</value>
-        [DataMember(Name="expire_time")]
+        [DataMember(Name="expire_time", EmitDefaultValue=false)]
         public string ExpireTime { get; private set; }
 
         /// <summary>
@@ -197,28 +197,28 @@ namespace Io.Gate.GateApi.Model
         /// Amount not lent out yet
         /// </summary>
         /// <value>Amount not lent out yet</value>
-        [DataMember(Name="left")]
+        [DataMember(Name="left", EmitDefaultValue=false)]
         public string Left { get; private set; }
 
         /// <summary>
         /// Repaid amount
         /// </summary>
         /// <value>Repaid amount</value>
-        [DataMember(Name="repaid")]
+        [DataMember(Name="repaid", EmitDefaultValue=false)]
         public string Repaid { get; private set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="paid_interest")]
+        [DataMember(Name="paid_interest", EmitDefaultValue=false)]
         public string PaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest")]
+        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>

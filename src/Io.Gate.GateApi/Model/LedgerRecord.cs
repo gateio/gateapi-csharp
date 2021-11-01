@@ -85,7 +85,7 @@ namespace Io.Gate.GateApi.Model
         /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
         /// </summary>
         /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerRecord" /> class.
@@ -115,21 +115,21 @@ namespace Io.Gate.GateApi.Model
         /// Record ID
         /// </summary>
         /// <value>Record ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
         /// Hash record of the withdrawal
         /// </summary>
         /// <value>Hash record of the withdrawal</value>
-        [DataMember(Name="txid")]
+        [DataMember(Name="txid", EmitDefaultValue=false)]
         public string Txid { get; private set; }
 
         /// <summary>
         /// Operation time
         /// </summary>
         /// <value>Operation time</value>
-        [DataMember(Name="timestamp")]
+        [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public string Timestamp { get; private set; }
 
         /// <summary>

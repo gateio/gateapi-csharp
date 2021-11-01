@@ -67,14 +67,14 @@ namespace Io.Gate.GateApi.Model
         /// Auto order ID
         /// </summary>
         /// <value>Auto order ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user")]
+        [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
@@ -88,35 +88,35 @@ namespace Io.Gate.GateApi.Model
         /// Creation time
         /// </summary>
         /// <value>Creation time</value>
-        [DataMember(Name="ctime")]
-        public double Ctime { get; private set; }
+        [DataMember(Name="ctime", EmitDefaultValue=false)]
+        public long Ctime { get; private set; }
 
         /// <summary>
         /// Finished time
         /// </summary>
         /// <value>Finished time</value>
-        [DataMember(Name="ftime")]
-        public double Ftime { get; private set; }
+        [DataMember(Name="ftime", EmitDefaultValue=false)]
+        public long Ftime { get; private set; }
 
         /// <summary>
         /// ID of the newly created order on condition triggered
         /// </summary>
         /// <value>ID of the newly created order on condition triggered</value>
-        [DataMember(Name="fired_order_id")]
+        [DataMember(Name="fired_order_id", EmitDefaultValue=false)]
         public long FiredOrderId { get; private set; }
 
         /// <summary>
         /// Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired 
         /// </summary>
         /// <value>Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired </value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; private set; }
 
         /// <summary>
         /// Additional remarks on how the order was finished
         /// </summary>
         /// <value>Additional remarks on how the order was finished</value>
-        [DataMember(Name="reason")]
+        [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; private set; }
 
         /// <summary>

@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **Id** | **long** | Auto order ID | [optional] [readonly] 
 **User** | **int** | User ID | [optional] [readonly] 
 **Market** | **string** | Currency pair | 
-**Ctime** | **double** | Creation time | [optional] [readonly] 
-**Ftime** | **double** | Finished time | [optional] [readonly] 
+**Ctime** | **long** | Creation time | [optional] [readonly] 
+**Ftime** | **long** | Finished time | [optional] [readonly] 
 **FiredOrderId** | **long** | ID of the newly created order on condition triggered | [optional] [readonly] 
 **Status** | **string** | Status  - open: open - cancelled: being manually cancelled - finish: successfully executed - failed: failed to execute - expired - expired  | [optional] [readonly] 
 **Reason** | **string** | Additional remarks on how the order was finished | [optional] [readonly] 

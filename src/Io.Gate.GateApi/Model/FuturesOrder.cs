@@ -91,7 +91,7 @@ namespace Io.Gate.GateApi.Model
         /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
         /// </summary>
         /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
-        [DataMember(Name="finish_as")]
+        [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
         /// Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished
@@ -118,7 +118,7 @@ namespace Io.Gate.GateApi.Model
         /// Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished
         /// </summary>
         /// <value>Order status  - &#x60;open&#x60;: waiting to be traded - &#x60;finished&#x60;: finished</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
@@ -215,28 +215,28 @@ namespace Io.Gate.GateApi.Model
         /// Futures order ID
         /// </summary>
         /// <value>Futures order ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
         /// User ID
         /// </summary>
         /// <value>User ID</value>
-        [DataMember(Name="user")]
+        [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
         /// Creation time of order
         /// </summary>
         /// <value>Creation time of order</value>
-        [DataMember(Name="create_time")]
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
         /// <summary>
         /// Order finished time. Not returned if order is open
         /// </summary>
         /// <value>Order finished time. Not returned if order is open</value>
-        [DataMember(Name="finish_time")]
+        [DataMember(Name="finish_time", EmitDefaultValue=false)]
         public double FinishTime { get; private set; }
 
         /// <summary>
@@ -278,7 +278,7 @@ namespace Io.Gate.GateApi.Model
         /// Is the order to close position
         /// </summary>
         /// <value>Is the order to close position</value>
-        [DataMember(Name="is_close")]
+        [DataMember(Name="is_close", EmitDefaultValue=false)]
         public bool IsClose { get; private set; }
 
         /// <summary>
@@ -292,28 +292,28 @@ namespace Io.Gate.GateApi.Model
         /// Is the order reduce-only
         /// </summary>
         /// <value>Is the order reduce-only</value>
-        [DataMember(Name="is_reduce_only")]
+        [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
         /// Is the order for liquidation
         /// </summary>
         /// <value>Is the order for liquidation</value>
-        [DataMember(Name="is_liq")]
+        [DataMember(Name="is_liq", EmitDefaultValue=false)]
         public bool IsLiq { get; private set; }
 
         /// <summary>
         /// Size left to be traded
         /// </summary>
         /// <value>Size left to be traded</value>
-        [DataMember(Name="left")]
+        [DataMember(Name="left", EmitDefaultValue=false)]
         public long Left { get; private set; }
 
         /// <summary>
         /// Fill price of the order
         /// </summary>
         /// <value>Fill price of the order</value>
-        [DataMember(Name="fill_price")]
+        [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
@@ -327,21 +327,21 @@ namespace Io.Gate.GateApi.Model
         /// Taker fee
         /// </summary>
         /// <value>Taker fee</value>
-        [DataMember(Name="tkfr")]
+        [DataMember(Name="tkfr", EmitDefaultValue=false)]
         public string Tkfr { get; private set; }
 
         /// <summary>
         /// Maker fee
         /// </summary>
         /// <value>Maker fee</value>
-        [DataMember(Name="mkfr")]
+        [DataMember(Name="mkfr", EmitDefaultValue=false)]
         public string Mkfr { get; private set; }
 
         /// <summary>
         /// Reference user ID
         /// </summary>
         /// <value>Reference user ID</value>
-        [DataMember(Name="refu")]
+        [DataMember(Name="refu", EmitDefaultValue=false)]
         public int Refu { get; private set; }
 
         /// <summary>

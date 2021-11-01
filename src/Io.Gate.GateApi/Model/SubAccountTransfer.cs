@@ -134,21 +134,21 @@ namespace Io.Gate.GateApi.Model
         /// Main account user ID
         /// </summary>
         /// <value>Main account user ID</value>
-        [DataMember(Name="uid")]
+        [DataMember(Name="uid", EmitDefaultValue=false)]
         public string Uid { get; private set; }
 
         /// <summary>
         /// Transfer timestamp
         /// </summary>
         /// <value>Transfer timestamp</value>
-        [DataMember(Name="timest")]
+        [DataMember(Name="timest", EmitDefaultValue=false)]
         public string Timest { get; private set; }
 
         /// <summary>
         /// Where the operation is initiated from
         /// </summary>
         /// <value>Where the operation is initiated from</value>
-        [DataMember(Name="source")]
+        [DataMember(Name="source", EmitDefaultValue=false)]
         public string Source { get; private set; }
 
         /// <summary>

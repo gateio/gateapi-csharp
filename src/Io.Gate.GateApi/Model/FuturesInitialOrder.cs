@@ -131,14 +131,14 @@ namespace Io.Gate.GateApi.Model
         /// Is the order reduce-only
         /// </summary>
         /// <value>Is the order reduce-only</value>
-        [DataMember(Name="is_reduce_only")]
+        [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
         /// Is the order to close position
         /// </summary>
         /// <value>Is the order to close position</value>
-        [DataMember(Name="is_close")]
+        [DataMember(Name="is_close", EmitDefaultValue=false)]
         public bool IsClose { get; private set; }
 
         /// <summary>

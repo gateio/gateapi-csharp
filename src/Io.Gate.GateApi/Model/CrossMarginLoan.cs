@@ -58,7 +58,7 @@ namespace Io.Gate.GateApi.Model
         /// Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
         /// </summary>
         /// <value>Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
-        [DataMember(Name="status")]
+        [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginLoan" /> class.
@@ -84,21 +84,21 @@ namespace Io.Gate.GateApi.Model
         /// Borrow loan ID
         /// </summary>
         /// <value>Borrow loan ID</value>
-        [DataMember(Name="id")]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
         /// Creation timestamp, in milliseconds
         /// </summary>
         /// <value>Creation timestamp, in milliseconds</value>
-        [DataMember(Name="create_time")]
+        [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 
         /// <summary>
         /// Update timestamp, in milliseconds
         /// </summary>
         /// <value>Update timestamp, in milliseconds</value>
-        [DataMember(Name="update_time")]
+        [DataMember(Name="update_time", EmitDefaultValue=false)]
         public long UpdateTime { get; private set; }
 
         /// <summary>
@@ -126,21 +126,21 @@ namespace Io.Gate.GateApi.Model
         /// Repaid amount
         /// </summary>
         /// <value>Repaid amount</value>
-        [DataMember(Name="repaid")]
+        [DataMember(Name="repaid", EmitDefaultValue=false)]
         public string Repaid { get; private set; }
 
         /// <summary>
         /// Repaid interest
         /// </summary>
         /// <value>Repaid interest</value>
-        [DataMember(Name="repaid_interest")]
+        [DataMember(Name="repaid_interest", EmitDefaultValue=false)]
         public string RepaidInterest { get; private set; }
 
         /// <summary>
         /// Outstanding interest yet to be paid
         /// </summary>
         /// <value>Outstanding interest yet to be paid</value>
-        [DataMember(Name="unpaid_interest")]
+        [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 
         /// <summary>
