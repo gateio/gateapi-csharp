@@ -28,6 +28,27 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// List chains supported for specified currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>List&lt;CurrencyChain&gt;</returns>
+        List<CurrencyChain> ListCurrencyChains (string currency);
+
+        /// <summary>
+        /// List chains supported for specified currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of List&lt;CurrencyChain&gt;</returns>
+        ApiResponse<List<CurrencyChain>> ListCurrencyChainsWithHttpInfo (string currency);
+        /// <summary>
         /// Generate currency deposit address
         /// </summary>
         /// <remarks>
@@ -110,7 +131,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -121,7 +142,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -244,7 +265,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve user&#39;s total balances
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -255,7 +276,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve user&#39;s total balances
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -270,6 +291,27 @@ namespace Io.Gate.GateApi.Api
     public interface IWalletApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// List chains supported for specified currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of List&lt;CurrencyChain&gt;</returns>
+        Task<List<CurrencyChain>> ListCurrencyChainsAsync (string currency);
+
+        /// <summary>
+        /// List chains supported for specified currency
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (List&lt;CurrencyChain&gt;)</returns>
+        Task<ApiResponse<List<CurrencyChain>>> ListCurrencyChainsAsyncWithHttpInfo (string currency);
         /// <summary>
         /// Generate currency deposit address
         /// </summary>
@@ -353,7 +395,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -364,7 +406,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -487,7 +529,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve user&#39;s total balances
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -498,7 +540,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve user&#39;s total balances
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -622,6 +664,119 @@ namespace Io.Gate.GateApi.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// List chains supported for specified currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>List&lt;CurrencyChain&gt;</returns>
+        public List<CurrencyChain> ListCurrencyChains (string currency)
+        {
+             ApiResponse<List<CurrencyChain>> localVarResponse = ListCurrencyChainsWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List chains supported for specified currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>ApiResponse of List&lt;CurrencyChain&gt;</returns>
+        public ApiResponse<List<CurrencyChain>> ListCurrencyChainsWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling WalletApi->ListCurrencyChains");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CurrencyChain>>("/wallet/currency_chains", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCurrencyChains", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List chains supported for specified currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of List&lt;CurrencyChain&gt;</returns>
+        public async Task<List<CurrencyChain>> ListCurrencyChainsAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<CurrencyChain>> localVarResponse = await ListCurrencyChainsAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List chains supported for specified currency 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency name</param>
+        /// <returns>Task of ApiResponse (List&lt;CurrencyChain&gt;)</returns>
+        public async Task<ApiResponse<List<CurrencyChain>>> ListCurrencyChainsAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling WalletApi->ListCurrencyChains");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CurrencyChain>>("/wallet/currency_chains", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCurrencyChains", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -1068,7 +1223,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1079,7 +1234,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1124,7 +1279,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1136,7 +1291,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1806,7 +1961,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve user&#39;s total balances 
+        /// Retrieve user&#39;s total balances This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -1818,7 +1973,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve user&#39;s total balances 
+        /// Retrieve user&#39;s total balances This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -1862,7 +2017,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve user&#39;s total balances 
+        /// Retrieve user&#39;s total balances This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
@@ -1875,7 +2030,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve user&#39;s total balances 
+        /// Retrieve user&#39;s total balances This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - &#x60;GET /spot/accounts&#x60; to query spot account balance - &#x60;GET /margin/accounts&#x60; to query margin account balance - &#x60;GET /futures/{settle}/accounts&#x60; to query futures account balance
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>

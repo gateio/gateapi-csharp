@@ -29,7 +29,7 @@ namespace GateApiDemo
 
             CurrencyPair pair = spotApi.GetCurrencyPair(currencyPair);
             Console.WriteLine("testing against currency pair: {0}", currencyPair);
-            string minAmount = pair.MinQuoteAmount;
+            string minAmount = pair.MinBaseAmount;
 
             List<Ticker> tickers = spotApi.ListTickers(currencyPair);
             Debug.Assert(tickers.Count == 1);

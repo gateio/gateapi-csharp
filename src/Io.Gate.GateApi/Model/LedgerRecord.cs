@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class LedgerRecord :  IEquatable<LedgerRecord>, IValidatableObject
     {
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
+        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail</value>
+        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -77,14 +77,38 @@ namespace Io.Gate.GateApi.Model
             /// Enum FAIL for value: FAIL
             /// </summary>
             [EnumMember(Value = "FAIL")]
-            FAIL = 7
+            FAIL = 7,
+
+            /// <summary>
+            /// Enum INVALID for value: INVALID
+            /// </summary>
+            [EnumMember(Value = "INVALID")]
+            INVALID = 8,
+
+            /// <summary>
+            /// Enum VERIFY for value: VERIFY
+            /// </summary>
+            [EnumMember(Value = "VERIFY")]
+            VERIFY = 9,
+
+            /// <summary>
+            /// Enum PROCES for value: PROCES
+            /// </summary>
+            [EnumMember(Value = "PROCES")]
+            PROCES = 10,
+
+            /// <summary>
+            /// Enum PEND for value: PEND
+            /// </summary>
+            [EnumMember(Value = "PEND")]
+            PEND = 11
 
         }
 
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
+        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail</value>
+        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
