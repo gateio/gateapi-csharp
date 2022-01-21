@@ -39,7 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed.</param>
         /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled.</param>
         /// <param name="tradeDisabled">Whether currency&#39;s trading is disabled.</param>
-        public Currency(string currency = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool))
+        /// <param name="fixedRate">Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies.</param>
+        public Currency(string currency = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string))
         {
             this._Currency = currency;
             this.Delisted = delisted;
@@ -47,6 +48,7 @@ namespace Io.Gate.GateApi.Model
             this.WithdrawDelayed = withdrawDelayed;
             this.DepositDisabled = depositDisabled;
             this.TradeDisabled = tradeDisabled;
+            this.FixedRate = fixedRate;
         }
 
         /// <summary>
@@ -92,6 +94,13 @@ namespace Io.Gate.GateApi.Model
         public bool TradeDisabled { get; set; }
 
         /// <summary>
+        /// Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies
+        /// </summary>
+        /// <value>Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies</value>
+        [DataMember(Name="fixed_rate")]
+        public string FixedRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  WithdrawDelayed: ").Append(WithdrawDelayed).Append("\n");
             sb.Append("  DepositDisabled: ").Append(DepositDisabled).Append("\n");
             sb.Append("  TradeDisabled: ").Append(TradeDisabled).Append("\n");
+            sb.Append("  FixedRate: ").Append(FixedRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +173,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.TradeDisabled == input.TradeDisabled ||
                     this.TradeDisabled.Equals(input.TradeDisabled)
+                ) && 
+                (
+                    this.FixedRate == input.FixedRate ||
+                    (this.FixedRate != null &&
+                    this.FixedRate.Equals(input.FixedRate))
                 );
         }
 
@@ -182,6 +197,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.WithdrawDelayed.GetHashCode();
                 hashCode = hashCode * 59 + this.DepositDisabled.GetHashCode();
                 hashCode = hashCode * 59 + this.TradeDisabled.GetHashCode();
+                if (this.FixedRate != null)
+                    hashCode = hashCode * 59 + this.FixedRate.GetHashCode();
                 return hashCode;
             }
         }

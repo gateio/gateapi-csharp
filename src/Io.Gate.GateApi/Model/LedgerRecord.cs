@@ -124,7 +124,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="address">Withdrawal address. Required for withdrawals.</param>
         /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
         /// <param name="chain">Name of the chain used in withdrawals.</param>
-        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
+        /// <param name="fee">Fee.</param>
+        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string), string fee = default(string))
         {
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for LedgerRecord and cannot be null");
@@ -133,6 +134,7 @@ namespace Io.Gate.GateApi.Model
             this.Address = address;
             this.Memo = memo;
             this.Chain = chain;
+            this.Fee = fee;
         }
 
         /// <summary>
@@ -192,6 +194,13 @@ namespace Io.Gate.GateApi.Model
         public string Chain { get; set; }
 
         /// <summary>
+        /// Fee
+        /// </summary>
+        /// <value>Fee</value>
+        [DataMember(Name="fee")]
+        public string Fee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -208,6 +217,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Memo: ").Append(Memo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Chain: ").Append(Chain).Append("\n");
+            sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -285,6 +295,11 @@ namespace Io.Gate.GateApi.Model
                     this.Chain == input.Chain ||
                     (this.Chain != null &&
                     this.Chain.Equals(input.Chain))
+                ) && 
+                (
+                    this.Fee == input.Fee ||
+                    (this.Fee != null &&
+                    this.Fee.Equals(input.Fee))
                 );
         }
 
@@ -314,6 +329,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Chain != null)
                     hashCode = hashCode * 59 + this.Chain.GetHashCode();
+                if (this.Fee != null)
+                    hashCode = hashCode * 59 + this.Fee.GetHashCode();
                 return hashCode;
             }
         }

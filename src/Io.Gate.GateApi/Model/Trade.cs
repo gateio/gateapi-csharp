@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="side")]
         public SideEnum? Side { get; set; }
         /// <summary>
-        /// Trade role
+        /// Trade role. No value in public endpoints
         /// </summary>
-        /// <value>Trade role</value>
+        /// <value>Trade role. No value in public endpoints</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -79,9 +79,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade role
+        /// Trade role. No value in public endpoints
         /// </summary>
-        /// <value>Trade role</value>
+        /// <value>Trade role. No value in public endpoints</value>
         [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
@@ -92,14 +92,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="createTimeMs">Trading time, with millisecond precision.</param>
         /// <param name="currencyPair">Currency pair.</param>
         /// <param name="side">Order side.</param>
-        /// <param name="role">Trade role.</param>
+        /// <param name="role">Trade role. No value in public endpoints.</param>
         /// <param name="amount">Trade amount.</param>
         /// <param name="price">Order price.</param>
         /// <param name="orderId">Related order ID. No value in public endpoints.</param>
         /// <param name="fee">Fee deducted. No value in public endpoints.</param>
         /// <param name="feeCurrency">Fee currency unit. No value in public endpoints.</param>
-        /// <param name="pointFee">Points used to deduct fee.</param>
-        /// <param name="gtFee">GT used to deduct fee.</param>
+        /// <param name="pointFee">Points used to deduct fee. No value in public endpoints.</param>
+        /// <param name="gtFee">GT used to deduct fee. No value in public endpoints.</param>
         public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string))
         {
             this.Id = id;
@@ -181,16 +181,16 @@ namespace Io.Gate.GateApi.Model
         public string FeeCurrency { get; set; }
 
         /// <summary>
-        /// Points used to deduct fee
+        /// Points used to deduct fee. No value in public endpoints
         /// </summary>
-        /// <value>Points used to deduct fee</value>
+        /// <value>Points used to deduct fee. No value in public endpoints</value>
         [DataMember(Name="point_fee")]
         public string PointFee { get; set; }
 
         /// <summary>
-        /// GT used to deduct fee
+        /// GT used to deduct fee. No value in public endpoints
         /// </summary>
-        /// <value>GT used to deduct fee</value>
+        /// <value>GT used to deduct fee. No value in public endpoints</value>
         [DataMember(Name="gt_fee")]
         public string GtFee { get; set; }
 
