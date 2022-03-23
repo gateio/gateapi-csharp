@@ -539,7 +539,7 @@ namespace Io.Gate.GateApi.Client
                 client.Proxy = configuration.Proxy;
             }
 
-    InterceptRequest(req);
+            InterceptRequest(req);
 
             var response = await client.ExecuteAsync<T>(req);
 
