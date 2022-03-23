@@ -536,8 +536,8 @@ namespace Io.Gate.GateApi.Client
             }
 
             if (configuration.Proxy != null) {
-        client.Proxy = configuration.Proxy;
-    }
+                client.Proxy = configuration.Proxy;
+            }
 
     InterceptRequest(req);
 
