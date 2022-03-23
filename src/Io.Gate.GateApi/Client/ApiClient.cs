@@ -535,7 +535,11 @@ namespace Io.Gate.GateApi.Client
                 client.ClientCertificates = configuration.ClientCertificates;
             }
 
-            InterceptRequest(req);
+            if (configuration.Proxy != null) {
+        client.Proxy = configuration.Proxy;
+    }
+
+    InterceptRequest(req);
 
             var response = await client.ExecuteAsync<T>(req);
 
