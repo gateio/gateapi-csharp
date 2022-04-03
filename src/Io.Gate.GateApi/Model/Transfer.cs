@@ -145,7 +145,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="to">Account to transfer to (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
         /// <param name="currencyPair">Margin currency pair. Required if transfer from or to margin account.</param>
-        /// <param name="settle">Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;.</param>
+        /// <param name="settle">Futures settle currency. Required if transferring from or to futures account.</param>
         public Transfer(string currency = default(string), FromEnum from = default(FromEnum), ToEnum to = default(ToEnum), string amount = default(string), string currencyPair = default(string), string settle = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -180,9 +180,9 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;
+        /// Futures settle currency. Required if transferring from or to futures account
         /// </summary>
-        /// <value>Futures settle currency. Required if &#x60;currency&#x60; is &#x60;POINT&#x60;</value>
+        /// <value>Futures settle currency. Required if transferring from or to futures account</value>
         [DataMember(Name="settle")]
         public string Settle { get; set; }
 

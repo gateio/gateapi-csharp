@@ -35,11 +35,11 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="currencyPair">Currency pair.</param>
         /// <param name="last">Last trading price.</param>
-        /// <param name="lowestAsk">Lowest ask.</param>
-        /// <param name="highestBid">Highest bid.</param>
-        /// <param name="changePercentage">Change percentage..</param>
-        /// <param name="baseVolume">Base currency trade volume.</param>
-        /// <param name="quoteVolume">Quote currency trade volume.</param>
+        /// <param name="lowestAsk">Recent lowest ask.</param>
+        /// <param name="highestBid">Recent highest bid.</param>
+        /// <param name="changePercentage">Change percentage in the last 24h.</param>
+        /// <param name="baseVolume">Base currency trade volume in the last 24h.</param>
+        /// <param name="quoteVolume">Quote currency trade volume in the last 24h.</param>
         /// <param name="high24h">Highest price in 24h.</param>
         /// <param name="low24h">Lowest price in 24h.</param>
         /// <param name="etfNetValue">ETF net value.</param>
@@ -78,37 +78,37 @@ namespace Io.Gate.GateApi.Model
         public string Last { get; set; }
 
         /// <summary>
-        /// Lowest ask
+        /// Recent lowest ask
         /// </summary>
-        /// <value>Lowest ask</value>
+        /// <value>Recent lowest ask</value>
         [DataMember(Name="lowest_ask")]
         public string LowestAsk { get; set; }
 
         /// <summary>
-        /// Highest bid
+        /// Recent highest bid
         /// </summary>
-        /// <value>Highest bid</value>
+        /// <value>Recent highest bid</value>
         [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
 
         /// <summary>
-        /// Change percentage.
+        /// Change percentage in the last 24h
         /// </summary>
-        /// <value>Change percentage.</value>
+        /// <value>Change percentage in the last 24h</value>
         [DataMember(Name="change_percentage")]
         public string ChangePercentage { get; set; }
 
         /// <summary>
-        /// Base currency trade volume
+        /// Base currency trade volume in the last 24h
         /// </summary>
-        /// <value>Base currency trade volume</value>
+        /// <value>Base currency trade volume in the last 24h</value>
         [DataMember(Name="base_volume")]
         public string BaseVolume { get; set; }
 
         /// <summary>
-        /// Quote currency trade volume
+        /// Quote currency trade volume in the last 24h
         /// </summary>
-        /// <value>Quote currency trade volume</value>
+        /// <value>Quote currency trade volume in the last 24h</value>
         [DataMember(Name="quote_volume")]
         public string QuoteVolume { get; set; }
 

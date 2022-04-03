@@ -143,7 +143,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         List<FuturesCandlestick> ListFuturesCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
@@ -159,7 +159,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         ApiResponse<List<FuturesCandlestick>> ListFuturesCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
@@ -545,8 +545,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>List&lt;Position&gt;</returns>
-        List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage);
+        List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
 
         /// <summary>
         /// Update position leverage in dual mode
@@ -558,8 +559,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
-        ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage);
+        ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
         /// <summary>
         /// Update position risk limit in dual mode
         /// </summary>
@@ -589,7 +591,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -606,7 +608,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -622,7 +624,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -634,7 +636,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -645,7 +647,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -658,7 +660,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -670,7 +672,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -682,7 +684,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1049,7 +1051,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         Task<List<FuturesCandlestick>> ListFuturesCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
@@ -1065,7 +1067,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         Task<ApiResponse<List<FuturesCandlestick>>> ListFuturesCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
@@ -1451,8 +1453,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
-        Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage);
+        Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
 
         /// <summary>
         /// Update position leverage in dual mode
@@ -1464,8 +1467,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
-        Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage);
+        Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string));
         /// <summary>
         /// Update position risk limit in dual mode
         /// </summary>
@@ -1495,7 +1499,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1512,7 +1516,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1528,7 +1532,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1540,7 +1544,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1551,7 +1555,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1564,7 +1568,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1576,7 +1580,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1588,7 +1592,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -2537,7 +2541,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         public List<FuturesCandlestick> ListFuturesCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2554,7 +2558,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         public ApiResponse<List<FuturesCandlestick>> ListFuturesCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2623,7 +2627,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         public async Task<List<FuturesCandlestick>> ListFuturesCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2641,7 +2645,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         public async Task<ApiResponse<List<FuturesCandlestick>>> ListFuturesCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -4813,10 +4817,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>List&lt;Position&gt;</returns>
-        public List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage)
+        public List<Position> UpdateDualModePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
-             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionLeverageWithHttpInfo(settle, contract, leverage);
+             ApiResponse<List<Position>> localVarResponse = UpdateDualModePositionLeverageWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
              return localVarResponse.Data;
         }
 
@@ -4827,8 +4832,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
-        public ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage)
+        public ApiResponse<List<Position>> UpdateDualModePositionLeverageWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4861,6 +4867,10 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+            if (crossLeverageLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cross_leverage_limit", crossLeverageLimit));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4884,10 +4894,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
-        public async Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage)
+        public async Task<List<Position>> UpdateDualModePositionLeverageAsync (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionLeverageAsyncWithHttpInfo(settle, contract, leverage);
+             Io.Gate.GateApi.Client.ApiResponse<List<Position>> localVarResponse = await UpdateDualModePositionLeverageAsyncWithHttpInfo(settle, contract, leverage, crossLeverageLimit);
              return localVarResponse.Data;
 
         }
@@ -4899,8 +4910,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="leverage">New position leverage</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
-        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage)
+        public async Task<ApiResponse<List<Position>>> UpdateDualModePositionLeverageAsyncWithHttpInfo (string settle, string contract, string leverage, string crossLeverageLimit = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4934,6 +4946,10 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("contract", ClientUtils.ParameterToString(contract)); // path parameter
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "leverage", leverage));
+            if (crossLeverageLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "cross_leverage_limit", crossLeverageLimit));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -5097,7 +5113,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5115,7 +5131,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5192,7 +5208,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5211,7 +5227,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5290,7 +5306,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5303,7 +5319,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5355,7 +5371,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5369,7 +5385,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order - Creating futures orders requires &#x60;size&#x60;, which is number of contracts instead of currency amount. You can use &#x60;quanto_multiplier&#x60; in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set &#x60;reduce_only&#x60; to &#x60;true&#x60; can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set &#x60;size&#x60; to 0 and &#x60;close&#x60; to &#x60;true&#x60; - In dual position mode, to close one side position, you need to set &#x60;auto_size&#x60; side, &#x60;reduce_only&#x60; to true and &#x60;size&#x60; to 0
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5423,7 +5439,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5437,7 +5453,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5493,7 +5509,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5508,7 +5524,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5566,7 +5582,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5579,7 +5595,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5630,7 +5646,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5644,7 +5660,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>

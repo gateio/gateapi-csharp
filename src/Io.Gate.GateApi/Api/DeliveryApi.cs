@@ -143,7 +143,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
@@ -159,7 +159,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
@@ -381,7 +381,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -398,7 +398,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -414,7 +414,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -426,7 +426,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -437,7 +437,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -450,7 +450,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -462,7 +462,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -474,7 +474,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -862,7 +862,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
@@ -878,7 +878,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
@@ -1100,7 +1100,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1117,7 +1117,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1133,7 +1133,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1145,7 +1145,7 @@ namespace Io.Gate.GateApi.Api
         /// Create a futures order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1156,7 +1156,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1169,7 +1169,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1181,7 +1181,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1193,7 +1193,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -2163,7 +2163,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         public List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2180,7 +2180,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         public ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2249,7 +2249,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         public async Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -2267,7 +2267,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         public async Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
@@ -3545,7 +3545,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3563,7 +3563,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3639,7 +3639,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3658,7 +3658,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3736,7 +3736,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3749,7 +3749,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3801,7 +3801,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3815,7 +3815,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a futures order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Create a futures order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3869,7 +3869,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3883,7 +3883,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3939,7 +3939,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -3954,7 +3954,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Cancel all &#x60;open&#x60; orders matched Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -4012,7 +4012,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -4025,7 +4025,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -4076,7 +4076,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -4090,7 +4090,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-fill order cannot be retrieved for 60 seconds after cancellation
+        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>

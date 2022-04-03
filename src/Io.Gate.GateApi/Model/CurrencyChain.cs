@@ -37,12 +37,16 @@ namespace Io.Gate.GateApi.Model
         /// <param name="nameCn">Chain name in Chinese.</param>
         /// <param name="nameEn">Chain name in English.</param>
         /// <param name="isDisabled">If it is disabled. 0 means NOT being disabled.</param>
-        public CurrencyChain(string chain = default(string), string nameCn = default(string), string nameEn = default(string), int isDisabled = default(int))
+        /// <param name="isDepositDisabled">Is deposit disabled. 0 means not.</param>
+        /// <param name="isWithdrawDisabled">Is withdrawal disabled. 0 means not.</param>
+        public CurrencyChain(string chain = default(string), string nameCn = default(string), string nameEn = default(string), int isDisabled = default(int), int isDepositDisabled = default(int), int isWithdrawDisabled = default(int))
         {
             this.Chain = chain;
             this.NameCn = nameCn;
             this.NameEn = nameEn;
             this.IsDisabled = isDisabled;
+            this.IsDepositDisabled = isDepositDisabled;
+            this.IsWithdrawDisabled = isWithdrawDisabled;
         }
 
         /// <summary>
@@ -74,6 +78,20 @@ namespace Io.Gate.GateApi.Model
         public int IsDisabled { get; set; }
 
         /// <summary>
+        /// Is deposit disabled. 0 means not
+        /// </summary>
+        /// <value>Is deposit disabled. 0 means not</value>
+        [DataMember(Name="is_deposit_disabled")]
+        public int IsDepositDisabled { get; set; }
+
+        /// <summary>
+        /// Is withdrawal disabled. 0 means not
+        /// </summary>
+        /// <value>Is withdrawal disabled. 0 means not</value>
+        [DataMember(Name="is_withdraw_disabled")]
+        public int IsWithdrawDisabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +103,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  NameCn: ").Append(NameCn).Append("\n");
             sb.Append("  NameEn: ").Append(NameEn).Append("\n");
             sb.Append("  IsDisabled: ").Append(IsDisabled).Append("\n");
+            sb.Append("  IsDepositDisabled: ").Append(IsDepositDisabled).Append("\n");
+            sb.Append("  IsWithdrawDisabled: ").Append(IsWithdrawDisabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +157,14 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.IsDisabled == input.IsDisabled ||
                     this.IsDisabled.Equals(input.IsDisabled)
+                ) && 
+                (
+                    this.IsDepositDisabled == input.IsDepositDisabled ||
+                    this.IsDepositDisabled.Equals(input.IsDepositDisabled)
+                ) && 
+                (
+                    this.IsWithdrawDisabled == input.IsWithdrawDisabled ||
+                    this.IsWithdrawDisabled.Equals(input.IsWithdrawDisabled)
                 );
         }
 
@@ -156,6 +184,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.NameEn != null)
                     hashCode = hashCode * 59 + this.NameEn.GetHashCode();
                 hashCode = hashCode * 59 + this.IsDisabled.GetHashCode();
+                hashCode = hashCode * 59 + this.IsDepositDisabled.GetHashCode();
+                hashCode = hashCode * 59 + this.IsWithdrawDisabled.GetHashCode();
                 return hashCode;
             }
         }

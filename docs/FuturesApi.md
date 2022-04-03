@@ -369,7 +369,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Interval time between data points (optional)  (default to 5m)
+            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0 (optional)  (default to 5m)
 
             try
             {
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 | [optional] [default to 5m]
 
 ### Return type
 
@@ -1539,7 +1539,7 @@ Name | Type | Description  | Notes
 
 <a name="updatedualmodepositionleverage"></a>
 # **UpdateDualModePositionLeverage**
-> List&lt;Position&gt; UpdateDualModePositionLeverage (string settle, string contract, string leverage)
+> List&lt;Position&gt; UpdateDualModePositionLeverage (string settle, string contract, string leverage, string crossLeverageLimit = null)
 
 Update position leverage in dual mode
 
@@ -1565,11 +1565,12 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var leverage = "10";  // string | New position leverage
+            var crossLeverageLimit = "10";  // string | Cross margin leverage(valid only when `leverage` is 0) (optional) 
 
             try
             {
                 // Update position leverage in dual mode
-                List<Position> result = apiInstance.UpdateDualModePositionLeverage(settle, contract, leverage);
+                List<Position> result = apiInstance.UpdateDualModePositionLeverage(settle, contract, leverage, crossLeverageLimit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1591,6 +1592,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **leverage** | **string**| New position leverage | 
+ **crossLeverageLimit** | **string**| Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional] 
 
 ### Return type
 
@@ -1693,7 +1695,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 ```csharp
@@ -1778,7 +1780,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+- Creating futures orders requires `size`, which is number of contracts instead of currency amount. You can use `quanto_multiplier` in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set `reduce_only` to `true` can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set `size` to 0 and `close` to `true` - In dual position mode, to close one side position, you need to set `auto_size` side, `reduce_only` to true and `size` to 0
 
 ### Example
 ```csharp
@@ -1853,7 +1855,7 @@ Name | Type | Description  | Notes
 
 Cancel all `open` orders matched
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 ```csharp
@@ -1930,7 +1932,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-fill order cannot be retrieved for 60 seconds after cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation
 
 ### Example
 ```csharp

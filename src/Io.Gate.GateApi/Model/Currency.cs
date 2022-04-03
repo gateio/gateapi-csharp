@@ -40,7 +40,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled.</param>
         /// <param name="tradeDisabled">Whether currency&#39;s trading is disabled.</param>
         /// <param name="fixedRate">Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies.</param>
-        public Currency(string currency = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string))
+        /// <param name="chain">Chain of currency.</param>
+        public Currency(string currency = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string), string chain = default(string))
         {
             this._Currency = currency;
             this.Delisted = delisted;
@@ -49,6 +50,7 @@ namespace Io.Gate.GateApi.Model
             this.DepositDisabled = depositDisabled;
             this.TradeDisabled = tradeDisabled;
             this.FixedRate = fixedRate;
+            this.Chain = chain;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Io.Gate.GateApi.Model
         public string FixedRate { get; set; }
 
         /// <summary>
+        /// Chain of currency
+        /// </summary>
+        /// <value>Chain of currency</value>
+        [DataMember(Name="chain")]
+        public string Chain { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  DepositDisabled: ").Append(DepositDisabled).Append("\n");
             sb.Append("  TradeDisabled: ").Append(TradeDisabled).Append("\n");
             sb.Append("  FixedRate: ").Append(FixedRate).Append("\n");
+            sb.Append("  Chain: ").Append(Chain).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +188,11 @@ namespace Io.Gate.GateApi.Model
                     this.FixedRate == input.FixedRate ||
                     (this.FixedRate != null &&
                     this.FixedRate.Equals(input.FixedRate))
+                ) && 
+                (
+                    this.Chain == input.Chain ||
+                    (this.Chain != null &&
+                    this.Chain.Equals(input.Chain))
                 );
         }
 
@@ -199,6 +214,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.TradeDisabled.GetHashCode();
                 if (this.FixedRate != null)
                     hashCode = hashCode * 59 + this.FixedRate.GetHashCode();
+                if (this.Chain != null)
+                    hashCode = hashCode * 59 + this.Chain.GetHashCode();
                 return hashCode;
             }
         }
