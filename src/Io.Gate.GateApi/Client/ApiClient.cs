@@ -535,7 +535,8 @@ namespace Io.Gate.GateApi.Client
                 client.ClientCertificates = configuration.ClientCertificates;
             }
 
-            if (configuration.Proxy != null) {
+            if (configuration.Proxy != null)
+            {
                 client.Proxy = configuration.Proxy;
             }
 
