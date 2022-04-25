@@ -692,6 +692,31 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of FuturesOrder</returns>
         ApiResponse<FuturesOrder> GetFuturesOrderWithHttpInfo (string settle, string orderId);
         /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>FuturesOrder</returns>
+        FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>ApiResponse of FuturesOrder</returns>
+        ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+        /// <summary>
         /// Cancel a single order
         /// </summary>
         /// <remarks>
@@ -1599,6 +1624,31 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
         Task<ApiResponse<FuturesOrder>> GetFuturesOrderAsyncWithHttpInfo (string settle, string orderId);
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>Task of FuturesOrder</returns>
+        Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>Task of ApiResponse (FuturesOrder)</returns>
+        Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
         /// <summary>
         /// Cancel a single order
         /// </summary>
@@ -5706,6 +5756,153 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFuturesOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Amend an order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>FuturesOrder</returns>
+        public FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        {
+             ApiResponse<FuturesOrder> localVarResponse = AmendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Amend an order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>ApiResponse of FuturesOrder</returns>
+        public ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->AmendFuturesOrder");
+
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling FuturesApi->AmendFuturesOrder");
+
+            // verify the required parameter 'futuresOrderAmendment' is set
+            if (futuresOrderAmendment == null)
+                throw new ApiException(400, "Missing required parameter 'futuresOrderAmendment' when calling FuturesApi->AmendFuturesOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            localVarRequestOptions.Data = futuresOrderAmendment;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<FuturesOrder>("/futures/{settle}/orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendFuturesOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Amend an order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>Task of FuturesOrder</returns>
+        public async Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await AmendFuturesOrderAsyncWithHttpInfo(settle, orderId, futuresOrderAmendment);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Amend an order 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="futuresOrderAmendment"></param>
+        /// <returns>Task of ApiResponse (FuturesOrder)</returns>
+        public async Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->AmendFuturesOrder");
+
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling FuturesApi->AmendFuturesOrder");
+
+            // verify the required parameter 'futuresOrderAmendment' is set
+            if (futuresOrderAmendment == null)
+                throw new ApiException(400, "Missing required parameter 'futuresOrderAmendment' when calling FuturesApi->AmendFuturesOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            localVarRequestOptions.Data = futuresOrderAmendment;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FuturesOrder>("/futures/{settle}/orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendFuturesOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

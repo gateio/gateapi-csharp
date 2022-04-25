@@ -165,7 +165,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -182,7 +182,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -199,7 +199,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>List&lt;List&lt;string&gt;&gt;</returns>
         List<List<string>> ListCandlesticks (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
@@ -214,7 +214,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>ApiResponse of List&lt;List&lt;string&gt;&gt;</returns>
         ApiResponse<List<List<string>>> ListCandlesticksWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
@@ -752,7 +752,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -769,7 +769,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -786,7 +786,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of List&lt;List&lt;string&gt;&gt;</returns>
         Task<List<List<string>>> ListCandlesticksAsync (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
@@ -801,7 +801,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of ApiResponse (List&lt;List&lt;string&gt;&gt;)</returns>
         Task<ApiResponse<List<List<string>>>> ListCandlesticksAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
@@ -2003,7 +2003,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -2021,7 +2021,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -2094,7 +2094,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -2113,7 +2113,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
-        /// <param name="reverse">Whether the id of records to be retrieved should be smaller than the last_id specified- true: Retrieve records where id is smaller than the specified last_id- false: Retrieve records where id is larger than the specified last_idDefault to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
+        /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
@@ -2189,7 +2189,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>List&lt;List&lt;string&gt;&gt;</returns>
         public List<List<string>> ListCandlesticks (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2205,7 +2205,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>ApiResponse of List&lt;List&lt;string&gt;&gt;</returns>
         public ApiResponse<List<List<string>>> ListCandlesticksWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2268,7 +2268,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of List&lt;List&lt;string&gt;&gt;</returns>
         public async Task<List<List<string>>> ListCandlesticksAsync (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2285,7 +2285,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 30m)</param>
+        /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of ApiResponse (List&lt;List&lt;string&gt;&gt;)</returns>
         public async Task<ApiResponse<List<List<string>>>> ListCandlesticksAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
