@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
+[**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
+[**ListSubAccountFuturesBalances**](WalletApi.md#listsubaccountfuturesbalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
 [**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
@@ -669,6 +671,150 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;SubAccountBalance&gt;**](SubAccountBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsubaccountmarginbalances"></a>
+# **ListSubAccountMarginBalances**
+> List&lt;SubAccountMarginBalance&gt; ListSubAccountMarginBalances (string subUid = null)
+
+Query sub accounts' margin balances
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSubAccountMarginBalancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+
+            try
+            {
+                // Query sub accounts' margin balances
+                List<SubAccountMarginBalance> result = apiInstance.ListSubAccountMarginBalances(subUid);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSubAccountMarginBalances: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+
+### Return type
+
+[**List&lt;SubAccountMarginBalance&gt;**](SubAccountMarginBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsubaccountfuturesbalances"></a>
+# **ListSubAccountFuturesBalances**
+> List&lt;SubAccountFuturesBalance&gt; ListSubAccountFuturesBalances (string subUid = null, string settle = null)
+
+Query sub accounts' futures account balances
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSubAccountFuturesBalancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var settle = "usdt";  // string | Query only balances of specified settle currency (optional) 
+
+            try
+            {
+                // Query sub accounts' futures account balances
+                List<SubAccountFuturesBalance> result = apiInstance.ListSubAccountFuturesBalances(subUid, settle);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSubAccountFuturesBalances: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **settle** | **string**| Query only balances of specified settle currency | [optional] 
+
+### Return type
+
+[**List&lt;SubAccountFuturesBalance&gt;**](SubAccountFuturesBalance.md)
 
 ### Authorization
 

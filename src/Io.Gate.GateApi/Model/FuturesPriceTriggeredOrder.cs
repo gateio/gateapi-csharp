@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesPriceTriggeredOrder :  IEquatable<FuturesPriceTriggeredOrder>, IValidatableObject
     {
         /// <summary>
-        /// Order status.
+        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order
         /// </summary>
-        /// <value>Order status.</value>
+        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -47,14 +47,26 @@ namespace Io.Gate.GateApi.Model
             /// Enum Finished for value: finished
             /// </summary>
             [EnumMember(Value = "finished")]
-            Finished = 2
+            Finished = 2,
+
+            /// <summary>
+            /// Enum Inactive for value: inactive
+            /// </summary>
+            [EnumMember(Value = "inactive")]
+            Inactive = 3,
+
+            /// <summary>
+            /// Enum Invalid for value: invalid
+            /// </summary>
+            [EnumMember(Value = "invalid")]
+            Invalid = 4
 
         }
 
         /// <summary>
-        /// Order status.
+        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order
         /// </summary>
-        /// <value>Order status.</value>
+        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -106,12 +118,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="initial">initial (required).</param>
         /// <param name="trigger">trigger (required).</param>
-        public FuturesPriceTriggeredOrder(FuturesInitialOrder initial = default(FuturesInitialOrder), FuturesPriceTrigger trigger = default(FuturesPriceTrigger))
+        /// <param name="orderType">Take-profit/stop-loss types, which include:  - &#x60;close-long-order&#x60;: order take-profit/stop-loss, close long position - &#x60;close-short-order&#x60;: order take-profit/stop-loss, close short position - &#x60;close-long-position&#x60;: position take-profit/stop-loss, close long position - &#x60;close-short-position&#x60;: position take-profit/stop-loss, close short position - &#x60;plan-close-long-position&#x60;: position planned take-profit/stop-loss, close long position - &#x60;plan-close-short-position&#x60;: position planned take-profit/stop-loss, close short position  The order take-profit/stop-loss can not be passed by request. These two types are read only..</param>
+        public FuturesPriceTriggeredOrder(FuturesInitialOrder initial = default(FuturesInitialOrder), FuturesPriceTrigger trigger = default(FuturesPriceTrigger), string orderType = default(string))
         {
             // to ensure "initial" is required (not null)
             this.Initial = initial ?? throw new ArgumentNullException("initial", "initial is a required property for FuturesPriceTriggeredOrder and cannot be null");
             // to ensure "trigger" is required (not null)
             this.Trigger = trigger ?? throw new ArgumentNullException("trigger", "trigger is a required property for FuturesPriceTriggeredOrder and cannot be null");
+            this.OrderType = orderType;
         }
 
         /// <summary>
@@ -169,6 +183,20 @@ namespace Io.Gate.GateApi.Model
         public string Reason { get; private set; }
 
         /// <summary>
+        /// Take-profit/stop-loss types, which include:  - &#x60;close-long-order&#x60;: order take-profit/stop-loss, close long position - &#x60;close-short-order&#x60;: order take-profit/stop-loss, close short position - &#x60;close-long-position&#x60;: position take-profit/stop-loss, close long position - &#x60;close-short-position&#x60;: position take-profit/stop-loss, close short position - &#x60;plan-close-long-position&#x60;: position planned take-profit/stop-loss, close long position - &#x60;plan-close-short-position&#x60;: position planned take-profit/stop-loss, close short position  The order take-profit/stop-loss can not be passed by request. These two types are read only.
+        /// </summary>
+        /// <value>Take-profit/stop-loss types, which include:  - &#x60;close-long-order&#x60;: order take-profit/stop-loss, close long position - &#x60;close-short-order&#x60;: order take-profit/stop-loss, close short position - &#x60;close-long-position&#x60;: position take-profit/stop-loss, close long position - &#x60;close-short-position&#x60;: position take-profit/stop-loss, close short position - &#x60;plan-close-long-position&#x60;: position planned take-profit/stop-loss, close long position - &#x60;plan-close-short-position&#x60;: position planned take-profit/stop-loss, close short position  The order take-profit/stop-loss can not be passed by request. These two types are read only.</value>
+        [DataMember(Name="order_type")]
+        public string OrderType { get; set; }
+
+        /// <summary>
+        /// Corresponding order ID of order take-profit/stop-loss.
+        /// </summary>
+        /// <value>Corresponding order ID of order take-profit/stop-loss.</value>
+        [DataMember(Name="me_order_id", EmitDefaultValue=false)]
+        public string MeOrderId { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -186,6 +214,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  FinishAs: ").Append(FinishAs).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  OrderType: ").Append(OrderType).Append("\n");
+            sb.Append("  MeOrderId: ").Append(MeOrderId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +292,16 @@ namespace Io.Gate.GateApi.Model
                     this.Reason == input.Reason ||
                     (this.Reason != null &&
                     this.Reason.Equals(input.Reason))
+                ) && 
+                (
+                    this.OrderType == input.OrderType ||
+                    (this.OrderType != null &&
+                    this.OrderType.Equals(input.OrderType))
+                ) && 
+                (
+                    this.MeOrderId == input.MeOrderId ||
+                    (this.MeOrderId != null &&
+                    this.MeOrderId.Equals(input.MeOrderId))
                 );
         }
 
@@ -287,6 +327,10 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.FinishAs.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.OrderType != null)
+                    hashCode = hashCode * 59 + this.OrderType.GetHashCode();
+                if (this.MeOrderId != null)
+                    hashCode = hashCode * 59 + this.MeOrderId.GetHashCode();
                 return hashCode;
             }
         }

@@ -263,6 +263,29 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;ContractStat&gt;</returns>
         ApiResponse<List<ContractStat>> ListContractStatsWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
         /// <summary>
+        /// Get index constituents
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>FuturesIndexConstituents</returns>
+        FuturesIndexConstituents GetIndexConstituents (string settle, string index);
+
+        /// <summary>
+        /// Get index constituents
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>ApiResponse of FuturesIndexConstituents</returns>
+        ApiResponse<FuturesIndexConstituents> GetIndexConstituentsWithHttpInfo (string settle, string index);
+        /// <summary>
         /// Retrieve liquidation history
         /// </summary>
         /// <remarks>
@@ -1195,6 +1218,29 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit"> (optional, default to 30)</param>
         /// <returns>Task of ApiResponse (List&lt;ContractStat&gt;)</returns>
         Task<ApiResponse<List<ContractStat>>> ListContractStatsAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), string interval = default(string), int? limit = default(int?));
+        /// <summary>
+        /// Get index constituents
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>Task of FuturesIndexConstituents</returns>
+        Task<FuturesIndexConstituents> GetIndexConstituentsAsync (string settle, string index);
+
+        /// <summary>
+        /// Get index constituents
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>Task of ApiResponse (FuturesIndexConstituents)</returns>
+        Task<ApiResponse<FuturesIndexConstituents>> GetIndexConstituentsAsyncWithHttpInfo (string settle, string index);
         /// <summary>
         /// Retrieve liquidation history
         /// </summary>
@@ -3303,6 +3349,133 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListContractStats", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get index constituents 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>FuturesIndexConstituents</returns>
+        public FuturesIndexConstituents GetIndexConstituents (string settle, string index)
+        {
+             ApiResponse<FuturesIndexConstituents> localVarResponse = GetIndexConstituentsWithHttpInfo(settle, index);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get index constituents 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>ApiResponse of FuturesIndexConstituents</returns>
+        public ApiResponse<FuturesIndexConstituents> GetIndexConstituentsWithHttpInfo (string settle, string index)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetIndexConstituents");
+
+            // verify the required parameter 'index' is set
+            if (index == null)
+                throw new ApiException(400, "Missing required parameter 'index' when calling FuturesApi->GetIndexConstituents");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("index", ClientUtils.ParameterToString(index)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<FuturesIndexConstituents>("/futures/{settle}/index_constituents/{index}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIndexConstituents", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get index constituents 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>Task of FuturesIndexConstituents</returns>
+        public async Task<FuturesIndexConstituents> GetIndexConstituentsAsync (string settle, string index)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<FuturesIndexConstituents> localVarResponse = await GetIndexConstituentsAsyncWithHttpInfo(settle, index);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get index constituents 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="index">Index name</param>
+        /// <returns>Task of ApiResponse (FuturesIndexConstituents)</returns>
+        public async Task<ApiResponse<FuturesIndexConstituents>> GetIndexConstituentsAsyncWithHttpInfo (string settle, string index)
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetIndexConstituents");
+
+            // verify the required parameter 'index' is set
+            if (index == null)
+                throw new ApiException(400, "Missing required parameter 'index' when calling FuturesApi->GetIndexConstituents");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            localVarRequestOptions.PathParameters.Add("index", ClientUtils.ParameterToString(index)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FuturesIndexConstituents>("/futures/{settle}/index_constituents/{index}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIndexConstituents", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

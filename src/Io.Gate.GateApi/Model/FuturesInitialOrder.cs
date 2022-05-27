@@ -72,7 +72,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="tif">Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
         /// <param name="text">How the order is created. Possible values are: web, api and app.</param>
         /// <param name="reduceOnly">Set to true to create a reduce-only order (default to false).</param>
-        public FuturesInitialOrder(string contract = default(string), long size = default(long), string price = default(string), bool close = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), bool reduceOnly = false)
+        /// <param name="autoSize">Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0.</param>
+        public FuturesInitialOrder(string contract = default(string), long size = default(long), string price = default(string), bool close = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), bool reduceOnly = false, string autoSize = default(string))
         {
             // to ensure "contract" is required (not null)
             this.Contract = contract ?? throw new ArgumentNullException("contract", "contract is a required property for FuturesInitialOrder and cannot be null");
@@ -83,6 +84,7 @@ namespace Io.Gate.GateApi.Model
             this.Tif = tif;
             this.Text = text;
             this.ReduceOnly = reduceOnly;
+            this.AutoSize = autoSize;
         }
 
         /// <summary>
@@ -128,6 +130,13 @@ namespace Io.Gate.GateApi.Model
         public bool ReduceOnly { get; set; }
 
         /// <summary>
+        /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+        /// </summary>
+        /// <value>Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0</value>
+        [DataMember(Name="auto_size")]
+        public string AutoSize { get; set; }
+
+        /// <summary>
         /// Is the order reduce-only
         /// </summary>
         /// <value>Is the order reduce-only</value>
@@ -156,6 +165,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Tif: ").Append(Tif).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  ReduceOnly: ").Append(ReduceOnly).Append("\n");
+            sb.Append("  AutoSize: ").Append(AutoSize).Append("\n");
             sb.Append("  IsReduceOnly: ").Append(IsReduceOnly).Append("\n");
             sb.Append("  IsClose: ").Append(IsClose).Append("\n");
             sb.Append("}\n");
@@ -224,6 +234,11 @@ namespace Io.Gate.GateApi.Model
                     this.ReduceOnly.Equals(input.ReduceOnly)
                 ) && 
                 (
+                    this.AutoSize == input.AutoSize ||
+                    (this.AutoSize != null &&
+                    this.AutoSize.Equals(input.AutoSize))
+                ) && 
+                (
                     this.IsReduceOnly == input.IsReduceOnly ||
                     this.IsReduceOnly.Equals(input.IsReduceOnly)
                 ) && 
@@ -252,6 +267,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 hashCode = hashCode * 59 + this.ReduceOnly.GetHashCode();
+                if (this.AutoSize != null)
+                    hashCode = hashCode * 59 + this.AutoSize.GetHashCode();
                 hashCode = hashCode * 59 + this.IsReduceOnly.GetHashCode();
                 hashCode = hashCode * 59 + this.IsClose.GetHashCode();
                 return hashCode;

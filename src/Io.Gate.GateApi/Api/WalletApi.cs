@@ -241,6 +241,50 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
         ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string));
         /// <summary>
+        /// Query sub accounts&#39; margin balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountMarginBalance&gt;</returns>
+        List<SubAccountMarginBalance> ListSubAccountMarginBalances (string subUid = default(string));
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountMarginBalance&gt;</returns>
+        ApiResponse<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>List&lt;SubAccountFuturesBalance&gt;</returns>
+        List<SubAccountFuturesBalance> ListSubAccountFuturesBalances (string subUid = default(string), string settle = default(string));
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountFuturesBalance&gt;</returns>
+        ApiResponse<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesWithHttpInfo (string subUid = default(string), string settle = default(string));
+        /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
         /// <remarks>
@@ -504,6 +548,50 @@ namespace Io.Gate.GateApi.Api
         /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Query sub accounts&#39; margin balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountMarginBalance&gt;</returns>
+        Task<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesAsync (string subUid = default(string));
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountMarginBalance&gt;)</returns>
+        Task<ApiResponse<List<SubAccountMarginBalance>>> ListSubAccountMarginBalancesAsyncWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>Task of List&lt;SubAccountFuturesBalance&gt;</returns>
+        Task<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesAsync (string subUid = default(string), string settle = default(string));
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountFuturesBalance&gt;)</returns>
+        Task<ApiResponse<List<SubAccountFuturesBalance>>> ListSubAccountFuturesBalancesAsyncWithHttpInfo (string subUid = default(string), string settle = default(string));
         /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
@@ -1839,6 +1927,248 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSubAccountBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountMarginBalance&gt;</returns>
+        public List<SubAccountMarginBalance> ListSubAccountMarginBalances (string subUid = default(string))
+        {
+             ApiResponse<List<SubAccountMarginBalance>> localVarResponse = ListSubAccountMarginBalancesWithHttpInfo(subUid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountMarginBalance&gt;</returns>
+        public ApiResponse<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesWithHttpInfo (string subUid = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubAccountMarginBalance>>("/wallet/sub_account_margin_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountMarginBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountMarginBalance&gt;</returns>
+        public async Task<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesAsync (string subUid = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SubAccountMarginBalance>> localVarResponse = await ListSubAccountMarginBalancesAsyncWithHttpInfo(subUid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; margin balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountMarginBalance&gt;)</returns>
+        public async Task<ApiResponse<List<SubAccountMarginBalance>>> ListSubAccountMarginBalancesAsyncWithHttpInfo (string subUid = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubAccountMarginBalance>>("/wallet/sub_account_margin_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountMarginBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>List&lt;SubAccountFuturesBalance&gt;</returns>
+        public List<SubAccountFuturesBalance> ListSubAccountFuturesBalances (string subUid = default(string), string settle = default(string))
+        {
+             ApiResponse<List<SubAccountFuturesBalance>> localVarResponse = ListSubAccountFuturesBalancesWithHttpInfo(subUid, settle);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountFuturesBalance&gt;</returns>
+        public ApiResponse<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesWithHttpInfo (string subUid = default(string), string settle = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+            if (settle != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settle", settle));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubAccountFuturesBalance>>("/wallet/sub_account_futures_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountFuturesBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>Task of List&lt;SubAccountFuturesBalance&gt;</returns>
+        public async Task<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesAsync (string subUid = default(string), string settle = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SubAccountFuturesBalance>> localVarResponse = await ListSubAccountFuturesBalancesAsyncWithHttpInfo(subUid, settle);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query sub accounts&#39; futures account balances 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="settle">Query only balances of specified settle currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountFuturesBalance&gt;)</returns>
+        public async Task<ApiResponse<List<SubAccountFuturesBalance>>> ListSubAccountFuturesBalancesAsyncWithHttpInfo (string subUid = default(string), string settle = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+            if (settle != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settle", settle));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubAccountFuturesBalance>>("/wallet/sub_account_futures_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountFuturesBalances", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
