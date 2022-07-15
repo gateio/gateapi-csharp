@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsContract" /> class.
         /// </summary>
         /// <param name="name">Futures contract.</param>
-        /// <param name="tag">标记.</param>
+        /// <param name="tag">tag.</param>
         /// <param name="createTime">Creation time.</param>
         /// <param name="expirationTime">Expiration time.</param>
         /// <param name="isCall">&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options.</param>
@@ -95,9 +95,9 @@ namespace Io.Gate.GateApi.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// 标记
+        /// tag
         /// </summary>
-        /// <value>标记</value>
+        /// <value>tag</value>
         [DataMember(Name="tag")]
         public string Tag { get; set; }
 

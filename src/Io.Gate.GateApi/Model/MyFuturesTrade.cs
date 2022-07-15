@@ -67,7 +67,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="size">Trading size.</param>
         /// <param name="price">Trading price.</param>
         /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</param>
-        public MyFuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?))
+        /// <param name="text">User defined information.</param>
+        /// <param name="fee">Fee deducted.</param>
+        /// <param name="pointFee">Points used to deduct fee.</param>
+        public MyFuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?), string text = default(string), string fee = default(string), string pointFee = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
@@ -76,6 +79,9 @@ namespace Io.Gate.GateApi.Model
             this.Size = size;
             this.Price = price;
             this.Role = role;
+            this.Text = text;
+            this.Fee = fee;
+            this.PointFee = pointFee;
         }
 
         /// <summary>
@@ -121,6 +127,27 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// User defined information
+        /// </summary>
+        /// <value>User defined information</value>
+        [DataMember(Name="text")]
+        public string Text { get; set; }
+
+        /// <summary>
+        /// Fee deducted
+        /// </summary>
+        /// <value>Fee deducted</value>
+        [DataMember(Name="fee")]
+        public string Fee { get; set; }
+
+        /// <summary>
+        /// Points used to deduct fee
+        /// </summary>
+        /// <value>Points used to deduct fee</value>
+        [DataMember(Name="point_fee")]
+        public string PointFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +162,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Fee: ").Append(Fee).Append("\n");
+            sb.Append("  PointFee: ").Append(PointFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +229,21 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Role == input.Role ||
                     this.Role.Equals(input.Role)
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Fee == input.Fee ||
+                    (this.Fee != null &&
+                    this.Fee.Equals(input.Fee))
+                ) && 
+                (
+                    this.PointFee == input.PointFee ||
+                    (this.PointFee != null &&
+                    this.PointFee.Equals(input.PointFee))
                 );
         }
 
@@ -221,6 +266,12 @@ namespace Io.Gate.GateApi.Model
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 hashCode = hashCode * 59 + this.Role.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.Fee != null)
+                    hashCode = hashCode * 59 + this.Fee.GetHashCode();
+                if (this.PointFee != null)
+                    hashCode = hashCode * 59 + this.PointFee.GetHashCode();
                 return hashCode;
             }
         }

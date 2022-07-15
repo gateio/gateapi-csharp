@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**ListSpotAccounts**](SpotApi.md#listspotaccounts) | **GET** /spot/accounts | List spot accounts
 [**CreateBatchOrders**](SpotApi.md#createbatchorders) | **POST** /spot/batch_orders | Create a batch of orders
 [**ListAllOpenOrders**](SpotApi.md#listallopenorders) | **GET** /spot/open_orders | List all open orders
+[**CreateCrossLiquidateOrder**](SpotApi.md#createcrossliquidateorder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled
 [**ListOrders**](SpotApi.md#listorders) | **GET** /spot/orders | List orders
 [**CreateOrder**](SpotApi.md#createorder) | **POST** /spot/orders | Create an order
 [**CancelOrders**](SpotApi.md#cancelorders) | **DELETE** /spot/orders | Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -23,11 +24,12 @@ Method | HTTP request | Description
 [**GetOrder**](SpotApi.md#getorder) | **GET** /spot/orders/{order_id} | Get a single order
 [**CancelOrder**](SpotApi.md#cancelorder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
 [**ListMyTrades**](SpotApi.md#listmytrades) | **GET** /spot/my_trades | List personal trading history
+[**GetSystemTime**](SpotApi.md#getsystemtime) | **GET** /spot/time | Get server current time
 [**ListSpotPriceTriggeredOrders**](SpotApi.md#listspotpricetriggeredorders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**CreateSpotPriceTriggeredOrder**](SpotApi.md#createspotpricetriggeredorder) | **POST** /spot/price_orders | Create a price-triggered order
 [**CancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelspotpricetriggeredorderlist) | **DELETE** /spot/price_orders | Cancel all open orders
 [**GetSpotPriceTriggeredOrder**](SpotApi.md#getspotpricetriggeredorder) | **GET** /spot/price_orders/{order_id} | Get a single order
-[**CancelSpotPriceTriggeredOrder**](SpotApi.md#cancelspotpricetriggeredorder) | **DELETE** /spot/price_orders/{order_id} | Cancel a single order
+[**CancelSpotPriceTriggeredOrder**](SpotApi.md#cancelspotpricetriggeredorder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
 
 
 <a name="listcurrencies"></a>
@@ -302,7 +304,7 @@ No authorization required
 
 <a name="listtickers"></a>
 # **ListTickers**
-> List&lt;Ticker&gt; ListTickers (string currencyPair = null)
+> List&lt;Ticker&gt; ListTickers (string currencyPair = null, string timezone = null)
 
 Retrieve ticker information
 
@@ -326,11 +328,12 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
+            var timezone = "utc0";  // string | Timezone (optional) 
 
             try
             {
                 // Retrieve ticker information
-                List<Ticker> result = apiInstance.ListTickers(currencyPair);
+                List<Ticker> result = apiInstance.ListTickers(currencyPair, timezone);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -350,6 +353,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Currency pair | [optional] 
+ **timezone** | **string**| Timezone | [optional] 
 
 ### Return type
 
@@ -856,7 +860,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records returned in one page in each currency pair (optional)  (default to 100)
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -882,7 +886,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -901,6 +905,79 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createcrossliquidateorder"></a>
+# **CreateCrossLiquidateOrder**
+> Order CreateCrossLiquidateOrder (LiquidateOrder liquidateOrder)
+
+close position when cross-currency is disabled
+
+Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity = (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class CreateCrossLiquidateOrderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SpotApi(config);
+            var liquidateOrder = new LiquidateOrder(); // LiquidateOrder | 
+
+            try
+            {
+                // close position when cross-currency is disabled
+                Order result = apiInstance.CreateCrossLiquidateOrder(liquidateOrder);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.CreateCrossLiquidateOrder: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **liquidateOrder** | [**LiquidateOrder**](LiquidateOrder.md)|  | 
+
+### Return type
+
+[**Order**](Order.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | order created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -935,7 +1012,7 @@ namespace Example
             var status = "open";  // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
             var from = 1627706330;  // long? | Start timestamp of the query (optional) 
             var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
@@ -966,7 +1043,7 @@ Name | Type | Description  | Notes
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
  **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
@@ -1093,7 +1170,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
-            var account = "spot";  // string | Specify account type. Default to all account types being included (optional) 
+            var account = "spot";  // string | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only (optional) 
 
             try
             {
@@ -1119,7 +1196,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Currency pair | 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
- **account** | **string**| Specify account type. Default to all account types being included | [optional] 
+ **account** | **string**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1220,7 +1297,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Spot and margin orders are queried by default. If cross margin orders are needed, `account` must be set to `cross_margin`
+Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
 
 ### Example
 ```csharp
@@ -1243,7 +1320,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -1269,7 +1346,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1297,7 +1374,7 @@ Name | Type | Description  | Notes
 
 Cancel a single order
 
-Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, `account` must be set to `cross_margin`
+Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
 
 ### Example
 ```csharp
@@ -1320,7 +1397,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -1346,7 +1423,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1399,7 +1476,7 @@ namespace Example
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
             var from = 1627706330;  // long? | Start timestamp of the query (optional) 
             var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
 
@@ -1429,7 +1506,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account | [optional] 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
  **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
 
@@ -1450,6 +1527,71 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getsystemtime"></a>
+# **GetSystemTime**
+> SystemTime GetSystemTime ()
+
+Get server current time
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetSystemTimeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new SpotApi(config);
+
+            try
+            {
+                // Get server current time
+                SystemTime result = apiInstance.GetSystemTime();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.GetSystemTime: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SystemTime**](SystemTime.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1751,7 +1893,7 @@ Name | Type | Description  | Notes
 # **CancelSpotPriceTriggeredOrder**
 > SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId)
 
-Cancel a single order
+cancel a price-triggered order
 
 ### Example
 ```csharp
@@ -1776,7 +1918,7 @@ namespace Example
 
             try
             {
-                // Cancel a single order
+                // cancel a price-triggered order
                 SpotPriceTriggeredOrder result = apiInstance.CancelSpotPriceTriggeredOrder(orderId);
                 Debug.WriteLine(result);
             }

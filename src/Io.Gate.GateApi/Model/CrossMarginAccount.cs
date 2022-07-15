@@ -40,7 +40,13 @@ namespace Io.Gate.GateApi.Model
         /// <param name="borrowed">Total borrowed value in USDT, i.e., the sum of all currencies&#39; &#x60;borrowed*price*discount&#x60;.</param>
         /// <param name="interest">Total unpaid interests in USDT, i.e., the sum of all currencies&#39; &#x60;interest*price*discount&#x60;.</param>
         /// <param name="risk">Risk rate. When it belows 110%, liquidation will be triggered. Calculation formula: &#x60;total / (borrowed+interest)&#x60;.</param>
-        public CrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string))
+        /// <param name="totalInitialMargin">Total initial margin.</param>
+        /// <param name="totalMarginBalance">Total margin balance.</param>
+        /// <param name="totalMaintenanceMargin">Total maintenance margin.</param>
+        /// <param name="totalInitialMarginRate">Total initial margin rate.</param>
+        /// <param name="totalMaintenanceMarginRate">Total maintenance margin rate.</param>
+        /// <param name="totalAvailableMargin">Total available margin.</param>
+        public CrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string))
         {
             this.UserId = userId;
             this.Locked = locked;
@@ -49,6 +55,12 @@ namespace Io.Gate.GateApi.Model
             this.Borrowed = borrowed;
             this.Interest = interest;
             this.Risk = risk;
+            this.TotalInitialMargin = totalInitialMargin;
+            this.TotalMarginBalance = totalMarginBalance;
+            this.TotalMaintenanceMargin = totalMaintenanceMargin;
+            this.TotalInitialMarginRate = totalInitialMarginRate;
+            this.TotalMaintenanceMarginRate = totalMaintenanceMarginRate;
+            this.TotalAvailableMargin = totalAvailableMargin;
         }
 
         /// <summary>
@@ -100,6 +112,48 @@ namespace Io.Gate.GateApi.Model
         public string Risk { get; set; }
 
         /// <summary>
+        /// Total initial margin
+        /// </summary>
+        /// <value>Total initial margin</value>
+        [DataMember(Name="total_initial_margin")]
+        public string TotalInitialMargin { get; set; }
+
+        /// <summary>
+        /// Total margin balance
+        /// </summary>
+        /// <value>Total margin balance</value>
+        [DataMember(Name="total_margin_balance")]
+        public string TotalMarginBalance { get; set; }
+
+        /// <summary>
+        /// Total maintenance margin
+        /// </summary>
+        /// <value>Total maintenance margin</value>
+        [DataMember(Name="total_maintenance_margin")]
+        public string TotalMaintenanceMargin { get; set; }
+
+        /// <summary>
+        /// Total initial margin rate
+        /// </summary>
+        /// <value>Total initial margin rate</value>
+        [DataMember(Name="total_initial_margin_rate")]
+        public string TotalInitialMarginRate { get; set; }
+
+        /// <summary>
+        /// Total maintenance margin rate
+        /// </summary>
+        /// <value>Total maintenance margin rate</value>
+        [DataMember(Name="total_maintenance_margin_rate")]
+        public string TotalMaintenanceMarginRate { get; set; }
+
+        /// <summary>
+        /// Total available margin
+        /// </summary>
+        /// <value>Total available margin</value>
+        [DataMember(Name="total_available_margin")]
+        public string TotalAvailableMargin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +168,12 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Borrowed: ").Append(Borrowed).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("  Risk: ").Append(Risk).Append("\n");
+            sb.Append("  TotalInitialMargin: ").Append(TotalInitialMargin).Append("\n");
+            sb.Append("  TotalMarginBalance: ").Append(TotalMarginBalance).Append("\n");
+            sb.Append("  TotalMaintenanceMargin: ").Append(TotalMaintenanceMargin).Append("\n");
+            sb.Append("  TotalInitialMarginRate: ").Append(TotalInitialMarginRate).Append("\n");
+            sb.Append("  TotalMaintenanceMarginRate: ").Append(TotalMaintenanceMarginRate).Append("\n");
+            sb.Append("  TotalAvailableMargin: ").Append(TotalAvailableMargin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +241,36 @@ namespace Io.Gate.GateApi.Model
                     this.Risk == input.Risk ||
                     (this.Risk != null &&
                     this.Risk.Equals(input.Risk))
+                ) && 
+                (
+                    this.TotalInitialMargin == input.TotalInitialMargin ||
+                    (this.TotalInitialMargin != null &&
+                    this.TotalInitialMargin.Equals(input.TotalInitialMargin))
+                ) && 
+                (
+                    this.TotalMarginBalance == input.TotalMarginBalance ||
+                    (this.TotalMarginBalance != null &&
+                    this.TotalMarginBalance.Equals(input.TotalMarginBalance))
+                ) && 
+                (
+                    this.TotalMaintenanceMargin == input.TotalMaintenanceMargin ||
+                    (this.TotalMaintenanceMargin != null &&
+                    this.TotalMaintenanceMargin.Equals(input.TotalMaintenanceMargin))
+                ) && 
+                (
+                    this.TotalInitialMarginRate == input.TotalInitialMarginRate ||
+                    (this.TotalInitialMarginRate != null &&
+                    this.TotalInitialMarginRate.Equals(input.TotalInitialMarginRate))
+                ) && 
+                (
+                    this.TotalMaintenanceMarginRate == input.TotalMaintenanceMarginRate ||
+                    (this.TotalMaintenanceMarginRate != null &&
+                    this.TotalMaintenanceMarginRate.Equals(input.TotalMaintenanceMarginRate))
+                ) && 
+                (
+                    this.TotalAvailableMargin == input.TotalAvailableMargin ||
+                    (this.TotalAvailableMargin != null &&
+                    this.TotalAvailableMargin.Equals(input.TotalAvailableMargin))
                 );
         }
 
@@ -205,6 +295,18 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
                 if (this.Risk != null)
                     hashCode = hashCode * 59 + this.Risk.GetHashCode();
+                if (this.TotalInitialMargin != null)
+                    hashCode = hashCode * 59 + this.TotalInitialMargin.GetHashCode();
+                if (this.TotalMarginBalance != null)
+                    hashCode = hashCode * 59 + this.TotalMarginBalance.GetHashCode();
+                if (this.TotalMaintenanceMargin != null)
+                    hashCode = hashCode * 59 + this.TotalMaintenanceMargin.GetHashCode();
+                if (this.TotalInitialMarginRate != null)
+                    hashCode = hashCode * 59 + this.TotalInitialMarginRate.GetHashCode();
+                if (this.TotalMaintenanceMarginRate != null)
+                    hashCode = hashCode * 59 + this.TotalMaintenanceMarginRate.GetHashCode();
+                if (this.TotalAvailableMargin != null)
+                    hashCode = hashCode * 59 + this.TotalAvailableMargin.GetHashCode();
                 return hashCode;
             }
         }

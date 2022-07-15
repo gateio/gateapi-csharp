@@ -38,6 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="lowestAsk">Recent lowest ask.</param>
         /// <param name="highestBid">Recent highest bid.</param>
         /// <param name="changePercentage">Change percentage in the last 24h.</param>
+        /// <param name="changeUtc0">utc0 timezone, the percentage change in the last 24 hours.</param>
+        /// <param name="changeUtc8">utc8 timezone, the percentage change in the last 24 hours.</param>
         /// <param name="baseVolume">Base currency trade volume in the last 24h.</param>
         /// <param name="quoteVolume">Quote currency trade volume in the last 24h.</param>
         /// <param name="high24h">Highest price in 24h.</param>
@@ -46,13 +48,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="etfPreNetValue">ETF previous net value at re-balancing time.</param>
         /// <param name="etfPreTimestamp">ETF previous re-balancing time.</param>
         /// <param name="etfLeverage">ETF current leverage.</param>
-        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string highestBid = default(string), string changePercentage = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
+        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string highestBid = default(string), string changePercentage = default(string), string changeUtc0 = default(string), string changeUtc8 = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
         {
             this.CurrencyPair = currencyPair;
             this.Last = last;
             this.LowestAsk = lowestAsk;
             this.HighestBid = highestBid;
             this.ChangePercentage = changePercentage;
+            this.ChangeUtc0 = changeUtc0;
+            this.ChangeUtc8 = changeUtc8;
             this.BaseVolume = baseVolume;
             this.QuoteVolume = quoteVolume;
             this.High24h = high24h;
@@ -97,6 +101,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>Change percentage in the last 24h</value>
         [DataMember(Name="change_percentage")]
         public string ChangePercentage { get; set; }
+
+        /// <summary>
+        /// utc0 timezone, the percentage change in the last 24 hours
+        /// </summary>
+        /// <value>utc0 timezone, the percentage change in the last 24 hours</value>
+        [DataMember(Name="change_utc0")]
+        public string ChangeUtc0 { get; set; }
+
+        /// <summary>
+        /// utc8 timezone, the percentage change in the last 24 hours
+        /// </summary>
+        /// <value>utc8 timezone, the percentage change in the last 24 hours</value>
+        [DataMember(Name="change_utc8")]
+        public string ChangeUtc8 { get; set; }
 
         /// <summary>
         /// Base currency trade volume in the last 24h
@@ -167,6 +185,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  LowestAsk: ").Append(LowestAsk).Append("\n");
             sb.Append("  HighestBid: ").Append(HighestBid).Append("\n");
             sb.Append("  ChangePercentage: ").Append(ChangePercentage).Append("\n");
+            sb.Append("  ChangeUtc0: ").Append(ChangeUtc0).Append("\n");
+            sb.Append("  ChangeUtc8: ").Append(ChangeUtc8).Append("\n");
             sb.Append("  BaseVolume: ").Append(BaseVolume).Append("\n");
             sb.Append("  QuoteVolume: ").Append(QuoteVolume).Append("\n");
             sb.Append("  High24h: ").Append(High24h).Append("\n");
@@ -235,6 +255,16 @@ namespace Io.Gate.GateApi.Model
                     this.ChangePercentage.Equals(input.ChangePercentage))
                 ) && 
                 (
+                    this.ChangeUtc0 == input.ChangeUtc0 ||
+                    (this.ChangeUtc0 != null &&
+                    this.ChangeUtc0.Equals(input.ChangeUtc0))
+                ) && 
+                (
+                    this.ChangeUtc8 == input.ChangeUtc8 ||
+                    (this.ChangeUtc8 != null &&
+                    this.ChangeUtc8.Equals(input.ChangeUtc8))
+                ) && 
+                (
                     this.BaseVolume == input.BaseVolume ||
                     (this.BaseVolume != null &&
                     this.BaseVolume.Equals(input.BaseVolume))
@@ -295,6 +325,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.HighestBid.GetHashCode();
                 if (this.ChangePercentage != null)
                     hashCode = hashCode * 59 + this.ChangePercentage.GetHashCode();
+                if (this.ChangeUtc0 != null)
+                    hashCode = hashCode * 59 + this.ChangeUtc0.GetHashCode();
+                if (this.ChangeUtc8 != null)
+                    hashCode = hashCode * 59 + this.ChangeUtc8.GetHashCode();
                 if (this.BaseVolume != null)
                     hashCode = hashCode * 59 + this.BaseVolume.GetHashCode();
                 if (this.QuoteVolume != null)

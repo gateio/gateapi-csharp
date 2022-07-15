@@ -85,9 +85,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; 
         /// </summary>
-        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account</value>
+        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountEnum
         {
@@ -112,9 +112,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account
+        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; 
         /// </summary>
-        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account</value>
+        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60; </value>
         [DataMember(Name="account")]
         public AccountEnum? Account { get; set; }
         /// <summary>
@@ -194,7 +194,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
         /// <param name="currencyPair">Currency pair (required).</param>
         /// <param name="type">Order type. limit - limit order (default to TypeEnum.Limit).</param>
-        /// <param name="account">Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account (default to AccountEnum.Spot).</param>
+        /// <param name="account">Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60;  (default to AccountEnum.Spot).</param>
         /// <param name="side">Order side (required).</param>
         /// <param name="amount">Trade amount (required).</param>
         /// <param name="price">Order price (required).</param>

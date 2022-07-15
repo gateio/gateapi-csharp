@@ -40,7 +40,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="currencyPair">Order currency pair (required).</param>
         /// <param name="id">Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation (required).</param>
-        /// <param name="account">If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;.</param>
+        /// <param name="account">If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;.</param>
         public CancelOrder(string currencyPair = default(string), string id = default(string), string account = default(string))
         {
             // to ensure "currencyPair" is required (not null)
@@ -65,9 +65,9 @@ namespace Io.Gate.GateApi.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
+        /// If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
         /// </summary>
-        /// <value>If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;</value>
+        /// <value>If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

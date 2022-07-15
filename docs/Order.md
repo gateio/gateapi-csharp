@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Status** | **string** | Order status  - &#x60;open&#x60;: to be filled - &#x60;closed&#x60;: filled - &#x60;cancelled&#x60;: cancelled | [optional] [readonly] 
 **CurrencyPair** | **string** | Currency pair | 
 **Type** | **string** | Order type. limit - limit order | [optional] [default to TypeEnum.Limit]
-**Account** | **string** | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account | [optional] [default to AccountEnum.Spot]
+**Account** | **string** | Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60;  | [optional] [default to AccountEnum.Spot]
 **Side** | **string** | Order side | 
 **Amount** | **string** | Trade amount | 
 **Price** | **string** | Order price | 

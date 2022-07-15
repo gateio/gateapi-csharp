@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**GetOptionsContract**](OptionsApi.md#getoptionscontract) | **GET** /options/contracts/{contract} | Query specified contract detail
 [**ListOptionsSettlements**](OptionsApi.md#listoptionssettlements) | **GET** /options/settlements | List settlement history
 [**GetOptionsSettlement**](OptionsApi.md#getoptionssettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
+[**ListMyOptionsSettlements**](OptionsApi.md#listmyoptionssettlements) | **GET** /options/my_settlements | List my options settlements
 [**ListOptionsOrderBook**](OptionsApi.md#listoptionsorderbook) | **GET** /options/order_book | Futures order book
 [**ListOptionsTickers**](OptionsApi.md#listoptionstickers) | **GET** /options/tickers | List tickers of options contracts
 [**ListOptionsUnderlyingTickers**](OptionsApi.md#listoptionsunderlyingtickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
@@ -450,6 +451,87 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listmyoptionssettlements"></a>
+# **ListMyOptionsSettlements**
+> List&lt;OptionsMySettlements&gt; ListMyOptionsSettlements (string underlying, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
+
+List my options settlements
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListMyOptionsSettlementsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new OptionsApi(config);
+            var underlying = "BTC_USDT";  // string | Underlying
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
+
+            try
+            {
+                // List my options settlements
+                List<OptionsMySettlements> result = apiInstance.ListMyOptionsSettlements(underlying, contract, limit, offset, from, to);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling OptionsApi.ListMyOptionsSettlements: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **underlying** | **string**| Underlying | 
+ **contract** | **string**| Contract name | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
+
+### Return type
+
+[**List&lt;OptionsMySettlements&gt;**](OptionsMySettlements.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

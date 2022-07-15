@@ -41,7 +41,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="userMaxBorrowAmount">Maximum borrow value allowed per user, in USDT.</param>
         /// <param name="totalMaxBorrowAmount">Maximum borrow value allowed for this currency, in USDT.</param>
         /// <param name="price">Price change between this currency and USDT.</param>
-        public CrossMarginCurrency(string name = default(string), string rate = default(string), string prec = default(string), string discount = default(string), string minBorrowAmount = default(string), string userMaxBorrowAmount = default(string), string totalMaxBorrowAmount = default(string), string price = default(string))
+        /// <param name="status">status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable.</param>
+        public CrossMarginCurrency(string name = default(string), string rate = default(string), string prec = default(string), string discount = default(string), string minBorrowAmount = default(string), string userMaxBorrowAmount = default(string), string totalMaxBorrowAmount = default(string), string price = default(string), int status = default(int))
         {
             this.Name = name;
             this.Rate = rate;
@@ -51,6 +52,7 @@ namespace Io.Gate.GateApi.Model
             this.UserMaxBorrowAmount = userMaxBorrowAmount;
             this.TotalMaxBorrowAmount = totalMaxBorrowAmount;
             this.Price = price;
+            this.Status = status;
         }
 
         /// <summary>
@@ -110,6 +112,13 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable
+        /// </summary>
+        /// <value>status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable</value>
+        [DataMember(Name="status")]
+        public int Status { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  UserMaxBorrowAmount: ").Append(UserMaxBorrowAmount).Append("\n");
             sb.Append("  TotalMaxBorrowAmount: ").Append(TotalMaxBorrowAmount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,6 +208,10 @@ namespace Io.Gate.GateApi.Model
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -226,6 +240,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.TotalMaxBorrowAmount.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

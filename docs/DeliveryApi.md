@@ -31,7 +31,7 @@ Method | HTTP request | Description
 [**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
 [**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
-[**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | Cancel a single order
+[**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
 
 
 <a name="listdeliverycontracts"></a>
@@ -2073,7 +2073,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredDeliveryOrder**
 > FuturesPriceTriggeredOrder CancelPriceTriggeredDeliveryOrder (string settle, string orderId)
 
-Cancel a single order
+cancel a price-triggered order
 
 ### Example
 ```csharp
@@ -2099,7 +2099,7 @@ namespace Example
 
             try
             {
-                // Cancel a single order
+                // cancel a price-triggered order
                 FuturesPriceTriggeredOrder result = apiInstance.CancelPriceTriggeredDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }

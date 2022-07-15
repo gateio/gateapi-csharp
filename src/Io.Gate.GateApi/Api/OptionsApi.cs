@@ -166,6 +166,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsSettlement</returns>
         ApiResponse<OptionsSettlement> GetOptionsSettlementWithHttpInfo (string contract, string underlying, long at);
         /// <summary>
+        /// List my options settlements
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>List&lt;OptionsMySettlements&gt;</returns>
+        List<OptionsMySettlements> ListMyOptionsSettlements (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
+
+        /// <summary>
+        /// List my options settlements
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>ApiResponse of List&lt;OptionsMySettlements&gt;</returns>
+        ApiResponse<List<OptionsMySettlements>> ListMyOptionsSettlementsWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
+        /// <summary>
         /// Futures order book
         /// </summary>
         /// <remarks>
@@ -735,6 +766,37 @@ namespace Io.Gate.GateApi.Api
         /// <param name="at"></param>
         /// <returns>Task of ApiResponse (OptionsSettlement)</returns>
         Task<ApiResponse<OptionsSettlement>> GetOptionsSettlementAsyncWithHttpInfo (string contract, string underlying, long at);
+        /// <summary>
+        /// List my options settlements
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>Task of List&lt;OptionsMySettlements&gt;</returns>
+        Task<List<OptionsMySettlements>> ListMyOptionsSettlementsAsync (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
+
+        /// <summary>
+        /// List my options settlements
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OptionsMySettlements&gt;)</returns>
+        Task<ApiResponse<List<OptionsMySettlements>>> ListMyOptionsSettlementsAsyncWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Futures order book
         /// </summary>
@@ -2016,6 +2078,183 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptionsSettlement", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List my options settlements 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>List&lt;OptionsMySettlements&gt;</returns>
+        public List<OptionsMySettlements> ListMyOptionsSettlements (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
+        {
+             ApiResponse<List<OptionsMySettlements>> localVarResponse = ListMyOptionsSettlementsWithHttpInfo(underlying, contract, limit, offset, from, to);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List my options settlements 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>ApiResponse of List&lt;OptionsMySettlements&gt;</returns>
+        public ApiResponse<List<OptionsMySettlements>> ListMyOptionsSettlementsWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
+        {
+            // verify the required parameter 'underlying' is set
+            if (underlying == null)
+                throw new ApiException(400, "Missing required parameter 'underlying' when calling OptionsApi->ListMyOptionsSettlements");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "underlying", underlying));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<OptionsMySettlements>>("/options/my_settlements", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMyOptionsSettlements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List my options settlements 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>Task of List&lt;OptionsMySettlements&gt;</returns>
+        public async Task<List<OptionsMySettlements>> ListMyOptionsSettlementsAsync (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<OptionsMySettlements>> localVarResponse = await ListMyOptionsSettlementsAsyncWithHttpInfo(underlying, contract, limit, offset, from, to);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List my options settlements 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying</param>
+        /// <param name="contract">Contract name (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OptionsMySettlements&gt;)</returns>
+        public async Task<ApiResponse<List<OptionsMySettlements>>> ListMyOptionsSettlementsAsyncWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?))
+        {
+            // verify the required parameter 'underlying' is set
+            if (underlying == null)
+                throw new ApiException(400, "Missing required parameter 'underlying' when calling OptionsApi->ListMyOptionsSettlements");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "underlying", underlying));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<OptionsMySettlements>>("/options/my_settlements", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMyOptionsSettlements", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

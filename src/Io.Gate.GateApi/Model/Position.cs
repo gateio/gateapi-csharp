@@ -167,6 +167,20 @@ namespace Io.Gate.GateApi.Model
         public string MarkPrice { get; private set; }
 
         /// <summary>
+        /// The initial margin occupied by the position, applicable to the portfolio margin account
+        /// </summary>
+        /// <value>The initial margin occupied by the position, applicable to the portfolio margin account</value>
+        [DataMember(Name="initial_margin", EmitDefaultValue=false)]
+        public string InitialMargin { get; private set; }
+
+        /// <summary>
+        /// Maintenance margin required for the position, applicable to portfolio margin account
+        /// </summary>
+        /// <value>Maintenance margin required for the position, applicable to portfolio margin account</value>
+        [DataMember(Name="maintenance_margin", EmitDefaultValue=false)]
+        public string MaintenanceMargin { get; private set; }
+
+        /// <summary>
         /// Unrealized PNL
         /// </summary>
         /// <value>Unrealized PNL</value>
@@ -255,6 +269,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  EntryPrice: ").Append(EntryPrice).Append("\n");
             sb.Append("  LiqPrice: ").Append(LiqPrice).Append("\n");
             sb.Append("  MarkPrice: ").Append(MarkPrice).Append("\n");
+            sb.Append("  InitialMargin: ").Append(InitialMargin).Append("\n");
+            sb.Append("  MaintenanceMargin: ").Append(MaintenanceMargin).Append("\n");
             sb.Append("  UnrealisedPnl: ").Append(UnrealisedPnl).Append("\n");
             sb.Append("  RealisedPnl: ").Append(RealisedPnl).Append("\n");
             sb.Append("  HistoryPnl: ").Append(HistoryPnl).Append("\n");
@@ -359,6 +375,16 @@ namespace Io.Gate.GateApi.Model
                     this.MarkPrice.Equals(input.MarkPrice))
                 ) && 
                 (
+                    this.InitialMargin == input.InitialMargin ||
+                    (this.InitialMargin != null &&
+                    this.InitialMargin.Equals(input.InitialMargin))
+                ) && 
+                (
+                    this.MaintenanceMargin == input.MaintenanceMargin ||
+                    (this.MaintenanceMargin != null &&
+                    this.MaintenanceMargin.Equals(input.MaintenanceMargin))
+                ) && 
+                (
                     this.UnrealisedPnl == input.UnrealisedPnl ||
                     (this.UnrealisedPnl != null &&
                     this.UnrealisedPnl.Equals(input.UnrealisedPnl))
@@ -443,6 +469,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.LiqPrice.GetHashCode();
                 if (this.MarkPrice != null)
                     hashCode = hashCode * 59 + this.MarkPrice.GetHashCode();
+                if (this.InitialMargin != null)
+                    hashCode = hashCode * 59 + this.InitialMargin.GetHashCode();
+                if (this.MaintenanceMargin != null)
+                    hashCode = hashCode * 59 + this.MaintenanceMargin.GetHashCode();
                 if (this.UnrealisedPnl != null)
                     hashCode = hashCode * 59 + this.UnrealisedPnl.GetHashCode();
                 if (this.RealisedPnl != null)

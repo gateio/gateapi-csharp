@@ -40,7 +40,7 @@ Method | HTTP request | Description
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
 [**GetPriceTriggeredOrder**](FuturesApi.md#getpricetriggeredorder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a single order
-[**CancelPriceTriggeredOrder**](FuturesApi.md#cancelpricetriggeredorder) | **DELETE** /futures/{settle}/price_orders/{order_id} | Cancel a single order
+[**CancelPriceTriggeredOrder**](FuturesApi.md#cancelpricetriggeredorder) | **DELETE** /futures/{settle}/price_orders/{order_id} | cancel a price-triggered order
 
 
 <a name="listfuturescontracts"></a>
@@ -2765,7 +2765,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredOrder**
 > FuturesPriceTriggeredOrder CancelPriceTriggeredOrder (string settle, string orderId)
 
-Cancel a single order
+cancel a price-triggered order
 
 ### Example
 ```csharp
@@ -2791,7 +2791,7 @@ namespace Example
 
             try
             {
-                // Cancel a single order
+                // cancel a price-triggered order
                 FuturesPriceTriggeredOrder result = apiInstance.CancelPriceTriggeredOrder(settle, orderId);
                 Debug.WriteLine(result);
             }

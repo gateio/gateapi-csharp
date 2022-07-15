@@ -34,7 +34,6 @@ namespace Io.Gate.GateApi.Model
         /// Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
         /// </summary>
         /// <value>Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
-        [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
             /// <summary>

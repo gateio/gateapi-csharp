@@ -115,8 +115,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>List&lt;Ticker&gt;</returns>
-        List<Ticker> ListTickers (string currencyPair = default(string));
+        List<Ticker> ListTickers (string currencyPair = default(string), string timezone = default(string));
 
         /// <summary>
         /// Retrieve ticker information
@@ -126,8 +127,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>ApiResponse of List&lt;Ticker&gt;</returns>
-        ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string));
+        ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string), string timezone = default(string));
         /// <summary>
         /// Retrieve order book
         /// </summary>
@@ -289,7 +291,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
@@ -302,9 +304,30 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
+        /// <summary>
+        /// close position when cross-currency is disabled
+        /// </summary>
+        /// <remarks>
+        /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Order</returns>
+        Order CreateCrossLiquidateOrder (LiquidateOrder liquidateOrder);
+
+        /// <summary>
+        /// close position when cross-currency is disabled
+        /// </summary>
+        /// <remarks>
+        /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>ApiResponse of Order</returns>
+        ApiResponse<Order> CreateCrossLiquidateOrderWithHttpInfo (LiquidateOrder liquidateOrder);
         /// <summary>
         /// List orders
         /// </summary>
@@ -316,7 +339,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -334,7 +357,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -370,7 +393,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string));
 
@@ -383,7 +406,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
         /// <summary>
@@ -411,12 +434,12 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order GetOrder (string orderId, string currencyPair, string account = default(string));
 
@@ -424,24 +447,24 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order CancelOrder (string orderId, string currencyPair, string account = default(string));
 
@@ -449,12 +472,12 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
@@ -468,7 +491,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
@@ -485,11 +508,30 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        /// <summary>
+        /// Get server current time
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SystemTime</returns>
+        SystemTime GetSystemTime ();
+
+        /// <summary>
+        /// Get server current time
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SystemTime</returns>
+        ApiResponse<SystemTime> GetSystemTimeWithHttpInfo ();
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -585,7 +627,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         /// <summary>
-        /// Cancel a single order
+        /// cancel a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -596,7 +638,7 @@ namespace Io.Gate.GateApi.Api
         SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId);
 
         /// <summary>
-        /// Cancel a single order
+        /// cancel a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -702,8 +744,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>Task of List&lt;Ticker&gt;</returns>
-        Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string));
+        Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string), string timezone = default(string));
 
         /// <summary>
         /// Retrieve ticker information
@@ -713,8 +756,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Ticker&gt;)</returns>
-        Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string));
+        Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string), string timezone = default(string));
         /// <summary>
         /// Retrieve order book
         /// </summary>
@@ -876,7 +920,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
@@ -889,9 +933,30 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
+        /// <summary>
+        /// close position when cross-currency is disabled
+        /// </summary>
+        /// <remarks>
+        /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Task of Order</returns>
+        Task<Order> CreateCrossLiquidateOrderAsync (LiquidateOrder liquidateOrder);
+
+        /// <summary>
+        /// close position when cross-currency is disabled
+        /// </summary>
+        /// <remarks>
+        /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Task of ApiResponse (Order)</returns>
+        Task<ApiResponse<Order>> CreateCrossLiquidateOrderAsyncWithHttpInfo (LiquidateOrder liquidateOrder);
         /// <summary>
         /// List orders
         /// </summary>
@@ -903,7 +968,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -921,7 +986,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -957,7 +1022,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string));
 
@@ -970,7 +1035,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
         /// <summary>
@@ -998,12 +1063,12 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string));
 
@@ -1011,24 +1076,24 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string));
 
@@ -1036,12 +1101,12 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
@@ -1055,7 +1120,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
@@ -1072,11 +1137,30 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        /// <summary>
+        /// Get server current time
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of SystemTime</returns>
+        Task<SystemTime> GetSystemTimeAsync ();
+
+        /// <summary>
+        /// Get server current time
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (SystemTime)</returns>
+        Task<ApiResponse<SystemTime>> GetSystemTimeAsyncWithHttpInfo ();
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -1172,7 +1256,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         /// <summary>
-        /// Cancel a single order
+        /// cancel a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -1183,7 +1267,7 @@ namespace Io.Gate.GateApi.Api
         Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId);
 
         /// <summary>
-        /// Cancel a single order
+        /// cancel a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -1741,10 +1825,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>List&lt;Ticker&gt;</returns>
-        public List<Ticker> ListTickers (string currencyPair = default(string))
+        public List<Ticker> ListTickers (string currencyPair = default(string), string timezone = default(string))
         {
-             ApiResponse<List<Ticker>> localVarResponse = ListTickersWithHttpInfo(currencyPair);
+             ApiResponse<List<Ticker>> localVarResponse = ListTickersWithHttpInfo(currencyPair, timezone);
              return localVarResponse.Data;
         }
 
@@ -1753,8 +1838,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>ApiResponse of List&lt;Ticker&gt;</returns>
-        public ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string))
+        public ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string), string timezone = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1776,6 +1862,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
             }
+            if (timezone != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timezone", timezone));
+            }
 
 
             // make the HTTP request
@@ -1795,10 +1885,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>Task of List&lt;Ticker&gt;</returns>
-        public async Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string))
+        public async Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string), string timezone = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Ticker>> localVarResponse = await ListTickersAsyncWithHttpInfo(currencyPair);
+             Io.Gate.GateApi.Client.ApiResponse<List<Ticker>> localVarResponse = await ListTickersAsyncWithHttpInfo(currencyPair, timezone);
              return localVarResponse.Data;
 
         }
@@ -1808,8 +1899,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="timezone">Timezone (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Ticker&gt;)</returns>
-        public async Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string))
+        public async Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string), string timezone = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1831,6 +1923,10 @@ namespace Io.Gate.GateApi.Api
             if (currencyPair != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (timezone != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timezone", timezone));
             }
 
 
@@ -2697,7 +2793,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         public List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -2711,7 +2807,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         public ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -2765,7 +2861,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         public async Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -2780,7 +2876,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         public async Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -2831,6 +2927,125 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Order</returns>
+        public Order CreateCrossLiquidateOrder (LiquidateOrder liquidateOrder)
+        {
+             ApiResponse<Order> localVarResponse = CreateCrossLiquidateOrderWithHttpInfo(liquidateOrder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>ApiResponse of Order</returns>
+        public ApiResponse<Order> CreateCrossLiquidateOrderWithHttpInfo (LiquidateOrder liquidateOrder)
+        {
+            // verify the required parameter 'liquidateOrder' is set
+            if (liquidateOrder == null)
+                throw new ApiException(400, "Missing required parameter 'liquidateOrder' when calling SpotApi->CreateCrossLiquidateOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = liquidateOrder;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Order>("/spot/cross_liquidate_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCrossLiquidateOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Task of Order</returns>
+        public async Task<Order> CreateCrossLiquidateOrderAsync (LiquidateOrder liquidateOrder)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CreateCrossLiquidateOrderAsyncWithHttpInfo(liquidateOrder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="liquidateOrder"></param>
+        /// <returns>Task of ApiResponse (Order)</returns>
+        public async Task<ApiResponse<Order>> CreateCrossLiquidateOrderAsyncWithHttpInfo (LiquidateOrder liquidateOrder)
+        {
+            // verify the required parameter 'liquidateOrder' is set
+            if (liquidateOrder == null)
+                throw new ApiException(400, "Missing required parameter 'liquidateOrder' when calling SpotApi->CreateCrossLiquidateOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = liquidateOrder;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Order>("/spot/cross_liquidate_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCrossLiquidateOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2838,7 +3053,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -2857,7 +3072,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -2938,7 +3153,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -2958,7 +3173,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -3158,7 +3373,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         public List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string))
         {
@@ -3172,7 +3387,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         public ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
         {
@@ -3227,7 +3442,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         public async Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string))
         {
@@ -3242,7 +3457,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type. Default to all account types being included (optional)</param>
+        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         public async Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
         {
@@ -3413,12 +3628,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order GetOrder (string orderId, string currencyPair, string account = default(string))
         {
@@ -3427,12 +3642,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -3483,12 +3698,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string))
         {
@@ -3498,12 +3713,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -3556,12 +3771,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order CancelOrder (string orderId, string currencyPair, string account = default(string))
         {
@@ -3570,12 +3785,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -3626,12 +3841,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string))
         {
@@ -3641,12 +3856,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -3706,7 +3921,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
@@ -3724,7 +3939,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
@@ -3799,7 +4014,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
@@ -3818,7 +4033,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
@@ -3881,6 +4096,105 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMyTrades", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get server current time 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SystemTime</returns>
+        public SystemTime GetSystemTime ()
+        {
+             ApiResponse<SystemTime> localVarResponse = GetSystemTimeWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get server current time 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SystemTime</returns>
+        public ApiResponse<SystemTime> GetSystemTimeWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SystemTime>("/spot/time", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSystemTime", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get server current time 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of SystemTime</returns>
+        public async Task<SystemTime> GetSystemTimeAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<SystemTime> localVarResponse = await GetSystemTimeAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get server current time 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (SystemTime)</returns>
+        public async Task<ApiResponse<SystemTime>> GetSystemTimeAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SystemTime>("/spot/time", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSystemTime", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4416,7 +4730,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// cancel a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4428,7 +4742,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// cancel a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4473,7 +4787,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// cancel a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4486,7 +4800,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// cancel a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>

@@ -33,15 +33,20 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesAccount" /> class.
         /// </summary>
-        /// <param name="total">Total assets, total &#x3D; position_margin + order_margin + available.</param>
+        /// <param name="total">total &#x3D; position_margin + order_margin + available.</param>
         /// <param name="unrealisedPnl">Unrealized PNL.</param>
         /// <param name="positionMargin">Position margin.</param>
         /// <param name="orderMargin">Order margin of unfinished orders.</param>
-        /// <param name="available">Available balance to transfer out or trade.</param>
+        /// <param name="available">The available balance for transferring or trading.</param>
         /// <param name="point">POINT amount.</param>
         /// <param name="currency">Settle currency.</param>
         /// <param name="inDualMode">Whether dual mode is enabled.</param>
-        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool))
+        /// <param name="enableCredit">Whether portfolio margin account mode is enabled.</param>
+        /// <param name="positionInitialMargin">Initial margin position, applicable to the portfolio margin account model.</param>
+        /// <param name="maintenanceMargin">Maintenance margin position, applicable to the portfolio margin account model.</param>
+        /// <param name="bonus">Perpetual Contract Bonus.</param>
+        /// <param name="history">history.</param>
+        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), FuturesAccountHistory history = default(FuturesAccountHistory))
         {
             this.Total = total;
             this.UnrealisedPnl = unrealisedPnl;
@@ -51,12 +56,17 @@ namespace Io.Gate.GateApi.Model
             this.Point = point;
             this.Currency = currency;
             this.InDualMode = inDualMode;
+            this.EnableCredit = enableCredit;
+            this.PositionInitialMargin = positionInitialMargin;
+            this.MaintenanceMargin = maintenanceMargin;
+            this.Bonus = bonus;
+            this.History = history;
         }
 
         /// <summary>
-        /// Total assets, total &#x3D; position_margin + order_margin + available
+        /// total &#x3D; position_margin + order_margin + available
         /// </summary>
-        /// <value>Total assets, total &#x3D; position_margin + order_margin + available</value>
+        /// <value>total &#x3D; position_margin + order_margin + available</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
 
@@ -82,9 +92,9 @@ namespace Io.Gate.GateApi.Model
         public string OrderMargin { get; set; }
 
         /// <summary>
-        /// Available balance to transfer out or trade
+        /// The available balance for transferring or trading
         /// </summary>
-        /// <value>Available balance to transfer out or trade</value>
+        /// <value>The available balance for transferring or trading</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 
@@ -110,6 +120,40 @@ namespace Io.Gate.GateApi.Model
         public bool InDualMode { get; set; }
 
         /// <summary>
+        /// Whether portfolio margin account mode is enabled
+        /// </summary>
+        /// <value>Whether portfolio margin account mode is enabled</value>
+        [DataMember(Name="enable_credit")]
+        public bool EnableCredit { get; set; }
+
+        /// <summary>
+        /// Initial margin position, applicable to the portfolio margin account model
+        /// </summary>
+        /// <value>Initial margin position, applicable to the portfolio margin account model</value>
+        [DataMember(Name="position_initial_margin")]
+        public string PositionInitialMargin { get; set; }
+
+        /// <summary>
+        /// Maintenance margin position, applicable to the portfolio margin account model
+        /// </summary>
+        /// <value>Maintenance margin position, applicable to the portfolio margin account model</value>
+        [DataMember(Name="maintenance_margin")]
+        public string MaintenanceMargin { get; set; }
+
+        /// <summary>
+        /// Perpetual Contract Bonus
+        /// </summary>
+        /// <value>Perpetual Contract Bonus</value>
+        [DataMember(Name="bonus")]
+        public string Bonus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets History
+        /// </summary>
+        [DataMember(Name="history")]
+        public FuturesAccountHistory History { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +169,11 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Point: ").Append(Point).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  InDualMode: ").Append(InDualMode).Append("\n");
+            sb.Append("  EnableCredit: ").Append(EnableCredit).Append("\n");
+            sb.Append("  PositionInitialMargin: ").Append(PositionInitialMargin).Append("\n");
+            sb.Append("  MaintenanceMargin: ").Append(MaintenanceMargin).Append("\n");
+            sb.Append("  Bonus: ").Append(Bonus).Append("\n");
+            sb.Append("  History: ").Append(History).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,6 +246,30 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.InDualMode == input.InDualMode ||
                     this.InDualMode.Equals(input.InDualMode)
+                ) && 
+                (
+                    this.EnableCredit == input.EnableCredit ||
+                    this.EnableCredit.Equals(input.EnableCredit)
+                ) && 
+                (
+                    this.PositionInitialMargin == input.PositionInitialMargin ||
+                    (this.PositionInitialMargin != null &&
+                    this.PositionInitialMargin.Equals(input.PositionInitialMargin))
+                ) && 
+                (
+                    this.MaintenanceMargin == input.MaintenanceMargin ||
+                    (this.MaintenanceMargin != null &&
+                    this.MaintenanceMargin.Equals(input.MaintenanceMargin))
+                ) && 
+                (
+                    this.Bonus == input.Bonus ||
+                    (this.Bonus != null &&
+                    this.Bonus.Equals(input.Bonus))
+                ) && 
+                (
+                    this.History == input.History ||
+                    (this.History != null &&
+                    this.History.Equals(input.History))
                 );
         }
 
@@ -224,6 +297,15 @@ namespace Io.Gate.GateApi.Model
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 hashCode = hashCode * 59 + this.InDualMode.GetHashCode();
+                hashCode = hashCode * 59 + this.EnableCredit.GetHashCode();
+                if (this.PositionInitialMargin != null)
+                    hashCode = hashCode * 59 + this.PositionInitialMargin.GetHashCode();
+                if (this.MaintenanceMargin != null)
+                    hashCode = hashCode * 59 + this.MaintenanceMargin.GetHashCode();
+                if (this.Bonus != null)
+                    hashCode = hashCode * 59 + this.Bonus.GetHashCode();
+                if (this.History != null)
+                    hashCode = hashCode * 59 + this.History.GetHashCode();
                 return hashCode;
             }
         }
