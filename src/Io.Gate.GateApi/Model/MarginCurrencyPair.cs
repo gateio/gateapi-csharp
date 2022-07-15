@@ -40,7 +40,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="minBaseAmount">Minimum base currency to loan, &#x60;null&#x60; means no limit.</param>
         /// <param name="minQuoteAmount">Minimum quote currency to loan, &#x60;null&#x60; means no limit.</param>
         /// <param name="maxQuoteAmount">Maximum borrowable amount for quote currency. Base currency limit is calculated by quote maximum and market price. &#x60;null&#x60; means no limit.</param>
-        public MarginCurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), int leverage = default(int), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxQuoteAmount = default(string))
+        /// <param name="status">Currency pair status   - &#x60;0&#x60;: disabled  - &#x60;1&#x60;: enabled.</param>
+        public MarginCurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), int leverage = default(int), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxQuoteAmount = default(string), int status = default(int))
         {
             this.Id = id;
             this.Base = _base;
@@ -49,6 +50,7 @@ namespace Io.Gate.GateApi.Model
             this.MinBaseAmount = minBaseAmount;
             this.MinQuoteAmount = minQuoteAmount;
             this.MaxQuoteAmount = maxQuoteAmount;
+            this.Status = status;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Io.Gate.GateApi.Model
         public string MaxQuoteAmount { get; set; }
 
         /// <summary>
+        /// Currency pair status   - &#x60;0&#x60;: disabled  - &#x60;1&#x60;: enabled
+        /// </summary>
+        /// <value>Currency pair status   - &#x60;0&#x60;: disabled  - &#x60;1&#x60;: enabled</value>
+        [DataMember(Name="status")]
+        public int Status { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  MinBaseAmount: ").Append(MinBaseAmount).Append("\n");
             sb.Append("  MinQuoteAmount: ").Append(MinQuoteAmount).Append("\n");
             sb.Append("  MaxQuoteAmount: ").Append(MaxQuoteAmount).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +192,10 @@ namespace Io.Gate.GateApi.Model
                     this.MaxQuoteAmount == input.MaxQuoteAmount ||
                     (this.MaxQuoteAmount != null &&
                     this.MaxQuoteAmount.Equals(input.MaxQuoteAmount))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -207,6 +221,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MinQuoteAmount.GetHashCode();
                 if (this.MaxQuoteAmount != null)
                     hashCode = hashCode * 59 + this.MaxQuoteAmount.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

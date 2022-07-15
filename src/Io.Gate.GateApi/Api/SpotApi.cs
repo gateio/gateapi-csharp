@@ -541,7 +541,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -556,7 +556,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -590,7 +590,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string));
 
@@ -602,7 +602,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
@@ -1170,7 +1170,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -1185,7 +1185,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
@@ -1219,7 +1219,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string));
 
@@ -1231,7 +1231,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
@@ -4207,7 +4207,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -4223,7 +4223,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -4288,7 +4288,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
@@ -4305,7 +4305,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Only list the orders with this status</param>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
@@ -4490,7 +4490,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string))
         {
@@ -4503,7 +4503,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string))
         {
@@ -4552,7 +4552,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public async Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string))
         {
@@ -4566,7 +4566,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account (optional)</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string))
         {

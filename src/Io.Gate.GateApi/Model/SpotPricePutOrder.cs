@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
-        /// Trading type  - normal: spot trading - margin: margin trading
+        /// Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
         /// </summary>
-        /// <value>Trading type  - normal: spot trading - margin: margin trading</value>
+        /// <value>Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountEnum
         {
@@ -74,14 +74,20 @@ namespace Io.Gate.GateApi.Model
             /// Enum Margin for value: margin
             /// </summary>
             [EnumMember(Value = "margin")]
-            Margin = 2
+            Margin = 2,
+
+            /// <summary>
+            /// Enum Crossmargin for value: cross_margin
+            /// </summary>
+            [EnumMember(Value = "cross_margin")]
+            Crossmargin = 3
 
         }
 
         /// <summary>
-        /// Trading type  - normal: spot trading - margin: margin trading
+        /// Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
         /// </summary>
-        /// <value>Trading type  - normal: spot trading - margin: margin trading</value>
+        /// <value>Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading </value>
         [DataMember(Name="account")]
         public AccountEnum Account { get; set; }
         /// <summary>
@@ -123,7 +129,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="side">Order side  - buy: buy side - sell: sell side (required).</param>
         /// <param name="price">Order price (required).</param>
         /// <param name="amount">Order amount (required).</param>
-        /// <param name="account">Trading type  - normal: spot trading - margin: margin trading (required) (default to AccountEnum.Normal).</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading  (required) (default to AccountEnum.Normal).</param>
         /// <param name="timeInForce">time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  (default to TimeInForceEnum.Gtc).</param>
         public SpotPricePutOrder(string type = "limit", SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc)
         {

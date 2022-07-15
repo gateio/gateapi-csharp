@@ -135,8 +135,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns></returns>
-        void Transfer (Transfer transfer);
+        /// <returns>TransactionID</returns>
+        TransactionID Transfer (Transfer transfer);
 
         /// <summary>
         /// Transfer between trading accounts
@@ -146,8 +146,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TransferWithHttpInfo (Transfer transfer);
+        /// <returns>ApiResponse of TransactionID</returns>
+        ApiResponse<TransactionID> TransferWithHttpInfo (Transfer transfer);
         /// <summary>
         /// Retrieve transfer records between main and sub accounts
         /// </summary>
@@ -284,6 +284,52 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountFuturesBalance&gt;</returns>
         ApiResponse<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesWithHttpInfo (string subUid = default(string), string settle = default(string));
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        List<SubAccountCrossMarginBalance> ListSubAccountCrossMarginBalances (string subUid = default(string));
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        ApiResponse<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Query saved address
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>List&lt;SavedAddress&gt;</returns>
+        List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string));
+
+        /// <summary>
+        /// Query saved address
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>ApiResponse of List&lt;SavedAddress&gt;</returns>
+        ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string));
         /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
@@ -443,8 +489,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>Task of void</returns>
-        Task TransferAsync (Transfer transfer);
+        /// <returns>Task of TransactionID</returns>
+        Task<TransactionID> TransferAsync (Transfer transfer);
 
         /// <summary>
         /// Transfer between trading accounts
@@ -454,8 +500,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> TransferAsyncWithHttpInfo (Transfer transfer);
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        Task<ApiResponse<TransactionID>> TransferAsyncWithHttpInfo (Transfer transfer);
         /// <summary>
         /// Retrieve transfer records between main and sub accounts
         /// </summary>
@@ -592,6 +638,52 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountFuturesBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountFuturesBalance>>> ListSubAccountFuturesBalancesAsyncWithHttpInfo (string subUid = default(string), string settle = default(string));
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        Task<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesAsync (string subUid = default(string));
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountCrossMarginBalance&gt;)</returns>
+        Task<ApiResponse<List<SubAccountCrossMarginBalance>>> ListSubAccountCrossMarginBalancesAsyncWithHttpInfo (string subUid = default(string));
+        /// <summary>
+        /// Query saved address
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>Task of List&lt;SavedAddress&gt;</returns>
+        Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string));
+
+        /// <summary>
+        /// Query saved address
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>Task of ApiResponse (List&lt;SavedAddress&gt;)</returns>
+        Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string));
         /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
@@ -1315,10 +1407,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns></returns>
-        public void Transfer (Transfer transfer)
+        /// <returns>TransactionID</returns>
+        public TransactionID Transfer (Transfer transfer)
         {
-             TransferWithHttpInfo(transfer);
+             ApiResponse<TransactionID> localVarResponse = TransferWithHttpInfo(transfer);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1326,8 +1419,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> TransferWithHttpInfo (Transfer transfer)
+        /// <returns>ApiResponse of TransactionID</returns>
+        public ApiResponse<TransactionID> TransferWithHttpInfo (Transfer transfer)
         {
             // verify the required parameter 'transfer' is set
             if (transfer == null)
@@ -1341,6 +1434,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             string[] _accepts = {
+                "application/json"
             };
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1355,7 +1449,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/wallet/transfers", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionID>("/wallet/transfers", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1371,10 +1465,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>Task of void</returns>
-        public async Task TransferAsync (Transfer transfer)
+        /// <returns>Task of TransactionID</returns>
+        public async Task<TransactionID> TransferAsync (Transfer transfer)
         {
-             await TransferAsyncWithHttpInfo(transfer);
+             Io.Gate.GateApi.Client.ApiResponse<TransactionID> localVarResponse = await TransferAsyncWithHttpInfo(transfer);
+             return localVarResponse.Data;
 
         }
 
@@ -1383,8 +1478,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> TransferAsyncWithHttpInfo (Transfer transfer)
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        public async Task<ApiResponse<TransactionID>> TransferAsyncWithHttpInfo (Transfer transfer)
         {
             // verify the required parameter 'transfer' is set
             if (transfer == null)
@@ -1399,6 +1494,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "application/json"
             };
 
             foreach (var _contentType in _contentTypes)
@@ -1414,7 +1510,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/wallet/transfers", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionID>("/wallet/transfers", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2169,6 +2265,262 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSubAccountFuturesBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        public List<SubAccountCrossMarginBalance> ListSubAccountCrossMarginBalances (string subUid = default(string))
+        {
+             ApiResponse<List<SubAccountCrossMarginBalance>> localVarResponse = ListSubAccountCrossMarginBalancesWithHttpInfo(subUid);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>ApiResponse of List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        public ApiResponse<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesWithHttpInfo (string subUid = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubAccountCrossMarginBalance>>("/wallet/sub_account_cross_margin_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountCrossMarginBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of List&lt;SubAccountCrossMarginBalance&gt;</returns>
+        public async Task<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesAsync (string subUid = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SubAccountCrossMarginBalance>> localVarResponse = await ListSubAccountCrossMarginBalancesAsyncWithHttpInfo(subUid);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query subaccount&#39;s cross_margin account info 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SubAccountCrossMarginBalance&gt;)</returns>
+        public async Task<ApiResponse<List<SubAccountCrossMarginBalance>>> ListSubAccountCrossMarginBalancesAsyncWithHttpInfo (string subUid = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubAccountCrossMarginBalance>>("/wallet/sub_account_cross_margin_balances", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSubAccountCrossMarginBalances", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query saved address 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>List&lt;SavedAddress&gt;</returns>
+        public List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string))
+        {
+             ApiResponse<List<SavedAddress>> localVarResponse = ListSavedAddressWithHttpInfo(currency, chain, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query saved address 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>ApiResponse of List&lt;SavedAddress&gt;</returns>
+        public ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling WalletApi->ListSavedAddress");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (chain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chain", chain));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SavedAddress>>("/wallet/saved_address", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSavedAddress", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query saved address 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>Task of List&lt;SavedAddress&gt;</returns>
+        public async Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SavedAddress>> localVarResponse = await ListSavedAddressAsyncWithHttpInfo(currency, chain, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query saved address 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <returns>Task of ApiResponse (List&lt;SavedAddress&gt;)</returns>
+        public async Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling WalletApi->ListSavedAddress");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (chain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "chain", chain));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SavedAddress>>("/wallet/saved_address", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSavedAddress", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

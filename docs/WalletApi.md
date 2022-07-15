@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
 [**ListSubAccountFuturesBalances**](WalletApi.md#listsubaccountfuturesbalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
+[**ListSubAccountCrossMarginBalances**](WalletApi.md#listsubaccountcrossmarginbalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
+[**ListSavedAddress**](WalletApi.md#listsavedaddress) | **GET** /wallet/saved_address | Query saved address
 [**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
 
@@ -323,7 +325,7 @@ Name | Type | Description  | Notes
 
 <a name="transfer"></a>
 # **Transfer**
-> void Transfer (Transfer transfer)
+> TransactionID Transfer (Transfer transfer)
 
 Transfer between trading accounts
 
@@ -353,7 +355,8 @@ namespace Example
             try
             {
                 // Transfer between trading accounts
-                apiInstance.Transfer(transfer);
+                TransactionID result = apiInstance.Transfer(transfer);
+                Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
@@ -375,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -384,12 +387,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Balance transferred |  -  |
+| **200** | Balance transferred |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -815,6 +818,152 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;SubAccountFuturesBalance&gt;**](SubAccountFuturesBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsubaccountcrossmarginbalances"></a>
+# **ListSubAccountCrossMarginBalances**
+> List&lt;SubAccountCrossMarginBalance&gt; ListSubAccountCrossMarginBalances (string subUid = null)
+
+Query subaccount's cross_margin account info
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSubAccountCrossMarginBalancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+
+            try
+            {
+                // Query subaccount's cross_margin account info
+                List<SubAccountCrossMarginBalance> result = apiInstance.ListSubAccountCrossMarginBalances(subUid);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSubAccountCrossMarginBalances: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+
+### Return type
+
+[**List&lt;SubAccountCrossMarginBalance&gt;**](SubAccountCrossMarginBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsavedaddress"></a>
+# **ListSavedAddress**
+> List&lt;SavedAddress&gt; ListSavedAddress (string currency, string chain = null, string limit = null)
+
+Query saved address
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSavedAddressExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var currency = "USDT";  // string | Currency
+            var chain = "\"\"";  // string | Chain name (optional)  (default to "")
+            var limit = "\"50\"";  // string | Maximum number returned, 100 at most (optional)  (default to "50")
+
+            try
+            {
+                // Query saved address
+                List<SavedAddress> result = apiInstance.ListSavedAddress(currency, chain, limit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSavedAddress: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | 
+ **chain** | **string**| Chain name | [optional] [default to &quot;&quot;]
+ **limit** | **string**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
+
+### Return type
+
+[**List&lt;SavedAddress&gt;**](SavedAddress.md)
 
 ### Authorization
 
