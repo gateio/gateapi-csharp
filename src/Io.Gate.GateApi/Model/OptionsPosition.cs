@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures position details
+    /// Options position information
     /// </summary>
     [DataContract]
     public partial class OptionsPosition :  IEquatable<OptionsPosition>, IValidatableObject
@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsPosition" /> class.
         /// </summary>
         /// <param name="closeOrder">closeOrder.</param>
-        public OptionsPosition(PositionCloseOrder closeOrder = default(PositionCloseOrder))
+        public OptionsPosition(OptionsPositionCloseOrder closeOrder = default(OptionsPositionCloseOrder))
         {
             this.CloseOrder = closeOrder;
         }
@@ -47,30 +47,30 @@ namespace Io.Gate.GateApi.Model
         public int User { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Options contract name
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Options contract name</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// Position size
+        /// Position size (contract size)
         /// </summary>
-        /// <value>Position size</value>
+        /// <value>Position size (contract size)</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
         /// <summary>
-        /// Entry price
+        /// Entry size (quote currency)
         /// </summary>
-        /// <value>Entry price</value>
+        /// <value>Entry size (quote currency)</value>
         [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
-        /// Current mark price
+        /// Current mark price (quote currency)
         /// </summary>
-        /// <value>Current mark price</value>
+        /// <value>Current mark price (quote currency)</value>
         [DataMember(Name="mark_price", EmitDefaultValue=false)]
         public string MarkPrice { get; private set; }
 
@@ -99,7 +99,7 @@ namespace Io.Gate.GateApi.Model
         /// Gets or Sets CloseOrder
         /// </summary>
         [DataMember(Name="close_order")]
-        public PositionCloseOrder CloseOrder { get; set; }
+        public OptionsPositionCloseOrder CloseOrder { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

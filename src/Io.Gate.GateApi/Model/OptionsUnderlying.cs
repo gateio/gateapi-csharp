@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsUnderlying" /> class.
         /// </summary>
         /// <param name="name">Underlying name.</param>
-        /// <param name="indexPrice">Spot index price.</param>
+        /// <param name="indexPrice">Spot index price (quote currency).</param>
         public OptionsUnderlying(string name = default(string), string indexPrice = default(string))
         {
             this.Name = name;
@@ -49,9 +49,9 @@ namespace Io.Gate.GateApi.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Spot index price
+        /// Spot index price (quote currency)
         /// </summary>
-        /// <value>Spot index price</value>
+        /// <value>Spot index price (quote currency)</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures contract details
+    /// Options contract detail
     /// </summary>
     [DataContract]
     public partial class OptionsContract :  IEquatable<OptionsContract>, IValidatableObject
@@ -33,17 +33,17 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsContract" /> class.
         /// </summary>
-        /// <param name="name">Futures contract.</param>
+        /// <param name="name">Options contract name.</param>
         /// <param name="tag">tag.</param>
         /// <param name="createTime">Creation time.</param>
         /// <param name="expirationTime">Expiration time.</param>
         /// <param name="isCall">&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options.</param>
         /// <param name="multiplier">Multiplier used in converting from invoicing to settlement currency.</param>
         /// <param name="underlying">Underlying.</param>
-        /// <param name="underlyingPrice">Underlying price.</param>
+        /// <param name="underlyingPrice">Underlying price (quote currency).</param>
         /// <param name="lastPrice">Last trading price.</param>
-        /// <param name="markPrice">Current mark price.</param>
-        /// <param name="indexPrice">Current index price.</param>
+        /// <param name="markPrice">Current mark price (quote currency).</param>
+        /// <param name="indexPrice">Current index price (quote currency).</param>
         /// <param name="makerFeeRate">Maker fee rate, where negative means rebate.</param>
         /// <param name="takerFeeRate">Taker fee rate.</param>
         /// <param name="orderPriceRound">Minimum order price increment.</param>
@@ -88,9 +88,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Futures contract
+        /// Options contract name
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Options contract name</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
@@ -137,9 +137,9 @@ namespace Io.Gate.GateApi.Model
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Underlying price
+        /// Underlying price (quote currency)
         /// </summary>
-        /// <value>Underlying price</value>
+        /// <value>Underlying price (quote currency)</value>
         [DataMember(Name="underlying_price")]
         public string UnderlyingPrice { get; set; }
 
@@ -151,16 +151,16 @@ namespace Io.Gate.GateApi.Model
         public string LastPrice { get; set; }
 
         /// <summary>
-        /// Current mark price
+        /// Current mark price (quote currency)
         /// </summary>
-        /// <value>Current mark price</value>
+        /// <value>Current mark price (quote currency)</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Current index price
+        /// Current index price (quote currency)
         /// </summary>
-        /// <value>Current index price</value>
+        /// <value>Current index price (quote currency)</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 

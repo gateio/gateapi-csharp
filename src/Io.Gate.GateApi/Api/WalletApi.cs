@@ -155,7 +155,7 @@ namespace Io.Gate.GateApi.Api
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -170,7 +170,7 @@ namespace Io.Gate.GateApi.Api
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -199,6 +199,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TransferWithSubAccountWithHttpInfo (SubAccountTransfer subAccountTransfer);
         /// <summary>
+        /// Sub-account transfers to sub-account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns></returns>
+        void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount);
+
+        /// <summary>
+        /// Sub-account transfers to sub-account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
         /// <remarks>
@@ -226,7 +247,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountBalance&gt;</returns>
         List<SubAccountBalance> ListSubAccountBalances (string subUid = default(string));
 
@@ -237,7 +258,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
         ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -247,7 +268,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountMarginBalance&gt;</returns>
         List<SubAccountMarginBalance> ListSubAccountMarginBalances (string subUid = default(string));
 
@@ -258,7 +279,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountMarginBalance&gt;</returns>
         ApiResponse<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -268,7 +289,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>List&lt;SubAccountFuturesBalance&gt;</returns>
         List<SubAccountFuturesBalance> ListSubAccountFuturesBalances (string subUid = default(string), string settle = default(string));
@@ -280,7 +301,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountFuturesBalance&gt;</returns>
         ApiResponse<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesWithHttpInfo (string subUid = default(string), string settle = default(string));
@@ -291,7 +312,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountCrossMarginBalance&gt;</returns>
         List<SubAccountCrossMarginBalance> ListSubAccountCrossMarginBalances (string subUid = default(string));
 
@@ -302,7 +323,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountCrossMarginBalance&gt;</returns>
         ApiResponse<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -338,8 +359,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>TradeFee</returns>
-        TradeFee GetTradeFee (string currencyPair = default(string));
+        TradeFee GetTradeFee (string currencyPair = default(string), string settle = default(string));
 
         /// <summary>
         /// Retrieve personal trading fee
@@ -349,8 +371,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>ApiResponse of TradeFee</returns>
-        ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string));
+        ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string), string settle = default(string));
         /// <summary>
         /// Retrieve user&#39;s total balances
         /// </summary>
@@ -509,7 +532,7 @@ namespace Io.Gate.GateApi.Api
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -524,7 +547,7 @@ namespace Io.Gate.GateApi.Api
         /// Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -553,6 +576,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> TransferWithSubAccountAsyncWithHttpInfo (SubAccountTransfer subAccountTransfer);
         /// <summary>
+        /// Sub-account transfers to sub-account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>Task of void</returns>
+        Task SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount);
+
+        /// <summary>
+        /// Sub-account transfers to sub-account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
         /// <remarks>
@@ -580,7 +624,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountBalance&gt;</returns>
         Task<List<SubAccountBalance>> ListSubAccountBalancesAsync (string subUid = default(string));
 
@@ -591,7 +635,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -601,7 +645,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountMarginBalance&gt;</returns>
         Task<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesAsync (string subUid = default(string));
 
@@ -612,7 +656,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountMarginBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountMarginBalance>>> ListSubAccountMarginBalancesAsyncWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -622,7 +666,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>Task of List&lt;SubAccountFuturesBalance&gt;</returns>
         Task<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesAsync (string subUid = default(string), string settle = default(string));
@@ -634,7 +678,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountFuturesBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountFuturesBalance>>> ListSubAccountFuturesBalancesAsyncWithHttpInfo (string subUid = default(string), string settle = default(string));
@@ -645,7 +689,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountCrossMarginBalance&gt;</returns>
         Task<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesAsync (string subUid = default(string));
 
@@ -656,7 +700,7 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountCrossMarginBalance&gt;)</returns>
         Task<ApiResponse<List<SubAccountCrossMarginBalance>>> ListSubAccountCrossMarginBalancesAsyncWithHttpInfo (string subUid = default(string));
         /// <summary>
@@ -692,8 +736,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>Task of TradeFee</returns>
-        Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string));
+        Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string), string settle = default(string));
 
         /// <summary>
         /// Retrieve personal trading fee
@@ -703,8 +748,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>Task of ApiResponse (TradeFee)</returns>
-        Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string));
+        Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string), string settle = default(string));
         /// <summary>
         /// Retrieve user&#39;s total balances
         /// </summary>
@@ -1525,7 +1571,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1541,7 +1587,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1605,7 +1651,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1622,7 +1668,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve transfer records between main and sub accounts Record time range cannot exceed 30 days  &gt; Note: only records after 2020-04-10 can be retrieved
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
@@ -1800,6 +1846,121 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Sub-account transfers to sub-account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns></returns>
+        public void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
+        {
+             SubAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+        }
+
+        /// <summary>
+        /// Sub-account transfers to sub-account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
+        {
+            // verify the required parameter 'subAccountToSubAccount' is set
+            if (subAccountToSubAccount == null)
+                throw new ApiException(400, "Missing required parameter 'subAccountToSubAccount' when calling WalletApi->SubAccountToSubAccount");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = subAccountToSubAccount;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubAccountToSubAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Sub-account transfers to sub-account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>Task of void</returns>
+        public async Task SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount)
+        {
+             await SubAccountToSubAccountAsyncWithHttpInfo(subAccountToSubAccount);
+
+        }
+
+        /// <summary>
+        /// Sub-account transfers to sub-account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subAccountToSubAccount"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
+        {
+            // verify the required parameter 'subAccountToSubAccount' is set
+            if (subAccountToSubAccount == null)
+                throw new ApiException(400, "Missing required parameter 'subAccountToSubAccount' when calling WalletApi->SubAccountToSubAccount");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = subAccountToSubAccount;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubAccountToSubAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve withdrawal status 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1918,7 +2079,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve sub account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountBalance&gt;</returns>
         public List<SubAccountBalance> ListSubAccountBalances (string subUid = default(string))
         {
@@ -1930,7 +2091,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve sub account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountBalance&gt;</returns>
         public ApiResponse<List<SubAccountBalance>> ListSubAccountBalancesWithHttpInfo (string subUid = default(string))
         {
@@ -1974,7 +2135,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve sub account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountBalance&gt;</returns>
         public async Task<List<SubAccountBalance>> ListSubAccountBalancesAsync (string subUid = default(string))
         {
@@ -1987,7 +2148,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve sub account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountBalance&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountBalance>>> ListSubAccountBalancesAsyncWithHttpInfo (string subUid = default(string))
         {
@@ -2033,7 +2194,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; margin balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountMarginBalance&gt;</returns>
         public List<SubAccountMarginBalance> ListSubAccountMarginBalances (string subUid = default(string))
         {
@@ -2045,7 +2206,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; margin balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountMarginBalance&gt;</returns>
         public ApiResponse<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesWithHttpInfo (string subUid = default(string))
         {
@@ -2089,7 +2250,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; margin balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountMarginBalance&gt;</returns>
         public async Task<List<SubAccountMarginBalance>> ListSubAccountMarginBalancesAsync (string subUid = default(string))
         {
@@ -2102,7 +2263,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; margin balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountMarginBalance&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountMarginBalance>>> ListSubAccountMarginBalancesAsyncWithHttpInfo (string subUid = default(string))
         {
@@ -2148,7 +2309,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; futures account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>List&lt;SubAccountFuturesBalance&gt;</returns>
         public List<SubAccountFuturesBalance> ListSubAccountFuturesBalances (string subUid = default(string), string settle = default(string))
@@ -2161,7 +2322,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; futures account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountFuturesBalance&gt;</returns>
         public ApiResponse<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesWithHttpInfo (string subUid = default(string), string settle = default(string))
@@ -2210,7 +2371,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; futures account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>Task of List&lt;SubAccountFuturesBalance&gt;</returns>
         public async Task<List<SubAccountFuturesBalance>> ListSubAccountFuturesBalancesAsync (string subUid = default(string), string settle = default(string))
@@ -2224,7 +2385,7 @@ namespace Io.Gate.GateApi.Api
         /// Query sub accounts&#39; futures account balances 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <param name="settle">Query only balances of specified settle currency (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountFuturesBalance&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountFuturesBalance>>> ListSubAccountFuturesBalancesAsyncWithHttpInfo (string subUid = default(string), string settle = default(string))
@@ -2275,7 +2436,7 @@ namespace Io.Gate.GateApi.Api
         /// Query subaccount&#39;s cross_margin account info 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>List&lt;SubAccountCrossMarginBalance&gt;</returns>
         public List<SubAccountCrossMarginBalance> ListSubAccountCrossMarginBalances (string subUid = default(string))
         {
@@ -2287,7 +2448,7 @@ namespace Io.Gate.GateApi.Api
         /// Query subaccount&#39;s cross_margin account info 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccountCrossMarginBalance&gt;</returns>
         public ApiResponse<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesWithHttpInfo (string subUid = default(string))
         {
@@ -2331,7 +2492,7 @@ namespace Io.Gate.GateApi.Api
         /// Query subaccount&#39;s cross_margin account info 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of List&lt;SubAccountCrossMarginBalance&gt;</returns>
         public async Task<List<SubAccountCrossMarginBalance>> ListSubAccountCrossMarginBalancesAsync (string subUid = default(string))
         {
@@ -2344,7 +2505,7 @@ namespace Io.Gate.GateApi.Api
         /// Query subaccount&#39;s cross_margin account info 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subUid">Sub account user ID. Return records related to all sub accounts if not specified (optional)</param>
+        /// <param name="subUid">User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountCrossMarginBalance&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountCrossMarginBalance>>> ListSubAccountCrossMarginBalancesAsyncWithHttpInfo (string subUid = default(string))
         {
@@ -2532,10 +2693,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>TradeFee</returns>
-        public TradeFee GetTradeFee (string currencyPair = default(string))
+        public TradeFee GetTradeFee (string currencyPair = default(string), string settle = default(string))
         {
-             ApiResponse<TradeFee> localVarResponse = GetTradeFeeWithHttpInfo(currencyPair);
+             ApiResponse<TradeFee> localVarResponse = GetTradeFeeWithHttpInfo(currencyPair, settle);
              return localVarResponse.Data;
         }
 
@@ -2544,8 +2706,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>ApiResponse of TradeFee</returns>
-        public ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string))
+        public ApiResponse<TradeFee> GetTradeFeeWithHttpInfo (string currencyPair = default(string), string settle = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -2566,6 +2729,10 @@ namespace Io.Gate.GateApi.Api
             if (currencyPair != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (settle != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settle", settle));
             }
 
             // authentication (apiv4) required
@@ -2588,10 +2755,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>Task of TradeFee</returns>
-        public async Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string))
+        public async Task<TradeFee> GetTradeFeeAsync (string currencyPair = default(string), string settle = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetTradeFeeAsyncWithHttpInfo(currencyPair);
+             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetTradeFeeAsyncWithHttpInfo(currencyPair, settle);
              return localVarResponse.Data;
 
         }
@@ -2601,8 +2769,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
+        /// <param name="settle">Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional)</param>
         /// <returns>Task of ApiResponse (TradeFee)</returns>
-        public async Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string))
+        public async Task<ApiResponse<TradeFee>> GetTradeFeeAsyncWithHttpInfo (string currencyPair = default(string), string settle = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -2624,6 +2793,10 @@ namespace Io.Gate.GateApi.Api
             if (currencyPair != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (settle != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "settle", settle));
             }
 
             // authentication (apiv4) required

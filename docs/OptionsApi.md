@@ -11,10 +11,10 @@ Method | HTTP request | Description
 [**ListOptionsSettlements**](OptionsApi.md#listoptionssettlements) | **GET** /options/settlements | List settlement history
 [**GetOptionsSettlement**](OptionsApi.md#getoptionssettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
 [**ListMyOptionsSettlements**](OptionsApi.md#listmyoptionssettlements) | **GET** /options/my_settlements | List my options settlements
-[**ListOptionsOrderBook**](OptionsApi.md#listoptionsorderbook) | **GET** /options/order_book | Futures order book
+[**ListOptionsOrderBook**](OptionsApi.md#listoptionsorderbook) | **GET** /options/order_book | Options order book
 [**ListOptionsTickers**](OptionsApi.md#listoptionstickers) | **GET** /options/tickers | List tickers of options contracts
 [**ListOptionsUnderlyingTickers**](OptionsApi.md#listoptionsunderlyingtickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
-[**ListOptionsCandlesticks**](OptionsApi.md#listoptionscandlesticks) | **GET** /options/candlesticks | Get futures candlesticks
+[**ListOptionsCandlesticks**](OptionsApi.md#listoptionscandlesticks) | **GET** /options/candlesticks | Get options candlesticks
 [**ListOptionsUnderlyingCandlesticks**](OptionsApi.md#listoptionsunderlyingcandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying
 [**ListOptionsTrades**](OptionsApi.md#listoptionstrades) | **GET** /options/trades | Options trade history
 [**ListOptionsAccount**](OptionsApi.md#listoptionsaccount) | **GET** /options/accounts | List options account
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**ListOptionsPositions**](OptionsApi.md#listoptionspositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
 [**GetOptionsPosition**](OptionsApi.md#getoptionsposition) | **GET** /options/positions/{contract} | Get specified contract position
 [**ListOptionsPositionClose**](OptionsApi.md#listoptionspositionclose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
-[**ListOptionsOrders**](OptionsApi.md#listoptionsorders) | **GET** /options/orders | List futures orders
+[**ListOptionsOrders**](OptionsApi.md#listoptionsorders) | **GET** /options/orders | List options orders
 [**CreateOptionsOrder**](OptionsApi.md#createoptionsorder) | **POST** /options/orders | Create an options order
 [**CancelOptionsOrders**](OptionsApi.md#canceloptionsorders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched
 [**GetOptionsOrder**](OptionsApi.md#getoptionsorder) | **GET** /options/orders/{order_id} | Get a single order
@@ -118,7 +118,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
 
             try
             {
@@ -142,7 +142,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
 
 ### Return type
 
@@ -187,7 +187,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
             var expiration = 1636588800;  // long? | Unix timestamp of the expiration time (optional) 
 
             try
@@ -212,7 +212,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
  **expiration** | **long?**| Unix timestamp of the expiration time | [optional] 
 
 ### Return type
@@ -327,7 +327,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp (optional) 
@@ -355,7 +355,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **long?**| Start timestamp | [optional] 
@@ -405,7 +405,7 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
             var contract = "BTC_USDT-20211130-65000-C";  // string | 
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
             var at = 56;  // long | 
 
             try
@@ -431,7 +431,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **string**|  | 
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
  **at** | **long**|  | 
 
 ### Return type
@@ -479,8 +479,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp (optional) 
@@ -508,8 +508,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
- **contract** | **string**| Contract name | [optional] 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **contract** | **string**| Options contract name | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **long?**| Start timestamp | [optional] 
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 # **ListOptionsOrderBook**
 > FuturesOrderBook ListOptionsOrderBook (string contract, string interval = null, int? limit = null, bool? withId = null)
 
-Futures order book
+Options order book
 
 Bids will be sorted by price from high to low, while asks sorted reversely
 
@@ -560,14 +560,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT";  // string | Futures contract
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
             var withId = false;  // bool? | Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional)  (default to false)
 
             try
             {
-                // Futures order book
+                // Options order book
                 FuturesOrderBook result = apiInstance.ListOptionsOrderBook(contract, interval, limit, withId);
                 Debug.WriteLine(result);
             }
@@ -587,7 +587,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Futures contract | 
+ **contract** | **string**| Options contract name | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
  **withId** | **bool?**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
@@ -635,7 +635,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
 
             try
             {
@@ -659,7 +659,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
 
 ### Return type
 
@@ -752,9 +752,9 @@ No authorization required
 
 <a name="listoptionscandlesticks"></a>
 # **ListOptionsCandlesticks**
-> List&lt;FuturesCandlestick&gt; ListOptionsCandlesticks (string contract, int? limit = null, long? from = null, long? to = null, string interval = null)
+> List&lt;OptionsCandlestick&gt; ListOptionsCandlesticks (string contract, int? limit = null, long? from = null, long? to = null, string interval = null)
 
-Get futures candlesticks
+Get options candlesticks
 
 ### Example
 ```csharp
@@ -773,7 +773,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT";  // string | Futures contract
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
@@ -781,8 +781,8 @@ namespace Example
 
             try
             {
-                // Get futures candlesticks
-                List<FuturesCandlestick> result = apiInstance.ListOptionsCandlesticks(contract, limit, from, to, interval);
+                // Get options candlesticks
+                List<OptionsCandlestick> result = apiInstance.ListOptionsCandlesticks(contract, limit, from, to, interval);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -801,7 +801,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Futures contract | 
+ **contract** | **string**| Options contract name | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesCandlestick&gt;**](FuturesCandlestick.md)
+[**List&lt;OptionsCandlestick&gt;**](OptionsCandlestick.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
@@ -878,7 +878,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
@@ -927,7 +927,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
             var type = "1546935600";  // string | `C` is call, while `P` is put (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -956,7 +956,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Contract name | [optional] 
+ **contract** | **string**| Options contract name | [optional] 
  **type** | **string**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
@@ -1296,8 +1296,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
 
             try
             {
@@ -1321,8 +1321,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
- **contract** | **string**| Contract name | [optional] 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **contract** | **string**| Options contract name | [optional] 
 
 ### Return type
 
@@ -1348,7 +1348,7 @@ Name | Type | Description  | Notes
 # **ListOptionsOrders**
 > List&lt;OptionsOrder&gt; ListOptionsOrders (string status, string contract = null, string underlying = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-List futures orders
+List options orders
 
 ### Example
 ```csharp
@@ -1370,7 +1370,7 @@ namespace Example
 
             var apiInstance = new OptionsApi(config);
             var status = "open";  // string | Only list the orders with this status
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
             var underlying = "BTC_USDT";  // string | Underlying (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -1379,7 +1379,7 @@ namespace Example
 
             try
             {
-                // List futures orders
+                // List options orders
                 List<OptionsOrder> result = apiInstance.ListOptionsOrders(status, contract, underlying, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -1400,7 +1400,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Only list the orders with this status | 
- **contract** | **string**| Contract name | [optional] 
+ **contract** | **string**| Options contract name | [optional] 
  **underlying** | **string**| Underlying | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
@@ -1523,7 +1523,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
             var underlying = "BTC_USDT";  // string | Underlying (optional) 
             var side = "ask";  // string | All bids or asks. Both included if not specified (optional) 
 
@@ -1549,7 +1549,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Contract name | [optional] 
+ **contract** | **string**| Options contract name | [optional] 
  **underlying** | **string**| Underlying | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
 
@@ -1740,8 +1740,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Contract name (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp (optional) 
@@ -1769,8 +1769,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
- **contract** | **string**| Contract name | [optional] 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **contract** | **string**| Options contract name | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **long?**| Start timestamp | [optional] 

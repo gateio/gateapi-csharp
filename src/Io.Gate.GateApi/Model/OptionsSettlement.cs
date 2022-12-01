@@ -34,11 +34,11 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsSettlement" /> class.
         /// </summary>
         /// <param name="time">Last changed time of configuration.</param>
-        /// <param name="contract">Contract name.</param>
-        /// <param name="profit">Settlement profit per size.</param>
-        /// <param name="fee">Settlement fee per size.</param>
-        /// <param name="strikePrice">Strike price.</param>
-        /// <param name="settlePrice">settlement price.</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="profit">Settlement profit per size (quote currency).</param>
+        /// <param name="fee">Settlement fee per size (quote currency).</param>
+        /// <param name="strikePrice">Strike price (quote currency).</param>
+        /// <param name="settlePrice">Settlement price (quote currency).</param>
         public OptionsSettlement(double time = default(double), string contract = default(string), string profit = default(string), string fee = default(string), string strikePrice = default(string), string settlePrice = default(string))
         {
             this.Time = time;
@@ -57,37 +57,37 @@ namespace Io.Gate.GateApi.Model
         public double Time { get; set; }
 
         /// <summary>
-        /// Contract name
+        /// Options contract name
         /// </summary>
-        /// <value>Contract name</value>
+        /// <value>Options contract name</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Settlement profit per size
+        /// Settlement profit per size (quote currency)
         /// </summary>
-        /// <value>Settlement profit per size</value>
+        /// <value>Settlement profit per size (quote currency)</value>
         [DataMember(Name="profit")]
         public string Profit { get; set; }
 
         /// <summary>
-        /// Settlement fee per size
+        /// Settlement fee per size (quote currency)
         /// </summary>
-        /// <value>Settlement fee per size</value>
+        /// <value>Settlement fee per size (quote currency)</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Strike price
+        /// Strike price (quote currency)
         /// </summary>
-        /// <value>Strike price</value>
+        /// <value>Strike price (quote currency)</value>
         [DataMember(Name="strike_price")]
         public string StrikePrice { get; set; }
 
         /// <summary>
-        /// settlement price
+        /// Settlement price (quote currency)
         /// </summary>
-        /// <value>settlement price</value>
+        /// <value>Settlement price (quote currency)</value>
         [DataMember(Name="settle_price")]
         public string SettlePrice { get; set; }
 

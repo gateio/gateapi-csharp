@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CreateTimeMs** | **double** | Trading time, with milliseconds set to 3 decimal places. | [optional] 
 **Contract** | **string** | Futures contract | [optional] 
 **Size** | **long** | Trading size | [optional] 
-**Price** | **string** | Trading price | [optional] 
+**Price** | **string** | Trading price (quote currency) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

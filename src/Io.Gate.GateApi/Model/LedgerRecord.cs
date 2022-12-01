@@ -135,18 +135,17 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Currency name (required).</param>
         /// <param name="address">Withdrawal address. Required for withdrawals.</param>
         /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
-        /// <param name="chain">Name of the chain used in withdrawals.</param>
-        /// <param name="fee">Fee.</param>
-        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string), string fee = default(string))
+        /// <param name="chain">Name of the chain used in withdrawals (required).</param>
+        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
         {
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for LedgerRecord and cannot be null");
             // to ensure "currency" is required (not null)
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for LedgerRecord and cannot be null");
+            // to ensure "chain" is required (not null)
+            this.Chain = chain ?? throw new ArgumentNullException("chain", "chain is a required property for LedgerRecord and cannot be null");
             this.Address = address;
             this.Memo = memo;
-            this.Chain = chain;
-            this.Fee = fee;
         }
 
         /// <summary>
@@ -209,8 +208,8 @@ namespace Io.Gate.GateApi.Model
         /// Fee
         /// </summary>
         /// <value>Fee</value>
-        [DataMember(Name="fee")]
-        public string Fee { get; set; }
+        [DataMember(Name="fee", EmitDefaultValue=false)]
+        public string Fee { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

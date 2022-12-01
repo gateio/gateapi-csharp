@@ -34,9 +34,9 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsTicker" /> class.
         /// </summary>
         /// <param name="name">Options contract name.</param>
-        /// <param name="lastPrice">Last trading price.</param>
-        /// <param name="markPrice">Current mark price.</param>
-        /// <param name="indexPrice">Current index price.</param>
+        /// <param name="lastPrice">Last trading price (quote currency).</param>
+        /// <param name="markPrice">Current mark price (quote currency).</param>
+        /// <param name="indexPrice">Current index price (quote currency).</param>
         /// <param name="ask1Size">Best ask size.</param>
         /// <param name="ask1Price">Best ask price.</param>
         /// <param name="bid1Size">Best bid size.</param>
@@ -81,23 +81,23 @@ namespace Io.Gate.GateApi.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Last trading price
+        /// Last trading price (quote currency)
         /// </summary>
-        /// <value>Last trading price</value>
+        /// <value>Last trading price (quote currency)</value>
         [DataMember(Name="last_price")]
         public string LastPrice { get; set; }
 
         /// <summary>
-        /// Current mark price
+        /// Current mark price (quote currency)
         /// </summary>
-        /// <value>Current mark price</value>
+        /// <value>Current mark price (quote currency)</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Current index price
+        /// Current index price (quote currency)
         /// </summary>
-        /// <value>Current index price</value>
+        /// <value>Current index price (quote currency)</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 

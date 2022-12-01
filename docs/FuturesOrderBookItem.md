@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**P** | **string** | Price | [optional] 
+**P** | **string** | Price (quote currency) | [optional] 
 **S** | **long** | Size | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

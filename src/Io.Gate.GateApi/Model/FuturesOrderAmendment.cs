@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FuturesOrderAmendment" /> class.
         /// </summary>
         /// <param name="size">New order size, including filled part.  - If new size is less than or equal to filled size, the order will be cancelled. - Order side must be identical to the original one. - Close order size cannot be changed. - For reduce only orders, increasing size may leads to other reduce only orders being cancelled. - If price is not changed, decreasing size will not change its precedence in order book, while increasing will move it to the last at current price..</param>
-        /// <param name="price">New order price. New price cannot take any orders.</param>
+        /// <param name="price">New order price..</param>
         public FuturesOrderAmendment(long size = default(long), string price = default(string))
         {
             this.Size = size;
@@ -49,9 +49,9 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
-        /// New order price. New price cannot take any orders
+        /// New order price.
         /// </summary>
-        /// <value>New order price. New price cannot take any orders</value>
+        /// <value>New order price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

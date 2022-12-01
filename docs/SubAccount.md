@@ -1,0 +1,18 @@
+
+# Io.Gate.GateApi.Model.SubAccount
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Remark** | **string** | custom text | [optional] 
+**LoginName** | **string** | Sub-account login name: Only letters, numbers and underscores are supported, and cannot contain other illegal characters | 
+**Password** | **string** | The sub-account&#39;s password. (Default: the same as main account&#39;s password) | [optional] 
+**Email** | **string** | The sub-account&#39;s email address. (Default: the same as main account&#39;s email address) | [optional] 
+**State** | **int** | State: 1-normal, 2-locked\&quot; | [optional] [readonly] 
+**UserId** | **long** | The user id of the sub-account | [optional] [readonly] 
+**CreateTime** | **long** | Created time | [optional] [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)

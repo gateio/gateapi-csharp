@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Contract detail.  USD value per contract:  - USDT settled contracts： &#x60;quanto_multiplier x token price&#x60; - BTC settled contracts：&#x60;quanto_multiplier x BTC price x token price&#x60;
+    /// Futures contract details
     /// </summary>
     [DataContract]
     public partial class Contract :  IEquatable<Contract>, IValidatableObject

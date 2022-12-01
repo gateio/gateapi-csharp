@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
-[**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a single order
+[**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 [**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
 
 
@@ -2000,7 +2000,7 @@ Name | Type | Description  | Notes
 # **GetPriceTriggeredDeliveryOrder**
 > FuturesPriceTriggeredOrder GetPriceTriggeredDeliveryOrder (string settle, string orderId)
 
-Get a single order
+Get a price-triggered order
 
 ### Example
 ```csharp
@@ -2026,7 +2026,7 @@ namespace Example
 
             try
             {
-                // Get a single order
+                // Get a price-triggered order
                 FuturesPriceTriggeredOrder result = apiInstance.GetPriceTriggeredDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }

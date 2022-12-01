@@ -34,8 +34,8 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsAccountBook" /> class.
         /// </summary>
         /// <param name="time">Change time.</param>
-        /// <param name="change">Amount changed.</param>
-        /// <param name="balance">Account total balance after change.</param>
+        /// <param name="change">Amount changed (USDT).</param>
+        /// <param name="balance">Account total balance after change (USDT).</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate.</param>
         /// <param name="text">custom text.</param>
         public OptionsAccountBook(double time = default(double), string change = default(string), string balance = default(string), string type = default(string), string text = default(string))
@@ -55,16 +55,16 @@ namespace Io.Gate.GateApi.Model
         public double Time { get; set; }
 
         /// <summary>
-        /// Amount changed
+        /// Amount changed (USDT)
         /// </summary>
-        /// <value>Amount changed</value>
+        /// <value>Amount changed (USDT)</value>
         [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
-        /// Account total balance after change
+        /// Account total balance after change (USDT)
         /// </summary>
-        /// <value>Account total balance after change</value>
+        /// <value>Account total balance after change (USDT)</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 

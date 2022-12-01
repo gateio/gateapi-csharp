@@ -50,7 +50,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="fundingRateIndicative">Indicative Funding rate in next period.</param>
         /// <param name="indexPrice">Index price.</param>
         /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
-        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string))
+        /// <param name="basisRate">Basis rate.</param>
+        /// <param name="basisValue">Basis value.</param>
+        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string))
         {
             this.Contract = contract;
             this.Last = last;
@@ -69,6 +71,8 @@ namespace Io.Gate.GateApi.Model
             this.FundingRateIndicative = fundingRateIndicative;
             this.IndexPrice = indexPrice;
             this.QuantoBaseRate = quantoBaseRate;
+            this.BasisRate = basisRate;
+            this.BasisValue = basisValue;
         }
 
         /// <summary>
@@ -191,6 +195,20 @@ namespace Io.Gate.GateApi.Model
         public string QuantoBaseRate { get; set; }
 
         /// <summary>
+        /// Basis rate
+        /// </summary>
+        /// <value>Basis rate</value>
+        [DataMember(Name="basis_rate")]
+        public string BasisRate { get; set; }
+
+        /// <summary>
+        /// Basis value
+        /// </summary>
+        /// <value>Basis value</value>
+        [DataMember(Name="basis_value")]
+        public string BasisValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -215,6 +233,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FundingRateIndicative: ").Append(FundingRateIndicative).Append("\n");
             sb.Append("  IndexPrice: ").Append(IndexPrice).Append("\n");
             sb.Append("  QuantoBaseRate: ").Append(QuantoBaseRate).Append("\n");
+            sb.Append("  BasisRate: ").Append(BasisRate).Append("\n");
+            sb.Append("  BasisValue: ").Append(BasisValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -333,6 +353,16 @@ namespace Io.Gate.GateApi.Model
                     this.QuantoBaseRate == input.QuantoBaseRate ||
                     (this.QuantoBaseRate != null &&
                     this.QuantoBaseRate.Equals(input.QuantoBaseRate))
+                ) && 
+                (
+                    this.BasisRate == input.BasisRate ||
+                    (this.BasisRate != null &&
+                    this.BasisRate.Equals(input.BasisRate))
+                ) && 
+                (
+                    this.BasisValue == input.BasisValue ||
+                    (this.BasisValue != null &&
+                    this.BasisValue.Equals(input.BasisValue))
                 );
         }
 
@@ -379,6 +409,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.IndexPrice.GetHashCode();
                 if (this.QuantoBaseRate != null)
                     hashCode = hashCode * 59 + this.QuantoBaseRate.GetHashCode();
+                if (this.BasisRate != null)
+                    hashCode = hashCode * 59 + this.BasisRate.GetHashCode();
+                if (this.BasisValue != null)
+                    hashCode = hashCode * 59 + this.BasisValue.GetHashCode();
                 return hashCode;
             }
         }

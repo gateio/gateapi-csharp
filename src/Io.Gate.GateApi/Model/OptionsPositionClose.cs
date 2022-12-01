@@ -73,9 +73,9 @@ namespace Io.Gate.GateApi.Model
         public double Time { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Options contract name
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Options contract name</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 

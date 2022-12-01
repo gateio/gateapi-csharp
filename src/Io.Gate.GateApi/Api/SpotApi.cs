@@ -165,7 +165,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -182,7 +182,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -437,7 +437,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
@@ -450,7 +450,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
@@ -462,7 +462,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
@@ -475,7 +475,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
@@ -484,10 +484,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -495,16 +495,16 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        List<Trade> ListMyTrades (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -512,7 +512,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Get server current time
         /// </summary>
@@ -532,6 +532,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SystemTime</returns>
         ApiResponse<SystemTime> GetSystemTimeWithHttpInfo ();
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>TriggerTime</returns>
+        TriggerTime CountdownCancelAllSpot (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
+
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>ApiResponse of TriggerTime</returns>
+        ApiResponse<TriggerTime> CountdownCancelAllSpotWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -606,7 +627,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -617,7 +638,7 @@ namespace Io.Gate.GateApi.Api
         SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId);
 
         /// <summary>
-        /// Get a single order
+        /// Get a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -794,7 +815,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -811,7 +832,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -1066,7 +1087,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
@@ -1079,7 +1100,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
@@ -1091,7 +1112,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
@@ -1104,7 +1125,7 @@ namespace Io.Gate.GateApi.Api
         /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
@@ -1113,10 +1134,10 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -1124,16 +1145,16 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        Task<List<Trade>> ListMyTradesAsync (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -1141,7 +1162,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
+        Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Get server current time
         /// </summary>
@@ -1161,6 +1182,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (SystemTime)</returns>
         Task<ApiResponse<SystemTime>> GetSystemTimeAsyncWithHttpInfo ();
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>Task of TriggerTime</returns>
+        Task<TriggerTime> CountdownCancelAllSpotAsync (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
+
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>Task of ApiResponse (TriggerTime)</returns>
+        Task<ApiResponse<TriggerTime>> CountdownCancelAllSpotAsyncWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -1235,7 +1277,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -1246,7 +1288,7 @@ namespace Io.Gate.GateApi.Api
         Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId);
 
         /// <summary>
-        /// Get a single order
+        /// Get a price-triggered order
         /// </summary>
         /// <remarks>
         /// 
@@ -2097,7 +2139,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -2115,7 +2157,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -2188,7 +2230,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -2207,7 +2249,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
@@ -3631,7 +3673,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
@@ -3645,7 +3687,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
@@ -3701,7 +3743,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
@@ -3716,7 +3758,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
@@ -3774,7 +3816,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
@@ -3788,7 +3830,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
@@ -3844,7 +3886,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
@@ -3859,7 +3901,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID are accepted only in the first 30 minutes after order creation.After that, only order ID is accepted.</param>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
@@ -3914,10 +3956,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -3925,17 +3967,17 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
-        public List<Trade> ListMyTrades (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
+        public List<Trade> ListMyTrades (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
              ApiResponse<List<Trade>> localVarResponse = ListMyTradesWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -3943,12 +3985,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
-        public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
+        public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->ListMyTrades");
-
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
@@ -3965,7 +4003,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
@@ -4007,10 +4048,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -4018,7 +4059,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
-        public async Task<List<Trade>> ListMyTradesAsync (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
+        public async Task<List<Trade>> ListMyTradesAsync (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<Trade>> localVarResponse = await ListMyTradesAsyncWithHttpInfo(currencyPair, limit, page, orderId, account, from, to);
              return localVarResponse.Data;
@@ -4026,10 +4067,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range Time range parameters are handled as order finish time.
+        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
@@ -4037,12 +4078,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
-        public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
+        public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->ListMyTrades");
-
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -4060,7 +4097,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
@@ -4195,6 +4235,125 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemTime", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Countdown cancel orders When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>TriggerTime</returns>
+        public TriggerTime CountdownCancelAllSpot (CountdownCancelAllSpotTask countdownCancelAllSpotTask)
+        {
+             ApiResponse<TriggerTime> localVarResponse = CountdownCancelAllSpotWithHttpInfo(countdownCancelAllSpotTask);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Countdown cancel orders When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>ApiResponse of TriggerTime</returns>
+        public ApiResponse<TriggerTime> CountdownCancelAllSpotWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask)
+        {
+            // verify the required parameter 'countdownCancelAllSpotTask' is set
+            if (countdownCancelAllSpotTask == null)
+                throw new ApiException(400, "Missing required parameter 'countdownCancelAllSpotTask' when calling SpotApi->CountdownCancelAllSpot");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = countdownCancelAllSpotTask;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TriggerTime>("/spot/countdown_cancel_all", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountdownCancelAllSpot", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Countdown cancel orders When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>Task of TriggerTime</returns>
+        public async Task<TriggerTime> CountdownCancelAllSpotAsync (CountdownCancelAllSpotTask countdownCancelAllSpotTask)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<TriggerTime> localVarResponse = await CountdownCancelAllSpotAsyncWithHttpInfo(countdownCancelAllSpotTask);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Countdown cancel orders When the timeout set by the user is reached, if there is no cancel or set a new countdown, the related pending orders will be automatically cancelled.  This endpoint can be called repeatedly to set a new countdown or cancel the countdown. For example, call this endpoint at 30s intervals, each countdown&#x60;timeout&#x60; is set to 30s. If this endpoint is not called again within 30 seconds, all pending orders on the specified &#x60;market&#x60; will be automatically cancelled, if no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the cacnel function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllSpotTask"></param>
+        /// <returns>Task of ApiResponse (TriggerTime)</returns>
+        public async Task<ApiResponse<TriggerTime>> CountdownCancelAllSpotAsyncWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask)
+        {
+            // verify the required parameter 'countdownCancelAllSpotTask' is set
+            if (countdownCancelAllSpotTask == null)
+                throw new ApiException(400, "Missing required parameter 'countdownCancelAllSpotTask' when calling SpotApi->CountdownCancelAllSpot");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = countdownCancelAllSpotTask;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TriggerTime>("/spot/countdown_cancel_all", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountdownCancelAllSpot", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4613,7 +4772,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4625,7 +4784,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4670,7 +4829,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
@@ -4683,7 +4842,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a price-triggered order 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Retrieve the data of the order with the specified ID</param>

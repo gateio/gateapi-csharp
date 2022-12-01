@@ -35,7 +35,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="tradePut">Total put options trades amount in last 24h.</param>
         /// <param name="tradeCall">Total call options trades amount in last 24h.</param>
-        /// <param name="indexPrice">Index price.</param>
+        /// <param name="indexPrice">Index price (quote currency).</param>
         public OptionsUnderlyingTicker(long tradePut = default(long), long tradeCall = default(long), string indexPrice = default(string))
         {
             this.TradePut = tradePut;
@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         public long TradeCall { get; set; }
 
         /// <summary>
-        /// Index price
+        /// Index price (quote currency)
         /// </summary>
-        /// <value>Index price</value>
+        /// <value>Index price (quote currency)</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 

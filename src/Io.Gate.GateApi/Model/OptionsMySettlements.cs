@@ -35,13 +35,13 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="time">Settlement time.</param>
         /// <param name="underlying">Underlying.</param>
-        /// <param name="contract">Futures contract.</param>
-        /// <param name="strikePrice">Strike price.</param>
-        /// <param name="settlePrice">settlement price.</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="strikePrice">Strike price (quote currency).</param>
+        /// <param name="settlePrice">Settlement price (quote currency).</param>
         /// <param name="size">Size.</param>
-        /// <param name="settleProfit">Settlement profit.</param>
-        /// <param name="fee">Fee.</param>
-        /// <param name="realisedPnl">The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc..</param>
+        /// <param name="settleProfit">Settlement profit (quote currency).</param>
+        /// <param name="fee">Fee (quote currency).</param>
+        /// <param name="realisedPnl">The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency).</param>
         public OptionsMySettlements(double time = default(double), string underlying = default(string), string contract = default(string), string strikePrice = default(string), string settlePrice = default(string), long size = default(long), string settleProfit = default(string), string fee = default(string), string realisedPnl = default(string))
         {
             this.Time = time;
@@ -70,23 +70,23 @@ namespace Io.Gate.GateApi.Model
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Futures contract
+        /// Options contract name
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Options contract name</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Strike price
+        /// Strike price (quote currency)
         /// </summary>
-        /// <value>Strike price</value>
+        /// <value>Strike price (quote currency)</value>
         [DataMember(Name="strike_price")]
         public string StrikePrice { get; set; }
 
         /// <summary>
-        /// settlement price
+        /// Settlement price (quote currency)
         /// </summary>
-        /// <value>settlement price</value>
+        /// <value>Settlement price (quote currency)</value>
         [DataMember(Name="settle_price")]
         public string SettlePrice { get; set; }
 
@@ -98,23 +98,23 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
-        /// Settlement profit
+        /// Settlement profit (quote currency)
         /// </summary>
-        /// <value>Settlement profit</value>
+        /// <value>Settlement profit (quote currency)</value>
         [DataMember(Name="settle_profit")]
         public string SettleProfit { get; set; }
 
         /// <summary>
-        /// Fee
+        /// Fee (quote currency)
         /// </summary>
-        /// <value>Fee</value>
+        /// <value>Fee (quote currency)</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc.
+        /// The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency)
         /// </summary>
-        /// <value>The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc.</value>
+        /// <value>The accumulated profit and loss of opening a position, including premium, fee, settlement profit, etc. (quote currency)</value>
         [DataMember(Name="realised_pnl")]
         public string RealisedPnl { get; set; }
 

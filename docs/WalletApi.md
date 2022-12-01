@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**Transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
 [**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
+[**SubAccountToSubAccount**](WalletApi.md#subaccounttosubaccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -423,7 +424,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
             var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
@@ -451,7 +452,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
@@ -528,6 +529,76 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subAccountTransfer** | [**SubAccountTransfer**](SubAccountTransfer.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Balance transferred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="subaccounttosubaccount"></a>
+# **SubAccountToSubAccount**
+> void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
+
+Sub-account transfers to sub-account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SubAccountToSubAccountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var subAccountToSubAccount = new SubAccountToSubAccount(); // SubAccountToSubAccount | 
+
+            try
+            {
+                // Sub-account transfers to sub-account
+                apiInstance.SubAccountToSubAccount(subAccountToSubAccount);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.SubAccountToSubAccount: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subAccountToSubAccount** | [**SubAccountToSubAccount**](SubAccountToSubAccount.md)|  | 
 
 ### Return type
 
@@ -645,7 +716,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
 
             try
             {
@@ -669,7 +740,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
 
 ### Return type
 
@@ -716,7 +787,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
 
             try
             {
@@ -740,7 +811,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
 
 ### Return type
 
@@ -787,7 +858,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
             var settle = "usdt";  // string | Query only balances of specified settle currency (optional) 
 
             try
@@ -812,7 +883,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
  **settle** | **string**| Query only balances of specified settle currency | [optional] 
 
 ### Return type
@@ -860,7 +931,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var subUid = "10003";  // string | Sub account user ID. Return records related to all sub accounts if not specified (optional) 
+            var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
 
             try
             {
@@ -884,7 +955,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subUid** | **string**| Sub account user ID. Return records related to all sub accounts if not specified | [optional] 
+ **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
 
 ### Return type
 
@@ -983,7 +1054,7 @@ Name | Type | Description  | Notes
 
 <a name="gettradefee"></a>
 # **GetTradeFee**
-> TradeFee GetTradeFee (string currencyPair = null)
+> TradeFee GetTradeFee (string currencyPair = null, string settle = null)
 
 Retrieve personal trading fee
 
@@ -1007,11 +1078,12 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var currencyPair = "BTC_USDT";  // string | Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional) 
+            var settle = "BTC";  // string | Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. (optional) 
 
             try
             {
                 // Retrieve personal trading fee
-                TradeFee result = apiInstance.GetTradeFee(currencyPair);
+                TradeFee result = apiInstance.GetTradeFee(currencyPair, settle);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1031,6 +1103,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs | [optional] 
+ **settle** | **string**| Specify the settlement currency of the contract to get more accurate rate settings  This field is optional. Generally, the rate settings for all settlement currencies are the same. | [optional] 
 
 ### Return type
 

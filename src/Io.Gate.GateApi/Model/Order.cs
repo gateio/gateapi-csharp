@@ -64,9 +64,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// Order type. limit - limit order
+        /// Order Type   - limit : Limit Order - market : Market Order
         /// </summary>
-        /// <value>Order type. limit - limit order</value>
+        /// <value>Order Type   - limit : Limit Order - market : Market Order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -74,14 +74,20 @@ namespace Io.Gate.GateApi.Model
             /// Enum Limit for value: limit
             /// </summary>
             [EnumMember(Value = "limit")]
-            Limit = 1
+            Limit = 1,
+
+            /// <summary>
+            /// Enum Market for value: market
+            /// </summary>
+            [EnumMember(Value = "market")]
+            Market = 2
 
         }
 
         /// <summary>
-        /// Order type. limit - limit order
+        /// Order Type   - limit : Limit Order - market : Market Order
         /// </summary>
-        /// <value>Order type. limit - limit order</value>
+        /// <value>Order Type   - limit : Limit Order - market : Market Order</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -145,9 +151,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
-        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
+        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
         /// </summary>
-        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none</value>
+        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TimeInForceEnum
         {
@@ -178,9 +184,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
+        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;
         /// </summary>
-        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none</value>
+        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60;</value>
         [DataMember(Name="time_in_force")]
         public TimeInForceEnum? TimeInForce { get; set; }
         /// <summary>
@@ -193,12 +199,12 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
         /// <param name="currencyPair">Currency pair (required).</param>
-        /// <param name="type">Order type. limit - limit order (default to TypeEnum.Limit).</param>
+        /// <param name="type">Order Type   - limit : Limit Order - market : Market Order (default to TypeEnum.Limit).</param>
         /// <param name="account">Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account. Portfolio margin account must set to &#x60;cross-margin&#x60;  (default to AccountEnum.Spot).</param>
         /// <param name="side">Order side (required).</param>
-        /// <param name="amount">Trade amount (required).</param>
-        /// <param name="price">Order price (required).</param>
-        /// <param name="timeInForce">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none (default to TimeInForceEnum.Gtc).</param>
+        /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
+        /// <param name="price">Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.</param>
+        /// <param name="timeInForce">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60; (default to TimeInForceEnum.Gtc).</param>
         /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely.</param>
         /// <param name="autoBorrow">Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough..</param>
         /// <param name="autoRepay">Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; cannot be both set to true in one order..</param>
@@ -209,11 +215,10 @@ namespace Io.Gate.GateApi.Model
             this.Side = side;
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for Order and cannot be null");
-            // to ensure "price" is required (not null)
-            this.Price = price ?? throw new ArgumentNullException("price", "price is a required property for Order and cannot be null");
             this.Text = text;
             this.Type = type;
             this.Account = account;
+            this.Price = price;
             this.TimeInForce = timeInForce;
             this.Iceberg = iceberg;
             this.AutoBorrow = autoBorrow;
@@ -270,16 +275,16 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Trade amount
+        /// When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
         /// </summary>
-        /// <value>Trade amount</value>
+        /// <value>When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; </value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Order price
+        /// Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;
         /// </summary>
-        /// <value>Order price</value>
+        /// <value>Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
@@ -354,6 +359,20 @@ namespace Io.Gate.GateApi.Model
         public string GtFee { get; private set; }
 
         /// <summary>
+        /// GT used to deduct maker fee
+        /// </summary>
+        /// <value>GT used to deduct maker fee</value>
+        [DataMember(Name="gt_maker_fee", EmitDefaultValue=false)]
+        public string GtMakerFee { get; private set; }
+
+        /// <summary>
+        /// GT used to deduct taker fee
+        /// </summary>
+        /// <value>GT used to deduct taker fee</value>
+        [DataMember(Name="gt_taker_fee", EmitDefaultValue=false)]
+        public string GtTakerFee { get; private set; }
+
+        /// <summary>
         /// Whether GT fee discount is used
         /// </summary>
         /// <value>Whether GT fee discount is used</value>
@@ -406,6 +425,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FeeCurrency: ").Append(FeeCurrency).Append("\n");
             sb.Append("  PointFee: ").Append(PointFee).Append("\n");
             sb.Append("  GtFee: ").Append(GtFee).Append("\n");
+            sb.Append("  GtMakerFee: ").Append(GtMakerFee).Append("\n");
+            sb.Append("  GtTakerFee: ").Append(GtTakerFee).Append("\n");
             sb.Append("  GtDiscount: ").Append(GtDiscount).Append("\n");
             sb.Append("  RebatedFee: ").Append(RebatedFee).Append("\n");
             sb.Append("  RebatedFeeCurrency: ").Append(RebatedFeeCurrency).Append("\n");
@@ -555,6 +576,16 @@ namespace Io.Gate.GateApi.Model
                     this.GtFee.Equals(input.GtFee))
                 ) && 
                 (
+                    this.GtMakerFee == input.GtMakerFee ||
+                    (this.GtMakerFee != null &&
+                    this.GtMakerFee.Equals(input.GtMakerFee))
+                ) && 
+                (
+                    this.GtTakerFee == input.GtTakerFee ||
+                    (this.GtTakerFee != null &&
+                    this.GtTakerFee.Equals(input.GtTakerFee))
+                ) && 
+                (
                     this.GtDiscount == input.GtDiscount ||
                     this.GtDiscount.Equals(input.GtDiscount)
                 ) && 
@@ -618,6 +649,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.PointFee.GetHashCode();
                 if (this.GtFee != null)
                     hashCode = hashCode * 59 + this.GtFee.GetHashCode();
+                if (this.GtMakerFee != null)
+                    hashCode = hashCode * 59 + this.GtMakerFee.GetHashCode();
+                if (this.GtTakerFee != null)
+                    hashCode = hashCode * 59 + this.GtTakerFee.GetHashCode();
                 hashCode = hashCode * 59 + this.GtDiscount.GetHashCode();
                 if (this.RebatedFee != null)
                     hashCode = hashCode * 59 + this.RebatedFee.GetHashCode();

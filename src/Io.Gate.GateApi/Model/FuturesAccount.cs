@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesAccount" /> class.
         /// </summary>
-        /// <param name="total">total &#x3D; position_margin + order_margin + available.</param>
+        /// <param name="total">total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund).</param>
         /// <param name="unrealisedPnl">Unrealized PNL.</param>
         /// <param name="positionMargin">Position margin.</param>
         /// <param name="orderMargin">Order margin of unfinished orders.</param>
@@ -64,9 +64,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// total &#x3D; position_margin + order_margin + available
+        /// total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)
         /// </summary>
-        /// <value>total &#x3D; position_margin + order_margin + available</value>
+        /// <value>total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
 

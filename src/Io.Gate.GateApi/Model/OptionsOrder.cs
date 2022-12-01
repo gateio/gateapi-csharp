@@ -121,9 +121,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
         /// </summary>
-        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only</value>
+        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TifEnum
         {
@@ -148,9 +148,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+        /// Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
         /// </summary>
-        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only</value>
+        /// <value>Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee</value>
         [DataMember(Name="tif")]
         public TifEnum? Tif { get; set; }
         /// <summary>
@@ -164,10 +164,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="contract">Contract name (required).</param>
         /// <param name="size">Order size. Specify positive number to make a bid, and negative number to ask (required).</param>
         /// <param name="iceberg">Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size.</param>
-        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.</param>
+        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).</param>
         /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 (default to false).</param>
         /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
-        /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only (default to TifEnum.Gtc).</param>
+        /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee (default to TifEnum.Gtc).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance .</param>
         public OptionsOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, TifEnum? tif = TifEnum.Gtc, string text = default(string))
         {
@@ -232,9 +232,9 @@ namespace Io.Gate.GateApi.Model
         public long Iceberg { get; set; }
 
         /// <summary>
-        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
+        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)
         /// </summary>
-        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;</value>
+        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
@@ -316,6 +316,13 @@ namespace Io.Gate.GateApi.Model
         public int Refu { get; private set; }
 
         /// <summary>
+        /// Referrer rebate
+        /// </summary>
+        /// <value>Referrer rebate</value>
+        [DataMember(Name="refr", EmitDefaultValue=false)]
+        public string Refr { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -345,6 +352,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Tkfr: ").Append(Tkfr).Append("\n");
             sb.Append("  Mkfr: ").Append(Mkfr).Append("\n");
             sb.Append("  Refu: ").Append(Refu).Append("\n");
+            sb.Append("  Refr: ").Append(Refr).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -472,6 +480,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Refu == input.Refu ||
                     this.Refu.Equals(input.Refu)
+                ) && 
+                (
+                    this.Refr == input.Refr ||
+                    (this.Refr != null &&
+                    this.Refr.Equals(input.Refr))
                 );
         }
 
@@ -512,6 +525,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.Mkfr != null)
                     hashCode = hashCode * 59 + this.Mkfr.GetHashCode();
                 hashCode = hashCode * 59 + this.Refu.GetHashCode();
+                if (this.Refr != null)
+                    hashCode = hashCode * 59 + this.Refr.GetHashCode();
                 return hashCode;
             }
         }

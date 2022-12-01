@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="createTimeMs">Trading time, with milliseconds set to 3 decimal places..</param>
         /// <param name="contract">Futures contract.</param>
         /// <param name="size">Trading size.</param>
-        /// <param name="price">Trading price.</param>
+        /// <param name="price">Trading price (quote currency).</param>
         public FuturesTrade(long id = default(long), double createTime = default(double), double createTimeMs = default(double), string contract = default(string), long size = default(long), string price = default(string))
         {
             this.Id = id;
@@ -85,9 +85,9 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
-        /// Trading price
+        /// Trading price (quote currency)
         /// </summary>
-        /// <value>Trading price</value>
+        /// <value>Trading price (quote currency)</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

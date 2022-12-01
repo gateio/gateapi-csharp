@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesOrderBookItem" /> class.
         /// </summary>
-        /// <param name="p">Price.</param>
+        /// <param name="p">Price (quote currency).</param>
         /// <param name="s">Size.</param>
         public FuturesOrderBookItem(string p = default(string), long s = default(long))
         {
@@ -42,9 +42,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Price
+        /// Price (quote currency)
         /// </summary>
-        /// <value>Price</value>
+        /// <value>Price (quote currency)</value>
         [DataMember(Name="p")]
         public string P { get; set; }
 
