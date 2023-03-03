@@ -36,8 +36,10 @@ Method | HTTP request | Description
 [**AmendFuturesOrder**](FuturesApi.md#amendfuturesorder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
 [**CancelFuturesOrder**](FuturesApi.md#cancelfuturesorder) | **DELETE** /futures/{settle}/orders/{order_id} | Cancel a single order
 [**GetMyTrades**](FuturesApi.md#getmytrades) | **GET** /futures/{settle}/my_trades | List personal trading history
+[**GetMyTradesWithTimeRange**](FuturesApi.md#getmytradeswithtimerange) | **GET** /futures/{settle}/my_trades_timerange | List personal trading history by time range
 [**ListPositionClose**](FuturesApi.md#listpositionclose) | **GET** /futures/{settle}/position_close | List position close history
 [**ListLiquidates**](FuturesApi.md#listliquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
+[**ListAutoDeleverages**](FuturesApi.md#listautodeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**CountdownCancelAllFutures**](FuturesApi.md#countdowncancelallfutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
@@ -2462,6 +2464,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getmytradeswithtimerange"></a>
+# **GetMyTradesWithTimeRange**
+> List&lt;MyFuturesTrade&gt; GetMyTradesWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+
+List personal trading history by time range
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMyTradesWithTimeRangeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+
+            try
+            {
+                // List personal trading history by time range
+                List<MyFuturesTrade> result = apiInstance.GetMyTradesWithTimeRange(settle, contract, from, to, limit, offset);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.GetMyTradesWithTimeRange: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listpositionclose"></a>
 # **ListPositionClose**
 > List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
@@ -2603,6 +2686,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listautodeleverages"></a>
+# **ListAutoDeleverages**
+> List&lt;FuturesAutoDeleverage&gt; ListAutoDeleverages (string settle, string contract = null, int? limit = null, int? at = null)
+
+List Auto-Deleveraging History
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListAutoDeleveragesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var at = 0;  // int? | Specify an auto-deleveraging timestamp (optional)  (default to 0)
+
+            try
+            {
+                // List Auto-Deleveraging History
+                List<FuturesAutoDeleverage> result = apiInstance.ListAutoDeleverages(settle, contract, limit, at);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.ListAutoDeleverages: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **at** | **int?**| Specify an auto-deleveraging timestamp | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesAutoDeleverage&gt;**](FuturesAutoDeleverage.md)
 
 ### Authorization
 

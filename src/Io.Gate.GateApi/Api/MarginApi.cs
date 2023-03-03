@@ -703,10 +703,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
         ApiResponse<List<CrossMarginRepayment>> ListCrossMarginRepaymentsWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -714,10 +714,10 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginLoan> RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest);
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -1450,10 +1450,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
         Task<ApiResponse<List<CrossMarginRepayment>>> ListCrossMarginRepaymentsAsyncWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -1461,10 +1461,10 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginLoan>> RepayCrossMarginLoanAsync (CrossMarginRepayRequest crossMarginRepayRequest);
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -5402,7 +5402,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first 
+        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -5414,7 +5414,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first 
+        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -5460,7 +5460,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first 
+        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -5473,7 +5473,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first 
+        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>

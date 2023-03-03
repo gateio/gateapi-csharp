@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="unrealisedPnl">Unrealized PNL.</param>
         /// <param name="positionMargin">Position margin.</param>
         /// <param name="orderMargin">Order margin of unfinished orders.</param>
-        /// <param name="available">The available balance for transferring or trading.</param>
+        /// <param name="available">The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus).</param>
         /// <param name="point">POINT amount.</param>
         /// <param name="currency">Settle currency.</param>
         /// <param name="inDualMode">Whether dual mode is enabled.</param>
@@ -92,9 +92,9 @@ namespace Io.Gate.GateApi.Model
         public string OrderMargin { get; set; }
 
         /// <summary>
-        /// The available balance for transferring or trading
+        /// The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)
         /// </summary>
-        /// <value>The available balance for transferring or trading</value>
+        /// <value>The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 

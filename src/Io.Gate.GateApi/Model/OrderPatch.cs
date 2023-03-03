@@ -25,44 +25,35 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FundingBookItem
+    /// Spot order details
     /// </summary>
     [DataContract]
-    public partial class FundingBookItem :  IEquatable<FundingBookItem>, IValidatableObject
+    public partial class OrderPatch :  IEquatable<OrderPatch>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FundingBookItem" /> class.
+        /// Initializes a new instance of the <see cref="OrderPatch" /> class.
         /// </summary>
-        /// <param name="rate">Loan rate (daily rate).</param>
-        /// <param name="amount">Borrowable amount.</param>
-        /// <param name="days">The number of days till the loan repayment&#39;s dateline.</param>
-        public FundingBookItem(string rate = default(string), string amount = default(string), int days = default(int))
+        /// <param name="amount">New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them.</param>
+        /// <param name="price">New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;.</param>
+        public OrderPatch(string amount = default(string), string price = default(string))
         {
-            this.Rate = rate;
             this.Amount = amount;
-            this.Days = days;
+            this.Price = price;
         }
 
         /// <summary>
-        /// Loan rate (daily rate)
+        /// New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them
         /// </summary>
-        /// <value>Loan rate (daily rate)</value>
-        [DataMember(Name="rate")]
-        public string Rate { get; set; }
-
-        /// <summary>
-        /// Borrowable amount
-        /// </summary>
-        /// <value>Borrowable amount</value>
+        /// <value>New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// The number of days till the loan repayment&#39;s dateline
+        /// New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;
         /// </summary>
-        /// <value>The number of days till the loan repayment&#39;s dateline</value>
-        [DataMember(Name="days")]
-        public int Days { get; set; }
+        /// <value>New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;</value>
+        [DataMember(Name="price")]
+        public string Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +62,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FundingBookItem {\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("class OrderPatch {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Days: ").Append(Days).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,33 +85,29 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FundingBookItem);
+            return this.Equals(input as OrderPatch);
         }
 
         /// <summary>
-        /// Returns true if FundingBookItem instances are equal
+        /// Returns true if OrderPatch instances are equal
         /// </summary>
-        /// <param name="input">Instance of FundingBookItem to be compared</param>
+        /// <param name="input">Instance of OrderPatch to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FundingBookItem input)
+        public bool Equals(OrderPatch input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Rate == input.Rate ||
-                    (this.Rate != null &&
-                    this.Rate.Equals(input.Rate))
-                ) && 
-                (
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
-                    this.Days == input.Days ||
-                    this.Days.Equals(input.Days)
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 );
         }
 
@@ -134,11 +120,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Rate != null)
-                    hashCode = hashCode * 59 + this.Rate.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                hashCode = hashCode * 59 + this.Days.GetHashCode();
+                if (this.Price != null)
+                    hashCode = hashCode * 59 + this.Price.GetHashCode();
                 return hashCode;
             }
         }

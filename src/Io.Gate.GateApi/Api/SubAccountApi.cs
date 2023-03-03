@@ -211,9 +211,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns></returns>
-        void LockSubAccount (long userId, Object body);
+        void LockSubAccount (long userId);
 
         /// <summary>
         /// Lock the sub-account
@@ -223,9 +222,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> LockSubAccountWithHttpInfo (long userId, Object body);
+        ApiResponse<Object> LockSubAccountWithHttpInfo (long userId);
         /// <summary>
         /// Unlock the sub-account
         /// </summary>
@@ -234,9 +232,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns></returns>
-        void UnlockSubAccount (long userId, Object body);
+        void UnlockSubAccount (long userId);
 
         /// <summary>
         /// Unlock the sub-account
@@ -246,9 +243,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId, Object body);
+        ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId);
         #endregion Synchronous Operations
     }
 
@@ -442,9 +438,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        Task LockSubAccountAsync (long userId, Object body);
+        Task LockSubAccountAsync (long userId);
 
         /// <summary>
         /// Lock the sub-account
@@ -454,9 +449,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId, Object body);
+        Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId);
         /// <summary>
         /// Unlock the sub-account
         /// </summary>
@@ -465,9 +459,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        Task UnlockSubAccountAsync (long userId, Object body);
+        Task UnlockSubAccountAsync (long userId);
 
         /// <summary>
         /// Unlock the sub-account
@@ -477,9 +470,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId, Object body);
+        Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId);
         #endregion Asynchronous Operations
     }
 
@@ -1547,11 +1539,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns></returns>
-        public void LockSubAccount (long userId, Object body)
+        public void LockSubAccount (long userId)
         {
-             LockSubAccountWithHttpInfo(userId, body);
+             LockSubAccountWithHttpInfo(userId);
         }
 
         /// <summary>
@@ -1559,18 +1550,12 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> LockSubAccountWithHttpInfo (long userId, Object body)
+        public ApiResponse<Object> LockSubAccountWithHttpInfo (long userId)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SubAccountApi->LockSubAccount");
-
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1584,7 +1569,6 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("user_id", ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.Data = body;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1606,11 +1590,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        public async Task LockSubAccountAsync (long userId, Object body)
+        public async Task LockSubAccountAsync (long userId)
         {
-             await LockSubAccountAsyncWithHttpInfo(userId, body);
+             await LockSubAccountAsyncWithHttpInfo(userId);
 
         }
 
@@ -1619,19 +1602,13 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId, Object body)
+        public async Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SubAccountApi->LockSubAccount");
-
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1645,7 +1622,6 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("user_id", ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.Data = body;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1668,11 +1644,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns></returns>
-        public void UnlockSubAccount (long userId, Object body)
+        public void UnlockSubAccount (long userId)
         {
-             UnlockSubAccountWithHttpInfo(userId, body);
+             UnlockSubAccountWithHttpInfo(userId);
         }
 
         /// <summary>
@@ -1680,18 +1655,12 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId, Object body)
+        public ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SubAccountApi->UnlockSubAccount");
-
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1705,7 +1674,6 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("user_id", ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.Data = body;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1727,11 +1695,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        public async Task UnlockSubAccountAsync (long userId, Object body)
+        public async Task UnlockSubAccountAsync (long userId)
         {
-             await UnlockSubAccountAsyncWithHttpInfo(userId, body);
+             await UnlockSubAccountAsyncWithHttpInfo(userId);
 
         }
 
@@ -1740,19 +1707,13 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user id of the sub-account</param>
-        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId, Object body)
+        public async Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SubAccountApi->UnlockSubAccount");
-
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1766,7 +1727,6 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("user_id", ClientUtils.ParameterToString(userId)); // path parameter
-            localVarRequestOptions.Data = body;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

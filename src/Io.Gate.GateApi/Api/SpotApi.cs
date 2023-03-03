@@ -87,7 +87,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CurrencyPair&gt;</returns>
         ApiResponse<List<CurrencyPair>> ListCurrencyPairsWithHttpInfo ();
         /// <summary>
-        /// Get details of a specifc order
+        /// Get details of a specifc currency pair
         /// </summary>
         /// <remarks>
         /// 
@@ -98,7 +98,7 @@ namespace Io.Gate.GateApi.Api
         CurrencyPair GetCurrencyPair (string currencyPair);
 
         /// <summary>
-        /// Get details of a specifc order
+        /// Get details of a specifc currency pair
         /// </summary>
         /// <remarks>
         /// 
@@ -240,6 +240,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>ApiResponse of TradeFee</returns>
         ApiResponse<TradeFee> GetFeeWithHttpInfo (string currencyPair = default(string));
+        /// <summary>
+        /// Query a batch of user trading fee rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Dictionary&lt;string, SpotFee&gt;</returns>
+        Dictionary<string, SpotFee> GetBatchSpotFee (string currencyPairs);
+
+        /// <summary>
+        /// Query a batch of user trading fee rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, SpotFee&gt;</returns>
+        ApiResponse<Dictionary<string, SpotFee>> GetBatchSpotFeeWithHttpInfo (string currencyPairs);
         /// <summary>
         /// List spot accounts
         /// </summary>
@@ -480,6 +501,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Order</returns>
+        Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>ApiResponse of Order</returns>
+        ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -737,7 +785,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CurrencyPair&gt;)</returns>
         Task<ApiResponse<List<CurrencyPair>>> ListCurrencyPairsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get details of a specifc order
+        /// Get details of a specifc currency pair
         /// </summary>
         /// <remarks>
         /// 
@@ -748,7 +796,7 @@ namespace Io.Gate.GateApi.Api
         Task<CurrencyPair> GetCurrencyPairAsync (string currencyPair);
 
         /// <summary>
-        /// Get details of a specifc order
+        /// Get details of a specifc currency pair
         /// </summary>
         /// <remarks>
         /// 
@@ -890,6 +938,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
         /// <returns>Task of ApiResponse (TradeFee)</returns>
         Task<ApiResponse<TradeFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string));
+        /// <summary>
+        /// Query a batch of user trading fee rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Task of Dictionary&lt;string, SpotFee&gt;</returns>
+        Task<Dictionary<string, SpotFee>> GetBatchSpotFeeAsync (string currencyPairs);
+
+        /// <summary>
+        /// Query a batch of user trading fee rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, SpotFee&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, SpotFee>>> GetBatchSpotFeeAsyncWithHttpInfo (string currencyPairs);
         /// <summary>
         /// List spot accounts
         /// </summary>
@@ -1130,6 +1199,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Task of Order</returns>
+        Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+
+        /// <summary>
+        /// Amend an order
+        /// </summary>
+        /// <remarks>
+        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Task of ApiResponse (Order)</returns>
+        Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -1750,7 +1846,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc order 
+        /// Get details of a specifc currency pair 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1762,7 +1858,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc order 
+        /// Get details of a specifc currency pair 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1805,7 +1901,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc order 
+        /// Get details of a specifc currency pair 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1818,7 +1914,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc order 
+        /// Get details of a specifc currency pair 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -2589,6 +2685,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query a batch of user trading fee rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Dictionary&lt;string, SpotFee&gt;</returns>
+        public Dictionary<string, SpotFee> GetBatchSpotFee (string currencyPairs)
+        {
+             ApiResponse<Dictionary<string, SpotFee>> localVarResponse = GetBatchSpotFeeWithHttpInfo(currencyPairs);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query a batch of user trading fee rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, SpotFee&gt;</returns>
+        public ApiResponse<Dictionary<string, SpotFee>> GetBatchSpotFeeWithHttpInfo (string currencyPairs)
+        {
+            // verify the required parameter 'currencyPairs' is set
+            if (currencyPairs == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPairs' when calling SpotApi->GetBatchSpotFee");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pairs", currencyPairs));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, SpotFee>>("/spot/batch_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBatchSpotFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query a batch of user trading fee rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Task of Dictionary&lt;string, SpotFee&gt;</returns>
+        public async Task<Dictionary<string, SpotFee>> GetBatchSpotFeeAsync (string currencyPairs)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Dictionary<string, SpotFee>> localVarResponse = await GetBatchSpotFeeAsyncWithHttpInfo(currencyPairs);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query a batch of user trading fee rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, SpotFee&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, SpotFee>>> GetBatchSpotFeeAsyncWithHttpInfo (string currencyPairs)
+        {
+            // verify the required parameter 'currencyPairs' is set
+            if (currencyPairs == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPairs' when calling SpotApi->GetBatchSpotFee");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pairs", currencyPairs));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, SpotFee>>("/spot/batch_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBatchSpotFee", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3949,6 +4162,165 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Order</returns>
+        public Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        {
+             ApiResponse<Order> localVarResponse = AmendOrderWithHttpInfo(orderId, currencyPair, orderPatch, account);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>ApiResponse of Order</returns>
+        public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->AmendOrder");
+
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->AmendOrder");
+
+            // verify the required parameter 'orderPatch' is set
+            if (orderPatch == null)
+                throw new ApiException(400, "Missing required parameter 'orderPatch' when calling SpotApi->AmendOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            localVarRequestOptions.Data = orderPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<Order>("/spot/orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Task of Order</returns>
+        public async Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await AmendOrderAsyncWithHttpInfo(orderId, currencyPair, orderPatch, account);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="orderPatch"></param>
+        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <returns>Task of ApiResponse (Order)</returns>
+        public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->AmendOrder");
+
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->AmendOrder");
+
+            // verify the required parameter 'orderPatch' is set
+            if (orderPatch == null)
+                throw new ApiException(400, "Missing required parameter 'orderPatch' when calling SpotApi->AmendOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (account != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            localVarRequestOptions.Data = orderPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Order>("/spot/orders/{order_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

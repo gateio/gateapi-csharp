@@ -39,7 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="h">Highest price (quote currency).</param>
         /// <param name="l">Lowest price (quote currency).</param>
         /// <param name="o">Open price (quote currency).</param>
-        public FuturesCandlestick(double t = default(double), long v = default(long), string c = default(string), string h = default(string), string l = default(string), string o = default(string))
+        /// <param name="sum">Trading volume (unit: Quote currency).</param>
+        public FuturesCandlestick(double t = default(double), long v = default(long), string c = default(string), string h = default(string), string l = default(string), string o = default(string), string sum = default(string))
         {
             this.T = t;
             this.V = v;
@@ -47,6 +48,7 @@ namespace Io.Gate.GateApi.Model
             this.H = h;
             this.L = l;
             this.O = o;
+            this.Sum = sum;
         }
 
         /// <summary>
@@ -92,6 +94,13 @@ namespace Io.Gate.GateApi.Model
         public string O { get; set; }
 
         /// <summary>
+        /// Trading volume (unit: Quote currency)
+        /// </summary>
+        /// <value>Trading volume (unit: Quote currency)</value>
+        [DataMember(Name="sum")]
+        public string Sum { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  H: ").Append(H).Append("\n");
             sb.Append("  L: ").Append(L).Append("\n");
             sb.Append("  O: ").Append(O).Append("\n");
+            sb.Append("  Sum: ").Append(Sum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +176,11 @@ namespace Io.Gate.GateApi.Model
                     this.O == input.O ||
                     (this.O != null &&
                     this.O.Equals(input.O))
+                ) && 
+                (
+                    this.Sum == input.Sum ||
+                    (this.Sum != null &&
+                    this.Sum.Equals(input.Sum))
                 );
         }
 
@@ -188,6 +203,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.L.GetHashCode();
                 if (this.O != null)
                     hashCode = hashCode * 59 + this.O.GetHashCode();
+                if (this.Sum != null)
+                    hashCode = hashCode * 59 + this.Sum.GetHashCode();
                 return hashCode;
             }
         }

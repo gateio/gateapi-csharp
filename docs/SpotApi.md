@@ -7,12 +7,13 @@ Method | HTTP request | Description
 [**ListCurrencies**](SpotApi.md#listcurrencies) | **GET** /spot/currencies | List all currencies&#39; details
 [**GetCurrency**](SpotApi.md#getcurrency) | **GET** /spot/currencies/{currency} | Get details of a specific currency
 [**ListCurrencyPairs**](SpotApi.md#listcurrencypairs) | **GET** /spot/currency_pairs | List all currency pairs supported
-[**GetCurrencyPair**](SpotApi.md#getcurrencypair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc order
+[**GetCurrencyPair**](SpotApi.md#getcurrencypair) | **GET** /spot/currency_pairs/{currency_pair} | Get details of a specifc currency pair
 [**ListTickers**](SpotApi.md#listtickers) | **GET** /spot/tickers | Retrieve ticker information
 [**ListOrderBook**](SpotApi.md#listorderbook) | **GET** /spot/order_book | Retrieve order book
 [**ListTrades**](SpotApi.md#listtrades) | **GET** /spot/trades | Retrieve market trades
 [**ListCandlesticks**](SpotApi.md#listcandlesticks) | **GET** /spot/candlesticks | Market candlesticks
 [**GetFee**](SpotApi.md#getfee) | **GET** /spot/fee | Query user trading fee rates
+[**GetBatchSpotFee**](SpotApi.md#getbatchspotfee) | **GET** /spot/batch_fee | Query a batch of user trading fee rates
 [**ListSpotAccounts**](SpotApi.md#listspotaccounts) | **GET** /spot/accounts | List spot accounts
 [**CreateBatchOrders**](SpotApi.md#createbatchorders) | **POST** /spot/batch_orders | Create a batch of orders
 [**ListAllOpenOrders**](SpotApi.md#listallopenorders) | **GET** /spot/open_orders | List all open orders
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**CancelBatchOrders**](SpotApi.md#cancelbatchorders) | **POST** /spot/cancel_batch_orders | Cancel a batch of orders with an ID list
 [**GetOrder**](SpotApi.md#getorder) | **GET** /spot/orders/{order_id} | Get a single order
 [**CancelOrder**](SpotApi.md#cancelorder) | **DELETE** /spot/orders/{order_id} | Cancel a single order
+[**AmendOrder**](SpotApi.md#amendorder) | **PATCH** /spot/orders/{order_id} | Amend an order
 [**ListMyTrades**](SpotApi.md#listmytrades) | **GET** /spot/my_trades | List personal trading history
 [**GetSystemTime**](SpotApi.md#getsystemtime) | **GET** /spot/time | Get server current time
 [**CountdownCancelAllSpot**](SpotApi.md#countdowncancelallspot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
@@ -238,7 +240,7 @@ No authorization required
 # **GetCurrencyPair**
 > CurrencyPair GetCurrencyPair (string currencyPair)
 
-Get details of a specifc order
+Get details of a specifc currency pair
 
 ### Example
 ```csharp
@@ -261,7 +263,7 @@ namespace Example
 
             try
             {
-                // Get details of a specifc order
+                // Get details of a specifc currency pair
                 CurrencyPair result = apiInstance.GetCurrencyPair(currencyPair);
                 Debug.WriteLine(result);
             }
@@ -671,6 +673,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TradeFee**](TradeFee.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getbatchspotfee"></a>
+# **GetBatchSpotFee**
+> Dictionary&lt;string, SpotFee&gt; GetBatchSpotFee (string currencyPairs)
+
+Query a batch of user trading fee rates
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetBatchSpotFeeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SpotApi(config);
+            var currencyPairs = "BTC_USDT,ETH_USDT";  // string | A request can only query up to 50 currency pairs
+
+            try
+            {
+                // Query a batch of user trading fee rates
+                Dictionary<string, SpotFee> result = apiInstance.GetBatchSpotFee(currencyPairs);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.GetBatchSpotFee: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPairs** | **string**| A request can only query up to 50 currency pairs | 
+
+### Return type
+
+[**Dictionary&lt;string, SpotFee&gt;**](SpotFee.md)
 
 ### Authorization
 
@@ -1443,6 +1516,85 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Order cancelled |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="amendorder"></a>
+# **AmendOrder**
+> Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = null)
+
+Amend an order
+
+By default, the orders of spot and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class AmendOrderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SpotApi(config);
+            var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
+            var currencyPair = "BTC_USDT";  // string | Currency pair
+            var orderPatch = new OrderPatch(); // OrderPatch | 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+
+            try
+            {
+                // Amend an order
+                Order result = apiInstance.AmendOrder(orderId, currencyPair, orderPatch, account);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.AmendOrder: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
+ **currencyPair** | **string**| Currency pair | 
+ **orderPatch** | [**OrderPatch**](OrderPatch.md)|  | 
+ **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+
+### Return type
+
+[**Order**](Order.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

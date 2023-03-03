@@ -590,7 +590,7 @@ void (empty response body)
 
 <a name="locksubaccount"></a>
 # **LockSubAccount**
-> void LockSubAccount (long userId, Object body)
+> void LockSubAccount (long userId)
 
 Lock the sub-account
 
@@ -614,12 +614,11 @@ namespace Example
 
             var apiInstance = new SubAccountApi(config);
             var userId = 56;  // long | The user id of the sub-account
-            var body = null;  // Object | 
 
             try
             {
                 // Lock the sub-account
-                apiInstance.LockSubAccount(userId, body);
+                apiInstance.LockSubAccount(userId);
             }
             catch (GateApiException e)
             {
@@ -638,7 +637,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **long**| The user id of the sub-account | 
- **body** | **Object**|  | 
 
 ### Return type
 
@@ -650,7 +648,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -662,7 +660,7 @@ void (empty response body)
 
 <a name="unlocksubaccount"></a>
 # **UnlockSubAccount**
-> void UnlockSubAccount (long userId, Object body)
+> void UnlockSubAccount (long userId)
 
 Unlock the sub-account
 
@@ -686,12 +684,11 @@ namespace Example
 
             var apiInstance = new SubAccountApi(config);
             var userId = 56;  // long | The user id of the sub-account
-            var body = null;  // Object | 
 
             try
             {
                 // Unlock the sub-account
-                apiInstance.UnlockSubAccount(userId, body);
+                apiInstance.UnlockSubAccount(userId);
             }
             catch (GateApiException e)
             {
@@ -710,7 +707,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **long**| The user id of the sub-account | 
- **body** | **Object**|  | 
 
 ### Return type
 
@@ -722,7 +718,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 ### HTTP response details

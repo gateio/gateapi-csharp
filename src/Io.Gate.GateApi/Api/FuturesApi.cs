@@ -848,6 +848,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;MyFuturesTrade&gt;</returns>
         ApiResponse<List<MyFuturesTrade>> GetMyTradesWithHttpInfo (string settle, string contract = default(string), long? order = default(long?), int? limit = default(int?), int? offset = default(int?), string lastId = default(string));
         /// <summary>
+        /// List personal trading history by time range
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;MyFuturesTrade&gt;</returns>
+        List<MyFuturesTrade> GetMyTradesWithTimeRange (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List personal trading history by time range
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;MyFuturesTrade&gt;</returns>
+        ApiResponse<List<MyFuturesTrade>> GetMyTradesWithTimeRangeWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
         /// List position close history
         /// </summary>
         /// <remarks>
@@ -905,6 +936,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesLiquidate&gt;</returns>
         ApiResponse<List<FuturesLiquidate>> ListLiquidatesWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
+        /// <summary>
+        /// List Auto-Deleveraging History
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>List&lt;FuturesAutoDeleverage&gt;</returns>
+        List<FuturesAutoDeleverage> ListAutoDeleverages (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
+
+        /// <summary>
+        /// List Auto-Deleveraging History
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;FuturesAutoDeleverage&gt;</returns>
+        ApiResponse<List<FuturesAutoDeleverage>> ListAutoDeleveragesWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
         /// <summary>
         /// Countdown cancel orders
         /// </summary>
@@ -1879,6 +1937,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;MyFuturesTrade&gt;)</returns>
         Task<ApiResponse<List<MyFuturesTrade>>> GetMyTradesAsyncWithHttpInfo (string settle, string contract = default(string), long? order = default(long?), int? limit = default(int?), int? offset = default(int?), string lastId = default(string));
         /// <summary>
+        /// List personal trading history by time range
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;MyFuturesTrade&gt;</returns>
+        Task<List<MyFuturesTrade>> GetMyTradesWithTimeRangeAsync (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List personal trading history by time range
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;MyFuturesTrade&gt;)</returns>
+        Task<ApiResponse<List<MyFuturesTrade>>> GetMyTradesWithTimeRangeAsyncWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
         /// List position close history
         /// </summary>
         /// <remarks>
@@ -1936,6 +2025,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="at">Specify a liquidation timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesLiquidate&gt;)</returns>
         Task<ApiResponse<List<FuturesLiquidate>>> ListLiquidatesAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
+        /// <summary>
+        /// List Auto-Deleveraging History
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>Task of List&lt;FuturesAutoDeleverage&gt;</returns>
+        Task<List<FuturesAutoDeleverage>> ListAutoDeleveragesAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
+
+        /// <summary>
+        /// List Auto-Deleveraging History
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesAutoDeleverage&gt;)</returns>
+        Task<ApiResponse<List<FuturesAutoDeleverage>>> ListAutoDeleveragesAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
         /// <summary>
         /// Countdown cancel orders
         /// </summary>
@@ -6849,6 +6965,183 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// List personal trading history by time range 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;MyFuturesTrade&gt;</returns>
+        public List<MyFuturesTrade> GetMyTradesWithTimeRange (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<List<MyFuturesTrade>> localVarResponse = GetMyTradesWithTimeRangeWithHttpInfo(settle, contract, from, to, limit, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List personal trading history by time range 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;MyFuturesTrade&gt;</returns>
+        public ApiResponse<List<MyFuturesTrade>> GetMyTradesWithTimeRangeWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetMyTradesWithTimeRange");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<MyFuturesTrade>>("/futures/{settle}/my_trades_timerange", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMyTradesWithTimeRange", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List personal trading history by time range 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;MyFuturesTrade&gt;</returns>
+        public async Task<List<MyFuturesTrade>> GetMyTradesWithTimeRangeAsync (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<MyFuturesTrade>> localVarResponse = await GetMyTradesWithTimeRangeAsyncWithHttpInfo(settle, contract, from, to, limit, offset);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List personal trading history by time range 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;MyFuturesTrade&gt;)</returns>
+        public async Task<ApiResponse<List<MyFuturesTrade>>> GetMyTradesWithTimeRangeAsyncWithHttpInfo (string settle, string contract = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->GetMyTradesWithTimeRange");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<MyFuturesTrade>>("/futures/{settle}/my_trades_timerange", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMyTradesWithTimeRange", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List position close history 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -7172,6 +7465,159 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListLiquidates", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List Auto-Deleveraging History 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>List&lt;FuturesAutoDeleverage&gt;</returns>
+        public List<FuturesAutoDeleverage> ListAutoDeleverages (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
+        {
+             ApiResponse<List<FuturesAutoDeleverage>> localVarResponse = ListAutoDeleveragesWithHttpInfo(settle, contract, limit, at);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Auto-Deleveraging History 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;FuturesAutoDeleverage&gt;</returns>
+        public ApiResponse<List<FuturesAutoDeleverage>> ListAutoDeleveragesWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListAutoDeleverages");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (at != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "at", at));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<FuturesAutoDeleverage>>("/futures/{settle}/auto_deleverages", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAutoDeleverages", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List Auto-Deleveraging History 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>Task of List&lt;FuturesAutoDeleverage&gt;</returns>
+        public async Task<List<FuturesAutoDeleverage>> ListAutoDeleveragesAsync (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesAutoDeleverage>> localVarResponse = await ListAutoDeleveragesAsyncWithHttpInfo(settle, contract, limit, at);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Auto-Deleveraging History 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="at">Specify an auto-deleveraging timestamp (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesAutoDeleverage&gt;)</returns>
+        public async Task<ApiResponse<List<FuturesAutoDeleverage>>> ListAutoDeleveragesAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListAutoDeleverages");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (at != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "at", at));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FuturesAutoDeleverage>>("/futures/{settle}/auto_deleverages", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAutoDeleverages", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -42,13 +42,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="loginName">Sub-account login name: Only letters, numbers and underscores are supported, and cannot contain other illegal characters (required).</param>
         /// <param name="password">The sub-account&#39;s password. (Default: the same as main account&#39;s password).</param>
         /// <param name="email">The sub-account&#39;s email address. (Default: the same as main account&#39;s email address).</param>
-        public SubAccount(string remark = default(string), string loginName = default(string), string password = default(string), string email = default(string))
+        /// <param name="type">Type: 1-Sub-account.</param>
+        public SubAccount(string remark = default(string), string loginName = default(string), string password = default(string), string email = default(string), int type = default(int))
         {
             // to ensure "loginName" is required (not null)
             this.LoginName = loginName ?? throw new ArgumentNullException("loginName", "loginName is a required property for SubAccount and cannot be null");
             this.Remark = remark;
             this.Password = password;
             this.Email = email;
+            this.Type = type;
         }
 
         /// <summary>
@@ -87,6 +89,13 @@ namespace Io.Gate.GateApi.Model
         public int State { get; private set; }
 
         /// <summary>
+        /// Type: 1-Sub-account
+        /// </summary>
+        /// <value>Type: 1-Sub-account</value>
+        [DataMember(Name="type")]
+        public int Type { get; set; }
+
+        /// <summary>
         /// The user id of the sub-account
         /// </summary>
         /// <value>The user id of the sub-account</value>
@@ -113,6 +122,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("}\n");
@@ -174,6 +184,10 @@ namespace Io.Gate.GateApi.Model
                     this.State.Equals(input.State)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
                     this.UserId == input.UserId ||
                     this.UserId.Equals(input.UserId)
                 ) && 
@@ -201,6 +215,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 hashCode = hashCode * 59 + this.State.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 return hashCode;

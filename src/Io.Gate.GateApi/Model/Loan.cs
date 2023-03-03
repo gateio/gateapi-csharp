@@ -106,7 +106,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="side">Loan side (required).</param>
         /// <param name="currency">Loan currency (required).</param>
-        /// <param name="rate">Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set.</param>
+        /// <param name="rate">Loan rate. Only rates in [0.0001, 0.01] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set.</param>
         /// <param name="amount">Loan amount (required).</param>
         /// <param name="days">Loan days. Only 10 is supported for now.</param>
         /// <param name="autoRenew">Whether to auto renew the loan upon expiration (default to false).</param>
@@ -159,9 +159,9 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
+        /// Loan rate. Only rates in [0.0001, 0.01] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set
         /// </summary>
-        /// <value>Loan rate. Only rates in [0.0002, 0.002] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set</value>
+        /// <value>Loan rate. Only rates in [0.0001, 0.01] are supported.  Not required in lending. Market rate calculated from recent rates will be used if not set</value>
         [DataMember(Name="rate")]
         public string Rate { get; set; }
 

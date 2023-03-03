@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class CrossMarginAccountBook :  IEquatable<CrossMarginAccountBook>, IValidatableObject
     {
         /// <summary>
-        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
         /// </summary>
-        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
+        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -62,41 +62,47 @@ namespace Io.Gate.GateApi.Model
             Borrow = 4,
 
             /// <summary>
+            /// Enum Interest for value: interest
+            /// </summary>
+            [EnumMember(Value = "interest")]
+            Interest = 5,
+
+            /// <summary>
             /// Enum Neworder for value: new_order
             /// </summary>
             [EnumMember(Value = "new_order")]
-            Neworder = 5,
+            Neworder = 6,
 
             /// <summary>
             /// Enum Orderfill for value: order_fill
             /// </summary>
             [EnumMember(Value = "order_fill")]
-            Orderfill = 6,
+            Orderfill = 7,
 
             /// <summary>
             /// Enum Referralfee for value: referral_fee
             /// </summary>
             [EnumMember(Value = "referral_fee")]
-            Referralfee = 7,
+            Referralfee = 8,
 
             /// <summary>
             /// Enum Orderfee for value: order_fee
             /// </summary>
             [EnumMember(Value = "order_fee")]
-            Orderfee = 8,
+            Orderfee = 9,
 
             /// <summary>
             /// Enum Unknown for value: unknown
             /// </summary>
             [EnumMember(Value = "unknown")]
-            Unknown = 9
+            Unknown = 10
 
         }
 
         /// <summary>
-        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
+        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type
         /// </summary>
-        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
+        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -107,7 +113,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Currency changed.</param>
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type.</param>
+        /// <param name="type">Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - unknown: unknown type.</param>
         public CrossMarginAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Id = id;

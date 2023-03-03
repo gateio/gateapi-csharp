@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CrossMarginCurrency" /> class.
         /// </summary>
         /// <param name="name">Currency name.</param>
-        /// <param name="rate">Loan rate.</param>
+        /// <param name="rate">Minimum lending rate (hourly rate).</param>
         /// <param name="prec">Currency precision.</param>
         /// <param name="discount">Currency value discount, which is used in total value calculation.</param>
         /// <param name="minBorrowAmount">Minimum currency borrow amount. Unit is currency itself.</param>
@@ -63,9 +63,9 @@ namespace Io.Gate.GateApi.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Loan rate
+        /// Minimum lending rate (hourly rate)
         /// </summary>
-        /// <value>Loan rate</value>
+        /// <value>Minimum lending rate (hourly rate)</value>
         [DataMember(Name="rate")]
         public string Rate { get; set; }
 

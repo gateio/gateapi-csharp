@@ -131,12 +131,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerRecord" /> class.
         /// </summary>
+        /// <param name="withdrawOrderId">Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
         /// <param name="amount">Currency amount (required).</param>
         /// <param name="currency">Currency name (required).</param>
         /// <param name="address">Withdrawal address. Required for withdrawals.</param>
         /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
         /// <param name="chain">Name of the chain used in withdrawals (required).</param>
-        public LedgerRecord(string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
+        public LedgerRecord(string withdrawOrderId = default(string), string amount = default(string), string currency = default(string), string address = default(string), string memo = default(string), string chain = default(string))
         {
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for LedgerRecord and cannot be null");
@@ -144,6 +145,7 @@ namespace Io.Gate.GateApi.Model
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for LedgerRecord and cannot be null");
             // to ensure "chain" is required (not null)
             this.Chain = chain ?? throw new ArgumentNullException("chain", "chain is a required property for LedgerRecord and cannot be null");
+            this.WithdrawOrderId = withdrawOrderId;
             this.Address = address;
             this.Memo = memo;
         }
@@ -161,6 +163,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Hash record of the withdrawal</value>
         [DataMember(Name="txid", EmitDefaultValue=false)]
         public string Txid { get; private set; }
+
+        /// <summary>
+        /// Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
+        /// </summary>
+        /// <value>Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) </value>
+        [DataMember(Name="withdraw_order_id")]
+        public string WithdrawOrderId { get; set; }
 
         /// <summary>
         /// Operation time
@@ -221,6 +230,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class LedgerRecord {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Txid: ").Append(Txid).Append("\n");
+            sb.Append("  WithdrawOrderId: ").Append(WithdrawOrderId).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -272,6 +282,11 @@ namespace Io.Gate.GateApi.Model
                     this.Txid == input.Txid ||
                     (this.Txid != null &&
                     this.Txid.Equals(input.Txid))
+                ) && 
+                (
+                    this.WithdrawOrderId == input.WithdrawOrderId ||
+                    (this.WithdrawOrderId != null &&
+                    this.WithdrawOrderId.Equals(input.WithdrawOrderId))
                 ) && 
                 (
                     this.Timestamp == input.Timestamp ||
@@ -327,6 +342,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Txid != null)
                     hashCode = hashCode * 59 + this.Txid.GetHashCode();
+                if (this.WithdrawOrderId != null)
+                    hashCode = hashCode * 59 + this.WithdrawOrderId.GetHashCode();
                 if (this.Timestamp != null)
                     hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
                 if (this.Amount != null)

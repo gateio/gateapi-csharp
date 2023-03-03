@@ -46,7 +46,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="totalInitialMarginRate">Total initial margin rate.</param>
         /// <param name="totalMaintenanceMarginRate">Total maintenance margin rate.</param>
         /// <param name="totalAvailableMargin">Total available margin.</param>
-        public CrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string))
+        /// <param name="portfolioMarginTotal">Total amount of the portfolio margin account.</param>
+        public CrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string portfolioMarginTotal = default(string))
         {
             this.UserId = userId;
             this.Locked = locked;
@@ -61,6 +62,7 @@ namespace Io.Gate.GateApi.Model
             this.TotalInitialMarginRate = totalInitialMarginRate;
             this.TotalMaintenanceMarginRate = totalMaintenanceMarginRate;
             this.TotalAvailableMargin = totalAvailableMargin;
+            this.PortfolioMarginTotal = portfolioMarginTotal;
         }
 
         /// <summary>
@@ -154,6 +156,13 @@ namespace Io.Gate.GateApi.Model
         public string TotalAvailableMargin { get; set; }
 
         /// <summary>
+        /// Total amount of the portfolio margin account
+        /// </summary>
+        /// <value>Total amount of the portfolio margin account</value>
+        [DataMember(Name="portfolio_margin_total")]
+        public string PortfolioMarginTotal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -174,6 +183,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  TotalInitialMarginRate: ").Append(TotalInitialMarginRate).Append("\n");
             sb.Append("  TotalMaintenanceMarginRate: ").Append(TotalMaintenanceMarginRate).Append("\n");
             sb.Append("  TotalAvailableMargin: ").Append(TotalAvailableMargin).Append("\n");
+            sb.Append("  PortfolioMarginTotal: ").Append(PortfolioMarginTotal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -271,6 +281,11 @@ namespace Io.Gate.GateApi.Model
                     this.TotalAvailableMargin == input.TotalAvailableMargin ||
                     (this.TotalAvailableMargin != null &&
                     this.TotalAvailableMargin.Equals(input.TotalAvailableMargin))
+                ) && 
+                (
+                    this.PortfolioMarginTotal == input.PortfolioMarginTotal ||
+                    (this.PortfolioMarginTotal != null &&
+                    this.PortfolioMarginTotal.Equals(input.PortfolioMarginTotal))
                 );
         }
 
@@ -307,6 +322,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.TotalMaintenanceMarginRate.GetHashCode();
                 if (this.TotalAvailableMargin != null)
                     hashCode = hashCode * 59 + this.TotalAvailableMargin.GetHashCode();
+                if (this.PortfolioMarginTotal != null)
+                    hashCode = hashCode * 59 + this.PortfolioMarginTotal.GetHashCode();
                 return hashCode;
             }
         }
