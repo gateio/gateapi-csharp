@@ -80,9 +80,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Borrow loan ID
+        /// Loan record ID
         /// </summary>
-        /// <value>Borrow loan ID</value>
+        /// <value>Loan record ID</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 

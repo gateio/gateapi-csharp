@@ -49,7 +49,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="totalInitialMarginRate">Total initial margin rate.</param>
         /// <param name="totalMaintenanceMarginRate">Total maintenance margin rate.</param>
         /// <param name="totalAvailableMargin">Total available margin.</param>
-        public SubCrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string borrowedNet = default(string), string net = default(string), string leverage = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string))
+        public SubCrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance1> balances = default(Dictionary<string, CrossMarginBalance1>), string total = default(string), string borrowed = default(string), string borrowedNet = default(string), string net = default(string), string leverage = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string))
         {
             this.UserId = userId;
             this.Locked = locked;
@@ -87,7 +87,7 @@ namespace Io.Gate.GateApi.Model
         /// Gets or Sets Balances
         /// </summary>
         [DataMember(Name="balances")]
-        public Dictionary<string, CrossMarginBalance> Balances { get; set; }
+        public Dictionary<string, CrossMarginBalance1> Balances { get; set; }
 
         /// <summary>
         /// Total account value in USDT, i.e., the sum of all currencies&#39; &#x60;(available+freeze)*price*discount&#x60;

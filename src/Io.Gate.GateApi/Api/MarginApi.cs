@@ -28,67 +28,6 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List all supported currency pairs supported in margin trading
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;MarginCurrencyPair&gt;</returns>
-        List<MarginCurrencyPair> ListMarginCurrencyPairs ();
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;MarginCurrencyPair&gt;</returns>
-        ApiResponse<List<MarginCurrencyPair>> ListMarginCurrencyPairsWithHttpInfo ();
-        /// <summary>
-        /// Query one single margin currency pair
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>MarginCurrencyPair</returns>
-        MarginCurrencyPair GetMarginCurrencyPair (string currencyPair);
-
-        /// <summary>
-        /// Query one single margin currency pair
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>ApiResponse of MarginCurrencyPair</returns>
-        ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair);
-        /// <summary>
-        /// Order book of lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>List&lt;FundingBookItem&gt;</returns>
-        List<FundingBookItem> ListFundingBook (string currency);
-
-        /// <summary>
-        /// Order book of lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
-        ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency);
-        /// <summary>
         /// Margin account list
         /// </summary>
         /// <remarks>
@@ -162,271 +101,6 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;FundingAccount&gt;</returns>
         ApiResponse<List<FundingAccount>> ListFundingAccountsWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// List all loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>List&lt;Loan&gt;</returns>
-        List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
-
-        /// <summary>
-        /// List all loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
-        ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
-        /// <summary>
-        /// Lend or borrow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Loan</returns>
-        Loan CreateLoan (Loan loan);
-
-        /// <summary>
-        /// Lend or borrow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> CreateLoanWithHttpInfo (Loan loan);
-        /// <summary>
-        /// Merge multiple lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Loan</returns>
-        Loan MergeLoans (string currency, string ids);
-
-        /// <summary>
-        /// Merge multiple lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids);
-        /// <summary>
-        /// Retrieve one single loan detail
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Loan</returns>
-        Loan GetLoan (string loanId, string side);
-
-        /// <summary>
-        /// Retrieve one single loan detail
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> GetLoanWithHttpInfo (string loanId, string side);
-        /// <summary>
-        /// Cancel lending loan
-        /// </summary>
-        /// <remarks>
-        /// Only lent loans can be cancelled
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Loan</returns>
-        Loan CancelLoan (string loanId, string currency);
-
-        /// <summary>
-        /// Cancel lending loan
-        /// </summary>
-        /// <remarks>
-        /// Only lent loans can be cancelled
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency);
-        /// <summary>
-        /// Modify a loan
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Loan</returns>
-        Loan UpdateLoan (string loanId, LoanPatch loanPatch);
-
-        /// <summary>
-        /// Modify a loan
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> UpdateLoanWithHttpInfo (string loanId, LoanPatch loanPatch);
-        /// <summary>
-        /// List loan repayment records
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>List&lt;Repayment&gt;</returns>
-        List<Repayment> ListLoanRepayments (string loanId);
-
-        /// <summary>
-        /// List loan repayment records
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>ApiResponse of List&lt;Repayment&gt;</returns>
-        ApiResponse<List<Repayment>> ListLoanRepaymentsWithHttpInfo (string loanId);
-        /// <summary>
-        /// Repay a loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Loan</returns>
-        Loan RepayLoan (string loanId, RepayRequest repayRequest);
-
-        /// <summary>
-        /// Repay a loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        ApiResponse<Loan> RepayLoanWithHttpInfo (string loanId, RepayRequest repayRequest);
-        /// <summary>
-        /// List repayment records of a specific loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>List&lt;LoanRecord&gt;</returns>
-        List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
-
-        /// <summary>
-        /// List repayment records of a specific loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
-        ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
-        /// <summary>
-        /// Get one single loan record
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>LoanRecord</returns>
-        LoanRecord GetLoanRecord (string loanRecordId, string loanId);
-
-        /// <summary>
-        /// Get one single loan record
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>ApiResponse of LoanRecord</returns>
-        ApiResponse<LoanRecord> GetLoanRecordWithHttpInfo (string loanRecordId, string loanId);
-        /// <summary>
-        /// Modify a loan record
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>LoanRecord</returns>
-        LoanRecord UpdateLoanRecord (string loanRecordId, LoanPatch loanPatch);
-
-        /// <summary>
-        /// Modify a loan record
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>ApiResponse of LoanRecord</returns>
-        ApiResponse<LoanRecord> UpdateLoanRecordWithHttpInfo (string loanRecordId, LoanPatch loanPatch);
-        /// <summary>
         /// Retrieve user auto repayment setting
         /// </summary>
         /// <remarks>
@@ -490,7 +164,333 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of MarginTransferable</returns>
         ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency
+        /// List all supported currency pairs supported in margin trading(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;MarginCurrencyPair&gt;</returns>
+        List<MarginCurrencyPair> ListMarginCurrencyPairs ();
+
+        /// <summary>
+        /// List all supported currency pairs supported in margin trading(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;MarginCurrencyPair&gt;</returns>
+        ApiResponse<List<MarginCurrencyPair>> ListMarginCurrencyPairsWithHttpInfo ();
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>MarginCurrencyPair</returns>
+        MarginCurrencyPair GetMarginCurrencyPair (string currencyPair);
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>ApiResponse of MarginCurrencyPair</returns>
+        ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair);
+        /// <summary>
+        /// Order book of lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>List&lt;FundingBookItem&gt;</returns>
+        List<FundingBookItem> ListFundingBook (string currency);
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
+        ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency);
+        /// <summary>
+        /// List all loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>List&lt;Loan&gt;</returns>
+        List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List all loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
+        ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Lend or borrow(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Loan</returns>
+        Loan CreateLoan (Loan loan);
+
+        /// <summary>
+        /// Lend or borrow(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> CreateLoanWithHttpInfo (Loan loan);
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Loan</returns>
+        Loan MergeLoans (string currency, string ids);
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids);
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Loan</returns>
+        Loan GetLoan (string loanId, string side);
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> GetLoanWithHttpInfo (string loanId, string side);
+        /// <summary>
+        /// Cancel lending loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only lent loans can be cancelled
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Loan</returns>
+        Loan CancelLoan (string loanId, string currency);
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only lent loans can be cancelled
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency);
+        /// <summary>
+        /// Modify a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Loan</returns>
+        Loan UpdateLoan (string loanId, LoanPatch loanPatch);
+
+        /// <summary>
+        /// Modify a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> UpdateLoanWithHttpInfo (string loanId, LoanPatch loanPatch);
+        /// <summary>
+        /// List loan repayment records(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>List&lt;Repayment&gt;</returns>
+        List<Repayment> ListLoanRepayments (string loanId);
+
+        /// <summary>
+        /// List loan repayment records(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>ApiResponse of List&lt;Repayment&gt;</returns>
+        ApiResponse<List<Repayment>> ListLoanRepaymentsWithHttpInfo (string loanId);
+        /// <summary>
+        /// Repay a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Loan</returns>
+        Loan RepayLoan (string loanId, RepayRequest repayRequest);
+
+        /// <summary>
+        /// Repay a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        ApiResponse<Loan> RepayLoanWithHttpInfo (string loanId, RepayRequest repayRequest);
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>List&lt;LoanRecord&gt;</returns>
+        List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
+        ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Get one single loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>LoanRecord</returns>
+        LoanRecord GetLoanRecord (string loanRecordId, string loanId);
+
+        /// <summary>
+        /// Get one single loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>ApiResponse of LoanRecord</returns>
+        ApiResponse<LoanRecord> GetLoanRecordWithHttpInfo (string loanRecordId, string loanId);
+        /// <summary>
+        /// Modify a loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>LoanRecord</returns>
+        LoanRecord UpdateLoanRecord (string loanRecordId, LoanPatch loanPatch);
+
+        /// <summary>
+        /// Modify a loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>ApiResponse of LoanRecord</returns>
+        ApiResponse<LoanRecord> UpdateLoanRecordWithHttpInfo (string loanRecordId, LoanPatch loanPatch);
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency(Deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -502,7 +502,7 @@ namespace Io.Gate.GateApi.Api
         MarginBorrowable GetMarginBorrowable (string currency, string currencyPair = default(string));
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency
+        /// Get the max borrowable amount for a specific margin currency(Deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -724,6 +724,31 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
         ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
+        /// Interest records for the cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
+        List<UniLoanInterestRecord> GetCrossMarginInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// Interest records for the cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
+        ApiResponse<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
         /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
@@ -774,67 +799,6 @@ namespace Io.Gate.GateApi.Api
     public interface IMarginApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;MarginCurrencyPair&gt;</returns>
-        Task<List<MarginCurrencyPair>> ListMarginCurrencyPairsAsync ();
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;MarginCurrencyPair&gt;)</returns>
-        Task<ApiResponse<List<MarginCurrencyPair>>> ListMarginCurrencyPairsAsyncWithHttpInfo ();
-        /// <summary>
-        /// Query one single margin currency pair
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>Task of MarginCurrencyPair</returns>
-        Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair);
-
-        /// <summary>
-        /// Query one single margin currency pair
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
-        Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair);
-        /// <summary>
-        /// Order book of lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
-        Task<List<FundingBookItem>> ListFundingBookAsync (string currency);
-
-        /// <summary>
-        /// Order book of lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
-        Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency);
         /// <summary>
         /// Margin account list
         /// </summary>
@@ -909,271 +873,6 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;FundingAccount&gt;)</returns>
         Task<ApiResponse<List<FundingAccount>>> ListFundingAccountsAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// List all loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of List&lt;Loan&gt;</returns>
-        Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
-
-        /// <summary>
-        /// List all loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
-        Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
-        /// <summary>
-        /// Lend or borrow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> CreateLoanAsync (Loan loan);
-
-        /// <summary>
-        /// Lend or borrow
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> CreateLoanAsyncWithHttpInfo (Loan loan);
-        /// <summary>
-        /// Merge multiple lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> MergeLoansAsync (string currency, string ids);
-
-        /// <summary>
-        /// Merge multiple lending loans
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids);
-        /// <summary>
-        /// Retrieve one single loan detail
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> GetLoanAsync (string loanId, string side);
-
-        /// <summary>
-        /// Retrieve one single loan detail
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> GetLoanAsyncWithHttpInfo (string loanId, string side);
-        /// <summary>
-        /// Cancel lending loan
-        /// </summary>
-        /// <remarks>
-        /// Only lent loans can be cancelled
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> CancelLoanAsync (string loanId, string currency);
-
-        /// <summary>
-        /// Cancel lending loan
-        /// </summary>
-        /// <remarks>
-        /// Only lent loans can be cancelled
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency);
-        /// <summary>
-        /// Modify a loan
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> UpdateLoanAsync (string loanId, LoanPatch loanPatch);
-
-        /// <summary>
-        /// Modify a loan
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> UpdateLoanAsyncWithHttpInfo (string loanId, LoanPatch loanPatch);
-        /// <summary>
-        /// List loan repayment records
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of List&lt;Repayment&gt;</returns>
-        Task<List<Repayment>> ListLoanRepaymentsAsync (string loanId);
-
-        /// <summary>
-        /// List loan repayment records
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of ApiResponse (List&lt;Repayment&gt;)</returns>
-        Task<ApiResponse<List<Repayment>>> ListLoanRepaymentsAsyncWithHttpInfo (string loanId);
-        /// <summary>
-        /// Repay a loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Task of Loan</returns>
-        Task<Loan> RepayLoanAsync (string loanId, RepayRequest repayRequest);
-
-        /// <summary>
-        /// Repay a loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        Task<ApiResponse<Loan>> RepayLoanAsyncWithHttpInfo (string loanId, RepayRequest repayRequest);
-        /// <summary>
-        /// List repayment records of a specific loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of List&lt;LoanRecord&gt;</returns>
-        Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
-
-        /// <summary>
-        /// List repayment records of a specific loan
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
-        Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
-        /// <summary>
-        /// Get one single loan record
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of LoanRecord</returns>
-        Task<LoanRecord> GetLoanRecordAsync (string loanRecordId, string loanId);
-
-        /// <summary>
-        /// Get one single loan record
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of ApiResponse (LoanRecord)</returns>
-        Task<ApiResponse<LoanRecord>> GetLoanRecordAsyncWithHttpInfo (string loanRecordId, string loanId);
-        /// <summary>
-        /// Modify a loan record
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of LoanRecord</returns>
-        Task<LoanRecord> UpdateLoanRecordAsync (string loanRecordId, LoanPatch loanPatch);
-
-        /// <summary>
-        /// Modify a loan record
-        /// </summary>
-        /// <remarks>
-        /// Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of ApiResponse (LoanRecord)</returns>
-        Task<ApiResponse<LoanRecord>> UpdateLoanRecordAsyncWithHttpInfo (string loanRecordId, LoanPatch loanPatch);
-        /// <summary>
         /// Retrieve user auto repayment setting
         /// </summary>
         /// <remarks>
@@ -1237,7 +936,333 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (MarginTransferable)</returns>
         Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency
+        /// List all supported currency pairs supported in margin trading(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;MarginCurrencyPair&gt;</returns>
+        Task<List<MarginCurrencyPair>> ListMarginCurrencyPairsAsync ();
+
+        /// <summary>
+        /// List all supported currency pairs supported in margin trading(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;MarginCurrencyPair&gt;)</returns>
+        Task<ApiResponse<List<MarginCurrencyPair>>> ListMarginCurrencyPairsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of MarginCurrencyPair</returns>
+        Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair);
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
+        Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair);
+        /// <summary>
+        /// Order book of lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
+        Task<List<FundingBookItem>> ListFundingBookAsync (string currency);
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
+        Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency);
+        /// <summary>
+        /// List all loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;Loan&gt;</returns>
+        Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List all loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
+        Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Lend or borrow(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> CreateLoanAsync (Loan loan);
+
+        /// <summary>
+        /// Lend or borrow(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> CreateLoanAsyncWithHttpInfo (Loan loan);
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> MergeLoansAsync (string currency, string ids);
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids);
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> GetLoanAsync (string loanId, string side);
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> GetLoanAsyncWithHttpInfo (string loanId, string side);
+        /// <summary>
+        /// Cancel lending loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only lent loans can be cancelled
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> CancelLoanAsync (string loanId, string currency);
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only lent loans can be cancelled
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency);
+        /// <summary>
+        /// Modify a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> UpdateLoanAsync (string loanId, LoanPatch loanPatch);
+
+        /// <summary>
+        /// Modify a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> UpdateLoanAsyncWithHttpInfo (string loanId, LoanPatch loanPatch);
+        /// <summary>
+        /// List loan repayment records(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of List&lt;Repayment&gt;</returns>
+        Task<List<Repayment>> ListLoanRepaymentsAsync (string loanId);
+
+        /// <summary>
+        /// List loan repayment records(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of ApiResponse (List&lt;Repayment&gt;)</returns>
+        Task<ApiResponse<List<Repayment>>> ListLoanRepaymentsAsyncWithHttpInfo (string loanId);
+        /// <summary>
+        /// Repay a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Task of Loan</returns>
+        Task<Loan> RepayLoanAsync (string loanId, RepayRequest repayRequest);
+
+        /// <summary>
+        /// Repay a loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        Task<ApiResponse<Loan>> RepayLoanAsyncWithHttpInfo (string loanId, RepayRequest repayRequest);
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;LoanRecord&gt;</returns>
+        Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
+        Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Get one single loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of LoanRecord</returns>
+        Task<LoanRecord> GetLoanRecordAsync (string loanRecordId, string loanId);
+
+        /// <summary>
+        /// Get one single loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of ApiResponse (LoanRecord)</returns>
+        Task<ApiResponse<LoanRecord>> GetLoanRecordAsyncWithHttpInfo (string loanRecordId, string loanId);
+        /// <summary>
+        /// Modify a loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of LoanRecord</returns>
+        Task<LoanRecord> UpdateLoanRecordAsync (string loanRecordId, LoanPatch loanPatch);
+
+        /// <summary>
+        /// Modify a loan record(Deprecated)
+        /// </summary>
+        /// <remarks>
+        /// Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of ApiResponse (LoanRecord)</returns>
+        Task<ApiResponse<LoanRecord>> UpdateLoanRecordAsyncWithHttpInfo (string loanRecordId, LoanPatch loanPatch);
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency(Deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -1249,7 +1274,7 @@ namespace Io.Gate.GateApi.Api
         Task<MarginBorrowable> GetMarginBorrowableAsync (string currency, string currencyPair = default(string));
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency
+        /// Get the max borrowable amount for a specific margin currency(Deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -1471,6 +1496,31 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
         Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
+        /// Interest records for the cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
+        Task<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// Interest records for the cross margin account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
+        Task<ApiResponse<List<UniLoanInterestRecord>>> GetCrossMarginInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
         /// Get the max transferable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
@@ -1630,331 +1680,6 @@ namespace Io.Gate.GateApi.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
-        }
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;MarginCurrencyPair&gt;</returns>
-        public List<MarginCurrencyPair> ListMarginCurrencyPairs ()
-        {
-             ApiResponse<List<MarginCurrencyPair>> localVarResponse = ListMarginCurrencyPairsWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;MarginCurrencyPair&gt;</returns>
-        public ApiResponse<List<MarginCurrencyPair>> ListMarginCurrencyPairsWithHttpInfo ()
-        {
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<MarginCurrencyPair>>("/margin/currency_pairs", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListMarginCurrencyPairs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;MarginCurrencyPair&gt;</returns>
-        public async Task<List<MarginCurrencyPair>> ListMarginCurrencyPairsAsync ()
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<MarginCurrencyPair>> localVarResponse = await ListMarginCurrencyPairsAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List all supported currency pairs supported in margin trading 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;MarginCurrencyPair&gt;)</returns>
-        public async Task<ApiResponse<List<MarginCurrencyPair>>> ListMarginCurrencyPairsAsyncWithHttpInfo ()
-        {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<MarginCurrencyPair>>("/margin/currency_pairs", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListMarginCurrencyPairs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Query one single margin currency pair 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>MarginCurrencyPair</returns>
-        public MarginCurrencyPair GetMarginCurrencyPair (string currencyPair)
-        {
-             ApiResponse<MarginCurrencyPair> localVarResponse = GetMarginCurrencyPairWithHttpInfo(currencyPair);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Query one single margin currency pair 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>ApiResponse of MarginCurrencyPair</returns>
-        public ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair)
-        {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Query one single margin currency pair 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>Task of MarginCurrencyPair</returns>
-        public async Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<MarginCurrencyPair> localVarResponse = await GetMarginCurrencyPairAsyncWithHttpInfo(currencyPair);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Query one single margin currency pair 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Margin currency pair</param>
-        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
-        public async Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair)
-        {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Order book of lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>List&lt;FundingBookItem&gt;</returns>
-        public List<FundingBookItem> ListFundingBook (string currency)
-        {
-             ApiResponse<List<FundingBookItem>> localVarResponse = ListFundingBookWithHttpInfo(currency);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Order book of lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
-        public ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency)
-        {
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->ListFundingBook");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<FundingBookItem>>("/margin/funding_book", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFundingBook", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Order book of lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
-        public async Task<List<FundingBookItem>> ListFundingBookAsync (string currency)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<FundingBookItem>> localVarResponse = await ListFundingBookAsyncWithHttpInfo(currency);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Order book of lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
-        public async Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency)
-        {
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->ListFundingBook");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FundingBookItem>>("/margin/funding_book", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFundingBook", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
         }
 
         /// <summary>
@@ -2363,1521 +2088,6 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>List&lt;Loan&gt;</returns>
-        public List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
-        {
-             ApiResponse<List<Loan>> localVarResponse = ListLoansWithHttpInfo(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List all loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
-        public ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
-        {
-            // verify the required parameter 'status' is set
-            if (status == null)
-                throw new ApiException(400, "Missing required parameter 'status' when calling MarginApi->ListLoans");
-
-            // verify the required parameter 'side' is set
-            if (side == null)
-                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->ListLoans");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
-            if (currency != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-            }
-            if (currencyPair != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
-            }
-            if (reverseSort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse_sort", reverseSort));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Loan>>("/margin/loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List all loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of List&lt;Loan&gt;</returns>
-        public async Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<Loan>> localVarResponse = await ListLoansAsyncWithHttpInfo(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List all loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Loan status</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
-        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
-        public async Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
-        {
-            // verify the required parameter 'status' is set
-            if (status == null)
-                throw new ApiException(400, "Missing required parameter 'status' when calling MarginApi->ListLoans");
-
-            // verify the required parameter 'side' is set
-            if (side == null)
-                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->ListLoans");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
-            if (currency != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-            }
-            if (currencyPair != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
-            }
-            if (reverseSort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse_sort", reverseSort));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Loan>>("/margin/loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Lend or borrow 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Loan</returns>
-        public Loan CreateLoan (Loan loan)
-        {
-             ApiResponse<Loan> localVarResponse = CreateLoanWithHttpInfo(loan);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Lend or borrow 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> CreateLoanWithHttpInfo (Loan loan)
-        {
-            // verify the required parameter 'loan' is set
-            if (loan == null)
-                throw new ApiException(400, "Missing required parameter 'loan' when calling MarginApi->CreateLoan");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = loan;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Loan>("/margin/loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Lend or borrow 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> CreateLoanAsync (Loan loan)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await CreateLoanAsyncWithHttpInfo(loan);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Lend or borrow 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loan"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> CreateLoanAsyncWithHttpInfo (Loan loan)
-        {
-            // verify the required parameter 'loan' is set
-            if (loan == null)
-                throw new ApiException(400, "Missing required parameter 'loan' when calling MarginApi->CreateLoan");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.Data = loan;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreateLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Merge multiple lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Loan</returns>
-        public Loan MergeLoans (string currency, string ids)
-        {
-             ApiResponse<Loan> localVarResponse = MergeLoansWithHttpInfo(currency, ids);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Merge multiple lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids)
-        {
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->MergeLoans");
-
-            // verify the required parameter 'ids' is set
-            if (ids == null)
-                throw new ApiException(400, "Missing required parameter 'ids' when calling MarginApi->MergeLoans");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ids", ids));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Loan>("/margin/merged_loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MergeLoans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Merge multiple lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> MergeLoansAsync (string currency, string ids)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await MergeLoansAsyncWithHttpInfo(currency, ids);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Merge multiple lending loans 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids)
-        {
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->MergeLoans");
-
-            // verify the required parameter 'ids' is set
-            if (ids == null)
-                throw new ApiException(400, "Missing required parameter 'ids' when calling MarginApi->MergeLoans");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ids", ids));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/merged_loans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MergeLoans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve one single loan detail 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Loan</returns>
-        public Loan GetLoan (string loanId, string side)
-        {
-             ApiResponse<Loan> localVarResponse = GetLoanWithHttpInfo(loanId, side);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve one single loan detail 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> GetLoanWithHttpInfo (string loanId, string side)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoan");
-
-            // verify the required parameter 'side' is set
-            if (side == null)
-                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->GetLoan");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve one single loan detail 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> GetLoanAsync (string loanId, string side)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await GetLoanAsyncWithHttpInfo(loanId, side);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Retrieve one single loan detail 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="side">Lend or borrow</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> GetLoanAsyncWithHttpInfo (string loanId, string side)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoan");
-
-            // verify the required parameter 'side' is set
-            if (side == null)
-                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->GetLoan");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Cancel lending loan Only lent loans can be cancelled
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Loan</returns>
-        public Loan CancelLoan (string loanId, string currency)
-        {
-             ApiResponse<Loan> localVarResponse = CancelLoanWithHttpInfo(loanId, currency);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Cancel lending loan Only lent loans can be cancelled
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->CancelLoan");
-
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->CancelLoan");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CancelLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Cancel lending loan Only lent loans can be cancelled
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> CancelLoanAsync (string loanId, string currency)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await CancelLoanAsyncWithHttpInfo(loanId, currency);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Cancel lending loan Only lent loans can be cancelled
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->CancelLoan");
-
-            // verify the required parameter 'currency' is set
-            if (currency == null)
-                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->CancelLoan");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CancelLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Modify a loan Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Loan</returns>
-        public Loan UpdateLoan (string loanId, LoanPatch loanPatch)
-        {
-             ApiResponse<Loan> localVarResponse = UpdateLoanWithHttpInfo(loanId, loanPatch);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Modify a loan Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> UpdateLoanWithHttpInfo (string loanId, LoanPatch loanPatch)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->UpdateLoan");
-
-            // verify the required parameter 'loanPatch' is set
-            if (loanPatch == null)
-                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoan");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = loanPatch;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Patch<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Modify a loan Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> UpdateLoanAsync (string loanId, LoanPatch loanPatch)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await UpdateLoanAsyncWithHttpInfo(loanId, loanPatch);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Modify a loan Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> UpdateLoanAsyncWithHttpInfo (string loanId, LoanPatch loanPatch)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->UpdateLoan");
-
-            // verify the required parameter 'loanPatch' is set
-            if (loanPatch == null)
-                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoan");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = loanPatch;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List loan repayment records 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>List&lt;Repayment&gt;</returns>
-        public List<Repayment> ListLoanRepayments (string loanId)
-        {
-             ApiResponse<List<Repayment>> localVarResponse = ListLoanRepaymentsWithHttpInfo(loanId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List loan repayment records 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>ApiResponse of List&lt;Repayment&gt;</returns>
-        public ApiResponse<List<Repayment>> ListLoanRepaymentsWithHttpInfo (string loanId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRepayments");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Repayment>>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoanRepayments", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List loan repayment records 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of List&lt;Repayment&gt;</returns>
-        public async Task<List<Repayment>> ListLoanRepaymentsAsync (string loanId)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<Repayment>> localVarResponse = await ListLoanRepaymentsAsyncWithHttpInfo(loanId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List loan repayment records 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of ApiResponse (List&lt;Repayment&gt;)</returns>
-        public async Task<ApiResponse<List<Repayment>>> ListLoanRepaymentsAsyncWithHttpInfo (string loanId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRepayments");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Repayment>>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoanRepayments", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Repay a loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Loan</returns>
-        public Loan RepayLoan (string loanId, RepayRequest repayRequest)
-        {
-             ApiResponse<Loan> localVarResponse = RepayLoanWithHttpInfo(loanId, repayRequest);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Repay a loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>ApiResponse of Loan</returns>
-        public ApiResponse<Loan> RepayLoanWithHttpInfo (string loanId, RepayRequest repayRequest)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->RepayLoan");
-
-            // verify the required parameter 'repayRequest' is set
-            if (repayRequest == null)
-                throw new ApiException(400, "Missing required parameter 'repayRequest' when calling MarginApi->RepayLoan");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = repayRequest;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Loan>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RepayLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Repay a loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Task of Loan</returns>
-        public async Task<Loan> RepayLoanAsync (string loanId, RepayRequest repayRequest)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await RepayLoanAsyncWithHttpInfo(loanId, repayRequest);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Repay a loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="repayRequest"></param>
-        /// <returns>Task of ApiResponse (Loan)</returns>
-        public async Task<ApiResponse<Loan>> RepayLoanAsyncWithHttpInfo (string loanId, RepayRequest repayRequest)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->RepayLoan");
-
-            // verify the required parameter 'repayRequest' is set
-            if (repayRequest == null)
-                throw new ApiException(400, "Missing required parameter 'repayRequest' when calling MarginApi->RepayLoan");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = repayRequest;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("RepayLoan", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List repayment records of a specific loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>List&lt;LoanRecord&gt;</returns>
-        public List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
-        {
-             ApiResponse<List<LoanRecord>> localVarResponse = ListLoanRecordsWithHttpInfo(loanId, status, page, limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List repayment records of a specific loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
-        public ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRecords");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LoanRecord>>("/margin/loan_records", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoanRecords", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List repayment records of a specific loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of List&lt;LoanRecord&gt;</returns>
-        public async Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<LoanRecord>> localVarResponse = await ListLoanRecordsAsyncWithHttpInfo(loanId, status, page, limit);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List repayment records of a specific loan 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId">Loan ID</param>
-        /// <param name="status">Loan record status (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
-        public async Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRecords");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LoanRecord>>("/margin/loan_records", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListLoanRecords", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get one single loan record 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>LoanRecord</returns>
-        public LoanRecord GetLoanRecord (string loanRecordId, string loanId)
-        {
-             ApiResponse<LoanRecord> localVarResponse = GetLoanRecordWithHttpInfo(loanRecordId, loanId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get one single loan record 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>ApiResponse of LoanRecord</returns>
-        public ApiResponse<LoanRecord> GetLoanRecordWithHttpInfo (string loanRecordId, string loanId)
-        {
-            // verify the required parameter 'loanRecordId' is set
-            if (loanRecordId == null)
-                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->GetLoanRecord");
-
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoanRecord");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoanRecord", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get one single loan record 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of LoanRecord</returns>
-        public async Task<LoanRecord> GetLoanRecordAsync (string loanRecordId, string loanId)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<LoanRecord> localVarResponse = await GetLoanRecordAsyncWithHttpInfo(loanRecordId, loanId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get one single loan record 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanId">Loan ID</param>
-        /// <returns>Task of ApiResponse (LoanRecord)</returns>
-        public async Task<ApiResponse<LoanRecord>> GetLoanRecordAsyncWithHttpInfo (string loanRecordId, string loanId)
-        {
-            // verify the required parameter 'loanRecordId' is set
-            if (loanRecordId == null)
-                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->GetLoanRecord");
-
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoanRecord");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoanRecord", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Modify a loan record Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>LoanRecord</returns>
-        public LoanRecord UpdateLoanRecord (string loanRecordId, LoanPatch loanPatch)
-        {
-             ApiResponse<LoanRecord> localVarResponse = UpdateLoanRecordWithHttpInfo(loanRecordId, loanPatch);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Modify a loan record Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>ApiResponse of LoanRecord</returns>
-        public ApiResponse<LoanRecord> UpdateLoanRecordWithHttpInfo (string loanRecordId, LoanPatch loanPatch)
-        {
-            // verify the required parameter 'loanRecordId' is set
-            if (loanRecordId == null)
-                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->UpdateLoanRecord");
-
-            // verify the required parameter 'loanPatch' is set
-            if (loanPatch == null)
-                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoanRecord");
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
-            localVarRequestOptions.Data = loanPatch;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Patch<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateLoanRecord", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Modify a loan record Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of LoanRecord</returns>
-        public async Task<LoanRecord> UpdateLoanRecordAsync (string loanRecordId, LoanPatch loanPatch)
-        {
-             Io.Gate.GateApi.Client.ApiResponse<LoanRecord> localVarResponse = await UpdateLoanRecordAsyncWithHttpInfo(loanRecordId, loanPatch);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Modify a loan record Only &#x60;auto_renew&#x60; modification is supported currently
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanRecordId">Loan record ID</param>
-        /// <param name="loanPatch"></param>
-        /// <returns>Task of ApiResponse (LoanRecord)</returns>
-        public async Task<ApiResponse<LoanRecord>> UpdateLoanRecordAsyncWithHttpInfo (string loanRecordId, LoanPatch loanPatch)
-        {
-            // verify the required parameter 'loanRecordId' is set
-            if (loanRecordId == null)
-                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->UpdateLoanRecord");
-
-            // verify the required parameter 'loanPatch' is set
-            if (loanPatch == null)
-                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoanRecord");
-
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
-            localVarRequestOptions.Data = loanPatch;
-
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateLoanRecord", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Retrieve user auto repayment setting 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4227,7 +2437,1847 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency 
+        /// List all supported currency pairs supported in margin trading(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;MarginCurrencyPair&gt;</returns>
+        public List<MarginCurrencyPair> ListMarginCurrencyPairs ()
+        {
+             ApiResponse<List<MarginCurrencyPair>> localVarResponse = ListMarginCurrencyPairsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all supported currency pairs supported in margin trading(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;MarginCurrencyPair&gt;</returns>
+        public ApiResponse<List<MarginCurrencyPair>> ListMarginCurrencyPairsWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<MarginCurrencyPair>>("/margin/currency_pairs", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMarginCurrencyPairs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all supported currency pairs supported in margin trading(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;MarginCurrencyPair&gt;</returns>
+        public async Task<List<MarginCurrencyPair>> ListMarginCurrencyPairsAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<MarginCurrencyPair>> localVarResponse = await ListMarginCurrencyPairsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List all supported currency pairs supported in margin trading(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;MarginCurrencyPair&gt;)</returns>
+        public async Task<ApiResponse<List<MarginCurrencyPair>>> ListMarginCurrencyPairsAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<MarginCurrencyPair>>("/margin/currency_pairs", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMarginCurrencyPairs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>MarginCurrencyPair</returns>
+        public MarginCurrencyPair GetMarginCurrencyPair (string currencyPair)
+        {
+             ApiResponse<MarginCurrencyPair> localVarResponse = GetMarginCurrencyPairWithHttpInfo(currencyPair);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>ApiResponse of MarginCurrencyPair</returns>
+        public ApiResponse<MarginCurrencyPair> GetMarginCurrencyPairWithHttpInfo (string currencyPair)
+        {
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of MarginCurrencyPair</returns>
+        public async Task<MarginCurrencyPair> GetMarginCurrencyPairAsync (string currencyPair)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<MarginCurrencyPair> localVarResponse = await GetMarginCurrencyPairAsyncWithHttpInfo(currencyPair);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query one single margin currency pair(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencyPair">Margin currency pair</param>
+        /// <returns>Task of ApiResponse (MarginCurrencyPair)</returns>
+        public async Task<ApiResponse<MarginCurrencyPair>> GetMarginCurrencyPairAsyncWithHttpInfo (string currencyPair)
+        {
+            // verify the required parameter 'currencyPair' is set
+            if (currencyPair == null)
+                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling MarginApi->GetMarginCurrencyPair");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("currency_pair", ClientUtils.ParameterToString(currencyPair)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarginCurrencyPair>("/margin/currency_pairs/{currency_pair}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginCurrencyPair", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>List&lt;FundingBookItem&gt;</returns>
+        public List<FundingBookItem> ListFundingBook (string currency)
+        {
+             ApiResponse<List<FundingBookItem>> localVarResponse = ListFundingBookWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of List&lt;FundingBookItem&gt;</returns>
+        public ApiResponse<List<FundingBookItem>> ListFundingBookWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->ListFundingBook");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<FundingBookItem>>("/margin/funding_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListFundingBook", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of List&lt;FundingBookItem&gt;</returns>
+        public async Task<List<FundingBookItem>> ListFundingBookAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<FundingBookItem>> localVarResponse = await ListFundingBookAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Order book of lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (List&lt;FundingBookItem&gt;)</returns>
+        public async Task<ApiResponse<List<FundingBookItem>>> ListFundingBookAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->ListFundingBook");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FundingBookItem>>("/margin/funding_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListFundingBook", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>List&lt;Loan&gt;</returns>
+        public List<Loan> ListLoans (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<List<Loan>> localVarResponse = ListLoansWithHttpInfo(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;Loan&gt;</returns>
+        public ApiResponse<List<Loan>> ListLoansWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+                throw new ApiException(400, "Missing required parameter 'status' when calling MarginApi->ListLoans");
+
+            // verify the required parameter 'side' is set
+            if (side == null)
+                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->ListLoans");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
+            }
+            if (reverseSort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse_sort", reverseSort));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Loan>>("/margin/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;Loan&gt;</returns>
+        public async Task<List<Loan>> ListLoansAsync (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Loan>> localVarResponse = await ListLoansAsyncWithHttpInfo(status, side, currency, currencyPair, sortBy, reverseSort, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List all loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="status">Loan status</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="sortBy">Specify which field is used to sort. &#x60;create_time&#x60; or &#x60;rate&#x60; is supported. Default to &#x60;create_time&#x60; (optional)</param>
+        /// <param name="reverseSort">Whether to sort in descending order. Default to &#x60;true&#x60; (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;Loan&gt;)</returns>
+        public async Task<ApiResponse<List<Loan>>> ListLoansAsyncWithHttpInfo (string status, string side, string currency = default(string), string currencyPair = default(string), string sortBy = default(string), bool? reverseSort = default(bool?), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'status' is set
+            if (status == null)
+                throw new ApiException(400, "Missing required parameter 'status' when calling MarginApi->ListLoans");
+
+            // verify the required parameter 'side' is set
+            if (side == null)
+                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->ListLoans");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
+            }
+            if (reverseSort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "reverse_sort", reverseSort));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Loan>>("/margin/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Lend or borrow(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Loan</returns>
+        public Loan CreateLoan (Loan loan)
+        {
+             ApiResponse<Loan> localVarResponse = CreateLoanWithHttpInfo(loan);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Lend or borrow(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> CreateLoanWithHttpInfo (Loan loan)
+        {
+            // verify the required parameter 'loan' is set
+            if (loan == null)
+                throw new ApiException(400, "Missing required parameter 'loan' when calling MarginApi->CreateLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = loan;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Loan>("/margin/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Lend or borrow(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> CreateLoanAsync (Loan loan)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await CreateLoanAsyncWithHttpInfo(loan);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Lend or borrow(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loan"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> CreateLoanAsyncWithHttpInfo (Loan loan)
+        {
+            // verify the required parameter 'loan' is set
+            if (loan == null)
+                throw new ApiException(400, "Missing required parameter 'loan' when calling MarginApi->CreateLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = loan;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Loan</returns>
+        public Loan MergeLoans (string currency, string ids)
+        {
+             ApiResponse<Loan> localVarResponse = MergeLoansWithHttpInfo(currency, ids);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> MergeLoansWithHttpInfo (string currency, string ids)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->MergeLoans");
+
+            // verify the required parameter 'ids' is set
+            if (ids == null)
+                throw new ApiException(400, "Missing required parameter 'ids' when calling MarginApi->MergeLoans");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ids", ids));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Loan>("/margin/merged_loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MergeLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> MergeLoansAsync (string currency, string ids)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await MergeLoansAsyncWithHttpInfo(currency, ids);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Merge multiple lending loans(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="ids">A comma-separated (,) list of IDs of the loans lent. Maximum of 20 IDs are allowed in a request</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> MergeLoansAsyncWithHttpInfo (string currency, string ids)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->MergeLoans");
+
+            // verify the required parameter 'ids' is set
+            if (ids == null)
+                throw new ApiException(400, "Missing required parameter 'ids' when calling MarginApi->MergeLoans");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ids", ids));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/merged_loans", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MergeLoans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Loan</returns>
+        public Loan GetLoan (string loanId, string side)
+        {
+             ApiResponse<Loan> localVarResponse = GetLoanWithHttpInfo(loanId, side);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> GetLoanWithHttpInfo (string loanId, string side)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoan");
+
+            // verify the required parameter 'side' is set
+            if (side == null)
+                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->GetLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> GetLoanAsync (string loanId, string side)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await GetLoanAsyncWithHttpInfo(loanId, side);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve one single loan detail(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="side">Lend or borrow</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> GetLoanAsyncWithHttpInfo (string loanId, string side)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoan");
+
+            // verify the required parameter 'side' is set
+            if (side == null)
+                throw new ApiException(400, "Missing required parameter 'side' when calling MarginApi->GetLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated) Only lent loans can be cancelled
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Loan</returns>
+        public Loan CancelLoan (string loanId, string currency)
+        {
+             ApiResponse<Loan> localVarResponse = CancelLoanWithHttpInfo(loanId, currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated) Only lent loans can be cancelled
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> CancelLoanWithHttpInfo (string loanId, string currency)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->CancelLoan");
+
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->CancelLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated) Only lent loans can be cancelled
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> CancelLoanAsync (string loanId, string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await CancelLoanAsyncWithHttpInfo(loanId, currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel lending loan(Deprecated) Only lent loans can be cancelled
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> CancelLoanAsyncWithHttpInfo (string loanId, string currency)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->CancelLoan");
+
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling MarginApi->CancelLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify a loan(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Loan</returns>
+        public Loan UpdateLoan (string loanId, LoanPatch loanPatch)
+        {
+             ApiResponse<Loan> localVarResponse = UpdateLoanWithHttpInfo(loanId, loanPatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify a loan(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> UpdateLoanWithHttpInfo (string loanId, LoanPatch loanPatch)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->UpdateLoan");
+
+            // verify the required parameter 'loanPatch' is set
+            if (loanPatch == null)
+                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.Data = loanPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify a loan(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> UpdateLoanAsync (string loanId, LoanPatch loanPatch)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await UpdateLoanAsyncWithHttpInfo(loanId, loanPatch);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Modify a loan(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> UpdateLoanAsyncWithHttpInfo (string loanId, LoanPatch loanPatch)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->UpdateLoan");
+
+            // verify the required parameter 'loanPatch' is set
+            if (loanPatch == null)
+                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.Data = loanPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Loan>("/margin/loans/{loan_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List loan repayment records(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>List&lt;Repayment&gt;</returns>
+        public List<Repayment> ListLoanRepayments (string loanId)
+        {
+             ApiResponse<List<Repayment>> localVarResponse = ListLoanRepaymentsWithHttpInfo(loanId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List loan repayment records(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>ApiResponse of List&lt;Repayment&gt;</returns>
+        public ApiResponse<List<Repayment>> ListLoanRepaymentsWithHttpInfo (string loanId)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRepayments");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Repayment>>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanRepayments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List loan repayment records(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of List&lt;Repayment&gt;</returns>
+        public async Task<List<Repayment>> ListLoanRepaymentsAsync (string loanId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<Repayment>> localVarResponse = await ListLoanRepaymentsAsyncWithHttpInfo(loanId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List loan repayment records(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of ApiResponse (List&lt;Repayment&gt;)</returns>
+        public async Task<ApiResponse<List<Repayment>>> ListLoanRepaymentsAsyncWithHttpInfo (string loanId)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRepayments");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Repayment>>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanRepayments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Repay a loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Loan</returns>
+        public Loan RepayLoan (string loanId, RepayRequest repayRequest)
+        {
+             ApiResponse<Loan> localVarResponse = RepayLoanWithHttpInfo(loanId, repayRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Repay a loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>ApiResponse of Loan</returns>
+        public ApiResponse<Loan> RepayLoanWithHttpInfo (string loanId, RepayRequest repayRequest)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->RepayLoan");
+
+            // verify the required parameter 'repayRequest' is set
+            if (repayRequest == null)
+                throw new ApiException(400, "Missing required parameter 'repayRequest' when calling MarginApi->RepayLoan");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.Data = repayRequest;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Loan>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RepayLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Repay a loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Task of Loan</returns>
+        public async Task<Loan> RepayLoanAsync (string loanId, RepayRequest repayRequest)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Loan> localVarResponse = await RepayLoanAsyncWithHttpInfo(loanId, repayRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Repay a loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="repayRequest"></param>
+        /// <returns>Task of ApiResponse (Loan)</returns>
+        public async Task<ApiResponse<Loan>> RepayLoanAsyncWithHttpInfo (string loanId, RepayRequest repayRequest)
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->RepayLoan");
+
+            // verify the required parameter 'repayRequest' is set
+            if (repayRequest == null)
+                throw new ApiException(400, "Missing required parameter 'repayRequest' when calling MarginApi->RepayLoan");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_id", ClientUtils.ParameterToString(loanId)); // path parameter
+            localVarRequestOptions.Data = repayRequest;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Loan>("/margin/loans/{loan_id}/repayment", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RepayLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>List&lt;LoanRecord&gt;</returns>
+        public List<LoanRecord> ListLoanRecords (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<List<LoanRecord>> localVarResponse = ListLoanRecordsWithHttpInfo(loanId, status, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;LoanRecord&gt;</returns>
+        public ApiResponse<List<LoanRecord>> ListLoanRecordsWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRecords");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<LoanRecord>>("/margin/loan_records", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanRecords", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;LoanRecord&gt;</returns>
+        public async Task<List<LoanRecord>> ListLoanRecordsAsync (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<LoanRecord>> localVarResponse = await ListLoanRecordsAsyncWithHttpInfo(loanId, status, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List repayment records of a specific loan(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanId">Loan ID</param>
+        /// <param name="status">Loan record status (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;LoanRecord&gt;)</returns>
+        public async Task<ApiResponse<List<LoanRecord>>> ListLoanRecordsAsyncWithHttpInfo (string loanId, string status = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->ListLoanRecords");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LoanRecord>>("/margin/loan_records", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanRecords", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get one single loan record(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>LoanRecord</returns>
+        public LoanRecord GetLoanRecord (string loanRecordId, string loanId)
+        {
+             ApiResponse<LoanRecord> localVarResponse = GetLoanRecordWithHttpInfo(loanRecordId, loanId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get one single loan record(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>ApiResponse of LoanRecord</returns>
+        public ApiResponse<LoanRecord> GetLoanRecordWithHttpInfo (string loanRecordId, string loanId)
+        {
+            // verify the required parameter 'loanRecordId' is set
+            if (loanRecordId == null)
+                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->GetLoanRecord");
+
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoanRecord");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoanRecord", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get one single loan record(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of LoanRecord</returns>
+        public async Task<LoanRecord> GetLoanRecordAsync (string loanRecordId, string loanId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<LoanRecord> localVarResponse = await GetLoanRecordAsyncWithHttpInfo(loanRecordId, loanId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get one single loan record(Deprecated) 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanId">Loan ID</param>
+        /// <returns>Task of ApiResponse (LoanRecord)</returns>
+        public async Task<ApiResponse<LoanRecord>> GetLoanRecordAsyncWithHttpInfo (string loanRecordId, string loanId)
+        {
+            // verify the required parameter 'loanRecordId' is set
+            if (loanRecordId == null)
+                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->GetLoanRecord");
+
+            // verify the required parameter 'loanId' is set
+            if (loanId == null)
+                throw new ApiException(400, "Missing required parameter 'loanId' when calling MarginApi->GetLoanRecord");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "loan_id", loanId));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoanRecord", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify a loan record(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>LoanRecord</returns>
+        public LoanRecord UpdateLoanRecord (string loanRecordId, LoanPatch loanPatch)
+        {
+             ApiResponse<LoanRecord> localVarResponse = UpdateLoanRecordWithHttpInfo(loanRecordId, loanPatch);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify a loan record(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>ApiResponse of LoanRecord</returns>
+        public ApiResponse<LoanRecord> UpdateLoanRecordWithHttpInfo (string loanRecordId, LoanPatch loanPatch)
+        {
+            // verify the required parameter 'loanRecordId' is set
+            if (loanRecordId == null)
+                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->UpdateLoanRecord");
+
+            // verify the required parameter 'loanPatch' is set
+            if (loanPatch == null)
+                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoanRecord");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
+            localVarRequestOptions.Data = loanPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLoanRecord", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Modify a loan record(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of LoanRecord</returns>
+        public async Task<LoanRecord> UpdateLoanRecordAsync (string loanRecordId, LoanPatch loanPatch)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<LoanRecord> localVarResponse = await UpdateLoanRecordAsyncWithHttpInfo(loanRecordId, loanPatch);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Modify a loan record(Deprecated) Only &#x60;auto_renew&#x60; modification is supported currently
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loanRecordId">Loan record ID</param>
+        /// <param name="loanPatch"></param>
+        /// <returns>Task of ApiResponse (LoanRecord)</returns>
+        public async Task<ApiResponse<LoanRecord>> UpdateLoanRecordAsyncWithHttpInfo (string loanRecordId, LoanPatch loanPatch)
+        {
+            // verify the required parameter 'loanRecordId' is set
+            if (loanRecordId == null)
+                throw new ApiException(400, "Missing required parameter 'loanRecordId' when calling MarginApi->UpdateLoanRecord");
+
+            // verify the required parameter 'loanPatch' is set
+            if (loanPatch == null)
+                throw new ApiException(400, "Missing required parameter 'loanPatch' when calling MarginApi->UpdateLoanRecord");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("loan_record_id", ClientUtils.ParameterToString(loanRecordId)); // path parameter
+            localVarRequestOptions.Data = loanPatch;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<LoanRecord>("/margin/loan_records/{loan_record_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLoanRecord", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the max borrowable amount for a specific margin currency(Deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -4240,7 +4290,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency 
+        /// Get the max borrowable amount for a specific margin currency(Deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -4290,7 +4340,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency 
+        /// Get the max borrowable amount for a specific margin currency(Deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -4304,7 +4354,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific margin currency 
+        /// Get the max borrowable amount for a specific margin currency(Deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -5514,6 +5564,145 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RepayCrossMarginLoan", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Interest records for the cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
+        public List<UniLoanInterestRecord> GetCrossMarginInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<List<UniLoanInterestRecord>> localVarResponse = GetCrossMarginInterestRecordsWithHttpInfo(currency, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Interest records for the cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
+        public ApiResponse<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<UniLoanInterestRecord>>("/margin/cross/interest_records", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginInterestRecords", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Interest records for the cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
+        public async Task<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<UniLoanInterestRecord>> localVarResponse = await GetCrossMarginInterestRecordsAsyncWithHttpInfo(currency, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Interest records for the cross margin account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
+        public async Task<ApiResponse<List<UniLoanInterestRecord>>> GetCrossMarginInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UniLoanInterestRecord>>("/margin/cross/interest_records", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginInterestRecords", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

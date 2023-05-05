@@ -52,7 +52,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
         /// <param name="basisRate">Basis rate.</param>
         /// <param name="basisValue">Basis value.</param>
-        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string))
+        /// <param name="lowestAsk">Recent lowest ask.</param>
+        /// <param name="highestBid">Recent highest bid.</param>
+        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string), string lowestAsk = default(string), string highestBid = default(string))
         {
             this.Contract = contract;
             this.Last = last;
@@ -73,6 +75,8 @@ namespace Io.Gate.GateApi.Model
             this.QuantoBaseRate = quantoBaseRate;
             this.BasisRate = basisRate;
             this.BasisValue = basisValue;
+            this.LowestAsk = lowestAsk;
+            this.HighestBid = highestBid;
         }
 
         /// <summary>
@@ -209,6 +213,20 @@ namespace Io.Gate.GateApi.Model
         public string BasisValue { get; set; }
 
         /// <summary>
+        /// Recent lowest ask
+        /// </summary>
+        /// <value>Recent lowest ask</value>
+        [DataMember(Name="lowest_ask")]
+        public string LowestAsk { get; set; }
+
+        /// <summary>
+        /// Recent highest bid
+        /// </summary>
+        /// <value>Recent highest bid</value>
+        [DataMember(Name="highest_bid")]
+        public string HighestBid { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -235,6 +253,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  QuantoBaseRate: ").Append(QuantoBaseRate).Append("\n");
             sb.Append("  BasisRate: ").Append(BasisRate).Append("\n");
             sb.Append("  BasisValue: ").Append(BasisValue).Append("\n");
+            sb.Append("  LowestAsk: ").Append(LowestAsk).Append("\n");
+            sb.Append("  HighestBid: ").Append(HighestBid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -363,6 +383,16 @@ namespace Io.Gate.GateApi.Model
                     this.BasisValue == input.BasisValue ||
                     (this.BasisValue != null &&
                     this.BasisValue.Equals(input.BasisValue))
+                ) && 
+                (
+                    this.LowestAsk == input.LowestAsk ||
+                    (this.LowestAsk != null &&
+                    this.LowestAsk.Equals(input.LowestAsk))
+                ) && 
+                (
+                    this.HighestBid == input.HighestBid ||
+                    (this.HighestBid != null &&
+                    this.HighestBid.Equals(input.HighestBid))
                 );
         }
 
@@ -413,6 +443,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.BasisRate.GetHashCode();
                 if (this.BasisValue != null)
                     hashCode = hashCode * 59 + this.BasisValue.GetHashCode();
+                if (this.LowestAsk != null)
+                    hashCode = hashCode * 59 + this.LowestAsk.GetHashCode();
+                if (this.HighestBid != null)
+                    hashCode = hashCode * 59 + this.HighestBid.GetHashCode();
                 return hashCode;
             }
         }

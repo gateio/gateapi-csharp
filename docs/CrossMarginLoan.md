@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Borrow loan ID | [optional] [readonly] 
+**Id** | **string** | Loan record ID | [optional] [readonly] 
 **CreateTime** | **long** | Creation timestamp, in milliseconds | [optional] [readonly] 
 **UpdateTime** | **long** | Update timestamp, in milliseconds | [optional] [readonly] 
 **Currency** | **string** | Currency name | 

@@ -34,6 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CrossMarginAccount" /> class.
         /// </summary>
         /// <param name="userId">User ID.</param>
+        /// <param name="refreshTime">Time of the most recent refresh.</param>
         /// <param name="locked">Whether account is locked.</param>
         /// <param name="balances">balances.</param>
         /// <param name="total">Total account value in USDT, i.e., the sum of all currencies&#39; &#x60;(available+freeze)*price*discount&#x60;.</param>
@@ -41,15 +42,18 @@ namespace Io.Gate.GateApi.Model
         /// <param name="interest">Total unpaid interests in USDT, i.e., the sum of all currencies&#39; &#x60;interest*price*discount&#x60;.</param>
         /// <param name="risk">Risk rate. When it belows 110%, liquidation will be triggered. Calculation formula: &#x60;total / (borrowed+interest)&#x60;.</param>
         /// <param name="totalInitialMargin">Total initial margin.</param>
-        /// <param name="totalMarginBalance">Total margin balance.</param>
+        /// <param name="totalMarginBalance">Total Margin Balance (∑(positive equity ＊ index price * discount) + ∑(negative equity * index price)).</param>
         /// <param name="totalMaintenanceMargin">Total maintenance margin.</param>
         /// <param name="totalInitialMarginRate">Total initial margin rate.</param>
         /// <param name="totalMaintenanceMarginRate">Total maintenance margin rate.</param>
         /// <param name="totalAvailableMargin">Total available margin.</param>
         /// <param name="portfolioMarginTotal">Total amount of the portfolio margin account.</param>
-        public CrossMarginAccount(long userId = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string portfolioMarginTotal = default(string))
+        /// <param name="portfolioMarginTotalLiab">Total liabilities of the portfolio margin account.</param>
+        /// <param name="portfolioMarginTotalEquity">Total equity of the portfolio margin account.</param>
+        public CrossMarginAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, CrossMarginBalance> balances = default(Dictionary<string, CrossMarginBalance>), string total = default(string), string borrowed = default(string), string interest = default(string), string risk = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string portfolioMarginTotal = default(string), string portfolioMarginTotalLiab = default(string), string portfolioMarginTotalEquity = default(string))
         {
             this.UserId = userId;
+            this.RefreshTime = refreshTime;
             this.Locked = locked;
             this.Balances = balances;
             this.Total = total;
@@ -63,6 +67,8 @@ namespace Io.Gate.GateApi.Model
             this.TotalMaintenanceMarginRate = totalMaintenanceMarginRate;
             this.TotalAvailableMargin = totalAvailableMargin;
             this.PortfolioMarginTotal = portfolioMarginTotal;
+            this.PortfolioMarginTotalLiab = portfolioMarginTotalLiab;
+            this.PortfolioMarginTotalEquity = portfolioMarginTotalEquity;
         }
 
         /// <summary>
@@ -71,6 +77,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>User ID</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
+
+        /// <summary>
+        /// Time of the most recent refresh
+        /// </summary>
+        /// <value>Time of the most recent refresh</value>
+        [DataMember(Name="refresh_time")]
+        public long RefreshTime { get; set; }
 
         /// <summary>
         /// Whether account is locked
@@ -121,9 +134,9 @@ namespace Io.Gate.GateApi.Model
         public string TotalInitialMargin { get; set; }
 
         /// <summary>
-        /// Total margin balance
+        /// Total Margin Balance (∑(positive equity ＊ index price * discount) + ∑(negative equity * index price))
         /// </summary>
-        /// <value>Total margin balance</value>
+        /// <value>Total Margin Balance (∑(positive equity ＊ index price * discount) + ∑(negative equity * index price))</value>
         [DataMember(Name="total_margin_balance")]
         public string TotalMarginBalance { get; set; }
 
@@ -163,6 +176,20 @@ namespace Io.Gate.GateApi.Model
         public string PortfolioMarginTotal { get; set; }
 
         /// <summary>
+        /// Total liabilities of the portfolio margin account
+        /// </summary>
+        /// <value>Total liabilities of the portfolio margin account</value>
+        [DataMember(Name="portfolio_margin_total_liab")]
+        public string PortfolioMarginTotalLiab { get; set; }
+
+        /// <summary>
+        /// Total equity of the portfolio margin account
+        /// </summary>
+        /// <value>Total equity of the portfolio margin account</value>
+        [DataMember(Name="portfolio_margin_total_equity")]
+        public string PortfolioMarginTotalEquity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +198,7 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class CrossMarginAccount {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  RefreshTime: ").Append(RefreshTime).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Balances: ").Append(Balances).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
@@ -184,6 +212,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  TotalMaintenanceMarginRate: ").Append(TotalMaintenanceMarginRate).Append("\n");
             sb.Append("  TotalAvailableMargin: ").Append(TotalAvailableMargin).Append("\n");
             sb.Append("  PortfolioMarginTotal: ").Append(PortfolioMarginTotal).Append("\n");
+            sb.Append("  PortfolioMarginTotalLiab: ").Append(PortfolioMarginTotalLiab).Append("\n");
+            sb.Append("  PortfolioMarginTotalEquity: ").Append(PortfolioMarginTotalEquity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +251,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.UserId == input.UserId ||
                     this.UserId.Equals(input.UserId)
+                ) && 
+                (
+                    this.RefreshTime == input.RefreshTime ||
+                    this.RefreshTime.Equals(input.RefreshTime)
                 ) && 
                 (
                     this.Locked == input.Locked ||
@@ -286,6 +320,16 @@ namespace Io.Gate.GateApi.Model
                     this.PortfolioMarginTotal == input.PortfolioMarginTotal ||
                     (this.PortfolioMarginTotal != null &&
                     this.PortfolioMarginTotal.Equals(input.PortfolioMarginTotal))
+                ) && 
+                (
+                    this.PortfolioMarginTotalLiab == input.PortfolioMarginTotalLiab ||
+                    (this.PortfolioMarginTotalLiab != null &&
+                    this.PortfolioMarginTotalLiab.Equals(input.PortfolioMarginTotalLiab))
+                ) && 
+                (
+                    this.PortfolioMarginTotalEquity == input.PortfolioMarginTotalEquity ||
+                    (this.PortfolioMarginTotalEquity != null &&
+                    this.PortfolioMarginTotalEquity.Equals(input.PortfolioMarginTotalEquity))
                 );
         }
 
@@ -299,6 +343,7 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                hashCode = hashCode * 59 + this.RefreshTime.GetHashCode();
                 hashCode = hashCode * 59 + this.Locked.GetHashCode();
                 if (this.Balances != null)
                     hashCode = hashCode * 59 + this.Balances.GetHashCode();
@@ -324,6 +369,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.TotalAvailableMargin.GetHashCode();
                 if (this.PortfolioMarginTotal != null)
                     hashCode = hashCode * 59 + this.PortfolioMarginTotal.GetHashCode();
+                if (this.PortfolioMarginTotalLiab != null)
+                    hashCode = hashCode * 59 + this.PortfolioMarginTotalLiab.GetHashCode();
+                if (this.PortfolioMarginTotalEquity != null)
+                    hashCode = hashCode * 59 + this.PortfolioMarginTotalEquity.GetHashCode();
                 return hashCode;
             }
         }

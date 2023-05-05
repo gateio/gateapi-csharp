@@ -35,10 +35,12 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="amount">New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them.</param>
         /// <param name="price">New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;.</param>
-        public OrderPatch(string amount = default(string), string price = default(string))
+        /// <param name="amendText">Custom info during amending order.</param>
+        public OrderPatch(string amount = default(string), string price = default(string), string amendText = default(string))
         {
             this.Amount = amount;
             this.Price = price;
+            this.AmendText = amendText;
         }
 
         /// <summary>
@@ -56,6 +58,13 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// Custom info during amending order
+        /// </summary>
+        /// <value>Custom info during amending order</value>
+        [DataMember(Name="amend_text")]
+        public string AmendText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class OrderPatch {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  AmendText: ").Append(AmendText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Io.Gate.GateApi.Model
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
+                ) && 
+                (
+                    this.AmendText == input.AmendText ||
+                    (this.AmendText != null &&
+                    this.AmendText.Equals(input.AmendText))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
+                if (this.AmendText != null)
+                    hashCode = hashCode * 59 + this.AmendText.GetHashCode();
                 return hashCode;
             }
         }
@@ -135,6 +152,12 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AmendText (string) maxLength
+            if(this.AmendText != null && this.AmendText.Length > 31)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AmendText, length must be less than 31.", new [] { "AmendText" });
+            }
+
             yield break;
         }
     }

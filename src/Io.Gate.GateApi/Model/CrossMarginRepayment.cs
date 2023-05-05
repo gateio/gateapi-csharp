@@ -35,7 +35,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="id">Loan record ID.</param>
         /// <param name="createTime">Repayment time.</param>
-        /// <param name="loanId">Borrow loan ID.</param>
+        /// <param name="loanId">Loan record ID.</param>
         /// <param name="currency">Currency name.</param>
         /// <param name="principal">Repaid principal.</param>
         /// <param name="interest">Repaid interest.</param>
@@ -64,9 +64,9 @@ namespace Io.Gate.GateApi.Model
         public long CreateTime { get; set; }
 
         /// <summary>
-        /// Borrow loan ID
+        /// Loan record ID
         /// </summary>
-        /// <value>Borrow loan ID</value>
+        /// <value>Loan record ID</value>
         [DataMember(Name="loan_id")]
         public string LoanId { get; set; }
 

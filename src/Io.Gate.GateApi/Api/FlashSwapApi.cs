@@ -126,9 +126,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>FlashSwapOrderPreview</returns>
-        FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapOrderRequest flashSwapOrderRequest);
+        FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapPreviewRequest flashSwapPreviewRequest);
 
         /// <summary>
         /// Initiate a flash swap order preview
@@ -137,9 +137,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>ApiResponse of FlashSwapOrderPreview</returns>
-        ApiResponse<FlashSwapOrderPreview> PreviewFlashSwapOrderWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest);
+        ApiResponse<FlashSwapOrderPreview> PreviewFlashSwapOrderWithHttpInfo (FlashSwapPreviewRequest flashSwapPreviewRequest);
         #endregion Synchronous Operations
     }
 
@@ -248,9 +248,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>Task of FlashSwapOrderPreview</returns>
-        Task<FlashSwapOrderPreview> PreviewFlashSwapOrderAsync (FlashSwapOrderRequest flashSwapOrderRequest);
+        Task<FlashSwapOrderPreview> PreviewFlashSwapOrderAsync (FlashSwapPreviewRequest flashSwapPreviewRequest);
 
         /// <summary>
         /// Initiate a flash swap order preview
@@ -259,9 +259,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>Task of ApiResponse (FlashSwapOrderPreview)</returns>
-        Task<ApiResponse<FlashSwapOrderPreview>> PreviewFlashSwapOrderAsyncWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest);
+        Task<ApiResponse<FlashSwapOrderPreview>> PreviewFlashSwapOrderAsyncWithHttpInfo (FlashSwapPreviewRequest flashSwapPreviewRequest);
         #endregion Asynchronous Operations
     }
 
@@ -888,11 +888,11 @@ namespace Io.Gate.GateApi.Api
         /// Initiate a flash swap order preview 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>FlashSwapOrderPreview</returns>
-        public FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapOrderRequest flashSwapOrderRequest)
+        public FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapPreviewRequest flashSwapPreviewRequest)
         {
-             ApiResponse<FlashSwapOrderPreview> localVarResponse = PreviewFlashSwapOrderWithHttpInfo(flashSwapOrderRequest);
+             ApiResponse<FlashSwapOrderPreview> localVarResponse = PreviewFlashSwapOrderWithHttpInfo(flashSwapPreviewRequest);
              return localVarResponse.Data;
         }
 
@@ -900,13 +900,13 @@ namespace Io.Gate.GateApi.Api
         /// Initiate a flash swap order preview 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>ApiResponse of FlashSwapOrderPreview</returns>
-        public ApiResponse<FlashSwapOrderPreview> PreviewFlashSwapOrderWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest)
+        public ApiResponse<FlashSwapOrderPreview> PreviewFlashSwapOrderWithHttpInfo (FlashSwapPreviewRequest flashSwapPreviewRequest)
         {
-            // verify the required parameter 'flashSwapOrderRequest' is set
-            if (flashSwapOrderRequest == null)
-                throw new ApiException(400, "Missing required parameter 'flashSwapOrderRequest' when calling FlashSwapApi->PreviewFlashSwapOrder");
+            // verify the required parameter 'flashSwapPreviewRequest' is set
+            if (flashSwapPreviewRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flashSwapPreviewRequest' when calling FlashSwapApi->PreviewFlashSwapOrder");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -925,7 +925,7 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = flashSwapOrderRequest;
+            localVarRequestOptions.Data = flashSwapPreviewRequest;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -946,11 +946,11 @@ namespace Io.Gate.GateApi.Api
         /// Initiate a flash swap order preview 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>Task of FlashSwapOrderPreview</returns>
-        public async Task<FlashSwapOrderPreview> PreviewFlashSwapOrderAsync (FlashSwapOrderRequest flashSwapOrderRequest)
+        public async Task<FlashSwapOrderPreview> PreviewFlashSwapOrderAsync (FlashSwapPreviewRequest flashSwapPreviewRequest)
         {
-             Io.Gate.GateApi.Client.ApiResponse<FlashSwapOrderPreview> localVarResponse = await PreviewFlashSwapOrderAsyncWithHttpInfo(flashSwapOrderRequest);
+             Io.Gate.GateApi.Client.ApiResponse<FlashSwapOrderPreview> localVarResponse = await PreviewFlashSwapOrderAsyncWithHttpInfo(flashSwapPreviewRequest);
              return localVarResponse.Data;
 
         }
@@ -959,13 +959,13 @@ namespace Io.Gate.GateApi.Api
         /// Initiate a flash swap order preview 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="flashSwapOrderRequest"></param>
+        /// <param name="flashSwapPreviewRequest"></param>
         /// <returns>Task of ApiResponse (FlashSwapOrderPreview)</returns>
-        public async Task<ApiResponse<FlashSwapOrderPreview>> PreviewFlashSwapOrderAsyncWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest)
+        public async Task<ApiResponse<FlashSwapOrderPreview>> PreviewFlashSwapOrderAsyncWithHttpInfo (FlashSwapPreviewRequest flashSwapPreviewRequest)
         {
-            // verify the required parameter 'flashSwapOrderRequest' is set
-            if (flashSwapOrderRequest == null)
-                throw new ApiException(400, "Missing required parameter 'flashSwapOrderRequest' when calling FlashSwapApi->PreviewFlashSwapOrder");
+            // verify the required parameter 'flashSwapPreviewRequest' is set
+            if (flashSwapPreviewRequest == null)
+                throw new ApiException(400, "Missing required parameter 'flashSwapPreviewRequest' when calling FlashSwapApi->PreviewFlashSwapOrder");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -985,7 +985,7 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
-            localVarRequestOptions.Data = flashSwapOrderRequest;
+            localVarRequestOptions.Data = flashSwapPreviewRequest;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

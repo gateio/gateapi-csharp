@@ -1939,7 +1939,7 @@ Name | Type | Description  | Notes
 
 Create a futures order
 
-- Creating futures orders requires `size`, which is number of contracts instead of currency amount. You can use `quanto_multiplier` in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set `reduce_only` to `true` can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set `size` to 0 and `close` to `true` - In dual position mode, to close one side position, you need to set `auto_size` side, `reduce_only` to true and `size` to 0
+- Creating futures orders requires `size`, which is number of contracts instead of currency amount. You can use `quanto_multiplier` in contract detail response to know how much currency 1 size contract represents - Zero-filled order cannot be retrieved 10 minutes after order cancellation. You will get a 404 not found for such orders - Set `reduce_only` to `true` can keep the position from changing side when reducing position size - In single position mode, to close a position, you need to set `size` to 0 and `close` to `true` - In dual position mode, to close one side position, you need to set `auto_size` side, `reduce_only` to true and `size` to 0 - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body 
 
 ### Example
 ```csharp
@@ -2413,7 +2413,7 @@ namespace Example
             var order = 12345;  // long? | Futures order ID, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
-            var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
+            var lastId = "12345";  // string | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using 'GET /futures/{settle}/my_trades_timerange'. (optional) 
 
             try
             {
@@ -2442,7 +2442,7 @@ Name | Type | Description  | Notes
  **order** | **long?**| Futures order ID, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
- **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
+ **lastId** | **string**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. If you need to iterate through and retrieve more records, we recommend using &#39;GET /futures/{settle}/my_trades_timerange&#39;. | [optional] 
 
 ### Return type
 
@@ -2466,7 +2466,7 @@ Name | Type | Description  | Notes
 
 <a name="getmytradeswithtimerange"></a>
 # **GetMyTradesWithTimeRange**
-> List&lt;MyFuturesTrade&gt; GetMyTradesWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+> List&lt;MyFuturesTradeTimeRange&gt; GetMyTradesWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
 List personal trading history by time range
 
@@ -2499,7 +2499,7 @@ namespace Example
             try
             {
                 // List personal trading history by time range
-                List<MyFuturesTrade> result = apiInstance.GetMyTradesWithTimeRange(settle, contract, from, to, limit, offset);
+                List<MyFuturesTradeTimeRange> result = apiInstance.GetMyTradesWithTimeRange(settle, contract, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2527,7 +2527,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;MyFuturesTrade&gt;**](MyFuturesTrade.md)
+[**List&lt;MyFuturesTradeTimeRange&gt;**](MyFuturesTradeTimeRange.md)
 
 ### Authorization
 

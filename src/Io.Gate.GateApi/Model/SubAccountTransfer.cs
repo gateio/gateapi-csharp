@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="direction")]
         public DirectionEnum Direction { get; set; }
         /// <summary>
-        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
+        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
         /// </summary>
-        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
+        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SubAccountTypeEnum
         {
@@ -80,14 +80,20 @@ namespace Io.Gate.GateApi.Model
             /// Enum Crossmargin for value: cross_margin
             /// </summary>
             [EnumMember(Value = "cross_margin")]
-            Crossmargin = 3
+            Crossmargin = 3,
+
+            /// <summary>
+            /// Enum Delivery for value: delivery
+            /// </summary>
+            [EnumMember(Value = "delivery")]
+            Delivery = 4
 
         }
 
         /// <summary>
-        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
+        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
         /// </summary>
-        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
+        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account</value>
         [DataMember(Name="sub_account_type")]
         public SubAccountTypeEnum? SubAccountType { get; set; }
         /// <summary>
@@ -102,7 +108,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="subAccount">Sub account user ID (required).</param>
         /// <param name="direction">Transfer direction. to - transfer into sub account; from - transfer out from sub account (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
-        /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account (default to SubAccountTypeEnum.Spot).</param>
+        /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account (default to SubAccountTypeEnum.Spot).</param>
         public SubAccountTransfer(string currency = default(string), string subAccount = default(string), DirectionEnum direction = default(DirectionEnum), string amount = default(string), SubAccountTypeEnum? subAccountType = SubAccountTypeEnum.Spot)
         {
             // to ensure "currency" is required (not null)

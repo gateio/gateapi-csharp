@@ -37,12 +37,22 @@ namespace Io.Gate.GateApi.Model
         /// <param name="freeze">Locked amount.</param>
         /// <param name="borrowed">Borrowed amount.</param>
         /// <param name="interest">Unpaid interests.</param>
-        public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string))
+        /// <param name="negativeLiab">Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0].</param>
+        /// <param name="futuresPosLiab">Borrowing to Open Positions in Futures.</param>
+        /// <param name="equity">Equity. Formula: available + freeze - borrowed + total + unrealized_pnl.</param>
+        /// <param name="totalFreeze">Total freeze. Formula: position_initial_margin + order_margin.</param>
+        /// <param name="totalLiab">Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab.</param>
+        public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string))
         {
             this.Available = available;
             this.Freeze = freeze;
             this.Borrowed = borrowed;
             this.Interest = interest;
+            this.NegativeLiab = negativeLiab;
+            this.FuturesPosLiab = futuresPosLiab;
+            this.Equity = equity;
+            this.TotalFreeze = totalFreeze;
+            this.TotalLiab = totalLiab;
         }
 
         /// <summary>
@@ -74,6 +84,41 @@ namespace Io.Gate.GateApi.Model
         public string Interest { get; set; }
 
         /// <summary>
+        /// Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0]
+        /// </summary>
+        /// <value>Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0]</value>
+        [DataMember(Name="negative_liab")]
+        public string NegativeLiab { get; set; }
+
+        /// <summary>
+        /// Borrowing to Open Positions in Futures
+        /// </summary>
+        /// <value>Borrowing to Open Positions in Futures</value>
+        [DataMember(Name="futures_pos_liab")]
+        public string FuturesPosLiab { get; set; }
+
+        /// <summary>
+        /// Equity. Formula: available + freeze - borrowed + total + unrealized_pnl
+        /// </summary>
+        /// <value>Equity. Formula: available + freeze - borrowed + total + unrealized_pnl</value>
+        [DataMember(Name="equity")]
+        public string Equity { get; set; }
+
+        /// <summary>
+        /// Total freeze. Formula: position_initial_margin + order_margin
+        /// </summary>
+        /// <value>Total freeze. Formula: position_initial_margin + order_margin</value>
+        [DataMember(Name="total_freeze")]
+        public string TotalFreeze { get; set; }
+
+        /// <summary>
+        /// Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab
+        /// </summary>
+        /// <value>Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab</value>
+        [DataMember(Name="total_liab")]
+        public string TotalLiab { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +130,11 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Freeze: ").Append(Freeze).Append("\n");
             sb.Append("  Borrowed: ").Append(Borrowed).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
+            sb.Append("  NegativeLiab: ").Append(NegativeLiab).Append("\n");
+            sb.Append("  FuturesPosLiab: ").Append(FuturesPosLiab).Append("\n");
+            sb.Append("  Equity: ").Append(Equity).Append("\n");
+            sb.Append("  TotalFreeze: ").Append(TotalFreeze).Append("\n");
+            sb.Append("  TotalLiab: ").Append(TotalLiab).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +188,31 @@ namespace Io.Gate.GateApi.Model
                     this.Interest == input.Interest ||
                     (this.Interest != null &&
                     this.Interest.Equals(input.Interest))
+                ) && 
+                (
+                    this.NegativeLiab == input.NegativeLiab ||
+                    (this.NegativeLiab != null &&
+                    this.NegativeLiab.Equals(input.NegativeLiab))
+                ) && 
+                (
+                    this.FuturesPosLiab == input.FuturesPosLiab ||
+                    (this.FuturesPosLiab != null &&
+                    this.FuturesPosLiab.Equals(input.FuturesPosLiab))
+                ) && 
+                (
+                    this.Equity == input.Equity ||
+                    (this.Equity != null &&
+                    this.Equity.Equals(input.Equity))
+                ) && 
+                (
+                    this.TotalFreeze == input.TotalFreeze ||
+                    (this.TotalFreeze != null &&
+                    this.TotalFreeze.Equals(input.TotalFreeze))
+                ) && 
+                (
+                    this.TotalLiab == input.TotalLiab ||
+                    (this.TotalLiab != null &&
+                    this.TotalLiab.Equals(input.TotalLiab))
                 );
         }
 
@@ -158,6 +233,16 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Borrowed.GetHashCode();
                 if (this.Interest != null)
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
+                if (this.NegativeLiab != null)
+                    hashCode = hashCode * 59 + this.NegativeLiab.GetHashCode();
+                if (this.FuturesPosLiab != null)
+                    hashCode = hashCode * 59 + this.FuturesPosLiab.GetHashCode();
+                if (this.Equity != null)
+                    hashCode = hashCode * 59 + this.Equity.GetHashCode();
+                if (this.TotalFreeze != null)
+                    hashCode = hashCode * 59 + this.TotalFreeze.GetHashCode();
+                if (this.TotalLiab != null)
+                    hashCode = hashCode * 59 + this.TotalLiab.GetHashCode();
                 return hashCode;
             }
         }

@@ -38,20 +38,23 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlashSwapOrderRequest" /> class.
         /// </summary>
-        /// <param name="previewId">Preview result ID.</param>
+        /// <param name="previewId">Preview result ID (required).</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (required).</param>
-        /// <param name="sellAmount">Amount to sell. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;.</param>
+        /// <param name="sellAmount">Amount to sell (based on the preview result) (required).</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (required).</param>
-        /// <param name="buyAmount">Amount to buy. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;.</param>
+        /// <param name="buyAmount">Amount to buy (based on the preview result) (required).</param>
         public FlashSwapOrderRequest(string previewId = default(string), string sellCurrency = default(string), string sellAmount = default(string), string buyCurrency = default(string), string buyAmount = default(string))
         {
+            // to ensure "previewId" is required (not null)
+            this.PreviewId = previewId ?? throw new ArgumentNullException("previewId", "previewId is a required property for FlashSwapOrderRequest and cannot be null");
             // to ensure "sellCurrency" is required (not null)
             this.SellCurrency = sellCurrency ?? throw new ArgumentNullException("sellCurrency", "sellCurrency is a required property for FlashSwapOrderRequest and cannot be null");
+            // to ensure "sellAmount" is required (not null)
+            this.SellAmount = sellAmount ?? throw new ArgumentNullException("sellAmount", "sellAmount is a required property for FlashSwapOrderRequest and cannot be null");
             // to ensure "buyCurrency" is required (not null)
             this.BuyCurrency = buyCurrency ?? throw new ArgumentNullException("buyCurrency", "buyCurrency is a required property for FlashSwapOrderRequest and cannot be null");
-            this.PreviewId = previewId;
-            this.SellAmount = sellAmount;
-            this.BuyAmount = buyAmount;
+            // to ensure "buyAmount" is required (not null)
+            this.BuyAmount = buyAmount ?? throw new ArgumentNullException("buyAmount", "buyAmount is a required property for FlashSwapOrderRequest and cannot be null");
         }
 
         /// <summary>
@@ -69,9 +72,9 @@ namespace Io.Gate.GateApi.Model
         public string SellCurrency { get; set; }
 
         /// <summary>
-        /// Amount to sell. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;
+        /// Amount to sell (based on the preview result)
         /// </summary>
-        /// <value>Amount to sell. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;</value>
+        /// <value>Amount to sell (based on the preview result)</value>
         [DataMember(Name="sell_amount")]
         public string SellAmount { get; set; }
 
@@ -83,9 +86,9 @@ namespace Io.Gate.GateApi.Model
         public string BuyCurrency { get; set; }
 
         /// <summary>
-        /// Amount to buy. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;
+        /// Amount to buy (based on the preview result)
         /// </summary>
-        /// <value>Amount to buy. It is required to choose one parameter between &#x60;sell_amount&#x60; and &#x60;buy_amount&#x60;</value>
+        /// <value>Amount to buy (based on the preview result)</value>
         [DataMember(Name="buy_amount")]
         public string BuyAmount { get; set; }
 

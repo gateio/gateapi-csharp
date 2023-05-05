@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Loan record ID | [optional] 
 **CreateTime** | **long** | Repayment time | [optional] 
-**LoanId** | **string** | Borrow loan ID | [optional] 
+**LoanId** | **string** | Loan record ID | [optional] 
 **Currency** | **string** | Currency name | [optional] 
 **Principal** | **string** | Repaid principal | [optional] 
 **Interest** | **string** | Repaid interest | [optional] 

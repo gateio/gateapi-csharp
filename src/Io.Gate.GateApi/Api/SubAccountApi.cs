@@ -34,8 +34,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>List&lt;SubAccount&gt;</returns>
-        List<SubAccount> ListSubAccounts ();
+        List<SubAccount> ListSubAccounts (string type = default(string));
 
         /// <summary>
         /// List sub-accounts
@@ -44,8 +45,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccount&gt;</returns>
-        ApiResponse<List<SubAccount>> ListSubAccountsWithHttpInfo ();
+        ApiResponse<List<SubAccount>> ListSubAccountsWithHttpInfo (string type = default(string));
         /// <summary>
         /// Create a new sub-account
         /// </summary>
@@ -261,8 +263,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>Task of List&lt;SubAccount&gt;</returns>
-        Task<List<SubAccount>> ListSubAccountsAsync ();
+        Task<List<SubAccount>> ListSubAccountsAsync (string type = default(string));
 
         /// <summary>
         /// List sub-accounts
@@ -271,8 +274,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccount&gt;)</returns>
-        Task<ApiResponse<List<SubAccount>>> ListSubAccountsAsyncWithHttpInfo ();
+        Task<ApiResponse<List<SubAccount>>> ListSubAccountsAsyncWithHttpInfo (string type = default(string));
         /// <summary>
         /// Create a new sub-account
         /// </summary>
@@ -596,10 +600,11 @@ namespace Io.Gate.GateApi.Api
         /// List sub-accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>List&lt;SubAccount&gt;</returns>
-        public List<SubAccount> ListSubAccounts ()
+        public List<SubAccount> ListSubAccounts (string type = default(string))
         {
-             ApiResponse<List<SubAccount>> localVarResponse = ListSubAccountsWithHttpInfo();
+             ApiResponse<List<SubAccount>> localVarResponse = ListSubAccountsWithHttpInfo(type);
              return localVarResponse.Data;
         }
 
@@ -607,8 +612,9 @@ namespace Io.Gate.GateApi.Api
         /// List sub-accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>ApiResponse of List&lt;SubAccount&gt;</returns>
-        public ApiResponse<List<SubAccount>> ListSubAccountsWithHttpInfo ()
+        public ApiResponse<List<SubAccount>> ListSubAccountsWithHttpInfo (string type = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -626,6 +632,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -646,10 +656,11 @@ namespace Io.Gate.GateApi.Api
         /// List sub-accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>Task of List&lt;SubAccount&gt;</returns>
-        public async Task<List<SubAccount>> ListSubAccountsAsync ()
+        public async Task<List<SubAccount>> ListSubAccountsAsync (string type = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<SubAccount>> localVarResponse = await ListSubAccountsAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<List<SubAccount>> localVarResponse = await ListSubAccountsAsyncWithHttpInfo(type);
              return localVarResponse.Data;
 
         }
@@ -658,8 +669,9 @@ namespace Io.Gate.GateApi.Api
         /// List sub-accounts 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccount&gt;)</returns>
-        public async Task<ApiResponse<List<SubAccount>>> ListSubAccountsAsyncWithHttpInfo ()
+        public async Task<ApiResponse<List<SubAccount>>> ListSubAccountsAsyncWithHttpInfo (string type = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -678,6 +690,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

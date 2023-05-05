@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="listsubaccounts"></a>
 # **ListSubAccounts**
-> List&lt;SubAccount&gt; ListSubAccounts ()
+> List&lt;SubAccount&gt; ListSubAccounts (string type = null)
 
 List sub-accounts
 
@@ -41,11 +41,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
+            var type = "0";  // string | `0` to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  `1` to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional) 
 
             try
             {
                 // List sub-accounts
-                List<SubAccount> result = apiInstance.ListSubAccounts();
+                List<SubAccount> result = apiInstance.ListSubAccounts(type);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -61,7 +62,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **string**| &#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. | [optional] 
 
 ### Return type
 

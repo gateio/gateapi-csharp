@@ -42,7 +42,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="loginName">Sub-account login name: Only letters, numbers and underscores are supported, and cannot contain other illegal characters (required).</param>
         /// <param name="password">The sub-account&#39;s password. (Default: the same as main account&#39;s password).</param>
         /// <param name="email">The sub-account&#39;s email address. (Default: the same as main account&#39;s email address).</param>
-        /// <param name="type">Type: 1-Sub-account.</param>
+        /// <param name="type">\&quot;Sub-account type: 1 - sub-account, 3 - cross margin account.</param>
         public SubAccount(string remark = default(string), string loginName = default(string), string password = default(string), string email = default(string), int type = default(int))
         {
             // to ensure "loginName" is required (not null)
@@ -89,9 +89,9 @@ namespace Io.Gate.GateApi.Model
         public int State { get; private set; }
 
         /// <summary>
-        /// Type: 1-Sub-account
+        /// \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account
         /// </summary>
-        /// <value>Type: 1-Sub-account</value>
+        /// <value>\&quot;Sub-account type: 1 - sub-account, 3 - cross margin account</value>
         [DataMember(Name="type")]
         public int Type { get; set; }
 

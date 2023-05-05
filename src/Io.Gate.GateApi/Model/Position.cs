@@ -223,9 +223,9 @@ namespace Io.Gate.GateApi.Model
         public string HistoryPoint { get; private set; }
 
         /// <summary>
-        /// ADL ranking, ranging from 1 to 5
+        /// Ranking of auto deleveraging, a total of 1-5 grades, &#x60;1&#x60; is the highest, &#x60;5&#x60; is the lowest, and &#x60;6&#x60; is the special case when there is no position held or in liquidation
         /// </summary>
-        /// <value>ADL ranking, ranging from 1 to 5</value>
+        /// <value>Ranking of auto deleveraging, a total of 1-5 grades, &#x60;1&#x60; is the highest, &#x60;5&#x60; is the lowest, and &#x60;6&#x60; is the special case when there is no position held or in liquidation</value>
         [DataMember(Name="adl_ranking", EmitDefaultValue=false)]
         public int AdlRanking { get; private set; }
 

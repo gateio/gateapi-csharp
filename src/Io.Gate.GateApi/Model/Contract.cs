@@ -121,7 +121,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="ordersLimit">Maximum number of open orders.</param>
         /// <param name="enableBonus">Whether bouns is enabled.</param>
         /// <param name="enableCredit">Whether portfolio margin account is enabled.</param>
-        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool))
+        /// <param name="createTime">Created time of the contract.</param>
+        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double))
         {
             this.Name = name;
             this.Type = type;
@@ -157,6 +158,7 @@ namespace Io.Gate.GateApi.Model
             this.OrdersLimit = ordersLimit;
             this.EnableBonus = enableBonus;
             this.EnableCredit = enableCredit;
+            this.CreateTime = createTime;
         }
 
         /// <summary>
@@ -384,6 +386,13 @@ namespace Io.Gate.GateApi.Model
         public bool EnableCredit { get; set; }
 
         /// <summary>
+        /// Created time of the contract
+        /// </summary>
+        /// <value>Created time of the contract</value>
+        [DataMember(Name="create_time")]
+        public double CreateTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -425,6 +434,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  OrdersLimit: ").Append(OrdersLimit).Append("\n");
             sb.Append("  EnableBonus: ").Append(EnableBonus).Append("\n");
             sb.Append("  EnableCredit: ").Append(EnableCredit).Append("\n");
+            sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -613,6 +623,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.EnableCredit == input.EnableCredit ||
                     this.EnableCredit.Equals(input.EnableCredit)
+                ) && 
+                (
+                    this.CreateTime == input.CreateTime ||
+                    this.CreateTime.Equals(input.CreateTime)
                 );
         }
 
@@ -678,6 +692,7 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.OrdersLimit.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableBonus.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCredit.GetHashCode();
+                hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 return hashCode;
             }
         }

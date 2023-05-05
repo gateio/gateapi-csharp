@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 <a name="previewflashswaporder"></a>
 # **PreviewFlashSwapOrder**
-> FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapOrderRequest flashSwapOrderRequest)
+> FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapPreviewRequest flashSwapPreviewRequest)
 
 Initiate a flash swap order preview
 
@@ -326,12 +326,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new FlashSwapApi(config);
-            var flashSwapOrderRequest = new FlashSwapOrderRequest(); // FlashSwapOrderRequest | 
+            var flashSwapPreviewRequest = new FlashSwapPreviewRequest(); // FlashSwapPreviewRequest | 
 
             try
             {
                 // Initiate a flash swap order preview
-                FlashSwapOrderPreview result = apiInstance.PreviewFlashSwapOrder(flashSwapOrderRequest);
+                FlashSwapOrderPreview result = apiInstance.PreviewFlashSwapOrder(flashSwapPreviewRequest);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -350,7 +350,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **flashSwapOrderRequest** | [**FlashSwapOrderRequest**](FlashSwapOrderRequest.md)|  | 
+ **flashSwapPreviewRequest** | [**FlashSwapPreviewRequest**](FlashSwapPreviewRequest.md)|  | 
 
 ### Return type
 

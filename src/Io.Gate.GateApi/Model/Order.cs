@@ -190,6 +190,90 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="time_in_force")]
         public TimeInForceEnum? TimeInForce { get; set; }
         /// <summary>
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// </summary>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StpActEnum
+        {
+            /// <summary>
+            /// Enum Cn for value: cn
+            /// </summary>
+            [EnumMember(Value = "cn")]
+            Cn = 1,
+
+            /// <summary>
+            /// Enum Co for value: co
+            /// </summary>
+            [EnumMember(Value = "co")]
+            Co = 2,
+
+            /// <summary>
+            /// Enum Cb for value: cb
+            /// </summary>
+            [EnumMember(Value = "cb")]
+            Cb = 3,
+
+            /// <summary>
+            /// Enum Minus for value: -
+            /// </summary>
+            [EnumMember(Value = "-")]
+            Minus = 4
+
+        }
+
+        /// <summary>
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// </summary>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        [DataMember(Name="stp_act")]
+        public StpActEnum? StpAct { get; set; }
+        /// <summary>
+        /// How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+        /// </summary>
+        /// <value>How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FinishAsEnum
+        {
+            /// <summary>
+            /// Enum Open for value: open
+            /// </summary>
+            [EnumMember(Value = "open")]
+            Open = 1,
+
+            /// <summary>
+            /// Enum Filled for value: filled
+            /// </summary>
+            [EnumMember(Value = "filled")]
+            Filled = 2,
+
+            /// <summary>
+            /// Enum Cancelled for value: cancelled
+            /// </summary>
+            [EnumMember(Value = "cancelled")]
+            Cancelled = 3,
+
+            /// <summary>
+            /// Enum Ioc for value: ioc
+            /// </summary>
+            [EnumMember(Value = "ioc")]
+            Ioc = 4,
+
+            /// <summary>
+            /// Enum Stp for value: stp
+            /// </summary>
+            [EnumMember(Value = "stp")]
+            Stp = 5
+
+        }
+
+        /// <summary>
+        /// How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+        /// </summary>
+        /// <value>How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention </value>
+        [DataMember(Name="finish_as", EmitDefaultValue=false)]
+        public FinishAsEnum? FinishAs { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -208,7 +292,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported..</param>
         /// <param name="autoBorrow">Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough..</param>
         /// <param name="autoRepay">Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; cannot be both set to true in one order..</param>
-        public Order(string text = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, AccountEnum? account = AccountEnum.Spot, SideEnum side = default(SideEnum), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string iceberg = default(string), bool autoBorrow = default(bool), bool autoRepay = default(bool))
+        /// <param name="stpAct">Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled.</param>
+        public Order(string text = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, AccountEnum? account = AccountEnum.Spot, SideEnum side = default(SideEnum), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string iceberg = default(string), bool autoBorrow = default(bool), bool autoRepay = default(bool), StpActEnum? stpAct = default(StpActEnum?))
         {
             // to ensure "currencyPair" is required (not null)
             this.CurrencyPair = currencyPair ?? throw new ArgumentNullException("currencyPair", "currencyPair is a required property for Order and cannot be null");
@@ -223,6 +308,7 @@ namespace Io.Gate.GateApi.Model
             this.Iceberg = iceberg;
             this.AutoBorrow = autoBorrow;
             this.AutoRepay = autoRepay;
+            this.StpAct = stpAct;
         }
 
         /// <summary>
@@ -238,6 +324,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 </value>
         [DataMember(Name="text")]
         public string Text { get; set; }
+
+        /// <summary>
+        /// The custom data that the user remarked when amending the order
+        /// </summary>
+        /// <value>The custom data that the user remarked when amending the order</value>
+        [DataMember(Name="amend_text", EmitDefaultValue=false)]
+        public string AmendText { get; private set; }
 
         /// <summary>
         /// Creation time of order
@@ -401,6 +494,13 @@ namespace Io.Gate.GateApi.Model
         public string RebatedFeeCurrency { get; private set; }
 
         /// <summary>
+        /// Orders between users in the same &#x60;stp_id&#x60; group are not allowed to be self-traded  1. If the &#x60;stp_id&#x60; of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the &#x60;stp_act&#x60; of the taker. 2. &#x60;stp_id&#x60; returns &#x60;0&#x60; by default for orders that have not been set for &#x60;STP group&#x60;
+        /// </summary>
+        /// <value>Orders between users in the same &#x60;stp_id&#x60; group are not allowed to be self-traded  1. If the &#x60;stp_id&#x60; of two orders being matched is non-zero and equal, they will not be executed. Instead, the corresponding strategy will be executed based on the &#x60;stp_act&#x60; of the taker. 2. &#x60;stp_id&#x60; returns &#x60;0&#x60; by default for orders that have not been set for &#x60;STP group&#x60;</value>
+        [DataMember(Name="stp_id", EmitDefaultValue=false)]
+        public int StpId { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -410,6 +510,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class Order {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  AmendText: ").Append(AmendText).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
             sb.Append("  CreateTimeMs: ").Append(CreateTimeMs).Append("\n");
@@ -438,6 +539,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  GtDiscount: ").Append(GtDiscount).Append("\n");
             sb.Append("  RebatedFee: ").Append(RebatedFee).Append("\n");
             sb.Append("  RebatedFeeCurrency: ").Append(RebatedFeeCurrency).Append("\n");
+            sb.Append("  StpId: ").Append(StpId).Append("\n");
+            sb.Append("  StpAct: ").Append(StpAct).Append("\n");
+            sb.Append("  FinishAs: ").Append(FinishAs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -481,6 +585,11 @@ namespace Io.Gate.GateApi.Model
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.AmendText == input.AmendText ||
+                    (this.AmendText != null &&
+                    this.AmendText.Equals(input.AmendText))
                 ) && 
                 (
                     this.CreateTime == input.CreateTime ||
@@ -611,6 +720,18 @@ namespace Io.Gate.GateApi.Model
                     this.RebatedFeeCurrency == input.RebatedFeeCurrency ||
                     (this.RebatedFeeCurrency != null &&
                     this.RebatedFeeCurrency.Equals(input.RebatedFeeCurrency))
+                ) && 
+                (
+                    this.StpId == input.StpId ||
+                    this.StpId.Equals(input.StpId)
+                ) && 
+                (
+                    this.StpAct == input.StpAct ||
+                    this.StpAct.Equals(input.StpAct)
+                ) && 
+                (
+                    this.FinishAs == input.FinishAs ||
+                    this.FinishAs.Equals(input.FinishAs)
                 );
         }
 
@@ -627,6 +748,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.AmendText != null)
+                    hashCode = hashCode * 59 + this.AmendText.GetHashCode();
                 if (this.CreateTime != null)
                     hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 if (this.UpdateTime != null)
@@ -673,6 +796,9 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.RebatedFee.GetHashCode();
                 if (this.RebatedFeeCurrency != null)
                     hashCode = hashCode * 59 + this.RebatedFeeCurrency.GetHashCode();
+                hashCode = hashCode * 59 + this.StpId.GetHashCode();
+                hashCode = hashCode * 59 + this.StpAct.GetHashCode();
+                hashCode = hashCode * 59 + this.FinishAs.GetHashCode();
                 return hashCode;
             }
         }

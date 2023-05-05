@@ -100,7 +100,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="feeCurrency">Fee currency unit. No value in public endpoints.</param>
         /// <param name="pointFee">Points used to deduct fee. No value in public endpoints.</param>
         /// <param name="gtFee">GT used to deduct fee. No value in public endpoints.</param>
-        public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string))
+        /// <param name="amendText">The custom data that the user remarked when amending the order.</param>
+        public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string), string amendText = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
@@ -115,6 +116,7 @@ namespace Io.Gate.GateApi.Model
             this.FeeCurrency = feeCurrency;
             this.PointFee = pointFee;
             this.GtFee = gtFee;
+            this.AmendText = amendText;
         }
 
         /// <summary>
@@ -195,6 +197,13 @@ namespace Io.Gate.GateApi.Model
         public string GtFee { get; set; }
 
         /// <summary>
+        /// The custom data that the user remarked when amending the order
+        /// </summary>
+        /// <value>The custom data that the user remarked when amending the order</value>
+        [DataMember(Name="amend_text")]
+        public string AmendText { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -215,6 +224,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FeeCurrency: ").Append(FeeCurrency).Append("\n");
             sb.Append("  PointFee: ").Append(PointFee).Append("\n");
             sb.Append("  GtFee: ").Append(GtFee).Append("\n");
+            sb.Append("  AmendText: ").Append(AmendText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -311,6 +321,11 @@ namespace Io.Gate.GateApi.Model
                     this.GtFee == input.GtFee ||
                     (this.GtFee != null &&
                     this.GtFee.Equals(input.GtFee))
+                ) && 
+                (
+                    this.AmendText == input.AmendText ||
+                    (this.AmendText != null &&
+                    this.AmendText.Equals(input.AmendText))
                 );
         }
 
@@ -347,6 +362,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.PointFee.GetHashCode();
                 if (this.GtFee != null)
                     hashCode = hashCode * 59 + this.GtFee.GetHashCode();
+                if (this.AmendText != null)
+                    hashCode = hashCode * 59 + this.AmendText.GetHashCode();
                 return hashCode;
             }
         }

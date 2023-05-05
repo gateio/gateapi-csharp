@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **OrdersLimit** | **int** | Maximum number of open orders | [optional] 
 **EnableBonus** | **bool** | Whether bouns is enabled | [optional] 
 **EnableCredit** | **bool** | Whether portfolio margin account is enabled | [optional] 
+**CreateTime** | **double** | Created time of the contract | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
