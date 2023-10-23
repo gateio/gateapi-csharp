@@ -92,6 +92,13 @@ namespace Io.Gate.GateApi.Model
         public string Interest { get; set; }
 
         /// <summary>
+        /// Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+        /// </summary>
+        /// <value>Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation</value>
+        [DataMember(Name="repayment_type", EmitDefaultValue=false)]
+        public string RepaymentType { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +112,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Principal: ").Append(Principal).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
+            sb.Append("  RepaymentType: ").Append(RepaymentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +175,11 @@ namespace Io.Gate.GateApi.Model
                     this.Interest == input.Interest ||
                     (this.Interest != null &&
                     this.Interest.Equals(input.Interest))
+                ) && 
+                (
+                    this.RepaymentType == input.RepaymentType ||
+                    (this.RepaymentType != null &&
+                    this.RepaymentType.Equals(input.RepaymentType))
                 );
         }
 
@@ -190,6 +203,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Principal.GetHashCode();
                 if (this.Interest != null)
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
+                if (this.RepaymentType != null)
+                    hashCode = hashCode * 59 + this.RepaymentType.GetHashCode();
                 return hashCode;
             }
         }

@@ -144,8 +144,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>List&lt;FuturesCandlestick&gt;</returns>
-        List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
+        /// <returns>List&lt;DeliveryCandlestick&gt;</returns>
+        List<DeliveryCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
         /// <summary>
         /// Get futures candlesticks
@@ -160,8 +160,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
-        ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
+        /// <returns>ApiResponse of List&lt;DeliveryCandlestick&gt;</returns>
+        ApiResponse<List<DeliveryCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
         /// List futures tickers
         /// </summary>
@@ -863,8 +863,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
-        Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
+        /// <returns>Task of List&lt;DeliveryCandlestick&gt;</returns>
+        Task<List<DeliveryCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
 
         /// <summary>
         /// Get futures candlesticks
@@ -879,8 +879,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
-        Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
+        /// <returns>Task of ApiResponse (List&lt;DeliveryCandlestick&gt;)</returns>
+        Task<ApiResponse<List<DeliveryCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string));
         /// <summary>
         /// List futures tickers
         /// </summary>
@@ -2164,10 +2164,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>List&lt;FuturesCandlestick&gt;</returns>
-        public List<FuturesCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
+        /// <returns>List&lt;DeliveryCandlestick&gt;</returns>
+        public List<DeliveryCandlestick> ListDeliveryCandlesticks (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
-             ApiResponse<List<FuturesCandlestick>> localVarResponse = ListDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
+             ApiResponse<List<DeliveryCandlestick>> localVarResponse = ListDeliveryCandlesticksWithHttpInfo(settle, contract, from, to, limit, interval);
              return localVarResponse.Data;
         }
 
@@ -2181,8 +2181,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
-        public ApiResponse<List<FuturesCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
+        /// <returns>ApiResponse of List&lt;DeliveryCandlestick&gt;</returns>
+        public ApiResponse<List<DeliveryCandlestick>> ListDeliveryCandlesticksWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2229,7 +2229,7 @@ namespace Io.Gate.GateApi.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<FuturesCandlestick>>("/delivery/{settle}/candlesticks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<DeliveryCandlestick>>("/delivery/{settle}/candlesticks", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2250,10 +2250,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
-        public async Task<List<FuturesCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
+        /// <returns>Task of List&lt;DeliveryCandlestick&gt;</returns>
+        public async Task<List<DeliveryCandlestick>> ListDeliveryCandlesticksAsync (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FuturesCandlestick>> localVarResponse = await ListDeliveryCandlesticksAsyncWithHttpInfo(settle, contract, from, to, limit, interval);
+             Io.Gate.GateApi.Client.ApiResponse<List<DeliveryCandlestick>> localVarResponse = await ListDeliveryCandlesticksAsyncWithHttpInfo(settle, contract, from, to, limit, interval);
              return localVarResponse.Data;
 
         }
@@ -2268,8 +2268,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to 5m)</param>
-        /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
+        /// <returns>Task of ApiResponse (List&lt;DeliveryCandlestick&gt;)</returns>
+        public async Task<ApiResponse<List<DeliveryCandlestick>>> ListDeliveryCandlesticksAsyncWithHttpInfo (string settle, string contract, long? from = default(long?), long? to = default(long?), int? limit = default(int?), string interval = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -2318,7 +2318,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FuturesCandlestick>>("/delivery/{settle}/candlesticks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<DeliveryCandlestick>>("/delivery/{settle}/candlesticks", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

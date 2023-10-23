@@ -4,7 +4,8 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListFlashSwapCurrencies**](FlashSwapApi.md#listflashswapcurrencies) | **GET** /flash_swap/currencies | List all supported currencies in flash swap
+[**ListFlashSwapCurrencies**](FlashSwapApi.md#listflashswapcurrencies) | **GET** /flash_swap/currencies | List All Supported Currencies In Flash Swap (deprecated)
+[**ListFlashSwapCurrencyPair**](FlashSwapApi.md#listflashswapcurrencypair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 [**ListFlashSwapOrders**](FlashSwapApi.md#listflashswaporders) | **GET** /flash_swap/orders | List all flash swap orders
 [**CreateFlashSwapOrder**](FlashSwapApi.md#createflashswaporder) | **POST** /flash_swap/orders | Create a flash swap order
 [**GetFlashSwapOrder**](FlashSwapApi.md#getflashswaporder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail
@@ -15,7 +16,7 @@ Method | HTTP request | Description
 # **ListFlashSwapCurrencies**
 > List&lt;FlashSwapCurrency&gt; ListFlashSwapCurrencies ()
 
-List all supported currencies in flash swap
+List All Supported Currencies In Flash Swap (deprecated)
 
 ### Example
 ```csharp
@@ -37,7 +38,7 @@ namespace Example
 
             try
             {
-                // List all supported currencies in flash swap
+                // List All Supported Currencies In Flash Swap (deprecated)
                 List<FlashSwapCurrency> result = apiInstance.ListFlashSwapCurrencies();
                 Debug.WriteLine(result);
             }
@@ -59,6 +60,77 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;FlashSwapCurrency&gt;**](FlashSwapCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listflashswapcurrencypair"></a>
+# **ListFlashSwapCurrencyPair**
+> List&lt;FlashSwapCurrencyPair&gt; ListFlashSwapCurrencyPair (string currency = null)
+
+List All Supported Currency Pairs In Flash Swap
+
+`BTC_GT` represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListFlashSwapCurrencyPairExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new FlashSwapApi(config);
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
+
+            try
+            {
+                // List All Supported Currency Pairs In Flash Swap
+                List<FlashSwapCurrencyPair> result = apiInstance.ListFlashSwapCurrencyPair(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FlashSwapApi.ListFlashSwapCurrencyPair: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
+
+### Return type
+
+[**List&lt;FlashSwapCurrencyPair&gt;**](FlashSwapCurrencyPair.md)
 
 ### Authorization
 

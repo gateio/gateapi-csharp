@@ -46,6 +46,115 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of AccountDetail</returns>
         ApiResponse<AccountDetail> GetAccountDetailWithHttpInfo ();
+        /// <summary>
+        /// List STP Groups
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of STP groups created by the main account user only
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>List&lt;StpGroup&gt;</returns>
+        List<StpGroup> ListSTPGroups (string name = default(string));
+
+        /// <summary>
+        /// List STP Groups
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of STP groups created by the main account user only
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>ApiResponse of List&lt;StpGroup&gt;</returns>
+        ApiResponse<List<StpGroup>> ListSTPGroupsWithHttpInfo (string name = default(string));
+        /// <summary>
+        /// Create STP Group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account is allowed to create a new STP user group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>StpGroup</returns>
+        StpGroup CreateSTPGroup (StpGroup stpGroup);
+
+        /// <summary>
+        /// Create STP Group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account is allowed to create a new STP user group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>ApiResponse of StpGroup</returns>
+        ApiResponse<StpGroup> CreateSTPGroupWithHttpInfo (StpGroup stpGroup);
+        /// <summary>
+        /// List users of the STP group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        List<StpGroupUser> ListSTPGroupsUsers (long stpId);
+
+        /// <summary>
+        /// List users of the STP group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        ApiResponse<List<StpGroupUser>> ListSTPGroupsUsersWithHttpInfo (long stpId);
+        /// <summary>
+        /// Add users to the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        List<StpGroupUser> AddSTPGroupUsers (long stpId, List<long> requestBody);
+
+        /// <summary>
+        /// Add users to the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        ApiResponse<List<StpGroupUser>> AddSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody);
+        /// <summary>
+        /// Delete the user in the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        List<StpGroupUser> DeleteSTPGroupUsers (long stpId, List<long> requestBody);
+
+        /// <summary>
+        /// Delete the user in the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody);
         #endregion Synchronous Operations
     }
 
@@ -74,6 +183,115 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (AccountDetail)</returns>
         Task<ApiResponse<AccountDetail>> GetAccountDetailAsyncWithHttpInfo ();
+        /// <summary>
+        /// List STP Groups
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of STP groups created by the main account user only
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>Task of List&lt;StpGroup&gt;</returns>
+        Task<List<StpGroup>> ListSTPGroupsAsync (string name = default(string));
+
+        /// <summary>
+        /// List STP Groups
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of STP groups created by the main account user only
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroup&gt;)</returns>
+        Task<ApiResponse<List<StpGroup>>> ListSTPGroupsAsyncWithHttpInfo (string name = default(string));
+        /// <summary>
+        /// Create STP Group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account is allowed to create a new STP user group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>Task of StpGroup</returns>
+        Task<StpGroup> CreateSTPGroupAsync (StpGroup stpGroup);
+
+        /// <summary>
+        /// Create STP Group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account is allowed to create a new STP user group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>Task of ApiResponse (StpGroup)</returns>
+        Task<ApiResponse<StpGroup>> CreateSTPGroupAsyncWithHttpInfo (StpGroup stpGroup);
+        /// <summary>
+        /// List users of the STP group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        Task<List<StpGroupUser>> ListSTPGroupsUsersAsync (long stpId);
+
+        /// <summary>
+        /// List users of the STP group
+        /// </summary>
+        /// <remarks>
+        /// Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        Task<ApiResponse<List<StpGroupUser>>> ListSTPGroupsUsersAsyncWithHttpInfo (long stpId);
+        /// <summary>
+        /// Add users to the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        Task<List<StpGroupUser>> AddSTPGroupUsersAsync (long stpId, List<long> requestBody);
+
+        /// <summary>
+        /// Add users to the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        Task<ApiResponse<List<StpGroupUser>>> AddSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody);
+        /// <summary>
+        /// Delete the user in the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, List<long> requestBody);
+
+        /// <summary>
+        /// Delete the user in the STP group
+        /// </summary>
+        /// <remarks>
+        /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody);
         #endregion Asynchronous Operations
     }
 
@@ -291,6 +509,599 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>List&lt;StpGroup&gt;</returns>
+        public List<StpGroup> ListSTPGroups (string name = default(string))
+        {
+             ApiResponse<List<StpGroup>> localVarResponse = ListSTPGroupsWithHttpInfo(name);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>ApiResponse of List&lt;StpGroup&gt;</returns>
+        public ApiResponse<List<StpGroup>> ListSTPGroupsWithHttpInfo (string name = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "name", name));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<StpGroup>>("/account/stp_groups", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSTPGroups", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>Task of List&lt;StpGroup&gt;</returns>
+        public async Task<List<StpGroup>> ListSTPGroupsAsync (string name = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<StpGroup>> localVarResponse = await ListSTPGroupsAsyncWithHttpInfo(name);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroup&gt;)</returns>
+        public async Task<ApiResponse<List<StpGroup>>> ListSTPGroupsAsyncWithHttpInfo (string name = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "name", name));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<StpGroup>>("/account/stp_groups", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSTPGroups", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>StpGroup</returns>
+        public StpGroup CreateSTPGroup (StpGroup stpGroup)
+        {
+             ApiResponse<StpGroup> localVarResponse = CreateSTPGroupWithHttpInfo(stpGroup);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>ApiResponse of StpGroup</returns>
+        public ApiResponse<StpGroup> CreateSTPGroupWithHttpInfo (StpGroup stpGroup)
+        {
+            // verify the required parameter 'stpGroup' is set
+            if (stpGroup == null)
+                throw new ApiException(400, "Missing required parameter 'stpGroup' when calling AccountApi->CreateSTPGroup");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = stpGroup;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<StpGroup>("/account/stp_groups", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateSTPGroup", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>Task of StpGroup</returns>
+        public async Task<StpGroup> CreateSTPGroupAsync (StpGroup stpGroup)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<StpGroup> localVarResponse = await CreateSTPGroupAsyncWithHttpInfo(stpGroup);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpGroup"></param>
+        /// <returns>Task of ApiResponse (StpGroup)</returns>
+        public async Task<ApiResponse<StpGroup>> CreateSTPGroupAsyncWithHttpInfo (StpGroup stpGroup)
+        {
+            // verify the required parameter 'stpGroup' is set
+            if (stpGroup == null)
+                throw new ApiException(400, "Missing required parameter 'stpGroup' when calling AccountApi->CreateSTPGroup");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = stpGroup;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StpGroup>("/account/stp_groups", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateSTPGroup", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List users of the STP group Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        public List<StpGroupUser> ListSTPGroupsUsers (long stpId)
+        {
+             ApiResponse<List<StpGroupUser>> localVarResponse = ListSTPGroupsUsersWithHttpInfo(stpId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List users of the STP group Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        public ApiResponse<List<StpGroupUser>> ListSTPGroupsUsersWithHttpInfo (long stpId)
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSTPGroupsUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List users of the STP group Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        public async Task<List<StpGroupUser>> ListSTPGroupsUsersAsync (long stpId)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<StpGroupUser>> localVarResponse = await ListSTPGroupsUsersAsyncWithHttpInfo(stpId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List users of the STP group Only the main account that created this STP group is allowed to list the user ID of the STP group
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        public async Task<ApiResponse<List<StpGroupUser>>> ListSTPGroupsUsersAsyncWithHttpInfo (long stpId)
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSTPGroupsUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        public List<StpGroupUser> AddSTPGroupUsers (long stpId, List<long> requestBody)
+        {
+             ApiResponse<List<StpGroupUser>> localVarResponse = AddSTPGroupUsersWithHttpInfo(stpId, requestBody);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        public ApiResponse<List<StpGroupUser>> AddSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->AddSTPGroupUsers");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddSTPGroupUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        public async Task<List<StpGroupUser>> AddSTPGroupUsersAsync (long stpId, List<long> requestBody)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<StpGroupUser>> localVarResponse = await AddSTPGroupUsersAsyncWithHttpInfo(stpId, requestBody);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        public async Task<ApiResponse<List<StpGroupUser>>> AddSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->AddSTPGroupUsers");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddSTPGroupUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>List&lt;StpGroupUser&gt;</returns>
+        public List<StpGroupUser> DeleteSTPGroupUsers (long stpId, List<long> requestBody)
+        {
+             ApiResponse<List<StpGroupUser>> localVarResponse = DeleteSTPGroupUsersWithHttpInfo(stpId, requestBody);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
+        public ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->DeleteSTPGroupUsers");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSTPGroupUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
+        public async Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, List<long> requestBody)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<StpGroupUser>> localVarResponse = await DeleteSTPGroupUsersAsyncWithHttpInfo(stpId, requestBody);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="stpId">STP Group ID</param>
+        /// <param name="requestBody">User ID</param>
+        /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
+        public async Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody)
+        {
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->DeleteSTPGroupUsers");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<StpGroupUser>>("/account/stp_groups/{stp_id}/users", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSTPGroupUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

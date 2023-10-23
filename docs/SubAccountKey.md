@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | **string** | User ID | [optional] [readonly] 
+**Mode** | **int** | Mode: 1 - classic 2 - portfolio account | [optional] 
 **Name** | **string** | API key name | [optional] 
 **Perms** | [**List&lt;ApiV4KeyPerm&gt;**](ApiV4KeyPerm.md) |  | [optional] 
 **IpWhitelist** | **List&lt;string&gt;** | ip white list (list will be removed if no value is passed) | [optional] 

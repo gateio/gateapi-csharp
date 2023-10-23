@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class CrossMarginLoan :  IEquatable<CrossMarginLoan>, IValidatableObject
     {
         /// <summary>
-        /// Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
+        /// Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
         /// </summary>
-        /// <value>Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
+        /// <value>Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
         public enum StatusEnum
         {
             /// <summary>
@@ -54,9 +54,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
+        /// Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete
         /// </summary>
-        /// <value>Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
+        /// <value>Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>

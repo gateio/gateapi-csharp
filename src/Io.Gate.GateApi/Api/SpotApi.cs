@@ -283,6 +283,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;SpotAccount&gt;</returns>
         ApiResponse<List<SpotAccount>> ListSpotAccountsWithHttpInfo (string currency = default(string));
         /// <summary>
+        /// Query account book
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>List&lt;SpotAccountBook&gt;</returns>
+        List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+
+        /// <summary>
+        /// Query account book
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
+        ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        /// <summary>
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
@@ -307,12 +338,12 @@ namespace Io.Gate.GateApi.Api
         /// List all open orders
         /// </summary>
         /// <remarks>
-        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
@@ -320,12 +351,12 @@ namespace Io.Gate.GateApi.Api
         /// List all open orders
         /// </summary>
         /// <remarks>
-        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
         /// <summary>
@@ -353,14 +384,14 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -371,14 +402,14 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -388,7 +419,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -399,7 +430,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -409,7 +440,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -422,7 +453,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -437,9 +468,9 @@ namespace Io.Gate.GateApi.Api
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        List<CancelOrderResult> CancelBatchOrders (List<CancelOrder> cancelOrder);
+        List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder);
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -448,19 +479,19 @@ namespace Io.Gate.GateApi.Api
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelOrder> cancelOrder);
+        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder);
         /// <summary>
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order GetOrder (string orderId, string currencyPair, string account = default(string));
 
@@ -468,24 +499,24 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order CancelOrder (string orderId, string currencyPair, string account = default(string));
 
@@ -493,25 +524,25 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
 
@@ -519,27 +550,27 @@ namespace Io.Gate.GateApi.Api
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
@@ -549,14 +580,14 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
@@ -601,6 +632,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="countdownCancelAllSpotTask"></param>
         /// <returns>ApiResponse of TriggerTime</returns>
         ApiResponse<TriggerTime> CountdownCancelAllSpotWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
+        /// <summary>
+        /// Batch modification of orders
+        /// </summary>
+        /// <remarks>
+        /// Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>List&lt;AmendOrderResult&gt;</returns>
+        List<AmendOrderResult> AmendBatchOrders (List<BatchAmendItem> batchAmendItem);
+
+        /// <summary>
+        /// Batch modification of orders
+        /// </summary>
+        /// <remarks>
+        /// Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>ApiResponse of List&lt;AmendOrderResult&gt;</returns>
+        ApiResponse<List<AmendOrderResult>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -981,6 +1033,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;SpotAccount&gt;)</returns>
         Task<ApiResponse<List<SpotAccount>>> ListSpotAccountsAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
+        /// Query account book
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
+        Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+
+        /// <summary>
+        /// Query account book
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
+        Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        /// <summary>
         /// Create a batch of orders
         /// </summary>
         /// <remarks>
@@ -1005,12 +1088,12 @@ namespace Io.Gate.GateApi.Api
         /// List all open orders
         /// </summary>
         /// <remarks>
-        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
@@ -1018,12 +1101,12 @@ namespace Io.Gate.GateApi.Api
         /// List all open orders
         /// </summary>
         /// <remarks>
-        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
         /// <summary>
@@ -1051,14 +1134,14 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -1069,14 +1152,14 @@ namespace Io.Gate.GateApi.Api
         /// List orders
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -1086,7 +1169,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1097,7 +1180,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1107,7 +1190,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1120,7 +1203,7 @@ namespace Io.Gate.GateApi.Api
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1135,9 +1218,9 @@ namespace Io.Gate.GateApi.Api
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelOrder> cancelOrder);
+        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder);
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -1146,19 +1229,19 @@ namespace Io.Gate.GateApi.Api
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelOrder> cancelOrder);
+        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder);
         /// <summary>
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string));
 
@@ -1166,24 +1249,24 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string));
 
@@ -1191,25 +1274,25 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a single order
         /// </summary>
         /// <remarks>
-        /// Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
 
@@ -1217,27 +1300,27 @@ namespace Io.Gate.GateApi.Api
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
@@ -1247,14 +1330,14 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
@@ -1299,6 +1382,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="countdownCancelAllSpotTask"></param>
         /// <returns>Task of ApiResponse (TriggerTime)</returns>
         Task<ApiResponse<TriggerTime>> CountdownCancelAllSpotAsyncWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
+        /// <summary>
+        /// Batch modification of orders
+        /// </summary>
+        /// <remarks>
+        /// Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>Task of List&lt;AmendOrderResult&gt;</returns>
+        Task<List<AmendOrderResult>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem);
+
+        /// <summary>
+        /// Batch modification of orders
+        /// </summary>
+        /// <remarks>
+        /// Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>Task of ApiResponse (List&lt;AmendOrderResult&gt;)</returns>
+        Task<ApiResponse<List<AmendOrderResult>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -2924,6 +3028,181 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Query account book Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>List&lt;SpotAccountBook&gt;</returns>
+        public List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+             ApiResponse<List<SpotAccountBook>> localVarResponse = ListSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query account book Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
+        public ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SpotAccountBook>>("/spot/account_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSpotAccountBook", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query account book Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
+        public async Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SpotAccountBook>> localVarResponse = await ListSpotAccountBookAsyncWithHttpInfo(currency, from, to, page, limit, type);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query account book Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
+        public async Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SpotAccountBook>>("/spot/account_book", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSpotAccountBook", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3043,12 +3322,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         public List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -3057,12 +3336,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         public ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -3111,12 +3390,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         public async Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -3126,12 +3405,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
+        /// List all open orders List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair&#39;s open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         public async Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
         {
@@ -3301,14 +3580,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// List orders Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -3320,14 +3599,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// List orders Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -3401,14 +3680,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// List orders Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -3421,14 +3700,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Spot and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
+        /// List orders Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  When &#x60;status&#x60; is &#x60;open&#x60;, i.e., listing open orders, only pagination parameters &#x60;page&#x60; and &#x60;limit&#x60; are supported and &#x60;limit&#x60; cannot be larger than 100. Query by &#x60;side&#x60; and time range parameters &#x60;from&#x60; and &#x60;to&#x60; are not supported.  When &#x60;status&#x60; is &#x60;finished&#x60;, i.e., listing finished orders, pagination parameters, time range parameters &#x60;from&#x60; and &#x60;to&#x60;, and &#x60;side&#x60; parameters are all supported. Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
@@ -3504,7 +3783,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3516,7 +3795,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3562,7 +3841,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3575,7 +3854,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3623,7 +3902,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -3637,7 +3916,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -3692,7 +3971,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -3707,7 +3986,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -3767,11 +4046,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        public List<CancelOrderResult> CancelBatchOrders (List<CancelOrder> cancelOrder)
+        public List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder)
         {
-             ApiResponse<List<CancelOrderResult>> localVarResponse = CancelBatchOrdersWithHttpInfo(cancelOrder);
+             ApiResponse<List<CancelOrderResult>> localVarResponse = CancelBatchOrdersWithHttpInfo(cancelBatchOrder);
              return localVarResponse.Data;
         }
 
@@ -3779,13 +4058,13 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelOrder> cancelOrder)
+        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder)
         {
-            // verify the required parameter 'cancelOrder' is set
-            if (cancelOrder == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrder' when calling SpotApi->CancelBatchOrders");
+            // verify the required parameter 'cancelBatchOrder' is set
+            if (cancelBatchOrder == null)
+                throw new ApiException(400, "Missing required parameter 'cancelBatchOrder' when calling SpotApi->CancelBatchOrders");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3804,7 +4083,7 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = cancelOrder;
+            localVarRequestOptions.Data = cancelBatchOrder;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3825,11 +4104,11 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelOrder> cancelOrder)
+        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder)
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<CancelOrderResult>> localVarResponse = await CancelBatchOrdersAsyncWithHttpInfo(cancelOrder);
+             Io.Gate.GateApi.Client.ApiResponse<List<CancelOrderResult>> localVarResponse = await CancelBatchOrdersAsyncWithHttpInfo(cancelBatchOrder);
              return localVarResponse.Data;
 
         }
@@ -3838,13 +4117,13 @@ namespace Io.Gate.GateApi.Api
         /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrder"></param>
+        /// <param name="cancelBatchOrder"></param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelOrder> cancelOrder)
+        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder)
         {
-            // verify the required parameter 'cancelOrder' is set
-            if (cancelOrder == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrder' when calling SpotApi->CancelBatchOrders");
+            // verify the required parameter 'cancelBatchOrder' is set
+            if (cancelBatchOrder == null)
+                throw new ApiException(400, "Missing required parameter 'cancelBatchOrder' when calling SpotApi->CancelBatchOrders");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -3864,7 +4143,7 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
-            localVarRequestOptions.Data = cancelOrder;
+            localVarRequestOptions.Data = cancelBatchOrder;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3883,12 +4162,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Get a single order Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order GetOrder (string orderId, string currencyPair, string account = default(string))
         {
@@ -3897,12 +4176,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Get a single order Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -3953,12 +4232,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Get a single order Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string))
         {
@@ -3968,12 +4247,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+        /// Get a single order Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -4026,12 +4305,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Cancel a single order Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order CancelOrder (string orderId, string currencyPair, string account = default(string))
         {
@@ -4040,12 +4319,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Cancel a single order Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -4096,12 +4375,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Cancel a single order Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string))
         {
@@ -4111,12 +4390,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+        /// Cancel a single order Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
         {
@@ -4169,13 +4448,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
         {
@@ -4184,13 +4463,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
         {
@@ -4247,13 +4526,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
         {
@@ -4263,13 +4542,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
         {
@@ -4328,14 +4607,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// List personal trading history Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
@@ -4346,14 +4625,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// List personal trading history Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
@@ -4420,14 +4699,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// List personal trading history Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
@@ -4439,14 +4718,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history Spot and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+        /// List personal trading history Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, &#x60;account&#x60; must be set to &#x60;cross_margin&#x60;  You can also set &#x60;from&#x60; and(or) &#x60;to&#x60; to query by time range. If you don&#39;t specify &#x60;from&#x60; and/or &#x60;to&#x60; parameters, only the last 7 days of data will be retured. The range of &#x60;from&#x60; and &#x60;to&#x60; is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
-        /// <param name="account">Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
@@ -4726,6 +5005,125 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CountdownCancelAllSpot", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch modification of orders Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>List&lt;AmendOrderResult&gt;</returns>
+        public List<AmendOrderResult> AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+        {
+             ApiResponse<List<AmendOrderResult>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Batch modification of orders Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>ApiResponse of List&lt;AmendOrderResult&gt;</returns>
+        public ApiResponse<List<AmendOrderResult>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        {
+            // verify the required parameter 'batchAmendItem' is set
+            if (batchAmendItem == null)
+                throw new ApiException(400, "Missing required parameter 'batchAmendItem' when calling SpotApi->AmendBatchOrders");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = batchAmendItem;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<AmendOrderResult>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendBatchOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch modification of orders Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>Task of List&lt;AmendOrderResult&gt;</returns>
+        public async Task<List<AmendOrderResult>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<AmendOrderResult>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Batch modification of orders Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the &#x60;account&#x60; parameter must be specified as &#x60;cross_margin&#x60;.  For portfolio margin accounts, the &#x60;account&#x60; parameter can only be specified as &#x60;cross_margin&#x60;. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchAmendItem"></param>
+        /// <returns>Task of ApiResponse (List&lt;AmendOrderResult&gt;)</returns>
+        public async Task<ApiResponse<List<AmendOrderResult>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        {
+            // verify the required parameter 'batchAmendItem' is set
+            if (batchAmendItem == null)
+                throw new ApiException(400, "Missing required parameter 'batchAmendItem' when calling SpotApi->AmendBatchOrders");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = batchAmendItem;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<AmendOrderResult>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendBatchOrders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.UniLoanRecord
 
-Loan record
+Loan records
 
 ## Properties
 

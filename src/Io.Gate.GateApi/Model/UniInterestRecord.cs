@@ -67,6 +67,13 @@ namespace Io.Gate.GateApi.Model
         public string Interest { get; private set; }
 
         /// <summary>
+        /// Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment
+        /// </summary>
+        /// <value>Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment</value>
+        [DataMember(Name="interest_status", EmitDefaultValue=false)]
+        public string InterestStatus { get; private set; }
+
+        /// <summary>
         /// Created time
         /// </summary>
         /// <value>Created time</value>
@@ -85,6 +92,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  ActualRate: ").Append(ActualRate).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
+            sb.Append("  InterestStatus: ").Append(InterestStatus).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,6 +148,11 @@ namespace Io.Gate.GateApi.Model
                     this.Interest.Equals(input.Interest))
                 ) && 
                 (
+                    this.InterestStatus == input.InterestStatus ||
+                    (this.InterestStatus != null &&
+                    this.InterestStatus.Equals(input.InterestStatus))
+                ) && 
+                (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
                 );
@@ -161,6 +174,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.ActualRate.GetHashCode();
                 if (this.Interest != null)
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
+                if (this.InterestStatus != null)
+                    hashCode = hashCode * 59 + this.InterestStatus.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 return hashCode;
             }

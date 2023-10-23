@@ -250,6 +250,13 @@ namespace Io.Gate.GateApi.Model
         public string CrossLeverageLimit { get; set; }
 
         /// <summary>
+        /// Last update time
+        /// </summary>
+        /// <value>Last update time</value>
+        [DataMember(Name="update_time", EmitDefaultValue=false)]
+        public long UpdateTime { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -282,6 +289,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CloseOrder: ").Append(CloseOrder).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  CrossLeverageLimit: ").Append(CrossLeverageLimit).Append("\n");
+            sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -435,6 +443,10 @@ namespace Io.Gate.GateApi.Model
                     this.CrossLeverageLimit == input.CrossLeverageLimit ||
                     (this.CrossLeverageLimit != null &&
                     this.CrossLeverageLimit.Equals(input.CrossLeverageLimit))
+                ) && 
+                (
+                    this.UpdateTime == input.UpdateTime ||
+                    this.UpdateTime.Equals(input.UpdateTime)
                 );
         }
 
@@ -492,6 +504,7 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Mode.GetHashCode();
                 if (this.CrossLeverageLimit != null)
                     hashCode = hashCode * 59 + this.CrossLeverageLimit.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateTime.GetHashCode();
                 return hashCode;
             }
         }

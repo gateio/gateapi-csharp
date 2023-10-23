@@ -46,16 +46,16 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Minimum lend amount
+        /// The minimum lending amount, in the unit of the currency.
         /// </summary>
-        /// <value>Minimum lend amount</value>
+        /// <value>The minimum lending amount, in the unit of the currency.</value>
         [DataMember(Name="min_lend_amount", EmitDefaultValue=false)]
         public string MinLendAmount { get; private set; }
 
         /// <summary>
-        /// Maximum lend amount
+        /// The total maximum lending amount, in USDT
         /// </summary>
-        /// <value>Maximum lend amount</value>
+        /// <value>The total maximum lending amount, in USDT</value>
         [DataMember(Name="max_lend_amount", EmitDefaultValue=false)]
         public string MaxLendAmount { get; private set; }
 

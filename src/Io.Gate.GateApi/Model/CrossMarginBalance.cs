@@ -39,8 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="interest">Unpaid interests.</param>
         /// <param name="negativeLiab">Negative Liabilities. Formula:Min[available+total+unrealized_pnl,0].</param>
         /// <param name="futuresPosLiab">Borrowing to Open Positions in Futures.</param>
-        /// <param name="equity">Equity. Formula: available + freeze - borrowed + total + unrealized_pnl.</param>
-        /// <param name="totalFreeze">Total freeze. Formula: position_initial_margin + order_margin.</param>
+        /// <param name="equity">Equity. Formula: available + freeze - borrowed + futures account&#39;s total + unrealized_pnl.</param>
+        /// <param name="totalFreeze">Total freeze. Formula: freeze + position_initial_margin + order_margin.</param>
         /// <param name="totalLiab">Total liabilities. Formula: Max[Abs[Min[quity - total_freeze,0], borrowed]] - futures_pos_liab.</param>
         public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string))
         {
@@ -98,16 +98,16 @@ namespace Io.Gate.GateApi.Model
         public string FuturesPosLiab { get; set; }
 
         /// <summary>
-        /// Equity. Formula: available + freeze - borrowed + total + unrealized_pnl
+        /// Equity. Formula: available + freeze - borrowed + futures account&#39;s total + unrealized_pnl
         /// </summary>
-        /// <value>Equity. Formula: available + freeze - borrowed + total + unrealized_pnl</value>
+        /// <value>Equity. Formula: available + freeze - borrowed + futures account&#39;s total + unrealized_pnl</value>
         [DataMember(Name="equity")]
         public string Equity { get; set; }
 
         /// <summary>
-        /// Total freeze. Formula: position_initial_margin + order_margin
+        /// Total freeze. Formula: freeze + position_initial_margin + order_margin
         /// </summary>
-        /// <value>Total freeze. Formula: position_initial_margin + order_margin</value>
+        /// <value>Total freeze. Formula: freeze + position_initial_margin + order_margin</value>
         [DataMember(Name="total_freeze")]
         public string TotalFreeze { get; set; }
 

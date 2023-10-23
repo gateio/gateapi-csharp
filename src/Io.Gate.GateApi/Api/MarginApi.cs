@@ -57,12 +57,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;MarginAccountBook&gt;</returns>
-        List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
+        List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List margin account balance change history
@@ -73,12 +74,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;MarginAccountBook&gt;</returns>
-        ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
+        ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// Funding account list
         /// </summary>
@@ -609,7 +611,7 @@ namespace Io.Gate.GateApi.Api
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -624,7 +626,7 @@ namespace Io.Gate.GateApi.Api
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -770,6 +772,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginTransferable</returns>
         ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency);
         /// <summary>
+        /// Estimated interest rates
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Dictionary&lt;string, string&gt;</returns>
+        Dictionary<string, string> GetCrossMarginEstimateRate (List<string> currencies);
+
+        /// <summary>
+        /// Estimated interest rates
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
+        ApiResponse<Dictionary<string, string>> GetCrossMarginEstimateRateWithHttpInfo (List<string> currencies);
+        /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
@@ -777,8 +800,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>CrossMarginBorrowable</returns>
-        CrossMarginBorrowable GetCrossMarginBorrowable (string currency);
+        /// <returns>PortfolioBorrowable</returns>
+        PortfolioBorrowable GetCrossMarginBorrowable (string currency);
 
         /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
@@ -788,8 +811,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of CrossMarginBorrowable</returns>
-        ApiResponse<CrossMarginBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency);
+        /// <returns>ApiResponse of PortfolioBorrowable</returns>
+        ApiResponse<PortfolioBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency);
         #endregion Synchronous Operations
     }
 
@@ -829,12 +852,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;MarginAccountBook&gt;</returns>
-        Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
+        Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List margin account balance change history
@@ -845,12 +869,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;MarginAccountBook&gt;)</returns>
-        Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
+        Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// Funding account list
         /// </summary>
@@ -1381,7 +1406,7 @@ namespace Io.Gate.GateApi.Api
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -1396,7 +1421,7 @@ namespace Io.Gate.GateApi.Api
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -1542,6 +1567,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
         Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency);
         /// <summary>
+        /// Estimated interest rates
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
+        Task<Dictionary<string, string>> GetCrossMarginEstimateRateAsync (List<string> currencies);
+
+        /// <summary>
+        /// Estimated interest rates
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, string>>> GetCrossMarginEstimateRateAsyncWithHttpInfo (List<string> currencies);
+        /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
         /// </summary>
         /// <remarks>
@@ -1549,8 +1595,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of CrossMarginBorrowable</returns>
-        Task<CrossMarginBorrowable> GetCrossMarginBorrowableAsync (string currency);
+        /// <returns>Task of PortfolioBorrowable</returns>
+        Task<PortfolioBorrowable> GetCrossMarginBorrowableAsync (string currency);
 
         /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
@@ -1560,8 +1606,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (CrossMarginBorrowable)</returns>
-        Task<ApiResponse<CrossMarginBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency);
+        /// <returns>Task of ApiResponse (PortfolioBorrowable)</returns>
+        Task<ApiResponse<PortfolioBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency);
         #endregion Asynchronous Operations
     }
 
@@ -1803,14 +1849,15 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;MarginAccountBook&gt;</returns>
-        public List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        public List<MarginAccountBook> ListMarginAccountBook (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
-             ApiResponse<List<MarginAccountBook>> localVarResponse = ListMarginAccountBookWithHttpInfo(currency, currencyPair, from, to, page, limit);
+             ApiResponse<List<MarginAccountBook>> localVarResponse = ListMarginAccountBookWithHttpInfo(currency, currencyPair, type, from, to, page, limit);
              return localVarResponse.Data;
         }
 
@@ -1820,12 +1867,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;MarginAccountBook&gt;</returns>
-        public ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        public ApiResponse<List<MarginAccountBook>> ListMarginAccountBookWithHttpInfo (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1850,6 +1898,10 @@ namespace Io.Gate.GateApi.Api
             if (currencyPair != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (from != null)
             {
@@ -1889,14 +1941,15 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;MarginAccountBook&gt;</returns>
-        public async Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        public async Task<List<MarginAccountBook>> ListMarginAccountBookAsync (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<MarginAccountBook>> localVarResponse = await ListMarginAccountBookAsyncWithHttpInfo(currency, currencyPair, from, to, page, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<MarginAccountBook>> localVarResponse = await ListMarginAccountBookAsyncWithHttpInfo(currency, currencyPair, type, from, to, page, limit);
              return localVarResponse.Data;
 
         }
@@ -1907,12 +1960,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. (optional)</param>
         /// <param name="currencyPair">List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided (optional)</param>
+        /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="from">Start timestamp of the query (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;MarginAccountBook&gt;)</returns>
-        public async Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        public async Task<ApiResponse<List<MarginAccountBook>>> ListMarginAccountBookAsyncWithHttpInfo (string currency = default(string), string currencyPair = default(string), string type = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1938,6 +1992,10 @@ namespace Io.Gate.GateApi.Api
             if (currencyPair != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (from != null)
             {
@@ -4899,7 +4957,7 @@ namespace Io.Gate.GateApi.Api
         /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -4915,7 +4973,7 @@ namespace Io.Gate.GateApi.Api
         /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -4976,7 +5034,7 @@ namespace Io.Gate.GateApi.Api
         /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -4993,7 +5051,7 @@ namespace Io.Gate.GateApi.Api
         /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Filter by status. Supported values are 2 and 3.</param>
+        /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
         /// <param name="currency">Filter by currency (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
@@ -5827,14 +5885,131 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Dictionary&lt;string, string&gt;</returns>
+        public Dictionary<string, string> GetCrossMarginEstimateRate (List<string> currencies)
+        {
+             ApiResponse<Dictionary<string, string>> localVarResponse = GetCrossMarginEstimateRateWithHttpInfo(currencies);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
+        public ApiResponse<Dictionary<string, string>> GetCrossMarginEstimateRateWithHttpInfo (List<string> currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling MarginApi->GetCrossMarginEstimateRate");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, string>>("/margin/cross/estimate_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginEstimateRate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
+        public async Task<Dictionary<string, string>> GetCrossMarginEstimateRateAsync (List<string> currencies)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Dictionary<string, string>> localVarResponse = await GetCrossMarginEstimateRateAsyncWithHttpInfo(currencies);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, string>>> GetCrossMarginEstimateRateAsyncWithHttpInfo (List<string> currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling MarginApi->GetCrossMarginEstimateRate");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, string>>("/margin/cross/estimate_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCrossMarginEstimateRate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>CrossMarginBorrowable</returns>
-        public CrossMarginBorrowable GetCrossMarginBorrowable (string currency)
+        /// <returns>PortfolioBorrowable</returns>
+        public PortfolioBorrowable GetCrossMarginBorrowable (string currency)
         {
-             ApiResponse<CrossMarginBorrowable> localVarResponse = GetCrossMarginBorrowableWithHttpInfo(currency);
+             ApiResponse<PortfolioBorrowable> localVarResponse = GetCrossMarginBorrowableWithHttpInfo(currency);
              return localVarResponse.Data;
         }
 
@@ -5843,8 +6018,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of CrossMarginBorrowable</returns>
-        public ApiResponse<CrossMarginBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency)
+        /// <returns>ApiResponse of PortfolioBorrowable</returns>
+        public ApiResponse<PortfolioBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency)
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -5872,7 +6047,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CrossMarginBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PortfolioBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -5888,10 +6063,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of CrossMarginBorrowable</returns>
-        public async Task<CrossMarginBorrowable> GetCrossMarginBorrowableAsync (string currency)
+        /// <returns>Task of PortfolioBorrowable</returns>
+        public async Task<PortfolioBorrowable> GetCrossMarginBorrowableAsync (string currency)
         {
-             Io.Gate.GateApi.Client.ApiResponse<CrossMarginBorrowable> localVarResponse = await GetCrossMarginBorrowableAsyncWithHttpInfo(currency);
+             Io.Gate.GateApi.Client.ApiResponse<PortfolioBorrowable> localVarResponse = await GetCrossMarginBorrowableAsyncWithHttpInfo(currency);
              return localVarResponse.Data;
 
         }
@@ -5901,8 +6076,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (CrossMarginBorrowable)</returns>
-        public async Task<ApiResponse<CrossMarginBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency)
+        /// <returns>Task of ApiResponse (PortfolioBorrowable)</returns>
+        public async Task<ApiResponse<PortfolioBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency)
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -5932,7 +6107,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CrossMarginBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PortfolioBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

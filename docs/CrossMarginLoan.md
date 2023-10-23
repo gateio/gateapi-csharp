@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Currency** | **string** | Currency name | 
 **Amount** | **string** | Borrowed amount | 
 **Text** | **string** | User defined custom ID | [optional] 
-**Status** | **int** | Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
+**Status** | **int** | Deprecated. Currently, all statuses have been set to 2.  Borrow loan status, which includes:  - 1: failed to borrow - 2: borrowed but not repaid - 3: repayment complete | [optional] [readonly] 
 **Repaid** | **string** | Repaid amount | [optional] [readonly] 
 **RepaidInterest** | **string** | Repaid interest | [optional] [readonly] 
 **UnpaidInterest** | **string** | Outstanding interest yet to be paid | [optional] [readonly] 

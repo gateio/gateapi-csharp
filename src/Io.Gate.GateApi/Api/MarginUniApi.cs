@@ -68,6 +68,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of UniCurrencyPair</returns>
         ApiResponse<UniCurrencyPair> GetUniCurrencyPairWithHttpInfo (string currencyPair);
         /// <summary>
+        /// Estimate interest Rate
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Dictionary&lt;string, string&gt;</returns>
+        Dictionary<string, string> GetMarginUniEstimateRate (List<string> currencies);
+
+        /// <summary>
+        /// Estimate interest Rate
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
+        ApiResponse<Dictionary<string, string>> GetMarginUniEstimateRateWithHttpInfo (List<string> currencies);
+        /// <summary>
         /// List loans
         /// </summary>
         /// <remarks>
@@ -243,6 +264,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <returns>Task of ApiResponse (UniCurrencyPair)</returns>
         Task<ApiResponse<UniCurrencyPair>> GetUniCurrencyPairAsyncWithHttpInfo (string currencyPair);
+        /// <summary>
+        /// Estimate interest Rate
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
+        Task<Dictionary<string, string>> GetMarginUniEstimateRateAsync (List<string> currencies);
+
+        /// <summary>
+        /// Estimate interest Rate
+        /// </summary>
+        /// <remarks>
+        /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
+        Task<ApiResponse<Dictionary<string, string>>> GetMarginUniEstimateRateAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
         /// List loans
         /// </summary>
@@ -696,6 +738,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUniCurrencyPair", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Dictionary&lt;string, string&gt;</returns>
+        public Dictionary<string, string> GetMarginUniEstimateRate (List<string> currencies)
+        {
+             ApiResponse<Dictionary<string, string>> localVarResponse = GetMarginUniEstimateRateWithHttpInfo(currencies);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
+        public ApiResponse<Dictionary<string, string>> GetMarginUniEstimateRateWithHttpInfo (List<string> currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling MarginUniApi->GetMarginUniEstimateRate");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, string>>("/margin/uni/estimate_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginUniEstimateRate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
+        public async Task<Dictionary<string, string>> GetMarginUniEstimateRateAsync (List<string> currencies)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<Dictionary<string, string>> localVarResponse = await GetMarginUniEstimateRateAsyncWithHttpInfo(currencies);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
+        public async Task<ApiResponse<Dictionary<string, string>>> GetMarginUniEstimateRateAsyncWithHttpInfo (List<string> currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling MarginUniApi->GetMarginUniEstimateRate");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, string>>("/margin/uni/estimate_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMarginUniEstimateRate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

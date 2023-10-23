@@ -144,9 +144,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>List&lt;UniLendRecord&gt;</returns>
-        List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// List records of lending
@@ -158,9 +160,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLendRecord&gt;</returns>
-        ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// Get the user&#39;s total interest income of specified currency
         /// </summary>
@@ -207,6 +211,48 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniInterestRecord&gt;</returns>
         ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Set interest reinvestment toggle
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns></returns>
+        void SwitchInterestReinvest (UniInterestMode uniInterestMode);
+
+        /// <summary>
+        /// Set interest reinvestment toggle
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SwitchInterestReinvestWithHttpInfo (UniInterestMode uniInterestMode);
+        /// <summary>
+        /// query currency interest compounding status
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>UniCurrencyInterest</returns>
+        UniCurrencyInterest GetUniInterestStatus (string currency);
+
+        /// <summary>
+        /// query currency interest compounding status
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>ApiResponse of UniCurrencyInterest</returns>
+        ApiResponse<UniCurrencyInterest> GetUniInterestStatusWithHttpInfo (string currency);
         #endregion Synchronous Operations
     }
 
@@ -333,9 +379,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>Task of List&lt;UniLendRecord&gt;</returns>
-        Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// List records of lending
@@ -347,9 +395,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLendRecord&gt;)</returns>
-        Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// Get the user&#39;s total interest income of specified currency
         /// </summary>
@@ -396,6 +446,48 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniInterestRecord&gt;)</returns>
         Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Set interest reinvestment toggle
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>Task of void</returns>
+        Task SwitchInterestReinvestAsync (UniInterestMode uniInterestMode);
+
+        /// <summary>
+        /// Set interest reinvestment toggle
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SwitchInterestReinvestAsyncWithHttpInfo (UniInterestMode uniInterestMode);
+        /// <summary>
+        /// query currency interest compounding status
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of UniCurrencyInterest</returns>
+        Task<UniCurrencyInterest> GetUniInterestStatusAsync (string currency);
+
+        /// <summary>
+        /// query currency interest compounding status
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of ApiResponse (UniCurrencyInterest)</returns>
+        Task<ApiResponse<UniCurrencyInterest>> GetUniInterestStatusAsyncWithHttpInfo (string currency);
         #endregion Asynchronous Operations
     }
 
@@ -1104,11 +1196,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>List&lt;UniLendRecord&gt;</returns>
-        public List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             ApiResponse<List<UniLendRecord>> localVarResponse = ListUniLendRecordsWithHttpInfo(currency, page, limit, type);
+             ApiResponse<List<UniLendRecord>> localVarResponse = ListUniLendRecordsWithHttpInfo(currency, page, limit, from, to, type);
              return localVarResponse.Data;
         }
 
@@ -1119,9 +1213,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLendRecord&gt;</returns>
-        public ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1151,6 +1247,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
@@ -1178,11 +1282,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>Task of List&lt;UniLendRecord&gt;</returns>
-        public async Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<UniLendRecord>> localVarResponse = await ListUniLendRecordsAsyncWithHttpInfo(currency, page, limit, type);
+             Io.Gate.GateApi.Client.ApiResponse<List<UniLendRecord>> localVarResponse = await ListUniLendRecordsAsyncWithHttpInfo(currency, page, limit, from, to, type);
              return localVarResponse.Data;
 
         }
@@ -1194,9 +1300,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLendRecord&gt;)</returns>
-        public async Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1226,6 +1334,14 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (type != null)
             {
@@ -1498,6 +1614,238 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListUniInterestRecords", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set interest reinvestment toggle 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns></returns>
+        public void SwitchInterestReinvest (UniInterestMode uniInterestMode)
+        {
+             SwitchInterestReinvestWithHttpInfo(uniInterestMode);
+        }
+
+        /// <summary>
+        /// Set interest reinvestment toggle 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SwitchInterestReinvestWithHttpInfo (UniInterestMode uniInterestMode)
+        {
+            // verify the required parameter 'uniInterestMode' is set
+            if (uniInterestMode == null)
+                throw new ApiException(400, "Missing required parameter 'uniInterestMode' when calling EarnUniApi->SwitchInterestReinvest");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = uniInterestMode;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/earn/uni/interest_reinvest", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SwitchInterestReinvest", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set interest reinvestment toggle 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>Task of void</returns>
+        public async Task SwitchInterestReinvestAsync (UniInterestMode uniInterestMode)
+        {
+             await SwitchInterestReinvestAsyncWithHttpInfo(uniInterestMode);
+
+        }
+
+        /// <summary>
+        /// Set interest reinvestment toggle 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uniInterestMode"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SwitchInterestReinvestAsyncWithHttpInfo (UniInterestMode uniInterestMode)
+        {
+            // verify the required parameter 'uniInterestMode' is set
+            if (uniInterestMode == null)
+                throw new ApiException(400, "Missing required parameter 'uniInterestMode' when calling EarnUniApi->SwitchInterestReinvest");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = uniInterestMode;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/earn/uni/interest_reinvest", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SwitchInterestReinvest", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// query currency interest compounding status 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>UniCurrencyInterest</returns>
+        public UniCurrencyInterest GetUniInterestStatus (string currency)
+        {
+             ApiResponse<UniCurrencyInterest> localVarResponse = GetUniInterestStatusWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// query currency interest compounding status 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>ApiResponse of UniCurrencyInterest</returns>
+        public ApiResponse<UniCurrencyInterest> GetUniInterestStatusWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling EarnUniApi->GetUniInterestStatus");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UniCurrencyInterest>("/earn/uni/interest_status/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUniInterestStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// query currency interest compounding status 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of UniCurrencyInterest</returns>
+        public async Task<UniCurrencyInterest> GetUniInterestStatusAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UniCurrencyInterest> localVarResponse = await GetUniInterestStatusAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// query currency interest compounding status 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of ApiResponse (UniCurrencyInterest)</returns>
+        public async Task<ApiResponse<UniCurrencyInterest>> GetUniInterestStatusAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling EarnUniApi->GetUniInterestStatus");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("currency", ClientUtils.ParameterToString(currency)); // path parameter
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UniCurrencyInterest>("/earn/uni/interest_status/{currency}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUniInterestStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class ApiV4KeyPerm :  IEquatable<ApiV4KeyPerm>, IValidatableObject
     {
         /// <summary>
-        /// Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options
+        /// Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan
         /// </summary>
-        /// <value>Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options</value>
+        /// <value>Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NameEnum
         {
@@ -71,20 +71,38 @@ namespace Io.Gate.GateApi.Model
             /// Enum Options for value: options
             /// </summary>
             [EnumMember(Value = "options")]
-            Options = 6
+            Options = 6,
+
+            /// <summary>
+            /// Enum Account for value: account
+            /// </summary>
+            [EnumMember(Value = "account")]
+            Account = 7,
+
+            /// <summary>
+            /// Enum Portfolio for value: portfolio
+            /// </summary>
+            [EnumMember(Value = "portfolio")]
+            Portfolio = 8,
+
+            /// <summary>
+            /// Enum Loan for value: loan
+            /// </summary>
+            [EnumMember(Value = "loan")]
+            Loan = 9
 
         }
 
         /// <summary>
-        /// Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options
+        /// Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan
         /// </summary>
-        /// <value>Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options</value>
+        /// <value>Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan</value>
         [DataMember(Name="name")]
         public NameEnum? Name { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiV4KeyPerm" /> class.
         /// </summary>
-        /// <param name="name">Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options.</param>
+        /// <param name="name">Permission name (all permissions will be removed if no value is passed)  - wallet: wallet - spot: spot/margin - futures: perpetual contract - delivery: delivery - earn: earn - options: options- account: Account - portfolio: Portfolio - loan: Loan.</param>
         /// <param name="readOnly">read only.</param>
         public ApiV4KeyPerm(NameEnum? name = default(NameEnum?), bool readOnly = default(bool))
         {

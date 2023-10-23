@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ListUniCurrencyPairs**](MarginUniApi.md#listunicurrencypairs) | **GET** /margin/uni/currency_pairs | List lending markets
 [**GetUniCurrencyPair**](MarginUniApi.md#getunicurrencypair) | **GET** /margin/uni/currency_pairs/{currency_pair} | Get detail of lending market
+[**GetMarginUniEstimateRate**](MarginUniApi.md#getmarginuniestimaterate) | **GET** /margin/uni/estimate_rate | Estimate interest Rate
 [**ListUniLoans**](MarginUniApi.md#listuniloans) | **GET** /margin/uni/loans | List loans
 [**CreateUniLoan**](MarginUniApi.md#createuniloan) | **POST** /margin/uni/loans | Borrow or repay
 [**ListUniLoanRecords**](MarginUniApi.md#listuniloanrecords) | **GET** /margin/uni/loan_records | Get load records
@@ -134,6 +135,79 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmarginuniestimaterate"></a>
+# **GetMarginUniEstimateRate**
+> Dictionary&lt;string, string&gt; GetMarginUniEstimateRate (List<string> currencies)
+
+Estimate interest Rate
+
+Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMarginUniEstimateRateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginUniApi(config);
+            var currencies = new List<string>(); // List<string> | An array of up to 10 specifying the currency name
+
+            try
+            {
+                // Estimate interest Rate
+                Dictionary<string, string> result = apiInstance.GetMarginUniEstimateRate(currencies);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginUniApi.GetMarginUniEstimateRate: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencies** | [**List&lt;string&gt;**](string.md)| An array of up to 10 specifying the currency name | 
+
+### Return type
+
+**Dictionary<string, string>**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
 
 ### HTTP request headers
 

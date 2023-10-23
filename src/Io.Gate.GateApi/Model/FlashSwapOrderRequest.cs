@@ -39,9 +39,9 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FlashSwapOrderRequest" /> class.
         /// </summary>
         /// <param name="previewId">Preview result ID (required).</param>
-        /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (required).</param>
+        /// <param name="sellCurrency">The name of the asset being sold, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which retrieves a list of supported flash swap currency pairs. (required).</param>
         /// <param name="sellAmount">Amount to sell (based on the preview result) (required).</param>
-        /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (required).</param>
+        /// <param name="buyCurrency">The name of the asset being purchased, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which provides a list of supported flash swap currency pairs. (required).</param>
         /// <param name="buyAmount">Amount to buy (based on the preview result) (required).</param>
         public FlashSwapOrderRequest(string previewId = default(string), string sellCurrency = default(string), string sellAmount = default(string), string buyCurrency = default(string), string buyAmount = default(string))
         {
@@ -65,9 +65,9 @@ namespace Io.Gate.GateApi.Model
         public string PreviewId { get; set; }
 
         /// <summary>
-        /// Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;
+        /// The name of the asset being sold, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which retrieves a list of supported flash swap currency pairs.
         /// </summary>
-        /// <value>Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;</value>
+        /// <value>The name of the asset being sold, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which retrieves a list of supported flash swap currency pairs.</value>
         [DataMember(Name="sell_currency")]
         public string SellCurrency { get; set; }
 
@@ -79,9 +79,9 @@ namespace Io.Gate.GateApi.Model
         public string SellAmount { get; set; }
 
         /// <summary>
-        /// Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;
+        /// The name of the asset being purchased, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which provides a list of supported flash swap currency pairs.
         /// </summary>
-        /// <value>Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60;</value>
+        /// <value>The name of the asset being purchased, as obtained from the \&quot;GET /flash_swap/currency_pairs\&quot; API, which provides a list of supported flash swap currency pairs.</value>
         [DataMember(Name="buy_currency")]
         public string BuyCurrency { get; set; }
 

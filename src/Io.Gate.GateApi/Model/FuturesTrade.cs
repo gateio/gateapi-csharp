@@ -39,7 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="contract">Futures contract.</param>
         /// <param name="size">Trading size.</param>
         /// <param name="price">Trading price (quote currency).</param>
-        public FuturesTrade(long id = default(long), double createTime = default(double), double createTimeMs = default(double), string contract = default(string), long size = default(long), string price = default(string))
+        /// <param name="isInternal">Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned..</param>
+        public FuturesTrade(long id = default(long), double createTime = default(double), double createTimeMs = default(double), string contract = default(string), long size = default(long), string price = default(string), bool isInternal = default(bool))
         {
             this.Id = id;
             this.CreateTime = createTime;
@@ -47,6 +48,7 @@ namespace Io.Gate.GateApi.Model
             this.Contract = contract;
             this.Size = size;
             this.Price = price;
+            this.IsInternal = isInternal;
         }
 
         /// <summary>
@@ -92,6 +94,13 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+        /// </summary>
+        /// <value>Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.</value>
+        [DataMember(Name="is_internal")]
+        public bool IsInternal { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  IsInternal: ").Append(IsInternal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +174,10 @@ namespace Io.Gate.GateApi.Model
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
+                ) && 
+                (
+                    this.IsInternal == input.IsInternal ||
+                    this.IsInternal.Equals(input.IsInternal)
                 );
         }
 
@@ -184,6 +198,7 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
+                hashCode = hashCode * 59 + this.IsInternal.GetHashCode();
                 return hashCode;
             }
         }

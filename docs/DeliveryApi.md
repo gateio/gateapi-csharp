@@ -334,7 +334,7 @@ No authorization required
 
 <a name="listdeliverycandlesticks"></a>
 # **ListDeliveryCandlesticks**
-> List&lt;FuturesCandlestick&gt; ListDeliveryCandlesticks (string settle, string contract, long? from = null, long? to = null, int? limit = null, string interval = null)
+> List&lt;DeliveryCandlestick&gt; ListDeliveryCandlesticks (string settle, string contract, long? from = null, long? to = null, int? limit = null, string interval = null)
 
 Get futures candlesticks
 
@@ -367,7 +367,7 @@ namespace Example
             try
             {
                 // Get futures candlesticks
-                List<FuturesCandlestick> result = apiInstance.ListDeliveryCandlesticks(settle, contract, from, to, limit, interval);
+                List<DeliveryCandlestick> result = apiInstance.ListDeliveryCandlesticks(settle, contract, from, to, limit, interval);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesCandlestick&gt;**](FuturesCandlestick.md)
+[**List&lt;DeliveryCandlestick&gt;**](DeliveryCandlestick.md)
 
 ### Authorization
 

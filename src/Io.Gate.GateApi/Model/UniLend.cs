@@ -81,6 +81,20 @@ namespace Io.Gate.GateApi.Model
         public string MinRate { get; private set; }
 
         /// <summary>
+        /// Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment
+        /// </summary>
+        /// <value>Interest status: interest_dividend - regular dividend, interest_reinvest - interest reinvestment</value>
+        [DataMember(Name="interest_status", EmitDefaultValue=false)]
+        public string InterestStatus { get; private set; }
+
+        /// <summary>
+        /// Amount not reinvested
+        /// </summary>
+        /// <value>Amount not reinvested</value>
+        [DataMember(Name="reinvest_left_amount", EmitDefaultValue=false)]
+        public string ReinvestLeftAmount { get; private set; }
+
+        /// <summary>
         /// Created time of the lending order
         /// </summary>
         /// <value>Created time of the lending order</value>
@@ -108,6 +122,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  LentAmount: ").Append(LentAmount).Append("\n");
             sb.Append("  FrozenAmount: ").Append(FrozenAmount).Append("\n");
             sb.Append("  MinRate: ").Append(MinRate).Append("\n");
+            sb.Append("  InterestStatus: ").Append(InterestStatus).Append("\n");
+            sb.Append("  ReinvestLeftAmount: ").Append(ReinvestLeftAmount).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
             sb.Append("}\n");
@@ -175,6 +191,16 @@ namespace Io.Gate.GateApi.Model
                     this.MinRate.Equals(input.MinRate))
                 ) && 
                 (
+                    this.InterestStatus == input.InterestStatus ||
+                    (this.InterestStatus != null &&
+                    this.InterestStatus.Equals(input.InterestStatus))
+                ) && 
+                (
+                    this.ReinvestLeftAmount == input.ReinvestLeftAmount ||
+                    (this.ReinvestLeftAmount != null &&
+                    this.ReinvestLeftAmount.Equals(input.ReinvestLeftAmount))
+                ) && 
+                (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
                 ) && 
@@ -205,6 +231,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.FrozenAmount.GetHashCode();
                 if (this.MinRate != null)
                     hashCode = hashCode * 59 + this.MinRate.GetHashCode();
+                if (this.InterestStatus != null)
+                    hashCode = hashCode * 59 + this.InterestStatus.GetHashCode();
+                if (this.ReinvestLeftAmount != null)
+                    hashCode = hashCode * 59 + this.ReinvestLeftAmount.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 hashCode = hashCode * 59 + this.UpdateTime.GetHashCode();
                 return hashCode;

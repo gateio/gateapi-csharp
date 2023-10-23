@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **IpWhitelist** | **List&lt;string&gt;** | IP whitelist | [optional] 
 **CurrencyPairs** | **List&lt;string&gt;** | CurrencyPair whitelisting | [optional] 
 **UserId** | **long** | User ID | [optional] 
+**Key** | [**AccountDetailKey**](AccountDetailKey.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

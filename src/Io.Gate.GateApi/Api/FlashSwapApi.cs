@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List all supported currencies in flash swap
+        /// List All Supported Currencies In Flash Swap (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<FlashSwapCurrency> ListFlashSwapCurrencies ();
 
         /// <summary>
-        /// List all supported currencies in flash swap
+        /// List All Supported Currencies In Flash Swap (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -46,6 +46,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrency&gt;</returns>
         ApiResponse<List<FlashSwapCurrency>> ListFlashSwapCurrenciesWithHttpInfo ();
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap
+        /// </summary>
+        /// <remarks>
+        /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
+        List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string));
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap
+        /// </summary>
+        /// <remarks>
+        /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
+        ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string));
         /// <summary>
         /// List all flash swap orders
         /// </summary>
@@ -150,7 +171,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List all supported currencies in flash swap
+        /// List All Supported Currencies In Flash Swap (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -160,7 +181,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<FlashSwapCurrency>> ListFlashSwapCurrenciesAsync ();
 
         /// <summary>
-        /// List all supported currencies in flash swap
+        /// List All Supported Currencies In Flash Swap (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -168,6 +189,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrency&gt;)</returns>
         Task<ApiResponse<List<FlashSwapCurrency>>> ListFlashSwapCurrenciesAsyncWithHttpInfo ();
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap
+        /// </summary>
+        /// <remarks>
+        /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
+        Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string));
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap
+        /// </summary>
+        /// <remarks>
+        /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
+        Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
         /// List all flash swap orders
         /// </summary>
@@ -383,7 +425,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all supported currencies in flash swap 
+        /// List All Supported Currencies In Flash Swap (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;FlashSwapCurrency&gt;</returns>
@@ -394,7 +436,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all supported currencies in flash swap 
+        /// List All Supported Currencies In Flash Swap (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrency&gt;</returns>
@@ -431,7 +473,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all supported currencies in flash swap 
+        /// List All Supported Currencies In Flash Swap (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;FlashSwapCurrency&gt;</returns>
@@ -443,7 +485,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all supported currencies in flash swap 
+        /// List All Supported Currencies In Flash Swap (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrency&gt;)</returns>
@@ -475,6 +517,117 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFlashSwapCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
+        public List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string))
+        {
+             ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = ListFlashSwapCurrencyPairWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
+        public ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<FlashSwapCurrencyPair>>("/flash_swap/currency_pairs", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListFlashSwapCurrencyPair", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
+        public async Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = await ListFlashSwapCurrencyPairAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
+        public async Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FlashSwapCurrencyPair>>("/flash_swap/currency_pairs", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListFlashSwapCurrencyPair", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

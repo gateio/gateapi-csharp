@@ -33,11 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountKey" /> class.
         /// </summary>
+        /// <param name="mode">Mode: 1 - classic 2 - portfolio account.</param>
         /// <param name="name">API key name.</param>
         /// <param name="perms">perms.</param>
         /// <param name="ipWhitelist">ip white list (list will be removed if no value is passed).</param>
-        public SubAccountKey(string name = default(string), List<ApiV4KeyPerm> perms = default(List<ApiV4KeyPerm>), List<string> ipWhitelist = default(List<string>))
+        public SubAccountKey(int mode = default(int), string name = default(string), List<ApiV4KeyPerm> perms = default(List<ApiV4KeyPerm>), List<string> ipWhitelist = default(List<string>))
         {
+            this.Mode = mode;
             this.Name = name;
             this.Perms = perms;
             this.IpWhitelist = ipWhitelist;
@@ -49,6 +51,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>User ID</value>
         [DataMember(Name="user_id", EmitDefaultValue=false)]
         public string UserId { get; private set; }
+
+        /// <summary>
+        /// Mode: 1 - classic 2 - portfolio account
+        /// </summary>
+        /// <value>Mode: 1 - classic 2 - portfolio account</value>
+        [DataMember(Name="mode")]
+        public int Mode { get; set; }
 
         /// <summary>
         /// API key name
@@ -107,6 +116,7 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class SubAccountKey {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Perms: ").Append(Perms).Append("\n");
             sb.Append("  IpWhitelist: ").Append(IpWhitelist).Append("\n");
@@ -152,6 +162,10 @@ namespace Io.Gate.GateApi.Model
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
                     this.UserId.Equals(input.UserId))
+                ) && 
+                (
+                    this.Mode == input.Mode ||
+                    this.Mode.Equals(input.Mode)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -202,6 +216,7 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                hashCode = hashCode * 59 + this.Mode.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Perms != null)

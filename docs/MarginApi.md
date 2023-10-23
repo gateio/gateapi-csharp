@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Cross margin repayments
 [**GetCrossMarginInterestRecords**](MarginApi.md#getcrossmargininterestrecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
 [**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
+[**GetCrossMarginEstimateRate**](MarginApi.md#getcrossmarginestimaterate) | **GET** /margin/cross/estimate_rate | Estimated interest rates
 [**GetCrossMarginBorrowable**](MarginApi.md#getcrossmarginborrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
 
 
@@ -112,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="listmarginaccountbook"></a>
 # **ListMarginAccountBook**
-> List&lt;MarginAccountBook&gt; ListMarginAccountBook (string currency = null, string currencyPair = null, long? from = null, long? to = null, int? page = null, int? limit = null)
+> List&lt;MarginAccountBook&gt; ListMarginAccountBook (string currency = null, string currencyPair = null, string type = null, long? from = null, long? to = null, int? page = null, int? limit = null)
 
 List margin account balance change history
 
@@ -139,6 +140,7 @@ namespace Example
             var apiInstance = new MarginApi(config);
             var currency = "currency_example";  // string | List records related to specified currency only. If specified, `currency_pair` is also required. (optional) 
             var currencyPair = "currencyPair_example";  // string | List records related to specified currency pair. Used in combination with `currency`. Ignored if `currency` is not provided (optional) 
+            var type = "lend";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
             var from = 1627706330;  // long? | Start timestamp of the query (optional) 
             var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
@@ -147,7 +149,7 @@ namespace Example
             try
             {
                 // List margin account balance change history
-                List<MarginAccountBook> result = apiInstance.ListMarginAccountBook(currency, currencyPair, from, to, page, limit);
+                List<MarginAccountBook> result = apiInstance.ListMarginAccountBook(currency, currencyPair, type, from, to, page, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -168,6 +170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| List records related to specified currency only. If specified, &#x60;currency_pair&#x60; is also required. | [optional] 
  **currencyPair** | **string**| List records related to specified currency pair. Used in combination with &#x60;currency&#x60;. Ignored if &#x60;currency&#x60; is not provided | [optional] 
+ **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional] 
  **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
@@ -1883,7 +1886,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MarginApi(config);
-            var status = 56;  // int | Filter by status. Supported values are 2 and 3.
+            var status = 56;  // int | Filter by status. Supported values are 2 and 3. (deprecated.)
             var currency = "currency_example";  // string | Filter by currency (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
@@ -1911,7 +1914,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **int**| Filter by status. Supported values are 2 and 3. | 
+ **status** | **int**| Filter by status. Supported values are 2 and 3. (deprecated.) | 
  **currency** | **string**| Filter by currency | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
@@ -2381,9 +2384,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getcrossmarginestimaterate"></a>
+# **GetCrossMarginEstimateRate**
+> Dictionary&lt;string, string&gt; GetCrossMarginEstimateRate (List<string> currencies)
+
+Estimated interest rates
+
+Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetCrossMarginEstimateRateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currencies = new List<string>(); // List<string> | An array of up to 10 specifying the currency name
+
+            try
+            {
+                // Estimated interest rates
+                Dictionary<string, string> result = apiInstance.GetCrossMarginEstimateRate(currencies);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetCrossMarginEstimateRate: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencies** | [**List&lt;string&gt;**](string.md)| An array of up to 10 specifying the currency name | 
+
+### Return type
+
+**Dictionary<string, string>**
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcrossmarginborrowable"></a>
 # **GetCrossMarginBorrowable**
-> CrossMarginBorrowable GetCrossMarginBorrowable (string currency)
+> PortfolioBorrowable GetCrossMarginBorrowable (string currency)
 
 Get the max borrowable amount for a specific cross margin currency
 
@@ -2411,7 +2487,7 @@ namespace Example
             try
             {
                 // Get the max borrowable amount for a specific cross margin currency
-                CrossMarginBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
+                PortfolioBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2434,7 +2510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CrossMarginBorrowable**](CrossMarginBorrowable.md)
+[**PortfolioBorrowable**](PortfolioBorrowable.md)
 
 ### Authorization
 

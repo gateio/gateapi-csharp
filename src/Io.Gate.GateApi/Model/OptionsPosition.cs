@@ -47,6 +47,20 @@ namespace Io.Gate.GateApi.Model
         public int User { get; private set; }
 
         /// <summary>
+        /// Underlying
+        /// </summary>
+        /// <value>Underlying</value>
+        [DataMember(Name="underlying", EmitDefaultValue=false)]
+        public string Underlying { get; private set; }
+
+        /// <summary>
+        /// Underlying price (quote currency)
+        /// </summary>
+        /// <value>Underlying price (quote currency)</value>
+        [DataMember(Name="underlying_price", EmitDefaultValue=false)]
+        public string UnderlyingPrice { get; private set; }
+
+        /// <summary>
         /// Options contract name
         /// </summary>
         /// <value>Options contract name</value>
@@ -73,6 +87,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Current mark price (quote currency)</value>
         [DataMember(Name="mark_price", EmitDefaultValue=false)]
         public string MarkPrice { get; private set; }
+
+        /// <summary>
+        /// Implied volatility
+        /// </summary>
+        /// <value>Implied volatility</value>
+        [DataMember(Name="mark_iv", EmitDefaultValue=false)]
+        public string MarkIv { get; private set; }
 
         /// <summary>
         /// Realized PNL
@@ -102,6 +123,34 @@ namespace Io.Gate.GateApi.Model
         public OptionsPositionCloseOrder CloseOrder { get; set; }
 
         /// <summary>
+        /// Delta
+        /// </summary>
+        /// <value>Delta</value>
+        [DataMember(Name="delta", EmitDefaultValue=false)]
+        public string Delta { get; private set; }
+
+        /// <summary>
+        /// Gamma
+        /// </summary>
+        /// <value>Gamma</value>
+        [DataMember(Name="gamma", EmitDefaultValue=false)]
+        public string Gamma { get; private set; }
+
+        /// <summary>
+        /// Vega
+        /// </summary>
+        /// <value>Vega</value>
+        [DataMember(Name="vega", EmitDefaultValue=false)]
+        public string Vega { get; private set; }
+
+        /// <summary>
+        /// Theta
+        /// </summary>
+        /// <value>Theta</value>
+        [DataMember(Name="theta", EmitDefaultValue=false)]
+        public string Theta { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -110,14 +159,21 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class OptionsPosition {\n");
             sb.Append("  User: ").Append(User).Append("\n");
+            sb.Append("  Underlying: ").Append(Underlying).Append("\n");
+            sb.Append("  UnderlyingPrice: ").Append(UnderlyingPrice).Append("\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  EntryPrice: ").Append(EntryPrice).Append("\n");
             sb.Append("  MarkPrice: ").Append(MarkPrice).Append("\n");
+            sb.Append("  MarkIv: ").Append(MarkIv).Append("\n");
             sb.Append("  RealisedPnl: ").Append(RealisedPnl).Append("\n");
             sb.Append("  UnrealisedPnl: ").Append(UnrealisedPnl).Append("\n");
             sb.Append("  PendingOrders: ").Append(PendingOrders).Append("\n");
             sb.Append("  CloseOrder: ").Append(CloseOrder).Append("\n");
+            sb.Append("  Delta: ").Append(Delta).Append("\n");
+            sb.Append("  Gamma: ").Append(Gamma).Append("\n");
+            sb.Append("  Vega: ").Append(Vega).Append("\n");
+            sb.Append("  Theta: ").Append(Theta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +213,16 @@ namespace Io.Gate.GateApi.Model
                     this.User.Equals(input.User)
                 ) && 
                 (
+                    this.Underlying == input.Underlying ||
+                    (this.Underlying != null &&
+                    this.Underlying.Equals(input.Underlying))
+                ) && 
+                (
+                    this.UnderlyingPrice == input.UnderlyingPrice ||
+                    (this.UnderlyingPrice != null &&
+                    this.UnderlyingPrice.Equals(input.UnderlyingPrice))
+                ) && 
+                (
                     this.Contract == input.Contract ||
                     (this.Contract != null &&
                     this.Contract.Equals(input.Contract))
@@ -176,6 +242,11 @@ namespace Io.Gate.GateApi.Model
                     this.MarkPrice.Equals(input.MarkPrice))
                 ) && 
                 (
+                    this.MarkIv == input.MarkIv ||
+                    (this.MarkIv != null &&
+                    this.MarkIv.Equals(input.MarkIv))
+                ) && 
+                (
                     this.RealisedPnl == input.RealisedPnl ||
                     (this.RealisedPnl != null &&
                     this.RealisedPnl.Equals(input.RealisedPnl))
@@ -193,6 +264,26 @@ namespace Io.Gate.GateApi.Model
                     this.CloseOrder == input.CloseOrder ||
                     (this.CloseOrder != null &&
                     this.CloseOrder.Equals(input.CloseOrder))
+                ) && 
+                (
+                    this.Delta == input.Delta ||
+                    (this.Delta != null &&
+                    this.Delta.Equals(input.Delta))
+                ) && 
+                (
+                    this.Gamma == input.Gamma ||
+                    (this.Gamma != null &&
+                    this.Gamma.Equals(input.Gamma))
+                ) && 
+                (
+                    this.Vega == input.Vega ||
+                    (this.Vega != null &&
+                    this.Vega.Equals(input.Vega))
+                ) && 
+                (
+                    this.Theta == input.Theta ||
+                    (this.Theta != null &&
+                    this.Theta.Equals(input.Theta))
                 );
         }
 
@@ -206,6 +297,10 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.User.GetHashCode();
+                if (this.Underlying != null)
+                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                if (this.UnderlyingPrice != null)
+                    hashCode = hashCode * 59 + this.UnderlyingPrice.GetHashCode();
                 if (this.Contract != null)
                     hashCode = hashCode * 59 + this.Contract.GetHashCode();
                 hashCode = hashCode * 59 + this.Size.GetHashCode();
@@ -213,6 +308,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.EntryPrice.GetHashCode();
                 if (this.MarkPrice != null)
                     hashCode = hashCode * 59 + this.MarkPrice.GetHashCode();
+                if (this.MarkIv != null)
+                    hashCode = hashCode * 59 + this.MarkIv.GetHashCode();
                 if (this.RealisedPnl != null)
                     hashCode = hashCode * 59 + this.RealisedPnl.GetHashCode();
                 if (this.UnrealisedPnl != null)
@@ -220,6 +317,14 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.PendingOrders.GetHashCode();
                 if (this.CloseOrder != null)
                     hashCode = hashCode * 59 + this.CloseOrder.GetHashCode();
+                if (this.Delta != null)
+                    hashCode = hashCode * 59 + this.Delta.GetHashCode();
+                if (this.Gamma != null)
+                    hashCode = hashCode * 59 + this.Gamma.GetHashCode();
+                if (this.Vega != null)
+                    hashCode = hashCode * 59 + this.Vega.GetHashCode();
+                if (this.Theta != null)
+                    hashCode = hashCode * 59 + this.Theta.GetHashCode();
                 return hashCode;
             }
         }

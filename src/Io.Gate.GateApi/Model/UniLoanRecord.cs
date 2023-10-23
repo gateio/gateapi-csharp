@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan record
+    /// Loan records
     /// </summary>
     [DataContract]
     public partial class UniLoanRecord :  IEquatable<UniLoanRecord>, IValidatableObject

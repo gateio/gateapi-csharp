@@ -43,7 +43,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="pointType">Point type. 0 - Initial version. 1 - new version since 202009.</param>
         /// <param name="futuresTakerFee">Futures trading taker fee.</param>
         /// <param name="futuresMakerFee">Future trading maker fee.</param>
-        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string futuresTakerFee = default(string), string futuresMakerFee = default(string))
+        /// <param name="deliveryTakerFee">Delivery trading taker fee.</param>
+        /// <param name="deliveryMakerFee">Delivery trading maker fee.</param>
+        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string futuresTakerFee = default(string), string futuresMakerFee = default(string), string deliveryTakerFee = default(string), string deliveryMakerFee = default(string))
         {
             this.UserId = userId;
             this.TakerFee = takerFee;
@@ -55,6 +57,8 @@ namespace Io.Gate.GateApi.Model
             this.PointType = pointType;
             this.FuturesTakerFee = futuresTakerFee;
             this.FuturesMakerFee = futuresMakerFee;
+            this.DeliveryTakerFee = deliveryTakerFee;
+            this.DeliveryMakerFee = deliveryMakerFee;
         }
 
         /// <summary>
@@ -128,6 +132,20 @@ namespace Io.Gate.GateApi.Model
         public string FuturesMakerFee { get; set; }
 
         /// <summary>
+        /// Delivery trading taker fee
+        /// </summary>
+        /// <value>Delivery trading taker fee</value>
+        [DataMember(Name="delivery_taker_fee")]
+        public string DeliveryTakerFee { get; set; }
+
+        /// <summary>
+        /// Delivery trading maker fee
+        /// </summary>
+        /// <value>Delivery trading maker fee</value>
+        [DataMember(Name="delivery_maker_fee")]
+        public string DeliveryMakerFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +163,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  PointType: ").Append(PointType).Append("\n");
             sb.Append("  FuturesTakerFee: ").Append(FuturesTakerFee).Append("\n");
             sb.Append("  FuturesMakerFee: ").Append(FuturesMakerFee).Append("\n");
+            sb.Append("  DeliveryTakerFee: ").Append(DeliveryTakerFee).Append("\n");
+            sb.Append("  DeliveryMakerFee: ").Append(DeliveryMakerFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -226,6 +246,16 @@ namespace Io.Gate.GateApi.Model
                     this.FuturesMakerFee == input.FuturesMakerFee ||
                     (this.FuturesMakerFee != null &&
                     this.FuturesMakerFee.Equals(input.FuturesMakerFee))
+                ) && 
+                (
+                    this.DeliveryTakerFee == input.DeliveryTakerFee ||
+                    (this.DeliveryTakerFee != null &&
+                    this.DeliveryTakerFee.Equals(input.DeliveryTakerFee))
+                ) && 
+                (
+                    this.DeliveryMakerFee == input.DeliveryMakerFee ||
+                    (this.DeliveryMakerFee != null &&
+                    this.DeliveryMakerFee.Equals(input.DeliveryMakerFee))
                 );
         }
 
@@ -256,6 +286,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.FuturesTakerFee.GetHashCode();
                 if (this.FuturesMakerFee != null)
                     hashCode = hashCode * 59 + this.FuturesMakerFee.GetHashCode();
+                if (this.DeliveryTakerFee != null)
+                    hashCode = hashCode * 59 + this.DeliveryTakerFee.GetHashCode();
+                if (this.DeliveryMakerFee != null)
+                    hashCode = hashCode * 59 + this.DeliveryMakerFee.GetHashCode();
                 return hashCode;
             }
         }

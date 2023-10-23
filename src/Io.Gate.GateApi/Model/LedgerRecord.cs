@@ -214,13 +214,6 @@ namespace Io.Gate.GateApi.Model
         public string Chain { get; set; }
 
         /// <summary>
-        /// Fee
-        /// </summary>
-        /// <value>Fee</value>
-        [DataMember(Name="fee", EmitDefaultValue=false)]
-        public string Fee { get; private set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,7 +231,6 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Memo: ").Append(Memo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Chain: ").Append(Chain).Append("\n");
-            sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -321,11 +313,6 @@ namespace Io.Gate.GateApi.Model
                     this.Chain == input.Chain ||
                     (this.Chain != null &&
                     this.Chain.Equals(input.Chain))
-                ) && 
-                (
-                    this.Fee == input.Fee ||
-                    (this.Fee != null &&
-                    this.Fee.Equals(input.Fee))
                 );
         }
 
@@ -357,8 +344,6 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Chain != null)
                     hashCode = hashCode * 59 + this.Chain.GetHashCode();
-                if (this.Fee != null)
-                    hashCode = hashCode * 59 + this.Fee.GetHashCode();
                 return hashCode;
             }
         }

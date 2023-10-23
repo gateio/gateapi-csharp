@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Password** | **string** | The sub-account&#39;s password. (Default: the same as main account&#39;s password) | [optional] 
 **Email** | **string** | The sub-account&#39;s email address. (Default: the same as main account&#39;s email address) | [optional] 
 **State** | **int** | State: 1-normal, 2-locked\&quot; | [optional] [readonly] 
-**Type** | **int** | \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account | [optional] 
+**Type** | **int** | \&quot;Sub-account type: 1 - sub-account, 3 - cross margin account | [optional] [readonly] 
 **UserId** | **long** | The user id of the sub-account | [optional] [readonly] 
 **CreateTime** | **long** | Created time | [optional] [readonly] 
 

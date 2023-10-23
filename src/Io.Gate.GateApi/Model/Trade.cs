@@ -101,7 +101,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="pointFee">Points used to deduct fee. No value in public endpoints.</param>
         /// <param name="gtFee">GT used to deduct fee. No value in public endpoints.</param>
         /// <param name="amendText">The custom data that the user remarked when amending the order.</param>
-        public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string), string amendText = default(string))
+        /// <param name="sequenceId">Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market.</param>
+        /// <param name="text">User defined information. No value in public endpoints.</param>
+        public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string), string amendText = default(string), string sequenceId = default(string), string text = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
@@ -117,6 +119,8 @@ namespace Io.Gate.GateApi.Model
             this.PointFee = pointFee;
             this.GtFee = gtFee;
             this.AmendText = amendText;
+            this.SequenceId = sequenceId;
+            this.Text = text;
         }
 
         /// <summary>
@@ -204,6 +208,20 @@ namespace Io.Gate.GateApi.Model
         public string AmendText { get; set; }
 
         /// <summary>
+        /// Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market
+        /// </summary>
+        /// <value>Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market</value>
+        [DataMember(Name="sequence_id")]
+        public string SequenceId { get; set; }
+
+        /// <summary>
+        /// User defined information. No value in public endpoints
+        /// </summary>
+        /// <value>User defined information. No value in public endpoints</value>
+        [DataMember(Name="text")]
+        public string Text { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -225,6 +243,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  PointFee: ").Append(PointFee).Append("\n");
             sb.Append("  GtFee: ").Append(GtFee).Append("\n");
             sb.Append("  AmendText: ").Append(AmendText).Append("\n");
+            sb.Append("  SequenceId: ").Append(SequenceId).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -326,6 +346,16 @@ namespace Io.Gate.GateApi.Model
                     this.AmendText == input.AmendText ||
                     (this.AmendText != null &&
                     this.AmendText.Equals(input.AmendText))
+                ) && 
+                (
+                    this.SequenceId == input.SequenceId ||
+                    (this.SequenceId != null &&
+                    this.SequenceId.Equals(input.SequenceId))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -364,6 +394,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.GtFee.GetHashCode();
                 if (this.AmendText != null)
                     hashCode = hashCode * 59 + this.AmendText.GetHashCode();
+                if (this.SequenceId != null)
+                    hashCode = hashCode * 59 + this.SequenceId.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }

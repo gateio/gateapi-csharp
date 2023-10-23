@@ -31,6 +31,7 @@ Method | HTTP request | Description
 [**ListFuturesOrders**](FuturesApi.md#listfuturesorders) | **GET** /futures/{settle}/orders | List futures orders
 [**CreateFuturesOrder**](FuturesApi.md#createfuturesorder) | **POST** /futures/{settle}/orders | Create a futures order
 [**CancelFuturesOrders**](FuturesApi.md#cancelfuturesorders) | **DELETE** /futures/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
+[**GetOrdersWithTimeRange**](FuturesApi.md#getorderswithtimerange) | **GET** /futures/{settle}/orders_timerange | List Futures Orders By Time Range
 [**CreateBatchFuturesOrder**](FuturesApi.md#createbatchfuturesorder) | **POST** /futures/{settle}/batch_orders | Create a batch of futures orders
 [**GetFuturesOrder**](FuturesApi.md#getfuturesorder) | **GET** /futures/{settle}/orders/{order_id} | Get a single order
 [**AmendFuturesOrder**](FuturesApi.md#amendfuturesorder) | **PUT** /futures/{settle}/orders/{order_id} | Amend an order
@@ -41,6 +42,7 @@ Method | HTTP request | Description
 [**ListLiquidates**](FuturesApi.md#listliquidates) | **GET** /futures/{settle}/liquidates | List liquidation history
 [**ListAutoDeleverages**](FuturesApi.md#listautodeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**CountdownCancelAllFutures**](FuturesApi.md#countdowncancelallfutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
+[**GetFuturesFee**](FuturesApi.md#getfuturesfee) | **GET** /futures/{settle}/fee | Query user trading fee rates
 [**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -378,7 +380,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0 (optional)  (default to 5m)
+            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days (optional)  (default to 5m)
 
             try
             {
@@ -407,7 +409,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to 5m]
 
 ### Return type
 
@@ -875,7 +877,7 @@ No authorization required
 
 <a name="listliquidatedorders"></a>
 # **ListLiquidatedOrders**
-> List&lt;FuturesLiquidate&gt; ListLiquidatedOrders (string settle, string contract = null, long? from = null, long? to = null, int? limit = null)
+> List&lt;FuturesLiqOrder&gt; ListLiquidatedOrders (string settle, string contract = null, long? from = null, long? to = null, int? limit = null)
 
 Retrieve liquidation history
 
@@ -907,7 +909,7 @@ namespace Example
             try
             {
                 // Retrieve liquidation history
-                List<FuturesLiquidate> result = apiInstance.ListLiquidatedOrders(settle, contract, from, to, limit);
+                List<FuturesLiqOrder> result = apiInstance.ListLiquidatedOrders(settle, contract, from, to, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -934,7 +936,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesLiquidate&gt;**](FuturesLiquidate.md)
+[**List&lt;FuturesLiqOrder&gt;**](FuturesLiqOrder.md)
 
 ### Authorization
 
@@ -1104,7 +1106,7 @@ Name | Type | Description  | Notes
 
 <a name="listpositions"></a>
 # **ListPositions**
-> List&lt;Position&gt; ListPositions (string settle)
+> List&lt;Position&gt; ListPositions (string settle, bool? holding = null)
 
 List all positions of a user
 
@@ -1128,11 +1130,12 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
+            var holding = true;  // bool? | Return only real positions - true, return all - false. (optional) 
 
             try
             {
                 // List all positions of a user
-                List<Position> result = apiInstance.ListPositions(settle);
+                List<Position> result = apiInstance.ListPositions(settle, holding);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1152,6 +1155,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
+ **holding** | **bool?**| Return only real positions - true, return all - false. | [optional] 
 
 ### Return type
 
@@ -1852,7 +1856,7 @@ Name | Type | Description  | Notes
 
 <a name="listfuturesorders"></a>
 # **ListFuturesOrders**
-> List&lt;FuturesOrder&gt; ListFuturesOrders (string settle, string contract, string status, int? limit = null, int? offset = null, string lastId = null)
+> List&lt;FuturesOrder&gt; ListFuturesOrders (string settle, string status, string contract = null, int? limit = null, int? offset = null, string lastId = null)
 
 List futures orders
 
@@ -1878,8 +1882,8 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT";  // string | Futures contract
             var status = "open";  // string | Only list the orders with this status
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
@@ -1887,7 +1891,7 @@ namespace Example
             try
             {
                 // List futures orders
-                List<FuturesOrder> result = apiInstance.ListFuturesOrders(settle, contract, status, limit, offset, lastId);
+                List<FuturesOrder> result = apiInstance.ListFuturesOrders(settle, status, contract, limit, offset, lastId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1907,8 +1911,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
  **status** | **string**| Only list the orders with this status | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
@@ -2082,6 +2086,87 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | All orders matched cancelled |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getorderswithtimerange"></a>
+# **GetOrdersWithTimeRange**
+> List&lt;FuturesOrder&gt; GetOrdersWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+
+List Futures Orders By Time Range
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetOrdersWithTimeRangeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+
+            try
+            {
+                // List Futures Orders By Time Range
+                List<FuturesOrder> result = apiInstance.GetOrdersWithTimeRange(settle, contract, from, to, limit, offset);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.GetOrdersWithTimeRange: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesOrder&gt;**](FuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2466,7 +2551,7 @@ Name | Type | Description  | Notes
 
 <a name="getmytradeswithtimerange"></a>
 # **GetMyTradesWithTimeRange**
-> List&lt;MyFuturesTradeTimeRange&gt; GetMyTradesWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+> List&lt;MyFuturesTradeTimeRange&gt; GetMyTradesWithTimeRange (string settle, string contract = null, long? from = null, long? to = null, int? limit = null, int? offset = null, string role = null)
 
 List personal trading history by time range
 
@@ -2495,11 +2580,12 @@ namespace Example
             var to = 1547706332;  // long? | End timestamp (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var role = "maker";  // string | Query role, maker or taker. (optional) 
 
             try
             {
                 // List personal trading history by time range
-                List<MyFuturesTradeTimeRange> result = apiInstance.GetMyTradesWithTimeRange(settle, contract, from, to, limit, offset);
+                List<MyFuturesTradeTimeRange> result = apiInstance.GetMyTradesWithTimeRange(settle, contract, from, to, limit, offset, role);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2524,6 +2610,7 @@ Name | Type | Description  | Notes
  **to** | **long?**| End timestamp | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **role** | **string**| Query role, maker or taker. | [optional] 
 
 ### Return type
 
@@ -2547,7 +2634,7 @@ Name | Type | Description  | Notes
 
 <a name="listpositionclose"></a>
 # **ListPositionClose**
-> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
+> List&lt;PositionClose&gt; ListPositionClose (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null, string side = null, string pnl = null)
 
 List position close history
 
@@ -2576,11 +2663,13 @@ namespace Example
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
+            var side = "short";  // string | Query side.  long or shot (optional) 
+            var pnl = "profit";  // string | Query profit or loss (optional) 
 
             try
             {
                 // List position close history
-                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit, offset, from, to);
+                List<PositionClose> result = apiInstance.ListPositionClose(settle, contract, limit, offset, from, to, side, pnl);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2605,6 +2694,8 @@ Name | Type | Description  | Notes
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
+ **side** | **string**| Query side.  long or shot | [optional] 
+ **pnl** | **string**| Query profit or loss | [optional] 
 
 ### Return type
 
@@ -2852,6 +2943,79 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Set countdown successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getfuturesfee"></a>
+# **GetFuturesFee**
+> Dictionary&lt;string, FuturesFee&gt; GetFuturesFee (string settle, string contract = null)
+
+Query user trading fee rates
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetFuturesFeeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
+
+            try
+            {
+                // Query user trading fee rates
+                Dictionary<string, FuturesFee> result = apiInstance.GetFuturesFee(settle, contract);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.GetFuturesFee: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+
+### Return type
+
+[**Dictionary&lt;string, FuturesFee&gt;**](FuturesFee.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

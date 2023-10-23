@@ -31,93 +31,6 @@ namespace Io.Gate.GateApi.Model
     public partial class CrossMarginAccountBook :  IEquatable<CrossMarginAccountBook>, IValidatableObject
     {
         /// <summary>
-        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
-        /// </summary>
-        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum In for value: in
-            /// </summary>
-            [EnumMember(Value = "in")]
-            In = 1,
-
-            /// <summary>
-            /// Enum Out for value: out
-            /// </summary>
-            [EnumMember(Value = "out")]
-            Out = 2,
-
-            /// <summary>
-            /// Enum Repay for value: repay
-            /// </summary>
-            [EnumMember(Value = "repay")]
-            Repay = 3,
-
-            /// <summary>
-            /// Enum Borrow for value: borrow
-            /// </summary>
-            [EnumMember(Value = "borrow")]
-            Borrow = 4,
-
-            /// <summary>
-            /// Enum Interest for value: interest
-            /// </summary>
-            [EnumMember(Value = "interest")]
-            Interest = 5,
-
-            /// <summary>
-            /// Enum Neworder for value: new_order
-            /// </summary>
-            [EnumMember(Value = "new_order")]
-            Neworder = 6,
-
-            /// <summary>
-            /// Enum Orderfill for value: order_fill
-            /// </summary>
-            [EnumMember(Value = "order_fill")]
-            Orderfill = 7,
-
-            /// <summary>
-            /// Enum Referralfee for value: referral_fee
-            /// </summary>
-            [EnumMember(Value = "referral_fee")]
-            Referralfee = 8,
-
-            /// <summary>
-            /// Enum Orderfee for value: order_fee
-            /// </summary>
-            [EnumMember(Value = "order_fee")]
-            Orderfee = 9,
-
-            /// <summary>
-            /// Enum Futuresin for value: futures_in
-            /// </summary>
-            [EnumMember(Value = "futures_in")]
-            Futuresin = 10,
-
-            /// <summary>
-            /// Enum Futuresout for value: futures_out
-            /// </summary>
-            [EnumMember(Value = "futures_out")]
-            Futuresout = 11,
-
-            /// <summary>
-            /// Enum Unknown for value: unknown
-            /// </summary>
-            [EnumMember(Value = "unknown")]
-            Unknown = 12
-
-        }
-
-        /// <summary>
-        /// Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type
-        /// </summary>
-        /// <value>Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type</value>
-        [DataMember(Name="type")]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginAccountBook" /> class.
         /// </summary>
         /// <param name="id">Balance change record ID.</param>
@@ -125,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Currency changed.</param>
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Account change type, including:  - in: transferals into cross margin account - out: transferals out from cross margin account - repay: loan repayment - borrow: borrowed loan - interest: interest - new_order: new order locked - order_fill: order fills - referral_fee: fee refund from referrals - order_fee: order fee generated from fills - futures_in: transfer into futures account - futures_out: transfer out of futures account - unknown: unknown type.</param>
-        public CrossMarginAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?))
+        /// <param name="type">Account book type.  Please refer to [account book type](#accountbook-type) for more detail.</param>
+        public CrossMarginAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), string type = default(string))
         {
             this.Id = id;
             this.Time = time;
@@ -170,6 +83,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Balance after change</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
+
+        /// <summary>
+        /// Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+        /// </summary>
+        /// <value>Account book type.  Please refer to [account book type](#accountbook-type) for more detail</value>
+        [DataMember(Name="type")]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -245,7 +165,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -267,7 +188,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Change.GetHashCode();
                 if (this.Balance != null)
                     hashCode = hashCode * 59 + this.Balance.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

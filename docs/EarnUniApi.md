@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**ListUniLendRecords**](EarnUniApi.md#listunilendrecords) | **GET** /earn/uni/lend_records | List records of lending
 [**GetUniInterest**](EarnUniApi.md#getuniinterest) | **GET** /earn/uni/interests/{currency} | Get the user&#39;s total interest income of specified currency
 [**ListUniInterestRecords**](EarnUniApi.md#listuniinterestrecords) | **GET** /earn/uni/interest_records | List interest records
+[**SwitchInterestReinvest**](EarnUniApi.md#switchinterestreinvest) | **PUT** /earn/uni/interest_reinvest | Set interest reinvestment toggle
+[**GetUniInterestStatus**](EarnUniApi.md#getuniintereststatus) | **GET** /earn/uni/interest_status/{currency} | query currency interest compounding status
 
 
 <a name="listunicurrencies"></a>
@@ -369,7 +371,7 @@ void (empty response body)
 
 <a name="listunilendrecords"></a>
 # **ListUniLendRecords**
-> List&lt;UniLendRecord&gt; ListUniLendRecords (string currency = null, int? page = null, int? limit = null, string type = null)
+> List&lt;UniLendRecord&gt; ListUniLendRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null, string type = null)
 
 List records of lending
 
@@ -395,12 +397,14 @@ namespace Example
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
             var type = "lend";  // string | type: lend - lend, redeem - redeem (optional) 
 
             try
             {
                 // List records of lending
-                List<UniLendRecord> result = apiInstance.ListUniLendRecords(currency, page, limit, type);
+                List<UniLendRecord> result = apiInstance.ListUniLendRecords(currency, page, limit, from, to, type);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -422,6 +426,8 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
  **type** | **string**| type: lend - lend, redeem - redeem | [optional] 
 
 ### Return type
@@ -573,6 +579,147 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;UniInterestRecord&gt;**](UniInterestRecord.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="switchinterestreinvest"></a>
+# **SwitchInterestReinvest**
+> void SwitchInterestReinvest (UniInterestMode uniInterestMode)
+
+Set interest reinvestment toggle
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SwitchInterestReinvestExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new EarnUniApi(config);
+            var uniInterestMode = new UniInterestMode(); // UniInterestMode | 
+
+            try
+            {
+                // Set interest reinvestment toggle
+                apiInstance.SwitchInterestReinvest(uniInterestMode);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling EarnUniApi.SwitchInterestReinvest: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uniInterestMode** | [**UniInterestMode**](UniInterestMode.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuniintereststatus"></a>
+# **GetUniInterestStatus**
+> UniCurrencyInterest GetUniInterestStatus (string currency)
+
+query currency interest compounding status
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetUniInterestStatusExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new EarnUniApi(config);
+            var currency = "btc";  // string | Currency
+
+            try
+            {
+                // query currency interest compounding status
+                UniCurrencyInterest result = apiInstance.GetUniInterestStatus(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling EarnUniApi.GetUniInterestStatus: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | 
+
+### Return type
+
+[**UniCurrencyInterest**](UniCurrencyInterest.md)
 
 ### Authorization
 

@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**GetFee**](SpotApi.md#getfee) | **GET** /spot/fee | Query user trading fee rates
 [**GetBatchSpotFee**](SpotApi.md#getbatchspotfee) | **GET** /spot/batch_fee | Query a batch of user trading fee rates
 [**ListSpotAccounts**](SpotApi.md#listspotaccounts) | **GET** /spot/accounts | List spot accounts
+[**ListSpotAccountBook**](SpotApi.md#listspotaccountbook) | **GET** /spot/account_book | Query account book
 [**CreateBatchOrders**](SpotApi.md#createbatchorders) | **POST** /spot/batch_orders | Create a batch of orders
 [**ListAllOpenOrders**](SpotApi.md#listallopenorders) | **GET** /spot/open_orders | List all open orders
 [**CreateCrossLiquidateOrder**](SpotApi.md#createcrossliquidateorder) | **POST** /spot/cross_liquidate_orders | close position when cross-currency is disabled
@@ -28,6 +29,7 @@ Method | HTTP request | Description
 [**ListMyTrades**](SpotApi.md#listmytrades) | **GET** /spot/my_trades | List personal trading history
 [**GetSystemTime**](SpotApi.md#getsystemtime) | **GET** /spot/time | Get server current time
 [**CountdownCancelAllSpot**](SpotApi.md#countdowncancelallspot) | **POST** /spot/countdown_cancel_all | Countdown cancel orders
+[**AmendBatchOrders**](SpotApi.md#amendbatchorders) | **POST** /spot/amend_batch_orders | Batch modification of orders
 [**ListSpotPriceTriggeredOrders**](SpotApi.md#listspotpricetriggeredorders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**CreateSpotPriceTriggeredOrder**](SpotApi.md#createspotpricetriggeredorder) | **POST** /spot/price_orders | Create a price-triggered order
 [**CancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelspotpricetriggeredorderlist) | **DELETE** /spot/price_orders | Cancel all open orders
@@ -832,6 +834,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listspotaccountbook"></a>
+# **ListSpotAccountBook**
+> List&lt;SpotAccountBook&gt; ListSpotAccountBook (string currency = null, long? from = null, long? to = null, int? page = null, int? limit = null, string type = null)
+
+Query account book
+
+Record time range cannot exceed 30 days
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSpotAccountBookExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SpotApi(config);
+            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var type = "lend";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
+
+            try
+            {
+                // Query account book
+                List<SpotAccountBook> result = apiInstance.ListSpotAccountBook(currency, from, to, page, limit, type);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.ListSpotAccountBook: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Retrieve data of the specified currency | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
+ **to** | **long?**| Time range ending, default to current time | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional] 
+
+### Return type
+
+[**List&lt;SpotAccountBook&gt;**](SpotAccountBook.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createbatchorders"></a>
 # **CreateBatchOrders**
 > List&lt;BatchOrder&gt; CreateBatchOrders (List<Order> order)
@@ -911,7 +996,7 @@ Name | Type | Description  | Notes
 
 List all open orders
 
-List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot and margin orders are returned by default. To list cross margin orders, `account` must be set to `cross_margin`
+List open orders in all currency pairs.  Note that pagination parameters affect record number in each currency pair's open order list. No pagination is applied to the number of currency pairs returned. All currency pairs with open orders will be returned.  Spot,portfolio and margin orders are returned by default. To list cross margin orders, `account` must be set to `cross_margin`
 
 ### Example
 ```csharp
@@ -934,7 +1019,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records returned in one page in each currency pair (optional)  (default to 100)
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -960,7 +1045,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records returned in one page in each currency pair | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1061,7 +1146,7 @@ Name | Type | Description  | Notes
 
 List orders
 
-Spot and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`  When `status` is `open`, i.e., listing open orders, only pagination parameters `page` and `limit` are supported and `limit` cannot be larger than 100. Query by `side` and time range parameters `from` and `to` are not supported.  When `status` is `finished`, i.e., listing finished orders, pagination parameters, time range parameters `from` and `to`, and `side` parameters are all supported. Time range parameters are handled as order finish time.
+Spot, portfolio and margin orders are returned by default. If cross margin orders are needed, `account` must be set to `cross_margin`  When `status` is `open`, i.e., listing open orders, only pagination parameters `page` and `limit` are supported and `limit` cannot be larger than 100. Query by `side` and time range parameters `from` and `to` are not supported.  When `status` is `finished`, i.e., listing finished orders, pagination parameters, time range parameters `from` and `to`, and `side` parameters are all supported. Time range parameters are handled as order finish time.
 
 ### Example
 ```csharp
@@ -1086,7 +1171,7 @@ namespace Example
             var status = "open";  // string | List orders based on status  `open` - order is waiting to be filled `finished` - order has been filled or cancelled 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned. If `status` is `open`, maximum of `limit` is 100 (optional)  (default to 100)
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
             var from = 1627706330;  // long? | Start timestamp of the query (optional) 
             var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
@@ -1117,7 +1202,7 @@ Name | Type | Description  | Notes
  **status** | **string**| List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled  | 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 | [optional] [default to 100]
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
  **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
@@ -1148,7 +1233,7 @@ Name | Type | Description  | Notes
 
 Create an order
 
-You can place orders with spot, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. **Self Trade Prevention**  - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body 
+You can place orders with spot, portfolio, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. **Self Trade Prevention**  - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body 
 
 ### Example
 ```csharp
@@ -1221,7 +1306,7 @@ Name | Type | Description  | Notes
 
 Cancel all `open` orders in specified currency pair
 
-If `account` is not set, all open orders, including spot, margin and cross margin ones, will be cancelled.  You can set `account` to cancel only orders within the specified account
+If `account` is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set `account` to cancel only orders within the specified account
 
 ### Example
 ```csharp
@@ -1294,7 +1379,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelbatchorders"></a>
 # **CancelBatchOrders**
-> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelOrder> cancelOrder)
+> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder)
 
 Cancel a batch of orders with an ID list
 
@@ -1319,12 +1404,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var cancelOrder = new List<CancelOrder>(); // List<CancelOrder> | 
+            var cancelBatchOrder = new List<CancelBatchOrder>(); // List<CancelBatchOrder> | 
 
             try
             {
                 // Cancel a batch of orders with an ID list
-                List<CancelOrderResult> result = apiInstance.CancelBatchOrders(cancelOrder);
+                List<CancelOrderResult> result = apiInstance.CancelBatchOrders(cancelBatchOrder);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1343,7 +1428,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrder** | [**List&lt;CancelOrder&gt;**](CancelOrder.md)|  | 
+ **cancelBatchOrder** | [**List&lt;CancelBatchOrder&gt;**](CancelBatchOrder.md)|  | 
 
 ### Return type
 
@@ -1371,7 +1456,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Spot and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
+Spot, portfolio and margin orders are queried by default. If cross margin orders are needed or portfolio margin account are used, account must be set to cross_margin.
 
 ### Example
 ```csharp
@@ -1394,7 +1479,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -1420,7 +1505,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1448,7 +1533,7 @@ Name | Type | Description  | Notes
 
 Cancel a single order
 
-Spot and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
+Spot,portfolio and margin orders are cancelled by default. If trying to cancel cross margin orders or portfolio margin account are used, account must be set to cross_margin
 
 ### Example
 ```csharp
@@ -1471,7 +1556,7 @@ namespace Example
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -1497,7 +1582,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1525,7 +1610,7 @@ Name | Type | Description  | Notes
 
 Amend an order
 
-By default, the orders of spot and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: only modifying the amount does not affect the priority. If the price is modified, the priority will be adjusted to the last of the new price. Note: If the modified amount is less than the fill amount, the order will be cancelled.
+By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
 
 ### Example
 ```csharp
@@ -1549,7 +1634,7 @@ namespace Example
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var orderPatch = new OrderPatch(); // OrderPatch | 
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
             {
@@ -1576,7 +1661,7 @@ Name | Type | Description  | Notes
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
  **orderPatch** | [**OrderPatch**](OrderPatch.md)|  | 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
 
@@ -1604,7 +1689,7 @@ Name | Type | Description  | Notes
 
 List personal trading history
 
-Spot and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
+Spot,portfolio and margin trades are queried by default. If cross margin trades are needed, `account` must be set to `cross_margin`  You can also set `from` and(or) `to` to query by time range. If you don't specify `from` and/or `to` parameters, only the last 7 days of data will be retured. The range of `from` and `to` is not alloed to exceed 30 days.  Time range parameters are handled as order finish time.
 
 ### Example
 ```csharp
@@ -1629,7 +1714,7 @@ namespace Example
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
-            var account = "cross_margin";  // string | Specify operation account. Default to spot and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
             var from = 1627706330;  // long? | Start timestamp of the query (optional) 
             var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
 
@@ -1659,7 +1744,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
- **account** | **string**| Specify operation account. Default to spot and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
  **from** | **long?**| Start timestamp of the query | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
 
@@ -1818,6 +1903,79 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Set countdown successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="amendbatchorders"></a>
+# **AmendBatchOrders**
+> List&lt;AmendOrderResult&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+
+Batch modification of orders
+
+Default modification of orders for spot, portfolio, and margin accounts. To modify orders for a cross margin account, the `account` parameter must be specified as `cross_margin`.  For portfolio margin accounts, the `account` parameter can only be specified as `cross_margin`. Currently, only modifications to price or quantity (choose one) are supported. When modifying unfinished orders, a maximum of 5 orders can be batch-modified in one request. The request parameters should be passed in an array format. During batch modification, if one order modification fails, the modification process will continue with the next order. After execution, the response will include corresponding failure information for the failed orders. The sequence of calling for batch order modification should be consistent with the order in the order list. The response content order for batch order modification will also be consistent with the order in the order list.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class AmendBatchOrdersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SpotApi(config);
+            var batchAmendItem = new List<BatchAmendItem>(); // List<BatchAmendItem> | 
+
+            try
+            {
+                // Batch modification of orders
+                List<AmendOrderResult> result = apiInstance.AmendBatchOrders(batchAmendItem);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SpotApi.AmendBatchOrders: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchAmendItem** | [**List&lt;BatchAmendItem&gt;**](BatchAmendItem.md)|  | 
+
+### Return type
+
+[**List&lt;AmendOrderResult&gt;**](AmendOrderResult.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Order modification executed successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

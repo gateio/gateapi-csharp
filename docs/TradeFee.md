@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **PointType** | **string** | Point type. 0 - Initial version. 1 - new version since 202009 | [optional] 
 **FuturesTakerFee** | **string** | Futures trading taker fee | [optional] 
 **FuturesMakerFee** | **string** | Future trading maker fee | [optional] 
+**DeliveryTakerFee** | **string** | Delivery trading taker fee | [optional] 
+**DeliveryMakerFee** | **string** | Delivery trading maker fee | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

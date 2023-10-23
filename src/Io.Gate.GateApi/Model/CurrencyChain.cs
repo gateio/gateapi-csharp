@@ -36,14 +36,16 @@ namespace Io.Gate.GateApi.Model
         /// <param name="chain">Chain name.</param>
         /// <param name="nameCn">Chain name in Chinese.</param>
         /// <param name="nameEn">Chain name in English.</param>
+        /// <param name="contractAddress">Smart contract address for the currency; if no address is available, it will be an empty string.</param>
         /// <param name="isDisabled">If it is disabled. 0 means NOT being disabled.</param>
         /// <param name="isDepositDisabled">Is deposit disabled. 0 means not.</param>
         /// <param name="isWithdrawDisabled">Is withdrawal disabled. 0 means not.</param>
-        public CurrencyChain(string chain = default(string), string nameCn = default(string), string nameEn = default(string), int isDisabled = default(int), int isDepositDisabled = default(int), int isWithdrawDisabled = default(int))
+        public CurrencyChain(string chain = default(string), string nameCn = default(string), string nameEn = default(string), string contractAddress = default(string), int isDisabled = default(int), int isDepositDisabled = default(int), int isWithdrawDisabled = default(int))
         {
             this.Chain = chain;
             this.NameCn = nameCn;
             this.NameEn = nameEn;
+            this.ContractAddress = contractAddress;
             this.IsDisabled = isDisabled;
             this.IsDepositDisabled = isDepositDisabled;
             this.IsWithdrawDisabled = isWithdrawDisabled;
@@ -69,6 +71,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Chain name in English</value>
         [DataMember(Name="name_en")]
         public string NameEn { get; set; }
+
+        /// <summary>
+        /// Smart contract address for the currency; if no address is available, it will be an empty string
+        /// </summary>
+        /// <value>Smart contract address for the currency; if no address is available, it will be an empty string</value>
+        [DataMember(Name="contract_address")]
+        public string ContractAddress { get; set; }
 
         /// <summary>
         /// If it is disabled. 0 means NOT being disabled
@@ -102,6 +111,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Chain: ").Append(Chain).Append("\n");
             sb.Append("  NameCn: ").Append(NameCn).Append("\n");
             sb.Append("  NameEn: ").Append(NameEn).Append("\n");
+            sb.Append("  ContractAddress: ").Append(ContractAddress).Append("\n");
             sb.Append("  IsDisabled: ").Append(IsDisabled).Append("\n");
             sb.Append("  IsDepositDisabled: ").Append(IsDepositDisabled).Append("\n");
             sb.Append("  IsWithdrawDisabled: ").Append(IsWithdrawDisabled).Append("\n");
@@ -155,6 +165,11 @@ namespace Io.Gate.GateApi.Model
                     this.NameEn.Equals(input.NameEn))
                 ) && 
                 (
+                    this.ContractAddress == input.ContractAddress ||
+                    (this.ContractAddress != null &&
+                    this.ContractAddress.Equals(input.ContractAddress))
+                ) && 
+                (
                     this.IsDisabled == input.IsDisabled ||
                     this.IsDisabled.Equals(input.IsDisabled)
                 ) && 
@@ -183,6 +198,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.NameCn.GetHashCode();
                 if (this.NameEn != null)
                     hashCode = hashCode * 59 + this.NameEn.GetHashCode();
+                if (this.ContractAddress != null)
+                    hashCode = hashCode * 59 + this.ContractAddress.GetHashCode();
                 hashCode = hashCode * 59 + this.IsDisabled.GetHashCode();
                 hashCode = hashCode * 59 + this.IsDepositDisabled.GetHashCode();
                 hashCode = hashCode * 59 + this.IsWithdrawDisabled.GetHashCode();

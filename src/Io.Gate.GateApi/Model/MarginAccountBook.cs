@@ -40,7 +40,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currencyPair">Account currency pair.</param>
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
-        public MarginAccountBook(string id = default(string), string time = default(string), long timeMs = default(long), string currency = default(string), string currencyPair = default(string), string change = default(string), string balance = default(string))
+        /// <param name="type">Account book type.  Please refer to [account book type](#accountbook-type) for more detail.</param>
+        public MarginAccountBook(string id = default(string), string time = default(string), long timeMs = default(long), string currency = default(string), string currencyPair = default(string), string change = default(string), string balance = default(string), string type = default(string))
         {
             this.Id = id;
             this.Time = time;
@@ -49,6 +50,7 @@ namespace Io.Gate.GateApi.Model
             this.CurrencyPair = currencyPair;
             this.Change = change;
             this.Balance = balance;
+            this.Type = type;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Io.Gate.GateApi.Model
         public string Balance { get; set; }
 
         /// <summary>
+        /// Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+        /// </summary>
+        /// <value>Account book type.  Please refer to [account book type](#accountbook-type) for more detail</value>
+        [DataMember(Name="type")]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +124,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Change: ").Append(Change).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +192,11 @@ namespace Io.Gate.GateApi.Model
                     this.Balance == input.Balance ||
                     (this.Balance != null &&
                     this.Balance.Equals(input.Balance))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -207,6 +222,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Change.GetHashCode();
                 if (this.Balance != null)
                     hashCode = hashCode * 59 + this.Balance.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
