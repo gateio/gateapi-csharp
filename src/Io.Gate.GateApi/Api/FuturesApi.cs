@@ -372,31 +372,33 @@ namespace Io.Gate.GateApi.Api
         /// Query account book
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>List&lt;FuturesAccountBook&gt;</returns>
-        List<FuturesAccountBook> ListFuturesAccountBook (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
+        List<FuturesAccountBook> ListFuturesAccountBook (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// Query account book
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesAccountBook&gt;</returns>
-        ApiResponse<List<FuturesAccountBook>> ListFuturesAccountBookWithHttpInfo (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
+        ApiResponse<List<FuturesAccountBook>> ListFuturesAccountBookWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// List all positions of a user
         /// </summary>
@@ -649,7 +651,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -665,7 +667,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -782,7 +784,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -794,7 +796,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -853,7 +855,7 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// 
+        /// By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -869,7 +871,7 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// 
+        /// By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1523,31 +1525,33 @@ namespace Io.Gate.GateApi.Api
         /// Query account book
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>Task of List&lt;FuturesAccountBook&gt;</returns>
-        Task<List<FuturesAccountBook>> ListFuturesAccountBookAsync (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
+        Task<List<FuturesAccountBook>> ListFuturesAccountBookAsync (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// Query account book
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesAccountBook&gt;)</returns>
-        Task<ApiResponse<List<FuturesAccountBook>>> ListFuturesAccountBookAsyncWithHttpInfo (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
+        Task<ApiResponse<List<FuturesAccountBook>>> ListFuturesAccountBookAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// List all positions of a user
         /// </summary>
@@ -1800,7 +1804,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1816,7 +1820,7 @@ namespace Io.Gate.GateApi.Api
         /// List futures orders
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1933,7 +1937,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -1945,7 +1949,7 @@ namespace Io.Gate.GateApi.Api
         /// Get a single order
         /// </summary>
         /// <remarks>
-        /// Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -2004,7 +2008,7 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// 
+        /// By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -2020,7 +2024,7 @@ namespace Io.Gate.GateApi.Api
         /// List personal trading history
         /// </summary>
         /// <remarks>
-        /// 
+        /// By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -4338,32 +4342,34 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book 
+        /// Query account book If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>List&lt;FuturesAccountBook&gt;</returns>
-        public List<FuturesAccountBook> ListFuturesAccountBook (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
+        public List<FuturesAccountBook> ListFuturesAccountBook (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             ApiResponse<List<FuturesAccountBook>> localVarResponse = ListFuturesAccountBookWithHttpInfo(settle, limit, from, to, type);
+             ApiResponse<List<FuturesAccountBook>> localVarResponse = ListFuturesAccountBookWithHttpInfo(settle, contract, limit, from, to, type);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Query account book 
+        /// Query account book If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesAccountBook&gt;</returns>
-        public ApiResponse<List<FuturesAccountBook>> ListFuturesAccountBookWithHttpInfo (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
+        public ApiResponse<List<FuturesAccountBook>> ListFuturesAccountBookWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4386,6 +4392,10 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
@@ -4419,33 +4429,35 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book 
+        /// Query account book If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>Task of List&lt;FuturesAccountBook&gt;</returns>
-        public async Task<List<FuturesAccountBook>> ListFuturesAccountBookAsync (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
+        public async Task<List<FuturesAccountBook>> ListFuturesAccountBookAsync (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FuturesAccountBook>> localVarResponse = await ListFuturesAccountBookAsyncWithHttpInfo(settle, limit, from, to, type);
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesAccountBook>> localVarResponse = await ListFuturesAccountBookAsyncWithHttpInfo(settle, contract, limit, from, to, type);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Query account book 
+        /// Query account book If the &#x60;contract&#x60; field is provided, it can only filter records that include this field after 2023-10-30.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="from">Start timestamp (optional)</param>
         /// <param name="to">End timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesAccountBook&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesAccountBook>>> ListFuturesAccountBookAsyncWithHttpInfo (string settle, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
+        public async Task<ApiResponse<List<FuturesAccountBook>>> ListFuturesAccountBookAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -4469,6 +4481,10 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
@@ -5925,7 +5941,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// List futures orders - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -5942,7 +5958,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// List futures orders - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6013,7 +6029,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// List futures orders - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6031,7 +6047,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List futures orders Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// List futures orders - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/orders_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6690,7 +6706,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// Get a single order - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6703,7 +6719,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// Get a single order - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6754,7 +6770,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// Get a single order - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -6768,7 +6784,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order Zero-filled order cannot be retrieved 10 minutes after order cancellation
+        /// Get a single order - Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -7099,7 +7115,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -7116,7 +7132,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -7186,7 +7202,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -7204,7 +7220,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use &#x60;GET /futures/{settle}/my_trades_timerange&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>

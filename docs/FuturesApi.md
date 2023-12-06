@@ -1027,9 +1027,11 @@ Name | Type | Description  | Notes
 
 <a name="listfuturesaccountbook"></a>
 # **ListFuturesAccountBook**
-> List&lt;FuturesAccountBook&gt; ListFuturesAccountBook (string settle, int? limit = null, long? from = null, long? to = null, string type = null)
+> List&lt;FuturesAccountBook&gt; ListFuturesAccountBook (string settle, string contract = null, int? limit = null, long? from = null, long? to = null, string type = null)
 
 Query account book
+
+If the `contract` field is provided, it can only filter records that include this field after 2023-10-30.
 
 ### Example
 ```csharp
@@ -1051,6 +1053,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
@@ -1059,7 +1062,7 @@ namespace Example
             try
             {
                 // Query account book
-                List<FuturesAccountBook> result = apiInstance.ListFuturesAccountBook(settle, limit, from, to, type);
+                List<FuturesAccountBook> result = apiInstance.ListFuturesAccountBook(settle, contract, limit, from, to, type);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1079,6 +1082,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
@@ -1860,7 +1864,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.
 
 ### Example
 ```csharp
@@ -2251,7 +2255,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
 
 ### Example
 ```csharp
@@ -2473,6 +2477,8 @@ Name | Type | Description  | Notes
 > List&lt;MyFuturesTrade&gt; GetMyTrades (string settle, string contract = null, long? order = null, int? limit = null, int? offset = null, string lastId = null)
 
 List personal trading history
+
+By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.
 
 ### Example
 ```csharp

@@ -91,9 +91,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account
+        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account
         /// </summary>
-        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account</value>
+        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountEnum
         {
@@ -116,17 +116,17 @@ namespace Io.Gate.GateApi.Model
             Crossmargin = 3,
 
             /// <summary>
-            /// Enum Portfolio for value: portfolio
+            /// Enum Unified for value: unified
             /// </summary>
-            [EnumMember(Value = "portfolio")]
-            Portfolio = 4
+            [EnumMember(Value = "unified")]
+            Unified = 4
 
         }
 
         /// <summary>
-        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account
+        /// Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account
         /// </summary>
-        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account</value>
+        /// <value>Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account</value>
         [DataMember(Name="account")]
         public AccountEnum? Account { get; set; }
         /// <summary>
@@ -288,7 +288,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="message">Detailed error message, if any, otherwise an empty string.</param>
         /// <param name="currencyPair">Currency pair.</param>
         /// <param name="type">Order Type    - limit : Limit Order - market : Market Order (default to TypeEnum.Limit).</param>
-        /// <param name="account">Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, portfolio - portfolio account (default to AccountEnum.Spot).</param>
+        /// <param name="account">Account type. spot - use spot account; margin - use margin account; cross_margin - use cross margin account, unified - unified account (default to AccountEnum.Spot).</param>
         /// <param name="side">Order side.</param>
         /// <param name="amount">Trade amount.</param>
         /// <param name="price">Order price.</param>

@@ -412,6 +412,13 @@ namespace Io.Gate.GateApi.Model
         public string AmendText { get; private set; }
 
         /// <summary>
+        /// Additional information
+        /// </summary>
+        /// <value>Additional information</value>
+        [DataMember(Name="biz_info", EmitDefaultValue=false)]
+        public string BizInfo { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -445,6 +452,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  StpId: ").Append(StpId).Append("\n");
             sb.Append("  StpAct: ").Append(StpAct).Append("\n");
             sb.Append("  AmendText: ").Append(AmendText).Append("\n");
+            sb.Append("  BizInfo: ").Append(BizInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -589,6 +597,11 @@ namespace Io.Gate.GateApi.Model
                     this.AmendText == input.AmendText ||
                     (this.AmendText != null &&
                     this.AmendText.Equals(input.AmendText))
+                ) && 
+                (
+                    this.BizInfo == input.BizInfo ||
+                    (this.BizInfo != null &&
+                    this.BizInfo.Equals(input.BizInfo))
                 );
         }
 
@@ -634,6 +647,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.StpAct.GetHashCode();
                 if (this.AmendText != null)
                     hashCode = hashCode * 59 + this.AmendText.GetHashCode();
+                if (this.BizInfo != null)
+                    hashCode = hashCode * 59 + this.BizInfo.GetHashCode();
                 return hashCode;
             }
         }

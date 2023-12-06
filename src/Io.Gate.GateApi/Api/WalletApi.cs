@@ -81,8 +81,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>List&lt;LedgerRecord&gt;</returns>
-        List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>List&lt;WithdrawalRecord&gt;</returns>
+        List<WithdrawalRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// Retrieve withdrawal records
@@ -96,8 +96,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
-        ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>ApiResponse of List&lt;WithdrawalRecord&gt;</returns>
+        ApiResponse<List<WithdrawalRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Retrieve deposit records
         /// </summary>
@@ -458,8 +458,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
-        Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>Task of List&lt;WithdrawalRecord&gt;</returns>
+        Task<List<WithdrawalRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// Retrieve withdrawal records
@@ -473,8 +473,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
-        Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>Task of ApiResponse (List&lt;WithdrawalRecord&gt;)</returns>
+        Task<ApiResponse<List<WithdrawalRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Retrieve deposit records
         /// </summary>
@@ -1131,10 +1131,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>List&lt;LedgerRecord&gt;</returns>
-        public List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>List&lt;WithdrawalRecord&gt;</returns>
+        public List<WithdrawalRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
-             ApiResponse<List<LedgerRecord>> localVarResponse = ListWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
+             ApiResponse<List<WithdrawalRecord>> localVarResponse = ListWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -1147,8 +1147,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
-        public ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>ApiResponse of List&lt;WithdrawalRecord&gt;</returns>
+        public ApiResponse<List<WithdrawalRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1191,7 +1191,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LedgerRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<WithdrawalRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1211,10 +1211,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
-        public async Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>Task of List&lt;WithdrawalRecord&gt;</returns>
+        public async Task<List<WithdrawalRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<LedgerRecord>> localVarResponse = await ListWithdrawalsAsyncWithHttpInfo(currency, from, to, limit, offset);
+             Io.Gate.GateApi.Client.ApiResponse<List<WithdrawalRecord>> localVarResponse = await ListWithdrawalsAsyncWithHttpInfo(currency, from, to, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -1228,8 +1228,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
-        public async Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>Task of ApiResponse (List&lt;WithdrawalRecord&gt;)</returns>
+        public async Task<ApiResponse<List<WithdrawalRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1274,7 +1274,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LedgerRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<WithdrawalRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

@@ -2459,7 +2459,7 @@ Name | Type | Description  | Notes
 
 <a name="getcrossmarginborrowable"></a>
 # **GetCrossMarginBorrowable**
-> PortfolioBorrowable GetCrossMarginBorrowable (string currency)
+> UnifiedBorrowable GetCrossMarginBorrowable (string currency)
 
 Get the max borrowable amount for a specific cross margin currency
 
@@ -2487,7 +2487,7 @@ namespace Example
             try
             {
                 // Get the max borrowable amount for a specific cross margin currency
-                PortfolioBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
+                UnifiedBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2510,7 +2510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PortfolioBorrowable**](PortfolioBorrowable.md)
+[**UnifiedBorrowable**](UnifiedBorrowable.md)
 
 ### Authorization
 

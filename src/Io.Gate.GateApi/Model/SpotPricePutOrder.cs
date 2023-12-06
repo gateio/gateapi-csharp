@@ -31,6 +31,33 @@ namespace Io.Gate.GateApi.Model
     public partial class SpotPricePutOrder :  IEquatable<SpotPricePutOrder>, IValidatableObject
     {
         /// <summary>
+        /// Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order
+        /// </summary>
+        /// <value>Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Limit for value: limit
+            /// </summary>
+            [EnumMember(Value = "limit")]
+            Limit = 1,
+
+            /// <summary>
+            /// Enum Market for value: market
+            /// </summary>
+            [EnumMember(Value = "market")]
+            Market = 2
+
+        }
+
+        /// <summary>
+        /// Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order
+        /// </summary>
+        /// <value>Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order</value>
+        [DataMember(Name="type")]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Order side  - buy: buy side - sell: sell side
         /// </summary>
         /// <value>Order side  - buy: buy side - sell: sell side</value>
@@ -125,13 +152,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotPricePutOrder" /> class.
         /// </summary>
-        /// <param name="type">Order type, default to &#x60;limit&#x60; (default to &quot;limit&quot;).</param>
+        /// <param name="type">Order type，default to &#x60;limit&#x60;  - limit : Limit Order - market : Market Order (default to TypeEnum.Limit).</param>
         /// <param name="side">Order side  - buy: buy side - sell: sell side (required).</param>
         /// <param name="price">Order price (required).</param>
-        /// <param name="amount">Order amount (required).</param>
+        /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
         /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading  (required) (default to AccountEnum.Normal).</param>
         /// <param name="timeInForce">time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  (default to TimeInForceEnum.Gtc).</param>
-        public SpotPricePutOrder(string type = "limit", SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc)
+        public SpotPricePutOrder(TypeEnum? type = TypeEnum.Limit, SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc)
         {
             this.Side = side;
             // to ensure "price" is required (not null)
@@ -139,17 +166,9 @@ namespace Io.Gate.GateApi.Model
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for SpotPricePutOrder and cannot be null");
             this.Account = account;
-            // use default value if no "type" provided
-            this.Type = type ?? "limit";
+            this.Type = type;
             this.TimeInForce = timeInForce;
         }
-
-        /// <summary>
-        /// Order type, default to &#x60;limit&#x60;
-        /// </summary>
-        /// <value>Order type, default to &#x60;limit&#x60;</value>
-        [DataMember(Name="type")]
-        public string Type { get; set; }
 
         /// <summary>
         /// Order price
@@ -159,9 +178,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// Order amount
+        /// When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
         /// </summary>
-        /// <value>Order amount</value>
+        /// <value>When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; </value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
@@ -215,8 +234,7 @@ namespace Io.Gate.GateApi.Model
             return 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Side == input.Side ||
@@ -251,8 +269,7 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.Side.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();

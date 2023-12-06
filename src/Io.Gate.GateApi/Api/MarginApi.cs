@@ -800,8 +800,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>PortfolioBorrowable</returns>
-        PortfolioBorrowable GetCrossMarginBorrowable (string currency);
+        /// <returns>UnifiedBorrowable</returns>
+        UnifiedBorrowable GetCrossMarginBorrowable (string currency);
 
         /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
@@ -811,8 +811,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of PortfolioBorrowable</returns>
-        ApiResponse<PortfolioBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency);
+        /// <returns>ApiResponse of UnifiedBorrowable</returns>
+        ApiResponse<UnifiedBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency);
         #endregion Synchronous Operations
     }
 
@@ -1595,8 +1595,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of PortfolioBorrowable</returns>
-        Task<PortfolioBorrowable> GetCrossMarginBorrowableAsync (string currency);
+        /// <returns>Task of UnifiedBorrowable</returns>
+        Task<UnifiedBorrowable> GetCrossMarginBorrowableAsync (string currency);
 
         /// <summary>
         /// Get the max borrowable amount for a specific cross margin currency
@@ -1606,8 +1606,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (PortfolioBorrowable)</returns>
-        Task<ApiResponse<PortfolioBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency);
+        /// <returns>Task of ApiResponse (UnifiedBorrowable)</returns>
+        Task<ApiResponse<UnifiedBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency);
         #endregion Asynchronous Operations
     }
 
@@ -6006,10 +6006,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>PortfolioBorrowable</returns>
-        public PortfolioBorrowable GetCrossMarginBorrowable (string currency)
+        /// <returns>UnifiedBorrowable</returns>
+        public UnifiedBorrowable GetCrossMarginBorrowable (string currency)
         {
-             ApiResponse<PortfolioBorrowable> localVarResponse = GetCrossMarginBorrowableWithHttpInfo(currency);
+             ApiResponse<UnifiedBorrowable> localVarResponse = GetCrossMarginBorrowableWithHttpInfo(currency);
              return localVarResponse.Data;
         }
 
@@ -6018,8 +6018,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>ApiResponse of PortfolioBorrowable</returns>
-        public ApiResponse<PortfolioBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency)
+        /// <returns>ApiResponse of UnifiedBorrowable</returns>
+        public ApiResponse<UnifiedBorrowable> GetCrossMarginBorrowableWithHttpInfo (string currency)
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -6047,7 +6047,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PortfolioBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<UnifiedBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -6063,10 +6063,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of PortfolioBorrowable</returns>
-        public async Task<PortfolioBorrowable> GetCrossMarginBorrowableAsync (string currency)
+        /// <returns>Task of UnifiedBorrowable</returns>
+        public async Task<UnifiedBorrowable> GetCrossMarginBorrowableAsync (string currency)
         {
-             Io.Gate.GateApi.Client.ApiResponse<PortfolioBorrowable> localVarResponse = await GetCrossMarginBorrowableAsyncWithHttpInfo(currency);
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedBorrowable> localVarResponse = await GetCrossMarginBorrowableAsyncWithHttpInfo(currency);
              return localVarResponse.Data;
 
         }
@@ -6076,8 +6076,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <returns>Task of ApiResponse (PortfolioBorrowable)</returns>
-        public async Task<ApiResponse<PortfolioBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency)
+        /// <returns>Task of ApiResponse (UnifiedBorrowable)</returns>
+        public async Task<ApiResponse<UnifiedBorrowable>> GetCrossMarginBorrowableAsyncWithHttpInfo (string currency)
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -6107,7 +6107,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PortfolioBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UnifiedBorrowable>("/margin/cross/borrowable", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

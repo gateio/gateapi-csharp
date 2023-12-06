@@ -122,7 +122,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="enableBonus">Whether bouns is enabled.</param>
         /// <param name="enableCredit">Whether portfolio margin account is enabled.</param>
         /// <param name="createTime">Created time of the contract.</param>
-        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double))
+        /// <param name="fundingCapRatio">The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio.</param>
+        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double), string fundingCapRatio = default(string))
         {
             this.Name = name;
             this.Type = type;
@@ -159,6 +160,7 @@ namespace Io.Gate.GateApi.Model
             this.EnableBonus = enableBonus;
             this.EnableCredit = enableCredit;
             this.CreateTime = createTime;
+            this.FundingCapRatio = fundingCapRatio;
         }
 
         /// <summary>
@@ -393,6 +395,13 @@ namespace Io.Gate.GateApi.Model
         public double CreateTime { get; set; }
 
         /// <summary>
+        /// The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio
+        /// </summary>
+        /// <value>The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio</value>
+        [DataMember(Name="funding_cap_ratio")]
+        public string FundingCapRatio { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -435,6 +444,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  EnableBonus: ").Append(EnableBonus).Append("\n");
             sb.Append("  EnableCredit: ").Append(EnableCredit).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
+            sb.Append("  FundingCapRatio: ").Append(FundingCapRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -627,6 +637,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
+                ) && 
+                (
+                    this.FundingCapRatio == input.FundingCapRatio ||
+                    (this.FundingCapRatio != null &&
+                    this.FundingCapRatio.Equals(input.FundingCapRatio))
                 );
         }
 
@@ -693,6 +708,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.EnableBonus.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCredit.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
+                if (this.FundingCapRatio != null)
+                    hashCode = hashCode * 59 + this.FundingCapRatio.GetHashCode();
                 return hashCode;
             }
         }

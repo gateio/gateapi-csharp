@@ -88,9 +88,9 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; private set; }
 
         /// <summary>
-        /// Account types， spot - spot account, margin - margin account, portfolio - portfolio margin account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
+        /// Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
         /// </summary>
-        /// <value>Account types， spot - spot account, margin - margin account, portfolio - portfolio margin account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;</value>
+        /// <value>Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;</value>
         [DataMember(Name="account", EmitDefaultValue=false)]
         public string Account { get; private set; }
 

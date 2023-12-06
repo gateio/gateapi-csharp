@@ -41,8 +41,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="userMaxBorrowAmount">Maximum borrow value allowed per user, in USDT.</param>
         /// <param name="totalMaxBorrowAmount">Maximum borrow value allowed for this currency, in USDT.</param>
         /// <param name="price">Price change between this currency and USDT.</param>
+        /// <param name="loanable">Whether currency is borrowed.</param>
         /// <param name="status">status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable.</param>
-        public CrossMarginCurrency(string name = default(string), string rate = default(string), string prec = default(string), string discount = default(string), string minBorrowAmount = default(string), string userMaxBorrowAmount = default(string), string totalMaxBorrowAmount = default(string), string price = default(string), int status = default(int))
+        public CrossMarginCurrency(string name = default(string), string rate = default(string), string prec = default(string), string discount = default(string), string minBorrowAmount = default(string), string userMaxBorrowAmount = default(string), string totalMaxBorrowAmount = default(string), string price = default(string), bool loanable = default(bool), int status = default(int))
         {
             this.Name = name;
             this.Rate = rate;
@@ -52,6 +53,7 @@ namespace Io.Gate.GateApi.Model
             this.UserMaxBorrowAmount = userMaxBorrowAmount;
             this.TotalMaxBorrowAmount = totalMaxBorrowAmount;
             this.Price = price;
+            this.Loanable = loanable;
             this.Status = status;
         }
 
@@ -112,6 +114,13 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// Whether currency is borrowed
+        /// </summary>
+        /// <value>Whether currency is borrowed</value>
+        [DataMember(Name="loanable")]
+        public bool Loanable { get; set; }
+
+        /// <summary>
         /// status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable
         /// </summary>
         /// <value>status  - &#x60;0&#x60; : disable  - &#x60;1&#x60; : enable</value>
@@ -134,6 +143,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  UserMaxBorrowAmount: ").Append(UserMaxBorrowAmount).Append("\n");
             sb.Append("  TotalMaxBorrowAmount: ").Append(TotalMaxBorrowAmount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Loanable: ").Append(Loanable).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -210,6 +220,10 @@ namespace Io.Gate.GateApi.Model
                     this.Price.Equals(input.Price))
                 ) && 
                 (
+                    this.Loanable == input.Loanable ||
+                    this.Loanable.Equals(input.Loanable)
+                ) && 
+                (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
                 );
@@ -240,6 +254,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.TotalMaxBorrowAmount.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
+                hashCode = hashCode * 59 + this.Loanable.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }

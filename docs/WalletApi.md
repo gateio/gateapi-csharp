@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 <a name="listwithdrawals"></a>
 # **ListWithdrawals**
-> List&lt;LedgerRecord&gt; ListWithdrawals (string currency = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+> List&lt;WithdrawalRecord&gt; ListWithdrawals (string currency = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
 Retrieve withdrawal records
 
@@ -198,7 +198,7 @@ namespace Example
             try
             {
                 // Retrieve withdrawal records
-                List<LedgerRecord> result = apiInstance.ListWithdrawals(currency, from, to, limit, offset);
+                List<WithdrawalRecord> result = apiInstance.ListWithdrawals(currency, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;LedgerRecord&gt;**](LedgerRecord.md)
+[**List&lt;WithdrawalRecord&gt;**](WithdrawalRecord.md)
 
 ### Authorization
 
