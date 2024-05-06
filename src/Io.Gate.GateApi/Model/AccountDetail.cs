@@ -36,12 +36,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="ipWhitelist">IP whitelist.</param>
         /// <param name="currencyPairs">CurrencyPair whitelisting.</param>
         /// <param name="userId">User ID.</param>
+        /// <param name="tier">User VIP level.</param>
         /// <param name="key">key.</param>
-        public AccountDetail(List<string> ipWhitelist = default(List<string>), List<string> currencyPairs = default(List<string>), long userId = default(long), AccountDetailKey key = default(AccountDetailKey))
+        public AccountDetail(List<string> ipWhitelist = default(List<string>), List<string> currencyPairs = default(List<string>), long userId = default(long), long tier = default(long), AccountDetailKey key = default(AccountDetailKey))
         {
             this.IpWhitelist = ipWhitelist;
             this.CurrencyPairs = currencyPairs;
             this.UserId = userId;
+            this.Tier = tier;
             this.Key = key;
         }
 
@@ -67,6 +69,13 @@ namespace Io.Gate.GateApi.Model
         public long UserId { get; set; }
 
         /// <summary>
+        /// User VIP level
+        /// </summary>
+        /// <value>User VIP level</value>
+        [DataMember(Name="tier")]
+        public long Tier { get; set; }
+
+        /// <summary>
         /// Gets or Sets Key
         /// </summary>
         [DataMember(Name="key")]
@@ -83,6 +92,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  IpWhitelist: ").Append(IpWhitelist).Append("\n");
             sb.Append("  CurrencyPairs: ").Append(CurrencyPairs).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  Tier: ").Append(Tier).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -135,6 +145,10 @@ namespace Io.Gate.GateApi.Model
                     this.UserId.Equals(input.UserId)
                 ) && 
                 (
+                    this.Tier == input.Tier ||
+                    this.Tier.Equals(input.Tier)
+                ) && 
+                (
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
@@ -155,6 +169,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.CurrencyPairs != null)
                     hashCode = hashCode * 59 + this.CurrencyPairs.GetHashCode();
                 hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                hashCode = hashCode * 59 + this.Tier.GetHashCode();
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 return hashCode;

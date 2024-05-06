@@ -60,6 +60,13 @@ namespace Io.Gate.GateApi.Model
         public string Amount { get; private set; }
 
         /// <summary>
+        /// Loan type, platform - platform, margin - margin
+        /// </summary>
+        /// <value>Loan type, platform - platform, margin - margin</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; private set; }
+
+        /// <summary>
         /// Created time
         /// </summary>
         /// <value>Created time</value>
@@ -84,6 +91,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
             sb.Append("}\n");
@@ -136,6 +144,11 @@ namespace Io.Gate.GateApi.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
                 ) && 
@@ -160,6 +173,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 hashCode = hashCode * 59 + this.UpdateTime.GetHashCode();
                 return hashCode;

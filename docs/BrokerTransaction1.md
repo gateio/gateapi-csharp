@@ -1,0 +1,19 @@
+
+# Io.Gate.GateApi.Model.BrokerTransaction1
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**TransactionTime** | **long** | Transaction Time. (unix timestamp) | [optional] 
+**UserId** | **long** | User ID | [optional] 
+**GroupName** | **string** | Group name | [optional] 
+**Fee** | **string** | fee (usdt) | [optional] 
+**CurrencyPair** | **string** | Currency pair | [optional] 
+**Amount** | **string** | Commission Amount | [optional] 
+**FeeAsset** | **string** | Fee currency | [optional] 
+**Source** | **string** | Rebate Type: Spot、Futures、Options | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)

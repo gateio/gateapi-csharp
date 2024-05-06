@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**ListContractStats**](FuturesApi.md#listcontractstats) | **GET** /futures/{settle}/contract_stats | Futures stats
 [**GetIndexConstituents**](FuturesApi.md#getindexconstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 [**ListLiquidatedOrders**](FuturesApi.md#listliquidatedorders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
+[**ListRiskLimitTiers**](FuturesApi.md#listrisklimittiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
 [**ListFuturesAccounts**](FuturesApi.md#listfuturesaccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**ListFuturesAccountBook**](FuturesApi.md#listfuturesaccountbook) | **GET** /futures/{settle}/account_book | Query account book
 [**ListPositions**](FuturesApi.md#listpositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -43,6 +44,7 @@ Method | HTTP request | Description
 [**ListAutoDeleverages**](FuturesApi.md#listautodeleverages) | **GET** /futures/{settle}/auto_deleverages | List Auto-Deleveraging History
 [**CountdownCancelAllFutures**](FuturesApi.md#countdowncancelallfutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**GetFuturesFee**](FuturesApi.md#getfuturesfee) | **GET** /futures/{settle}/fee | Query user trading fee rates
+[**CancelBatchFutureOrders**](FuturesApi.md#cancelbatchfutureorders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
 [**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -52,7 +54,7 @@ Method | HTTP request | Description
 
 <a name="listfuturescontracts"></a>
 # **ListFuturesContracts**
-> List&lt;Contract&gt; ListFuturesContracts (string settle)
+> List&lt;Contract&gt; ListFuturesContracts (string settle, int? limit = null, int? offset = null)
 
 List all futures contracts
 
@@ -74,11 +76,13 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
             {
                 // List all futures contracts
-                List<Contract> result = apiInstance.ListFuturesContracts(settle);
+                List<Contract> result = apiInstance.ListFuturesContracts(settle, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -98,6 +102,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -217,7 +223,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
-            var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
+            var interval = "\"0\"";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to "0")
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
             var withId = false;  // bool? | Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional)  (default to false)
 
@@ -245,7 +251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
+ **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to &quot;0&quot;]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
  **withId** | **bool?**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
 
@@ -380,7 +386,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days (optional)  (default to 5m)
+            var interval = "\"5m\"";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days (optional)  (default to "5m")
 
             try
             {
@@ -409,7 +415,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0.  Note that 30d means 1 natual month, not 30 days | [optional] [default to &quot;5m&quot;]
 
 ### Return type
 
@@ -461,7 +467,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Interval time between data points (optional)  (default to 5m)
+            var interval = "\"5m\"";  // string | Interval time between data points (optional)  (default to "5m")
 
             try
             {
@@ -490,7 +496,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points | [optional] [default to &quot;5m&quot;]
 
 ### Return type
 
@@ -753,7 +759,7 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var from = 1604561000;  // long? | Start timestamp (optional) 
-            var interval = "5m";  // string |  (optional)  (default to 5m)
+            var interval = "\"5m\"";  // string |  (optional)  (default to "5m")
             var limit = 30;  // int? |  (optional)  (default to 30)
 
             try
@@ -781,7 +787,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **from** | **long?**| Start timestamp | [optional] 
- **interval** | **string**|  | [optional] [default to 5m]
+ **interval** | **string**|  | [optional] [default to &quot;5m&quot;]
  **limit** | **int?**|  | [optional] [default to 30]
 
 ### Return type
@@ -954,6 +960,77 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listrisklimittiers"></a>
+# **ListRiskLimitTiers**
+> List&lt;FuturesLimitRiskTiers&gt; ListRiskLimitTiers (string settle, string contract)
+
+List risk limit tiers
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListRiskLimitTiersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract
+
+            try
+            {
+                // List risk limit tiers
+                List<FuturesLimitRiskTiers> result = apiInstance.ListRiskLimitTiers(settle, contract);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.ListRiskLimitTiers: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract | 
+
+### Return type
+
+[**List&lt;FuturesLimitRiskTiers&gt;**](FuturesLimitRiskTiers.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listfuturesaccounts"></a>
 # **ListFuturesAccounts**
 > FuturesAccount ListFuturesAccounts (string settle)
@@ -1027,9 +1104,11 @@ Name | Type | Description  | Notes
 
 <a name="listfuturesaccountbook"></a>
 # **ListFuturesAccountBook**
-> List&lt;FuturesAccountBook&gt; ListFuturesAccountBook (string settle, int? limit = null, long? from = null, long? to = null, string type = null)
+> List&lt;FuturesAccountBook&gt; ListFuturesAccountBook (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null, string type = null)
 
 Query account book
+
+If the `contract` field is provided, it can only filter records that include this field after 2023-10-30.
 
 ### Example
 ```csharp
@@ -1051,15 +1130,17 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp (optional) 
             var to = 1547706332;  // long? | End timestamp (optional) 
-            var type = "dnw";  // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional) 
+            var type = "dnw";  // string | Changing Type：  - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction (optional) 
 
             try
             {
                 // Query account book
-                List<FuturesAccountBook> result = apiInstance.ListFuturesAccountBook(settle, limit, from, to, type);
+                List<FuturesAccountBook> result = apiInstance.ListFuturesAccountBook(settle, contract, limit, offset, from, to, type);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1079,10 +1160,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
  **from** | **long?**| Start timestamp | [optional] 
  **to** | **long?**| End timestamp | [optional] 
- **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] 
+ **type** | **string**| Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction | [optional] 
 
 ### Return type
 
@@ -1106,7 +1189,7 @@ Name | Type | Description  | Notes
 
 <a name="listpositions"></a>
 # **ListPositions**
-> List&lt;Position&gt; ListPositions (string settle, bool? holding = null)
+> List&lt;Position&gt; ListPositions (string settle, bool? holding = null, int? limit = null, int? offset = null)
 
 List all positions of a user
 
@@ -1131,11 +1214,13 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var holding = true;  // bool? | Return only real positions - true, return all - false. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
             {
                 // List all positions of a user
-                List<Position> result = apiInstance.ListPositions(settle, holding);
+                List<Position> result = apiInstance.ListPositions(settle, holding, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1156,6 +1241,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **holding** | **bool?**| Return only real positions - true, return all - false. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1860,7 +1947,7 @@ Name | Type | Description  | Notes
 
 List futures orders
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/orders_timerange`.
 
 ### Example
 ```csharp
@@ -2251,7 +2338,7 @@ Name | Type | Description  | Notes
 
 Get a single order
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+- Zero-fill order cannot be retrieved for 10 minutes after cancellation - Historical orders, by default, only data within the past 6 months is supported.  
 
 ### Example
 ```csharp
@@ -2473,6 +2560,8 @@ Name | Type | Description  | Notes
 > List&lt;MyFuturesTrade&gt; GetMyTrades (string settle, string contract = null, long? order = null, int? limit = null, int? offset = null, string lastId = null)
 
 List personal trading history
+
+By default, only data within the past 6 months is supported.  If you need to query data for a longer period, please use `GET /futures/{settle}/my_trades_timerange`.
 
 ### Example
 ```csharp
@@ -3016,6 +3105,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="cancelbatchfutureorders"></a>
+# **CancelBatchFutureOrders**
+> List&lt;FutureCancelOrderResult&gt; CancelBatchFutureOrders (string settle, List<string> requestBody)
+
+Cancel a batch of orders with an ID list
+
+Multiple distinct order ID list can be specified。Each request can cancel a maximum of 20 records.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class CancelBatchFutureOrdersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var requestBody = new List<string>(); // List<string> | 
+
+            try
+            {
+                // Cancel a batch of orders with an ID list
+                List<FutureCancelOrderResult> result = apiInstance.CancelBatchFutureOrders(settle, requestBody);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.CancelBatchFutureOrders: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **requestBody** | [**List&lt;string&gt;**](string.md)|  | 
+
+### Return type
+
+[**List&lt;FutureCancelOrderResult&gt;**](FutureCancelOrderResult.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Order cancellation operation completed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

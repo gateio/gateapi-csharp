@@ -140,9 +140,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
-        List<StpGroupUser> DeleteSTPGroupUsers (long stpId, List<long> requestBody);
+        List<StpGroupUser> DeleteSTPGroupUsers (long stpId, long userId);
 
         /// <summary>
         /// Delete the user in the STP group
@@ -152,9 +152,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
-        ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody);
+        ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, long userId);
         #endregion Synchronous Operations
     }
 
@@ -277,9 +277,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
-        Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, List<long> requestBody);
+        Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, long userId);
 
         /// <summary>
         /// Delete the user in the STP group
@@ -289,9 +289,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
-        Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody);
+        Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, long userId);
         #endregion Asynchronous Operations
     }
 
@@ -988,11 +988,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
-        public List<StpGroupUser> DeleteSTPGroupUsers (long stpId, List<long> requestBody)
+        public List<StpGroupUser> DeleteSTPGroupUsers (long stpId, long userId)
         {
-             ApiResponse<List<StpGroupUser>> localVarResponse = DeleteSTPGroupUsersWithHttpInfo(stpId, requestBody);
+             ApiResponse<List<StpGroupUser>> localVarResponse = DeleteSTPGroupUsersWithHttpInfo(stpId, userId);
              return localVarResponse.Data;
         }
 
@@ -1001,18 +1001,13 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
-        public ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody)
+        public ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, long userId)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->DeleteSTPGroupUsers");
-
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1027,7 +1022,7 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
-            localVarRequestOptions.Data = requestBody;
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1049,11 +1044,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
-        public async Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, List<long> requestBody)
+        public async Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, long userId)
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<StpGroupUser>> localVarResponse = await DeleteSTPGroupUsersAsyncWithHttpInfo(stpId, requestBody);
+             Io.Gate.GateApi.Client.ApiResponse<List<StpGroupUser>> localVarResponse = await DeleteSTPGroupUsersAsyncWithHttpInfo(stpId, userId);
              return localVarResponse.Data;
 
         }
@@ -1063,19 +1058,14 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
-        public async Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody)
+        public async Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, long userId)
         {
-            // verify the required parameter 'requestBody' is set
-            if (requestBody == null)
-                throw new ApiException(400, "Missing required parameter 'requestBody' when calling AccountApi->DeleteSTPGroupUsers");
-
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1090,7 +1080,7 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("stp_id", ClientUtils.ParameterToString(stpId)); // path parameter
-            localVarRequestOptions.Data = requestBody;
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

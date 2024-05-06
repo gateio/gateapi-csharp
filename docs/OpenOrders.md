@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrencyPair** | **string** | Currency pair | [optional] 
-**Total** | **int** | Total open orders in this currency pair | [optional] 
+**Total** | **int** | The total number of pending orders for this trading pair on the current page | [optional] 
 **Orders** | [**List&lt;Order&gt;**](Order.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

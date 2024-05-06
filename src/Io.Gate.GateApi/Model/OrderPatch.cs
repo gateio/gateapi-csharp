@@ -36,11 +36,13 @@ namespace Io.Gate.GateApi.Model
         /// <param name="amount">New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them.</param>
         /// <param name="price">New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;.</param>
         /// <param name="amendText">Custom info during amending order.</param>
-        public OrderPatch(string amount = default(string), string price = default(string), string amendText = default(string))
+        /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
+        public OrderPatch(string amount = default(string), string price = default(string), string amendText = default(string), string actionMode = default(string))
         {
             this.Amount = amount;
             this.Price = price;
             this.AmendText = amendText;
+            this.ActionMode = actionMode;
         }
 
         /// <summary>
@@ -65,6 +67,13 @@ namespace Io.Gate.GateApi.Model
         public string AmendText { get; set; }
 
         /// <summary>
+        /// Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+        /// </summary>
+        /// <value>Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)</value>
+        [DataMember(Name="action_mode")]
+        public string ActionMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  AmendText: ").Append(AmendText).Append("\n");
+            sb.Append("  ActionMode: ").Append(ActionMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace Io.Gate.GateApi.Model
                     this.AmendText == input.AmendText ||
                     (this.AmendText != null &&
                     this.AmendText.Equals(input.AmendText))
+                ) && 
+                (
+                    this.ActionMode == input.ActionMode ||
+                    (this.ActionMode != null &&
+                    this.ActionMode.Equals(input.ActionMode))
                 );
         }
 
@@ -141,6 +156,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.AmendText != null)
                     hashCode = hashCode * 59 + this.AmendText.GetHashCode();
+                if (this.ActionMode != null)
+                    hashCode = hashCode * 59 + this.ActionMode.GetHashCode();
                 return hashCode;
             }
         }

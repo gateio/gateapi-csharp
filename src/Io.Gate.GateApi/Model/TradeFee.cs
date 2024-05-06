@@ -45,7 +45,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="futuresMakerFee">Future trading maker fee.</param>
         /// <param name="deliveryTakerFee">Delivery trading taker fee.</param>
         /// <param name="deliveryMakerFee">Delivery trading maker fee.</param>
-        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string futuresTakerFee = default(string), string futuresMakerFee = default(string), string deliveryTakerFee = default(string), string deliveryMakerFee = default(string))
+        /// <param name="debitFee">Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates.</param>
+        public TradeFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string futuresTakerFee = default(string), string futuresMakerFee = default(string), string deliveryTakerFee = default(string), string deliveryMakerFee = default(string), int debitFee = default(int))
         {
             this.UserId = userId;
             this.TakerFee = takerFee;
@@ -59,6 +60,7 @@ namespace Io.Gate.GateApi.Model
             this.FuturesMakerFee = futuresMakerFee;
             this.DeliveryTakerFee = deliveryTakerFee;
             this.DeliveryMakerFee = deliveryMakerFee;
+            this.DebitFee = debitFee;
         }
 
         /// <summary>
@@ -146,6 +148,13 @@ namespace Io.Gate.GateApi.Model
         public string DeliveryMakerFee { get; set; }
 
         /// <summary>
+        /// Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates
+        /// </summary>
+        /// <value>Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates</value>
+        [DataMember(Name="debit_fee")]
+        public int DebitFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,6 +174,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FuturesMakerFee: ").Append(FuturesMakerFee).Append("\n");
             sb.Append("  DeliveryTakerFee: ").Append(DeliveryTakerFee).Append("\n");
             sb.Append("  DeliveryMakerFee: ").Append(DeliveryMakerFee).Append("\n");
+            sb.Append("  DebitFee: ").Append(DebitFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,10 @@ namespace Io.Gate.GateApi.Model
                     this.DeliveryMakerFee == input.DeliveryMakerFee ||
                     (this.DeliveryMakerFee != null &&
                     this.DeliveryMakerFee.Equals(input.DeliveryMakerFee))
+                ) && 
+                (
+                    this.DebitFee == input.DebitFee ||
+                    this.DebitFee.Equals(input.DebitFee)
                 );
         }
 
@@ -290,6 +304,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.DeliveryTakerFee.GetHashCode();
                 if (this.DeliveryMakerFee != null)
                     hashCode = hashCode * 59 + this.DeliveryMakerFee.GetHashCode();
+                hashCode = hashCode * 59 + this.DebitFee.GetHashCode();
                 return hashCode;
             }
         }

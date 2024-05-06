@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -41,10 +41,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;AgencyTransactionHistory&gt;</returns>
-        List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -57,9 +57,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyTransactionHistory&gt;</returns>
-        ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The broker obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -72,10 +72,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;AgencyCommissionHistory&gt;</returns>
-        List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -88,7 +88,76 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyCommissionHistory&gt;</returns>
-        ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>List&lt;BrokerCommission&gt;</returns>
+        List<BrokerCommission> RebateBrokerCommissionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>ApiResponse of List&lt;BrokerCommission&gt;</returns>
+        ApiResponse<List<BrokerCommission>> RebateBrokerCommissionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>List&lt;BrokerTransaction&gt;</returns>
+        List<BrokerTransaction> RebateBrokerTransactionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>ApiResponse of List&lt;BrokerTransaction&gt;</returns>
+        ApiResponse<List<BrokerTransaction>> RebateBrokerTransactionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+        /// <summary>
+        /// User retrieves rebate information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;RebateUserInfo&gt;</returns>
+        List<RebateUserInfo> RebateUserInfo ();
+
+        /// <summary>
+        /// User retrieves rebate information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
+        ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ();
         #endregion Synchronous Operations
     }
 
@@ -99,7 +168,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -112,10 +181,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyTransactionHistory&gt;</returns>
-        Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -128,9 +197,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyTransactionHistory&gt;)</returns>
-        Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The broker obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -143,10 +212,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyCommissionHistory&gt;</returns>
-        Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user
         /// </summary>
         /// <remarks>
         /// Record time range cannot exceed 30 days
@@ -159,7 +228,76 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyCommissionHistory&gt;)</returns>
-        Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of List&lt;BrokerCommission&gt;</returns>
+        Task<List<BrokerCommission>> RebateBrokerCommissionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BrokerCommission&gt;)</returns>
+        Task<ApiResponse<List<BrokerCommission>>> RebateBrokerCommissionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of List&lt;BrokerTransaction&gt;</returns>
+        Task<List<BrokerTransaction>> RebateBrokerTransactionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history
+        /// </summary>
+        /// <remarks>
+        /// Record time range cannot exceed 30 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BrokerTransaction&gt;)</returns>
+        Task<ApiResponse<List<BrokerTransaction>>> RebateBrokerTransactionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?));
+        /// <summary>
+        /// User retrieves rebate information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;RebateUserInfo&gt;</returns>
+        Task<List<RebateUserInfo>> RebateUserInfoAsync ();
+
+        /// <summary>
+        /// User retrieves rebate information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
+        Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -281,7 +419,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
@@ -291,14 +429,14 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;AgencyTransactionHistory&gt;</returns>
-        public List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
              ApiResponse<List<AgencyTransactionHistory>> localVarResponse = AgencyTransactionHistoryWithHttpInfo(currencyPair, userId, from, to, limit, offset);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
@@ -308,7 +446,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyTransactionHistory&gt;</returns>
-        public ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -367,7 +505,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
@@ -377,7 +515,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyTransactionHistory&gt;</returns>
-        public async Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<AgencyTransactionHistory>> localVarResponse = await AgencyTransactionHistoryAsyncWithHttpInfo(currencyPair, userId, from, to, limit, offset);
              return localVarResponse.Data;
@@ -385,7 +523,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
@@ -395,7 +533,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyTransactionHistory&gt;)</returns>
-        public async Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -456,7 +594,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
@@ -466,14 +604,14 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;AgencyCommissionHistory&gt;</returns>
-        public List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
              ApiResponse<List<AgencyCommissionHistory>> localVarResponse = AgencyCommissionsHistoryWithHttpInfo(currency, userId, from, to, limit, offset);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
@@ -483,7 +621,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyCommissionHistory&gt;</returns>
-        public ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -542,7 +680,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
@@ -552,7 +690,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyCommissionHistory&gt;</returns>
-        public async Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<AgencyCommissionHistory>> localVarResponse = await AgencyCommissionsHistoryAsyncWithHttpInfo(currency, userId, from, to, limit, offset);
              return localVarResponse.Data;
@@ -560,7 +698,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
@@ -570,7 +708,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyCommissionHistory&gt;)</returns>
-        public async Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), string userId = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -624,6 +762,387 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AgencyCommissionsHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>List&lt;BrokerCommission&gt;</returns>
+        public List<BrokerCommission> RebateBrokerCommissionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+             ApiResponse<List<BrokerCommission>> localVarResponse = RebateBrokerCommissionHistoryWithHttpInfo(limit, offset, userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>ApiResponse of List&lt;BrokerCommission&gt;</returns>
+        public ApiResponse<List<BrokerCommission>> RebateBrokerCommissionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<BrokerCommission>>("/rebate/broker/commission_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateBrokerCommissionHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of List&lt;BrokerCommission&gt;</returns>
+        public async Task<List<BrokerCommission>> RebateBrokerCommissionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<BrokerCommission>> localVarResponse = await RebateBrokerCommissionHistoryAsyncWithHttpInfo(limit, offset, userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BrokerCommission&gt;)</returns>
+        public async Task<ApiResponse<List<BrokerCommission>>> RebateBrokerCommissionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<BrokerCommission>>("/rebate/broker/commission_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateBrokerCommissionHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>List&lt;BrokerTransaction&gt;</returns>
+        public List<BrokerTransaction> RebateBrokerTransactionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+             ApiResponse<List<BrokerTransaction>> localVarResponse = RebateBrokerTransactionHistoryWithHttpInfo(limit, offset, userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>ApiResponse of List&lt;BrokerTransaction&gt;</returns>
+        public ApiResponse<List<BrokerTransaction>> RebateBrokerTransactionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<BrokerTransaction>>("/rebate/broker/transaction_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateBrokerTransactionHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of List&lt;BrokerTransaction&gt;</returns>
+        public async Task<List<BrokerTransaction>> RebateBrokerTransactionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<BrokerTransaction>> localVarResponse = await RebateBrokerTransactionHistoryAsyncWithHttpInfo(limit, offset, userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BrokerTransaction&gt;)</returns>
+        public async Task<ApiResponse<List<BrokerTransaction>>> RebateBrokerTransactionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (userId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id", userId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<BrokerTransaction>>("/rebate/broker/transaction_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateBrokerTransactionHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User retrieves rebate information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;RebateUserInfo&gt;</returns>
+        public List<RebateUserInfo> RebateUserInfo ()
+        {
+             ApiResponse<List<RebateUserInfo>> localVarResponse = RebateUserInfoWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// User retrieves rebate information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
+        public ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<RebateUserInfo>>("/api/v4/rebate/user/info", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateUserInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User retrieves rebate information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;RebateUserInfo&gt;</returns>
+        public async Task<List<RebateUserInfo>> RebateUserInfoAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<RebateUserInfo>> localVarResponse = await RebateUserInfoAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// User retrieves rebate information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
+        public async Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<RebateUserInfo>>("/api/v4/rebate/user/info", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RebateUserInfo", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

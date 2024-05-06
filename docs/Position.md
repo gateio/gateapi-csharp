@@ -23,6 +23,9 @@ Name | Type | Description | Notes
 **MaintenanceMargin** | **string** | Maintenance margin required for the position, applicable to portfolio margin account | [optional] [readonly] 
 **UnrealisedPnl** | **string** | Unrealized PNL | [optional] [readonly] 
 **RealisedPnl** | **string** | Realized PNL | [optional] [readonly] 
+**PnlPnl** | **string** | Realized PNL - Position P/L | [optional] [readonly] 
+**PnlFund** | **string** | Realized PNL -  Funding Fees | [optional] [readonly] 
+**PnlFee** | **string** | Realized PNL - Transaction Fees | [optional] [readonly] 
 **HistoryPnl** | **string** | History realized PNL | [optional] [readonly] 
 **LastClosePnl** | **string** | PNL of last position close | [optional] [readonly] 
 **RealisedPoint** | **string** | Realized POINT PNL | [optional] [readonly] 
@@ -33,6 +36,7 @@ Name | Type | Description | Notes
 **Mode** | **string** | Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode | [optional] 
 **CrossLeverageLimit** | **string** | Cross margin leverage(valid only when &#x60;leverage&#x60; is 0) | [optional] 
 **UpdateTime** | **long** | Last update time | [optional] [readonly] 
+**OpenTime** | **long** | First Open Time | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -104,9 +104,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="fundingRate">Current funding rate.</param>
         /// <param name="fundingInterval">Funding application interval, unit in seconds.</param>
         /// <param name="fundingNextApply">Next funding time.</param>
-        /// <param name="riskLimitBase">Risk limit base.</param>
-        /// <param name="riskLimitStep">Step of adjusting risk limit.</param>
-        /// <param name="riskLimitMax">Maximum risk limit the contract allowed.</param>
+        /// <param name="riskLimitBase">Risk limit base,deprecated.</param>
+        /// <param name="riskLimitStep">Step of adjusting risk limit,deprecated.</param>
+        /// <param name="riskLimitMax">Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits..</param>
         /// <param name="orderSizeMin">Minimum order size the contract allowed.</param>
         /// <param name="orderSizeMax">Maximum order size the contract allowed.</param>
         /// <param name="orderPriceDeviate">deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate.</param>
@@ -122,7 +122,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="enableBonus">Whether bouns is enabled.</param>
         /// <param name="enableCredit">Whether portfolio margin account is enabled.</param>
         /// <param name="createTime">Created time of the contract.</param>
-        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double))
+        /// <param name="fundingCapRatio">The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio.</param>
+        public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double), string fundingCapRatio = default(string))
         {
             this.Name = name;
             this.Type = type;
@@ -159,6 +160,7 @@ namespace Io.Gate.GateApi.Model
             this.EnableBonus = enableBonus;
             this.EnableCredit = enableCredit;
             this.CreateTime = createTime;
+            this.FundingCapRatio = fundingCapRatio;
         }
 
         /// <summary>
@@ -267,23 +269,23 @@ namespace Io.Gate.GateApi.Model
         public double FundingNextApply { get; set; }
 
         /// <summary>
-        /// Risk limit base
+        /// Risk limit base,deprecated
         /// </summary>
-        /// <value>Risk limit base</value>
+        /// <value>Risk limit base,deprecated</value>
         [DataMember(Name="risk_limit_base")]
         public string RiskLimitBase { get; set; }
 
         /// <summary>
-        /// Step of adjusting risk limit
+        /// Step of adjusting risk limit,deprecated
         /// </summary>
-        /// <value>Step of adjusting risk limit</value>
+        /// <value>Step of adjusting risk limit,deprecated</value>
         [DataMember(Name="risk_limit_step")]
         public string RiskLimitStep { get; set; }
 
         /// <summary>
-        /// Maximum risk limit the contract allowed
+        /// Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits.
         /// </summary>
-        /// <value>Maximum risk limit the contract allowed</value>
+        /// <value>Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits.</value>
         [DataMember(Name="risk_limit_max")]
         public string RiskLimitMax { get; set; }
 
@@ -393,6 +395,13 @@ namespace Io.Gate.GateApi.Model
         public double CreateTime { get; set; }
 
         /// <summary>
+        /// The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio
+        /// </summary>
+        /// <value>The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio</value>
+        [DataMember(Name="funding_cap_ratio")]
+        public string FundingCapRatio { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -435,6 +444,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  EnableBonus: ").Append(EnableBonus).Append("\n");
             sb.Append("  EnableCredit: ").Append(EnableCredit).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
+            sb.Append("  FundingCapRatio: ").Append(FundingCapRatio).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -627,6 +637,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
+                ) && 
+                (
+                    this.FundingCapRatio == input.FundingCapRatio ||
+                    (this.FundingCapRatio != null &&
+                    this.FundingCapRatio.Equals(input.FundingCapRatio))
                 );
         }
 
@@ -693,6 +708,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.EnableBonus.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCredit.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
+                if (this.FundingCapRatio != null)
+                    hashCode = hashCode * 59 + this.FundingCapRatio.GetHashCode();
                 return hashCode;
             }
         }

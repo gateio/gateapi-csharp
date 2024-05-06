@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 <a name="listuniinterestrecords"></a>
 # **ListUniInterestRecords**
-> List&lt;UniInterestRecord&gt; ListUniInterestRecords (string currency = null, int? page = null, int? limit = null)
+> List&lt;UniInterestRecord&gt; ListUniInterestRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null)
 
 List interest records
 
@@ -549,11 +549,13 @@ namespace Example
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
 
             try
             {
                 // List interest records
-                List<UniInterestRecord> result = apiInstance.ListUniInterestRecords(currency, page, limit);
+                List<UniInterestRecord> result = apiInstance.ListUniInterestRecords(currency, page, limit, from, to);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -575,6 +577,8 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
 
 ### Return type
 

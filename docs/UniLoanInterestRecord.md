@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ActualRate** | **string** | Actual rate | [optional] [readonly] 
 **Interest** | **string** | Interest | [optional] [readonly] 
 **Status** | **int** | Status: 0 - fail, 1 - success | [optional] [readonly] 
+**Type** | **string** | Type, platform - platform，margin - margin | [optional] [readonly] 
 **CreateTime** | **long** | Created time | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -87,11 +87,60 @@ namespace Io.Gate.GateApi.Model
         public string Pnl { get; private set; }
 
         /// <summary>
+        /// PNL - Position P/L
+        /// </summary>
+        /// <value>PNL - Position P/L</value>
+        [DataMember(Name="pnl_pnl", EmitDefaultValue=false)]
+        public string PnlPnl { get; private set; }
+
+        /// <summary>
+        /// PNL - Funding Fees
+        /// </summary>
+        /// <value>PNL - Funding Fees</value>
+        [DataMember(Name="pnl_fund", EmitDefaultValue=false)]
+        public string PnlFund { get; private set; }
+
+        /// <summary>
+        /// PNL - Transaction Fees
+        /// </summary>
+        /// <value>PNL - Transaction Fees</value>
+        [DataMember(Name="pnl_fee", EmitDefaultValue=false)]
+        public string PnlFee { get; private set; }
+
+        /// <summary>
         /// Text of close order
         /// </summary>
         /// <value>Text of close order</value>
         [DataMember(Name="text", EmitDefaultValue=false)]
         public string Text { get; private set; }
+
+        /// <summary>
+        /// Max Trade Size
+        /// </summary>
+        /// <value>Max Trade Size</value>
+        [DataMember(Name="max_size", EmitDefaultValue=false)]
+        public string MaxSize { get; private set; }
+
+        /// <summary>
+        /// First Open Time
+        /// </summary>
+        /// <value>First Open Time</value>
+        [DataMember(Name="first_open_time", EmitDefaultValue=false)]
+        public long FirstOpenTime { get; private set; }
+
+        /// <summary>
+        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.
+        /// </summary>
+        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.</value>
+        [DataMember(Name="long_price", EmitDefaultValue=false)]
+        public string LongPrice { get; private set; }
+
+        /// <summary>
+        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price
+        /// </summary>
+        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price</value>
+        [DataMember(Name="short_price", EmitDefaultValue=false)]
+        public string ShortPrice { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,7 +154,14 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
             sb.Append("  Pnl: ").Append(Pnl).Append("\n");
+            sb.Append("  PnlPnl: ").Append(PnlPnl).Append("\n");
+            sb.Append("  PnlFund: ").Append(PnlFund).Append("\n");
+            sb.Append("  PnlFee: ").Append(PnlFee).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  MaxSize: ").Append(MaxSize).Append("\n");
+            sb.Append("  FirstOpenTime: ").Append(FirstOpenTime).Append("\n");
+            sb.Append("  LongPrice: ").Append(LongPrice).Append("\n");
+            sb.Append("  ShortPrice: ").Append(ShortPrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,9 +215,43 @@ namespace Io.Gate.GateApi.Model
                     this.Pnl.Equals(input.Pnl))
                 ) && 
                 (
+                    this.PnlPnl == input.PnlPnl ||
+                    (this.PnlPnl != null &&
+                    this.PnlPnl.Equals(input.PnlPnl))
+                ) && 
+                (
+                    this.PnlFund == input.PnlFund ||
+                    (this.PnlFund != null &&
+                    this.PnlFund.Equals(input.PnlFund))
+                ) && 
+                (
+                    this.PnlFee == input.PnlFee ||
+                    (this.PnlFee != null &&
+                    this.PnlFee.Equals(input.PnlFee))
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.MaxSize == input.MaxSize ||
+                    (this.MaxSize != null &&
+                    this.MaxSize.Equals(input.MaxSize))
+                ) && 
+                (
+                    this.FirstOpenTime == input.FirstOpenTime ||
+                    this.FirstOpenTime.Equals(input.FirstOpenTime)
+                ) && 
+                (
+                    this.LongPrice == input.LongPrice ||
+                    (this.LongPrice != null &&
+                    this.LongPrice.Equals(input.LongPrice))
+                ) && 
+                (
+                    this.ShortPrice == input.ShortPrice ||
+                    (this.ShortPrice != null &&
+                    this.ShortPrice.Equals(input.ShortPrice))
                 );
         }
 
@@ -180,8 +270,21 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Side.GetHashCode();
                 if (this.Pnl != null)
                     hashCode = hashCode * 59 + this.Pnl.GetHashCode();
+                if (this.PnlPnl != null)
+                    hashCode = hashCode * 59 + this.PnlPnl.GetHashCode();
+                if (this.PnlFund != null)
+                    hashCode = hashCode * 59 + this.PnlFund.GetHashCode();
+                if (this.PnlFee != null)
+                    hashCode = hashCode * 59 + this.PnlFee.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.MaxSize != null)
+                    hashCode = hashCode * 59 + this.MaxSize.GetHashCode();
+                hashCode = hashCode * 59 + this.FirstOpenTime.GetHashCode();
+                if (this.LongPrice != null)
+                    hashCode = hashCode * 59 + this.LongPrice.GetHashCode();
+                if (this.ShortPrice != null)
+                    hashCode = hashCode * 59 + this.ShortPrice.GetHashCode();
                 return hashCode;
             }
         }

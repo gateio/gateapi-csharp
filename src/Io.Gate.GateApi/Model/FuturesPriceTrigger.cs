@@ -34,7 +34,6 @@ namespace Io.Gate.GateApi.Model
         /// How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently
         /// </summary>
         /// <value>How the order will be triggered   - &#x60;0&#x60;: by price, which means the order will be triggered if price condition is satisfied  - &#x60;1&#x60;: by price gap, which means the order will be triggered if gap of recent two prices of specified &#x60;price_type&#x60; are satisfied.  Only &#x60;0&#x60; is supported currently</value>
-        [JsonConverter(typeof(StringEnumConverter))]
         public enum StrategyTypeEnum
         {
             /// <summary>

@@ -31,7 +31,7 @@ namespace Io.Gate.GateApi.Api
         /// Withdraw
         /// </summary>
         /// <remarks>
-        /// 
+        /// Withdrawals to Gate addresses do not incur transaction fees.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -42,7 +42,7 @@ namespace Io.Gate.GateApi.Api
         /// Withdraw
         /// </summary>
         /// <remarks>
-        /// 
+        /// Withdrawals to Gate addresses do not incur transaction fees.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -82,7 +82,7 @@ namespace Io.Gate.GateApi.Api
         /// Withdraw
         /// </summary>
         /// <remarks>
-        /// 
+        /// Withdrawals to Gate addresses do not incur transaction fees.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -93,7 +93,7 @@ namespace Io.Gate.GateApi.Api
         /// Withdraw
         /// </summary>
         /// <remarks>
-        /// 
+        /// Withdrawals to Gate addresses do not incur transaction fees.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -241,7 +241,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw 
+        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -253,7 +253,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw 
+        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -299,7 +299,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw 
+        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -312,7 +312,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw 
+        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>

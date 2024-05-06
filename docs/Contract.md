@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 **FundingRate** | **string** | Current funding rate | [optional] 
 **FundingInterval** | **int** | Funding application interval, unit in seconds | [optional] 
 **FundingNextApply** | **double** | Next funding time | [optional] 
-**RiskLimitBase** | **string** | Risk limit base | [optional] 
-**RiskLimitStep** | **string** | Step of adjusting risk limit | [optional] 
-**RiskLimitMax** | **string** | Maximum risk limit the contract allowed | [optional] 
+**RiskLimitBase** | **string** | Risk limit base,deprecated | [optional] 
+**RiskLimitStep** | **string** | Step of adjusting risk limit,deprecated | [optional] 
+**RiskLimitMax** | **string** | Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits. | [optional] 
 **OrderSizeMin** | **long** | Minimum order size the contract allowed | [optional] 
 **OrderSizeMax** | **long** | Maximum order size the contract allowed | [optional] 
 **OrderPriceDeviate** | **string** | deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate | [optional] 
@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **EnableBonus** | **bool** | Whether bouns is enabled | [optional] 
 **EnableCredit** | **bool** | Whether portfolio margin account is enabled | [optional] 
 **CreateTime** | **double** | Created time of the contract | [optional] 
+**FundingCapRatio** | **string** | The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

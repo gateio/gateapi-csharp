@@ -227,8 +227,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>TradeFee</returns>
-        TradeFee GetFee (string currencyPair = default(string));
+        /// <returns>SpotFee</returns>
+        SpotFee GetFee (string currencyPair = default(string));
 
         /// <summary>
         /// Query user trading fee rates
@@ -238,8 +238,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>ApiResponse of TradeFee</returns>
-        ApiResponse<TradeFee> GetFeeWithHttpInfo (string currencyPair = default(string));
+        /// <returns>ApiResponse of SpotFee</returns>
+        ApiResponse<SpotFee> GetFeeWithHttpInfo (string currencyPair = default(string));
         /// <summary>
         /// Query a batch of user trading fee rates
         /// </summary>
@@ -419,7 +419,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -430,7 +430,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -446,8 +446,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
-        List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string));
+        List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -459,8 +460,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
+        ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -517,8 +519,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Order</returns>
-        Order CancelOrder (string orderId, string currencyPair, string account = default(string));
+        Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -530,8 +533,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
+        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
@@ -640,8 +644,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>List&lt;AmendOrderResult&gt;</returns>
-        List<AmendOrderResult> AmendBatchOrders (List<BatchAmendItem> batchAmendItem);
+        /// <returns>List&lt;BatchOrder&gt;</returns>
+        List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem);
 
         /// <summary>
         /// Batch modification of orders
@@ -651,8 +655,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>ApiResponse of List&lt;AmendOrderResult&gt;</returns>
-        ApiResponse<List<AmendOrderResult>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem);
+        /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
+        ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -977,8 +981,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>Task of TradeFee</returns>
-        Task<TradeFee> GetFeeAsync (string currencyPair = default(string));
+        /// <returns>Task of SpotFee</returns>
+        Task<SpotFee> GetFeeAsync (string currencyPair = default(string));
 
         /// <summary>
         /// Query user trading fee rates
@@ -988,8 +992,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>Task of ApiResponse (TradeFee)</returns>
-        Task<ApiResponse<TradeFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string));
+        /// <returns>Task of ApiResponse (SpotFee)</returns>
+        Task<ApiResponse<SpotFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string));
         /// <summary>
         /// Query a batch of user trading fee rates
         /// </summary>
@@ -1169,7 +1173,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1180,7 +1184,7 @@ namespace Io.Gate.GateApi.Api
         /// Create an order
         /// </summary>
         /// <remarks>
-        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1196,8 +1200,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
-        Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string));
+        Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -1209,8 +1214,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string));
+        Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -1267,8 +1273,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string));
+        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -1280,8 +1287,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
+        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
@@ -1390,8 +1398,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>Task of List&lt;AmendOrderResult&gt;</returns>
-        Task<List<AmendOrderResult>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem);
+        /// <returns>Task of List&lt;BatchOrder&gt;</returns>
+        Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem);
 
         /// <summary>
         /// Batch modification of orders
@@ -1401,8 +1409,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>Task of ApiResponse (List&lt;AmendOrderResult&gt;)</returns>
-        Task<ApiResponse<List<AmendOrderResult>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem);
+        /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
+        Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem);
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -2685,10 +2693,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>TradeFee</returns>
-        public TradeFee GetFee (string currencyPair = default(string))
+        /// <returns>SpotFee</returns>
+        public SpotFee GetFee (string currencyPair = default(string))
         {
-             ApiResponse<TradeFee> localVarResponse = GetFeeWithHttpInfo(currencyPair);
+             ApiResponse<SpotFee> localVarResponse = GetFeeWithHttpInfo(currencyPair);
              return localVarResponse.Data;
         }
 
@@ -2697,8 +2705,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>ApiResponse of TradeFee</returns>
-        public ApiResponse<TradeFee> GetFeeWithHttpInfo (string currencyPair = default(string))
+        /// <returns>ApiResponse of SpotFee</returns>
+        public ApiResponse<SpotFee> GetFeeWithHttpInfo (string currencyPair = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -2725,7 +2733,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TradeFee>("/spot/fee", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SpotFee>("/spot/fee", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2741,10 +2749,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>Task of TradeFee</returns>
-        public async Task<TradeFee> GetFeeAsync (string currencyPair = default(string))
+        /// <returns>Task of SpotFee</returns>
+        public async Task<SpotFee> GetFeeAsync (string currencyPair = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<TradeFee> localVarResponse = await GetFeeAsyncWithHttpInfo(currencyPair);
+             Io.Gate.GateApi.Client.ApiResponse<SpotFee> localVarResponse = await GetFeeAsyncWithHttpInfo(currencyPair);
              return localVarResponse.Data;
 
         }
@@ -2754,8 +2762,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
-        /// <returns>Task of ApiResponse (TradeFee)</returns>
-        public async Task<ApiResponse<TradeFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string))
+        /// <returns>Task of ApiResponse (SpotFee)</returns>
+        public async Task<ApiResponse<SpotFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -2784,7 +2792,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TradeFee>("/spot/fee", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SpotFee>("/spot/fee", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -3783,7 +3791,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3795,7 +3803,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3841,7 +3849,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3854,7 +3862,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
+        /// Create an order You can place orders with spot, portfolio, margin or cross margin account through setting the &#x60;account &#x60;field. It defaults to &#x60;spot&#x60;, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., &#x60;account&#x60; is &#x60;margin&#x60;, &#x60;auto_borrow&#x60; field can be set to &#x60;true&#x60; to enable the server to borrow the amount lacked using &#x60;POST /margin/loans&#x60; when your account&#39;s balance is not enough. Whether margin orders&#39; fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using &#x60;/margin/auto_repay&#x60; API.  When cross margin account is used, i.e., &#x60;account&#x60; is &#x60;cross_margin&#x60;, &#x60;auto_borrow&#x60; can also be enabled to achieve borrowing the insufficient amount automatically if cross account&#39;s balance is not enough. But it differs from margin account that automatic repayment is determined by order&#39;s &#x60;auto_repay&#x60; field and only current order&#39;s fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either &#x60;cancelled&#x60; or &#x60;closed&#x60;.  **Order status**  An order waiting to be filled is &#x60;open&#x60;, and it stays &#x60;open&#x60; until it is filled totally. If fully filled, order is finished and its status turns to &#x60;closed&#x60;.If the order is cancelled before it is totally filled, whether or not partially filled, its status is &#x60;cancelled&#x60;. **Iceberg order**  &#x60;iceberg&#x60; field can be used to set the amount shown. Set to &#x60;-1&#x60; to hide the order completely. Note that the hidden part&#39;s fee will be charged using taker&#39;s fee rate. **Self Trade Prevention**  - Set &#x60;stp_act&#x60; to decide the strategy of self-trade prevention. For detailed usage, refer to the &#x60;stp_act&#x60; parameter in request body 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3908,10 +3916,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
-        public List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string))
+        public List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
         {
-             ApiResponse<List<Order>> localVarResponse = CancelOrdersWithHttpInfo(currencyPair, side, account);
+             ApiResponse<List<Order>> localVarResponse = CancelOrdersWithHttpInfo(currencyPair, side, account, actionMode);
              return localVarResponse.Data;
         }
 
@@ -3922,8 +3931,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        public ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
+        public ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -3954,6 +3964,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (actionMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3977,10 +3991,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
-        public async Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string))
+        public async Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Order>> localVarResponse = await CancelOrdersAsyncWithHttpInfo(currencyPair, side, account);
+             Io.Gate.GateApi.Client.ApiResponse<List<Order>> localVarResponse = await CancelOrdersAsyncWithHttpInfo(currencyPair, side, account, actionMode);
              return localVarResponse.Data;
 
         }
@@ -3992,8 +4007,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        public async Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string))
+        public async Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
         {
             // verify the required parameter 'currencyPair' is set
             if (currencyPair == null)
@@ -4024,6 +4040,10 @@ namespace Io.Gate.GateApi.Api
             if (account != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (actionMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
             }
 
             // authentication (apiv4) required
@@ -4311,10 +4331,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Order</returns>
-        public Order CancelOrder (string orderId, string currencyPair, string account = default(string))
+        public Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
         {
-             ApiResponse<Order> localVarResponse = CancelOrderWithHttpInfo(orderId, currencyPair, account);
+             ApiResponse<Order> localVarResponse = CancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode);
              return localVarResponse.Data;
         }
 
@@ -4325,8 +4346,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
+        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4358,6 +4380,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
             }
+            if (actionMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4381,10 +4407,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string))
+        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId, currencyPair, account);
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId, currencyPair, account, actionMode);
              return localVarResponse.Data;
 
         }
@@ -4396,8 +4423,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
+        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4429,6 +4457,10 @@ namespace Io.Gate.GateApi.Api
             if (account != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (actionMode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
             }
 
             // authentication (apiv4) required
@@ -5016,10 +5048,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>List&lt;AmendOrderResult&gt;</returns>
-        public List<AmendOrderResult> AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+        /// <returns>List&lt;BatchOrder&gt;</returns>
+        public List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
         {
-             ApiResponse<List<AmendOrderResult>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem);
+             ApiResponse<List<BatchOrder>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem);
              return localVarResponse.Data;
         }
 
@@ -5028,8 +5060,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>ApiResponse of List&lt;AmendOrderResult&gt;</returns>
-        public ApiResponse<List<AmendOrderResult>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
+        public ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem)
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)
@@ -5058,7 +5090,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<List<AmendOrderResult>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<List<BatchOrder>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -5074,10 +5106,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>Task of List&lt;AmendOrderResult&gt;</returns>
-        public async Task<List<AmendOrderResult>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem)
+        /// <returns>Task of List&lt;BatchOrder&gt;</returns>
+        public async Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem)
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<AmendOrderResult>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem);
+             Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem);
              return localVarResponse.Data;
 
         }
@@ -5087,8 +5119,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
-        /// <returns>Task of ApiResponse (List&lt;AmendOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<AmendOrderResult>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
+        public async Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem)
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)
@@ -5119,7 +5151,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<List<AmendOrderResult>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<BatchOrder>>("/spot/amend_batch_orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="name">API key name.</param>
         /// <param name="perms">perms.</param>
         /// <param name="ipWhitelist">ip white list (list will be removed if no value is passed).</param>
-        public SubAccountKey(int mode = default(int), string name = default(string), List<ApiV4KeyPerm> perms = default(List<ApiV4KeyPerm>), List<string> ipWhitelist = default(List<string>))
+        public SubAccountKey(int mode = default(int), string name = default(string), List<SubAccountKeyPerms> perms = default(List<SubAccountKeyPerms>), List<string> ipWhitelist = default(List<string>))
         {
             this.Mode = mode;
             this.Name = name;
@@ -70,7 +70,7 @@ namespace Io.Gate.GateApi.Model
         /// Gets or Sets Perms
         /// </summary>
         [DataMember(Name="perms")]
-        public List<ApiV4KeyPerm> Perms { get; set; }
+        public List<SubAccountKeyPerms> Perms { get; set; }
 
         /// <summary>
         /// ip white list (list will be removed if no value is passed)

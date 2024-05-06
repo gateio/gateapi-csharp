@@ -621,7 +621,7 @@ No authorization required
 
 <a name="getfee"></a>
 # **GetFee**
-> TradeFee GetFee (string currencyPair = null)
+> SpotFee GetFee (string currencyPair = null)
 
 Query user trading fee rates
 
@@ -651,7 +651,7 @@ namespace Example
             try
             {
                 // Query user trading fee rates
-                TradeFee result = apiInstance.GetFee(currencyPair);
+                SpotFee result = apiInstance.GetFee(currencyPair);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TradeFee**](TradeFee.md)
+[**SpotFee**](SpotFee.md)
 
 ### Authorization
 
@@ -1233,7 +1233,7 @@ Name | Type | Description  | Notes
 
 Create an order
 
-You can place orders with spot, portfolio, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.if the user is in portfolio mode, it defaults to the portfolio account.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. **Self Trade Prevention**  - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body 
+You can place orders with spot, portfolio, margin or cross margin account through setting the `account `field. It defaults to `spot`, which means spot account is used to place orders.  If the user is using unified account, it defaults to the unified account.  When margin account is used, i.e., `account` is `margin`, `auto_borrow` field can be set to `true` to enable the server to borrow the amount lacked using `POST /margin/loans` when your account's balance is not enough. Whether margin orders' fill will be used to repay margin loans automatically is determined by the auto repayment setting in your **margin account**, which can be updated or queried using `/margin/auto_repay` API.  When cross margin account is used, i.e., `account` is `cross_margin`, `auto_borrow` can also be enabled to achieve borrowing the insufficient amount automatically if cross account's balance is not enough. But it differs from margin account that automatic repayment is determined by order's `auto_repay` field and only current order's fill will be used to repay cross margin loans.  Automatic repayment will be triggered when the order is finished, i.e., its status is either `cancelled` or `closed`.  **Order status**  An order waiting to be filled is `open`, and it stays `open` until it is filled totally. If fully filled, order is finished and its status turns to `closed`.If the order is cancelled before it is totally filled, whether or not partially filled, its status is `cancelled`. **Iceberg order**  `iceberg` field can be used to set the amount shown. Set to `-1` to hide the order completely. Note that the hidden part's fee will be charged using taker's fee rate. **Self Trade Prevention**  - Set `stp_act` to decide the strategy of self-trade prevention. For detailed usage, refer to the `stp_act` parameter in request body 
 
 ### Example
 ```csharp
@@ -1302,7 +1302,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorders"></a>
 # **CancelOrders**
-> List&lt;Order&gt; CancelOrders (string currencyPair, string side = null, string account = null)
+> List&lt;Order&gt; CancelOrders (string currencyPair, string side = null, string account = null, string actionMode = null)
 
 Cancel all `open` orders in specified currency pair
 
@@ -1330,11 +1330,12 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
             var account = "spot";  // string | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only (optional) 
+            var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
 
             try
             {
                 // Cancel all `open` orders in specified currency pair
-                List<Order> result = apiInstance.CancelOrders(currencyPair, side, account);
+                List<Order> result = apiInstance.CancelOrders(currencyPair, side, account, actionMode);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1356,6 +1357,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Currency pair | 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
  **account** | **string**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional] 
+ **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
 
 ### Return type
 
@@ -1529,7 +1531,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorder"></a>
 # **CancelOrder**
-> Order CancelOrder (string orderId, string currencyPair, string account = null)
+> Order CancelOrder (string orderId, string currencyPair, string account = null, string actionMode = null)
 
 Cancel a single order
 
@@ -1557,11 +1559,12 @@ namespace Example
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
 
             try
             {
                 // Cancel a single order
-                Order result = apiInstance.CancelOrder(orderId, currencyPair, account);
+                Order result = apiInstance.CancelOrder(orderId, currencyPair, account, actionMode);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1583,6 +1586,7 @@ Name | Type | Description  | Notes
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
  **currencyPair** | **string**| Currency pair | 
  **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
 
 ### Return type
 
@@ -1908,7 +1912,7 @@ Name | Type | Description  | Notes
 
 <a name="amendbatchorders"></a>
 # **AmendBatchOrders**
-> List&lt;AmendOrderResult&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+> List&lt;BatchOrder&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
 
 Batch modification of orders
 
@@ -1938,7 +1942,7 @@ namespace Example
             try
             {
                 // Batch modification of orders
-                List<AmendOrderResult> result = apiInstance.AmendBatchOrders(batchAmendItem);
+                List<BatchOrder> result = apiInstance.AmendBatchOrders(batchAmendItem);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1961,7 +1965,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;AmendOrderResult&gt;**](AmendOrderResult.md)
+[**List&lt;BatchOrder&gt;**](BatchOrder.md)
 
 ### Authorization
 

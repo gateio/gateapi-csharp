@@ -42,7 +42,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currencyPair">Currency pair (required).</param>
         /// <param name="amount">Trade amount (required).</param>
         /// <param name="price">Order price (required).</param>
-        public LiquidateOrder(string text = default(string), string currencyPair = default(string), string amount = default(string), string price = default(string))
+        /// <param name="actionMode">Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
+        public LiquidateOrder(string text = default(string), string currencyPair = default(string), string amount = default(string), string price = default(string), string actionMode = default(string))
         {
             // to ensure "currencyPair" is required (not null)
             this.CurrencyPair = currencyPair ?? throw new ArgumentNullException("currencyPair", "currencyPair is a required property for LiquidateOrder and cannot be null");
@@ -51,6 +52,7 @@ namespace Io.Gate.GateApi.Model
             // to ensure "price" is required (not null)
             this.Price = price ?? throw new ArgumentNullException("price", "price is a required property for LiquidateOrder and cannot be null");
             this.Text = text;
+            this.ActionMode = actionMode;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
+        /// Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
+        /// </summary>
+        /// <value>Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)</value>
+        [DataMember(Name="action_mode")]
+        public string ActionMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  ActionMode: ").Append(ActionMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +156,11 @@ namespace Io.Gate.GateApi.Model
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
+                ) && 
+                (
+                    this.ActionMode == input.ActionMode ||
+                    (this.ActionMode != null &&
+                    this.ActionMode.Equals(input.ActionMode))
                 );
         }
 
@@ -166,6 +181,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
+                if (this.ActionMode != null)
+                    hashCode = hashCode * 59 + this.ActionMode.GetHashCode();
                 return hashCode;
             }
         }

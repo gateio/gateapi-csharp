@@ -81,8 +81,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>List&lt;LedgerRecord&gt;</returns>
-        List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>List&lt;WithdrawalRecord&gt;</returns>
+        List<WithdrawalRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// Retrieve withdrawal records
@@ -96,8 +96,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
-        ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>ApiResponse of List&lt;WithdrawalRecord&gt;</returns>
+        ApiResponse<List<WithdrawalRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Retrieve deposit records
         /// </summary>
@@ -108,7 +108,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         List<LedgerRecord> ListDeposits (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -123,7 +123,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         ApiResponse<List<LedgerRecord>> ListDepositsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -336,8 +336,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>List&lt;SavedAddress&gt;</returns>
-        List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string));
+        List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string), int? page = default(int?));
 
         /// <summary>
         /// Query saved address
@@ -349,8 +350,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;SavedAddress&gt;</returns>
-        ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string));
+        ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string), int? page = default(int?));
         /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
@@ -395,6 +397,71 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
         /// <returns>ApiResponse of TotalBalance</returns>
         ApiResponse<TotalBalance> GetTotalBalanceWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// List small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SmallBalance</returns>
+        SmallBalance ListSmallBalance ();
+
+        /// <summary>
+        /// List small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SmallBalance</returns>
+        ApiResponse<SmallBalance> ListSmallBalanceWithHttpInfo ();
+        /// <summary>
+        /// Convert small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns></returns>
+        void ConvertSmallBalance (ConvertSmallBalance convertSmallBalance);
+
+        /// <summary>
+        /// Convert small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ConvertSmallBalanceWithHttpInfo (ConvertSmallBalance convertSmallBalance);
+        /// <summary>
+        /// List small balance history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>SmallBalanceHistory</returns>
+        SmallBalanceHistory ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List small balance history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of SmallBalanceHistory</returns>
+        ApiResponse<SmallBalanceHistory> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -458,8 +525,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
-        Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>Task of List&lt;WithdrawalRecord&gt;</returns>
+        Task<List<WithdrawalRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// Retrieve withdrawal records
@@ -473,8 +540,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
-        Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
+        /// <returns>Task of ApiResponse (List&lt;WithdrawalRecord&gt;)</returns>
+        Task<ApiResponse<List<WithdrawalRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Retrieve deposit records
         /// </summary>
@@ -485,7 +552,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         Task<List<LedgerRecord>> ListDepositsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -500,7 +567,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         Task<ApiResponse<List<LedgerRecord>>> ListDepositsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
@@ -713,8 +780,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of List&lt;SavedAddress&gt;</returns>
-        Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string));
+        Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string), int? page = default(int?));
 
         /// <summary>
         /// Query saved address
@@ -726,8 +794,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;SavedAddress&gt;)</returns>
-        Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string));
+        Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string), int? page = default(int?));
         /// <summary>
         /// Retrieve personal trading fee
         /// </summary>
@@ -772,6 +841,71 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency unit used to calculate the balance amount. BTC, CNY, USD and USDT are allowed. USDT is the default. (optional, default to &quot;USDT&quot;)</param>
         /// <returns>Task of ApiResponse (TotalBalance)</returns>
         Task<ApiResponse<TotalBalance>> GetTotalBalanceAsyncWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// List small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of SmallBalance</returns>
+        Task<SmallBalance> ListSmallBalanceAsync ();
+
+        /// <summary>
+        /// List small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (SmallBalance)</returns>
+        Task<ApiResponse<SmallBalance>> ListSmallBalanceAsyncWithHttpInfo ();
+        /// <summary>
+        /// Convert small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>Task of void</returns>
+        Task ConvertSmallBalanceAsync (ConvertSmallBalance convertSmallBalance);
+
+        /// <summary>
+        /// Convert small balance
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> ConvertSmallBalanceAsyncWithHttpInfo (ConvertSmallBalance convertSmallBalance);
+        /// <summary>
+        /// List small balance history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of SmallBalanceHistory</returns>
+        Task<SmallBalanceHistory> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// List small balance history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (SmallBalanceHistory)</returns>
+        Task<ApiResponse<SmallBalanceHistory>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         #endregion Asynchronous Operations
     }
 
@@ -1131,10 +1265,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>List&lt;LedgerRecord&gt;</returns>
-        public List<LedgerRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>List&lt;WithdrawalRecord&gt;</returns>
+        public List<WithdrawalRecord> ListWithdrawals (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
-             ApiResponse<List<LedgerRecord>> localVarResponse = ListWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
+             ApiResponse<List<WithdrawalRecord>> localVarResponse = ListWithdrawalsWithHttpInfo(currency, from, to, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -1147,8 +1281,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
-        public ApiResponse<List<LedgerRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>ApiResponse of List&lt;WithdrawalRecord&gt;</returns>
+        public ApiResponse<List<WithdrawalRecord>> ListWithdrawalsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1191,7 +1325,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LedgerRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<WithdrawalRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1211,10 +1345,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
-        public async Task<List<LedgerRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>Task of List&lt;WithdrawalRecord&gt;</returns>
+        public async Task<List<WithdrawalRecord>> ListWithdrawalsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<LedgerRecord>> localVarResponse = await ListWithdrawalsAsyncWithHttpInfo(currency, from, to, limit, offset);
+             Io.Gate.GateApi.Client.ApiResponse<List<WithdrawalRecord>> localVarResponse = await ListWithdrawalsAsyncWithHttpInfo(currency, from, to, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -1228,8 +1362,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">Time range ending, default to current time (optional)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
-        public async Task<ApiResponse<List<LedgerRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
+        /// <returns>Task of ApiResponse (List&lt;WithdrawalRecord&gt;)</returns>
+        public async Task<ApiResponse<List<WithdrawalRecord>>> ListWithdrawalsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1274,7 +1408,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LedgerRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<WithdrawalRecord>>("/wallet/withdrawals", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1292,7 +1426,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;LedgerRecord&gt;</returns>
         public List<LedgerRecord> ListDeposits (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1308,7 +1442,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;LedgerRecord&gt;</returns>
         public ApiResponse<List<LedgerRecord>> ListDepositsWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1372,7 +1506,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;LedgerRecord&gt;</returns>
         public async Task<List<LedgerRecord>> ListDepositsAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -1389,7 +1523,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
         /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
         /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">The maximum number of entries returned in the list is limited to 500 transactions. (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;LedgerRecord&gt;)</returns>
         public async Task<ApiResponse<List<LedgerRecord>>> ListDepositsAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
@@ -2554,10 +2688,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>List&lt;SavedAddress&gt;</returns>
-        public List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string))
+        public List<SavedAddress> ListSavedAddress (string currency, string chain = default(string), string limit = default(string), int? page = default(int?))
         {
-             ApiResponse<List<SavedAddress>> localVarResponse = ListSavedAddressWithHttpInfo(currency, chain, limit);
+             ApiResponse<List<SavedAddress>> localVarResponse = ListSavedAddressWithHttpInfo(currency, chain, limit, page);
              return localVarResponse.Data;
         }
 
@@ -2568,8 +2703,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;SavedAddress&gt;</returns>
-        public ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string))
+        public ApiResponse<List<SavedAddress>> ListSavedAddressWithHttpInfo (string currency, string chain = default(string), string limit = default(string), int? page = default(int?))
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -2600,6 +2736,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -2623,10 +2763,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of List&lt;SavedAddress&gt;</returns>
-        public async Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string))
+        public async Task<List<SavedAddress>> ListSavedAddressAsync (string currency, string chain = default(string), string limit = default(string), int? page = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<SavedAddress>> localVarResponse = await ListSavedAddressAsyncWithHttpInfo(currency, chain, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<SavedAddress>> localVarResponse = await ListSavedAddressAsyncWithHttpInfo(currency, chain, limit, page);
              return localVarResponse.Data;
 
         }
@@ -2638,8 +2779,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency</param>
         /// <param name="chain">Chain name (optional, default to &quot;&quot;)</param>
         /// <param name="limit">Maximum number returned, 100 at most (optional, default to &quot;50&quot;)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;SavedAddress&gt;)</returns>
-        public async Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string))
+        public async Task<ApiResponse<List<SavedAddress>>> ListSavedAddressAsyncWithHttpInfo (string currency, string chain = default(string), string limit = default(string), int? page = default(int?))
         {
             // verify the required parameter 'currency' is set
             if (currency == null)
@@ -2670,6 +2812,10 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             // authentication (apiv4) required
@@ -2924,6 +3070,363 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTotalBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SmallBalance</returns>
+        public SmallBalance ListSmallBalance ()
+        {
+             ApiResponse<SmallBalance> localVarResponse = ListSmallBalanceWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SmallBalance</returns>
+        public ApiResponse<SmallBalance> ListSmallBalanceWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SmallBalance>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSmallBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of SmallBalance</returns>
+        public async Task<SmallBalance> ListSmallBalanceAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<SmallBalance> localVarResponse = await ListSmallBalanceAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (SmallBalance)</returns>
+        public async Task<ApiResponse<SmallBalance>> ListSmallBalanceAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SmallBalance>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSmallBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Convert small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns></returns>
+        public void ConvertSmallBalance (ConvertSmallBalance convertSmallBalance)
+        {
+             ConvertSmallBalanceWithHttpInfo(convertSmallBalance);
+        }
+
+        /// <summary>
+        /// Convert small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ConvertSmallBalanceWithHttpInfo (ConvertSmallBalance convertSmallBalance)
+        {
+            // verify the required parameter 'convertSmallBalance' is set
+            if (convertSmallBalance == null)
+                throw new ApiException(400, "Missing required parameter 'convertSmallBalance' when calling WalletApi->ConvertSmallBalance");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = convertSmallBalance;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConvertSmallBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Convert small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>Task of void</returns>
+        public async Task ConvertSmallBalanceAsync (ConvertSmallBalance convertSmallBalance)
+        {
+             await ConvertSmallBalanceAsyncWithHttpInfo(convertSmallBalance);
+
+        }
+
+        /// <summary>
+        /// Convert small balance 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="convertSmallBalance"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> ConvertSmallBalanceAsyncWithHttpInfo (ConvertSmallBalance convertSmallBalance)
+        {
+            // verify the required parameter 'convertSmallBalance' is set
+            if (convertSmallBalance == null)
+                throw new ApiException(400, "Missing required parameter 'convertSmallBalance' when calling WalletApi->ConvertSmallBalance");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = convertSmallBalance;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConvertSmallBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List small balance history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>SmallBalanceHistory</returns>
+        public SmallBalanceHistory ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<SmallBalanceHistory> localVarResponse = ListSmallBalanceHistoryWithHttpInfo(currency, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List small balance history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of SmallBalanceHistory</returns>
+        public ApiResponse<SmallBalanceHistory> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SmallBalanceHistory>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSmallBalanceHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List small balance history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of SmallBalanceHistory</returns>
+        public async Task<SmallBalanceHistory> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<SmallBalanceHistory> localVarResponse = await ListSmallBalanceHistoryAsyncWithHttpInfo(currency, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List small balance history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (SmallBalanceHistory)</returns>
+        public async Task<ApiResponse<SmallBalanceHistory>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SmallBalanceHistory>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListSmallBalanceHistory", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

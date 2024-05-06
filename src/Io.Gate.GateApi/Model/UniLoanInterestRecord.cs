@@ -74,6 +74,13 @@ namespace Io.Gate.GateApi.Model
         public int Status { get; private set; }
 
         /// <summary>
+        /// Type, platform - platform，margin - margin
+        /// </summary>
+        /// <value>Type, platform - platform，margin - margin</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; private set; }
+
+        /// <summary>
         /// Created time
         /// </summary>
         /// <value>Created time</value>
@@ -93,6 +100,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  ActualRate: ").Append(ActualRate).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -153,6 +161,11 @@ namespace Io.Gate.GateApi.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.CreateTime == input.CreateTime ||
                     this.CreateTime.Equals(input.CreateTime)
                 );
@@ -176,6 +189,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.Interest != null)
                     hashCode = hashCode * 59 + this.Interest.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 return hashCode;
             }

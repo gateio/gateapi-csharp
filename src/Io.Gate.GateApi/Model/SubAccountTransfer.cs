@@ -31,72 +31,6 @@ namespace Io.Gate.GateApi.Model
     public partial class SubAccountTransfer :  IEquatable<SubAccountTransfer>, IValidatableObject
     {
         /// <summary>
-        /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
-        /// </summary>
-        /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DirectionEnum
-        {
-            /// <summary>
-            /// Enum To for value: to
-            /// </summary>
-            [EnumMember(Value = "to")]
-            To = 1,
-
-            /// <summary>
-            /// Enum From for value: from
-            /// </summary>
-            [EnumMember(Value = "from")]
-            From = 2
-
-        }
-
-        /// <summary>
-        /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
-        /// </summary>
-        /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
-        [DataMember(Name="direction")]
-        public DirectionEnum Direction { get; set; }
-        /// <summary>
-        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
-        /// </summary>
-        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SubAccountTypeEnum
-        {
-            /// <summary>
-            /// Enum Spot for value: spot
-            /// </summary>
-            [EnumMember(Value = "spot")]
-            Spot = 1,
-
-            /// <summary>
-            /// Enum Futures for value: futures
-            /// </summary>
-            [EnumMember(Value = "futures")]
-            Futures = 2,
-
-            /// <summary>
-            /// Enum Crossmargin for value: cross_margin
-            /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 3,
-
-            /// <summary>
-            /// Enum Delivery for value: delivery
-            /// </summary>
-            [EnumMember(Value = "delivery")]
-            Delivery = 4
-
-        }
-
-        /// <summary>
-        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
-        /// </summary>
-        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account</value>
-        [DataMember(Name="sub_account_type")]
-        public SubAccountTypeEnum? SubAccountType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountTransfer" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -109,18 +43,20 @@ namespace Io.Gate.GateApi.Model
         /// <param name="direction">Transfer direction. to - transfer into sub account; from - transfer out from sub account (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters..</param>
-        /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account (default to SubAccountTypeEnum.Spot).</param>
-        public SubAccountTransfer(string currency = default(string), string subAccount = default(string), DirectionEnum direction = default(DirectionEnum), string amount = default(string), string clientOrderId = default(string), SubAccountTypeEnum? subAccountType = SubAccountTypeEnum.Spot)
+        /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account (default to &quot;spot&quot;).</param>
+        public SubAccountTransfer(string currency = default(string), string subAccount = default(string), string direction = default(string), string amount = default(string), string clientOrderId = default(string), string subAccountType = "spot")
         {
             // to ensure "currency" is required (not null)
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for SubAccountTransfer and cannot be null");
             // to ensure "subAccount" is required (not null)
             this.SubAccount = subAccount ?? throw new ArgumentNullException("subAccount", "subAccount is a required property for SubAccountTransfer and cannot be null");
-            this.Direction = direction;
+            // to ensure "direction" is required (not null)
+            this.Direction = direction ?? throw new ArgumentNullException("direction", "direction is a required property for SubAccountTransfer and cannot be null");
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for SubAccountTransfer and cannot be null");
             this.ClientOrderId = clientOrderId;
-            this.SubAccountType = subAccountType;
+            // use default value if no "subAccountType" provided
+            this.SubAccountType = subAccountType ?? "spot";
         }
 
         /// <summary>
@@ -136,6 +72,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Sub account user ID</value>
         [DataMember(Name="sub_account")]
         public string SubAccount { get; set; }
+
+        /// <summary>
+        /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
+        /// </summary>
+        /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
+        [DataMember(Name="direction")]
+        public string Direction { get; set; }
 
         /// <summary>
         /// Transfer amount
@@ -171,6 +114,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Where the operation is initiated from</value>
         [DataMember(Name="source", EmitDefaultValue=false)]
         public string Source { get; private set; }
+
+        /// <summary>
+        /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account
+        /// </summary>
+        /// <value>Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account, &#x60;delivery&#x60; - delivery account</value>
+        [DataMember(Name="sub_account_type")]
+        public string SubAccountType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -235,7 +185,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.Direction == input.Direction ||
-                    this.Direction.Equals(input.Direction)
+                    (this.Direction != null &&
+                    this.Direction.Equals(input.Direction))
                 ) && 
                 (
                     this.Amount == input.Amount ||
@@ -264,7 +215,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.SubAccountType == input.SubAccountType ||
-                    this.SubAccountType.Equals(input.SubAccountType)
+                    (this.SubAccountType != null &&
+                    this.SubAccountType.Equals(input.SubAccountType))
                 );
         }
 
@@ -281,7 +233,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 if (this.SubAccount != null)
                     hashCode = hashCode * 59 + this.SubAccount.GetHashCode();
-                hashCode = hashCode * 59 + this.Direction.GetHashCode();
+                if (this.Direction != null)
+                    hashCode = hashCode * 59 + this.Direction.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Uid != null)
@@ -292,7 +245,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Timest.GetHashCode();
                 if (this.Source != null)
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
-                hashCode = hashCode * 59 + this.SubAccountType.GetHashCode();
+                if (this.SubAccountType != null)
+                    hashCode = hashCode * 59 + this.SubAccountType.GetHashCode();
                 return hashCode;
             }
         }

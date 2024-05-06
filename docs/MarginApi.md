@@ -2240,7 +2240,7 @@ Name | Type | Description  | Notes
 
 <a name="getcrossmargininterestrecords"></a>
 # **GetCrossMarginInterestRecords**
-> List&lt;UniLoanInterestRecord&gt; GetCrossMarginInterestRecords (string currency = null, int? page = null, int? limit = null)
+> List&lt;UniLoanInterestRecord&gt; GetCrossMarginInterestRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null)
 
 Interest records for the cross margin account
 
@@ -2266,11 +2266,13 @@ namespace Example
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
 
             try
             {
                 // Interest records for the cross margin account
-                List<UniLoanInterestRecord> result = apiInstance.GetCrossMarginInterestRecords(currency, page, limit);
+                List<UniLoanInterestRecord> result = apiInstance.GetCrossMarginInterestRecords(currency, page, limit, from, to);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2292,6 +2294,8 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
 
 ### Return type
 
@@ -2459,7 +2463,7 @@ Name | Type | Description  | Notes
 
 <a name="getcrossmarginborrowable"></a>
 # **GetCrossMarginBorrowable**
-> PortfolioBorrowable GetCrossMarginBorrowable (string currency)
+> UnifiedBorrowable GetCrossMarginBorrowable (string currency)
 
 Get the max borrowable amount for a specific cross margin currency
 
@@ -2487,7 +2491,7 @@ namespace Example
             try
             {
                 // Get the max borrowable amount for a specific cross margin currency
-                PortfolioBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
+                UnifiedBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2510,7 +2514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PortfolioBorrowable**](PortfolioBorrowable.md)
+[**UnifiedBorrowable**](UnifiedBorrowable.md)
 
 ### Authorization
 

@@ -70,7 +70,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="price">Order price. Set to 0 to use market price (required).</param>
         /// <param name="close">Set to true if trying to close the position (default to false).</param>
         /// <param name="tif">Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
-        /// <param name="text">How the order is created. Possible values are: web, api and app.</param>
+        /// <param name="text">The source of the order, including: - web: web - api: api - app: app.</param>
         /// <param name="reduceOnly">Set to true to create a reduce-only order (default to false).</param>
         /// <param name="autoSize">Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0.</param>
         public FuturesInitialOrder(string contract = default(string), long size = default(long), string price = default(string), bool close = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), bool reduceOnly = false, string autoSize = default(string))
@@ -116,9 +116,9 @@ namespace Io.Gate.GateApi.Model
         public bool Close { get; set; }
 
         /// <summary>
-        /// How the order is created. Possible values are: web, api and app
+        /// The source of the order, including: - web: web - api: api - app: app
         /// </summary>
-        /// <value>How the order is created. Possible values are: web, api and app</value>
+        /// <value>The source of the order, including: - web: web - api: api - app: app</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 

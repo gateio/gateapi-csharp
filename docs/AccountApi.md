@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 <a name="deletestpgroupusers"></a>
 # **DeleteSTPGroupUsers**
-> List&lt;StpGroupUser&gt; DeleteSTPGroupUsers (long stpId, List<long> requestBody)
+> List&lt;StpGroupUser&gt; DeleteSTPGroupUsers (long stpId, long userId)
 
 Delete the user in the STP group
 
@@ -401,12 +401,12 @@ namespace Example
 
             var apiInstance = new AccountApi(config);
             var stpId = 1;  // long | STP Group ID
-            var requestBody = new List<long>(); // List<long> | User ID
+            var userId = 1;  // long | STP user ID, multiple can be separated by commas
 
             try
             {
                 // Delete the user in the STP group
-                List<StpGroupUser> result = apiInstance.DeleteSTPGroupUsers(stpId, requestBody);
+                List<StpGroupUser> result = apiInstance.DeleteSTPGroupUsers(stpId, userId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -426,7 +426,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stpId** | **long**| STP Group ID | 
- **requestBody** | [**List&lt;long&gt;**](long.md)| User ID | 
+ **userId** | **long**| STP user ID, multiple can be separated by commas | 
 
 ### Return type
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

@@ -31,72 +31,6 @@ namespace Io.Gate.GateApi.Model
     public partial class SubAccountToSubAccount :  IEquatable<SubAccountToSubAccount>, IValidatableObject
     {
         /// <summary>
-        /// Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-        /// </summary>
-        /// <value>Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SubAccountFromTypeEnum
-        {
-            /// <summary>
-            /// Enum Spot for value: spot
-            /// </summary>
-            [EnumMember(Value = "spot")]
-            Spot = 1,
-
-            /// <summary>
-            /// Enum Futures for value: futures
-            /// </summary>
-            [EnumMember(Value = "futures")]
-            Futures = 2,
-
-            /// <summary>
-            /// Enum Crossmargin for value: cross_margin
-            /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 3
-
-        }
-
-        /// <summary>
-        /// Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-        /// </summary>
-        /// <value>Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
-        [DataMember(Name="sub_account_from_type")]
-        public SubAccountFromTypeEnum SubAccountFromType { get; set; }
-        /// <summary>
-        /// Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-        /// </summary>
-        /// <value>Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SubAccountToTypeEnum
-        {
-            /// <summary>
-            /// Enum Spot for value: spot
-            /// </summary>
-            [EnumMember(Value = "spot")]
-            Spot = 1,
-
-            /// <summary>
-            /// Enum Futures for value: futures
-            /// </summary>
-            [EnumMember(Value = "futures")]
-            Futures = 2,
-
-            /// <summary>
-            /// Enum Crossmargin for value: cross_margin
-            /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 3
-
-        }
-
-        /// <summary>
-        /// Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account
-        /// </summary>
-        /// <value>Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account</value>
-        [DataMember(Name="sub_account_to_type")]
-        public SubAccountToTypeEnum SubAccountToType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountToSubAccount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -107,20 +41,22 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Transfer currency name (required).</param>
         /// <param name="subAccountType">Transfer from the account. (deprecate, use &#x60;sub_account_from_type&#x60; and &#x60;sub_account_to_type&#x60; instead).</param>
         /// <param name="subAccountFrom">Transfer from the user id of the sub-account (required).</param>
-        /// <param name="subAccountFromType">Transfer from the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account (required).</param>
+        /// <param name="subAccountFromType">The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot; (required).</param>
         /// <param name="subAccountTo">Transfer to the user id of the sub-account (required).</param>
-        /// <param name="subAccountToType">Transfer to the account.  &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;cross_margin&#x60; - cross margin account (required).</param>
+        /// <param name="subAccountToType">The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account. (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
-        public SubAccountToSubAccount(string currency = default(string), string subAccountType = default(string), string subAccountFrom = default(string), SubAccountFromTypeEnum subAccountFromType = default(SubAccountFromTypeEnum), string subAccountTo = default(string), SubAccountToTypeEnum subAccountToType = default(SubAccountToTypeEnum), string amount = default(string))
+        public SubAccountToSubAccount(string currency = default(string), string subAccountType = default(string), string subAccountFrom = default(string), string subAccountFromType = default(string), string subAccountTo = default(string), string subAccountToType = default(string), string amount = default(string))
         {
             // to ensure "currency" is required (not null)
             this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for SubAccountToSubAccount and cannot be null");
             // to ensure "subAccountFrom" is required (not null)
             this.SubAccountFrom = subAccountFrom ?? throw new ArgumentNullException("subAccountFrom", "subAccountFrom is a required property for SubAccountToSubAccount and cannot be null");
-            this.SubAccountFromType = subAccountFromType;
+            // to ensure "subAccountFromType" is required (not null)
+            this.SubAccountFromType = subAccountFromType ?? throw new ArgumentNullException("subAccountFromType", "subAccountFromType is a required property for SubAccountToSubAccount and cannot be null");
             // to ensure "subAccountTo" is required (not null)
             this.SubAccountTo = subAccountTo ?? throw new ArgumentNullException("subAccountTo", "subAccountTo is a required property for SubAccountToSubAccount and cannot be null");
-            this.SubAccountToType = subAccountToType;
+            // to ensure "subAccountToType" is required (not null)
+            this.SubAccountToType = subAccountToType ?? throw new ArgumentNullException("subAccountToType", "subAccountToType is a required property for SubAccountToSubAccount and cannot be null");
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for SubAccountToSubAccount and cannot be null");
             this.SubAccountType = subAccountType;
@@ -148,11 +84,25 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountFrom { get; set; }
 
         /// <summary>
+        /// The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot;
+        /// </summary>
+        /// <value>The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot;</value>
+        [DataMember(Name="sub_account_from_type")]
+        public string SubAccountFromType { get; set; }
+
+        /// <summary>
         /// Transfer to the user id of the sub-account
         /// </summary>
         /// <value>Transfer to the user id of the sub-account</value>
         [DataMember(Name="sub_account_to")]
         public string SubAccountTo { get; set; }
+
+        /// <summary>
+        /// The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.
+        /// </summary>
+        /// <value>The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.</value>
+        [DataMember(Name="sub_account_to_type")]
+        public string SubAccountToType { get; set; }
 
         /// <summary>
         /// Transfer amount
@@ -227,7 +177,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.SubAccountFromType == input.SubAccountFromType ||
-                    this.SubAccountFromType.Equals(input.SubAccountFromType)
+                    (this.SubAccountFromType != null &&
+                    this.SubAccountFromType.Equals(input.SubAccountFromType))
                 ) && 
                 (
                     this.SubAccountTo == input.SubAccountTo ||
@@ -236,7 +187,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.SubAccountToType == input.SubAccountToType ||
-                    this.SubAccountToType.Equals(input.SubAccountToType)
+                    (this.SubAccountToType != null &&
+                    this.SubAccountToType.Equals(input.SubAccountToType))
                 ) && 
                 (
                     this.Amount == input.Amount ||
@@ -260,10 +212,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.SubAccountType.GetHashCode();
                 if (this.SubAccountFrom != null)
                     hashCode = hashCode * 59 + this.SubAccountFrom.GetHashCode();
-                hashCode = hashCode * 59 + this.SubAccountFromType.GetHashCode();
+                if (this.SubAccountFromType != null)
+                    hashCode = hashCode * 59 + this.SubAccountFromType.GetHashCode();
                 if (this.SubAccountTo != null)
                     hashCode = hashCode * 59 + this.SubAccountTo.GetHashCode();
-                hashCode = hashCode * 59 + this.SubAccountToType.GetHashCode();
+                if (this.SubAccountToType != null)
+                    hashCode = hashCode * 59 + this.SubAccountToType.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 return hashCode;

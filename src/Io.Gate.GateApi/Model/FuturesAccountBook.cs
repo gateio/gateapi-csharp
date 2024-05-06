@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesAccountBook :  IEquatable<FuturesAccountBook>, IValidatableObject
     {
         /// <summary>
-        /// Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         /// </summary>
-        /// <value>Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate</value>
+        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -83,14 +83,20 @@ namespace Io.Gate.GateApi.Model
             /// Enum Pointrefr for value: point_refr
             /// </summary>
             [EnumMember(Value = "point_refr")]
-            Pointrefr = 8
+            Pointrefr = 8,
+
+            /// <summary>
+            /// Enum Bonusoffset for value: bonus_offset
+            /// </summary>
+            [EnumMember(Value = "bonus_offset")]
+            Bonusoffset = 9
 
         }
 
         /// <summary>
-        /// Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate
+        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         /// </summary>
-        /// <value>Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate</value>
+        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -99,15 +105,19 @@ namespace Io.Gate.GateApi.Model
         /// <param name="time">Change time.</param>
         /// <param name="change">Change amount.</param>
         /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate.</param>
+        /// <param name="type">Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction.</param>
         /// <param name="text">Comment.</param>
-        public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string))
+        /// <param name="contract">Futures contract, the field is only available for data after 2023-10-30..</param>
+        /// <param name="tradeId">trade id.</param>
+        public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string), string contract = default(string), string tradeId = default(string))
         {
             this.Time = time;
             this.Change = change;
             this.Balance = balance;
             this.Type = type;
             this.Text = text;
+            this.Contract = contract;
+            this.TradeId = tradeId;
         }
 
         /// <summary>
@@ -139,6 +149,20 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// Futures contract, the field is only available for data after 2023-10-30.
+        /// </summary>
+        /// <value>Futures contract, the field is only available for data after 2023-10-30.</value>
+        [DataMember(Name="contract")]
+        public string Contract { get; set; }
+
+        /// <summary>
+        /// trade id
+        /// </summary>
+        /// <value>trade id</value>
+        [DataMember(Name="trade_id")]
+        public string TradeId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -151,6 +175,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Balance: ").Append(Balance).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Contract: ").Append(Contract).Append("\n");
+            sb.Append("  TradeId: ").Append(TradeId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,6 +233,16 @@ namespace Io.Gate.GateApi.Model
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Contract == input.Contract ||
+                    (this.Contract != null &&
+                    this.Contract.Equals(input.Contract))
+                ) && 
+                (
+                    this.TradeId == input.TradeId ||
+                    (this.TradeId != null &&
+                    this.TradeId.Equals(input.TradeId))
                 );
         }
 
@@ -227,6 +263,10 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.Contract != null)
+                    hashCode = hashCode * 59 + this.Contract.GetHashCode();
+                if (this.TradeId != null)
+                    hashCode = hashCode * 59 + this.TradeId.GetHashCode();
                 return hashCode;
             }
         }

@@ -74,10 +74,14 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="amount">Account total balance amount.</param>
         /// <param name="currency">Currency.</param>
-        public AccountBalance(string amount = default(string), CurrencyEnum? currency = default(CurrencyEnum?))
+        /// <param name="unrealisedPnl">Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts.</param>
+        /// <param name="borrowed">Borrowed，this field will only appear in margin and cross_margin accounts.</param>
+        public AccountBalance(string amount = default(string), CurrencyEnum? currency = default(CurrencyEnum?), string unrealisedPnl = default(string), string borrowed = default(string))
         {
             this.Amount = amount;
             this.Currency = currency;
+            this.UnrealisedPnl = unrealisedPnl;
+            this.Borrowed = borrowed;
         }
 
         /// <summary>
@@ -86,6 +90,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>Account total balance amount</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
+
+        /// <summary>
+        /// Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts
+        /// </summary>
+        /// <value>Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts</value>
+        [DataMember(Name="unrealised_pnl")]
+        public string UnrealisedPnl { get; set; }
+
+        /// <summary>
+        /// Borrowed，this field will only appear in margin and cross_margin accounts
+        /// </summary>
+        /// <value>Borrowed，this field will only appear in margin and cross_margin accounts</value>
+        [DataMember(Name="borrowed")]
+        public string Borrowed { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,6 +115,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class AccountBalance {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  UnrealisedPnl: ").Append(UnrealisedPnl).Append("\n");
+            sb.Append("  Borrowed: ").Append(Borrowed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +159,16 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.Currency == input.Currency ||
                     this.Currency.Equals(input.Currency)
+                ) && 
+                (
+                    this.UnrealisedPnl == input.UnrealisedPnl ||
+                    (this.UnrealisedPnl != null &&
+                    this.UnrealisedPnl.Equals(input.UnrealisedPnl))
+                ) && 
+                (
+                    this.Borrowed == input.Borrowed ||
+                    (this.Borrowed != null &&
+                    this.Borrowed.Equals(input.Borrowed))
                 );
         }
 
@@ -154,6 +184,10 @@ namespace Io.Gate.GateApi.Model
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.UnrealisedPnl != null)
+                    hashCode = hashCode * 59 + this.UnrealisedPnl.GetHashCode();
+                if (this.Borrowed != null)
+                    hashCode = hashCode * 59 + this.Borrowed.GetHashCode();
                 return hashCode;
             }
         }

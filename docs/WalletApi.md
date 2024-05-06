@@ -20,6 +20,9 @@ Method | HTTP request | Description
 [**ListSavedAddress**](WalletApi.md#listsavedaddress) | **GET** /wallet/saved_address | Query saved address
 [**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
 [**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
+[**ListSmallBalance**](WalletApi.md#listsmallbalance) | **GET** /wallet/small_balance | List small balance
+[**ConvertSmallBalance**](WalletApi.md#convertsmallbalance) | **POST** /wallet/small_balance | Convert small balance
+[**ListSmallBalanceHistory**](WalletApi.md#listsmallbalancehistory) | **GET** /wallet/small_balance_history | List small balance history
 
 
 <a name="listcurrencychains"></a>
@@ -164,7 +167,7 @@ Name | Type | Description  | Notes
 
 <a name="listwithdrawals"></a>
 # **ListWithdrawals**
-> List&lt;LedgerRecord&gt; ListWithdrawals (string currency = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+> List&lt;WithdrawalRecord&gt; ListWithdrawals (string currency = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
 Retrieve withdrawal records
 
@@ -198,7 +201,7 @@ namespace Example
             try
             {
                 // Retrieve withdrawal records
-                List<LedgerRecord> result = apiInstance.ListWithdrawals(currency, from, to, limit, offset);
+                List<WithdrawalRecord> result = apiInstance.ListWithdrawals(currency, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -225,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;LedgerRecord&gt;**](LedgerRecord.md)
+[**List&lt;WithdrawalRecord&gt;**](WithdrawalRecord.md)
 
 ### Authorization
 
@@ -273,7 +276,7 @@ namespace Example
             var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
             var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
             var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var limit = 100;  // int? | The maximum number of entries returned in the list is limited to 500 transactions. (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
@@ -301,7 +304,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
  **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
  **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **int?**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
@@ -981,7 +984,7 @@ Name | Type | Description  | Notes
 
 <a name="listsavedaddress"></a>
 # **ListSavedAddress**
-> List&lt;SavedAddress&gt; ListSavedAddress (string currency, string chain = null, string limit = null)
+> List&lt;SavedAddress&gt; ListSavedAddress (string currency, string chain = null, string limit = null, int? page = null)
 
 Query saved address
 
@@ -1007,11 +1010,12 @@ namespace Example
             var currency = "USDT";  // string | Currency
             var chain = "\"\"";  // string | Chain name (optional)  (default to "")
             var limit = "\"50\"";  // string | Maximum number returned, 100 at most (optional)  (default to "50")
+            var page = 1;  // int? | Page number (optional)  (default to 1)
 
             try
             {
                 // Query saved address
-                List<SavedAddress> result = apiInstance.ListSavedAddress(currency, chain, limit);
+                List<SavedAddress> result = apiInstance.ListSavedAddress(currency, chain, limit, page);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1033,6 +1037,7 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency | 
  **chain** | **string**| Chain name | [optional] [default to &quot;&quot;]
  **limit** | **string**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
+ **page** | **int?**| Page number | [optional] [default to 1]
 
 ### Return type
 
@@ -1197,6 +1202,218 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Request is valid and is successfully responded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsmallbalance"></a>
+# **ListSmallBalance**
+> SmallBalance ListSmallBalance ()
+
+List small balance
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSmallBalanceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+
+            try
+            {
+                // List small balance
+                SmallBalance result = apiInstance.ListSmallBalance();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSmallBalance: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SmallBalance**](SmallBalance.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="convertsmallbalance"></a>
+# **ConvertSmallBalance**
+> void ConvertSmallBalance (ConvertSmallBalance convertSmallBalance)
+
+Convert small balance
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ConvertSmallBalanceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var convertSmallBalance = new ConvertSmallBalance(); // ConvertSmallBalance | 
+
+            try
+            {
+                // Convert small balance
+                apiInstance.ConvertSmallBalance(convertSmallBalance);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ConvertSmallBalance: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **convertSmallBalance** | [**ConvertSmallBalance**](ConvertSmallBalance.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listsmallbalancehistory"></a>
+# **ListSmallBalanceHistory**
+> SmallBalanceHistory ListSmallBalanceHistory (string currency = null, int? page = null, int? limit = null)
+
+List small balance history
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListSmallBalanceHistoryExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var currency = "currency_example";  // string | Currency (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+
+            try
+            {
+                // List small balance history
+                SmallBalanceHistory result = apiInstance.ListSmallBalanceHistory(currency, page, limit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListSmallBalanceHistory: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
+ **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+
+### Return type
+
+[**SmallBalanceHistory**](SmallBalanceHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

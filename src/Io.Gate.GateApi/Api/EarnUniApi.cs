@@ -196,8 +196,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;UniInterestRecord&gt;</returns>
-        List<UniInterestRecord> ListUniInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        List<UniInterestRecord> ListUniInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List interest records
@@ -209,8 +211,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniInterestRecord&gt;</returns>
-        ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Set interest reinvestment toggle
         /// </summary>
@@ -431,8 +435,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;UniInterestRecord&gt;</returns>
-        Task<List<UniInterestRecord>> ListUniInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        Task<List<UniInterestRecord>> ListUniInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// List interest records
@@ -444,8 +450,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniInterestRecord&gt;)</returns>
-        Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Set interest reinvestment toggle
         /// </summary>
@@ -1488,10 +1496,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;UniInterestRecord&gt;</returns>
-        public List<UniInterestRecord> ListUniInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        public List<UniInterestRecord> ListUniInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             ApiResponse<List<UniInterestRecord>> localVarResponse = ListUniInterestRecordsWithHttpInfo(currency, page, limit);
+             ApiResponse<List<UniInterestRecord>> localVarResponse = ListUniInterestRecordsWithHttpInfo(currency, page, limit, from, to);
              return localVarResponse.Data;
         }
 
@@ -1502,8 +1512,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniInterestRecord&gt;</returns>
-        public ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        public ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1533,6 +1545,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1556,10 +1576,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;UniInterestRecord&gt;</returns>
-        public async Task<List<UniInterestRecord>> ListUniInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        public async Task<List<UniInterestRecord>> ListUniInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<UniInterestRecord>> localVarResponse = await ListUniInterestRecordsAsyncWithHttpInfo(currency, page, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<UniInterestRecord>> localVarResponse = await ListUniInterestRecordsAsyncWithHttpInfo(currency, page, limit, from, to);
              return localVarResponse.Data;
 
         }
@@ -1571,8 +1593,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniInterestRecord&gt;)</returns>
-        public async Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        public async Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1602,6 +1626,14 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
 
             // authentication (apiv4) required

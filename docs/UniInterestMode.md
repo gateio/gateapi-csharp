@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.UniInterestMode
 
-余币宝利息复投开关
+Lend &amp; Earn interest reinvestment toggle
 
 ## Properties
 

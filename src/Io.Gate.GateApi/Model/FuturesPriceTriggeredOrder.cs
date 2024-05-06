@@ -194,7 +194,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Corresponding order ID of order take-profit/stop-loss.</value>
         [DataMember(Name="me_order_id", EmitDefaultValue=false)]
-        public string MeOrderId { get; private set; }
+        public long MeOrderId { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -300,8 +300,7 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.MeOrderId == input.MeOrderId ||
-                    (this.MeOrderId != null &&
-                    this.MeOrderId.Equals(input.MeOrderId))
+                    this.MeOrderId.Equals(input.MeOrderId)
                 );
         }
 
@@ -329,8 +328,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.OrderType != null)
                     hashCode = hashCode * 59 + this.OrderType.GetHashCode();
-                if (this.MeOrderId != null)
-                    hashCode = hashCode * 59 + this.MeOrderId.GetHashCode();
+                hashCode = hashCode * 59 + this.MeOrderId.GetHashCode();
                 return hashCode;
             }
         }

@@ -42,7 +42,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="loanFee">Loan fee rate of margin lending.</param>
         /// <param name="pointType">Point type. 0 - Initial version. 1 - new version since 202009.</param>
         /// <param name="currencyPair">Currency pair.</param>
-        public SpotFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string currencyPair = default(string))
+        /// <param name="debitFee">Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates.</param>
+        public SpotFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string currencyPair = default(string), int debitFee = default(int))
         {
             this.UserId = userId;
             this.TakerFee = takerFee;
@@ -53,6 +54,7 @@ namespace Io.Gate.GateApi.Model
             this.LoanFee = loanFee;
             this.PointType = pointType;
             this.CurrencyPair = currencyPair;
+            this.DebitFee = debitFee;
         }
 
         /// <summary>
@@ -119,6 +121,13 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
+        /// Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates
+        /// </summary>
+        /// <value>Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates</value>
+        [DataMember(Name="debit_fee")]
+        public int DebitFee { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +144,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  LoanFee: ").Append(LoanFee).Append("\n");
             sb.Append("  PointType: ").Append(PointType).Append("\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
+            sb.Append("  DebitFee: ").Append(DebitFee).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,6 +221,10 @@ namespace Io.Gate.GateApi.Model
                     this.CurrencyPair == input.CurrencyPair ||
                     (this.CurrencyPair != null &&
                     this.CurrencyPair.Equals(input.CurrencyPair))
+                ) && 
+                (
+                    this.DebitFee == input.DebitFee ||
+                    this.DebitFee.Equals(input.DebitFee)
                 );
         }
 
@@ -239,6 +253,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.PointType.GetHashCode();
                 if (this.CurrencyPair != null)
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
+                hashCode = hashCode * 59 + this.DebitFee.GetHashCode();
                 return hashCode;
             }
         }

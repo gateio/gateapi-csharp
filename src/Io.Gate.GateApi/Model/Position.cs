@@ -72,7 +72,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="closeOrder">closeOrder.</param>
         /// <param name="mode">Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode.</param>
         /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).</param>
-        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), ModeEnum? mode = default(ModeEnum?), string crossLeverageLimit = default(string))
+        /// <param name="openTime">First Open Time.</param>
+        public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), ModeEnum? mode = default(ModeEnum?), string crossLeverageLimit = default(string), long openTime = default(long))
         {
             this.Leverage = leverage;
             this.RiskLimit = riskLimit;
@@ -80,6 +81,7 @@ namespace Io.Gate.GateApi.Model
             this.CloseOrder = closeOrder;
             this.Mode = mode;
             this.CrossLeverageLimit = crossLeverageLimit;
+            this.OpenTime = openTime;
         }
 
         /// <summary>
@@ -195,6 +197,27 @@ namespace Io.Gate.GateApi.Model
         public string RealisedPnl { get; private set; }
 
         /// <summary>
+        /// Realized PNL - Position P/L
+        /// </summary>
+        /// <value>Realized PNL - Position P/L</value>
+        [DataMember(Name="pnl_pnl", EmitDefaultValue=false)]
+        public string PnlPnl { get; private set; }
+
+        /// <summary>
+        /// Realized PNL -  Funding Fees
+        /// </summary>
+        /// <value>Realized PNL -  Funding Fees</value>
+        [DataMember(Name="pnl_fund", EmitDefaultValue=false)]
+        public string PnlFund { get; private set; }
+
+        /// <summary>
+        /// Realized PNL - Transaction Fees
+        /// </summary>
+        /// <value>Realized PNL - Transaction Fees</value>
+        [DataMember(Name="pnl_fee", EmitDefaultValue=false)]
+        public string PnlFee { get; private set; }
+
+        /// <summary>
         /// History realized PNL
         /// </summary>
         /// <value>History realized PNL</value>
@@ -257,6 +280,13 @@ namespace Io.Gate.GateApi.Model
         public long UpdateTime { get; private set; }
 
         /// <summary>
+        /// First Open Time
+        /// </summary>
+        /// <value>First Open Time</value>
+        [DataMember(Name="open_time")]
+        public long OpenTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -280,6 +310,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  MaintenanceMargin: ").Append(MaintenanceMargin).Append("\n");
             sb.Append("  UnrealisedPnl: ").Append(UnrealisedPnl).Append("\n");
             sb.Append("  RealisedPnl: ").Append(RealisedPnl).Append("\n");
+            sb.Append("  PnlPnl: ").Append(PnlPnl).Append("\n");
+            sb.Append("  PnlFund: ").Append(PnlFund).Append("\n");
+            sb.Append("  PnlFee: ").Append(PnlFee).Append("\n");
             sb.Append("  HistoryPnl: ").Append(HistoryPnl).Append("\n");
             sb.Append("  LastClosePnl: ").Append(LastClosePnl).Append("\n");
             sb.Append("  RealisedPoint: ").Append(RealisedPoint).Append("\n");
@@ -290,6 +323,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  CrossLeverageLimit: ").Append(CrossLeverageLimit).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
+            sb.Append("  OpenTime: ").Append(OpenTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -403,6 +437,21 @@ namespace Io.Gate.GateApi.Model
                     this.RealisedPnl.Equals(input.RealisedPnl))
                 ) && 
                 (
+                    this.PnlPnl == input.PnlPnl ||
+                    (this.PnlPnl != null &&
+                    this.PnlPnl.Equals(input.PnlPnl))
+                ) && 
+                (
+                    this.PnlFund == input.PnlFund ||
+                    (this.PnlFund != null &&
+                    this.PnlFund.Equals(input.PnlFund))
+                ) && 
+                (
+                    this.PnlFee == input.PnlFee ||
+                    (this.PnlFee != null &&
+                    this.PnlFee.Equals(input.PnlFee))
+                ) && 
+                (
                     this.HistoryPnl == input.HistoryPnl ||
                     (this.HistoryPnl != null &&
                     this.HistoryPnl.Equals(input.HistoryPnl))
@@ -447,6 +496,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.UpdateTime == input.UpdateTime ||
                     this.UpdateTime.Equals(input.UpdateTime)
+                ) && 
+                (
+                    this.OpenTime == input.OpenTime ||
+                    this.OpenTime.Equals(input.OpenTime)
                 );
         }
 
@@ -489,6 +542,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.UnrealisedPnl.GetHashCode();
                 if (this.RealisedPnl != null)
                     hashCode = hashCode * 59 + this.RealisedPnl.GetHashCode();
+                if (this.PnlPnl != null)
+                    hashCode = hashCode * 59 + this.PnlPnl.GetHashCode();
+                if (this.PnlFund != null)
+                    hashCode = hashCode * 59 + this.PnlFund.GetHashCode();
+                if (this.PnlFee != null)
+                    hashCode = hashCode * 59 + this.PnlFee.GetHashCode();
                 if (this.HistoryPnl != null)
                     hashCode = hashCode * 59 + this.HistoryPnl.GetHashCode();
                 if (this.LastClosePnl != null)
@@ -505,6 +564,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.CrossLeverageLimit != null)
                     hashCode = hashCode * 59 + this.CrossLeverageLimit.GetHashCode();
                 hashCode = hashCode * 59 + this.UpdateTime.GetHashCode();
+                hashCode = hashCode * 59 + this.OpenTime.GetHashCode();
                 return hashCode;
             }
         }

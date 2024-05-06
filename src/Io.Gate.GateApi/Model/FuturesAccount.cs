@@ -45,8 +45,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="positionInitialMargin">Initial margin position, applicable to the portfolio margin account model.</param>
         /// <param name="maintenanceMargin">Maintenance margin position, applicable to the portfolio margin account model.</param>
         /// <param name="bonus">Perpetual Contract Bonus.</param>
+        /// <param name="enableEvolvedClassic">Classic account margin mode, true - enable new mode, false - revert to old mode..</param>
         /// <param name="history">history.</param>
-        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), FuturesAccountHistory history = default(FuturesAccountHistory))
+        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), bool enableEvolvedClassic = default(bool), FuturesAccountHistory history = default(FuturesAccountHistory))
         {
             this.Total = total;
             this.UnrealisedPnl = unrealisedPnl;
@@ -60,6 +61,7 @@ namespace Io.Gate.GateApi.Model
             this.PositionInitialMargin = positionInitialMargin;
             this.MaintenanceMargin = maintenanceMargin;
             this.Bonus = bonus;
+            this.EnableEvolvedClassic = enableEvolvedClassic;
             this.History = history;
         }
 
@@ -148,6 +150,13 @@ namespace Io.Gate.GateApi.Model
         public string Bonus { get; set; }
 
         /// <summary>
+        /// Classic account margin mode, true - enable new mode, false - revert to old mode.
+        /// </summary>
+        /// <value>Classic account margin mode, true - enable new mode, false - revert to old mode.</value>
+        [DataMember(Name="enable_evolved_classic")]
+        public bool EnableEvolvedClassic { get; set; }
+
+        /// <summary>
         /// Gets or Sets History
         /// </summary>
         [DataMember(Name="history")]
@@ -173,6 +182,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  PositionInitialMargin: ").Append(PositionInitialMargin).Append("\n");
             sb.Append("  MaintenanceMargin: ").Append(MaintenanceMargin).Append("\n");
             sb.Append("  Bonus: ").Append(Bonus).Append("\n");
+            sb.Append("  EnableEvolvedClassic: ").Append(EnableEvolvedClassic).Append("\n");
             sb.Append("  History: ").Append(History).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -267,6 +277,10 @@ namespace Io.Gate.GateApi.Model
                     this.Bonus.Equals(input.Bonus))
                 ) && 
                 (
+                    this.EnableEvolvedClassic == input.EnableEvolvedClassic ||
+                    this.EnableEvolvedClassic.Equals(input.EnableEvolvedClassic)
+                ) && 
+                (
                     this.History == input.History ||
                     (this.History != null &&
                     this.History.Equals(input.History))
@@ -304,6 +318,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MaintenanceMargin.GetHashCode();
                 if (this.Bonus != null)
                     hashCode = hashCode * 59 + this.Bonus.GetHashCode();
+                hashCode = hashCode * 59 + this.EnableEvolvedClassic.GetHashCode();
                 if (this.History != null)
                     hashCode = hashCode * 59 + this.History.GetHashCode();
                 return hashCode;

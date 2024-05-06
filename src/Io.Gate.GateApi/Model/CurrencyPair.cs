@@ -78,12 +78,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="fee">Trading fee.</param>
         /// <param name="minBaseAmount">Minimum amount of base currency to trade, &#x60;null&#x60; means no limit.</param>
         /// <param name="minQuoteAmount">Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit.</param>
+        /// <param name="maxBaseAmount">Maximum amount of base currency to trade, &#x60;null&#x60; means no limit.</param>
+        /// <param name="maxQuoteAmount">Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit.</param>
         /// <param name="amountPrecision">Amount scale.</param>
         /// <param name="precision">Price scale.</param>
         /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
         /// <param name="sellStart">Sell start unix timestamp in seconds.</param>
         /// <param name="buyStart">Buy start unix timestamp in seconds.</param>
-        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long))
+        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long))
         {
             this.Id = id;
             this.Base = _base;
@@ -91,6 +93,8 @@ namespace Io.Gate.GateApi.Model
             this.Fee = fee;
             this.MinBaseAmount = minBaseAmount;
             this.MinQuoteAmount = minQuoteAmount;
+            this.MaxBaseAmount = maxBaseAmount;
+            this.MaxQuoteAmount = maxQuoteAmount;
             this.AmountPrecision = amountPrecision;
             this.Precision = precision;
             this.TradeStatus = tradeStatus;
@@ -141,6 +145,20 @@ namespace Io.Gate.GateApi.Model
         public string MinQuoteAmount { get; set; }
 
         /// <summary>
+        /// Maximum amount of base currency to trade, &#x60;null&#x60; means no limit
+        /// </summary>
+        /// <value>Maximum amount of base currency to trade, &#x60;null&#x60; means no limit</value>
+        [DataMember(Name="max_base_amount")]
+        public string MaxBaseAmount { get; set; }
+
+        /// <summary>
+        /// Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit
+        /// </summary>
+        /// <value>Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit</value>
+        [DataMember(Name="max_quote_amount")]
+        public string MaxQuoteAmount { get; set; }
+
+        /// <summary>
         /// Amount scale
         /// </summary>
         /// <value>Amount scale</value>
@@ -182,6 +200,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("  MinBaseAmount: ").Append(MinBaseAmount).Append("\n");
             sb.Append("  MinQuoteAmount: ").Append(MinQuoteAmount).Append("\n");
+            sb.Append("  MaxBaseAmount: ").Append(MaxBaseAmount).Append("\n");
+            sb.Append("  MaxQuoteAmount: ").Append(MaxQuoteAmount).Append("\n");
             sb.Append("  AmountPrecision: ").Append(AmountPrecision).Append("\n");
             sb.Append("  Precision: ").Append(Precision).Append("\n");
             sb.Append("  TradeStatus: ").Append(TradeStatus).Append("\n");
@@ -252,6 +272,16 @@ namespace Io.Gate.GateApi.Model
                     this.MinQuoteAmount.Equals(input.MinQuoteAmount))
                 ) && 
                 (
+                    this.MaxBaseAmount == input.MaxBaseAmount ||
+                    (this.MaxBaseAmount != null &&
+                    this.MaxBaseAmount.Equals(input.MaxBaseAmount))
+                ) && 
+                (
+                    this.MaxQuoteAmount == input.MaxQuoteAmount ||
+                    (this.MaxQuoteAmount != null &&
+                    this.MaxQuoteAmount.Equals(input.MaxQuoteAmount))
+                ) && 
+                (
                     this.AmountPrecision == input.AmountPrecision ||
                     this.AmountPrecision.Equals(input.AmountPrecision)
                 ) && 
@@ -294,6 +324,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MinBaseAmount.GetHashCode();
                 if (this.MinQuoteAmount != null)
                     hashCode = hashCode * 59 + this.MinQuoteAmount.GetHashCode();
+                if (this.MaxBaseAmount != null)
+                    hashCode = hashCode * 59 + this.MaxBaseAmount.GetHashCode();
+                if (this.MaxQuoteAmount != null)
+                    hashCode = hashCode * 59 + this.MaxQuoteAmount.GetHashCode();
                 hashCode = hashCode * 59 + this.AmountPrecision.GetHashCode();
                 hashCode = hashCode * 59 + this.Precision.GetHashCode();
                 hashCode = hashCode * 59 + this.TradeStatus.GetHashCode();
