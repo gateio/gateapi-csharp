@@ -271,6 +271,11 @@ namespace Io.Gate.GateApi.Client
         public string ApiV4Secret { get; set; }
 
         /// <summary>
+        /// Gets or sets the Gate Broker Channel-Id
+        /// </summary>
+        public string ChannelId { get; set; }
+
+        /// <summary>
         /// Gets or sets the WebProxy used to send HTTP request
         /// </summary>
         /// <value>The proxy used.</value>
@@ -302,6 +307,15 @@ namespace Io.Gate.GateApi.Client
         {
             ApiV4Key = key;
             ApiV4Secret = secret;
+        }
+
+        /// <summary>
+        /// helper method to update Gate Broker Channel-Id
+        /// </summary>
+        /// <param name="channelId"></param>
+        public void SetBrokerChannelId(string channelId)
+        {
+            ChannelId = channelId;
         }
 
         #endregion Methods
