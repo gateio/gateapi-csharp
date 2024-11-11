@@ -82,6 +82,13 @@ namespace Io.Gate.GateApi.Model
         public AccountDetailKey Key { get; set; }
 
         /// <summary>
+        /// Copy trading role
+        /// </summary>
+        /// <value>Copy trading role</value>
+        [DataMember(Name = "copy_trading_role")]
+        public int CopyTradingRole { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
