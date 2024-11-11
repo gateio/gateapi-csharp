@@ -1047,11 +1047,111 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Partner subordinate list
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>PartnerSubordinateList</returns>
+        public PartnerSubordinateList PartnerSubordinateList()
+        {
+            ApiResponse<PartnerSubordinateList> localVarResponse = PartnerSubordinateListWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Partner subordinate list
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of PartnerSubordinateList</returns>
+        public ApiResponse<PartnerSubordinateList> PartnerSubordinateListWithHttpInfo()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PartnerSubordinateList>("/rebate/partner/sub_list", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PartnerSubordinateList", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Partner subordinate list
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>PartnerSubordinateList</returns>
+        public async Task<PartnerSubordinateList> PartnerSubordinateListAsync()
+        {
+            ApiResponse<PartnerSubordinateList> localVarResponse = await PartnerSubordinateListAsyncWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Partner subordinate list
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of PartnerSubordinateList</returns>
+        public async Task<ApiResponse<PartnerSubordinateList>> PartnerSubordinateListAsyncWithHttpInfo()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PartnerSubordinateList>("/rebate/partner/sub_list", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PartnerSubordinateList", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// User retrieves rebate information 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;RebateUserInfo&gt;</returns>
-        public RebateUserInfo RebateUserInfo ()
+        public RebateUserInfo RebateUserInfo()
         {
              ApiResponse<RebateUserInfo> localVarResponse = RebateUserInfoWithHttpInfo();
              return localVarResponse.Data;
