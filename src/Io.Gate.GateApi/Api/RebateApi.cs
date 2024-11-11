@@ -147,7 +147,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;RebateUserInfo&gt;</returns>
-        List<RebateUserInfo> RebateUserInfo ();
+        RebateUserInfo RebateUserInfo ();
 
         /// <summary>
         /// User retrieves rebate information
@@ -157,7 +157,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
-        ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ();
+        ApiResponse<RebateUserInfo> RebateUserInfoWithHttpInfo ();
         #endregion Synchronous Operations
     }
 
@@ -287,7 +287,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;RebateUserInfo&gt;</returns>
-        Task<List<RebateUserInfo>> RebateUserInfoAsync ();
+        Task<RebateUserInfo> RebateUserInfoAsync ();
 
         /// <summary>
         /// User retrieves rebate information
@@ -297,7 +297,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
-        Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ();
+        Task<ApiResponse<RebateUserInfo>> RebateUserInfoAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -1051,9 +1051,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;RebateUserInfo&gt;</returns>
-        public List<RebateUserInfo> RebateUserInfo ()
+        public RebateUserInfo RebateUserInfo ()
         {
-             ApiResponse<List<RebateUserInfo>> localVarResponse = RebateUserInfoWithHttpInfo();
+             ApiResponse<RebateUserInfo> localVarResponse = RebateUserInfoWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1062,7 +1062,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
-        public ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ()
+        public ApiResponse<RebateUserInfo> RebateUserInfoWithHttpInfo ()
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1085,7 +1085,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<RebateUserInfo>>("/api/v4/rebate/user/info", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<RebateUserInfo>("/rebate/user/info", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1101,9 +1101,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;RebateUserInfo&gt;</returns>
-        public async Task<List<RebateUserInfo>> RebateUserInfoAsync ()
+        public async Task<RebateUserInfo> RebateUserInfoAsync ()
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<RebateUserInfo>> localVarResponse = await RebateUserInfoAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<RebateUserInfo> localVarResponse = await RebateUserInfoAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -1113,7 +1113,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
-        public async Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ()
+        public async Task<ApiResponse<RebateUserInfo>> RebateUserInfoAsyncWithHttpInfo ()
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1138,7 +1138,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<RebateUserInfo>>("/api/v4/rebate/user/info", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<RebateUserInfo>("/rebate/user/info", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
