@@ -339,6 +339,7 @@ namespace Io.Gate.GateApi.Client
             {
                 ApiV4Key = second.ApiV4Key ?? first.ApiV4Key,
                 ApiV4Secret = second.ApiV4Secret ?? first.ApiV4Secret,
+                ChannelId = second.ChannelId ?? first.ChannelId,
                 DefaultHeaders = defaultHeaders,
                 BasePath = second.BasePath ?? first.BasePath,
                 Timeout = second.Timeout,
