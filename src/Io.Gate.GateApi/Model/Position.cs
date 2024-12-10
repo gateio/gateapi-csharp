@@ -280,6 +280,13 @@ namespace Io.Gate.GateApi.Model
         public long UpdateTime { get; private set; }
 
         /// <summary>
+        /// Update id. Each time the position is updated, the value will be +1.
+        /// </summary>
+        /// <value>Update id. Each time the position is updated, the value will be +1.</value>
+        [DataMember(Name="update_id", EmitDefaultValue=false)]
+        public long UpdateId { get; private set; }
+
+        /// <summary>
         /// First Open Time
         /// </summary>
         /// <value>First Open Time</value>
@@ -323,6 +330,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  CrossLeverageLimit: ").Append(CrossLeverageLimit).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
+            sb.Append("  UpdateId: ").Append(UpdateId).Append("\n");
             sb.Append("  OpenTime: ").Append(OpenTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -498,6 +506,10 @@ namespace Io.Gate.GateApi.Model
                     this.UpdateTime.Equals(input.UpdateTime)
                 ) && 
                 (
+                    this.UpdateId == input.UpdateId ||
+                    this.UpdateId.Equals(input.UpdateId)
+                ) && 
+                (
                     this.OpenTime == input.OpenTime ||
                     this.OpenTime.Equals(input.OpenTime)
                 );
@@ -564,6 +576,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.CrossLeverageLimit != null)
                     hashCode = hashCode * 59 + this.CrossLeverageLimit.GetHashCode();
                 hashCode = hashCode * 59 + this.UpdateTime.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateId.GetHashCode();
                 hashCode = hashCode * 59 + this.OpenTime.GetHashCode();
                 return hashCode;
             }

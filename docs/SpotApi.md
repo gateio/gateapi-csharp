@@ -463,7 +463,7 @@ No authorization required
 
 Retrieve market trades
 
-You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
+You can use `from` and `to` to query by time range, or use `last_id` by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using `last_id` is not recommended any more. If `last_id` is specified, time range query parameters will be ignored.
 
 ### Example
 ```csharp
@@ -919,7 +919,7 @@ Name | Type | Description  | Notes
 
 <a name="createbatchorders"></a>
 # **CreateBatchOrders**
-> List&lt;BatchOrder&gt; CreateBatchOrders (List<Order> order)
+> List&lt;BatchOrder&gt; CreateBatchOrders (List<Order> order, long? xGateExptime = null)
 
 Create a batch of orders
 
@@ -945,11 +945,12 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var order = new List<Order>(); // List<Order> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Create a batch of orders
-                List<BatchOrder> result = apiInstance.CreateBatchOrders(order);
+                List<BatchOrder> result = apiInstance.CreateBatchOrders(order, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -969,6 +970,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**List&lt;Order&gt;**](Order.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1229,7 +1231,7 @@ Name | Type | Description  | Notes
 
 <a name="createorder"></a>
 # **CreateOrder**
-> Order CreateOrder (Order order)
+> Order CreateOrder (Order order, long? xGateExptime = null)
 
 Create an order
 
@@ -1255,11 +1257,12 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var order = new Order(); // Order | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Create an order
-                Order result = apiInstance.CreateOrder(order);
+                Order result = apiInstance.CreateOrder(order, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1279,6 +1282,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1302,11 +1306,11 @@ Name | Type | Description  | Notes
 
 <a name="cancelorders"></a>
 # **CancelOrders**
-> List&lt;Order&gt; CancelOrders (string currencyPair, string side = null, string account = null, string actionMode = null)
+> List&lt;OrderCancel&gt; CancelOrders (string currencyPair = null, string side = null, string account = null, string actionMode = null, long? xGateExptime = null)
 
 Cancel all `open` orders in specified currency pair
 
-If `account` is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set `account` to cancel only orders within the specified account
+If `account` is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If `currency_pair` is not specified, all pending orders for trading pairs will be cancelled. You can set `account` to cancel only orders within the specified account
 
 ### Example
 ```csharp
@@ -1327,15 +1331,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SpotApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
-            var account = "spot";  // string | Specify account type  - classic account：Default to all account types being included   - portfolio margin account：`cross_margin` only (optional) 
+            var account = "spot";  // string | Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify `unified` - Unified account (legacy): Can only specify `cross_margin` (optional) 
             var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Cancel all `open` orders in specified currency pair
-                List<Order> result = apiInstance.CancelOrders(currencyPair, side, account, actionMode);
+                List<OrderCancel> result = apiInstance.CancelOrders(currencyPair, side, account, actionMode, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1354,14 +1359,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
+ **currencyPair** | **string**| Currency pair | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
- **account** | **string**| Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only | [optional] 
+ **account** | **string**| Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; | [optional] 
  **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
-[**List&lt;Order&gt;**](Order.md)
+[**List&lt;OrderCancel&gt;**](OrderCancel.md)
 
 ### Authorization
 
@@ -1381,7 +1387,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelbatchorders"></a>
 # **CancelBatchOrders**
-> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder)
+> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = null)
 
 Cancel a batch of orders with an ID list
 
@@ -1407,11 +1413,12 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var cancelBatchOrder = new List<CancelBatchOrder>(); // List<CancelBatchOrder> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Cancel a batch of orders with an ID list
-                List<CancelOrderResult> result = apiInstance.CancelBatchOrders(cancelBatchOrder);
+                List<CancelOrderResult> result = apiInstance.CancelBatchOrders(cancelBatchOrder, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1431,6 +1438,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cancelBatchOrder** | [**List&lt;CancelBatchOrder&gt;**](CancelBatchOrder.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1480,7 +1488,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-            var currencyPair = "BTC_USDT";  // string | Currency pair
+            var currencyPair = "BTC_USDT";  // string | Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.
             var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
 
             try
@@ -1506,7 +1514,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
- **currencyPair** | **string**| Currency pair | 
+ **currencyPair** | **string**| Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank. | 
  **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
 
 ### Return type
@@ -1531,7 +1539,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorder"></a>
 # **CancelOrder**
-> Order CancelOrder (string orderId, string currencyPair, string account = null, string actionMode = null)
+> Order CancelOrder (string orderId, string currencyPair, string account = null, string actionMode = null, long? xGateExptime = null)
 
 Cancel a single order
 
@@ -1560,11 +1568,12 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
             var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Cancel a single order
-                Order result = apiInstance.CancelOrder(orderId, currencyPair, account, actionMode);
+                Order result = apiInstance.CancelOrder(orderId, currencyPair, account, actionMode, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1587,6 +1596,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Currency pair | 
  **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
  **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1610,11 +1620,11 @@ Name | Type | Description  | Notes
 
 <a name="amendorder"></a>
 # **AmendOrder**
-> Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = null)
+> Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = null, string account = null, long? xGateExptime = null)
 
 Amend an order
 
-By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the `cross-margin` account, you must specify account as `cross_margin`.  For portfolio margin account, only `cross_margin` account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of `price` or `amount` fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
 
 ### Example
 ```csharp
@@ -1636,14 +1646,15 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.
-            var currencyPair = "BTC_USDT";  // string | Currency pair
             var orderPatch = new OrderPatch(); // OrderPatch | 
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
             var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Amend an order
-                Order result = apiInstance.AmendOrder(orderId, currencyPair, orderPatch, account);
+                Order result = apiInstance.AmendOrder(orderId, orderPatch, currencyPair, account, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1663,9 +1674,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted. | 
- **currencyPair** | **string**| Currency pair | 
  **orderPatch** | [**OrderPatch**](OrderPatch.md)|  | 
+ **currencyPair** | **string**| Currency pair | [optional] 
  **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1715,7 +1727,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var currencyPair = "BTC_USDT";  // string | Retrieve results with specified currency pair (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional)  (default to 100)
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var orderId = "12345";  // string | Filter trades with specified order ID. `currency_pair` is also required if this field is present (optional) 
             var account = "cross_margin";  // string | Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to `cross_margin` to operate against margin account.  Portfolio margin account must set to `cross_margin` only (optional) 
@@ -1745,7 +1757,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyPair** | **string**| Retrieve results with specified currency pair | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **limit** | **int?**| Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 | [optional] [default to 100]
  **page** | **int?**| Page number | [optional] [default to 1]
  **orderId** | **string**| Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present | [optional] 
  **account** | **string**| Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only | [optional] 
@@ -1912,7 +1924,7 @@ Name | Type | Description  | Notes
 
 <a name="amendbatchorders"></a>
 # **AmendBatchOrders**
-> List&lt;BatchOrder&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+> List&lt;BatchOrder&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = null)
 
 Batch modification of orders
 
@@ -1938,11 +1950,12 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var batchAmendItem = new List<BatchAmendItem>(); // List<BatchAmendItem> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Batch modification of orders
-                List<BatchOrder> result = apiInstance.AmendBatchOrders(batchAmendItem);
+                List<BatchOrder> result = apiInstance.AmendBatchOrders(batchAmendItem, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1962,6 +1975,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchAmendItem** | [**List&lt;BatchAmendItem&gt;**](BatchAmendItem.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 

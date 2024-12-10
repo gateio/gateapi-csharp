@@ -65,18 +65,20 @@ namespace Io.Gate.GateApi.Model
         /// <param name="contract">Futures contract.</param>
         /// <param name="orderId">Order ID related.</param>
         /// <param name="size">Trading size.</param>
+        /// <param name="closeSize">Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position.</param>
         /// <param name="price">Trading price.</param>
         /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</param>
         /// <param name="text">User defined information.</param>
         /// <param name="fee">Fee deducted.</param>
         /// <param name="pointFee">Points used to deduct fee.</param>
-        public MyFuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?), string text = default(string), string fee = default(string), string pointFee = default(string))
+        public MyFuturesTrade(long id = default(long), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), long closeSize = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?), string text = default(string), string fee = default(string), string pointFee = default(string))
         {
             this.Id = id;
             this.CreateTime = createTime;
             this.Contract = contract;
             this.OrderId = orderId;
             this.Size = size;
+            this.CloseSize = closeSize;
             this.Price = price;
             this.Role = role;
             this.Text = text;
@@ -120,6 +122,13 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
+        /// Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
+        /// </summary>
+        /// <value>Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position</value>
+        [DataMember(Name="close_size")]
+        public long CloseSize { get; set; }
+
+        /// <summary>
         /// Trading price
         /// </summary>
         /// <value>Trading price</value>
@@ -160,6 +169,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
+            sb.Append("  CloseSize: ").Append(CloseSize).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
@@ -222,6 +232,10 @@ namespace Io.Gate.GateApi.Model
                     this.Size.Equals(input.Size)
                 ) && 
                 (
+                    this.CloseSize == input.CloseSize ||
+                    this.CloseSize.Equals(input.CloseSize)
+                ) && 
+                (
                     this.Price == input.Price ||
                     (this.Price != null &&
                     this.Price.Equals(input.Price))
@@ -263,6 +277,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 hashCode = hashCode * 59 + this.Size.GetHashCode();
+                hashCode = hashCode * 59 + this.CloseSize.GetHashCode();
                 if (this.Price != null)
                     hashCode = hashCode * 59 + this.Price.GetHashCode();
                 hashCode = hashCode * 59 + this.Role.GetHashCode();

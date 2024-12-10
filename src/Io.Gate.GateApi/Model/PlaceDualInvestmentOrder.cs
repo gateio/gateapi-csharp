@@ -39,13 +39,17 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="PlaceDualInvestmentOrder" /> class.
         /// </summary>
         /// <param name="planId">Plan ID (required).</param>
-        /// <param name="copies">Copies (required).</param>
-        public PlaceDualInvestmentOrder(string planId = default(string), string copies = default(string))
+        /// <param name="copies">The number of copies is mutually exclusive with the amount field and will be deprecated soon. It is recommended to use the amount parameter..</param>
+        /// <param name="isMax">Whether to purchase at the maximum. Mutually exclusive with the amount field. Will be deprecated soon. It is recommended to use the amount parameter..</param>
+        /// <param name="amount">Subscription amount, mutually exclusive with the copies field (required).</param>
+        public PlaceDualInvestmentOrder(string planId = default(string), string copies = default(string), int isMax = default(int), string amount = default(string))
         {
             // to ensure "planId" is required (not null)
             this.PlanId = planId ?? throw new ArgumentNullException("planId", "planId is a required property for PlaceDualInvestmentOrder and cannot be null");
-            // to ensure "copies" is required (not null)
-            this.Copies = copies ?? throw new ArgumentNullException("copies", "copies is a required property for PlaceDualInvestmentOrder and cannot be null");
+            // to ensure "amount" is required (not null)
+            this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for PlaceDualInvestmentOrder and cannot be null");
+            this.Copies = copies;
+            this.IsMax = isMax;
         }
 
         /// <summary>
@@ -56,11 +60,25 @@ namespace Io.Gate.GateApi.Model
         public string PlanId { get; set; }
 
         /// <summary>
-        /// Copies
+        /// The number of copies is mutually exclusive with the amount field and will be deprecated soon. It is recommended to use the amount parameter.
         /// </summary>
-        /// <value>Copies</value>
+        /// <value>The number of copies is mutually exclusive with the amount field and will be deprecated soon. It is recommended to use the amount parameter.</value>
         [DataMember(Name="copies")]
         public string Copies { get; set; }
+
+        /// <summary>
+        /// Whether to purchase at the maximum. Mutually exclusive with the amount field. Will be deprecated soon. It is recommended to use the amount parameter.
+        /// </summary>
+        /// <value>Whether to purchase at the maximum. Mutually exclusive with the amount field. Will be deprecated soon. It is recommended to use the amount parameter.</value>
+        [DataMember(Name="is_max")]
+        public int IsMax { get; set; }
+
+        /// <summary>
+        /// Subscription amount, mutually exclusive with the copies field
+        /// </summary>
+        /// <value>Subscription amount, mutually exclusive with the copies field</value>
+        [DataMember(Name="amount")]
+        public string Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +90,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class PlaceDualInvestmentOrder {\n");
             sb.Append("  PlanId: ").Append(PlanId).Append("\n");
             sb.Append("  Copies: ").Append(Copies).Append("\n");
+            sb.Append("  IsMax: ").Append(IsMax).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +135,15 @@ namespace Io.Gate.GateApi.Model
                     this.Copies == input.Copies ||
                     (this.Copies != null &&
                     this.Copies.Equals(input.Copies))
+                ) && 
+                (
+                    this.IsMax == input.IsMax ||
+                    this.IsMax.Equals(input.IsMax)
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -131,6 +160,9 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.PlanId.GetHashCode();
                 if (this.Copies != null)
                     hashCode = hashCode * 59 + this.Copies.GetHashCode();
+                hashCode = hashCode * 59 + this.IsMax.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 return hashCode;
             }
         }

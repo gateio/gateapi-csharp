@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**ListDeliveryPositionClose**](DeliveryApi.md#listdeliverypositionclose) | **GET** /delivery/{settle}/position_close | List position close history
 [**ListDeliveryLiquidates**](DeliveryApi.md#listdeliveryliquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
 [**ListDeliverySettlements**](DeliveryApi.md#listdeliverysettlements) | **GET** /delivery/{settle}/settlements | List settlement history
+[**ListDeliveryRiskLimitTiers**](DeliveryApi.md#listdeliveryrisklimittiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers
 [**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
@@ -1768,6 +1769,83 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listdeliveryrisklimittiers"></a>
+# **ListDeliveryRiskLimitTiers**
+> List&lt;FuturesLimitRiskTiers&gt; ListDeliveryRiskLimitTiers (string settle, string contract = null, int? limit = null, int? offset = null)
+
+List risk limit tiers
+
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the 'contract' parameter is empty.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListDeliveryRiskLimitTiersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new DeliveryApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+
+            try
+            {
+                // List risk limit tiers
+                List<FuturesLimitRiskTiers> result = apiInstance.ListDeliveryRiskLimitTiers(settle, contract, limit, offset);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling DeliveryApi.ListDeliveryRiskLimitTiers: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **contract** | **string**| Futures contract | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;FuturesLimitRiskTiers&gt;**](FuturesLimitRiskTiers.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

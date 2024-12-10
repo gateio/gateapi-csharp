@@ -37,12 +37,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="discount">Discount.</param>
         /// <param name="lowerLimit">Lower limit.</param>
         /// <param name="upperLimit">Upper limit,＋ indicates positive infinity.</param>
-        public UnifiedDiscountTiers(string tier = default(string), string discount = default(string), string lowerLimit = default(string), string upperLimit = default(string))
+        /// <param name="leverage">Position leverage.</param>
+        public UnifiedDiscountTiers(string tier = default(string), string discount = default(string), string lowerLimit = default(string), string upperLimit = default(string), string leverage = default(string))
         {
             this.Tier = tier;
             this.Discount = discount;
             this.LowerLimit = lowerLimit;
             this.UpperLimit = upperLimit;
+            this.Leverage = leverage;
         }
 
         /// <summary>
@@ -74,6 +76,13 @@ namespace Io.Gate.GateApi.Model
         public string UpperLimit { get; set; }
 
         /// <summary>
+        /// Position leverage
+        /// </summary>
+        /// <value>Position leverage</value>
+        [DataMember(Name="leverage")]
+        public string Leverage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Discount: ").Append(Discount).Append("\n");
             sb.Append("  LowerLimit: ").Append(LowerLimit).Append("\n");
             sb.Append("  UpperLimit: ").Append(UpperLimit).Append("\n");
+            sb.Append("  Leverage: ").Append(Leverage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +148,11 @@ namespace Io.Gate.GateApi.Model
                     this.UpperLimit == input.UpperLimit ||
                     (this.UpperLimit != null &&
                     this.UpperLimit.Equals(input.UpperLimit))
+                ) && 
+                (
+                    this.Leverage == input.Leverage ||
+                    (this.Leverage != null &&
+                    this.Leverage.Equals(input.Leverage))
                 );
         }
 
@@ -158,6 +173,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.LowerLimit.GetHashCode();
                 if (this.UpperLimit != null)
                     hashCode = hashCode * 59 + this.UpperLimit.GetHashCode();
+                if (this.Leverage != null)
+                    hashCode = hashCode * 59 + this.Leverage.GetHashCode();
                 return hashCode;
             }
         }

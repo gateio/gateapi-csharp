@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **RefreshTime** | **long** | Time of the most recent refresh | [optional] 
 **Locked** | **bool** | Whether account is locked | [optional] 
 **Balances** | [**Dictionary&lt;string, UnifiedBalance&gt;**](UnifiedBalance.md) |  | [optional] 
-**Total** | **string** | The total asset value in USD, calculated as the sum of the product of &#x60;(available + freeze) * price&#x60; for all currencies. | [optional] 
+**Total** | **string** | Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total) | [optional] 
 **Borrowed** | **string** | The total borrowed amount in USD, calculated as the sum of the product of &#x60;borrowed * price&#x60; for all currencies (excluding points cards). | [optional] 
 **TotalInitialMargin** | **string** | Total initial margin | [optional] 
 **TotalMarginBalance** | **string** | Total margin balance | [optional] 
@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **Leverage** | **string** | Leverage | [optional] [readonly] 
 **SpotOrderLoss** | **string** | Total order loss, in USDT | [optional] 
 **SpotHedge** | **bool** | Spot hedging status, true - enabled, false - not enabled. | [optional] 
+**UseFunding** | **bool** | Whether to use funds as margin | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

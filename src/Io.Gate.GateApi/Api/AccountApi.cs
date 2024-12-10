@@ -47,6 +47,25 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of AccountDetail</returns>
         ApiResponse<AccountDetail> GetAccountDetailWithHttpInfo ();
         /// <summary>
+        /// Get user transaction rate limit information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;AccountRateLimit&gt;</returns>
+        List<AccountRateLimit> GetAccountRateLimit ();
+
+        /// <summary>
+        /// Get user transaction rate limit information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;AccountRateLimit&gt;</returns>
+        ApiResponse<List<AccountRateLimit>> GetAccountRateLimitWithHttpInfo ();
+        /// <summary>
         /// List STP Groups
         /// </summary>
         /// <remarks>
@@ -155,6 +174,46 @@ namespace Io.Gate.GateApi.Api
         /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, long userId);
+        /// <summary>
+        /// Query GT deduction configuration.
+        /// </summary>
+        /// <remarks>
+        /// Query the current GT deduction configuration for the account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetDebitFee ();
+
+        /// <summary>
+        /// Query GT deduction configuration.
+        /// </summary>
+        /// <remarks>
+        /// Query the current GT deduction configuration for the account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetDebitFeeWithHttpInfo ();
+        /// <summary>
+        /// Set GT deduction.
+        /// </summary>
+        /// <remarks>
+        /// Enable or disable GT deduction for the current account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns></returns>
+        void SetDebitFee (InlineObject inlineObject);
+
+        /// <summary>
+        /// Set GT deduction.
+        /// </summary>
+        /// <remarks>
+        /// Enable or disable GT deduction for the current account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SetDebitFeeWithHttpInfo (InlineObject inlineObject);
         #endregion Synchronous Operations
     }
 
@@ -183,6 +242,25 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (AccountDetail)</returns>
         Task<ApiResponse<AccountDetail>> GetAccountDetailAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get user transaction rate limit information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;AccountRateLimit&gt;</returns>
+        Task<List<AccountRateLimit>> GetAccountRateLimitAsync ();
+
+        /// <summary>
+        /// Get user transaction rate limit information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;AccountRateLimit&gt;)</returns>
+        Task<ApiResponse<List<AccountRateLimit>>> GetAccountRateLimitAsyncWithHttpInfo ();
         /// <summary>
         /// List STP Groups
         /// </summary>
@@ -292,6 +370,46 @@ namespace Io.Gate.GateApi.Api
         /// <param name="userId">STP user ID, multiple can be separated by commas</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, long userId);
+        /// <summary>
+        /// Query GT deduction configuration.
+        /// </summary>
+        /// <remarks>
+        /// Query the current GT deduction configuration for the account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse2001</returns>
+        Task<InlineResponse2001> GetDebitFeeAsync ();
+
+        /// <summary>
+        /// Query GT deduction configuration.
+        /// </summary>
+        /// <remarks>
+        /// Query the current GT deduction configuration for the account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        Task<ApiResponse<InlineResponse2001>> GetDebitFeeAsyncWithHttpInfo ();
+        /// <summary>
+        /// Set GT deduction.
+        /// </summary>
+        /// <remarks>
+        /// Enable or disable GT deduction for the current account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of void</returns>
+        Task SetDebitFeeAsync (InlineObject inlineObject);
+
+        /// <summary>
+        /// Set GT deduction.
+        /// </summary>
+        /// <remarks>
+        /// Enable or disable GT deduction for the current account.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (InlineObject inlineObject);
         #endregion Asynchronous Operations
     }
 
@@ -509,6 +627,109 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user transaction rate limit information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;AccountRateLimit&gt;</returns>
+        public List<AccountRateLimit> GetAccountRateLimit ()
+        {
+             ApiResponse<List<AccountRateLimit>> localVarResponse = GetAccountRateLimitWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get user transaction rate limit information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;AccountRateLimit&gt;</returns>
+        public ApiResponse<List<AccountRateLimit>> GetAccountRateLimitWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<AccountRateLimit>>("/account/rate_limit", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAccountRateLimit", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get user transaction rate limit information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;AccountRateLimit&gt;</returns>
+        public async Task<List<AccountRateLimit>> GetAccountRateLimitAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<AccountRateLimit>> localVarResponse = await GetAccountRateLimitAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get user transaction rate limit information 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;AccountRateLimit&gt;)</returns>
+        public async Task<ApiResponse<List<AccountRateLimit>>> GetAccountRateLimitAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<AccountRateLimit>>("/account/rate_limit", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAccountRateLimit", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1092,6 +1313,224 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSTPGroupUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetDebitFee ()
+        {
+             ApiResponse<InlineResponse2001> localVarResponse = GetDebitFeeWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse<InlineResponse2001> GetDebitFeeWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<InlineResponse2001>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDebitFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse2001</returns>
+        public async Task<InlineResponse2001> GetDebitFeeAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetDebitFeeAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async Task<ApiResponse<InlineResponse2001>> GetDebitFeeAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDebitFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set GT deduction. Enable or disable GT deduction for the current account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns></returns>
+        public void SetDebitFee (InlineObject inlineObject)
+        {
+             SetDebitFeeWithHttpInfo(inlineObject);
+        }
+
+        /// <summary>
+        /// Set GT deduction. Enable or disable GT deduction for the current account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SetDebitFeeWithHttpInfo (InlineObject inlineObject)
+        {
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
+                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling AccountApi->SetDebitFee");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = inlineObject;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetDebitFee", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set GT deduction. Enable or disable GT deduction for the current account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of void</returns>
+        public async Task SetDebitFeeAsync (InlineObject inlineObject)
+        {
+             await SetDebitFeeAsyncWithHttpInfo(inlineObject);
+
+        }
+
+        /// <summary>
+        /// Set GT deduction. Enable or disable GT deduction for the current account.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (InlineObject inlineObject)
+        {
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
+                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling AccountApi->SetDebitFee");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = inlineObject;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetDebitFee", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

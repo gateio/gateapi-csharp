@@ -98,14 +98,21 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Creation time</value>
         [DataMember(Name="created_at", EmitDefaultValue=false)]
-        public string CreatedAt { get; private set; }
+        public long CreatedAt { get; private set; }
 
         /// <summary>
         /// Last update time
         /// </summary>
         /// <value>Last update time</value>
         [DataMember(Name="updated_at", EmitDefaultValue=false)]
-        public string UpdatedAt { get; private set; }
+        public long UpdatedAt { get; private set; }
+
+        /// <summary>
+        /// Last access time
+        /// </summary>
+        /// <value>Last access time</value>
+        [DataMember(Name="last_access", EmitDefaultValue=false)]
+        public long LastAccess { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,6 +131,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  LastAccess: ").Append(LastAccess).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,13 +203,15 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
+                    this.CreatedAt.Equals(input.CreatedAt)
                 ) && 
                 (
                     this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) && 
+                (
+                    this.LastAccess == input.LastAccess ||
+                    this.LastAccess.Equals(input.LastAccess)
                 );
         }
 
@@ -226,10 +236,9 @@ namespace Io.Gate.GateApi.Model
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 hashCode = hashCode * 59 + this.State.GetHashCode();
-                if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
-                if (this.UpdatedAt != null)
-                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                hashCode = hashCode * 59 + this.LastAccess.GetHashCode();
                 return hashCode;
             }
         }

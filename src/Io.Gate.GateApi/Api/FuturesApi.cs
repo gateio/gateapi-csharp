@@ -232,8 +232,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;FundingRateRecord&gt;</returns>
-        List<FundingRateRecord> ListFuturesFundingRateHistory (string settle, string contract, int? limit = default(int?));
+        List<FundingRateRecord> ListFuturesFundingRateHistory (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// Funding rate history
@@ -245,8 +247,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;FundingRateRecord&gt;</returns>
-        ApiResponse<List<FundingRateRecord>> ListFuturesFundingRateHistoryWithHttpInfo (string settle, string contract, int? limit = default(int?));
+        ApiResponse<List<FundingRateRecord>> ListFuturesFundingRateHistoryWithHttpInfo (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Futures insurance balance history
         /// </summary>
@@ -355,25 +359,29 @@ namespace Io.Gate.GateApi.Api
         /// List risk limit tiers
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;FuturesLimitRiskTiers&gt;</returns>
-        List<FuturesLimitRiskTiers> ListRiskLimitTiers (string settle, string contract);
+        List<FuturesLimitRiskTiers> ListFuturesRiskLimitTiers (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// List risk limit tiers
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesLimitRiskTiers&gt;</returns>
-        ApiResponse<List<FuturesLimitRiskTiers>> ListRiskLimitTiersWithHttpInfo (string settle, string contract);
+        ApiResponse<List<FuturesLimitRiskTiers>> ListFuturesRiskLimitTiersWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Query futures account
         /// </summary>
@@ -539,7 +547,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Position</returns>
         Position UpdatePositionRiskLimit (string settle, string contract, string riskLimit);
 
@@ -552,7 +560,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>ApiResponse of Position</returns>
         ApiResponse<Position> UpdatePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
@@ -664,7 +672,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>List&lt;Position&gt;</returns>
         List<Position> UpdateDualModePositionRiskLimit (string settle, string contract, string riskLimit);
 
@@ -677,7 +685,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
         ApiResponse<List<Position>> UpdateDualModePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
@@ -720,8 +728,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder);
+        FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a futures order
@@ -732,8 +741,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder);
+        ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
@@ -743,9 +753,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
-        List<FuturesOrder> CancelFuturesOrders (string settle, string contract, string side = default(string));
+        List<FuturesOrder> CancelFuturesOrders (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
@@ -756,9 +767,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
-        ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, string side = default(string));
+        ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
         /// <summary>
         /// List Futures Orders By Time Range
         /// </summary>
@@ -799,8 +811,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder);
+        List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a batch of futures orders
@@ -811,8 +824,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder);
+        ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -846,8 +860,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+        FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Amend an order
@@ -859,8 +874,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+        ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel a single order
         /// </summary>
@@ -870,8 +886,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder CancelFuturesOrder (string settle, string orderId);
+        FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a single order
@@ -882,8 +899,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId);
+        ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -1092,8 +1110,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;FutureCancelOrderResult&gt;</returns>
-        List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody);
+        List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -1104,8 +1123,34 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;FutureCancelOrderResult&gt;</returns>
-        ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody);
+        ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        /// <summary>
+        /// Batch modify orders with specified IDs
+        /// </summary>
+        /// <remarks>
+        /// You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
+        List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+
+        /// <summary>
+        /// Batch modify orders with specified IDs
+        /// </summary>
+        /// <remarks>
+        /// You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
+        ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
         /// <summary>
         /// List all auto orders
         /// </summary>
@@ -1166,9 +1211,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        List<FuturesPriceTriggeredOrder> CancelPriceTriggeredOrderList (string settle, string contract);
+        List<FuturesPriceTriggeredOrder> CancelPriceTriggeredOrderList (string settle, string contract = default(string));
 
         /// <summary>
         /// Cancel all open orders
@@ -1178,9 +1223,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        ApiResponse<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListWithHttpInfo (string settle, string contract);
+        ApiResponse<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListWithHttpInfo (string settle, string contract = default(string));
         /// <summary>
         /// Get a price-triggered order
         /// </summary>
@@ -1441,8 +1486,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;FundingRateRecord&gt;</returns>
-        Task<List<FundingRateRecord>> ListFuturesFundingRateHistoryAsync (string settle, string contract, int? limit = default(int?));
+        Task<List<FundingRateRecord>> ListFuturesFundingRateHistoryAsync (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
         /// Funding rate history
@@ -1454,8 +1501,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FundingRateRecord&gt;)</returns>
-        Task<ApiResponse<List<FundingRateRecord>>> ListFuturesFundingRateHistoryAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?));
+        Task<ApiResponse<List<FundingRateRecord>>> ListFuturesFundingRateHistoryAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
         /// Futures insurance balance history
         /// </summary>
@@ -1564,25 +1613,29 @@ namespace Io.Gate.GateApi.Api
         /// List risk limit tiers
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesLimitRiskTiers&gt;</returns>
-        Task<List<FuturesLimitRiskTiers>> ListRiskLimitTiersAsync (string settle, string contract);
+        Task<List<FuturesLimitRiskTiers>> ListFuturesRiskLimitTiersAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// List risk limit tiers
         /// </summary>
         /// <remarks>
-        /// 
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesLimitRiskTiers&gt;)</returns>
-        Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListRiskLimitTiersAsyncWithHttpInfo (string settle, string contract);
+        Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListFuturesRiskLimitTiersAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// Query futures account
         /// </summary>
@@ -1748,7 +1801,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of Position</returns>
         Task<Position> UpdatePositionRiskLimitAsync (string settle, string contract, string riskLimit);
 
@@ -1761,7 +1814,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of ApiResponse (Position)</returns>
         Task<ApiResponse<Position>> UpdatePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
@@ -1873,7 +1926,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
         Task<List<Position>> UpdateDualModePositionRiskLimitAsync (string settle, string contract, string riskLimit);
 
@@ -1886,7 +1939,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
         Task<ApiResponse<List<Position>>> UpdateDualModePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit);
         /// <summary>
@@ -1929,8 +1982,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder);
+        Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a futures order
@@ -1941,8 +1995,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder);
+        Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
@@ -1952,9 +2007,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
-        Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, string side = default(string));
+        Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
@@ -1965,9 +2021,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
-        Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, string side = default(string));
+        Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
         /// <summary>
         /// List Futures Orders By Time Range
         /// </summary>
@@ -2008,8 +2065,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder);
+        Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a batch of futures orders
@@ -2020,8 +2078,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder);
+        Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -2055,8 +2114,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+        Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Amend an order
@@ -2068,8 +2128,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment);
+        Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel a single order
         /// </summary>
@@ -2079,8 +2140,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId);
+        Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a single order
@@ -2091,8 +2153,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId);
+        Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -2301,8 +2364,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;FutureCancelOrderResult&gt;</returns>
-        Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody);
+        Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -2313,8 +2377,34 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FutureCancelOrderResult&gt;)</returns>
-        Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody);
+        Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        /// <summary>
+        /// Batch modify orders with specified IDs
+        /// </summary>
+        /// <remarks>
+        /// You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
+        Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+
+        /// <summary>
+        /// Batch modify orders with specified IDs
+        /// </summary>
+        /// <remarks>
+        /// You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
+        Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
         /// <summary>
         /// List all auto orders
         /// </summary>
@@ -2375,9 +2465,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>Task of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        Task<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListAsync (string settle, string contract);
+        Task<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListAsync (string settle, string contract = default(string));
 
         /// <summary>
         /// Cancel all open orders
@@ -2387,9 +2477,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesPriceTriggeredOrder&gt;)</returns>
-        Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> CancelPriceTriggeredOrderListAsyncWithHttpInfo (string settle, string contract);
+        Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> CancelPriceTriggeredOrderListAsyncWithHttpInfo (string settle, string contract = default(string));
         /// <summary>
         /// Get a price-triggered order
         /// </summary>
@@ -3652,10 +3742,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>List&lt;FundingRateRecord&gt;</returns>
-        public List<FundingRateRecord> ListFuturesFundingRateHistory (string settle, string contract, int? limit = default(int?))
+        public List<FundingRateRecord> ListFuturesFundingRateHistory (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             ApiResponse<List<FundingRateRecord>> localVarResponse = ListFuturesFundingRateHistoryWithHttpInfo(settle, contract, limit);
+             ApiResponse<List<FundingRateRecord>> localVarResponse = ListFuturesFundingRateHistoryWithHttpInfo(settle, contract, limit, from, to);
              return localVarResponse.Data;
         }
 
@@ -3666,8 +3758,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;FundingRateRecord&gt;</returns>
-        public ApiResponse<List<FundingRateRecord>> ListFuturesFundingRateHistoryWithHttpInfo (string settle, string contract, int? limit = default(int?))
+        public ApiResponse<List<FundingRateRecord>> ListFuturesFundingRateHistoryWithHttpInfo (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -3699,6 +3793,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
 
 
             // make the HTTP request
@@ -3720,10 +3822,12 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of List&lt;FundingRateRecord&gt;</returns>
-        public async Task<List<FundingRateRecord>> ListFuturesFundingRateHistoryAsync (string settle, string contract, int? limit = default(int?))
+        public async Task<List<FundingRateRecord>> ListFuturesFundingRateHistoryAsync (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FundingRateRecord>> localVarResponse = await ListFuturesFundingRateHistoryAsyncWithHttpInfo(settle, contract, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<FundingRateRecord>> localVarResponse = await ListFuturesFundingRateHistoryAsyncWithHttpInfo(settle, contract, limit, from, to);
              return localVarResponse.Data;
 
         }
@@ -3735,8 +3839,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start timestamp (optional)</param>
+        /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FundingRateRecord&gt;)</returns>
-        public async Task<ApiResponse<List<FundingRateRecord>>> ListFuturesFundingRateHistoryAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?))
+        public async Task<ApiResponse<List<FundingRateRecord>>> ListFuturesFundingRateHistoryAsyncWithHttpInfo (string settle, string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -3768,6 +3874,14 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
 
 
@@ -4361,34 +4475,34 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List risk limit tiers 
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>List&lt;FuturesLimitRiskTiers&gt;</returns>
-        public List<FuturesLimitRiskTiers> ListRiskLimitTiers (string settle, string contract)
+        public List<FuturesLimitRiskTiers> ListFuturesRiskLimitTiers (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
         {
-             ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = ListRiskLimitTiersWithHttpInfo(settle, contract);
+             ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = ListFuturesRiskLimitTiersWithHttpInfo(settle, contract, limit, offset);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List risk limit tiers 
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;FuturesLimitRiskTiers&gt;</returns>
-        public ApiResponse<List<FuturesLimitRiskTiers>> ListRiskLimitTiersWithHttpInfo (string settle, string contract)
+        public ApiResponse<List<FuturesLimitRiskTiers>> ListFuturesRiskLimitTiersWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
-                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListRiskLimitTiers");
-
-            // verify the required parameter 'contract' is set
-            if (contract == null)
-                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->ListRiskLimitTiers");
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListFuturesRiskLimitTiers");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -4407,7 +4521,18 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
 
 
             // make the HTTP request
@@ -4415,7 +4540,7 @@ namespace Io.Gate.GateApi.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListRiskLimitTiers", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListFuturesRiskLimitTiers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4423,35 +4548,35 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List risk limit tiers 
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of List&lt;FuturesLimitRiskTiers&gt;</returns>
-        public async Task<List<FuturesLimitRiskTiers>> ListRiskLimitTiersAsync (string settle, string contract)
+        public async Task<List<FuturesLimitRiskTiers>> ListFuturesRiskLimitTiersAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = await ListRiskLimitTiersAsyncWithHttpInfo(settle, contract);
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = await ListFuturesRiskLimitTiersAsyncWithHttpInfo(settle, contract, limit, offset);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List risk limit tiers 
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesLimitRiskTiers&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListRiskLimitTiersAsyncWithHttpInfo (string settle, string contract)
+        public async Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListFuturesRiskLimitTiersAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
-                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListRiskLimitTiers");
-
-            // verify the required parameter 'contract' is set
-            if (contract == null)
-                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->ListRiskLimitTiers");
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->ListFuturesRiskLimitTiers");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -4471,7 +4596,18 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
 
 
             // make the HTTP request
@@ -4480,7 +4616,7 @@ namespace Io.Gate.GateApi.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListRiskLimitTiers", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListFuturesRiskLimitTiers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -5385,7 +5521,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Position</returns>
         public Position UpdatePositionRiskLimit (string settle, string contract, string riskLimit)
         {
@@ -5399,7 +5535,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>ApiResponse of Position</returns>
         public ApiResponse<Position> UpdatePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit)
         {
@@ -5456,7 +5592,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of Position</returns>
         public async Task<Position> UpdatePositionRiskLimitAsync (string settle, string contract, string riskLimit)
         {
@@ -5471,7 +5607,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of ApiResponse (Position)</returns>
         public async Task<ApiResponse<Position>> UpdatePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit)
         {
@@ -6100,7 +6236,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>List&lt;Position&gt;</returns>
         public List<Position> UpdateDualModePositionRiskLimit (string settle, string contract, string riskLimit)
         {
@@ -6114,7 +6250,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>ApiResponse of List&lt;Position&gt;</returns>
         public ApiResponse<List<Position>> UpdateDualModePositionRiskLimitWithHttpInfo (string settle, string contract, string riskLimit)
         {
@@ -6171,7 +6307,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of List&lt;Position&gt;</returns>
         public async Task<List<Position>> UpdateDualModePositionRiskLimitAsync (string settle, string contract, string riskLimit)
         {
@@ -6186,7 +6322,7 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
-        /// <param name="riskLimit">New position risk limit</param>
+        /// <param name="riskLimit">New Risk Limit Value</param>
         /// <returns>Task of ApiResponse (List&lt;Position&gt;)</returns>
         public async Task<ApiResponse<List<Position>>> UpdateDualModePositionRiskLimitAsyncWithHttpInfo (string settle, string contract, string riskLimit)
         {
@@ -6424,10 +6560,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder)
+        public FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
         {
-             ApiResponse<FuturesOrder> localVarResponse = CreateFuturesOrderWithHttpInfo(settle, futuresOrder);
+             ApiResponse<FuturesOrder> localVarResponse = CreateFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -6437,8 +6574,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder)
+        public ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6466,6 +6604,10 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrder;
 
             // authentication (apiv4) required
@@ -6489,10 +6631,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder)
+        public async Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CreateFuturesOrderAsyncWithHttpInfo(settle, futuresOrder);
+             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CreateFuturesOrderAsyncWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -6503,8 +6646,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder)
+        public async Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6533,6 +6677,10 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrder;
 
             // authentication (apiv4) required
@@ -6557,11 +6705,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
-        public List<FuturesOrder> CancelFuturesOrders (string settle, string contract, string side = default(string))
+        public List<FuturesOrder> CancelFuturesOrders (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
         {
-             ApiResponse<List<FuturesOrder>> localVarResponse = CancelFuturesOrdersWithHttpInfo(settle, contract, side);
+             ApiResponse<List<FuturesOrder>> localVarResponse = CancelFuturesOrdersWithHttpInfo(settle, contract, xGateExptime, side);
              return localVarResponse.Data;
         }
 
@@ -6571,9 +6720,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
-        public ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, string side = default(string))
+        public ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6605,6 +6755,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
             }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -6627,11 +6781,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
-        public async Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, string side = default(string))
+        public async Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FuturesOrder>> localVarResponse = await CancelFuturesOrdersAsyncWithHttpInfo(settle, contract, side);
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesOrder>> localVarResponse = await CancelFuturesOrdersAsyncWithHttpInfo(settle, contract, xGateExptime, side);
              return localVarResponse.Data;
 
         }
@@ -6642,9 +6797,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, string side = default(string))
+        public async Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6676,6 +6832,10 @@ namespace Io.Gate.GateApi.Api
             if (side != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
+            }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
             }
 
             // authentication (apiv4) required
@@ -6877,10 +7037,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        public List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder)
+        public List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
         {
-             ApiResponse<List<BatchFuturesOrder>> localVarResponse = CreateBatchFuturesOrderWithHttpInfo(settle, futuresOrder);
+             ApiResponse<List<BatchFuturesOrder>> localVarResponse = CreateBatchFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -6890,8 +7051,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        public ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder)
+        public ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6919,6 +7081,10 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrder;
 
             // authentication (apiv4) required
@@ -6942,10 +7108,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        public async Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder)
+        public async Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<BatchFuturesOrder>> localVarResponse = await CreateBatchFuturesOrderAsyncWithHttpInfo(settle, futuresOrder);
+             Io.Gate.GateApi.Client.ApiResponse<List<BatchFuturesOrder>> localVarResponse = await CreateBatchFuturesOrderAsyncWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -6956,8 +7123,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="futuresOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder)
+        public async Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6986,6 +7154,10 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrder;
 
             // authentication (apiv4) required
@@ -7142,10 +7314,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        public FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
         {
-             ApiResponse<FuturesOrder> localVarResponse = AmendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment);
+             ApiResponse<FuturesOrder> localVarResponse = AmendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -7156,8 +7329,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        public ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7190,6 +7364,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrderAmendment;
 
             // authentication (apiv4) required
@@ -7214,10 +7392,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        public async Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await AmendFuturesOrderAsyncWithHttpInfo(settle, orderId, futuresOrderAmendment);
+             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await AmendFuturesOrderAsyncWithHttpInfo(settle, orderId, futuresOrderAmendment, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -7229,8 +7408,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="futuresOrderAmendment"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+        public async Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7264,6 +7444,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = futuresOrderAmendment;
 
             // authentication (apiv4) required
@@ -7288,10 +7472,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder CancelFuturesOrder (string settle, string orderId)
+        public FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = default(long?))
         {
-             ApiResponse<FuturesOrder> localVarResponse = CancelFuturesOrderWithHttpInfo(settle, orderId);
+             ApiResponse<FuturesOrder> localVarResponse = CancelFuturesOrderWithHttpInfo(settle, orderId, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -7301,8 +7486,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId)
+        public ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7330,6 +7516,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -7352,10 +7542,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId)
+        public async Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CancelFuturesOrderAsyncWithHttpInfo(settle, orderId);
+             Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CancelFuturesOrderAsyncWithHttpInfo(settle, orderId, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -7366,8 +7557,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId)
+        public async Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7396,6 +7588,10 @@ namespace Io.Gate.GateApi.Api
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -8554,10 +8750,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;FutureCancelOrderResult&gt;</returns>
-        public List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody)
+        public List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = default(long?))
         {
-             ApiResponse<List<FutureCancelOrderResult>> localVarResponse = CancelBatchFutureOrdersWithHttpInfo(settle, requestBody);
+             ApiResponse<List<FutureCancelOrderResult>> localVarResponse = CancelBatchFutureOrdersWithHttpInfo(settle, requestBody, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -8567,8 +8764,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;FutureCancelOrderResult&gt;</returns>
-        public ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody)
+        public ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8596,6 +8794,10 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = requestBody;
 
             // authentication (apiv4) required
@@ -8619,10 +8821,11 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;FutureCancelOrderResult&gt;</returns>
-        public async Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody)
+        public async Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FutureCancelOrderResult>> localVarResponse = await CancelBatchFutureOrdersAsyncWithHttpInfo(settle, requestBody);
+             Io.Gate.GateApi.Client.ApiResponse<List<FutureCancelOrderResult>> localVarResponse = await CancelBatchFutureOrdersAsyncWithHttpInfo(settle, requestBody, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -8633,8 +8836,9 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
         /// <param name="requestBody"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FutureCancelOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody)
+        public async Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8663,6 +8867,10 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = requestBody;
 
             // authentication (apiv4) required
@@ -8675,6 +8883,151 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelBatchFutureOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch modify orders with specified IDs You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
+        public List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        {
+             ApiResponse<List<BatchFuturesOrder>> localVarResponse = AmendBatchFutureOrdersWithHttpInfo(settle, batchAmendOrderReq, xGateExptime);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Batch modify orders with specified IDs You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
+        public ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->AmendBatchFutureOrders");
+
+            // verify the required parameter 'batchAmendOrderReq' is set
+            if (batchAmendOrderReq == null)
+                throw new ApiException(400, "Missing required parameter 'batchAmendOrderReq' when calling FuturesApi->AmendBatchFutureOrders");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
+            localVarRequestOptions.Data = batchAmendOrderReq;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<List<BatchFuturesOrder>>("/futures/{settle}/batch_amend_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendBatchFutureOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch modify orders with specified IDs You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
+        public async Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<BatchFuturesOrder>> localVarResponse = await AmendBatchFutureOrdersAsyncWithHttpInfo(settle, batchAmendOrderReq, xGateExptime);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Batch modify orders with specified IDs You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="batchAmendOrderReq"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
+        public async Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->AmendBatchFutureOrders");
+
+            // verify the required parameter 'batchAmendOrderReq' is set
+            if (batchAmendOrderReq == null)
+                throw new ApiException(400, "Missing required parameter 'batchAmendOrderReq' when calling FuturesApi->AmendBatchFutureOrders");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
+            localVarRequestOptions.Data = batchAmendOrderReq;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<BatchFuturesOrder>>("/futures/{settle}/batch_amend_orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AmendBatchFutureOrders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -8986,9 +9339,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        public List<FuturesPriceTriggeredOrder> CancelPriceTriggeredOrderList (string settle, string contract)
+        public List<FuturesPriceTriggeredOrder> CancelPriceTriggeredOrderList (string settle, string contract = default(string))
         {
              ApiResponse<List<FuturesPriceTriggeredOrder>> localVarResponse = CancelPriceTriggeredOrderListWithHttpInfo(settle, contract);
              return localVarResponse.Data;
@@ -8999,17 +9352,13 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        public ApiResponse<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListWithHttpInfo (string settle, string contract)
+        public ApiResponse<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListWithHttpInfo (string settle, string contract = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
                 throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->CancelPriceTriggeredOrderList");
-
-            // verify the required parameter 'contract' is set
-            if (contract == null)
-                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->CancelPriceTriggeredOrderList");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -9028,7 +9377,10 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -9050,9 +9402,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>Task of List&lt;FuturesPriceTriggeredOrder&gt;</returns>
-        public async Task<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListAsync (string settle, string contract)
+        public async Task<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListAsync (string settle, string contract = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<FuturesPriceTriggeredOrder>> localVarResponse = await CancelPriceTriggeredOrderListAsyncWithHttpInfo(settle, contract);
              return localVarResponse.Data;
@@ -9064,17 +9416,13 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
-        /// <param name="contract">Futures contract</param>
+        /// <param name="contract">Futures contract, return related data only if specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesPriceTriggeredOrder&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> CancelPriceTriggeredOrderListAsyncWithHttpInfo (string settle, string contract)
+        public async Task<ApiResponse<List<FuturesPriceTriggeredOrder>>> CancelPriceTriggeredOrderListAsyncWithHttpInfo (string settle, string contract = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
                 throw new ApiException(400, "Missing required parameter 'settle' when calling FuturesApi->CancelPriceTriggeredOrderList");
-
-            // verify the required parameter 'contract' is set
-            if (contract == null)
-                throw new ApiException(400, "Missing required parameter 'contract' when calling FuturesApi->CancelPriceTriggeredOrderList");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -9094,7 +9442,10 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

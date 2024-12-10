@@ -122,6 +122,13 @@ namespace Io.Gate.GateApi.Model
         public string MaxSize { get; private set; }
 
         /// <summary>
+        /// Cumulative closed position volume
+        /// </summary>
+        /// <value>Cumulative closed position volume</value>
+        [DataMember(Name="accum_size", EmitDefaultValue=false)]
+        public string AccumSize { get; private set; }
+
+        /// <summary>
         /// First Open Time
         /// </summary>
         /// <value>First Open Time</value>
@@ -159,6 +166,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  PnlFee: ").Append(PnlFee).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  MaxSize: ").Append(MaxSize).Append("\n");
+            sb.Append("  AccumSize: ").Append(AccumSize).Append("\n");
             sb.Append("  FirstOpenTime: ").Append(FirstOpenTime).Append("\n");
             sb.Append("  LongPrice: ").Append(LongPrice).Append("\n");
             sb.Append("  ShortPrice: ").Append(ShortPrice).Append("\n");
@@ -240,6 +248,11 @@ namespace Io.Gate.GateApi.Model
                     this.MaxSize.Equals(input.MaxSize))
                 ) && 
                 (
+                    this.AccumSize == input.AccumSize ||
+                    (this.AccumSize != null &&
+                    this.AccumSize.Equals(input.AccumSize))
+                ) && 
+                (
                     this.FirstOpenTime == input.FirstOpenTime ||
                     this.FirstOpenTime.Equals(input.FirstOpenTime)
                 ) && 
@@ -280,6 +293,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 if (this.MaxSize != null)
                     hashCode = hashCode * 59 + this.MaxSize.GetHashCode();
+                if (this.AccumSize != null)
+                    hashCode = hashCode * 59 + this.AccumSize.GetHashCode();
                 hashCode = hashCode * 59 + this.FirstOpenTime.GetHashCode();
                 if (this.LongPrice != null)
                     hashCode = hashCode * 59 + this.LongPrice.GetHashCode();

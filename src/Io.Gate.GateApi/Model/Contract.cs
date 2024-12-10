@@ -117,7 +117,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="tradeSize">Historical accumulated trade size.</param>
         /// <param name="positionSize">Current total long position size.</param>
         /// <param name="configChangeTime">Last changed time of configuration.</param>
-        /// <param name="inDelisting">Contract is delisting.</param>
+        /// <param name="inDelisting">&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline.</param>
         /// <param name="ordersLimit">Maximum number of open orders.</param>
         /// <param name="enableBonus">Whether bouns is enabled.</param>
         /// <param name="enableCredit">Whether portfolio margin account is enabled.</param>
@@ -360,9 +360,9 @@ namespace Io.Gate.GateApi.Model
         public double ConfigChangeTime { get; set; }
 
         /// <summary>
-        /// Contract is delisting
+        /// &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline
         /// </summary>
-        /// <value>Contract is delisting</value>
+        /// <value>&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline</value>
         [DataMember(Name="in_delisting")]
         public bool InDelisting { get; set; }
 

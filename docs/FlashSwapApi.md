@@ -79,7 +79,7 @@ No authorization required
 
 <a name="listflashswapcurrencypair"></a>
 # **ListFlashSwapCurrencyPair**
-> List&lt;FlashSwapCurrencyPair&gt; ListFlashSwapCurrencyPair (string currency = null)
+> List&lt;FlashSwapCurrencyPair&gt; ListFlashSwapCurrencyPair (string currency = null, int? page = null, int? limit = null)
 
 List All Supported Currency Pairs In Flash Swap
 
@@ -103,11 +103,13 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FlashSwapApi(config);
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var limit = 1000;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional)  (default to 1000)
 
             try
             {
                 // List All Supported Currency Pairs In Flash Swap
-                List<FlashSwapCurrencyPair> result = apiInstance.ListFlashSwapCurrencyPair(currency);
+                List<FlashSwapCurrencyPair> result = apiInstance.ListFlashSwapCurrencyPair(currency, page, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -127,6 +129,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
+ **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 | [optional] [default to 1000]
 
 ### Return type
 

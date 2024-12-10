@@ -37,12 +37,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="freeze">Locked amount.</param>
         /// <param name="borrowed">Borrowed amount.</param>
         /// <param name="negativeLiab">Negative Liabilities.</param>
-        /// <param name="futuresPosLiab">Borrowing to Open Positions in Futures.</param>
+        /// <param name="futuresPosLiab">Contract opening position borrowing currency (abandoned, to be offline field).</param>
         /// <param name="equity">Equity.</param>
-        /// <param name="totalFreeze">Total freeze.</param>
+        /// <param name="totalFreeze">Total occupancy (discarded, to be offline field).</param>
         /// <param name="totalLiab">Total liabilities.</param>
         /// <param name="spotInUse">Spot hedging utilization.</param>
-        public UnifiedBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string), string spotInUse = default(string))
+        /// <param name="funding">Quantity of funding.</param>
+        /// <param name="fundingVersion">Funding version.</param>
+        public UnifiedBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string), string spotInUse = default(string), string funding = default(string), string fundingVersion = default(string))
         {
             this.Available = available;
             this.Freeze = freeze;
@@ -53,6 +55,8 @@ namespace Io.Gate.GateApi.Model
             this.TotalFreeze = totalFreeze;
             this.TotalLiab = totalLiab;
             this.SpotInUse = spotInUse;
+            this.Funding = funding;
+            this.FundingVersion = fundingVersion;
         }
 
         /// <summary>
@@ -84,9 +88,9 @@ namespace Io.Gate.GateApi.Model
         public string NegativeLiab { get; set; }
 
         /// <summary>
-        /// Borrowing to Open Positions in Futures
+        /// Contract opening position borrowing currency (abandoned, to be offline field)
         /// </summary>
-        /// <value>Borrowing to Open Positions in Futures</value>
+        /// <value>Contract opening position borrowing currency (abandoned, to be offline field)</value>
         [DataMember(Name="futures_pos_liab")]
         public string FuturesPosLiab { get; set; }
 
@@ -98,9 +102,9 @@ namespace Io.Gate.GateApi.Model
         public string Equity { get; set; }
 
         /// <summary>
-        /// Total freeze
+        /// Total occupancy (discarded, to be offline field)
         /// </summary>
-        /// <value>Total freeze</value>
+        /// <value>Total occupancy (discarded, to be offline field)</value>
         [DataMember(Name="total_freeze")]
         public string TotalFreeze { get; set; }
 
@@ -119,6 +123,20 @@ namespace Io.Gate.GateApi.Model
         public string SpotInUse { get; set; }
 
         /// <summary>
+        /// Quantity of funding
+        /// </summary>
+        /// <value>Quantity of funding</value>
+        [DataMember(Name="funding")]
+        public string Funding { get; set; }
+
+        /// <summary>
+        /// Funding version
+        /// </summary>
+        /// <value>Funding version</value>
+        [DataMember(Name="funding_version")]
+        public string FundingVersion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +153,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  TotalFreeze: ").Append(TotalFreeze).Append("\n");
             sb.Append("  TotalLiab: ").Append(TotalLiab).Append("\n");
             sb.Append("  SpotInUse: ").Append(SpotInUse).Append("\n");
+            sb.Append("  Funding: ").Append(Funding).Append("\n");
+            sb.Append("  FundingVersion: ").Append(FundingVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +233,16 @@ namespace Io.Gate.GateApi.Model
                     this.SpotInUse == input.SpotInUse ||
                     (this.SpotInUse != null &&
                     this.SpotInUse.Equals(input.SpotInUse))
+                ) && 
+                (
+                    this.Funding == input.Funding ||
+                    (this.Funding != null &&
+                    this.Funding.Equals(input.Funding))
+                ) && 
+                (
+                    this.FundingVersion == input.FundingVersion ||
+                    (this.FundingVersion != null &&
+                    this.FundingVersion.Equals(input.FundingVersion))
                 );
         }
 
@@ -243,6 +273,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.TotalLiab.GetHashCode();
                 if (this.SpotInUse != null)
                     hashCode = hashCode * 59 + this.SpotInUse.GetHashCode();
+                if (this.Funding != null)
+                    hashCode = hashCode * 59 + this.Funding.GetHashCode();
+                if (this.FundingVersion != null)
+                    hashCode = hashCode * 59 + this.FundingVersion.GetHashCode();
                 return hashCode;
             }
         }

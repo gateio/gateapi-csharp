@@ -38,13 +38,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="initialRate">Initial margin rate.</param>
         /// <param name="maintenanceRate">Maintenance margin rate.</param>
         /// <param name="leverageMax">Maximum leverage.</param>
-        public FuturesLimitRiskTiers(int tier = default(int), string riskLimit = default(string), string initialRate = default(string), string maintenanceRate = default(string), string leverageMax = default(string))
+        /// <param name="contract">Markets, visible only during market pagination requests.</param>
+        public FuturesLimitRiskTiers(int tier = default(int), string riskLimit = default(string), string initialRate = default(string), string maintenanceRate = default(string), string leverageMax = default(string), string contract = default(string))
         {
             this.Tier = tier;
             this.RiskLimit = riskLimit;
             this.InitialRate = initialRate;
             this.MaintenanceRate = maintenanceRate;
             this.LeverageMax = leverageMax;
+            this.Contract = contract;
         }
 
         /// <summary>
@@ -83,6 +85,13 @@ namespace Io.Gate.GateApi.Model
         public string LeverageMax { get; set; }
 
         /// <summary>
+        /// Markets, visible only during market pagination requests
+        /// </summary>
+        /// <value>Markets, visible only during market pagination requests</value>
+        [DataMember(Name="contract")]
+        public string Contract { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  InitialRate: ").Append(InitialRate).Append("\n");
             sb.Append("  MaintenanceRate: ").Append(MaintenanceRate).Append("\n");
             sb.Append("  LeverageMax: ").Append(LeverageMax).Append("\n");
+            sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +162,11 @@ namespace Io.Gate.GateApi.Model
                     this.LeverageMax == input.LeverageMax ||
                     (this.LeverageMax != null &&
                     this.LeverageMax.Equals(input.LeverageMax))
+                ) && 
+                (
+                    this.Contract == input.Contract ||
+                    (this.Contract != null &&
+                    this.Contract.Equals(input.Contract))
                 );
         }
 
@@ -173,6 +188,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MaintenanceRate.GetHashCode();
                 if (this.LeverageMax != null)
                     hashCode = hashCode * 59 + this.LeverageMax.GetHashCode();
+                if (this.Contract != null)
+                    hashCode = hashCode * 59 + this.Contract.GetHashCode();
                 return hashCode;
             }
         }

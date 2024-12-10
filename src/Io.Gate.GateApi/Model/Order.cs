@@ -196,9 +196,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="stp_act")]
         public StpActEnum? StpAct { get; set; }
         /// <summary>
-        /// How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+        /// Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
         /// </summary>
-        /// <value>How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention </value>
+        /// <value>Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -221,23 +221,65 @@ namespace Io.Gate.GateApi.Model
             Cancelled = 3,
 
             /// <summary>
+            /// Enum Liquidatecancelled for value: liquidate_cancelled
+            /// </summary>
+            [EnumMember(Value = "liquidate_cancelled")]
+            Liquidatecancelled = 4,
+
+            /// <summary>
+            /// Enum Depthnotenough for value: depth_not_enough
+            /// </summary>
+            [EnumMember(Value = "depth_not_enough")]
+            Depthnotenough = 5,
+
+            /// <summary>
+            /// Enum Tradernotenough for value: trader_not_enough
+            /// </summary>
+            [EnumMember(Value = "trader_not_enough")]
+            Tradernotenough = 6,
+
+            /// <summary>
+            /// Enum Small for value: small
+            /// </summary>
+            [EnumMember(Value = "small")]
+            Small = 7,
+
+            /// <summary>
             /// Enum Ioc for value: ioc
             /// </summary>
             [EnumMember(Value = "ioc")]
-            Ioc = 4,
+            Ioc = 8,
+
+            /// <summary>
+            /// Enum Poc for value: poc
+            /// </summary>
+            [EnumMember(Value = "poc")]
+            Poc = 9,
+
+            /// <summary>
+            /// Enum Fok for value: fok
+            /// </summary>
+            [EnumMember(Value = "fok")]
+            Fok = 10,
 
             /// <summary>
             /// Enum Stp for value: stp
             /// </summary>
             [EnumMember(Value = "stp")]
-            Stp = 5
+            Stp = 11,
+
+            /// <summary>
+            /// Enum Unknown for value: unknown
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown = 12
 
         }
 
         /// <summary>
-        /// How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention 
+        /// Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown
         /// </summary>
-        /// <value>How the order was finished.  - open: processing - filled: filled totally - cancelled: manually cancelled - ioc: time in force is &#x60;IOC&#x60;, finish immediately - stp: cancelled because self trade prevention </value>
+        /// <value>Order completion statuses include:  - open: Awaiting processing - filled: Fully filled - cancelled: Cancelled by user - liquidate_cancelled: Cancelled due to liquidation - small: Order quantity too small - depth_not_enough: Cancelled due to insufficient market depth - trader_not_enough: Cancelled due to insufficient counterparty - ioc: Not immediately filled because tif is set to ioc - poc: Not met the order strategy because tif is set to poc - fok: Not fully filled immediately because tif is set to fok - stp: Cancelled due to self-trade prevention - unknown: Unknown</value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>

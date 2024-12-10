@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
+[**WithdrawPushOrder**](WithdrawalApi.md#withdrawpushorder) | **POST** /withdrawals/push | UID transfer
 [**CancelWithdrawal**](WithdrawalApi.md#cancelwithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
 
 
@@ -78,6 +79,79 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Withdraw request is accepted. Refer to withdrawal records for status |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="withdrawpushorder"></a>
+# **WithdrawPushOrder**
+> UidPushWithdrawalResp WithdrawPushOrder (UidPushWithdrawal uidPushWithdrawal)
+
+UID transfer
+
+Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class WithdrawPushOrderExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WithdrawalApi(config);
+            var uidPushWithdrawal = new UidPushWithdrawal(); // UidPushWithdrawal | 
+
+            try
+            {
+                // UID transfer
+                UidPushWithdrawalResp result = apiInstance.WithdrawPushOrder(uidPushWithdrawal);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WithdrawalApi.WithdrawPushOrder: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uidPushWithdrawal** | [**UidPushWithdrawal**](UidPushWithdrawal.md)|  | 
+
+### Return type
+
+[**UidPushWithdrawalResp**](UidPushWithdrawalResp.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request has been accepted. Check the withdrawal record status for the processing result. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

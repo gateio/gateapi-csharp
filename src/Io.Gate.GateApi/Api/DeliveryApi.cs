@@ -617,6 +617,33 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;DeliverySettlement&gt;</returns>
         ApiResponse<List<DeliverySettlement>> ListDeliverySettlementsWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
         /// <summary>
+        /// List risk limit tiers
+        /// </summary>
+        /// <remarks>
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;FuturesLimitRiskTiers&gt;</returns>
+        List<FuturesLimitRiskTiers> ListDeliveryRiskLimitTiers (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List risk limit tiers
+        /// </summary>
+        /// <remarks>
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;FuturesLimitRiskTiers&gt;</returns>
+        ApiResponse<List<FuturesLimitRiskTiers>> ListDeliveryRiskLimitTiersWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+        /// <summary>
         /// List all auto orders
         /// </summary>
         /// <remarks>
@@ -1335,6 +1362,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="at">Specify a settlement timestamp (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;DeliverySettlement&gt;)</returns>
         Task<ApiResponse<List<DeliverySettlement>>> ListDeliverySettlementsAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? at = default(int?));
+        /// <summary>
+        /// List risk limit tiers
+        /// </summary>
+        /// <remarks>
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;FuturesLimitRiskTiers&gt;</returns>
+        Task<List<FuturesLimitRiskTiers>> ListDeliveryRiskLimitTiersAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// List risk limit tiers
+        /// </summary>
+        /// <remarks>
+        /// When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesLimitRiskTiers&gt;)</returns>
+        Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListDeliveryRiskLimitTiersAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
         /// List all auto orders
         /// </summary>
@@ -4903,6 +4957,155 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListDeliverySettlements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;FuturesLimitRiskTiers&gt;</returns>
+        public List<FuturesLimitRiskTiers> ListDeliveryRiskLimitTiers (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = ListDeliveryRiskLimitTiersWithHttpInfo(settle, contract, limit, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;FuturesLimitRiskTiers&gt;</returns>
+        public ApiResponse<List<FuturesLimitRiskTiers>> ListDeliveryRiskLimitTiersWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling DeliveryApi->ListDeliveryRiskLimitTiers");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<FuturesLimitRiskTiers>>("/delivery/{settle}/risk_limit_tiers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDeliveryRiskLimitTiers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;FuturesLimitRiskTiers&gt;</returns>
+        public async Task<List<FuturesLimitRiskTiers>> ListDeliveryRiskLimitTiersAsync (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<FuturesLimitRiskTiers>> localVarResponse = await ListDeliveryRiskLimitTiersAsyncWithHttpInfo(settle, contract, limit, offset);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List risk limit tiers When the &#39;contract&#39; parameter is not passed, the default is to query the risk limits for the top 100 markets.&#39;Limit&#39; and &#39;offset&#39; correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the &#39;contract&#39; parameter is empty.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="settle">Settle currency</param>
+        /// <param name="contract">Futures contract (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;FuturesLimitRiskTiers&gt;)</returns>
+        public async Task<ApiResponse<List<FuturesLimitRiskTiers>>> ListDeliveryRiskLimitTiersAsyncWithHttpInfo (string settle, string contract = default(string), int? limit = default(int?), int? offset = default(int?))
+        {
+            // verify the required parameter 'settle' is set
+            if (settle == null)
+                throw new ApiException(400, "Missing required parameter 'settle' when calling DeliveryApi->ListDeliveryRiskLimitTiers");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.PathParameters.Add("settle", ClientUtils.ParameterToString(settle)); // path parameter
+            if (contract != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contract", contract));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FuturesLimitRiskTiers>>("/delivery/{settle}/risk_limit_tiers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDeliveryRiskLimitTiers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

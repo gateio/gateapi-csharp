@@ -131,7 +131,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -142,7 +142,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -185,8 +185,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns></returns>
-        void TransferWithSubAccount (SubAccountTransfer subAccountTransfer);
+        /// <returns>TransactionID</returns>
+        TransactionID TransferWithSubAccount (SubAccountTransfer subAccountTransfer);
 
         /// <summary>
         /// Transfer between main and sub accounts
@@ -196,8 +196,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TransferWithSubAccountWithHttpInfo (SubAccountTransfer subAccountTransfer);
+        /// <returns>ApiResponse of TransactionID</returns>
+        ApiResponse<TransactionID> TransferWithSubAccountWithHttpInfo (SubAccountTransfer subAccountTransfer);
         /// <summary>
         /// Sub-account transfers to sub-account
         /// </summary>
@@ -206,8 +206,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns></returns>
-        void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount);
+        /// <returns>TransactionID</returns>
+        TransactionID SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount);
 
         /// <summary>
         /// Sub-account transfers to sub-account
@@ -217,8 +217,31 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <returns>ApiResponse of TransactionID</returns>
+        ApiResponse<TransactionID> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <summary>
+        /// Transfer status query
+        /// </summary>
+        /// <remarks>
+        /// Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string));
+
+        /// <summary>
+        /// Transfer status query
+        /// </summary>
+        /// <remarks>
+        /// Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
         /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
@@ -404,8 +427,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>SmallBalance</returns>
-        SmallBalance ListSmallBalance ();
+        /// <returns>List&lt;SmallBalance&gt;</returns>
+        List<SmallBalance> ListSmallBalance ();
 
         /// <summary>
         /// List small balance
@@ -414,8 +437,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of SmallBalance</returns>
-        ApiResponse<SmallBalance> ListSmallBalanceWithHttpInfo ();
+        /// <returns>ApiResponse of List&lt;SmallBalance&gt;</returns>
+        ApiResponse<List<SmallBalance>> ListSmallBalanceWithHttpInfo ();
         /// <summary>
         /// Convert small balance
         /// </summary>
@@ -447,8 +470,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>SmallBalanceHistory</returns>
-        SmallBalanceHistory ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <returns>List&lt;SmallBalanceHistory&gt;</returns>
+        List<SmallBalanceHistory> ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List small balance history
@@ -460,8 +483,37 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>ApiResponse of SmallBalanceHistory</returns>
-        ApiResponse<SmallBalanceHistory> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <returns>ApiResponse of List&lt;SmallBalanceHistory&gt;</returns>
+        ApiResponse<List<SmallBalanceHistory>> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Retrieve the UID transfer history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;UidPushOrder&gt;</returns>
+        List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// Retrieve the UID transfer history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;UidPushOrder&gt;</returns>
+        ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -575,7 +627,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -586,7 +638,7 @@ namespace Io.Gate.GateApi.Api
         /// Transfer between trading accounts
         /// </summary>
         /// <remarks>
-        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -629,8 +681,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>Task of void</returns>
-        Task TransferWithSubAccountAsync (SubAccountTransfer subAccountTransfer);
+        /// <returns>Task of TransactionID</returns>
+        Task<TransactionID> TransferWithSubAccountAsync (SubAccountTransfer subAccountTransfer);
 
         /// <summary>
         /// Transfer between main and sub accounts
@@ -640,8 +692,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> TransferWithSubAccountAsyncWithHttpInfo (SubAccountTransfer subAccountTransfer);
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        Task<ApiResponse<TransactionID>> TransferWithSubAccountAsyncWithHttpInfo (SubAccountTransfer subAccountTransfer);
         /// <summary>
         /// Sub-account transfers to sub-account
         /// </summary>
@@ -650,8 +702,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>Task of void</returns>
-        Task SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount);
+        /// <returns>Task of TransactionID</returns>
+        Task<TransactionID> SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount);
 
         /// <summary>
         /// Sub-account transfers to sub-account
@@ -661,8 +713,31 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        Task<ApiResponse<TransactionID>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount);
+        /// <summary>
+        /// Transfer status query
+        /// </summary>
+        /// <remarks>
+        /// Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>Task of InlineResponse200</returns>
+        Task<InlineResponse200> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string));
+
+        /// <summary>
+        /// Transfer status query
+        /// </summary>
+        /// <remarks>
+        /// Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        Task<ApiResponse<InlineResponse200>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
         /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
@@ -848,8 +923,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of SmallBalance</returns>
-        Task<SmallBalance> ListSmallBalanceAsync ();
+        /// <returns>Task of List&lt;SmallBalance&gt;</returns>
+        Task<List<SmallBalance>> ListSmallBalanceAsync ();
 
         /// <summary>
         /// List small balance
@@ -858,8 +933,8 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (SmallBalance)</returns>
-        Task<ApiResponse<SmallBalance>> ListSmallBalanceAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (List&lt;SmallBalance&gt;)</returns>
+        Task<ApiResponse<List<SmallBalance>>> ListSmallBalanceAsyncWithHttpInfo ();
         /// <summary>
         /// Convert small balance
         /// </summary>
@@ -891,8 +966,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>Task of SmallBalanceHistory</returns>
-        Task<SmallBalanceHistory> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <returns>Task of List&lt;SmallBalanceHistory&gt;</returns>
+        Task<List<SmallBalanceHistory>> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List small balance history
@@ -904,8 +979,37 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (SmallBalanceHistory)</returns>
-        Task<ApiResponse<SmallBalanceHistory>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <returns>Task of ApiResponse (List&lt;SmallBalanceHistory&gt;)</returns>
+        Task<ApiResponse<List<SmallBalanceHistory>>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
+        /// <summary>
+        /// Retrieve the UID transfer history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;UidPushOrder&gt;</returns>
+        Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+
+        /// <summary>
+        /// Retrieve the UID transfer history
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;UidPushOrder&gt;)</returns>
+        Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
         #endregion Asynchronous Operations
     }
 
@@ -1583,7 +1687,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1595,7 +1699,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1641,7 +1745,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1654,7 +1758,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+        /// Transfer between trading accounts Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transfer"></param>
@@ -1869,10 +1973,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns></returns>
-        public void TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
+        /// <returns>TransactionID</returns>
+        public TransactionID TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
         {
-             TransferWithSubAccountWithHttpInfo(subAccountTransfer);
+             ApiResponse<TransactionID> localVarResponse = TransferWithSubAccountWithHttpInfo(subAccountTransfer);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1880,8 +1985,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> TransferWithSubAccountWithHttpInfo (SubAccountTransfer subAccountTransfer)
+        /// <returns>ApiResponse of TransactionID</returns>
+        public ApiResponse<TransactionID> TransferWithSubAccountWithHttpInfo (SubAccountTransfer subAccountTransfer)
         {
             // verify the required parameter 'subAccountTransfer' is set
             if (subAccountTransfer == null)
@@ -1895,6 +2000,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             string[] _accepts = {
+                "application/json"
             };
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1909,7 +2015,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/wallet/sub_account_transfers", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionID>("/wallet/sub_account_transfers", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1925,10 +2031,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>Task of void</returns>
-        public async Task TransferWithSubAccountAsync (SubAccountTransfer subAccountTransfer)
+        /// <returns>Task of TransactionID</returns>
+        public async Task<TransactionID> TransferWithSubAccountAsync (SubAccountTransfer subAccountTransfer)
         {
-             await TransferWithSubAccountAsyncWithHttpInfo(subAccountTransfer);
+             Io.Gate.GateApi.Client.ApiResponse<TransactionID> localVarResponse = await TransferWithSubAccountAsyncWithHttpInfo(subAccountTransfer);
+             return localVarResponse.Data;
 
         }
 
@@ -1937,8 +2044,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountTransfer"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> TransferWithSubAccountAsyncWithHttpInfo (SubAccountTransfer subAccountTransfer)
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        public async Task<ApiResponse<TransactionID>> TransferWithSubAccountAsyncWithHttpInfo (SubAccountTransfer subAccountTransfer)
         {
             // verify the required parameter 'subAccountTransfer' is set
             if (subAccountTransfer == null)
@@ -1953,6 +2060,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "application/json"
             };
 
             foreach (var _contentType in _contentTypes)
@@ -1968,7 +2076,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/wallet/sub_account_transfers", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionID>("/wallet/sub_account_transfers", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1984,10 +2092,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns></returns>
-        public void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
+        /// <returns>TransactionID</returns>
+        public TransactionID SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
         {
-             SubAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+             ApiResponse<TransactionID> localVarResponse = SubAccountToSubAccountWithHttpInfo(subAccountToSubAccount);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1995,8 +2104,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
+        /// <returns>ApiResponse of TransactionID</returns>
+        public ApiResponse<TransactionID> SubAccountToSubAccountWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
         {
             // verify the required parameter 'subAccountToSubAccount' is set
             if (subAccountToSubAccount == null)
@@ -2010,6 +2119,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             string[] _accepts = {
+                "application/json"
             };
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -2024,7 +2134,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TransactionID>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2040,10 +2150,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>Task of void</returns>
-        public async Task SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount)
+        /// <returns>Task of TransactionID</returns>
+        public async Task<TransactionID> SubAccountToSubAccountAsync (SubAccountToSubAccount subAccountToSubAccount)
         {
-             await SubAccountToSubAccountAsyncWithHttpInfo(subAccountToSubAccount);
+             Io.Gate.GateApi.Client.ApiResponse<TransactionID> localVarResponse = await SubAccountToSubAccountAsyncWithHttpInfo(subAccountToSubAccount);
+             return localVarResponse.Data;
 
         }
 
@@ -2052,8 +2163,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccountToSubAccount"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
+        /// <returns>Task of ApiResponse (TransactionID)</returns>
+        public async Task<ApiResponse<TransactionID>> SubAccountToSubAccountAsyncWithHttpInfo (SubAccountToSubAccount subAccountToSubAccount)
         {
             // verify the required parameter 'subAccountToSubAccount' is set
             if (subAccountToSubAccount == null)
@@ -2068,6 +2179,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "application/json"
             };
 
             foreach (var _contentType in _contentTypes)
@@ -2083,11 +2195,138 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionID>("/wallet/sub_account_to_sub_account", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SubAccountToSubAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Transfer status query Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string))
+        {
+             ApiResponse<InlineResponse200> localVarResponse = GetTransferOrderStatusWithHttpInfo(clientOrderId, txId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Transfer status query Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (clientOrderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "client_order_id", clientOrderId));
+            }
+            if (txId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tx_id", txId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<InlineResponse200>("/wallet/order_status", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTransferOrderStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Transfer status query Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async Task<InlineResponse200> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<InlineResponse200> localVarResponse = await GetTransferOrderStatusAsyncWithHttpInfo(clientOrderId, txId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Transfer status query Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
+        /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async Task<ApiResponse<InlineResponse200>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (clientOrderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "client_order_id", clientOrderId));
+            }
+            if (txId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tx_id", txId));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/wallet/order_status", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTransferOrderStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3080,10 +3319,10 @@ namespace Io.Gate.GateApi.Api
         /// List small balance 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>SmallBalance</returns>
-        public SmallBalance ListSmallBalance ()
+        /// <returns>List&lt;SmallBalance&gt;</returns>
+        public List<SmallBalance> ListSmallBalance ()
         {
-             ApiResponse<SmallBalance> localVarResponse = ListSmallBalanceWithHttpInfo();
+             ApiResponse<List<SmallBalance>> localVarResponse = ListSmallBalanceWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -3091,8 +3330,8 @@ namespace Io.Gate.GateApi.Api
         /// List small balance 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of SmallBalance</returns>
-        public ApiResponse<SmallBalance> ListSmallBalanceWithHttpInfo ()
+        /// <returns>ApiResponse of List&lt;SmallBalance&gt;</returns>
+        public ApiResponse<List<SmallBalance>> ListSmallBalanceWithHttpInfo ()
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3115,7 +3354,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SmallBalance>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<SmallBalance>>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -3130,10 +3369,10 @@ namespace Io.Gate.GateApi.Api
         /// List small balance 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of SmallBalance</returns>
-        public async Task<SmallBalance> ListSmallBalanceAsync ()
+        /// <returns>Task of List&lt;SmallBalance&gt;</returns>
+        public async Task<List<SmallBalance>> ListSmallBalanceAsync ()
         {
-             Io.Gate.GateApi.Client.ApiResponse<SmallBalance> localVarResponse = await ListSmallBalanceAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<List<SmallBalance>> localVarResponse = await ListSmallBalanceAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -3142,8 +3381,8 @@ namespace Io.Gate.GateApi.Api
         /// List small balance 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (SmallBalance)</returns>
-        public async Task<ApiResponse<SmallBalance>> ListSmallBalanceAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (List&lt;SmallBalance&gt;)</returns>
+        public async Task<ApiResponse<List<SmallBalance>>> ListSmallBalanceAsyncWithHttpInfo ()
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -3168,7 +3407,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SmallBalance>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SmallBalance>>("/wallet/small_balance", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -3301,10 +3540,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>SmallBalanceHistory</returns>
-        public SmallBalanceHistory ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        /// <returns>List&lt;SmallBalanceHistory&gt;</returns>
+        public List<SmallBalanceHistory> ListSmallBalanceHistory (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
-             ApiResponse<SmallBalanceHistory> localVarResponse = ListSmallBalanceHistoryWithHttpInfo(currency, page, limit);
+             ApiResponse<List<SmallBalanceHistory>> localVarResponse = ListSmallBalanceHistoryWithHttpInfo(currency, page, limit);
              return localVarResponse.Data;
         }
 
@@ -3315,8 +3554,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>ApiResponse of SmallBalanceHistory</returns>
-        public ApiResponse<SmallBalanceHistory> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        /// <returns>ApiResponse of List&lt;SmallBalanceHistory&gt;</returns>
+        public ApiResponse<List<SmallBalanceHistory>> ListSmallBalanceHistoryWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3351,7 +3590,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SmallBalanceHistory>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<SmallBalanceHistory>>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -3369,10 +3608,10 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>Task of SmallBalanceHistory</returns>
-        public async Task<SmallBalanceHistory> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        /// <returns>Task of List&lt;SmallBalanceHistory&gt;</returns>
+        public async Task<List<SmallBalanceHistory>> ListSmallBalanceHistoryAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<SmallBalanceHistory> localVarResponse = await ListSmallBalanceHistoryAsyncWithHttpInfo(currency, page, limit);
+             Io.Gate.GateApi.Client.ApiResponse<List<SmallBalanceHistory>> localVarResponse = await ListSmallBalanceHistoryAsyncWithHttpInfo(currency, page, limit);
              return localVarResponse.Data;
 
         }
@@ -3384,8 +3623,8 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <returns>Task of ApiResponse (SmallBalanceHistory)</returns>
-        public async Task<ApiResponse<SmallBalanceHistory>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
+        /// <returns>Task of ApiResponse (List&lt;SmallBalanceHistory&gt;)</returns>
+        public async Task<ApiResponse<List<SmallBalanceHistory>>> ListSmallBalanceHistoryAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -3422,11 +3661,174 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SmallBalanceHistory>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SmallBalanceHistory>>("/wallet/small_balance_history", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSmallBalanceHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the UID transfer history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>List&lt;UidPushOrder&gt;</returns>
+        public List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        {
+             ApiResponse<List<UidPushOrder>> localVarResponse = ListPushOrdersWithHttpInfo(id, from, to, limit, offset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve the UID transfer history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>ApiResponse of List&lt;UidPushOrder&gt;</returns>
+        public ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<UidPushOrder>>("/wallet/push", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListPushOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve the UID transfer history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of List&lt;UidPushOrder&gt;</returns>
+        public async Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<UidPushOrder>> localVarResponse = await ListPushOrdersAsyncWithHttpInfo(id, from, to, limit, offset);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve the UID transfer history 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Order ID (optional)</param>
+        /// <param name="from">The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional)</param>
+        /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <returns>Task of ApiResponse (List&lt;UidPushOrder&gt;)</returns>
+        public async Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (id != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UidPushOrder>>("/wallet/push", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListPushOrders", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

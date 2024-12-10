@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**ListMultiCollateralCurrencies**](MultiCollateralLoanApi.md#listmulticollateralcurrencies) | **GET** /loan/multi_collateral/currencies | Query supported borrowing and collateral currencies in Multi-Collateral 
 [**GetMultiCollateralLtv**](MultiCollateralLoanApi.md#getmulticollateralltv) | **GET** /loan/multi_collateral/ltv | Get Multi-Collateral ratio
 [**GetMultiCollateralFixRate**](MultiCollateralLoanApi.md#getmulticollateralfixrate) | **GET** /loan/multi_collateral/fixed_rate | Query fixed interest rates for the currency for 7 days and 30 days
+[**GetMultiCollateralCurrentRate**](MultiCollateralLoanApi.md#getmulticollateralcurrentrate) | **GET** /loan/multi_collateral/current_rate | Query the current interest rate of the currency
 
 
 <a name="listmulticollateralorders"></a>
@@ -791,6 +792,79 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;CollateralFixRate&gt;**](CollateralFixRate.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmulticollateralcurrentrate"></a>
+# **GetMultiCollateralCurrentRate**
+> List&lt;CollateralCurrentRate&gt; GetMultiCollateralCurrentRate (List<string> currencies, string vipLevel = null)
+
+Query the current interest rate of the currency
+
+Query the current interest rate of the currency in the last hour. The current interest rate is updated every hour.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMultiCollateralCurrentRateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new MultiCollateralLoanApi(config);
+            var currencies = new List<string>(); // List<string> | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
+            var vipLevel = "\"0\"";  // string | VIP level, defaults to 0 if not transferred (optional)  (default to "0")
+
+            try
+            {
+                // Query the current interest rate of the currency
+                List<CollateralCurrentRate> result = apiInstance.GetMultiCollateralCurrentRate(currencies, vipLevel);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MultiCollateralLoanApi.GetMultiCollateralCurrentRate: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencies** | [**List&lt;string&gt;**](string.md)| Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items. | 
+ **vipLevel** | **string**| VIP level, defaults to 0 if not transferred | [optional] [default to &quot;0&quot;]
+
+### Return type
+
+[**List&lt;CollateralCurrentRate&gt;**](CollateralCurrentRate.md)
 
 ### Authorization
 

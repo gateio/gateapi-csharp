@@ -5,11 +5,14 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAccountDetail**](AccountApi.md#getaccountdetail) | **GET** /account/detail | Get account detail
+[**GetAccountRateLimit**](AccountApi.md#getaccountratelimit) | **GET** /account/rate_limit | Get user transaction rate limit information
 [**ListSTPGroups**](AccountApi.md#liststpgroups) | **GET** /account/stp_groups | List STP Groups
 [**CreateSTPGroup**](AccountApi.md#createstpgroup) | **POST** /account/stp_groups | Create STP Group
 [**ListSTPGroupsUsers**](AccountApi.md#liststpgroupsusers) | **GET** /account/stp_groups/{stp_id}/users | List users of the STP group
 [**AddSTPGroupUsers**](AccountApi.md#addstpgroupusers) | **POST** /account/stp_groups/{stp_id}/users | Add users to the STP group
 [**DeleteSTPGroupUsers**](AccountApi.md#deletestpgroupusers) | **DELETE** /account/stp_groups/{stp_id}/users | Delete the user in the STP group
+[**GetDebitFee**](AccountApi.md#getdebitfee) | **GET** /account/debit_fee | Query GT deduction configuration.
+[**SetDebitFee**](AccountApi.md#setdebitfee) | **POST** /account/debit_fee | Set GT deduction.
 
 
 <a name="getaccountdetail"></a>
@@ -62,6 +65,73 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**AccountDetail**](AccountDetail.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getaccountratelimit"></a>
+# **GetAccountRateLimit**
+> List&lt;AccountRateLimit&gt; GetAccountRateLimit ()
+
+Get user transaction rate limit information
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetAccountRateLimitExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new AccountApi(config);
+
+            try
+            {
+                // Get user transaction rate limit information
+                List<AccountRateLimit> result = apiInstance.GetAccountRateLimit();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling AccountApi.GetAccountRateLimit: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;AccountRateLimit&gt;**](AccountRateLimit.md)
 
 ### Authorization
 
@@ -440,6 +510,147 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getdebitfee"></a>
+# **GetDebitFee**
+> InlineResponse2001 GetDebitFee ()
+
+Query GT deduction configuration.
+
+Query the current GT deduction configuration for the account.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetDebitFeeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new AccountApi(config);
+
+            try
+            {
+                // Query GT deduction configuration.
+                InlineResponse2001 result = apiInstance.GetDebitFee();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling AccountApi.GetDebitFee: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setdebitfee"></a>
+# **SetDebitFee**
+> void SetDebitFee (InlineObject inlineObject)
+
+Set GT deduction.
+
+Enable or disable GT deduction for the current account.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetDebitFeeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new AccountApi(config);
+            var inlineObject = new InlineObject(); // InlineObject | 
+
+            try
+            {
+                // Set GT deduction.
+                apiInstance.SetDebitFee(inlineObject);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling AccountApi.SetDebitFee: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |

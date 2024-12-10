@@ -31,30 +31,77 @@ namespace Io.Gate.GateApi.Model
     public partial class OptionsAccount :  IEquatable<OptionsAccount>, IValidatableObject
     {
         /// <summary>
+        /// ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式
+        /// </summary>
+        /// <value>｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式</value>
+        public enum MarginModeEnum
+        {
+            /// <summary>
+            /// Enum NUMBER_0 for value: 0
+            /// </summary>
+            NUMBER_0 = 0,
+
+            /// <summary>
+            /// Enum NUMBER_1 for value: 1
+            /// </summary>
+            NUMBER_1 = 1,
+
+            /// <summary>
+            /// Enum NUMBER_2 for value: 2
+            /// </summary>
+            NUMBER_2 = 2
+
+        }
+
+        /// <summary>
+        /// ｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式
+        /// </summary>
+        /// <value>｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式</value>
+        [DataMember(Name="margin_mode")]
+        public MarginModeEnum? MarginMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="OptionsAccount" /> class.
         /// </summary>
         /// <param name="user">User ID.</param>
-        /// <param name="total">Total account balance.</param>
+        /// <param name="total">账户余额.</param>
+        /// <param name="positionValue">仓位价值，做多仓位价值为正，做空仓位价值为负.</param>
+        /// <param name="equity">账户权益，账户余额与仓位价值的和.</param>
         /// <param name="shortEnabled">If the account is allowed to short.</param>
+        /// <param name="mmpEnabled">是否启用MMP.</param>
+        /// <param name="liqTriggered">是否触发仓位强平.</param>
+        /// <param name="marginMode">｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式.</param>
         /// <param name="unrealisedPnl">Unrealized PNL.</param>
         /// <param name="initMargin">Initial position margin.</param>
         /// <param name="maintMargin">Position maintenance margin.</param>
         /// <param name="orderMargin">Order margin of unfinished orders.</param>
+        /// <param name="askOrderMargin">未完成卖单的保证金.</param>
+        /// <param name="bidOrderMargin">未完成买单的保证金.</param>
         /// <param name="available">Available balance to transfer out or trade.</param>
         /// <param name="point">POINT amount.</param>
         /// <param name="currency">Settle currency.</param>
-        public OptionsAccount(int user = default(int), string total = default(string), bool shortEnabled = default(bool), string unrealisedPnl = default(string), string initMargin = default(string), string maintMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string))
+        /// <param name="ordersLimit">未完成订单数量上限.</param>
+        /// <param name="positionNotionalLimit">名义价值上限，包含仓位以及未完成订单的名义价值.</param>
+        public OptionsAccount(long user = default(long), string total = default(string), string positionValue = default(string), string equity = default(string), bool shortEnabled = default(bool), bool mmpEnabled = default(bool), bool liqTriggered = default(bool), MarginModeEnum? marginMode = default(MarginModeEnum?), string unrealisedPnl = default(string), string initMargin = default(string), string maintMargin = default(string), string orderMargin = default(string), string askOrderMargin = default(string), string bidOrderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), int ordersLimit = default(int), long positionNotionalLimit = default(long))
         {
             this.User = user;
             this.Total = total;
+            this.PositionValue = positionValue;
+            this.Equity = equity;
             this.ShortEnabled = shortEnabled;
+            this.MmpEnabled = mmpEnabled;
+            this.LiqTriggered = liqTriggered;
+            this.MarginMode = marginMode;
             this.UnrealisedPnl = unrealisedPnl;
             this.InitMargin = initMargin;
             this.MaintMargin = maintMargin;
             this.OrderMargin = orderMargin;
+            this.AskOrderMargin = askOrderMargin;
+            this.BidOrderMargin = bidOrderMargin;
             this.Available = available;
             this.Point = point;
             this.Currency = currency;
+            this.OrdersLimit = ordersLimit;
+            this.PositionNotionalLimit = positionNotionalLimit;
         }
 
         /// <summary>
@@ -62,14 +109,28 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>User ID</value>
         [DataMember(Name="user")]
-        public int User { get; set; }
+        public long User { get; set; }
 
         /// <summary>
-        /// Total account balance
+        /// 账户余额
         /// </summary>
-        /// <value>Total account balance</value>
+        /// <value>账户余额</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
+
+        /// <summary>
+        /// 仓位价值，做多仓位价值为正，做空仓位价值为负
+        /// </summary>
+        /// <value>仓位价值，做多仓位价值为正，做空仓位价值为负</value>
+        [DataMember(Name="position_value")]
+        public string PositionValue { get; set; }
+
+        /// <summary>
+        /// 账户权益，账户余额与仓位价值的和
+        /// </summary>
+        /// <value>账户权益，账户余额与仓位价值的和</value>
+        [DataMember(Name="equity")]
+        public string Equity { get; set; }
 
         /// <summary>
         /// If the account is allowed to short
@@ -77,6 +138,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>If the account is allowed to short</value>
         [DataMember(Name="short_enabled")]
         public bool ShortEnabled { get; set; }
+
+        /// <summary>
+        /// 是否启用MMP
+        /// </summary>
+        /// <value>是否启用MMP</value>
+        [DataMember(Name="mmp_enabled")]
+        public bool MmpEnabled { get; set; }
+
+        /// <summary>
+        /// 是否触发仓位强平
+        /// </summary>
+        /// <value>是否触发仓位强平</value>
+        [DataMember(Name="liq_triggered")]
+        public bool LiqTriggered { get; set; }
 
         /// <summary>
         /// Unrealized PNL
@@ -107,6 +182,20 @@ namespace Io.Gate.GateApi.Model
         public string OrderMargin { get; set; }
 
         /// <summary>
+        /// 未完成卖单的保证金
+        /// </summary>
+        /// <value>未完成卖单的保证金</value>
+        [DataMember(Name="ask_order_margin")]
+        public string AskOrderMargin { get; set; }
+
+        /// <summary>
+        /// 未完成买单的保证金
+        /// </summary>
+        /// <value>未完成买单的保证金</value>
+        [DataMember(Name="bid_order_margin")]
+        public string BidOrderMargin { get; set; }
+
+        /// <summary>
         /// Available balance to transfer out or trade
         /// </summary>
         /// <value>Available balance to transfer out or trade</value>
@@ -128,6 +217,20 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
+        /// 未完成订单数量上限
+        /// </summary>
+        /// <value>未完成订单数量上限</value>
+        [DataMember(Name="orders_limit")]
+        public int OrdersLimit { get; set; }
+
+        /// <summary>
+        /// 名义价值上限，包含仓位以及未完成订单的名义价值
+        /// </summary>
+        /// <value>名义价值上限，包含仓位以及未完成订单的名义价值</value>
+        [DataMember(Name="position_notional_limit")]
+        public long PositionNotionalLimit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -137,14 +240,23 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class OptionsAccount {\n");
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  PositionValue: ").Append(PositionValue).Append("\n");
+            sb.Append("  Equity: ").Append(Equity).Append("\n");
             sb.Append("  ShortEnabled: ").Append(ShortEnabled).Append("\n");
+            sb.Append("  MmpEnabled: ").Append(MmpEnabled).Append("\n");
+            sb.Append("  LiqTriggered: ").Append(LiqTriggered).Append("\n");
+            sb.Append("  MarginMode: ").Append(MarginMode).Append("\n");
             sb.Append("  UnrealisedPnl: ").Append(UnrealisedPnl).Append("\n");
             sb.Append("  InitMargin: ").Append(InitMargin).Append("\n");
             sb.Append("  MaintMargin: ").Append(MaintMargin).Append("\n");
             sb.Append("  OrderMargin: ").Append(OrderMargin).Append("\n");
+            sb.Append("  AskOrderMargin: ").Append(AskOrderMargin).Append("\n");
+            sb.Append("  BidOrderMargin: ").Append(BidOrderMargin).Append("\n");
             sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("  Point: ").Append(Point).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  OrdersLimit: ").Append(OrdersLimit).Append("\n");
+            sb.Append("  PositionNotionalLimit: ").Append(PositionNotionalLimit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -189,8 +301,30 @@ namespace Io.Gate.GateApi.Model
                     this.Total.Equals(input.Total))
                 ) && 
                 (
+                    this.PositionValue == input.PositionValue ||
+                    (this.PositionValue != null &&
+                    this.PositionValue.Equals(input.PositionValue))
+                ) && 
+                (
+                    this.Equity == input.Equity ||
+                    (this.Equity != null &&
+                    this.Equity.Equals(input.Equity))
+                ) && 
+                (
                     this.ShortEnabled == input.ShortEnabled ||
                     this.ShortEnabled.Equals(input.ShortEnabled)
+                ) && 
+                (
+                    this.MmpEnabled == input.MmpEnabled ||
+                    this.MmpEnabled.Equals(input.MmpEnabled)
+                ) && 
+                (
+                    this.LiqTriggered == input.LiqTriggered ||
+                    this.LiqTriggered.Equals(input.LiqTriggered)
+                ) && 
+                (
+                    this.MarginMode == input.MarginMode ||
+                    this.MarginMode.Equals(input.MarginMode)
                 ) && 
                 (
                     this.UnrealisedPnl == input.UnrealisedPnl ||
@@ -213,6 +347,16 @@ namespace Io.Gate.GateApi.Model
                     this.OrderMargin.Equals(input.OrderMargin))
                 ) && 
                 (
+                    this.AskOrderMargin == input.AskOrderMargin ||
+                    (this.AskOrderMargin != null &&
+                    this.AskOrderMargin.Equals(input.AskOrderMargin))
+                ) && 
+                (
+                    this.BidOrderMargin == input.BidOrderMargin ||
+                    (this.BidOrderMargin != null &&
+                    this.BidOrderMargin.Equals(input.BidOrderMargin))
+                ) && 
+                (
                     this.Available == input.Available ||
                     (this.Available != null &&
                     this.Available.Equals(input.Available))
@@ -226,6 +370,14 @@ namespace Io.Gate.GateApi.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.OrdersLimit == input.OrdersLimit ||
+                    this.OrdersLimit.Equals(input.OrdersLimit)
+                ) && 
+                (
+                    this.PositionNotionalLimit == input.PositionNotionalLimit ||
+                    this.PositionNotionalLimit.Equals(input.PositionNotionalLimit)
                 );
         }
 
@@ -241,7 +393,14 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.User.GetHashCode();
                 if (this.Total != null)
                     hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.PositionValue != null)
+                    hashCode = hashCode * 59 + this.PositionValue.GetHashCode();
+                if (this.Equity != null)
+                    hashCode = hashCode * 59 + this.Equity.GetHashCode();
                 hashCode = hashCode * 59 + this.ShortEnabled.GetHashCode();
+                hashCode = hashCode * 59 + this.MmpEnabled.GetHashCode();
+                hashCode = hashCode * 59 + this.LiqTriggered.GetHashCode();
+                hashCode = hashCode * 59 + this.MarginMode.GetHashCode();
                 if (this.UnrealisedPnl != null)
                     hashCode = hashCode * 59 + this.UnrealisedPnl.GetHashCode();
                 if (this.InitMargin != null)
@@ -250,12 +409,18 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MaintMargin.GetHashCode();
                 if (this.OrderMargin != null)
                     hashCode = hashCode * 59 + this.OrderMargin.GetHashCode();
+                if (this.AskOrderMargin != null)
+                    hashCode = hashCode * 59 + this.AskOrderMargin.GetHashCode();
+                if (this.BidOrderMargin != null)
+                    hashCode = hashCode * 59 + this.BidOrderMargin.GetHashCode();
                 if (this.Available != null)
                     hashCode = hashCode * 59 + this.Available.GetHashCode();
                 if (this.Point != null)
                     hashCode = hashCode * 59 + this.Point.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                hashCode = hashCode * 59 + this.OrdersLimit.GetHashCode();
+                hashCode = hashCode * 59 + this.PositionNotionalLimit.GetHashCode();
                 return hashCode;
             }
         }

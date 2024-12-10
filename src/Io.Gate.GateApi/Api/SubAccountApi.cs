@@ -247,6 +247,25 @@ namespace Io.Gate.GateApi.Api
         /// <param name="userId">The user id of the sub-account</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId);
+        /// <summary>
+        /// Get sub-account mode
+        /// </summary>
+        /// <remarks>
+        /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;SubUserMode&gt;</returns>
+        List<SubUserMode> ListUnifiedMode ();
+
+        /// <summary>
+        /// Get sub-account mode
+        /// </summary>
+        /// <remarks>
+        /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;SubUserMode&gt;</returns>
+        ApiResponse<List<SubUserMode>> ListUnifiedModeWithHttpInfo ();
         #endregion Synchronous Operations
     }
 
@@ -476,6 +495,25 @@ namespace Io.Gate.GateApi.Api
         /// <param name="userId">The user id of the sub-account</param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId);
+        /// <summary>
+        /// Get sub-account mode
+        /// </summary>
+        /// <remarks>
+        /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;SubUserMode&gt;</returns>
+        Task<List<SubUserMode>> ListUnifiedModeAsync ();
+
+        /// <summary>
+        /// Get sub-account mode
+        /// </summary>
+        /// <remarks>
+        /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;SubUserMode&gt;)</returns>
+        Task<ApiResponse<List<SubUserMode>>> ListUnifiedModeAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -1754,6 +1792,109 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnlockSubAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;SubUserMode&gt;</returns>
+        public List<SubUserMode> ListUnifiedMode ()
+        {
+             ApiResponse<List<SubUserMode>> localVarResponse = ListUnifiedModeWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;SubUserMode&gt;</returns>
+        public ApiResponse<List<SubUserMode>> ListUnifiedModeWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<SubUserMode>>("/sub_accounts/unified_mode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUnifiedMode", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;SubUserMode&gt;</returns>
+        public async Task<List<SubUserMode>> ListUnifiedModeAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<SubUserMode>> localVarResponse = await ListUnifiedModeAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;SubUserMode&gt;)</returns>
+        public async Task<ApiResponse<List<SubUserMode>>> ListUnifiedModeAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SubUserMode>>("/sub_accounts/unified_mode", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUnifiedMode", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

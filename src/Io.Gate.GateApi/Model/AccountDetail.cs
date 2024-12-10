@@ -38,13 +38,15 @@ namespace Io.Gate.GateApi.Model
         /// <param name="userId">User ID.</param>
         /// <param name="tier">User VIP level.</param>
         /// <param name="key">key.</param>
-        public AccountDetail(List<string> ipWhitelist = default(List<string>), List<string> currencyPairs = default(List<string>), long userId = default(long), long tier = default(long), AccountDetailKey key = default(AccountDetailKey))
+        /// <param name="copyTradingRole">User role: 0 - Ordinary user 1 - Order leader 2 - Follower 3 - Order leader and follower.</param>
+        public AccountDetail(List<string> ipWhitelist = default(List<string>), List<string> currencyPairs = default(List<string>), long userId = default(long), long tier = default(long), AccountDetailKey key = default(AccountDetailKey), int copyTradingRole = default(int))
         {
             this.IpWhitelist = ipWhitelist;
             this.CurrencyPairs = currencyPairs;
             this.UserId = userId;
             this.Tier = tier;
             this.Key = key;
+            this.CopyTradingRole = copyTradingRole;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace Io.Gate.GateApi.Model
         public AccountDetailKey Key { get; set; }
 
         /// <summary>
+        /// User role: 0 - Ordinary user 1 - Order leader 2 - Follower 3 - Order leader and follower
+        /// </summary>
+        /// <value>User role: 0 - Ordinary user 1 - Order leader 2 - Follower 3 - Order leader and follower</value>
+        [DataMember(Name="copy_trading_role")]
+        public int CopyTradingRole { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +103,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Tier: ").Append(Tier).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  CopyTradingRole: ").Append(CopyTradingRole).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +162,10 @@ namespace Io.Gate.GateApi.Model
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
+                ) && 
+                (
+                    this.CopyTradingRole == input.CopyTradingRole ||
+                    this.CopyTradingRole.Equals(input.CopyTradingRole)
                 );
         }
 
@@ -172,6 +186,7 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.Tier.GetHashCode();
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
+                hashCode = hashCode * 59 + this.CopyTradingRole.GetHashCode();
                 return hashCode;
             }
         }

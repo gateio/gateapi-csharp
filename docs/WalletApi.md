@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
 [**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
 [**SubAccountToSubAccount**](WalletApi.md#subaccounttosubaccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
+[**GetTransferOrderStatus**](WalletApi.md#gettransferorderstatus) | **GET** /wallet/order_status | Transfer status query
 [**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
 [**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
 [**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**ListSmallBalance**](WalletApi.md#listsmallbalance) | **GET** /wallet/small_balance | List small balance
 [**ConvertSmallBalance**](WalletApi.md#convertsmallbalance) | **POST** /wallet/small_balance | Convert small balance
 [**ListSmallBalanceHistory**](WalletApi.md#listsmallbalancehistory) | **GET** /wallet/small_balance_history | List small balance history
+[**ListPushOrders**](WalletApi.md#listpushorders) | **GET** /wallet/push | Retrieve the UID transfer history
 
 
 <a name="listcurrencychains"></a>
@@ -333,7 +335,7 @@ Name | Type | Description  | Notes
 
 Transfer between trading accounts
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - cross margin 5. spot - options
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
 
 ### Example
 ```csharp
@@ -483,7 +485,7 @@ Name | Type | Description  | Notes
 
 <a name="transferwithsubaccount"></a>
 # **TransferWithSubAccount**
-> void TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
+> TransactionID TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
 
 Transfer between main and sub accounts
 
@@ -513,7 +515,8 @@ namespace Example
             try
             {
                 // Transfer between main and sub accounts
-                apiInstance.TransferWithSubAccount(subAccountTransfer);
+                TransactionID result = apiInstance.TransferWithSubAccount(subAccountTransfer);
+                Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
@@ -535,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -544,18 +547,18 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Balance transferred |  -  |
+| **200** | Balance transferred |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="subaccounttosubaccount"></a>
 # **SubAccountToSubAccount**
-> void SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
+> TransactionID SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
 
 Sub-account transfers to sub-account
 
@@ -585,7 +588,8 @@ namespace Example
             try
             {
                 // Sub-account transfers to sub-account
-                apiInstance.SubAccountToSubAccount(subAccountToSubAccount);
+                TransactionID result = apiInstance.SubAccountToSubAccount(subAccountToSubAccount);
+                Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
@@ -607,7 +611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**TransactionID**](TransactionID.md)
 
 ### Authorization
 
@@ -616,12 +620,87 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Balance transferred |  -  |
+| **200** | Balance transferred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gettransferorderstatus"></a>
+# **GetTransferOrderStatus**
+> InlineResponse200 GetTransferOrderStatus (string clientOrderId = null, string txId = null)
+
+Transfer status query
+
+Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetTransferOrderStatusExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var clientOrderId = "da3ce7a088c8b0372b741419c7829033";  // string | The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens '-', and underscores '_', with a length ranging from 1 to 64 characters. (optional) 
+            var txId = "59636381286";  // string | The transfer operation number and client_order_id cannot be empty at the same time (optional) 
+
+            try
+            {
+                // Transfer status query
+                InlineResponse200 result = apiInstance.GetTransferOrderStatus(clientOrderId, txId);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.GetTransferOrderStatus: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientOrderId** | **string**| The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. | [optional] 
+ **txId** | **string**| The transfer operation number and client_order_id cannot be empty at the same time | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Transfer status obtained successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1207,7 +1286,7 @@ Name | Type | Description  | Notes
 
 <a name="listsmallbalance"></a>
 # **ListSmallBalance**
-> SmallBalance ListSmallBalance ()
+> List&lt;SmallBalance&gt; ListSmallBalance ()
 
 List small balance
 
@@ -1234,7 +1313,7 @@ namespace Example
             try
             {
                 // List small balance
-                SmallBalance result = apiInstance.ListSmallBalance();
+                List<SmallBalance> result = apiInstance.ListSmallBalance();
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1254,7 +1333,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SmallBalance**](SmallBalance.md)
+[**List&lt;SmallBalance&gt;**](SmallBalance.md)
 
 ### Authorization
 
@@ -1344,7 +1423,7 @@ void (empty response body)
 
 <a name="listsmallbalancehistory"></a>
 # **ListSmallBalanceHistory**
-> SmallBalanceHistory ListSmallBalanceHistory (string currency = null, int? page = null, int? limit = null)
+> List&lt;SmallBalanceHistory&gt; ListSmallBalanceHistory (string currency = null, int? page = null, int? limit = null)
 
 List small balance history
 
@@ -1374,7 +1453,7 @@ namespace Example
             try
             {
                 // List small balance history
-                SmallBalanceHistory result = apiInstance.ListSmallBalanceHistory(currency, page, limit);
+                List<SmallBalanceHistory> result = apiInstance.ListSmallBalanceHistory(currency, page, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1399,7 +1478,86 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SmallBalanceHistory**](SmallBalanceHistory.md)
+[**List&lt;SmallBalanceHistory&gt;**](SmallBalanceHistory.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listpushorders"></a>
+# **ListPushOrders**
+> List&lt;UidPushOrder&gt; ListPushOrders (int? id = null, int? from = null, int? to = null, int? limit = null, int? offset = null)
+
+Retrieve the UID transfer history
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListPushOrdersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new WalletApi(config);
+            var id = 56;  // int? | Order ID (optional) 
+            var from = 56;  // int? | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional) 
+            var to = 56;  // int? | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional) 
+            var limit = 100;  // int? | The maximum number of items returned in the list, the default value is 100 (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+
+            try
+            {
+                // Retrieve the UID transfer history
+                List<UidPushOrder> result = apiInstance.ListPushOrders(id, from, to, limit, offset);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling WalletApi.ListPushOrders: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int?**| Order ID | [optional] 
+ **from** | **int?**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional] 
+ **to** | **int?**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional] 
+ **limit** | **int?**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;UidPushOrder&gt;**](UidPushOrder.md)
 
 ### Authorization
 

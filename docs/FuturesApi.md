@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**ListContractStats**](FuturesApi.md#listcontractstats) | **GET** /futures/{settle}/contract_stats | Futures stats
 [**GetIndexConstituents**](FuturesApi.md#getindexconstituents) | **GET** /futures/{settle}/index_constituents/{index} | Get index constituents
 [**ListLiquidatedOrders**](FuturesApi.md#listliquidatedorders) | **GET** /futures/{settle}/liq_orders | Retrieve liquidation history
-[**ListRiskLimitTiers**](FuturesApi.md#listrisklimittiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
+[**ListFuturesRiskLimitTiers**](FuturesApi.md#listfuturesrisklimittiers) | **GET** /futures/{settle}/risk_limit_tiers | List risk limit tiers
 [**ListFuturesAccounts**](FuturesApi.md#listfuturesaccounts) | **GET** /futures/{settle}/accounts | Query futures account
 [**ListFuturesAccountBook**](FuturesApi.md#listfuturesaccountbook) | **GET** /futures/{settle}/account_book | Query account book
 [**ListPositions**](FuturesApi.md#listpositions) | **GET** /futures/{settle}/positions | List all positions of a user
@@ -45,6 +45,7 @@ Method | HTTP request | Description
 [**CountdownCancelAllFutures**](FuturesApi.md#countdowncancelallfutures) | **POST** /futures/{settle}/countdown_cancel_all | Countdown cancel orders
 [**GetFuturesFee**](FuturesApi.md#getfuturesfee) | **GET** /futures/{settle}/fee | Query user trading fee rates
 [**CancelBatchFutureOrders**](FuturesApi.md#cancelbatchfutureorders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
+[**AmendBatchFutureOrders**](FuturesApi.md#amendbatchfutureorders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
 [**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List all auto orders
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
 [**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
@@ -591,7 +592,7 @@ No authorization required
 
 <a name="listfuturesfundingratehistory"></a>
 # **ListFuturesFundingRateHistory**
-> List&lt;FundingRateRecord&gt; ListFuturesFundingRateHistory (string settle, string contract, int? limit = null)
+> List&lt;FundingRateRecord&gt; ListFuturesFundingRateHistory (string settle, string contract, int? limit = null, long? from = null, long? to = null)
 
 Funding rate history
 
@@ -615,11 +616,13 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var from = 1547706332;  // long? | Start timestamp (optional) 
+            var to = 1547706332;  // long? | End timestamp (optional) 
 
             try
             {
                 // Funding rate history
-                List<FundingRateRecord> result = apiInstance.ListFuturesFundingRateHistory(settle, contract, limit);
+                List<FundingRateRecord> result = apiInstance.ListFuturesFundingRateHistory(settle, contract, limit, from, to);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -641,6 +644,8 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **from** | **long?**| Start timestamp | [optional] 
+ **to** | **long?**| End timestamp | [optional] 
 
 ### Return type
 
@@ -960,11 +965,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listrisklimittiers"></a>
-# **ListRiskLimitTiers**
-> List&lt;FuturesLimitRiskTiers&gt; ListRiskLimitTiers (string settle, string contract)
+<a name="listfuturesrisklimittiers"></a>
+# **ListFuturesRiskLimitTiers**
+> List&lt;FuturesLimitRiskTiers&gt; ListFuturesRiskLimitTiers (string settle, string contract = null, int? limit = null, int? offset = null)
 
 List risk limit tiers
+
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the 'contract' parameter is empty.
 
 ### Example
 ```csharp
@@ -976,7 +983,7 @@ using Io.Gate.GateApi.Model;
 
 namespace Example
 {
-    public class ListRiskLimitTiersExample
+    public class ListFuturesRiskLimitTiersExample
     {
         public static void Main()
         {
@@ -984,17 +991,19 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
 
             try
             {
                 // List risk limit tiers
-                List<FuturesLimitRiskTiers> result = apiInstance.ListRiskLimitTiers(settle, contract);
+                List<FuturesLimitRiskTiers> result = apiInstance.ListFuturesRiskLimitTiers(settle, contract, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
-                Debug.Print("Exception when calling FuturesApi.ListRiskLimitTiers: " + e.Message);
+                Debug.Print("Exception when calling FuturesApi.ListFuturesRiskLimitTiers: " + e.Message);
                 Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
@@ -1009,7 +1018,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
 
 ### Return type
 
@@ -1516,7 +1527,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
-            var riskLimit = "10";  // string | New position risk limit
+            var riskLimit = "1000000";  // string | New Risk Limit Value
 
             try
             {
@@ -1542,7 +1553,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **riskLimit** | **string**| New position risk limit | 
+ **riskLimit** | **string**| New Risk Limit Value | 
 
 ### Return type
 
@@ -1893,7 +1904,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
-            var riskLimit = "10";  // string | New position risk limit
+            var riskLimit = "1000000";  // string | New Risk Limit Value
 
             try
             {
@@ -1919,7 +1930,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **riskLimit** | **string**| New position risk limit | 
+ **riskLimit** | **string**| New Risk Limit Value | 
 
 ### Return type
 
@@ -2026,7 +2037,7 @@ Name | Type | Description  | Notes
 
 <a name="createfuturesorder"></a>
 # **CreateFuturesOrder**
-> FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder)
+> FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = null)
 
 Create a futures order
 
@@ -2053,11 +2064,12 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var futuresOrder = new FuturesOrder(); // FuturesOrder | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Create a futures order
-                FuturesOrder result = apiInstance.CreateFuturesOrder(settle, futuresOrder);
+                FuturesOrder result = apiInstance.CreateFuturesOrder(settle, futuresOrder, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2078,6 +2090,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2101,7 +2114,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelfuturesorders"></a>
 # **CancelFuturesOrders**
-> List&lt;FuturesOrder&gt; CancelFuturesOrders (string settle, string contract, string side = null)
+> List&lt;FuturesOrder&gt; CancelFuturesOrders (string settle, string contract, long? xGateExptime = null, string side = null)
 
 Cancel all `open` orders matched
 
@@ -2128,12 +2141,13 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
             var side = "ask";  // string | All bids or asks. Both included if not specified (optional) 
 
             try
             {
                 // Cancel all `open` orders matched
-                List<FuturesOrder> result = apiInstance.CancelFuturesOrders(settle, contract, side);
+                List<FuturesOrder> result = apiInstance.CancelFuturesOrders(settle, contract, xGateExptime, side);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2154,6 +2168,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
 
 ### Return type
@@ -2259,7 +2274,7 @@ Name | Type | Description  | Notes
 
 <a name="createbatchfuturesorder"></a>
 # **CreateBatchFuturesOrder**
-> List&lt;BatchFuturesOrder&gt; CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder)
+> List&lt;BatchFuturesOrder&gt; CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = null)
 
 Create a batch of futures orders
 
@@ -2286,11 +2301,12 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var futuresOrder = new List<FuturesOrder>(); // List<FuturesOrder> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Create a batch of futures orders
-                List<BatchFuturesOrder> result = apiInstance.CreateBatchFuturesOrder(settle, futuresOrder);
+                List<BatchFuturesOrder> result = apiInstance.CreateBatchFuturesOrder(settle, futuresOrder, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2311,6 +2327,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **futuresOrder** | [**List&lt;FuturesOrder&gt;**](FuturesOrder.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2409,7 +2426,7 @@ Name | Type | Description  | Notes
 
 <a name="amendfuturesorder"></a>
 # **AmendFuturesOrder**
-> FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment)
+> FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = null)
 
 Amend an order
 
@@ -2435,11 +2452,12 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
             var futuresOrderAmendment = new FuturesOrderAmendment(); // FuturesOrderAmendment | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Amend an order
-                FuturesOrder result = apiInstance.AmendFuturesOrder(settle, orderId, futuresOrderAmendment);
+                FuturesOrder result = apiInstance.AmendFuturesOrder(settle, orderId, futuresOrderAmendment, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2461,6 +2479,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. | 
  **futuresOrderAmendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2484,7 +2503,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelfuturesorder"></a>
 # **CancelFuturesOrder**
-> FuturesOrder CancelFuturesOrder (string settle, string orderId)
+> FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = null)
 
 Cancel a single order
 
@@ -2509,11 +2528,12 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Cancel a single order
-                FuturesOrder result = apiInstance.CancelFuturesOrder(settle, orderId);
+                FuturesOrder result = apiInstance.CancelFuturesOrder(settle, orderId, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2534,6 +2554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -3110,7 +3131,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelbatchfutureorders"></a>
 # **CancelBatchFutureOrders**
-> List&lt;FutureCancelOrderResult&gt; CancelBatchFutureOrders (string settle, List<string> requestBody)
+> List&lt;FutureCancelOrderResult&gt; CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = null)
 
 Cancel a batch of orders with an ID list
 
@@ -3137,11 +3158,12 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var requestBody = new List<string>(); // List<string> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
                 // Cancel a batch of orders with an ID list
-                List<FutureCancelOrderResult> result = apiInstance.CancelBatchFutureOrders(settle, requestBody);
+                List<FutureCancelOrderResult> result = apiInstance.CancelBatchFutureOrders(settle, requestBody, xGateExptime);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -3162,6 +3184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **requestBody** | [**List&lt;string&gt;**](string.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -3180,6 +3203,83 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Order cancellation operation completed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="amendbatchfutureorders"></a>
+# **AmendBatchFutureOrders**
+> List&lt;BatchFuturesOrder&gt; AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = null)
+
+Batch modify orders with specified IDs
+
+You can specify multiple different order IDs. You can only modify up to 10 orders in one request.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class AmendBatchFutureOrdersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency
+            var batchAmendOrderReq = new List<BatchAmendOrderReq>(); // List<BatchAmendOrderReq> | 
+            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+
+            try
+            {
+                // Batch modify orders with specified IDs
+                List<BatchFuturesOrder> result = apiInstance.AmendBatchFutureOrders(settle, batchAmendOrderReq, xGateExptime);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.AmendBatchFutureOrders: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency | 
+ **batchAmendOrderReq** | [**List&lt;BatchAmendOrderReq&gt;**](BatchAmendOrderReq.md)|  | 
+ **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+
+### Return type
+
+[**List&lt;BatchFuturesOrder&gt;**](BatchFuturesOrder.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Request is completed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3337,7 +3437,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelpricetriggeredorderlist"></a>
 # **CancelPriceTriggeredOrderList**
-> List&lt;FuturesPriceTriggeredOrder&gt; CancelPriceTriggeredOrderList (string settle, string contract)
+> List&lt;FuturesPriceTriggeredOrder&gt; CancelPriceTriggeredOrderList (string settle, string contract = null)
 
 Cancel all open orders
 
@@ -3361,7 +3461,7 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT";  // string | Futures contract
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
 
             try
             {
@@ -3386,7 +3486,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **contract** | **string**| Futures contract, return related data only if specified | [optional] 
 
 ### Return type
 

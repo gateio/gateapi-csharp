@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**DeleteSubAccountKeys**](SubAccountApi.md#deletesubaccountkeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
 [**LockSubAccount**](SubAccountApi.md#locksubaccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
 [**UnlockSubAccount**](SubAccountApi.md#unlocksubaccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
+[**ListUnifiedMode**](SubAccountApi.md#listunifiedmode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
 
 
 <a name="listsubaccounts"></a>
@@ -729,6 +730,75 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Unlock successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listunifiedmode"></a>
+# **ListUnifiedMode**
+> List&lt;SubUserMode&gt; ListUnifiedMode ()
+
+Get sub-account mode
+
+Unified account mode： - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListUnifiedModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new SubAccountApi(config);
+
+            try
+            {
+                // Get sub-account mode
+                List<SubUserMode> result = apiInstance.ListUnifiedMode();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling SubAccountApi.ListUnifiedMode: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;SubUserMode&gt;**](SubUserMode.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

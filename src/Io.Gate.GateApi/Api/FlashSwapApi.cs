@@ -54,8 +54,10 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
-        List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string));
+        List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List All Supported Currency Pairs In Flash Swap
@@ -65,8 +67,10 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
-        ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string));
+        ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// List all flash swap orders
         /// </summary>
@@ -197,8 +201,10 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
-        Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string));
+        Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// List All Supported Currency Pairs In Flash Swap
@@ -208,8 +214,10 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
-        Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string));
+        Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// List all flash swap orders
         /// </summary>
@@ -528,10 +536,12 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
-        public List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string))
+        public List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
-             ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = ListFlashSwapCurrencyPairWithHttpInfo(currency);
+             ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = ListFlashSwapCurrencyPairWithHttpInfo(currency, page, limit);
              return localVarResponse.Data;
         }
 
@@ -540,8 +550,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
-        public ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string))
+        public ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -563,6 +575,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
             }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
 
 
             // make the HTTP request
@@ -582,10 +602,12 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
-        public async Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string))
+        public async Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = await ListFlashSwapCurrencyPairAsyncWithHttpInfo(currency);
+             Io.Gate.GateApi.Client.ApiResponse<List<FlashSwapCurrencyPair>> localVarResponse = await ListFlashSwapCurrencyPairAsyncWithHttpInfo(currency, page, limit);
              return localVarResponse.Data;
 
         }
@@ -595,8 +617,10 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
-        public async Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string))
+        public async Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -618,6 +642,14 @@ namespace Io.Gate.GateApi.Api
             if (currency != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
 

@@ -589,6 +589,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsOrder</returns>
         ApiResponse<OptionsOrder> CancelOptionsOrderWithHttpInfo (long orderId);
         /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>TriggerTime</returns>
+        TriggerTime CountdownCancelAllOptions (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
+
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>ApiResponse of TriggerTime</returns>
+        ApiResponse<TriggerTime> CountdownCancelAllOptionsWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
+        /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
@@ -619,6 +640,69 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMyTrade&gt;</returns>
         ApiResponse<List<OptionsMyTrade>> ListMyOptionsTradesWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
+        /// <summary>
+        /// MMP Query
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>List&lt;OptionsMMP&gt;</returns>
+        List<OptionsMMP> GetOptionsMMP (string underlying = default(string));
+
+        /// <summary>
+        /// MMP Query
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>ApiResponse of List&lt;OptionsMMP&gt;</returns>
+        ApiResponse<List<OptionsMMP>> GetOptionsMMPWithHttpInfo (string underlying = default(string));
+        /// <summary>
+        /// MMP Settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>OptionsMMP</returns>
+        OptionsMMP SetOptionsMMP (OptionsMMP optionsMMP);
+
+        /// <summary>
+        /// MMP Settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>ApiResponse of OptionsMMP</returns>
+        ApiResponse<OptionsMMP> SetOptionsMMPWithHttpInfo (OptionsMMP optionsMMP);
+        /// <summary>
+        /// MMP Reset
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>OptionsMMP</returns>
+        OptionsMMP ResetOptionsMMP (OptionsMMPReset optionsMMPReset);
+
+        /// <summary>
+        /// MMP Reset
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>ApiResponse of OptionsMMP</returns>
+        ApiResponse<OptionsMMP> ResetOptionsMMPWithHttpInfo (OptionsMMPReset optionsMMPReset);
         #endregion Synchronous Operations
     }
 
@@ -1190,6 +1274,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         Task<ApiResponse<OptionsOrder>> CancelOptionsOrderAsyncWithHttpInfo (long orderId);
         /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>Task of TriggerTime</returns>
+        Task<TriggerTime> CountdownCancelAllOptionsAsync (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
+
+        /// <summary>
+        /// Countdown cancel orders
+        /// </summary>
+        /// <remarks>
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>Task of ApiResponse (TriggerTime)</returns>
+        Task<ApiResponse<TriggerTime>> CountdownCancelAllOptionsAsyncWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
+        /// <summary>
         /// List personal trading history
         /// </summary>
         /// <remarks>
@@ -1220,6 +1325,69 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">End timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMyTrade&gt;)</returns>
         Task<ApiResponse<List<OptionsMyTrade>>> ListMyOptionsTradesAsyncWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
+        /// <summary>
+        /// MMP Query
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>Task of List&lt;OptionsMMP&gt;</returns>
+        Task<List<OptionsMMP>> GetOptionsMMPAsync (string underlying = default(string));
+
+        /// <summary>
+        /// MMP Query
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OptionsMMP&gt;)</returns>
+        Task<ApiResponse<List<OptionsMMP>>> GetOptionsMMPAsyncWithHttpInfo (string underlying = default(string));
+        /// <summary>
+        /// MMP Settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>Task of OptionsMMP</returns>
+        Task<OptionsMMP> SetOptionsMMPAsync (OptionsMMP optionsMMP);
+
+        /// <summary>
+        /// MMP Settings
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>Task of ApiResponse (OptionsMMP)</returns>
+        Task<ApiResponse<OptionsMMP>> SetOptionsMMPAsyncWithHttpInfo (OptionsMMP optionsMMP);
+        /// <summary>
+        /// MMP Reset
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>Task of OptionsMMP</returns>
+        Task<OptionsMMP> ResetOptionsMMPAsync (OptionsMMPReset optionsMMPReset);
+
+        /// <summary>
+        /// MMP Reset
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>Task of ApiResponse (OptionsMMP)</returns>
+        Task<ApiResponse<OptionsMMP>> ResetOptionsMMPAsyncWithHttpInfo (OptionsMMPReset optionsMMPReset);
         #endregion Asynchronous Operations
     }
 
@@ -4422,6 +4590,125 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
+        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>TriggerTime</returns>
+        public TriggerTime CountdownCancelAllOptions (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
+        {
+             ApiResponse<TriggerTime> localVarResponse = CountdownCancelAllOptionsWithHttpInfo(countdownCancelAllOptionsTask);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>ApiResponse of TriggerTime</returns>
+        public ApiResponse<TriggerTime> CountdownCancelAllOptionsWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
+        {
+            // verify the required parameter 'countdownCancelAllOptionsTask' is set
+            if (countdownCancelAllOptionsTask == null)
+                throw new ApiException(400, "Missing required parameter 'countdownCancelAllOptionsTask' when calling OptionsApi->CountdownCancelAllOptions");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = countdownCancelAllOptionsTask;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TriggerTime>("/options/countdown_cancel_all", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountdownCancelAllOptions", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>Task of TriggerTime</returns>
+        public async Task<TriggerTime> CountdownCancelAllOptionsAsync (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<TriggerTime> localVarResponse = await CountdownCancelAllOptionsAsyncWithHttpInfo(countdownCancelAllOptionsTask);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countdownCancelAllOptionsTask"></param>
+        /// <returns>Task of ApiResponse (TriggerTime)</returns>
+        public async Task<ApiResponse<TriggerTime>> CountdownCancelAllOptionsAsyncWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
+        {
+            // verify the required parameter 'countdownCancelAllOptionsTask' is set
+            if (countdownCancelAllOptionsTask == null)
+                throw new ApiException(400, "Missing required parameter 'countdownCancelAllOptionsTask' when calling OptionsApi->CountdownCancelAllOptions");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = countdownCancelAllOptionsTask;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TriggerTime>("/options/countdown_cancel_all", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountdownCancelAllOptions", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List personal trading history 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4592,6 +4879,359 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMyOptionsTrades", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Query 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>List&lt;OptionsMMP&gt;</returns>
+        public List<OptionsMMP> GetOptionsMMP (string underlying = default(string))
+        {
+             ApiResponse<List<OptionsMMP>> localVarResponse = GetOptionsMMPWithHttpInfo(underlying);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// MMP Query 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>ApiResponse of List&lt;OptionsMMP&gt;</returns>
+        public ApiResponse<List<OptionsMMP>> GetOptionsMMPWithHttpInfo (string underlying = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (underlying != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "underlying", underlying));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<OptionsMMP>>("/options/mmp", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOptionsMMP", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Query 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>Task of List&lt;OptionsMMP&gt;</returns>
+        public async Task<List<OptionsMMP>> GetOptionsMMPAsync (string underlying = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<OptionsMMP>> localVarResponse = await GetOptionsMMPAsyncWithHttpInfo(underlying);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// MMP Query 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="underlying">Underlying (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OptionsMMP&gt;)</returns>
+        public async Task<ApiResponse<List<OptionsMMP>>> GetOptionsMMPAsyncWithHttpInfo (string underlying = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (underlying != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "underlying", underlying));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<OptionsMMP>>("/options/mmp", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOptionsMMP", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Settings 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>OptionsMMP</returns>
+        public OptionsMMP SetOptionsMMP (OptionsMMP optionsMMP)
+        {
+             ApiResponse<OptionsMMP> localVarResponse = SetOptionsMMPWithHttpInfo(optionsMMP);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// MMP Settings 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>ApiResponse of OptionsMMP</returns>
+        public ApiResponse<OptionsMMP> SetOptionsMMPWithHttpInfo (OptionsMMP optionsMMP)
+        {
+            // verify the required parameter 'optionsMMP' is set
+            if (optionsMMP == null)
+                throw new ApiException(400, "Missing required parameter 'optionsMMP' when calling OptionsApi->SetOptionsMMP");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = optionsMMP;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<OptionsMMP>("/options/mmp", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetOptionsMMP", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Settings 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>Task of OptionsMMP</returns>
+        public async Task<OptionsMMP> SetOptionsMMPAsync (OptionsMMP optionsMMP)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<OptionsMMP> localVarResponse = await SetOptionsMMPAsyncWithHttpInfo(optionsMMP);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// MMP Settings 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMP"></param>
+        /// <returns>Task of ApiResponse (OptionsMMP)</returns>
+        public async Task<ApiResponse<OptionsMMP>> SetOptionsMMPAsyncWithHttpInfo (OptionsMMP optionsMMP)
+        {
+            // verify the required parameter 'optionsMMP' is set
+            if (optionsMMP == null)
+                throw new ApiException(400, "Missing required parameter 'optionsMMP' when calling OptionsApi->SetOptionsMMP");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = optionsMMP;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OptionsMMP>("/options/mmp", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetOptionsMMP", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Reset 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>OptionsMMP</returns>
+        public OptionsMMP ResetOptionsMMP (OptionsMMPReset optionsMMPReset)
+        {
+             ApiResponse<OptionsMMP> localVarResponse = ResetOptionsMMPWithHttpInfo(optionsMMPReset);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// MMP Reset 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>ApiResponse of OptionsMMP</returns>
+        public ApiResponse<OptionsMMP> ResetOptionsMMPWithHttpInfo (OptionsMMPReset optionsMMPReset)
+        {
+            // verify the required parameter 'optionsMMPReset' is set
+            if (optionsMMPReset == null)
+                throw new ApiException(400, "Missing required parameter 'optionsMMPReset' when calling OptionsApi->ResetOptionsMMP");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = optionsMMPReset;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<OptionsMMP>("/options/mmp/reset", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetOptionsMMP", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// MMP Reset 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>Task of OptionsMMP</returns>
+        public async Task<OptionsMMP> ResetOptionsMMPAsync (OptionsMMPReset optionsMMPReset)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<OptionsMMP> localVarResponse = await ResetOptionsMMPAsyncWithHttpInfo(optionsMMPReset);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// MMP Reset 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="optionsMMPReset"></param>
+        /// <returns>Task of ApiResponse (OptionsMMP)</returns>
+        public async Task<ApiResponse<OptionsMMP>> ResetOptionsMMPAsyncWithHttpInfo (OptionsMMPReset optionsMMPReset)
+        {
+            // verify the required parameter 'optionsMMPReset' is set
+            if (optionsMMPReset == null)
+                throw new ApiException(400, "Missing required parameter 'optionsMMPReset' when calling OptionsApi->ResetOptionsMMP");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = optionsMMPReset;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OptionsMMP>("/options/mmp/reset", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetOptionsMMP", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

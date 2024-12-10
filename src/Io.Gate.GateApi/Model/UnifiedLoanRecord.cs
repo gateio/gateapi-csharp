@@ -33,9 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedLoanRecord" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public UnifiedLoanRecord()
+        /// <param name="borrowType">Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment.</param>
+        public UnifiedLoanRecord(string borrowType = default(string))
         {
+            this.BorrowType = borrowType;
         }
 
         /// <summary>
@@ -58,6 +59,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation</value>
         [DataMember(Name="repayment_type", EmitDefaultValue=false)]
         public string RepaymentType { get; private set; }
+
+        /// <summary>
+        /// Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment
+        /// </summary>
+        /// <value>Loan type, returned when querying loan records. manual_borrow - Manual repayment , auto_borrow - Automatic repayment</value>
+        [DataMember(Name="borrow_type")]
+        public string BorrowType { get; set; }
 
         /// <summary>
         /// Currency pair
@@ -98,6 +106,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  RepaymentType: ").Append(RepaymentType).Append("\n");
+            sb.Append("  BorrowType: ").Append(BorrowType).Append("\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -151,6 +160,11 @@ namespace Io.Gate.GateApi.Model
                     this.RepaymentType.Equals(input.RepaymentType))
                 ) && 
                 (
+                    this.BorrowType == input.BorrowType ||
+                    (this.BorrowType != null &&
+                    this.BorrowType.Equals(input.BorrowType))
+                ) && 
+                (
                     this.CurrencyPair == input.CurrencyPair ||
                     (this.CurrencyPair != null &&
                     this.CurrencyPair.Equals(input.CurrencyPair))
@@ -185,6 +199,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.RepaymentType != null)
                     hashCode = hashCode * 59 + this.RepaymentType.GetHashCode();
+                if (this.BorrowType != null)
+                    hashCode = hashCode * 59 + this.BorrowType.GetHashCode();
                 if (this.CurrencyPair != null)
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Currency != null)

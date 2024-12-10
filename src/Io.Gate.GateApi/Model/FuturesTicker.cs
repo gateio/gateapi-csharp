@@ -53,8 +53,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="basisRate">Basis rate.</param>
         /// <param name="basisValue">Basis value.</param>
         /// <param name="lowestAsk">Recent lowest ask.</param>
+        /// <param name="lowestSize">The latest seller&#39;s lowest price order quantity.</param>
         /// <param name="highestBid">Recent highest bid.</param>
-        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string), string lowestAsk = default(string), string highestBid = default(string))
+        /// <param name="highestSize">The latest buyer&#39;s highest price order volume.</param>
+        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string))
         {
             this.Contract = contract;
             this.Last = last;
@@ -76,7 +78,9 @@ namespace Io.Gate.GateApi.Model
             this.BasisRate = basisRate;
             this.BasisValue = basisValue;
             this.LowestAsk = lowestAsk;
+            this.LowestSize = lowestSize;
             this.HighestBid = highestBid;
+            this.HighestSize = highestSize;
         }
 
         /// <summary>
@@ -220,11 +224,25 @@ namespace Io.Gate.GateApi.Model
         public string LowestAsk { get; set; }
 
         /// <summary>
+        /// The latest seller&#39;s lowest price order quantity
+        /// </summary>
+        /// <value>The latest seller&#39;s lowest price order quantity</value>
+        [DataMember(Name="lowest_size")]
+        public string LowestSize { get; set; }
+
+        /// <summary>
         /// Recent highest bid
         /// </summary>
         /// <value>Recent highest bid</value>
         [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
+
+        /// <summary>
+        /// The latest buyer&#39;s highest price order volume
+        /// </summary>
+        /// <value>The latest buyer&#39;s highest price order volume</value>
+        [DataMember(Name="highest_size")]
+        public string HighestSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -254,7 +272,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  BasisRate: ").Append(BasisRate).Append("\n");
             sb.Append("  BasisValue: ").Append(BasisValue).Append("\n");
             sb.Append("  LowestAsk: ").Append(LowestAsk).Append("\n");
+            sb.Append("  LowestSize: ").Append(LowestSize).Append("\n");
             sb.Append("  HighestBid: ").Append(HighestBid).Append("\n");
+            sb.Append("  HighestSize: ").Append(HighestSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -390,9 +410,19 @@ namespace Io.Gate.GateApi.Model
                     this.LowestAsk.Equals(input.LowestAsk))
                 ) && 
                 (
+                    this.LowestSize == input.LowestSize ||
+                    (this.LowestSize != null &&
+                    this.LowestSize.Equals(input.LowestSize))
+                ) && 
+                (
                     this.HighestBid == input.HighestBid ||
                     (this.HighestBid != null &&
                     this.HighestBid.Equals(input.HighestBid))
+                ) && 
+                (
+                    this.HighestSize == input.HighestSize ||
+                    (this.HighestSize != null &&
+                    this.HighestSize.Equals(input.HighestSize))
                 );
         }
 
@@ -445,8 +475,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.BasisValue.GetHashCode();
                 if (this.LowestAsk != null)
                     hashCode = hashCode * 59 + this.LowestAsk.GetHashCode();
+                if (this.LowestSize != null)
+                    hashCode = hashCode * 59 + this.LowestSize.GetHashCode();
                 if (this.HighestBid != null)
                     hashCode = hashCode * 59 + this.HighestBid.GetHashCode();
+                if (this.HighestSize != null)
+                    hashCode = hashCode * 59 + this.HighestSize.GetHashCode();
                 return hashCode;
             }
         }

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class OptionsOrder :  IEquatable<OptionsOrder>, IValidatableObject
     {
         /// <summary>
-        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+        /// 结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销
         /// </summary>
-        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
+        /// <value>结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -83,14 +83,20 @@ namespace Io.Gate.GateApi.Model
             /// Enum Reduceout for value: reduce_out
             /// </summary>
             [EnumMember(Value = "reduce_out")]
-            Reduceout = 8
+            Reduceout = 8,
+
+            /// <summary>
+            /// Enum Mmpcancelled for value: mmp_cancelled
+            /// </summary>
+            [EnumMember(Value = "mmp_cancelled")]
+            Mmpcancelled = 9
 
         }
 
         /// <summary>
-        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close 
+        /// 结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销
         /// </summary>
-        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close </value>
+        /// <value>结束方式，包括：  - filled: 完全成交 - cancelled: 用户撤销 - liquidated: 强制平仓撤销 - ioc: 未立即完全成交，因为tif设置为ioc - auto_deleveraged: 自动减仓撤销 - reduce_only: 增持仓位撤销，因为设置reduce_only或平仓 - position_closed: 因为仓位平掉了，所以挂单被撤掉 - reduce_out: 只减仓被排除的不容易成交的挂单 - mmp_cancelled: MMP撤销</value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
@@ -167,9 +173,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).</param>
         /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 (default to false).</param>
         /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
+        /// <param name="mmp">设置为 true 的时候，为MMP委托 (default to false).</param>
         /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee (default to TifEnum.Gtc).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance .</param>
-        public OptionsOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, TifEnum? tif = TifEnum.Gtc, string text = default(string))
+        public OptionsOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, bool mmp = false, TifEnum? tif = TifEnum.Gtc, string text = default(string))
         {
             // to ensure "contract" is required (not null)
             this.Contract = contract ?? throw new ArgumentNullException("contract", "contract is a required property for OptionsOrder and cannot be null");
@@ -178,6 +185,7 @@ namespace Io.Gate.GateApi.Model
             this.Price = price;
             this.Close = close;
             this.ReduceOnly = reduceOnly;
+            this.Mmp = mmp;
             this.Tif = tif;
             this.Text = text;
         }
@@ -274,6 +282,20 @@ namespace Io.Gate.GateApi.Model
         public bool IsLiq { get; private set; }
 
         /// <summary>
+        /// 设置为 true 的时候，为MMP委托
+        /// </summary>
+        /// <value>设置为 true 的时候，为MMP委托</value>
+        [DataMember(Name="mmp")]
+        public bool Mmp { get; set; }
+
+        /// <summary>
+        /// 是否为MMP委托。对应请求中的&#x60;mmp&#x60;。
+        /// </summary>
+        /// <value>是否为MMP委托。对应请求中的&#x60;mmp&#x60;。</value>
+        [DataMember(Name="is_mmp", EmitDefaultValue=false)]
+        public bool IsMmp { get; private set; }
+
+        /// <summary>
         /// Size left to be traded
         /// </summary>
         /// <value>Size left to be traded</value>
@@ -345,6 +367,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  ReduceOnly: ").Append(ReduceOnly).Append("\n");
             sb.Append("  IsReduceOnly: ").Append(IsReduceOnly).Append("\n");
             sb.Append("  IsLiq: ").Append(IsLiq).Append("\n");
+            sb.Append("  Mmp: ").Append(Mmp).Append("\n");
+            sb.Append("  IsMmp: ").Append(IsMmp).Append("\n");
             sb.Append("  Tif: ").Append(Tif).Append("\n");
             sb.Append("  Left: ").Append(Left).Append("\n");
             sb.Append("  FillPrice: ").Append(FillPrice).Append("\n");
@@ -450,6 +474,14 @@ namespace Io.Gate.GateApi.Model
                     this.IsLiq.Equals(input.IsLiq)
                 ) && 
                 (
+                    this.Mmp == input.Mmp ||
+                    this.Mmp.Equals(input.Mmp)
+                ) && 
+                (
+                    this.IsMmp == input.IsMmp ||
+                    this.IsMmp.Equals(input.IsMmp)
+                ) && 
+                (
                     this.Tif == input.Tif ||
                     this.Tif.Equals(input.Tif)
                 ) && 
@@ -514,6 +546,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.ReduceOnly.GetHashCode();
                 hashCode = hashCode * 59 + this.IsReduceOnly.GetHashCode();
                 hashCode = hashCode * 59 + this.IsLiq.GetHashCode();
+                hashCode = hashCode * 59 + this.Mmp.GetHashCode();
+                hashCode = hashCode * 59 + this.IsMmp.GetHashCode();
                 hashCode = hashCode * 59 + this.Tif.GetHashCode();
                 hashCode = hashCode * 59 + this.Left.GetHashCode();
                 if (this.FillPrice != null)

@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="refreshTime">Time of the most recent refresh.</param>
         /// <param name="locked">Whether account is locked.</param>
         /// <param name="balances">balances.</param>
-        /// <param name="total">The total asset value in USD, calculated as the sum of the product of &#x60;(available + freeze) * price&#x60; for all currencies..</param>
+        /// <param name="total">Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total).</param>
         /// <param name="borrowed">The total borrowed amount in USD, calculated as the sum of the product of &#x60;borrowed * price&#x60; for all currencies (excluding points cards)..</param>
         /// <param name="totalInitialMargin">Total initial margin.</param>
         /// <param name="totalMarginBalance">Total margin balance.</param>
@@ -50,7 +50,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="unifiedAccountTotalEquity">Total equity of the portfolio margin account.</param>
         /// <param name="spotOrderLoss">Total order loss, in USDT.</param>
         /// <param name="spotHedge">Spot hedging status, true - enabled, false - not enabled..</param>
-        public UnifiedAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, UnifiedBalance> balances = default(Dictionary<string, UnifiedBalance>), string total = default(string), string borrowed = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string unifiedAccountTotal = default(string), string unifiedAccountTotalLiab = default(string), string unifiedAccountTotalEquity = default(string), string spotOrderLoss = default(string), bool spotHedge = default(bool))
+        /// <param name="useFunding">Whether to use funds as margin.</param>
+        public UnifiedAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, UnifiedBalance> balances = default(Dictionary<string, UnifiedBalance>), string total = default(string), string borrowed = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string unifiedAccountTotal = default(string), string unifiedAccountTotalLiab = default(string), string unifiedAccountTotalEquity = default(string), string spotOrderLoss = default(string), bool spotHedge = default(bool), bool useFunding = default(bool))
         {
             this.UserId = userId;
             this.RefreshTime = refreshTime;
@@ -69,6 +70,7 @@ namespace Io.Gate.GateApi.Model
             this.UnifiedAccountTotalEquity = unifiedAccountTotalEquity;
             this.SpotOrderLoss = spotOrderLoss;
             this.SpotHedge = spotHedge;
+            this.UseFunding = useFunding;
         }
 
         /// <summary>
@@ -99,9 +101,9 @@ namespace Io.Gate.GateApi.Model
         public Dictionary<string, UnifiedBalance> Balances { get; set; }
 
         /// <summary>
-        /// The total asset value in USD, calculated as the sum of the product of &#x60;(available + freeze) * price&#x60; for all currencies.
+        /// Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
         /// </summary>
-        /// <value>The total asset value in USD, calculated as the sum of the product of &#x60;(available + freeze) * price&#x60; for all currencies.</value>
+        /// <value>Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
 
@@ -197,6 +199,13 @@ namespace Io.Gate.GateApi.Model
         public bool SpotHedge { get; set; }
 
         /// <summary>
+        /// Whether to use funds as margin
+        /// </summary>
+        /// <value>Whether to use funds as margin</value>
+        [DataMember(Name="use_funding")]
+        public bool UseFunding { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +231,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Leverage: ").Append(Leverage).Append("\n");
             sb.Append("  SpotOrderLoss: ").Append(SpotOrderLoss).Append("\n");
             sb.Append("  SpotHedge: ").Append(SpotHedge).Append("\n");
+            sb.Append("  UseFunding: ").Append(UseFunding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -342,6 +352,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.SpotHedge == input.SpotHedge ||
                     this.SpotHedge.Equals(input.SpotHedge)
+                ) && 
+                (
+                    this.UseFunding == input.UseFunding ||
+                    this.UseFunding.Equals(input.UseFunding)
                 );
         }
 
@@ -386,6 +400,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.SpotOrderLoss != null)
                     hashCode = hashCode * 59 + this.SpotOrderLoss.GetHashCode();
                 hashCode = hashCode * 59 + this.SpotHedge.GetHashCode();
+                hashCode = hashCode * 59 + this.UseFunding.GetHashCode();
                 return hashCode;
             }
         }

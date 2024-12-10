@@ -50,7 +50,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="markPriceRound">Minimum mark price increment.</param>
         /// <param name="orderSizeMin">Minimum order size the contract allowed.</param>
         /// <param name="orderSizeMax">Maximum order size the contract allowed.</param>
-        /// <param name="orderPriceDeviate">deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate.</param>
+        /// <param name="orderPriceDeviate">The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders.</param>
         /// <param name="refDiscountRate">Referral fee rate discount.</param>
         /// <param name="refRebateRate">Referrer commission rate.</param>
         /// <param name="orderbookId">Current orderbook ID.</param>
@@ -207,9 +207,9 @@ namespace Io.Gate.GateApi.Model
         public long OrderSizeMax { get; set; }
 
         /// <summary>
-        /// deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate
+        /// The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders
         /// </summary>
-        /// <value>deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:      abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate</value>
+        /// <value>The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders</value>
         [DataMember(Name="order_price_deviate")]
         public string OrderPriceDeviate { get; set; }
 

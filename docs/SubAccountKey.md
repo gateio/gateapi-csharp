@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **IpWhitelist** | **List&lt;string&gt;** | ip white list (list will be removed if no value is passed) | [optional] 
 **Key** | **string** | API Key | [optional] [readonly] 
 **State** | **int** | State 1 - normal 2 - locked 3 - frozen | [optional] [readonly] 
-**CreatedAt** | **string** | Creation time | [optional] [readonly] 
-**UpdatedAt** | **string** | Last update time | [optional] [readonly] 
+**CreatedAt** | **long** | Creation time | [optional] [readonly] 
+**UpdatedAt** | **long** | Last update time | [optional] [readonly] 
+**LastAccess** | **long** | Last access time | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -36,7 +36,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currencyPair">Currency pair.</param>
         /// <param name="last">Last trading price.</param>
         /// <param name="lowestAsk">Recent lowest ask.</param>
+        /// <param name="lowestSize">The latest seller&#39;s lowest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data.</param>
         /// <param name="highestBid">Recent highest bid.</param>
+        /// <param name="highestSize">The latest buyer&#39;s highest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data.</param>
         /// <param name="changePercentage">Change percentage in the last 24h.</param>
         /// <param name="changeUtc0">utc0 timezone, the percentage change in the last 24 hours.</param>
         /// <param name="changeUtc8">utc8 timezone, the percentage change in the last 24 hours.</param>
@@ -48,12 +50,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="etfPreNetValue">ETF previous net value at re-balancing time.</param>
         /// <param name="etfPreTimestamp">ETF previous re-balancing time.</param>
         /// <param name="etfLeverage">ETF current leverage.</param>
-        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string highestBid = default(string), string changePercentage = default(string), string changeUtc0 = default(string), string changeUtc8 = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
+        public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string), string changePercentage = default(string), string changeUtc0 = default(string), string changeUtc8 = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
         {
             this.CurrencyPair = currencyPair;
             this.Last = last;
             this.LowestAsk = lowestAsk;
+            this.LowestSize = lowestSize;
             this.HighestBid = highestBid;
+            this.HighestSize = highestSize;
             this.ChangePercentage = changePercentage;
             this.ChangeUtc0 = changeUtc0;
             this.ChangeUtc8 = changeUtc8;
@@ -89,11 +93,25 @@ namespace Io.Gate.GateApi.Model
         public string LowestAsk { get; set; }
 
         /// <summary>
+        /// The latest seller&#39;s lowest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data
+        /// </summary>
+        /// <value>The latest seller&#39;s lowest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data</value>
+        [DataMember(Name="lowest_size")]
+        public string LowestSize { get; set; }
+
+        /// <summary>
         /// Recent highest bid
         /// </summary>
         /// <value>Recent highest bid</value>
         [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
+
+        /// <summary>
+        /// The latest buyer&#39;s highest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data
+        /// </summary>
+        /// <value>The latest buyer&#39;s highest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data</value>
+        [DataMember(Name="highest_size")]
+        public string HighestSize { get; set; }
 
         /// <summary>
         /// Change percentage in the last 24h
@@ -183,7 +201,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Last: ").Append(Last).Append("\n");
             sb.Append("  LowestAsk: ").Append(LowestAsk).Append("\n");
+            sb.Append("  LowestSize: ").Append(LowestSize).Append("\n");
             sb.Append("  HighestBid: ").Append(HighestBid).Append("\n");
+            sb.Append("  HighestSize: ").Append(HighestSize).Append("\n");
             sb.Append("  ChangePercentage: ").Append(ChangePercentage).Append("\n");
             sb.Append("  ChangeUtc0: ").Append(ChangeUtc0).Append("\n");
             sb.Append("  ChangeUtc8: ").Append(ChangeUtc8).Append("\n");
@@ -245,9 +265,19 @@ namespace Io.Gate.GateApi.Model
                     this.LowestAsk.Equals(input.LowestAsk))
                 ) && 
                 (
+                    this.LowestSize == input.LowestSize ||
+                    (this.LowestSize != null &&
+                    this.LowestSize.Equals(input.LowestSize))
+                ) && 
+                (
                     this.HighestBid == input.HighestBid ||
                     (this.HighestBid != null &&
                     this.HighestBid.Equals(input.HighestBid))
+                ) && 
+                (
+                    this.HighestSize == input.HighestSize ||
+                    (this.HighestSize != null &&
+                    this.HighestSize.Equals(input.HighestSize))
                 ) && 
                 (
                     this.ChangePercentage == input.ChangePercentage ||
@@ -321,8 +351,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Last.GetHashCode();
                 if (this.LowestAsk != null)
                     hashCode = hashCode * 59 + this.LowestAsk.GetHashCode();
+                if (this.LowestSize != null)
+                    hashCode = hashCode * 59 + this.LowestSize.GetHashCode();
                 if (this.HighestBid != null)
                     hashCode = hashCode * 59 + this.HighestBid.GetHashCode();
+                if (this.HighestSize != null)
+                    hashCode = hashCode * 59 + this.HighestSize.GetHashCode();
                 if (this.ChangePercentage != null)
                     hashCode = hashCode * 59 + this.ChangePercentage.GetHashCode();
                 if (this.ChangeUtc0 != null)

@@ -27,7 +27,11 @@ Method | HTTP request | Description
 [**CancelOptionsOrders**](OptionsApi.md#canceloptionsorders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched
 [**GetOptionsOrder**](OptionsApi.md#getoptionsorder) | **GET** /options/orders/{order_id} | Get a single order
 [**CancelOptionsOrder**](OptionsApi.md#canceloptionsorder) | **DELETE** /options/orders/{order_id} | Cancel a single order
+[**CountdownCancelAllOptions**](OptionsApi.md#countdowncancelalloptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
 [**ListMyOptionsTrades**](OptionsApi.md#listmyoptionstrades) | **GET** /options/my_trades | List personal trading history
+[**GetOptionsMMP**](OptionsApi.md#getoptionsmmp) | **GET** /options/mmp | MMP Query
+[**SetOptionsMMP**](OptionsApi.md#setoptionsmmp) | **POST** /options/mmp | MMP Settings
+[**ResetOptionsMMP**](OptionsApi.md#resetoptionsmmp) | **POST** /options/mmp/reset | MMP Reset
 
 
 <a name="listoptionsunderlyings"></a>
@@ -1715,6 +1719,79 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="countdowncancelalloptions"></a>
+# **CountdownCancelAllOptions**
+> TriggerTime CountdownCancelAllOptions (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
+
+Countdown cancel orders
+
+Option order heartbeat detection, when the `timeout` time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related `option pending order` will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown `timeout` set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the `underlying` `contract` you specified will be automatically cancelled. If `underlying` `contract` is not specified, all pending orders of the user will be automatically cancelled  If `timeout` is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class CountdownCancelAllOptionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new OptionsApi(config);
+            var countdownCancelAllOptionsTask = new CountdownCancelAllOptionsTask(); // CountdownCancelAllOptionsTask | 
+
+            try
+            {
+                // Countdown cancel orders
+                TriggerTime result = apiInstance.CountdownCancelAllOptions(countdownCancelAllOptionsTask);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling OptionsApi.CountdownCancelAllOptions: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countdownCancelAllOptionsTask** | [**CountdownCancelAllOptionsTask**](CountdownCancelAllOptionsTask.md)|  | 
+
+### Return type
+
+[**TriggerTime**](TriggerTime.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Set countdown successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listmyoptionstrades"></a>
 # **ListMyOptionsTrades**
 > List&lt;OptionsMyTrade&gt; ListMyOptionsTrades (string underlying, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
@@ -1793,6 +1870,219 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getoptionsmmp"></a>
+# **GetOptionsMMP**
+> List&lt;OptionsMMP&gt; GetOptionsMMP (string underlying = null)
+
+MMP Query
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetOptionsMMPExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new OptionsApi(config);
+            var underlying = "BTC_USDT";  // string | Underlying (optional) 
+
+            try
+            {
+                // MMP Query
+                List<OptionsMMP> result = apiInstance.GetOptionsMMP(underlying);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling OptionsApi.GetOptionsMMP: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **underlying** | **string**| Underlying | [optional] 
+
+### Return type
+
+[**List&lt;OptionsMMP&gt;**](OptionsMMP.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setoptionsmmp"></a>
+# **SetOptionsMMP**
+> OptionsMMP SetOptionsMMP (OptionsMMP optionsMMP)
+
+MMP Settings
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetOptionsMMPExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new OptionsApi(config);
+            var optionsMMP = new OptionsMMP(); // OptionsMMP | 
+
+            try
+            {
+                // MMP Settings
+                OptionsMMP result = apiInstance.SetOptionsMMP(optionsMMP);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling OptionsApi.SetOptionsMMP: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **optionsMMP** | [**OptionsMMP**](OptionsMMP.md)|  | 
+
+### Return type
+
+[**OptionsMMP**](OptionsMMP.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | MMP Information |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resetoptionsmmp"></a>
+# **ResetOptionsMMP**
+> OptionsMMP ResetOptionsMMP (OptionsMMPReset optionsMMPReset)
+
+MMP Reset
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ResetOptionsMMPExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new OptionsApi(config);
+            var optionsMMPReset = new OptionsMMPReset(); // OptionsMMPReset | 
+
+            try
+            {
+                // MMP Reset
+                OptionsMMP result = apiInstance.ResetOptionsMMP(optionsMMPReset);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling OptionsApi.ResetOptionsMMP: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **optionsMMPReset** | [**OptionsMMPReset**](OptionsMMPReset.md)|  | 
+
+### Return type
+
+[**OptionsMMP**](OptionsMMP.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | MMP Information |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

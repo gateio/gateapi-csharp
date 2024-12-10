@@ -109,7 +109,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="text">Comment.</param>
         /// <param name="contract">Futures contract, the field is only available for data after 2023-10-30..</param>
         /// <param name="tradeId">trade id.</param>
-        public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string), string contract = default(string), string tradeId = default(string))
+        /// <param name="id">账户变更记录 id.</param>
+        public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string), string contract = default(string), string tradeId = default(string), string id = default(string))
         {
             this.Time = time;
             this.Change = change;
@@ -118,6 +119,7 @@ namespace Io.Gate.GateApi.Model
             this.Text = text;
             this.Contract = contract;
             this.TradeId = tradeId;
+            this.Id = id;
         }
 
         /// <summary>
@@ -163,6 +165,13 @@ namespace Io.Gate.GateApi.Model
         public string TradeId { get; set; }
 
         /// <summary>
+        /// 账户变更记录 id
+        /// </summary>
+        /// <value>账户变更记录 id</value>
+        [DataMember(Name="id")]
+        public string Id { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -177,6 +186,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  TradeId: ").Append(TradeId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -243,6 +253,11 @@ namespace Io.Gate.GateApi.Model
                     this.TradeId == input.TradeId ||
                     (this.TradeId != null &&
                     this.TradeId.Equals(input.TradeId))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -267,6 +282,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Contract.GetHashCode();
                 if (this.TradeId != null)
                     hashCode = hashCode * 59 + this.TradeId.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 return hashCode;
             }
         }

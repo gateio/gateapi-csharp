@@ -41,9 +41,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Transfer currency name (required).</param>
         /// <param name="subAccountType">Transfer from the account. (deprecate, use &#x60;sub_account_from_type&#x60; and &#x60;sub_account_to_type&#x60; instead).</param>
         /// <param name="subAccountFrom">Transfer from the user id of the sub-account (required).</param>
-        /// <param name="subAccountFromType">The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot; (required).</param>
+        /// <param name="subAccountFromType">The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account. (required).</param>
         /// <param name="subAccountTo">Transfer to the user id of the sub-account (required).</param>
-        /// <param name="subAccountToType">The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account. (required).</param>
+        /// <param name="subAccountToType">The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account (required).</param>
         /// <param name="amount">Transfer amount (required).</param>
         public SubAccountToSubAccount(string currency = default(string), string subAccountType = default(string), string subAccountFrom = default(string), string subAccountFromType = default(string), string subAccountTo = default(string), string subAccountToType = default(string), string amount = default(string))
         {
@@ -84,9 +84,9 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountFrom { get; set; }
 
         /// <summary>
-        /// The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot;
+        /// The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account.
         /// </summary>
-        /// <value>The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.\&quot;</value>
+        /// <value>The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account.</value>
         [DataMember(Name="sub_account_from_type")]
         public string SubAccountFromType { get; set; }
 
@@ -98,9 +98,9 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountTo { get; set; }
 
         /// <summary>
-        /// The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.
+        /// The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account
         /// </summary>
-        /// <value>The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account, cross_margin - cross-margin account.</value>
+        /// <value>The sub-account&#39;s incoming trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account</value>
         [DataMember(Name="sub_account_to_type")]
         public string SubAccountToType { get; set; }
 

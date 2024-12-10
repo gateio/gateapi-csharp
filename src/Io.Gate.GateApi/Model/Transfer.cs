@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;cross_margin&#x60;: cross margin account - &#x60;options&#x60;: options account
+    /// Accounts available to transfer:  - &#x60;spot&#x60;: spot account - &#x60;margin&#x60;: margin account - &#x60;futures&#x60;: perpetual futures account - &#x60;delivery&#x60;: delivery futures account - &#x60;options&#x60;: options account
     /// </summary>
     [DataContract]
     public partial class Transfer :  IEquatable<Transfer>, IValidatableObject
@@ -62,16 +62,10 @@ namespace Io.Gate.GateApi.Model
             Delivery = 4,
 
             /// <summary>
-            /// Enum Crossmargin for value: cross_margin
-            /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 5,
-
-            /// <summary>
             /// Enum Options for value: options
             /// </summary>
             [EnumMember(Value = "options")]
-            Options = 6
+            Options = 5
 
         }
 
@@ -113,16 +107,10 @@ namespace Io.Gate.GateApi.Model
             Delivery = 4,
 
             /// <summary>
-            /// Enum Crossmargin for value: cross_margin
-            /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 5,
-
-            /// <summary>
             /// Enum Options for value: options
             /// </summary>
             [EnumMember(Value = "options")]
-            Options = 6
+            Options = 5
 
         }
 

@@ -33,27 +33,45 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedSettings" /> class.
         /// </summary>
-        /// <param name="usdtFutures">USDT contract switch. This parameter is required when the mode is multi-currency margin mode.</param>
-        /// <param name="spotHedge">Spot hedging switch. This parameter is required when the mode is portfolio margin mode.</param>
-        public UnifiedSettings(bool usdtFutures = default(bool), bool spotHedge = default(bool))
+        /// <param name="usdtFutures">USDT contract switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off..</param>
+        /// <param name="spotHedge">Spot hedging switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off..</param>
+        /// <param name="useFunding">When the mode is set to combined margin mode, will funds be used as margin.</param>
+        /// <param name="options">Option switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off..</param>
+        public UnifiedSettings(bool usdtFutures = default(bool), bool spotHedge = default(bool), bool useFunding = default(bool), bool options = default(bool))
         {
             this.UsdtFutures = usdtFutures;
             this.SpotHedge = spotHedge;
+            this.UseFunding = useFunding;
+            this.Options = options;
         }
 
         /// <summary>
-        /// USDT contract switch. This parameter is required when the mode is multi-currency margin mode
+        /// USDT contract switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
         /// </summary>
-        /// <value>USDT contract switch. This parameter is required when the mode is multi-currency margin mode</value>
+        /// <value>USDT contract switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.</value>
         [DataMember(Name="usdt_futures")]
         public bool UsdtFutures { get; set; }
 
         /// <summary>
-        /// Spot hedging switch. This parameter is required when the mode is portfolio margin mode
+        /// Spot hedging switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
         /// </summary>
-        /// <value>Spot hedging switch. This parameter is required when the mode is portfolio margin mode</value>
+        /// <value>Spot hedging switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.</value>
         [DataMember(Name="spot_hedge")]
         public bool SpotHedge { get; set; }
+
+        /// <summary>
+        /// When the mode is set to combined margin mode, will funds be used as margin
+        /// </summary>
+        /// <value>When the mode is set to combined margin mode, will funds be used as margin</value>
+        [DataMember(Name="use_funding")]
+        public bool UseFunding { get; set; }
+
+        /// <summary>
+        /// Option switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.
+        /// </summary>
+        /// <value>Option switch. If not transmitted, the current switch value is used. If not transmitted for the first time, the default value is off.</value>
+        [DataMember(Name="options")]
+        public bool Options { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,6 +83,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class UnifiedSettings {\n");
             sb.Append("  UsdtFutures: ").Append(UsdtFutures).Append("\n");
             sb.Append("  SpotHedge: ").Append(SpotHedge).Append("\n");
+            sb.Append("  UseFunding: ").Append(UseFunding).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +126,14 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.SpotHedge == input.SpotHedge ||
                     this.SpotHedge.Equals(input.SpotHedge)
+                ) && 
+                (
+                    this.UseFunding == input.UseFunding ||
+                    this.UseFunding.Equals(input.UseFunding)
+                ) && 
+                (
+                    this.Options == input.Options ||
+                    this.Options.Equals(input.Options)
                 );
         }
 
@@ -120,6 +148,8 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.UsdtFutures.GetHashCode();
                 hashCode = hashCode * 59 + this.SpotHedge.GetHashCode();
+                hashCode = hashCode * 59 + this.UseFunding.GetHashCode();
+                hashCode = hashCode * 59 + this.Options.GetHashCode();
                 return hashCode;
             }
         }

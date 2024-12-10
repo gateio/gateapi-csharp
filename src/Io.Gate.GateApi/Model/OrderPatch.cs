@@ -33,17 +33,35 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPatch" /> class.
         /// </summary>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="account">指定查询账户。.</param>
         /// <param name="amount">New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them.</param>
         /// <param name="price">New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;.</param>
         /// <param name="amendText">Custom info during amending order.</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
-        public OrderPatch(string amount = default(string), string price = default(string), string amendText = default(string), string actionMode = default(string))
+        public OrderPatch(string currencyPair = default(string), string account = default(string), string amount = default(string), string price = default(string), string amendText = default(string), string actionMode = default(string))
         {
+            this.CurrencyPair = currencyPair;
+            this.Account = account;
             this.Amount = amount;
             this.Price = price;
             this.AmendText = amendText;
             this.ActionMode = actionMode;
         }
+
+        /// <summary>
+        /// Currency pair
+        /// </summary>
+        /// <value>Currency pair</value>
+        [DataMember(Name="currency_pair")]
+        public string CurrencyPair { get; set; }
+
+        /// <summary>
+        /// 指定查询账户。
+        /// </summary>
+        /// <value>指定查询账户。</value>
+        [DataMember(Name="account")]
+        public string Account { get; set; }
 
         /// <summary>
         /// New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them
@@ -81,6 +99,8 @@ namespace Io.Gate.GateApi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OrderPatch {\n");
+            sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  AmendText: ").Append(AmendText).Append("\n");
@@ -120,6 +140,16 @@ namespace Io.Gate.GateApi.Model
 
             return 
                 (
+                    this.CurrencyPair == input.CurrencyPair ||
+                    (this.CurrencyPair != null &&
+                    this.CurrencyPair.Equals(input.CurrencyPair))
+                ) && 
+                (
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
+                ) && 
+                (
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
@@ -150,6 +180,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CurrencyPair != null)
+                    hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
+                if (this.Account != null)
+                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Price != null)

@@ -161,7 +161,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -178,7 +178,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -321,8 +321,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        List<BatchOrder> CreateBatchOrders (List<Order> order);
+        List<BatchOrder> CreateBatchOrders (List<Order> order, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a batch of orders
@@ -332,8 +333,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order);
+        ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, long? xGateExptime = default(long?));
         /// <summary>
         /// List all open orders
         /// </summary>
@@ -423,8 +425,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order CreateOrder (Order order);
+        Order CreateOrder (Order order, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create an order
@@ -434,35 +437,38 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> CreateOrderWithHttpInfo (Order order);
+        ApiResponse<Order> CreateOrderWithHttpInfo (Order order, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>List&lt;Order&gt;</returns>
-        List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>List&lt;OrderCancel&gt;</returns>
+        List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>ApiResponse of List&lt;OrderCancel&gt;</returns>
+        ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -471,8 +477,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder);
+        List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -482,8 +489,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder);
+        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -492,7 +500,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         Order GetOrder (string orderId, string currencyPair, string account = default(string));
@@ -505,7 +513,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
@@ -520,8 +528,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
+        Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a single order
@@ -534,35 +543,38 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
+        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+        Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+        ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -571,7 +583,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -588,7 +600,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -644,8 +656,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem);
+        List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Batch modification of orders
@@ -655,8 +668,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem);
+        ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -915,7 +929,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -932,7 +946,7 @@ namespace Io.Gate.GateApi.Api
         /// Retrieve market trades
         /// </summary>
         /// <remarks>
-        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -1075,8 +1089,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order);
+        Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create a batch of orders
@@ -1086,8 +1101,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order);
+        Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, long? xGateExptime = default(long?));
         /// <summary>
         /// List all open orders
         /// </summary>
@@ -1177,8 +1193,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> CreateOrderAsync (Order order);
+        Task<Order> CreateOrderAsync (Order order, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Create an order
@@ -1188,35 +1205,38 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order);
+        Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>Task of List&lt;Order&gt;</returns>
-        Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of List&lt;OrderCancel&gt;</returns>
+        Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
         /// <remarks>
-        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string));
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OrderCancel&gt;)</returns>
+        Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -1225,8 +1245,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder);
+        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -1236,8 +1257,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder);
+        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -1246,7 +1268,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string));
@@ -1259,7 +1281,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
@@ -1274,8 +1296,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
+        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Cancel a single order
@@ -1288,35 +1311,38 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string));
+        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+        Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
 
         /// <summary>
         /// Amend an order
         /// </summary>
         /// <remarks>
-        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string));
+        Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -1325,7 +1351,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -1342,7 +1368,7 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -1398,8 +1424,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem);
+        Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
 
         /// <summary>
         /// Batch modification of orders
@@ -1409,8 +1436,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem);
+        Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
         /// <summary>
         /// Retrieve running auto order list
         /// </summary>
@@ -2343,7 +2371,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -2361,7 +2389,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -2434,7 +2462,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -2453,7 +2481,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
+        /// Retrieve market trades You can use &#x60;from&#x60; and &#x60;to&#x60; to query by time range, or use &#x60;last_id&#x60; by scrolling page. The default behavior is by time range, The query range is the last 30 days.  Scrolling query using &#x60;last_id&#x60; is not recommended any more. If &#x60;last_id&#x60; is specified, time range query parameters will be ignored.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Currency pair</param>
@@ -3215,10 +3243,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        public List<BatchOrder> CreateBatchOrders (List<Order> order)
+        public List<BatchOrder> CreateBatchOrders (List<Order> order, long? xGateExptime = default(long?))
         {
-             ApiResponse<List<BatchOrder>> localVarResponse = CreateBatchOrdersWithHttpInfo(order);
+             ApiResponse<List<BatchOrder>> localVarResponse = CreateBatchOrdersWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -3227,8 +3256,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        public ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order)
+        public ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3251,6 +3281,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = order;
 
             // authentication (apiv4) required
@@ -3273,10 +3307,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        public async Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order)
+        public async Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await CreateBatchOrdersAsyncWithHttpInfo(order);
+             Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await CreateBatchOrdersAsyncWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -3286,8 +3321,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order)
+        public async Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3311,6 +3347,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = order;
 
             // authentication (apiv4) required
@@ -3795,10 +3835,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order CreateOrder (Order order)
+        public Order CreateOrder (Order order, long? xGateExptime = default(long?))
         {
-             ApiResponse<Order> localVarResponse = CreateOrderWithHttpInfo(order);
+             ApiResponse<Order> localVarResponse = CreateOrderWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -3807,8 +3848,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> CreateOrderWithHttpInfo (Order order)
+        public ApiResponse<Order> CreateOrderWithHttpInfo (Order order, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3831,6 +3873,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = order;
 
             // authentication (apiv4) required
@@ -3853,10 +3899,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> CreateOrderAsync (Order order)
+        public async Task<Order> CreateOrderAsync (Order order, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CreateOrderAsyncWithHttpInfo(order);
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CreateOrderAsyncWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -3866,8 +3913,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order)
+        public async Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3891,6 +3939,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = order;
 
             // authentication (apiv4) required
@@ -3910,35 +3962,33 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>List&lt;Order&gt;</returns>
-        public List<Order> CancelOrders (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>List&lt;OrderCancel&gt;</returns>
+        public List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-             ApiResponse<List<Order>> localVarResponse = CancelOrdersWithHttpInfo(currencyPair, side, account, actionMode);
+             ApiResponse<List<OrderCancel>> localVarResponse = CancelOrdersWithHttpInfo(currencyPair, side, account, actionMode, xGateExptime);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        public ApiResponse<List<Order>> CancelOrdersWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>ApiResponse of List&lt;OrderCancel&gt;</returns>
+        public ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->CancelOrders");
-
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
@@ -3955,7 +4005,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (side != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
@@ -3968,12 +4021,16 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
             }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<List<Order>>("/spot/orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<List<OrderCancel>>("/spot/orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -3985,36 +4042,34 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>Task of List&lt;Order&gt;</returns>
-        public async Task<List<Order>> CancelOrdersAsync (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of List&lt;OrderCancel&gt;</returns>
+        public async Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<Order>> localVarResponse = await CancelOrdersAsyncWithHttpInfo(currencyPair, side, account, actionMode);
+             Io.Gate.GateApi.Client.ApiResponse<List<OrderCancel>> localVarResponse = await CancelOrdersAsyncWithHttpInfo(currencyPair, side, account, actionMode, xGateExptime);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled.  You can set &#x60;account&#x60; to cancel only orders within the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair If &#x60;account&#x60; is not set, all open orders, including spot, portfolio, margin and cross margin ones, will be cancelled. If &#x60;currency_pair&#x60; is not specified, all pending orders for trading pairs will be cancelled. You can set &#x60;account&#x60; to cancel only orders within the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
-        /// <param name="account">Specify account type  - classic account：Default to all account types being included   - portfolio margin account：&#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="account">Specify account type:  - Classic account: Includes all if not specified - Unified account: Specify &#x60;unified&#x60; - Unified account (legacy): Can only specify &#x60;cross_margin&#x60; (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        public async Task<ApiResponse<List<Order>>> CancelOrdersAsyncWithHttpInfo (string currencyPair, string side = default(string), string account = default(string), string actionMode = default(string))
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;OrderCancel&gt;)</returns>
+        public async Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->CancelOrders");
-
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -4032,7 +4087,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (side != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "side", side));
@@ -4045,13 +4103,17 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
             }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<Order>>("/spot/orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<OrderCancel>>("/spot/orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -4067,10 +4129,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        public List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder)
+        public List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
         {
-             ApiResponse<List<CancelOrderResult>> localVarResponse = CancelBatchOrdersWithHttpInfo(cancelBatchOrder);
+             ApiResponse<List<CancelOrderResult>> localVarResponse = CancelBatchOrdersWithHttpInfo(cancelBatchOrder, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -4079,8 +4142,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder)
+        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'cancelBatchOrder' is set
             if (cancelBatchOrder == null)
@@ -4103,6 +4167,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = cancelBatchOrder;
 
             // authentication (apiv4) required
@@ -4125,10 +4193,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder)
+        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<CancelOrderResult>> localVarResponse = await CancelBatchOrdersAsyncWithHttpInfo(cancelBatchOrder);
+             Io.Gate.GateApi.Client.ApiResponse<List<CancelOrderResult>> localVarResponse = await CancelBatchOrdersAsyncWithHttpInfo(cancelBatchOrder, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -4138,8 +4207,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder)
+        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'cancelBatchOrder' is set
             if (cancelBatchOrder == null)
@@ -4163,6 +4233,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = cancelBatchOrder;
 
             // authentication (apiv4) required
@@ -4186,7 +4260,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Order</returns>
         public Order GetOrder (string orderId, string currencyPair, string account = default(string))
@@ -4200,7 +4274,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
@@ -4256,7 +4330,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string))
@@ -4271,7 +4345,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
@@ -4332,10 +4406,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
+        public Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-             ApiResponse<Order> localVarResponse = CancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode);
+             ApiResponse<Order> localVarResponse = CancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -4347,8 +4422,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
+        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4383,6 +4459,10 @@ namespace Io.Gate.GateApi.Api
             if (actionMode != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
+            }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
             }
 
             // authentication (apiv4) required
@@ -4408,10 +4488,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
+        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId, currencyPair, account, actionMode);
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId, currencyPair, account, actionMode, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -4424,8 +4505,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currencyPair">Currency pair</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string))
+        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4462,6 +4544,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "action_mode", actionMode));
             }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -4480,38 +4566,36 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order AmendOrder (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        public Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
         {
-             ApiResponse<Order> localVarResponse = AmendOrderWithHttpInfo(orderId, currencyPair, orderPatch, account);
+             ApiResponse<Order> localVarResponse = AmendOrderWithHttpInfo(orderId, orderPatch, currencyPair, account, xGateExptime);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
                 throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->AmendOrder");
-
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->AmendOrder");
 
             // verify the required parameter 'orderPatch' is set
             if (orderPatch == null)
@@ -4535,10 +4619,17 @@ namespace Io.Gate.GateApi.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (account != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
             }
             localVarRequestOptions.Data = orderPatch;
 
@@ -4558,39 +4649,37 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> AmendOrderAsync (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        public async Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await AmendOrderAsyncWithHttpInfo(orderId, currencyPair, orderPatch, account);
+             Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await AmendOrderAsyncWithHttpInfo(orderId, orderPatch, currencyPair, account, xGateExptime);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
+        /// Amend an order By default, the orders of spot, portfolio and margin account are updated.  If you need to modify orders of the &#x60;cross-margin&#x60; account, you must specify account as &#x60;cross_margin&#x60;.  For portfolio margin account, only &#x60;cross_margin&#x60; account is supported.  Currently, both request body and query support currency_pair and account parameter passing, but request body has higher priority  Currently, only supports modification of &#x60;price&#x60; or &#x60;amount&#x60; fields.  Regarding rate limiting: modify order and create order sharing rate limiting rules. Regarding matching priority: Only reducing the quantity without modifying the priority of matching, altering the price or increasing the quantity will adjust the priority to the new price at the end Note: If the modified amount is less than the fill amount, the order will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 1 hour after the end of the order.  After that, only order ID is accepted.</param>
-        /// <param name="currencyPair">Currency pair</param>
         /// <param name="orderPatch"></param>
+        /// <param name="currencyPair">Currency pair (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, string currencyPair, OrderPatch orderPatch, string account = default(string))
+        public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
                 throw new ApiException(400, "Missing required parameter 'orderId' when calling SpotApi->AmendOrder");
-
-            // verify the required parameter 'currencyPair' is set
-            if (currencyPair == null)
-                throw new ApiException(400, "Missing required parameter 'currencyPair' when calling SpotApi->AmendOrder");
 
             // verify the required parameter 'orderPatch' is set
             if (orderPatch == null)
@@ -4615,10 +4704,17 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
             localVarRequestOptions.PathParameters.Add("order_id", ClientUtils.ParameterToString(orderId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            if (currencyPair != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency_pair", currencyPair));
+            }
             if (account != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "account", account));
+            }
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
             }
             localVarRequestOptions.Data = orderPatch;
 
@@ -4643,7 +4739,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -4661,7 +4757,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -4735,7 +4831,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -4754,7 +4850,7 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify operation account. Default to spot ,portfolio and margin account if not specified. Set to &#x60;cross_margin&#x60; to operate against margin account.  Portfolio margin account must set to &#x60;cross_margin&#x60; only (optional)</param>
@@ -5048,10 +5144,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        public List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem)
+        public List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
         {
-             ApiResponse<List<BatchOrder>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem);
+             ApiResponse<List<BatchOrder>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem, xGateExptime);
              return localVarResponse.Data;
         }
 
@@ -5060,8 +5157,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        public ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        public ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)
@@ -5084,6 +5182,10 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = batchAmendItem;
 
             // authentication (apiv4) required
@@ -5106,10 +5208,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        public async Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem)
+        public async Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem);
+             Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem, xGateExptime);
              return localVarResponse.Data;
 
         }
@@ -5119,8 +5222,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
+        /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem)
+        public async Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)
@@ -5144,6 +5248,10 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+            if (xGateExptime != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-gate-exptime", ClientUtils.ParameterToString(xGateExptime)); // header parameter
+            }
             localVarRequestOptions.Data = batchAmendItem;
 
             // authentication (apiv4) required

@@ -215,9 +215,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
-        List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// List interest records
@@ -229,9 +231,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
-        ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// Retrieve user risk unit details, only valid in portfolio margin mode
         /// </summary>
@@ -313,7 +317,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
         ApiResponse<Dictionary<string, string>> GetUnifiedEstimateRateWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// list currency discount tiers
+        /// List currency discount tiers
         /// </summary>
         /// <remarks>
         /// 
@@ -323,7 +327,7 @@ namespace Io.Gate.GateApi.Api
         List<UnifiedDiscount> ListCurrencyDiscountTiers ();
 
         /// <summary>
-        /// list currency discount tiers
+        /// List currency discount tiers
         /// </summary>
         /// <remarks>
         /// 
@@ -332,10 +336,29 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UnifiedDiscount&gt;</returns>
         ApiResponse<List<UnifiedDiscount>> ListCurrencyDiscountTiersWithHttpInfo ();
         /// <summary>
-        /// portfolio margin calculator
+        /// List loan margin tiers
         /// </summary>
         /// <remarks>
-        /// 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;UnifiedMarginTiers&gt;</returns>
+        List<UnifiedMarginTiers> ListLoanMarginTiers ();
+
+        /// <summary>
+        /// List loan margin tiers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;UnifiedMarginTiers&gt;</returns>
+        ApiResponse<List<UnifiedMarginTiers>> ListLoanMarginTiersWithHttpInfo ();
+        /// <summary>
+        /// Portfolio margin calculator
+        /// </summary>
+        /// <remarks>
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -343,15 +366,78 @@ namespace Io.Gate.GateApi.Api
         UnifiedPortfolioOutput CalculatePortfolioMargin (UnifiedPortfolioInput unifiedPortfolioInput);
 
         /// <summary>
-        /// portfolio margin calculator
+        /// Portfolio margin calculator
         /// </summary>
         /// <remarks>
-        /// 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
         /// <returns>ApiResponse of UnifiedPortfolioOutput</returns>
         ApiResponse<UnifiedPortfolioOutput> CalculatePortfolioMarginWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>UnifiedLeverageConfig</returns>
+        UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency);
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>ApiResponse of UnifiedLeverageConfig</returns>
+        ApiResponse<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigWithHttpInfo (string currency);
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>UnifiedLeverageSetting</returns>
+        UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = default(string));
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>ApiResponse of UnifiedLeverageSetting</returns>
+        ApiResponse<UnifiedLeverageSetting> GetUserLeverageCurrencySettingWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// Set the currency leverage ratio
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns></returns>
+        void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+
+        /// <summary>
+        /// Set the currency leverage ratio
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
         #endregion Synchronous Operations
     }
 
@@ -549,9 +635,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
-        Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
         /// List interest records
@@ -563,9 +651,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
-        Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
         /// Retrieve user risk unit details, only valid in portfolio margin mode
         /// </summary>
@@ -647,7 +737,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
         Task<ApiResponse<Dictionary<string, string>>> GetUnifiedEstimateRateAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// list currency discount tiers
+        /// List currency discount tiers
         /// </summary>
         /// <remarks>
         /// 
@@ -657,7 +747,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UnifiedDiscount>> ListCurrencyDiscountTiersAsync ();
 
         /// <summary>
-        /// list currency discount tiers
+        /// List currency discount tiers
         /// </summary>
         /// <remarks>
         /// 
@@ -666,10 +756,29 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UnifiedDiscount&gt;)</returns>
         Task<ApiResponse<List<UnifiedDiscount>>> ListCurrencyDiscountTiersAsyncWithHttpInfo ();
         /// <summary>
-        /// portfolio margin calculator
+        /// List loan margin tiers
         /// </summary>
         /// <remarks>
-        /// 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;UnifiedMarginTiers&gt;</returns>
+        Task<List<UnifiedMarginTiers>> ListLoanMarginTiersAsync ();
+
+        /// <summary>
+        /// List loan margin tiers
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;UnifiedMarginTiers&gt;)</returns>
+        Task<ApiResponse<List<UnifiedMarginTiers>>> ListLoanMarginTiersAsyncWithHttpInfo ();
+        /// <summary>
+        /// Portfolio margin calculator
+        /// </summary>
+        /// <remarks>
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -677,15 +786,78 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedPortfolioOutput> CalculatePortfolioMarginAsync (UnifiedPortfolioInput unifiedPortfolioInput);
 
         /// <summary>
-        /// portfolio margin calculator
+        /// Portfolio margin calculator
         /// </summary>
         /// <remarks>
-        /// 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
         /// <returns>Task of ApiResponse (UnifiedPortfolioOutput)</returns>
         Task<ApiResponse<UnifiedPortfolioOutput>> CalculatePortfolioMarginAsyncWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of UnifiedLeverageConfig</returns>
+        Task<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigAsync (string currency);
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of ApiResponse (UnifiedLeverageConfig)</returns>
+        Task<ApiResponse<UnifiedLeverageConfig>> GetUserLeverageCurrencyConfigAsyncWithHttpInfo (string currency);
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of UnifiedLeverageSetting</returns>
+        Task<UnifiedLeverageSetting> GetUserLeverageCurrencySettingAsync (string currency = default(string));
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of ApiResponse (UnifiedLeverageSetting)</returns>
+        Task<ApiResponse<UnifiedLeverageSetting>> GetUserLeverageCurrencySettingAsyncWithHttpInfo (string currency = default(string));
+        /// <summary>
+        /// Set the currency leverage ratio
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>Task of void</returns>
+        Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+
+        /// <summary>
+        /// Set the currency leverage ratio
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
         #endregion Asynchronous Operations
     }
 
@@ -1801,11 +1973,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
-        public List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             ApiResponse<List<UniLoanInterestRecord>> localVarResponse = ListUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit, type);
+             ApiResponse<List<UniLoanInterestRecord>> localVarResponse = ListUnifiedLoanInterestRecordsWithHttpInfo(currency, page, limit, from, to, type);
              return localVarResponse.Data;
         }
 
@@ -1816,9 +1990,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
-        public ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1848,6 +2024,14 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
@@ -1875,11 +2059,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
-        public async Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<UniLoanInterestRecord>> localVarResponse = await ListUnifiedLoanInterestRecordsAsyncWithHttpInfo(currency, page, limit, type);
+             Io.Gate.GateApi.Client.ApiResponse<List<UniLoanInterestRecord>> localVarResponse = await ListUnifiedLoanInterestRecordsAsyncWithHttpInfo(currency, page, limit, from, to, type);
              return localVarResponse.Data;
 
         }
@@ -1891,9 +2077,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="from">Start timestamp of the query (optional)</param>
+        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
-        public async Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1923,6 +2111,14 @@ namespace Io.Gate.GateApi.Api
             if (limit != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
             }
             if (type != null)
             {
@@ -2384,7 +2580,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// list currency discount tiers 
+        /// List currency discount tiers 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UnifiedDiscount&gt;</returns>
@@ -2395,7 +2591,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// list currency discount tiers 
+        /// List currency discount tiers 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UnifiedDiscount&gt;</returns>
@@ -2432,7 +2628,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// list currency discount tiers 
+        /// List currency discount tiers 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;UnifiedDiscount&gt;</returns>
@@ -2444,7 +2640,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// list currency discount tiers 
+        /// List currency discount tiers 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;UnifiedDiscount&gt;)</returns>
@@ -2483,7 +2679,106 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// portfolio margin calculator 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// List loan margin tiers 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;UnifiedMarginTiers&gt;</returns>
+        public List<UnifiedMarginTiers> ListLoanMarginTiers ()
+        {
+             ApiResponse<List<UnifiedMarginTiers>> localVarResponse = ListLoanMarginTiersWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List loan margin tiers 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;UnifiedMarginTiers&gt;</returns>
+        public ApiResponse<List<UnifiedMarginTiers>> ListLoanMarginTiersWithHttpInfo ()
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<UnifiedMarginTiers>>("/unified/loan_margin_tiers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanMarginTiers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List loan margin tiers 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;UnifiedMarginTiers&gt;</returns>
+        public async Task<List<UnifiedMarginTiers>> ListLoanMarginTiersAsync ()
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<UnifiedMarginTiers>> localVarResponse = await ListLoanMarginTiersAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List loan margin tiers 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;UnifiedMarginTiers&gt;)</returns>
+        public async Task<ApiResponse<List<UnifiedMarginTiers>>> ListLoanMarginTiersAsyncWithHttpInfo ()
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UnifiedMarginTiers>>("/unified/loan_margin_tiers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListLoanMarginTiers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -2495,7 +2790,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// portfolio margin calculator 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -2539,7 +2834,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// portfolio margin calculator 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -2552,7 +2847,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// portfolio margin calculator 组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -2591,6 +2886,345 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CalculatePortfolioMargin", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>UnifiedLeverageConfig</returns>
+        public UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency)
+        {
+             ApiResponse<UnifiedLeverageConfig> localVarResponse = GetUserLeverageCurrencyConfigWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>ApiResponse of UnifiedLeverageConfig</returns>
+        public ApiResponse<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling UnifiedApi->GetUserLeverageCurrencyConfig");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UnifiedLeverageConfig>("/unified/leverage/user_currency_config", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserLeverageCurrencyConfig", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of UnifiedLeverageConfig</returns>
+        public async Task<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigAsync (string currency)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedLeverageConfig> localVarResponse = await GetUserLeverageCurrencyConfigAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <returns>Task of ApiResponse (UnifiedLeverageConfig)</returns>
+        public async Task<ApiResponse<UnifiedLeverageConfig>> GetUserLeverageCurrencyConfigAsyncWithHttpInfo (string currency)
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling UnifiedApi->GetUserLeverageCurrencyConfig");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UnifiedLeverageConfig>("/unified/leverage/user_currency_config", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserLeverageCurrencyConfig", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>UnifiedLeverageSetting</returns>
+        public UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = default(string))
+        {
+             ApiResponse<UnifiedLeverageSetting> localVarResponse = GetUserLeverageCurrencySettingWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>ApiResponse of UnifiedLeverageSetting</returns>
+        public ApiResponse<UnifiedLeverageSetting> GetUserLeverageCurrencySettingWithHttpInfo (string currency = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UnifiedLeverageSetting>("/unified/leverage/user_currency_setting", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserLeverageCurrencySetting", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of UnifiedLeverageSetting</returns>
+        public async Task<UnifiedLeverageSetting> GetUserLeverageCurrencySettingAsync (string currency = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedLeverageSetting> localVarResponse = await GetUserLeverageCurrencySettingAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of ApiResponse (UnifiedLeverageSetting)</returns>
+        public async Task<ApiResponse<UnifiedLeverageSetting>> GetUserLeverageCurrencySettingAsyncWithHttpInfo (string currency = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UnifiedLeverageSetting>("/unified/leverage/user_currency_setting", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserLeverageCurrencySetting", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the currency leverage ratio 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns></returns>
+        public void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        {
+             SetUserLeverageCurrencySettingWithHttpInfo(unifiedLeverageSetting);
+        }
+
+        /// <summary>
+        /// Set the currency leverage ratio 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = unifiedLeverageSetting;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/unified/leverage/user_currency_setting", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetUserLeverageCurrencySetting", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the currency leverage ratio 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>Task of void</returns>
+        public async Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        {
+             await SetUserLeverageCurrencySettingAsyncWithHttpInfo(unifiedLeverageSetting);
+
+        }
+
+        /// <summary>
+        /// Set the currency leverage ratio 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = unifiedLeverageSetting;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/unified/leverage/user_currency_setting", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetUserLeverageCurrencySetting", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

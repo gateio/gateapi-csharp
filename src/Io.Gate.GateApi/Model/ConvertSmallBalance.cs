@@ -34,9 +34,11 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="ConvertSmallBalance" /> class.
         /// </summary>
         /// <param name="currency">Currency.</param>
-        public ConvertSmallBalance(List<string> currency = default(List<string>))
+        /// <param name="isAll">Whether to exchange all.</param>
+        public ConvertSmallBalance(List<string> currency = default(List<string>), bool isAll = default(bool))
         {
             this.Currency = currency;
+            this.IsAll = isAll;
         }
 
         /// <summary>
@@ -47,6 +49,13 @@ namespace Io.Gate.GateApi.Model
         public List<string> Currency { get; set; }
 
         /// <summary>
+        /// Whether to exchange all
+        /// </summary>
+        /// <value>Whether to exchange all</value>
+        [DataMember(Name="is_all")]
+        public bool IsAll { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class ConvertSmallBalance {\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  IsAll: ").Append(IsAll).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,10 @@ namespace Io.Gate.GateApi.Model
                     this.Currency != null &&
                     input.Currency != null &&
                     this.Currency.SequenceEqual(input.Currency)
+                ) && 
+                (
+                    this.IsAll == input.IsAll ||
+                    this.IsAll.Equals(input.IsAll)
                 );
         }
 
@@ -108,6 +122,7 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                hashCode = hashCode * 59 + this.IsAll.GetHashCode();
                 return hashCode;
             }
         }

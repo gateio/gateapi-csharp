@@ -35,14 +35,16 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="currencyPair">Order currency pair.</param>
         /// <param name="id">Order ID.</param>
+        /// <param name="text">Custom order information.</param>
         /// <param name="succeeded">Whether cancellation succeeded.</param>
         /// <param name="label">Error label when failed to cancel the order; emtpy if succeeded.</param>
         /// <param name="message">Error message when failed to cancel the order; empty if succeeded.</param>
         /// <param name="account">Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;.</param>
-        public CancelOrderResult(string currencyPair = default(string), string id = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string account = default(string))
+        public CancelOrderResult(string currencyPair = default(string), string id = default(string), string text = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string account = default(string))
         {
             this.CurrencyPair = currencyPair;
             this.Id = id;
+            this.Text = text;
             this.Succeeded = succeeded;
             this.Label = label;
             this.Message = message;
@@ -62,6 +64,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Order ID</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Custom order information
+        /// </summary>
+        /// <value>Custom order information</value>
+        [DataMember(Name="text")]
+        public string Text { get; set; }
 
         /// <summary>
         /// Whether cancellation succeeded
@@ -101,6 +110,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class CancelOrderResult {\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Succeeded: ").Append(Succeeded).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -150,6 +160,11 @@ namespace Io.Gate.GateApi.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
                     this.Succeeded == input.Succeeded ||
                     this.Succeeded.Equals(input.Succeeded)
                 ) && 
@@ -183,6 +198,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 hashCode = hashCode * 59 + this.Succeeded.GetHashCode();
                 if (this.Label != null)
                     hashCode = hashCode * 59 + this.Label.GetHashCode();

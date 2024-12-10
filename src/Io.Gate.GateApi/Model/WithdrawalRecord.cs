@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class WithdrawalRecord :  IEquatable<WithdrawalRecord>, IValidatableObject
     {
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
+        /// 交易状态  - DONE: 完成 (block_number &gt; 0 才算真的上链完成) - CANCEL: 已取消 - REQUEST: 请求中 - MANUAL: 待人工审核 - BCODE: 充值码操作 - EXTPEND: 已经发送等待确认 - FAIL: 链上失败等待确认 - INVALID: 无效订单 - VERIFY: 验证中 - PROCES: 处理中 - PEND: 处理中 - DMOVE: 待人工审核 - SPLITPEND: cny提现大于5w,自动分单
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount</value>
+        /// <value>交易状态  - DONE: 完成 (block_number &gt; 0 才算真的上链完成) - CANCEL: 已取消 - REQUEST: 请求中 - MANUAL: 待人工审核 - BCODE: 充值码操作 - EXTPEND: 已经发送等待确认 - FAIL: 链上失败等待确认 - INVALID: 无效订单 - VERIFY: 验证中 - PROCES: 处理中 - PEND: 处理中 - DMOVE: 待人工审核 - SPLITPEND: cny提现大于5w,自动分单</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -118,9 +118,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
+        /// 交易状态  - DONE: 完成 (block_number &gt; 0 才算真的上链完成) - CANCEL: 已取消 - REQUEST: 请求中 - MANUAL: 待人工审核 - BCODE: 充值码操作 - EXTPEND: 已经发送等待确认 - FAIL: 链上失败等待确认 - INVALID: 无效订单 - VERIFY: 验证中 - PROCES: 处理中 - PEND: 处理中 - DMOVE: 待人工审核 - SPLITPEND: cny提现大于5w,自动分单
         /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount</value>
+        /// <value>交易状态  - DONE: 完成 (block_number &gt; 0 才算真的上链完成) - CANCEL: 已取消 - REQUEST: 请求中 - MANUAL: 待人工审核 - BCODE: 充值码操作 - EXTPEND: 已经发送等待确认 - FAIL: 链上失败等待确认 - INVALID: 无效订单 - VERIFY: 验证中 - PROCES: 处理中 - PEND: 处理中 - DMOVE: 待人工审核 - SPLITPEND: cny提现大于5w,自动分单</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -163,6 +163,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Hash record of the withdrawal</value>
         [DataMember(Name="txid", EmitDefaultValue=false)]
         public string Txid { get; private set; }
+
+        /// <summary>
+        /// 区块编号
+        /// </summary>
+        /// <value>区块编号</value>
+        [DataMember(Name="block_number", EmitDefaultValue=false)]
+        public string BlockNumber { get; private set; }
 
         /// <summary>
         /// Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
@@ -230,6 +237,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class WithdrawalRecord {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Txid: ").Append(Txid).Append("\n");
+            sb.Append("  BlockNumber: ").Append(BlockNumber).Append("\n");
             sb.Append("  WithdrawOrderId: ").Append(WithdrawOrderId).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -282,6 +290,11 @@ namespace Io.Gate.GateApi.Model
                     this.Txid == input.Txid ||
                     (this.Txid != null &&
                     this.Txid.Equals(input.Txid))
+                ) && 
+                (
+                    this.BlockNumber == input.BlockNumber ||
+                    (this.BlockNumber != null &&
+                    this.BlockNumber.Equals(input.BlockNumber))
                 ) && 
                 (
                     this.WithdrawOrderId == input.WithdrawOrderId ||
@@ -342,6 +355,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Txid != null)
                     hashCode = hashCode * 59 + this.Txid.GetHashCode();
+                if (this.BlockNumber != null)
+                    hashCode = hashCode * 59 + this.BlockNumber.GetHashCode();
                 if (this.WithdrawOrderId != null)
                     hashCode = hashCode * 59 + this.WithdrawOrderId.GetHashCode();
                 if (this.Timestamp != null)

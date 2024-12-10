@@ -17,8 +17,12 @@ Method | HTTP request | Description
 [**GetUnifiedMode**](UnifiedApi.md#getunifiedmode) | **GET** /unified/unified_mode | Query mode of the unified account
 [**SetUnifiedMode**](UnifiedApi.md#setunifiedmode) | **PUT** /unified/unified_mode | Set mode of the unified account
 [**GetUnifiedEstimateRate**](UnifiedApi.md#getunifiedestimaterate) | **GET** /unified/estimate_rate | Get unified estimate rate
-[**ListCurrencyDiscountTiers**](UnifiedApi.md#listcurrencydiscounttiers) | **GET** /unified/currency_discount_tiers | list currency discount tiers
-[**CalculatePortfolioMargin**](UnifiedApi.md#calculateportfoliomargin) | **POST** /unified/portfolio_calculator | portfolio margin calculator
+[**ListCurrencyDiscountTiers**](UnifiedApi.md#listcurrencydiscounttiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers
+[**ListLoanMarginTiers**](UnifiedApi.md#listloanmargintiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers
+[**CalculatePortfolioMargin**](UnifiedApi.md#calculateportfoliomargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
+[**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | The maximum and minimum leverage multiples that users can set for a currency type are:
+[**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+[**SetUserLeverageCurrencySetting**](UnifiedApi.md#setuserleveragecurrencysetting) | **POST** /unified/leverage/user_currency_setting | Set the currency leverage ratio
 
 
 <a name="listunifiedaccounts"></a>
@@ -604,7 +608,7 @@ Name | Type | Description  | Notes
 
 <a name="listunifiedloaninterestrecords"></a>
 # **ListUnifiedLoanInterestRecords**
-> List&lt;UniLoanInterestRecord&gt; ListUnifiedLoanInterestRecords (string currency = null, int? page = null, int? limit = null, string type = null)
+> List&lt;UniLoanInterestRecord&gt; ListUnifiedLoanInterestRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null, string type = null)
 
 List interest records
 
@@ -630,12 +634,14 @@ namespace Example
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
-            var type = "platform";  // string | Loan type, platform - platform, margin - margin (optional) 
+            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
+            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
+            var type = "platform";  // string | Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional) 
 
             try
             {
                 // List interest records
-                List<UniLoanInterestRecord> result = apiInstance.ListUnifiedLoanInterestRecords(currency, page, limit, type);
+                List<UniLoanInterestRecord> result = apiInstance.ListUnifiedLoanInterestRecords(currency, page, limit, from, to, type);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -657,7 +663,9 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
- **type** | **string**| Loan type, platform - platform, margin - margin | [optional] 
+ **from** | **long?**| Start timestamp of the query | [optional] 
+ **to** | **long?**| Time range ending, default to current time | [optional] 
+ **type** | **string**| Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin | [optional] 
 
 ### Return type
 
@@ -964,7 +972,7 @@ Name | Type | Description  | Notes
 # **ListCurrencyDiscountTiers**
 > List&lt;UnifiedDiscount&gt; ListCurrencyDiscountTiers ()
 
-list currency discount tiers
+List currency discount tiers
 
 ### Example
 ```csharp
@@ -986,7 +994,7 @@ namespace Example
 
             try
             {
-                // list currency discount tiers
+                // List currency discount tiers
                 List<UnifiedDiscount> result = apiInstance.ListCurrencyDiscountTiers();
                 Debug.WriteLine(result);
             }
@@ -1025,13 +1033,78 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listloanmargintiers"></a>
+# **ListLoanMarginTiers**
+> List&lt;UnifiedMarginTiers&gt; ListLoanMarginTiers ()
+
+List loan margin tiers
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListLoanMarginTiersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new UnifiedApi(config);
+
+            try
+            {
+                // List loan margin tiers
+                List<UnifiedMarginTiers> result = apiInstance.ListLoanMarginTiers();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.ListLoanMarginTiers: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;UnifiedMarginTiers&gt;**](UnifiedMarginTiers.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="calculateportfoliomargin"></a>
 # **CalculatePortfolioMargin**
 > UnifiedPortfolioOutput CalculatePortfolioMargin (UnifiedPortfolioInput unifiedPortfolioInput)
 
-portfolio margin calculator
+Portfolio margin calculator
 
-组合保证金计算器 当输入为模拟仓位组合时，每个仓位包括仓位名和持有量，只支持市场范围：BTC、ETH的永续合约、期权、现货 当输入为模拟挂单时，每个挂单包括市场标识、挂单价、挂单量，只支持市场范围：BTC、ETH的永续合约、期权、现货。挂单不包括市价单
+Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
 
 ### Example
 ```csharp
@@ -1054,7 +1127,7 @@ namespace Example
 
             try
             {
-                // portfolio margin calculator
+                // Portfolio margin calculator
                 UnifiedPortfolioOutput result = apiInstance.CalculatePortfolioMargin(unifiedPortfolioInput);
                 Debug.WriteLine(result);
             }
@@ -1093,6 +1166,218 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuserleveragecurrencyconfig"></a>
+# **GetUserLeverageCurrencyConfig**
+> UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency)
+
+The maximum and minimum leverage multiples that users can set for a currency type are:
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetUserLeverageCurrencyConfigExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new UnifiedApi(config);
+            var currency = "BTC";  // string | Currency
+
+            try
+            {
+                // The maximum and minimum leverage multiples that users can set for a currency type are:
+                UnifiedLeverageConfig result = apiInstance.GetUserLeverageCurrencyConfig(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.GetUserLeverageCurrencyConfig: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | 
+
+### Return type
+
+[**UnifiedLeverageConfig**](UnifiedLeverageConfig.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuserleveragecurrencysetting"></a>
+# **GetUserLeverageCurrencySetting**
+> UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = null)
+
+Get the user's currency leverage. If currency is not passed, query all currencies.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetUserLeverageCurrencySettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new UnifiedApi(config);
+            var currency = "BTC";  // string | Currency (optional) 
+
+            try
+            {
+                // Get the user's currency leverage. If currency is not passed, query all currencies.
+                UnifiedLeverageSetting result = apiInstance.GetUserLeverageCurrencySetting(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.GetUserLeverageCurrencySetting: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | [optional] 
+
+### Return type
+
+[**UnifiedLeverageSetting**](UnifiedLeverageSetting.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setuserleveragecurrencysetting"></a>
+# **SetUserLeverageCurrencySetting**
+> void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = null)
+
+Set the currency leverage ratio
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetUserLeverageCurrencySettingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new UnifiedApi(config);
+            var unifiedLeverageSetting = new UnifiedLeverageSetting(); // UnifiedLeverageSetting |  (optional) 
+
+            try
+            {
+                // Set the currency leverage ratio
+                apiInstance.SetUserLeverageCurrencySetting(unifiedLeverageSetting);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.SetUserLeverageCurrencySetting: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unifiedLeverageSetting** | [**UnifiedLeverageSetting**](UnifiedLeverageSetting.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

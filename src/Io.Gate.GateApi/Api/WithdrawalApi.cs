@@ -49,6 +49,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of LedgerRecord</returns>
         ApiResponse<LedgerRecord> WithdrawWithHttpInfo (LedgerRecord ledgerRecord);
         /// <summary>
+        /// UID transfer
+        /// </summary>
+        /// <remarks>
+        /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>UidPushWithdrawalResp</returns>
+        UidPushWithdrawalResp WithdrawPushOrder (UidPushWithdrawal uidPushWithdrawal);
+
+        /// <summary>
+        /// UID transfer
+        /// </summary>
+        /// <remarks>
+        /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>ApiResponse of UidPushWithdrawalResp</returns>
+        ApiResponse<UidPushWithdrawalResp> WithdrawPushOrderWithHttpInfo (UidPushWithdrawal uidPushWithdrawal);
+        /// <summary>
         /// Cancel withdrawal with specified ID
         /// </summary>
         /// <remarks>
@@ -99,6 +120,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="ledgerRecord"></param>
         /// <returns>Task of ApiResponse (LedgerRecord)</returns>
         Task<ApiResponse<LedgerRecord>> WithdrawAsyncWithHttpInfo (LedgerRecord ledgerRecord);
+        /// <summary>
+        /// UID transfer
+        /// </summary>
+        /// <remarks>
+        /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>Task of UidPushWithdrawalResp</returns>
+        Task<UidPushWithdrawalResp> WithdrawPushOrderAsync (UidPushWithdrawal uidPushWithdrawal);
+
+        /// <summary>
+        /// UID transfer
+        /// </summary>
+        /// <remarks>
+        /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>Task of ApiResponse (UidPushWithdrawalResp)</returns>
+        Task<ApiResponse<UidPushWithdrawalResp>> WithdrawPushOrderAsyncWithHttpInfo (UidPushWithdrawal uidPushWithdrawal);
         /// <summary>
         /// Cancel withdrawal with specified ID
         /// </summary>
@@ -353,6 +395,125 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Withdraw", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>UidPushWithdrawalResp</returns>
+        public UidPushWithdrawalResp WithdrawPushOrder (UidPushWithdrawal uidPushWithdrawal)
+        {
+             ApiResponse<UidPushWithdrawalResp> localVarResponse = WithdrawPushOrderWithHttpInfo(uidPushWithdrawal);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>ApiResponse of UidPushWithdrawalResp</returns>
+        public ApiResponse<UidPushWithdrawalResp> WithdrawPushOrderWithHttpInfo (UidPushWithdrawal uidPushWithdrawal)
+        {
+            // verify the required parameter 'uidPushWithdrawal' is set
+            if (uidPushWithdrawal == null)
+                throw new ApiException(400, "Missing required parameter 'uidPushWithdrawal' when calling WithdrawalApi->WithdrawPushOrder");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = uidPushWithdrawal;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<UidPushWithdrawalResp>("/withdrawals/push", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("WithdrawPushOrder", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>Task of UidPushWithdrawalResp</returns>
+        public async Task<UidPushWithdrawalResp> WithdrawPushOrderAsync (UidPushWithdrawal uidPushWithdrawal)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UidPushWithdrawalResp> localVarResponse = await WithdrawPushOrderAsyncWithHttpInfo(uidPushWithdrawal);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="uidPushWithdrawal"></param>
+        /// <returns>Task of ApiResponse (UidPushWithdrawalResp)</returns>
+        public async Task<ApiResponse<UidPushWithdrawalResp>> WithdrawPushOrderAsyncWithHttpInfo (UidPushWithdrawal uidPushWithdrawal)
+        {
+            // verify the required parameter 'uidPushWithdrawal' is set
+            if (uidPushWithdrawal == null)
+                throw new ApiException(400, "Missing required parameter 'uidPushWithdrawal' when calling WithdrawalApi->WithdrawPushOrder");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.Data = uidPushWithdrawal;
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UidPushWithdrawalResp>("/withdrawals/push", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("WithdrawPushOrder", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

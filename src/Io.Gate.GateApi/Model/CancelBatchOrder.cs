@@ -40,15 +40,13 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="currencyPair">Order currency pair (required).</param>
         /// <param name="id">Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation (required).</param>
-        /// <param name="account">If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;.</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
-        public CancelBatchOrder(string currencyPair = default(string), string id = default(string), string account = default(string), string actionMode = default(string))
+        public CancelBatchOrder(string currencyPair = default(string), string id = default(string), string actionMode = default(string))
         {
             // to ensure "currencyPair" is required (not null)
             this.CurrencyPair = currencyPair ?? throw new ArgumentNullException("currencyPair", "currencyPair is a required property for CancelBatchOrder and cannot be null");
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id", "id is a required property for CancelBatchOrder and cannot be null");
-            this.Account = account;
             this.ActionMode = actionMode;
         }
 
@@ -67,13 +65,6 @@ namespace Io.Gate.GateApi.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;
-        /// </summary>
-        /// <value>If cancelled order is cross margin order or is portfolio margin account&#39;s API key, this field must be set and can only be &#x60;cross_margin&#x60;If cancelled order is cross margin order, this field must be set and can only be &#x60;cross_margin&#x60;</value>
-        [DataMember(Name="account")]
-        public string Account { get; set; }
-
-        /// <summary>
         /// Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)
         /// </summary>
         /// <value>Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default)</value>
@@ -90,7 +81,6 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class CancelBatchOrder {\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  ActionMode: ").Append(ActionMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -137,11 +127,6 @@ namespace Io.Gate.GateApi.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
-                ) && 
-                (
                     this.ActionMode == input.ActionMode ||
                     (this.ActionMode != null &&
                     this.ActionMode.Equals(input.ActionMode))
@@ -161,8 +146,6 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 if (this.ActionMode != null)
                     hashCode = hashCode * 59 + this.ActionMode.GetHashCode();
                 return hashCode;
