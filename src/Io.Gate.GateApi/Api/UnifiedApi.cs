@@ -438,6 +438,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="unifiedLeverageSetting"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        /// <summary>
+        /// get historical lending rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>UnifiedHistoryLoanRate</returns>
+        UnifiedHistoryLoanRate GetHistoryLoanRate (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// get historical lending rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of UnifiedHistoryLoanRate</returns>
+        ApiResponse<UnifiedHistoryLoanRate> GetHistoryLoanRateWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -858,6 +885,33 @@ namespace Io.Gate.GateApi.Api
         /// <param name="unifiedLeverageSetting"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        /// <summary>
+        /// get historical lending rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of UnifiedHistoryLoanRate</returns>
+        Task<UnifiedHistoryLoanRate> GetHistoryLoanRateAsync (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
+
+        /// <summary>
+        /// get historical lending rates
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (UnifiedHistoryLoanRate)</returns>
+        Task<ApiResponse<UnifiedHistoryLoanRate>> GetHistoryLoanRateAsyncWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
         #endregion Asynchronous Operations
     }
 
@@ -3225,6 +3279,159 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetUserLeverageCurrencySetting", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// get historical lending rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>UnifiedHistoryLoanRate</returns>
+        public UnifiedHistoryLoanRate GetHistoryLoanRate (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<UnifiedHistoryLoanRate> localVarResponse = GetHistoryLoanRateWithHttpInfo(currency, tier, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// get historical lending rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>ApiResponse of UnifiedHistoryLoanRate</returns>
+        public ApiResponse<UnifiedHistoryLoanRate> GetHistoryLoanRateWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling UnifiedApi->GetHistoryLoanRate");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (tier != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tier", tier));
+            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UnifiedHistoryLoanRate>("/unified/history_loan_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHistoryLoanRate", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// get historical lending rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of UnifiedHistoryLoanRate</returns>
+        public async Task<UnifiedHistoryLoanRate> GetHistoryLoanRateAsync (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedHistoryLoanRate> localVarResponse = await GetHistoryLoanRateAsyncWithHttpInfo(currency, tier, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// get historical lending rates 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (UnifiedHistoryLoanRate)</returns>
+        public async Task<ApiResponse<UnifiedHistoryLoanRate>> GetHistoryLoanRateAsyncWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
+        {
+            // verify the required parameter 'currency' is set
+            if (currency == null)
+                throw new ApiException(400, "Missing required parameter 'currency' when calling UnifiedApi->GetHistoryLoanRate");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (tier != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tier", tier));
+            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UnifiedHistoryLoanRate>("/unified/history_loan_rate", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetHistoryLoanRate", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

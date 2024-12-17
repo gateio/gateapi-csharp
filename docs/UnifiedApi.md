@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | The maximum and minimum leverage multiples that users can set for a currency type are:
 [**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
 [**SetUserLeverageCurrencySetting**](UnifiedApi.md#setuserleveragecurrencysetting) | **POST** /unified/leverage/user_currency_setting | Set the currency leverage ratio
+[**GetHistoryLoanRate**](UnifiedApi.md#gethistoryloanrate) | **GET** /unified/history_loan_rate | get historical lending rates
 
 
 <a name="listunifiedaccounts"></a>
@@ -1378,6 +1379,83 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="gethistoryloanrate"></a>
+# **GetHistoryLoanRate**
+> UnifiedHistoryLoanRate GetHistoryLoanRate (string currency, string tier = null, int? page = null, int? limit = null)
+
+get historical lending rates
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetHistoryLoanRateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new UnifiedApi(config);
+            var currency = "USDT";  // string | Currency
+            var tier = "1";  // string | The VIP level of the floating rate that needs to be queried (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+
+            try
+            {
+                // get historical lending rates
+                UnifiedHistoryLoanRate result = apiInstance.GetHistoryLoanRate(currency, tier, page, limit);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.GetHistoryLoanRate: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | 
+ **tier** | **string**| The VIP level of the floating rate that needs to be queried | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
+ **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+
+### Return type
+
+[**UnifiedHistoryLoanRate**](UnifiedHistoryLoanRate.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
