@@ -4,78 +4,12 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListFlashSwapCurrencies**](FlashSwapApi.md#listflashswapcurrencies) | **GET** /flash_swap/currencies | List All Supported Currencies In Flash Swap (deprecated)
 [**ListFlashSwapCurrencyPair**](FlashSwapApi.md#listflashswapcurrencypair) | **GET** /flash_swap/currency_pairs | List All Supported Currency Pairs In Flash Swap
 [**ListFlashSwapOrders**](FlashSwapApi.md#listflashswaporders) | **GET** /flash_swap/orders | List all flash swap orders
 [**CreateFlashSwapOrder**](FlashSwapApi.md#createflashswaporder) | **POST** /flash_swap/orders | Create a flash swap order
 [**GetFlashSwapOrder**](FlashSwapApi.md#getflashswaporder) | **GET** /flash_swap/orders/{order_id} | Get a single flash swap order&#39;s detail
 [**PreviewFlashSwapOrder**](FlashSwapApi.md#previewflashswaporder) | **POST** /flash_swap/orders/preview | Initiate a flash swap order preview
 
-
-<a name="listflashswapcurrencies"></a>
-# **ListFlashSwapCurrencies**
-> List&lt;FlashSwapCurrency&gt; ListFlashSwapCurrencies ()
-
-List All Supported Currencies In Flash Swap (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class ListFlashSwapCurrenciesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            var apiInstance = new FlashSwapApi(config);
-
-            try
-            {
-                // List All Supported Currencies In Flash Swap (deprecated)
-                List<FlashSwapCurrency> result = apiInstance.ListFlashSwapCurrencies();
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling FlashSwapApi.ListFlashSwapCurrencies: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;FlashSwapCurrency&gt;**](FlashSwapCurrency.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listflashswapcurrencypair"></a>
 # **ListFlashSwapCurrencyPair**

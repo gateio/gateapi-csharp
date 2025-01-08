@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="SpotInsuranceHistory" /> class.
         /// </summary>
         /// <param name="currency">Currency.</param>
-        /// <param name="balance">余额.</param>
+        /// <param name="balance">balance.</param>
         /// <param name="time">Creation time, timestamp, milliseconds.</param>
         public SpotInsuranceHistory(string currency = default(string), string balance = default(string), long time = default(long))
         {
@@ -51,9 +51,9 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// 余额
+        /// balance
         /// </summary>
-        /// <value>余额</value>
+        /// <value>balance</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 

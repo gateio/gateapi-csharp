@@ -63,24 +63,24 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsAccount" /> class.
         /// </summary>
         /// <param name="user">User ID.</param>
-        /// <param name="total">账户余额.</param>
-        /// <param name="positionValue">仓位价值，做多仓位价值为正，做空仓位价值为负.</param>
-        /// <param name="equity">账户权益，账户余额与仓位价值的和.</param>
+        /// <param name="total">Account balance.</param>
+        /// <param name="positionValue">Position value, long position value is positive, short position value is negative.</param>
+        /// <param name="equity">Account equity, the sum of account balance and position value.</param>
         /// <param name="shortEnabled">If the account is allowed to short.</param>
-        /// <param name="mmpEnabled">是否启用MMP.</param>
-        /// <param name="liqTriggered">是否触发仓位强平.</param>
+        /// <param name="mmpEnabled">Whether to enable MMP.</param>
+        /// <param name="liqTriggered">Whether to trigger position liquidation.</param>
         /// <param name="marginMode">｜ 保证金模式： - 0：经典现货保证金模式 - 1：跨币种保证金模式 - 2：组合保证金模式.</param>
         /// <param name="unrealisedPnl">Unrealized PNL.</param>
         /// <param name="initMargin">Initial position margin.</param>
         /// <param name="maintMargin">Position maintenance margin.</param>
         /// <param name="orderMargin">Order margin of unfinished orders.</param>
-        /// <param name="askOrderMargin">未完成卖单的保证金.</param>
-        /// <param name="bidOrderMargin">未完成买单的保证金.</param>
+        /// <param name="askOrderMargin">Margin for outstanding sell orders.</param>
+        /// <param name="bidOrderMargin">Margin for outstanding buy orders.</param>
         /// <param name="available">Available balance to transfer out or trade.</param>
         /// <param name="point">POINT amount.</param>
         /// <param name="currency">Settle currency.</param>
-        /// <param name="ordersLimit">未完成订单数量上限.</param>
-        /// <param name="positionNotionalLimit">名义价值上限，包含仓位以及未完成订单的名义价值.</param>
+        /// <param name="ordersLimit">Maximum number of outstanding orders.</param>
+        /// <param name="positionNotionalLimit">Notional value upper limit, including the nominal value of positions and outstanding orders.</param>
         public OptionsAccount(long user = default(long), string total = default(string), string positionValue = default(string), string equity = default(string), bool shortEnabled = default(bool), bool mmpEnabled = default(bool), bool liqTriggered = default(bool), MarginModeEnum? marginMode = default(MarginModeEnum?), string unrealisedPnl = default(string), string initMargin = default(string), string maintMargin = default(string), string orderMargin = default(string), string askOrderMargin = default(string), string bidOrderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), int ordersLimit = default(int), long positionNotionalLimit = default(long))
         {
             this.User = user;
@@ -112,23 +112,23 @@ namespace Io.Gate.GateApi.Model
         public long User { get; set; }
 
         /// <summary>
-        /// 账户余额
+        /// Account balance
         /// </summary>
-        /// <value>账户余额</value>
+        /// <value>Account balance</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
 
         /// <summary>
-        /// 仓位价值，做多仓位价值为正，做空仓位价值为负
+        /// Position value, long position value is positive, short position value is negative
         /// </summary>
-        /// <value>仓位价值，做多仓位价值为正，做空仓位价值为负</value>
+        /// <value>Position value, long position value is positive, short position value is negative</value>
         [DataMember(Name="position_value")]
         public string PositionValue { get; set; }
 
         /// <summary>
-        /// 账户权益，账户余额与仓位价值的和
+        /// Account equity, the sum of account balance and position value
         /// </summary>
-        /// <value>账户权益，账户余额与仓位价值的和</value>
+        /// <value>Account equity, the sum of account balance and position value</value>
         [DataMember(Name="equity")]
         public string Equity { get; set; }
 
@@ -140,16 +140,16 @@ namespace Io.Gate.GateApi.Model
         public bool ShortEnabled { get; set; }
 
         /// <summary>
-        /// 是否启用MMP
+        /// Whether to enable MMP
         /// </summary>
-        /// <value>是否启用MMP</value>
+        /// <value>Whether to enable MMP</value>
         [DataMember(Name="mmp_enabled")]
         public bool MmpEnabled { get; set; }
 
         /// <summary>
-        /// 是否触发仓位强平
+        /// Whether to trigger position liquidation
         /// </summary>
-        /// <value>是否触发仓位强平</value>
+        /// <value>Whether to trigger position liquidation</value>
         [DataMember(Name="liq_triggered")]
         public bool LiqTriggered { get; set; }
 
@@ -182,16 +182,16 @@ namespace Io.Gate.GateApi.Model
         public string OrderMargin { get; set; }
 
         /// <summary>
-        /// 未完成卖单的保证金
+        /// Margin for outstanding sell orders
         /// </summary>
-        /// <value>未完成卖单的保证金</value>
+        /// <value>Margin for outstanding sell orders</value>
         [DataMember(Name="ask_order_margin")]
         public string AskOrderMargin { get; set; }
 
         /// <summary>
-        /// 未完成买单的保证金
+        /// Margin for outstanding buy orders
         /// </summary>
-        /// <value>未完成买单的保证金</value>
+        /// <value>Margin for outstanding buy orders</value>
         [DataMember(Name="bid_order_margin")]
         public string BidOrderMargin { get; set; }
 
@@ -217,16 +217,16 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// 未完成订单数量上限
+        /// Maximum number of outstanding orders
         /// </summary>
-        /// <value>未完成订单数量上限</value>
+        /// <value>Maximum number of outstanding orders</value>
         [DataMember(Name="orders_limit")]
         public int OrdersLimit { get; set; }
 
         /// <summary>
-        /// 名义价值上限，包含仓位以及未完成订单的名义价值
+        /// Notional value upper limit, including the nominal value of positions and outstanding orders
         /// </summary>
-        /// <value>名义价值上限，包含仓位以及未完成订单的名义价值</value>
+        /// <value>Notional value upper limit, including the nominal value of positions and outstanding orders</value>
         [DataMember(Name="position_notional_limit")]
         public long PositionNotionalLimit { get; set; }
 

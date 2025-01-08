@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OrderPatch" /> class.
         /// </summary>
         /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="account">指定查询账户。.</param>
+        /// <param name="account">Specify query account..</param>
         /// <param name="amount">New order amount. &#x60;amount&#x60; and &#x60;price&#x60; must specify one of them.</param>
         /// <param name="price">New order price. &#x60;amount&#x60; and &#x60;Price&#x60; must specify one of them\&quot;.</param>
         /// <param name="amendText">Custom info during amending order.</param>
@@ -57,9 +57,9 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// 指定查询账户。
+        /// Specify query account.
         /// </summary>
-        /// <value>指定查询账户。</value>
+        /// <value>Specify query account.</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

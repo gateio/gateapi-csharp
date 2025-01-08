@@ -39,10 +39,10 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OptionsMMP" /> class.
         /// </summary>
         /// <param name="underlying">Underlying (required).</param>
-        /// <param name="window">时间窗口（毫秒），1-5000之间，0表示停用MMP (required).</param>
-        /// <param name="frozenPeriod">冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻 (required).</param>
-        /// <param name="qtyLimit">成交量上限（正数，至多2位小数） (required).</param>
-        /// <param name="deltaLimit">净delta值上限（正数，至多2位小数） (required).</param>
+        /// <param name="window">Time window (milliseconds), between 1-5000, 0 means disabling MMP (required).</param>
+        /// <param name="frozenPeriod">Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze (required).</param>
+        /// <param name="qtyLimit">Trading volume upper limit (positive number, up to 2 decimal places) (required).</param>
+        /// <param name="deltaLimit">Upper limit of net delta value (positive number, up to 2 decimal places) (required).</param>
         public OptionsMMP(string underlying = default(string), int window = default(int), int frozenPeriod = default(int), string qtyLimit = default(string), string deltaLimit = default(string))
         {
             // to ensure "underlying" is required (not null)
@@ -63,44 +63,44 @@ namespace Io.Gate.GateApi.Model
         public string Underlying { get; set; }
 
         /// <summary>
-        /// 时间窗口（毫秒），1-5000之间，0表示停用MMP
+        /// Time window (milliseconds), between 1-5000, 0 means disabling MMP
         /// </summary>
-        /// <value>时间窗口（毫秒），1-5000之间，0表示停用MMP</value>
+        /// <value>Time window (milliseconds), between 1-5000, 0 means disabling MMP</value>
         [DataMember(Name="window")]
         public int Window { get; set; }
 
         /// <summary>
-        /// 冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻
+        /// Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze
         /// </summary>
-        /// <value>冻结时长（毫秒），0表示一直冻结，需要调用重置API解冻</value>
+        /// <value>Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze</value>
         [DataMember(Name="frozen_period")]
         public int FrozenPeriod { get; set; }
 
         /// <summary>
-        /// 成交量上限（正数，至多2位小数）
+        /// Trading volume upper limit (positive number, up to 2 decimal places)
         /// </summary>
-        /// <value>成交量上限（正数，至多2位小数）</value>
+        /// <value>Trading volume upper limit (positive number, up to 2 decimal places)</value>
         [DataMember(Name="qty_limit")]
         public string QtyLimit { get; set; }
 
         /// <summary>
-        /// 净delta值上限（正数，至多2位小数）
+        /// Upper limit of net delta value (positive number, up to 2 decimal places)
         /// </summary>
-        /// <value>净delta值上限（正数，至多2位小数）</value>
+        /// <value>Upper limit of net delta value (positive number, up to 2 decimal places)</value>
         [DataMember(Name="delta_limit")]
         public string DeltaLimit { get; set; }
 
         /// <summary>
-        /// 触发冻结时间（毫秒），0表示没有触发冻结
+        /// Trigger freeze time (milliseconds), 0 means no freeze is triggered
         /// </summary>
-        /// <value>触发冻结时间（毫秒），0表示没有触发冻结</value>
+        /// <value>Trigger freeze time (milliseconds), 0 means no freeze is triggered</value>
         [DataMember(Name="trigger_time_ms", EmitDefaultValue=false)]
         public long TriggerTimeMs { get; private set; }
 
         /// <summary>
-        /// 解冻时间（毫秒），如果未配置冻结时长，触发冻结后无解冻时间
+        /// Unfreeze time (milliseconds). If the freeze duration is not configured, there will be no unfreeze time after the freeze is triggered.
         /// </summary>
-        /// <value>解冻时间（毫秒），如果未配置冻结时长，触发冻结后无解冻时间</value>
+        /// <value>Unfreeze time (milliseconds). If the freeze duration is not configured, there will be no unfreeze time after the freeze is triggered.</value>
         [DataMember(Name="frozen_until_ms", EmitDefaultValue=false)]
         public long FrozenUntilMs { get; private set; }
 

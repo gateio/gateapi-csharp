@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="UnifiedSettings" /> class.
         /// </summary>
         /// <param name="usdtFutures">USDT contract switch. In cross-currency margin mode, it can only be turned on and not off.</param>
-        /// <param name="spotHedge">现货对冲开关。.</param>
+        /// <param name="spotHedge">Spot hedging switch. .</param>
         /// <param name="useFunding">When the mode is set to combined margin mode, will funds be used as margin.</param>
         /// <param name="options">Option switch. In cross-currency margin mode, it can only be turned on and not off.</param>
         public UnifiedSettings(bool usdtFutures = default(bool), bool spotHedge = default(bool), bool useFunding = default(bool), bool options = default(bool))
@@ -53,9 +53,9 @@ namespace Io.Gate.GateApi.Model
         public bool UsdtFutures { get; set; }
 
         /// <summary>
-        /// 现货对冲开关。
+        /// Spot hedging switch. 
         /// </summary>
-        /// <value>现货对冲开关。</value>
+        /// <value>Spot hedging switch. </value>
         [DataMember(Name="spot_hedge")]
         public bool SpotHedge { get; set; }
 

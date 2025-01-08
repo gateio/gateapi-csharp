@@ -28,25 +28,6 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;FlashSwapCurrency&gt;</returns>
-        List<FlashSwapCurrency> ListFlashSwapCurrencies ();
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;FlashSwapCurrency&gt;</returns>
-        ApiResponse<List<FlashSwapCurrency>> ListFlashSwapCurrenciesWithHttpInfo ();
-        /// <summary>
         /// List All Supported Currency Pairs In Flash Swap
         /// </summary>
         /// <remarks>
@@ -174,25 +155,6 @@ namespace Io.Gate.GateApi.Api
     public interface IFlashSwapApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;FlashSwapCurrency&gt;</returns>
-        Task<List<FlashSwapCurrency>> ListFlashSwapCurrenciesAsync ();
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated)
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrency&gt;)</returns>
-        Task<ApiResponse<List<FlashSwapCurrency>>> ListFlashSwapCurrenciesAsyncWithHttpInfo ();
         /// <summary>
         /// List All Supported Currency Pairs In Flash Swap
         /// </summary>
@@ -430,105 +392,6 @@ namespace Io.Gate.GateApi.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
-        }
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated) 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;FlashSwapCurrency&gt;</returns>
-        public List<FlashSwapCurrency> ListFlashSwapCurrencies ()
-        {
-             ApiResponse<List<FlashSwapCurrency>> localVarResponse = ListFlashSwapCurrenciesWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated) 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;FlashSwapCurrency&gt;</returns>
-        public ApiResponse<List<FlashSwapCurrency>> ListFlashSwapCurrenciesWithHttpInfo ()
-        {
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<FlashSwapCurrency>>("/flash_swap/currencies", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFlashSwapCurrencies", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated) 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;FlashSwapCurrency&gt;</returns>
-        public async Task<List<FlashSwapCurrency>> ListFlashSwapCurrenciesAsync ()
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<FlashSwapCurrency>> localVarResponse = await ListFlashSwapCurrenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List All Supported Currencies In Flash Swap (deprecated) 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrency&gt;)</returns>
-        public async Task<ApiResponse<List<FlashSwapCurrency>>> ListFlashSwapCurrenciesAsyncWithHttpInfo ()
-        {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FlashSwapCurrency>>("/flash_swap/currencies", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFlashSwapCurrencies", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
         }
 
         /// <summary>
