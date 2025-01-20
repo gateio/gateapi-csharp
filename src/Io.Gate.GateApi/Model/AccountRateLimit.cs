@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountRateLimit" /> class.
         /// </summary>
-        /// <param name="tier">Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#成交比率限频)).</param>
+        /// <param name="tier">Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio)).</param>
         /// <param name="ratio">Transaction rate.</param>
         /// <param name="mainRatio">Total transaction ratio of main account.</param>
         /// <param name="updatedAt">Update time.</param>
@@ -46,9 +46,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#成交比率限频))
+        /// Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio))
         /// </summary>
-        /// <value>Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#成交比率限频))</value>
+        /// <value>Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio))</value>
         [DataMember(Name="tier")]
         public string Tier { get; set; }
 

@@ -41,7 +41,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="createTime">Creation time.</param>
         /// <param name="status">Withdrawal Status  - CREATING: Creating - PENDING: Waiting for receiving(Please contact the other party to accept the transfer on the Gate official website) - CANCELLING: Cancelling - CANCELLED: Revoked - REFUSING: Rejection - REFUSED: Rejected - RECEIVING: Receiving - RECEIVED: Success.</param>
         /// <param name="message">PENDING Reason Tips.</param>
-        public UidPushOrder(long id = default(long), long pushUid = default(long), long receiveUid = default(long), string currency = default(string), string amount = default(string), long createTime = default(long), string status = default(string), string message = default(string))
+        /// <param name="transactionType">Order Type.</param>
+        public UidPushOrder(long id = default(long), long pushUid = default(long), long receiveUid = default(long), string currency = default(string), string amount = default(string), long createTime = default(long), string status = default(string), string message = default(string), string transactionType = default(string))
         {
             this.Id = id;
             this.PushUid = pushUid;
@@ -51,6 +52,7 @@ namespace Io.Gate.GateApi.Model
             this.CreateTime = createTime;
             this.Status = status;
             this.Message = message;
+            this.TransactionType = transactionType;
         }
 
         /// <summary>
@@ -110,6 +112,13 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; set; }
 
         /// <summary>
+        /// Order Type
+        /// </summary>
+        /// <value>Order Type</value>
+        [DataMember(Name="transaction_type")]
+        public string TransactionType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -194,6 +204,11 @@ namespace Io.Gate.GateApi.Model
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.TransactionType == input.TransactionType ||
+                    (this.TransactionType != null &&
+                    this.TransactionType.Equals(input.TransactionType))
                 );
         }
 
@@ -218,6 +233,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.TransactionType != null)
+                    hashCode = hashCode * 59 + this.TransactionType.GetHashCode();
                 return hashCode;
             }
         }

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**ListCurrencyDiscountTiers**](UnifiedApi.md#listcurrencydiscounttiers) | **GET** /unified/currency_discount_tiers | List currency discount tiers
 [**ListLoanMarginTiers**](UnifiedApi.md#listloanmargintiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers
 [**CalculatePortfolioMargin**](UnifiedApi.md#calculateportfoliomargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
-[**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | The maximum and minimum leverage multiples that users can set for a currency type are:
+[**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set
 [**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
 [**SetUserLeverageCurrencySetting**](UnifiedApi.md#setuserleveragecurrencysetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 [**GetHistoryLoanRate**](UnifiedApi.md#gethistoryloanrate) | **GET** /unified/history_loan_rate | get historical lending rates
@@ -1032,7 +1032,7 @@ No authorization required
 # **GetUserLeverageCurrencyConfig**
 > UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency)
 
-The maximum and minimum leverage multiples that users can set for a currency type are:
+Minimum currency leverage that can be set
 
 ### Example
 ```csharp
@@ -1057,7 +1057,7 @@ namespace Example
 
             try
             {
-                // The maximum and minimum leverage multiples that users can set for a currency type are:
+                // Minimum currency leverage that can be set
                 UnifiedLeverageConfig result = apiInstance.GetUserLeverageCurrencyConfig(currency);
                 Debug.WriteLine(result);
             }

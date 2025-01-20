@@ -497,8 +497,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>List&lt;UidPushOrder&gt;</returns>
-        List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+        List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string));
 
         /// <summary>
         /// Retrieve the UID transfer history
@@ -512,8 +513,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>ApiResponse of List&lt;UidPushOrder&gt;</returns>
-        ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+        ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string));
         #endregion Synchronous Operations
     }
 
@@ -993,8 +995,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>Task of List&lt;UidPushOrder&gt;</returns>
-        Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+        Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string));
 
         /// <summary>
         /// Retrieve the UID transfer history
@@ -1008,8 +1011,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>Task of ApiResponse (List&lt;UidPushOrder&gt;)</returns>
-        Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?));
+        Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string));
         #endregion Asynchronous Operations
     }
 
@@ -3681,10 +3685,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>List&lt;UidPushOrder&gt;</returns>
-        public List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        public List<UidPushOrder> ListPushOrders (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string))
         {
-             ApiResponse<List<UidPushOrder>> localVarResponse = ListPushOrdersWithHttpInfo(id, from, to, limit, offset);
+             ApiResponse<List<UidPushOrder>> localVarResponse = ListPushOrdersWithHttpInfo(id, from, to, limit, offset, transactionType);
              return localVarResponse.Data;
         }
 
@@ -3697,8 +3702,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>ApiResponse of List&lt;UidPushOrder&gt;</returns>
-        public ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        public ApiResponse<List<UidPushOrder>> ListPushOrdersWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3736,6 +3742,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+            if (transactionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transaction_type", transactionType));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3761,10 +3771,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>Task of List&lt;UidPushOrder&gt;</returns>
-        public async Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<List<UidPushOrder>> ListPushOrdersAsync (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<UidPushOrder>> localVarResponse = await ListPushOrdersAsyncWithHttpInfo(id, from, to, limit, offset);
+             Io.Gate.GateApi.Client.ApiResponse<List<UidPushOrder>> localVarResponse = await ListPushOrdersAsyncWithHttpInfo(id, from, to, limit, offset, transactionType);
              return localVarResponse.Data;
 
         }
@@ -3778,8 +3789,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="to">The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional)</param>
         /// <param name="limit">The maximum number of items returned in the list, the default value is 100 (optional, default to 100)</param>
         /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="transactionType">The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. (optional, default to &quot;withdraw&quot;)</param>
         /// <returns>Task of ApiResponse (List&lt;UidPushOrder&gt;)</returns>
-        public async Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?))
+        public async Task<ApiResponse<List<UidPushOrder>>> ListPushOrdersAsyncWithHttpInfo (int? id = default(int?), int? from = default(int?), int? to = default(int?), int? limit = default(int?), int? offset = default(int?), string transactionType = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -3817,6 +3829,10 @@ namespace Io.Gate.GateApi.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (transactionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "transaction_type", transactionType));
             }
 
             // authentication (apiv4) required

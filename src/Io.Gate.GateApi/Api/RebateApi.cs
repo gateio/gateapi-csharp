@@ -253,6 +253,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
         ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ();
+        /// <summary>
+        /// User-subordinate relationship
+        /// </summary>
+        /// <remarks>
+        /// Query whether the specified user is in the system
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>UserSubRelation</returns>
+        UserSubRelation UserSubRelation (string userIdList);
+
+        /// <summary>
+        /// User-subordinate relationship
+        /// </summary>
+        /// <remarks>
+        /// Query whether the specified user is in the system
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>ApiResponse of UserSubRelation</returns>
+        ApiResponse<UserSubRelation> UserSubRelationWithHttpInfo (string userIdList);
         #endregion Synchronous Operations
     }
 
@@ -488,6 +509,27 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
         Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ();
+        /// <summary>
+        /// User-subordinate relationship
+        /// </summary>
+        /// <remarks>
+        /// Query whether the specified user is in the system
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>Task of UserSubRelation</returns>
+        Task<UserSubRelation> UserSubRelationAsync (string userIdList);
+
+        /// <summary>
+        /// User-subordinate relationship
+        /// </summary>
+        /// <remarks>
+        /// Query whether the specified user is in the system
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>Task of ApiResponse (UserSubRelation)</returns>
+        Task<ApiResponse<UserSubRelation>> UserSubRelationAsyncWithHttpInfo (string userIdList);
         #endregion Asynchronous Operations
     }
 
@@ -1870,6 +1912,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RebateUserInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User-subordinate relationship Query whether the specified user is in the system
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>UserSubRelation</returns>
+        public UserSubRelation UserSubRelation (string userIdList)
+        {
+             ApiResponse<UserSubRelation> localVarResponse = UserSubRelationWithHttpInfo(userIdList);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// User-subordinate relationship Query whether the specified user is in the system
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>ApiResponse of UserSubRelation</returns>
+        public ApiResponse<UserSubRelation> UserSubRelationWithHttpInfo (string userIdList)
+        {
+            // verify the required parameter 'userIdList' is set
+            if (userIdList == null)
+                throw new ApiException(400, "Missing required parameter 'userIdList' when calling RebateApi->UserSubRelation");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id_list", userIdList));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UserSubRelation>("/rebate/user/sub_relation", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UserSubRelation", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// User-subordinate relationship Query whether the specified user is in the system
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>Task of UserSubRelation</returns>
+        public async Task<UserSubRelation> UserSubRelationAsync (string userIdList)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<UserSubRelation> localVarResponse = await UserSubRelationAsyncWithHttpInfo(userIdList);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// User-subordinate relationship Query whether the specified user is in the system
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <returns>Task of ApiResponse (UserSubRelation)</returns>
+        public async Task<ApiResponse<UserSubRelation>> UserSubRelationAsyncWithHttpInfo (string userIdList)
+        {
+            // verify the required parameter 'userIdList' is set
+            if (userIdList == null)
+                throw new ApiException(400, "Missing required parameter 'userIdList' when calling RebateApi->UserSubRelation");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "user_id_list", userIdList));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UserSubRelation>("/rebate/user/sub_relation", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UserSubRelation", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

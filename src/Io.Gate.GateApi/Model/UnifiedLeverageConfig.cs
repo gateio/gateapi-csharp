@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="debit">Current liabilities.</param>
         /// <param name="availableMargin">Available Margin.</param>
         /// <param name="borrowable">The current leverage you can choose is.</param>
-        /// <param name="exceptLeverageBorrowable">The maximum amount of margin that can be borrowed and the maximum amount of Yubibao that can be borrowed, whichever is smaller.</param>
+        /// <param name="exceptLeverageBorrowable">The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller.</param>
         public UnifiedLeverageConfig(string currentLeverage = default(string), string minLeverage = default(string), string maxLeverage = default(string), string debit = default(string), string availableMargin = default(string), string borrowable = default(string), string exceptLeverageBorrowable = default(string))
         {
             this.CurrentLeverage = currentLeverage;
@@ -94,9 +94,9 @@ namespace Io.Gate.GateApi.Model
         public string Borrowable { get; set; }
 
         /// <summary>
-        /// The maximum amount of margin that can be borrowed and the maximum amount of Yubibao that can be borrowed, whichever is smaller
+        /// The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
         /// </summary>
-        /// <value>The maximum amount of margin that can be borrowed and the maximum amount of Yubibao that can be borrowed, whichever is smaller</value>
+        /// <value>The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller</value>
         [DataMember(Name="except_leverage_borrowable")]
         public string ExceptLeverageBorrowable { get; set; }
 

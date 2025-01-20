@@ -336,7 +336,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of UnifiedPortfolioOutput</returns>
         ApiResponse<UnifiedPortfolioOutput> CalculatePortfolioMarginWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// Minimum currency leverage that can be set
         /// </summary>
         /// <remarks>
         /// 
@@ -347,7 +347,7 @@ namespace Io.Gate.GateApi.Api
         UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency);
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// Minimum currency leverage that can be set
         /// </summary>
         /// <remarks>
         /// 
@@ -743,7 +743,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (UnifiedPortfolioOutput)</returns>
         Task<ApiResponse<UnifiedPortfolioOutput>> CalculatePortfolioMarginAsyncWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// Minimum currency leverage that can be set
         /// </summary>
         /// <remarks>
         /// 
@@ -754,7 +754,7 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigAsync (string currency);
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are:
+        /// Minimum currency leverage that can be set
         /// </summary>
         /// <remarks>
         /// 
@@ -2645,7 +2645,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// Minimum currency leverage that can be set 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency</param>
@@ -2657,7 +2657,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// Minimum currency leverage that can be set 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency</param>
@@ -2702,7 +2702,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// Minimum currency leverage that can be set 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency</param>
@@ -2715,7 +2715,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The maximum and minimum leverage multiples that users can set for a currency type are: 
+        /// Minimum currency leverage that can be set 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency</param>

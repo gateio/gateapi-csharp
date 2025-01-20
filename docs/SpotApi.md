@@ -2020,8 +2020,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
             var apiInstance = new SpotApi(config);
             var business = "margin";  // string | Leverage business, margin - position by position; unified - unified account
             var currency = "BTC";  // string | Currency
@@ -2065,7 +2063,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiv4](../README.md#apiv4)
+No authorization required
 
 ### HTTP request headers
 

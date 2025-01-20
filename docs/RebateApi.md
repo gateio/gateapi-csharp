@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**RebateBrokerCommissionHistory**](RebateApi.md#rebatebrokercommissionhistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
 [**RebateBrokerTransactionHistory**](RebateApi.md#rebatebrokertransactionhistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
 [**RebateUserInfo**](RebateApi.md#rebateuserinfo) | **GET** /rebate/user/info | User retrieves rebate information
+[**UserSubRelation**](RebateApi.md#usersubrelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship
 
 
 <a name="agencytransactionhistory"></a>
@@ -649,6 +650,79 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="usersubrelation"></a>
+# **UserSubRelation**
+> UserSubRelation UserSubRelation (string userIdList)
+
+User-subordinate relationship
+
+Query whether the specified user is in the system
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class UserSubRelationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new RebateApi(config);
+            var userIdList = "1, 2, 3";  // string | Query the user's ID list, split by,, if there are more than 100, take 100
+
+            try
+            {
+                // User-subordinate relationship
+                UserSubRelation result = apiInstance.UserSubRelation(userIdList);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling RebateApi.UserSubRelation: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userIdList** | **string**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100 | 
+
+### Return type
+
+[**UserSubRelation**](UserSubRelation.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

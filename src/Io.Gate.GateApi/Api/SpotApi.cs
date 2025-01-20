@@ -5399,8 +5399,6 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
 
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<SpotInsuranceHistory>>("/spot/insurance_history", localVarRequestOptions, this.Configuration);
@@ -5483,8 +5481,6 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
 
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
 

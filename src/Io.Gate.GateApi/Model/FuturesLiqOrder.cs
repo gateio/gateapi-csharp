@@ -60,6 +60,13 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; private set; }
 
         /// <summary>
+        /// Number of forced liquidation orders
+        /// </summary>
+        /// <value>Number of forced liquidation orders</value>
+        [DataMember(Name="order_size", EmitDefaultValue=false)]
+        public long OrderSize { get; private set; }
+
+        /// <summary>
         /// Liquidation order price
         /// </summary>
         /// <value>Liquidation order price</value>
@@ -91,6 +98,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
+            sb.Append("  OrderSize: ").Append(OrderSize).Append("\n");
             sb.Append("  OrderPrice: ").Append(OrderPrice).Append("\n");
             sb.Append("  FillPrice: ").Append(FillPrice).Append("\n");
             sb.Append("  Left: ").Append(Left).Append("\n");
@@ -142,6 +150,10 @@ namespace Io.Gate.GateApi.Model
                     this.Size.Equals(input.Size)
                 ) && 
                 (
+                    this.OrderSize == input.OrderSize ||
+                    this.OrderSize.Equals(input.OrderSize)
+                ) && 
+                (
                     this.OrderPrice == input.OrderPrice ||
                     (this.OrderPrice != null &&
                     this.OrderPrice.Equals(input.OrderPrice))
@@ -170,6 +182,7 @@ namespace Io.Gate.GateApi.Model
                 if (this.Contract != null)
                     hashCode = hashCode * 59 + this.Contract.GetHashCode();
                 hashCode = hashCode * 59 + this.Size.GetHashCode();
+                hashCode = hashCode * 59 + this.OrderSize.GetHashCode();
                 if (this.OrderPrice != null)
                     hashCode = hashCode * 59 + this.OrderPrice.GetHashCode();
                 if (this.FillPrice != null)

@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 
 <a name="listpushorders"></a>
 # **ListPushOrders**
-> List&lt;UidPushOrder&gt; ListPushOrders (int? id = null, int? from = null, int? to = null, int? limit = null, int? offset = null)
+> List&lt;UidPushOrder&gt; ListPushOrders (int? id = null, int? from = null, int? to = null, int? limit = null, int? offset = null, string transactionType = null)
 
 Retrieve the UID transfer history
 
@@ -1526,11 +1526,12 @@ namespace Example
             var to = 56;  // int? | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional) 
             var limit = 100;  // int? | The maximum number of items returned in the list, the default value is 100 (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var transactionType = "\"withdraw\"";  // string | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`. (optional)  (default to "withdraw")
 
             try
             {
                 // Retrieve the UID transfer history
-                List<UidPushOrder> result = apiInstance.ListPushOrders(id, from, to, limit, offset);
+                List<UidPushOrder> result = apiInstance.ListPushOrders(id, from, to, limit, offset, transactionType);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1554,6 +1555,7 @@ Name | Type | Description  | Notes
  **to** | **int?**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional] 
  **limit** | **int?**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **transactionType** | **string**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &quot;withdraw&quot;]
 
 ### Return type
 

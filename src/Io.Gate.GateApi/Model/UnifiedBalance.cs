@@ -42,7 +42,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="totalFreeze">Total occupancy (discarded, to be offline field).</param>
         /// <param name="totalLiab">Total borrowing, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
         /// <param name="spotInUse">The amount of spot hedging is valid in the combined margin mode, and is 0 in other margin modes such as single currency and cross-currency margin modes.</param>
-        /// <param name="funding">Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch.</param>
+        /// <param name="funding">Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch.</param>
         /// <param name="fundingVersion">Funding version.</param>
         /// <param name="crossBalance">Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode.</param>
         /// <param name="isoBalance">Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
@@ -139,9 +139,9 @@ namespace Io.Gate.GateApi.Model
         public string SpotInUse { get; set; }
 
         /// <summary>
-        /// Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch
+        /// Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
         /// </summary>
-        /// <value>Yubibao financial management amount, effective when Yubibao financial management is turned on as a unified account margin switch</value>
+        /// <value>Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch</value>
         [DataMember(Name="funding")]
         public string Funding { get; set; }
 
