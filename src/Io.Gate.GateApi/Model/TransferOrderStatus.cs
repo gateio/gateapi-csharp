@@ -25,42 +25,35 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan currency leverage
+    /// TransferOrderStatus
     /// </summary>
     [DataContract]
-    public partial class UnifiedLeverageSetting :  IEquatable<UnifiedLeverageSetting>, IValidatableObject
+    public partial class TransferOrderStatus :  IEquatable<TransferOrderStatus>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnifiedLeverageSetting" /> class.
+        /// Initializes a new instance of the <see cref="TransferOrderStatus" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UnifiedLeverageSetting() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnifiedLeverageSetting" /> class.
-        /// </summary>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="leverage">multiple (required).</param>
-        public UnifiedLeverageSetting(string currency = default(string), string leverage = default(string))
+        /// <param name="txId">Order id.</param>
+        /// <param name="status">Transfer status, PENDING - in process, SUCCESS - successful transfer, FAIL - failed transfer, PARTIAL_SUCCESS - Partially successful (this status will appear when transferring between sub-subs).</param>
+        public TransferOrderStatus(string txId = default(string), string status = default(string))
         {
-            // to ensure "currency" is required (not null)
-            this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for UnifiedLeverageSetting and cannot be null");
-            // to ensure "leverage" is required (not null)
-            this.Leverage = leverage ?? throw new ArgumentNullException("leverage", "leverage is a required property for UnifiedLeverageSetting and cannot be null");
+            this.TxId = txId;
+            this.Status = status;
         }
 
         /// <summary>
-        /// Currency name
+        /// Order id
         /// </summary>
-        /// <value>Currency name</value>
-        [DataMember(Name="currency")]
-        public string Currency { get; set; }
+        /// <value>Order id</value>
+        [DataMember(Name="tx_id")]
+        public string TxId { get; set; }
 
         /// <summary>
-        /// multiple
+        /// Transfer status, PENDING - in process, SUCCESS - successful transfer, FAIL - failed transfer, PARTIAL_SUCCESS - Partially successful (this status will appear when transferring between sub-subs)
         /// </summary>
-        /// <value>multiple</value>
-        [DataMember(Name="leverage")]
-        public string Leverage { get; set; }
+        /// <value>Transfer status, PENDING - in process, SUCCESS - successful transfer, FAIL - failed transfer, PARTIAL_SUCCESS - Partially successful (this status will appear when transferring between sub-subs)</value>
+        [DataMember(Name="status")]
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +62,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UnifiedLeverageSetting {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Leverage: ").Append(Leverage).Append("\n");
+            sb.Append("class TransferOrderStatus {\n");
+            sb.Append("  TxId: ").Append(TxId).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +85,29 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UnifiedLeverageSetting);
+            return this.Equals(input as TransferOrderStatus);
         }
 
         /// <summary>
-        /// Returns true if UnifiedLeverageSetting instances are equal
+        /// Returns true if TransferOrderStatus instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnifiedLeverageSetting to be compared</param>
+        /// <param name="input">Instance of TransferOrderStatus to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnifiedLeverageSetting input)
+        public bool Equals(TransferOrderStatus input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.TxId == input.TxId ||
+                    (this.TxId != null &&
+                    this.TxId.Equals(input.TxId))
                 ) && 
                 (
-                    this.Leverage == input.Leverage ||
-                    (this.Leverage != null &&
-                    this.Leverage.Equals(input.Leverage))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -127,10 +120,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                if (this.Leverage != null)
-                    hashCode = hashCode * 59 + this.Leverage.GetHashCode();
+                if (this.TxId != null)
+                    hashCode = hashCode * 59 + this.TxId.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,42 +25,31 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan currency leverage
+    /// DebitFee
     /// </summary>
     [DataContract]
-    public partial class UnifiedLeverageSetting :  IEquatable<UnifiedLeverageSetting>, IValidatableObject
+    public partial class DebitFee :  IEquatable<DebitFee>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnifiedLeverageSetting" /> class.
+        /// Initializes a new instance of the <see cref="DebitFee" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UnifiedLeverageSetting() { }
+        protected DebitFee() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnifiedLeverageSetting" /> class.
+        /// Initializes a new instance of the <see cref="DebitFee" /> class.
         /// </summary>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="leverage">multiple (required).</param>
-        public UnifiedLeverageSetting(string currency = default(string), string leverage = default(string))
+        /// <param name="enabled">Whether GT fee discount is used (required).</param>
+        public DebitFee(bool enabled = default(bool))
         {
-            // to ensure "currency" is required (not null)
-            this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for UnifiedLeverageSetting and cannot be null");
-            // to ensure "leverage" is required (not null)
-            this.Leverage = leverage ?? throw new ArgumentNullException("leverage", "leverage is a required property for UnifiedLeverageSetting and cannot be null");
+            this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Currency name
+        /// Whether GT fee discount is used
         /// </summary>
-        /// <value>Currency name</value>
-        [DataMember(Name="currency")]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// multiple
-        /// </summary>
-        /// <value>multiple</value>
-        [DataMember(Name="leverage")]
-        public string Leverage { get; set; }
+        /// <value>Whether GT fee discount is used</value>
+        [DataMember(Name="enabled")]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +58,8 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UnifiedLeverageSetting {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Leverage: ").Append(Leverage).Append("\n");
+            sb.Append("class DebitFee {\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +80,23 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UnifiedLeverageSetting);
+            return this.Equals(input as DebitFee);
         }
 
         /// <summary>
-        /// Returns true if UnifiedLeverageSetting instances are equal
+        /// Returns true if DebitFee instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnifiedLeverageSetting to be compared</param>
+        /// <param name="input">Instance of DebitFee to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnifiedLeverageSetting input)
+        public bool Equals(DebitFee input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.Leverage == input.Leverage ||
-                    (this.Leverage != null &&
-                    this.Leverage.Equals(input.Leverage))
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
                 );
         }
 
@@ -127,10 +109,7 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                if (this.Leverage != null)
-                    hashCode = hashCode * 59 + this.Leverage.GetHashCode();
+                hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 return hashCode;
             }
         }

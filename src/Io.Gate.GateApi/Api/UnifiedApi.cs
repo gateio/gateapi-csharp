@@ -384,9 +384,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns></returns>
-        void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting);
 
         /// <summary>
         /// Set the loan currency leverage
@@ -395,9 +395,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
         /// <summary>
         /// get historical lending rates
         /// </summary>
@@ -791,9 +791,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>Task of void</returns>
-        Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting);
 
         /// <summary>
         /// Set the loan currency leverage
@@ -802,9 +802,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting));
+        Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
         /// <summary>
         /// get historical lending rates
         /// </summary>
@@ -2880,9 +2880,9 @@ namespace Io.Gate.GateApi.Api
         /// Set the loan currency leverage 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns></returns>
-        public void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        public void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting)
         {
              SetUserLeverageCurrencySettingWithHttpInfo(unifiedLeverageSetting);
         }
@@ -2891,10 +2891,14 @@ namespace Io.Gate.GateApi.Api
         /// Set the loan currency leverage 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        public ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting)
         {
+            // verify the required parameter 'unifiedLeverageSetting' is set
+            if (unifiedLeverageSetting == null)
+                throw new ApiException(400, "Missing required parameter 'unifiedLeverageSetting' when calling UnifiedApi->SetUserLeverageCurrencySetting");
+
             RequestOptions localVarRequestOptions = new RequestOptions();
 
             string[] _contentTypes = {
@@ -2932,9 +2936,9 @@ namespace Io.Gate.GateApi.Api
         /// Set the loan currency leverage 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>Task of void</returns>
-        public async Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        public async Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting)
         {
              await SetUserLeverageCurrencySettingAsyncWithHttpInfo(unifiedLeverageSetting);
 
@@ -2944,10 +2948,14 @@ namespace Io.Gate.GateApi.Api
         /// Set the loan currency leverage 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unifiedLeverageSetting"> (optional)</param>
+        /// <param name="unifiedLeverageSetting"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting = default(UnifiedLeverageSetting))
+        public async Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting)
         {
+            // verify the required parameter 'unifiedLeverageSetting' is set
+            if (unifiedLeverageSetting == null)
+                throw new ApiException(400, "Missing required parameter 'unifiedLeverageSetting' when calling UnifiedApi->SetUserLeverageCurrencySetting");
+
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 

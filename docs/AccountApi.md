@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 <a name="getdebitfee"></a>
 # **GetDebitFee**
-> InlineResponse2001 GetDebitFee ()
+> DebitFee GetDebitFee ()
 
 Query GT deduction configuration.
 
@@ -549,7 +549,7 @@ namespace Example
             try
             {
                 // Query GT deduction configuration.
-                InlineResponse2001 result = apiInstance.GetDebitFee();
+                DebitFee result = apiInstance.GetDebitFee();
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -569,7 +569,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**DebitFee**](DebitFee.md)
 
 ### Authorization
 
@@ -589,7 +589,7 @@ This endpoint does not need any parameter.
 
 <a name="setdebitfee"></a>
 # **SetDebitFee**
-> void SetDebitFee (InlineObject inlineObject)
+> void SetDebitFee (DebitFee debitFee)
 
 Set GT deduction.
 
@@ -614,12 +614,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new AccountApi(config);
-            var inlineObject = new InlineObject(); // InlineObject | 
+            var debitFee = new DebitFee(); // DebitFee | 
 
             try
             {
                 // Set GT deduction.
-                apiInstance.SetDebitFee(inlineObject);
+                apiInstance.SetDebitFee(debitFee);
             }
             catch (GateApiException e)
             {
@@ -637,7 +637,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **debitFee** | [**DebitFee**](DebitFee.md)|  | 
 
 ### Return type
 

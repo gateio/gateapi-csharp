@@ -181,8 +181,8 @@ namespace Io.Gate.GateApi.Api
         /// Query the current GT deduction configuration for the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetDebitFee ();
+        /// <returns>DebitFee</returns>
+        DebitFee GetDebitFee ();
 
         /// <summary>
         /// Query GT deduction configuration.
@@ -191,8 +191,8 @@ namespace Io.Gate.GateApi.Api
         /// Query the current GT deduction configuration for the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetDebitFeeWithHttpInfo ();
+        /// <returns>ApiResponse of DebitFee</returns>
+        ApiResponse<DebitFee> GetDebitFeeWithHttpInfo ();
         /// <summary>
         /// Set GT deduction.
         /// </summary>
@@ -200,9 +200,9 @@ namespace Io.Gate.GateApi.Api
         /// Enable or disable GT deduction for the current account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns></returns>
-        void SetDebitFee (InlineObject inlineObject);
+        void SetDebitFee (DebitFee debitFee);
 
         /// <summary>
         /// Set GT deduction.
@@ -211,9 +211,9 @@ namespace Io.Gate.GateApi.Api
         /// Enable or disable GT deduction for the current account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SetDebitFeeWithHttpInfo (InlineObject inlineObject);
+        ApiResponse<Object> SetDebitFeeWithHttpInfo (DebitFee debitFee);
         #endregion Synchronous Operations
     }
 
@@ -377,8 +377,8 @@ namespace Io.Gate.GateApi.Api
         /// Query the current GT deduction configuration for the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2001</returns>
-        Task<InlineResponse2001> GetDebitFeeAsync ();
+        /// <returns>Task of DebitFee</returns>
+        Task<DebitFee> GetDebitFeeAsync ();
 
         /// <summary>
         /// Query GT deduction configuration.
@@ -387,8 +387,8 @@ namespace Io.Gate.GateApi.Api
         /// Query the current GT deduction configuration for the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        Task<ApiResponse<InlineResponse2001>> GetDebitFeeAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (DebitFee)</returns>
+        Task<ApiResponse<DebitFee>> GetDebitFeeAsyncWithHttpInfo ();
         /// <summary>
         /// Set GT deduction.
         /// </summary>
@@ -396,9 +396,9 @@ namespace Io.Gate.GateApi.Api
         /// Enable or disable GT deduction for the current account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>Task of void</returns>
-        Task SetDebitFeeAsync (InlineObject inlineObject);
+        Task SetDebitFeeAsync (DebitFee debitFee);
 
         /// <summary>
         /// Set GT deduction.
@@ -407,9 +407,9 @@ namespace Io.Gate.GateApi.Api
         /// Enable or disable GT deduction for the current account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (InlineObject inlineObject);
+        Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (DebitFee debitFee);
         #endregion Asynchronous Operations
     }
 
@@ -1323,10 +1323,10 @@ namespace Io.Gate.GateApi.Api
         /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetDebitFee ()
+        /// <returns>DebitFee</returns>
+        public DebitFee GetDebitFee ()
         {
-             ApiResponse<InlineResponse2001> localVarResponse = GetDebitFeeWithHttpInfo();
+             ApiResponse<DebitFee> localVarResponse = GetDebitFeeWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1334,8 +1334,8 @@ namespace Io.Gate.GateApi.Api
         /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetDebitFeeWithHttpInfo ()
+        /// <returns>ApiResponse of DebitFee</returns>
+        public ApiResponse<DebitFee> GetDebitFeeWithHttpInfo ()
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1358,7 +1358,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DebitFee>("/account/debit_fee", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1373,10 +1373,10 @@ namespace Io.Gate.GateApi.Api
         /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async Task<InlineResponse2001> GetDebitFeeAsync ()
+        /// <returns>Task of DebitFee</returns>
+        public async Task<DebitFee> GetDebitFeeAsync ()
         {
-             Io.Gate.GateApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetDebitFeeAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<DebitFee> localVarResponse = await GetDebitFeeAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -1385,8 +1385,8 @@ namespace Io.Gate.GateApi.Api
         /// Query GT deduction configuration. Query the current GT deduction configuration for the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async Task<ApiResponse<InlineResponse2001>> GetDebitFeeAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (DebitFee)</returns>
+        public async Task<ApiResponse<DebitFee>> GetDebitFeeAsyncWithHttpInfo ()
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1411,7 +1411,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/account/debit_fee", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DebitFee>("/account/debit_fee", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1426,24 +1426,24 @@ namespace Io.Gate.GateApi.Api
         /// Set GT deduction. Enable or disable GT deduction for the current account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns></returns>
-        public void SetDebitFee (InlineObject inlineObject)
+        public void SetDebitFee (DebitFee debitFee)
         {
-             SetDebitFeeWithHttpInfo(inlineObject);
+             SetDebitFeeWithHttpInfo(debitFee);
         }
 
         /// <summary>
         /// Set GT deduction. Enable or disable GT deduction for the current account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SetDebitFeeWithHttpInfo (InlineObject inlineObject)
+        public ApiResponse<Object> SetDebitFeeWithHttpInfo (DebitFee debitFee)
         {
-            // verify the required parameter 'inlineObject' is set
-            if (inlineObject == null)
-                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling AccountApi->SetDebitFee");
+            // verify the required parameter 'debitFee' is set
+            if (debitFee == null)
+                throw new ApiException(400, "Missing required parameter 'debitFee' when calling AccountApi->SetDebitFee");
 
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -1461,7 +1461,7 @@ namespace Io.Gate.GateApi.Api
             var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = inlineObject;
+            localVarRequestOptions.Data = debitFee;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -1482,11 +1482,11 @@ namespace Io.Gate.GateApi.Api
         /// Set GT deduction. Enable or disable GT deduction for the current account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>Task of void</returns>
-        public async Task SetDebitFeeAsync (InlineObject inlineObject)
+        public async Task SetDebitFeeAsync (DebitFee debitFee)
         {
-             await SetDebitFeeAsyncWithHttpInfo(inlineObject);
+             await SetDebitFeeAsyncWithHttpInfo(debitFee);
 
         }
 
@@ -1494,13 +1494,13 @@ namespace Io.Gate.GateApi.Api
         /// Set GT deduction. Enable or disable GT deduction for the current account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject"></param>
+        /// <param name="debitFee"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (InlineObject inlineObject)
+        public async Task<ApiResponse<Object>> SetDebitFeeAsyncWithHttpInfo (DebitFee debitFee)
         {
-            // verify the required parameter 'inlineObject' is set
-            if (inlineObject == null)
-                throw new ApiException(400, "Missing required parameter 'inlineObject' when calling AccountApi->SetDebitFee");
+            // verify the required parameter 'debitFee' is set
+            if (debitFee == null)
+                throw new ApiException(400, "Missing required parameter 'debitFee' when calling AccountApi->SetDebitFee");
 
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1519,7 +1519,7 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
-            localVarRequestOptions.Data = inlineObject;
+            localVarRequestOptions.Data = debitFee;
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

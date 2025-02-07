@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransferorderstatus"></a>
 # **GetTransferOrderStatus**
-> InlineResponse200 GetTransferOrderStatus (string clientOrderId = null, string txId = null)
+> TransferOrderStatus GetTransferOrderStatus (string clientOrderId = null, string txId = null)
 
 Transfer status query
 
@@ -662,7 +662,7 @@ namespace Example
             try
             {
                 // Transfer status query
-                InlineResponse200 result = apiInstance.GetTransferOrderStatus(clientOrderId, txId);
+                TransferOrderStatus result = apiInstance.GetTransferOrderStatus(clientOrderId, txId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TransferOrderStatus**](TransferOrderStatus.md)
 
 ### Authorization
 

@@ -228,8 +228,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string));
+        /// <returns>TransferOrderStatus</returns>
+        TransferOrderStatus GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string));
 
         /// <summary>
         /// Transfer status query
@@ -240,8 +240,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
+        /// <returns>ApiResponse of TransferOrderStatus</returns>
+        ApiResponse<TransferOrderStatus> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
         /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
@@ -726,8 +726,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        Task<InlineResponse200> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string));
+        /// <returns>Task of TransferOrderStatus</returns>
+        Task<TransferOrderStatus> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string));
 
         /// <summary>
         /// Transfer status query
@@ -738,8 +738,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        Task<ApiResponse<InlineResponse200>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
+        /// <returns>Task of ApiResponse (TransferOrderStatus)</returns>
+        Task<ApiResponse<TransferOrderStatus>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string));
         /// <summary>
         /// Retrieve withdrawal status
         /// </summary>
@@ -2216,10 +2216,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string))
+        /// <returns>TransferOrderStatus</returns>
+        public TransferOrderStatus GetTransferOrderStatus (string clientOrderId = default(string), string txId = default(string))
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetTransferOrderStatusWithHttpInfo(clientOrderId, txId);
+             ApiResponse<TransferOrderStatus> localVarResponse = GetTransferOrderStatusWithHttpInfo(clientOrderId, txId);
              return localVarResponse.Data;
         }
 
@@ -2229,8 +2229,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse<InlineResponse200> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
+        /// <returns>ApiResponse of TransferOrderStatus</returns>
+        public ApiResponse<TransferOrderStatus> GetTransferOrderStatusWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -2261,7 +2261,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/wallet/order_status", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TransferOrderStatus>("/wallet/order_status", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2278,10 +2278,10 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async Task<InlineResponse200> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string))
+        /// <returns>Task of TransferOrderStatus</returns>
+        public async Task<TransferOrderStatus> GetTransferOrderStatusAsync (string clientOrderId = default(string), string txId = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<InlineResponse200> localVarResponse = await GetTransferOrderStatusAsyncWithHttpInfo(clientOrderId, txId);
+             Io.Gate.GateApi.Client.ApiResponse<TransferOrderStatus> localVarResponse = await GetTransferOrderStatusAsyncWithHttpInfo(clientOrderId, txId);
              return localVarResponse.Data;
 
         }
@@ -2292,8 +2292,8 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters. (optional)</param>
         /// <param name="txId">The transfer operation number and client_order_id cannot be empty at the same time (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async Task<ApiResponse<InlineResponse200>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
+        /// <returns>Task of ApiResponse (TransferOrderStatus)</returns>
+        public async Task<ApiResponse<TransferOrderStatus>> GetTransferOrderStatusAsyncWithHttpInfo (string clientOrderId = default(string), string txId = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -2326,7 +2326,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/wallet/order_status", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TransferOrderStatus>("/wallet/order_status", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

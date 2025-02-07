@@ -1172,7 +1172,7 @@ Name | Type | Description  | Notes
 
 <a name="setuserleveragecurrencysetting"></a>
 # **SetUserLeverageCurrencySetting**
-> void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting = null)
+> void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting)
 
 Set the loan currency leverage
 
@@ -1195,7 +1195,7 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new UnifiedApi(config);
-            var unifiedLeverageSetting = new UnifiedLeverageSetting(); // UnifiedLeverageSetting |  (optional) 
+            var unifiedLeverageSetting = new UnifiedLeverageSetting(); // UnifiedLeverageSetting | 
 
             try
             {
@@ -1218,7 +1218,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unifiedLeverageSetting** | [**UnifiedLeverageSetting**](UnifiedLeverageSetting.md)|  | [optional] 
+ **unifiedLeverageSetting** | [**UnifiedLeverageSetting**](UnifiedLeverageSetting.md)|  | 
 
 ### Return type
 
