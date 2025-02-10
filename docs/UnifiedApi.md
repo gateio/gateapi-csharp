@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**CreateUnifiedLoan**](UnifiedApi.md#createunifiedloan) | **POST** /unified/loans | Borrow or repay
 [**ListUnifiedLoanRecords**](UnifiedApi.md#listunifiedloanrecords) | **GET** /unified/loan_records | Get load records
 [**ListUnifiedLoanInterestRecords**](UnifiedApi.md#listunifiedloaninterestrecords) | **GET** /unified/interest_records | List interest records
-[**GetUnifiedRiskUnits**](UnifiedApi.md#getunifiedriskunits) | **GET** /unified/risk_units | Retrieve user risk unit details, only valid in portfolio margin mode
+[**GetUnifiedRiskUnits**](UnifiedApi.md#getunifiedriskunits) | **GET** /unified/risk_units | Get user risk unit details
 [**GetUnifiedMode**](UnifiedApi.md#getunifiedmode) | **GET** /unified/unified_mode | Query mode of the unified account
 [**SetUnifiedMode**](UnifiedApi.md#setunifiedmode) | **PUT** /unified/unified_mode | Set mode of the unified account
 [**GetUnifiedEstimateRate**](UnifiedApi.md#getunifiedestimaterate) | **GET** /unified/estimate_rate | Get unified estimate rate
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**ListLoanMarginTiers**](UnifiedApi.md#listloanmargintiers) | **GET** /unified/loan_margin_tiers | List loan margin tiers
 [**CalculatePortfolioMargin**](UnifiedApi.md#calculateportfoliomargin) | **POST** /unified/portfolio_calculator | Portfolio margin calculator
 [**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set
-[**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+[**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the leverage multiple of the user currency
 [**SetUserLeverageCurrencySetting**](UnifiedApi.md#setuserleveragecurrencysetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
 [**GetHistoryLoanRate**](UnifiedApi.md#gethistoryloanrate) | **GET** /unified/history_loan_rate | get historical lending rates
 
@@ -550,6 +550,8 @@ Name | Type | Description  | Notes
 # **GetUnifiedRiskUnits**
 > UnifiedRiskUnits GetUnifiedRiskUnits ()
 
+Get user risk unit details
+
 Retrieve user risk unit details, only valid in portfolio margin mode
 
 ### Example
@@ -574,7 +576,7 @@ namespace Example
 
             try
             {
-                // Retrieve user risk unit details, only valid in portfolio margin mode
+                // Get user risk unit details
                 UnifiedRiskUnits result = apiInstance.GetUnifiedRiskUnits();
                 Debug.WriteLine(result);
             }
@@ -688,7 +690,7 @@ This endpoint does not need any parameter.
 
 Set mode of the unified account
 
-Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode=classic ```  PUT /unified/unified_mode  {  \"mode\": \"classic\"  } ``` - Open the cross-currency margin mode, mode=multi_currency ```  PUT /unified/unified_mode  {  \"mode\": \"multi_currency\",  \"settings\": {  \"usdt_futures\": true  }  } ``` - When the portfolio margin mode is enabled, mode=portfolio ```  PUT /unified/unified_mode  {  \"mode\": \"portfolio\",  \"settings\": {  \"spot_hedge\": true  }  } ``` - When the portfolio margin mode is enabled, mode=single_currency ```  PUT /unified/unified_mode  {  \"mode\": \"single_currency\"  } ```
+Switching each account mode only requires passing the parameters of the corresponding account mode, and supports turning on or off the configuration switch in the corresponding account mode when switching the account mode  - When opening the classic account mode, mode=classic ```  PUT /unified/unified_mode  {  \"mode\": \"classic\"  } ``` - Open the cross-currency margin mode, mode=multi_currency ```  PUT /unified/unified_mode  {  \"mode\": \"multi_currency\",  \"settings\": {  \"usdt_futures\": true  }  } ``` - When the portfolio margin mode is enabled, mode=portfolio ```  PUT /unified/unified_mode  {  \"mode\": \"portfolio\",  \"settings\": {  \"spot_hedge\": true  }  } ``` - When opening a single currency margin mode, mode=single_currency ```  PUT /unified/unified_mode  {  \"mode\": \"single_currency\"  } ```
 
 ### Example
 ```csharp
@@ -1103,6 +1105,8 @@ Name | Type | Description  | Notes
 # **GetUserLeverageCurrencySetting**
 > UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = null)
 
+Get the leverage multiple of the user currency
+
 Get the user's currency leverage. If currency is not passed, query all currencies.
 
 ### Example
@@ -1128,7 +1132,7 @@ namespace Example
 
             try
             {
-                // Get the user's currency leverage. If currency is not passed, query all currencies.
+                // Get the leverage multiple of the user currency
                 UnifiedLeverageSetting result = apiInstance.GetUserLeverageCurrencySetting(currency);
                 Debug.WriteLine(result);
             }

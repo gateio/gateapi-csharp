@@ -47,7 +47,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="volume24hSettle">Trade volume in recent 24h, in settle currency.</param>
         /// <param name="markPrice">Recent mark price.</param>
         /// <param name="fundingRate">Funding rate.</param>
-        /// <param name="fundingRateIndicative">Indicative Funding rate in next period.</param>
+        /// <param name="fundingRateIndicative">Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).</param>
         /// <param name="indexPrice">Index price.</param>
         /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
         /// <param name="basisRate">Basis rate.</param>
@@ -182,9 +182,9 @@ namespace Io.Gate.GateApi.Model
         public string FundingRate { get; set; }
 
         /// <summary>
-        /// Indicative Funding rate in next period
+        /// Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)
         /// </summary>
-        /// <value>Indicative Funding rate in next period</value>
+        /// <value>Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)</value>
         [DataMember(Name="funding_rate_indicative")]
         public string FundingRateIndicative { get; set; }
 

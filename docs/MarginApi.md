@@ -10,19 +10,19 @@ Method | HTTP request | Description
 [**GetAutoRepayStatus**](MarginApi.md#getautorepaystatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**SetAutoRepay**](MarginApi.md#setautorepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 [**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-[**ListCrossMarginCurrencies**](MarginApi.md#listcrossmargincurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.
-[**GetCrossMarginCurrency**](MarginApi.md#getcrossmargincurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin
-[**GetCrossMarginAccount**](MarginApi.md#getcrossmarginaccount) | **GET** /margin/cross/accounts | Retrieve cross margin account
-[**ListCrossMarginAccountBook**](MarginApi.md#listcrossmarginaccountbook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history
-[**ListCrossMarginLoans**](MarginApi.md#listcrossmarginloans) | **GET** /margin/cross/loans | List cross margin borrow history
-[**CreateCrossMarginLoan**](MarginApi.md#createcrossmarginloan) | **POST** /margin/cross/loans | Create a cross margin borrow loan
-[**GetCrossMarginLoan**](MarginApi.md#getcrossmarginloan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail
-[**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments
-[**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Cross margin repayments
-[**GetCrossMarginInterestRecords**](MarginApi.md#getcrossmargininterestrecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account
-[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency
-[**GetCrossMarginEstimateRate**](MarginApi.md#getcrossmarginestimaterate) | **GET** /margin/cross/estimate_rate | Estimated interest rates
-[**GetCrossMarginBorrowable**](MarginApi.md#getcrossmarginborrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency
+[**ListCrossMarginCurrencies**](MarginApi.md#listcrossmargincurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.(deprecated)
+[**GetCrossMarginCurrency**](MarginApi.md#getcrossmargincurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin. (deprecated)
+[**GetCrossMarginAccount**](MarginApi.md#getcrossmarginaccount) | **GET** /margin/cross/accounts | Retrieve cross margin account. (deprecated)
+[**ListCrossMarginAccountBook**](MarginApi.md#listcrossmarginaccountbook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history. (deprecated)
+[**ListCrossMarginLoans**](MarginApi.md#listcrossmarginloans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated)
+[**CreateCrossMarginLoan**](MarginApi.md#createcrossmarginloan) | **POST** /margin/cross/loans | Create a cross margin borrow loan. (deprecated)
+[**GetCrossMarginLoan**](MarginApi.md#getcrossmarginloan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail. (deprecated)
+[**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
+[**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Cross margin repayments. (deprecated)
+[**GetCrossMarginInterestRecords**](MarginApi.md#getcrossmargininterestrecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account. (deprecated)
+[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency. (deprecated)
+[**GetCrossMarginEstimateRate**](MarginApi.md#getcrossmarginestimaterate) | **GET** /margin/cross/estimate_rate | Estimated interest rates. (deprecated)
+[**GetCrossMarginBorrowable**](MarginApi.md#getcrossmarginborrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency. (deprecated)
 
 
 <a name="listmarginaccounts"></a>
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 # **ListCrossMarginCurrencies**
 > List&lt;CrossMarginCurrency&gt; ListCrossMarginCurrencies ()
 
-Currencies supported by cross margin.
+Currencies supported by cross margin.(deprecated)
 
 ### Example
 ```csharp
@@ -489,7 +489,7 @@ namespace Example
 
             try
             {
-                // Currencies supported by cross margin.
+                // Currencies supported by cross margin.(deprecated)
                 List<CrossMarginCurrency> result = apiInstance.ListCrossMarginCurrencies();
                 Debug.WriteLine(result);
             }
@@ -532,7 +532,7 @@ No authorization required
 # **GetCrossMarginCurrency**
 > CrossMarginCurrency GetCrossMarginCurrency (string currency)
 
-Retrieve detail of one single currency supported by cross margin
+Retrieve detail of one single currency supported by cross margin. (deprecated)
 
 ### Example
 ```csharp
@@ -555,7 +555,7 @@ namespace Example
 
             try
             {
-                // Retrieve detail of one single currency supported by cross margin
+                // Retrieve detail of one single currency supported by cross margin. (deprecated)
                 CrossMarginCurrency result = apiInstance.GetCrossMarginCurrency(currency);
                 Debug.WriteLine(result);
             }
@@ -601,7 +601,7 @@ No authorization required
 # **GetCrossMarginAccount**
 > CrossMarginAccount GetCrossMarginAccount ()
 
-Retrieve cross margin account
+Retrieve cross margin account. (deprecated)
 
 ### Example
 ```csharp
@@ -625,7 +625,7 @@ namespace Example
 
             try
             {
-                // Retrieve cross margin account
+                // Retrieve cross margin account. (deprecated)
                 CrossMarginAccount result = apiInstance.GetCrossMarginAccount();
                 Debug.WriteLine(result);
             }
@@ -668,7 +668,7 @@ This endpoint does not need any parameter.
 # **ListCrossMarginAccountBook**
 > List&lt;CrossMarginAccountBook&gt; ListCrossMarginAccountBook (string currency = null, long? from = null, long? to = null, int? page = null, int? limit = null, string type = null)
 
-Retrieve cross margin account change history
+Retrieve cross margin account change history. (deprecated)
 
 The record query time range is not allowed to exceed 30 days.  When using the limit&page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) <= 100000.
 
@@ -700,7 +700,7 @@ namespace Example
 
             try
             {
-                // Retrieve cross margin account change history
+                // Retrieve cross margin account change history. (deprecated)
                 List<CrossMarginAccountBook> result = apiInstance.ListCrossMarginAccountBook(currency, from, to, page, limit, type);
                 Debug.WriteLine(result);
             }
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
 # **ListCrossMarginLoans**
 > List&lt;CrossMarginLoan&gt; ListCrossMarginLoans (int status, string currency = null, int? limit = null, int? offset = null, bool? reverse = null)
 
-List cross margin borrow history
+List cross margin borrow history. (deprecated)
 
 Sort by creation time in descending order by default. Set `reverse=false` to return ascending results.
 
@@ -782,7 +782,7 @@ namespace Example
 
             try
             {
-                // List cross margin borrow history
+                // List cross margin borrow history. (deprecated)
                 List<CrossMarginLoan> result = apiInstance.ListCrossMarginLoans(status, currency, limit, offset, reverse);
                 Debug.WriteLine(result);
             }
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 # **CreateCrossMarginLoan**
 > CrossMarginLoan CreateCrossMarginLoan (CrossMarginLoan crossMarginLoan)
 
-Create a cross margin borrow loan
+Create a cross margin borrow loan. (deprecated)
 
 Borrow amount cannot be less than currency minimum borrow amount
 
@@ -859,7 +859,7 @@ namespace Example
 
             try
             {
-                // Create a cross margin borrow loan
+                // Create a cross margin borrow loan. (deprecated)
                 CrossMarginLoan result = apiInstance.CreateCrossMarginLoan(crossMarginLoan);
                 Debug.WriteLine(result);
             }
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginLoan**
 > CrossMarginLoan GetCrossMarginLoan (string loanId)
 
-Retrieve single borrow loan detail
+Retrieve single borrow loan detail. (deprecated)
 
 ### Example
 ```csharp
@@ -930,7 +930,7 @@ namespace Example
 
             try
             {
-                // Retrieve single borrow loan detail
+                // Retrieve single borrow loan detail. (deprecated)
                 CrossMarginLoan result = apiInstance.GetCrossMarginLoan(loanId);
                 Debug.WriteLine(result);
             }
@@ -976,7 +976,7 @@ Name | Type | Description  | Notes
 # **ListCrossMarginRepayments**
 > List&lt;CrossMarginRepayment&gt; ListCrossMarginRepayments (string currency = null, string loanId = null, int? limit = null, int? offset = null, bool? reverse = null)
 
-Retrieve cross margin repayments
+Retrieve cross margin repayments. (deprecated)
 
 Sort by creation time in descending order by default. Set `reverse=false` to return ascending results.
 
@@ -1007,7 +1007,7 @@ namespace Example
 
             try
             {
-                // Retrieve cross margin repayments
+                // Retrieve cross margin repayments. (deprecated)
                 List<CrossMarginRepayment> result = apiInstance.ListCrossMarginRepayments(currency, loanId, limit, offset, reverse);
                 Debug.WriteLine(result);
             }
@@ -1057,7 +1057,7 @@ Name | Type | Description  | Notes
 # **RepayCrossMarginLoan**
 > List&lt;CrossMarginLoan&gt; RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest)
 
-Cross margin repayments
+Cross margin repayments. (deprecated)
 
 When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
 
@@ -1084,7 +1084,7 @@ namespace Example
 
             try
             {
-                // Cross margin repayments
+                // Cross margin repayments. (deprecated)
                 List<CrossMarginLoan> result = apiInstance.RepayCrossMarginLoan(crossMarginRepayRequest);
                 Debug.WriteLine(result);
             }
@@ -1130,7 +1130,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginInterestRecords**
 > List&lt;UniLoanInterestRecord&gt; GetCrossMarginInterestRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null)
 
-Interest records for the cross margin account
+Interest records for the cross margin account. (deprecated)
 
 ### Example
 ```csharp
@@ -1159,7 +1159,7 @@ namespace Example
 
             try
             {
-                // Interest records for the cross margin account
+                // Interest records for the cross margin account. (deprecated)
                 List<UniLoanInterestRecord> result = apiInstance.GetCrossMarginInterestRecords(currency, page, limit, from, to);
                 Debug.WriteLine(result);
             }
@@ -1209,7 +1209,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginTransferable**
 > CrossMarginTransferable GetCrossMarginTransferable (string currency)
 
-Get the max transferable amount for a specific cross margin currency
+Get the max transferable amount for a specific cross margin currency. (deprecated)
 
 ### Example
 ```csharp
@@ -1234,7 +1234,7 @@ namespace Example
 
             try
             {
-                // Get the max transferable amount for a specific cross margin currency
+                // Get the max transferable amount for a specific cross margin currency. (deprecated)
                 CrossMarginTransferable result = apiInstance.GetCrossMarginTransferable(currency);
                 Debug.WriteLine(result);
             }
@@ -1280,7 +1280,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginEstimateRate**
 > Dictionary&lt;string, string&gt; GetCrossMarginEstimateRate (List<string> currencies)
 
-Estimated interest rates
+Estimated interest rates. (deprecated)
 
 Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
 
@@ -1307,7 +1307,7 @@ namespace Example
 
             try
             {
-                // Estimated interest rates
+                // Estimated interest rates. (deprecated)
                 Dictionary<string, string> result = apiInstance.GetCrossMarginEstimateRate(currencies);
                 Debug.WriteLine(result);
             }
@@ -1353,7 +1353,7 @@ Name | Type | Description  | Notes
 # **GetCrossMarginBorrowable**
 > UnifiedBorrowable GetCrossMarginBorrowable (string currency)
 
-Get the max borrowable amount for a specific cross margin currency
+Get the max borrowable amount for a specific cross margin currency. (deprecated)
 
 ### Example
 ```csharp
@@ -1378,7 +1378,7 @@ namespace Example
 
             try
             {
-                // Get the max borrowable amount for a specific cross margin currency
+                // Get the max borrowable amount for a specific cross margin currency. (deprecated)
                 UnifiedBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
                 Debug.WriteLine(result);
             }

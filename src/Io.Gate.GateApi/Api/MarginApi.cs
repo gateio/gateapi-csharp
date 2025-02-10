@@ -166,7 +166,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of MarginTransferable</returns>
         ApiResponse<MarginTransferable> GetMarginTransferableWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
-        /// Currencies supported by cross margin.
+        /// Currencies supported by cross margin.(deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -176,7 +176,7 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginCurrency> ListCrossMarginCurrencies ();
 
         /// <summary>
-        /// Currencies supported by cross margin.
+        /// Currencies supported by cross margin.(deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -185,7 +185,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginCurrency&gt;</returns>
         ApiResponse<List<CrossMarginCurrency>> ListCrossMarginCurrenciesWithHttpInfo ();
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -196,7 +196,7 @@ namespace Io.Gate.GateApi.Api
         CrossMarginCurrency GetCrossMarginCurrency (string currency);
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -206,7 +206,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginCurrency</returns>
         ApiResponse<CrossMarginCurrency> GetCrossMarginCurrencyWithHttpInfo (string currency);
         /// <summary>
-        /// Retrieve cross margin account
+        /// Retrieve cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -216,7 +216,7 @@ namespace Io.Gate.GateApi.Api
         CrossMarginAccount GetCrossMarginAccount ();
 
         /// <summary>
-        /// Retrieve cross margin account
+        /// Retrieve cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -225,7 +225,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginAccount</returns>
         ApiResponse<CrossMarginAccount> GetCrossMarginAccountWithHttpInfo ();
         /// <summary>
-        /// Retrieve cross margin account change history
+        /// Retrieve cross margin account change history. (deprecated)
         /// </summary>
         /// <remarks>
         /// The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
@@ -241,7 +241,7 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginAccountBook> ListCrossMarginAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
         /// <summary>
-        /// Retrieve cross margin account change history
+        /// Retrieve cross margin account change history. (deprecated)
         /// </summary>
         /// <remarks>
         /// The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
@@ -256,7 +256,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginAccountBook&gt;</returns>
         ApiResponse<List<CrossMarginAccountBook>> ListCrossMarginAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
-        /// List cross margin borrow history
+        /// List cross margin borrow history. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -271,7 +271,7 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginLoan> ListCrossMarginLoans (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
 
         /// <summary>
-        /// List cross margin borrow history
+        /// List cross margin borrow history. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -285,7 +285,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
         ApiResponse<List<CrossMarginLoan>> ListCrossMarginLoansWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// Create a cross margin borrow loan
+        /// Create a cross margin borrow loan. (deprecated)
         /// </summary>
         /// <remarks>
         /// Borrow amount cannot be less than currency minimum borrow amount
@@ -296,7 +296,7 @@ namespace Io.Gate.GateApi.Api
         CrossMarginLoan CreateCrossMarginLoan (CrossMarginLoan crossMarginLoan);
 
         /// <summary>
-        /// Create a cross margin borrow loan
+        /// Create a cross margin borrow loan. (deprecated)
         /// </summary>
         /// <remarks>
         /// Borrow amount cannot be less than currency minimum borrow amount
@@ -306,7 +306,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginLoan</returns>
         ApiResponse<CrossMarginLoan> CreateCrossMarginLoanWithHttpInfo (CrossMarginLoan crossMarginLoan);
         /// <summary>
-        /// Retrieve single borrow loan detail
+        /// Retrieve single borrow loan detail. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -317,7 +317,7 @@ namespace Io.Gate.GateApi.Api
         CrossMarginLoan GetCrossMarginLoan (string loanId);
 
         /// <summary>
-        /// Retrieve single borrow loan detail
+        /// Retrieve single borrow loan detail. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -327,7 +327,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginLoan</returns>
         ApiResponse<CrossMarginLoan> GetCrossMarginLoanWithHttpInfo (string loanId);
         /// <summary>
-        /// Retrieve cross margin repayments
+        /// Retrieve cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -342,7 +342,7 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginRepayment> ListCrossMarginRepayments (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
 
         /// <summary>
-        /// Retrieve cross margin repayments
+        /// Retrieve cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -356,7 +356,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginRepayment&gt;</returns>
         ApiResponse<List<CrossMarginRepayment>> ListCrossMarginRepaymentsWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// Cross margin repayments
+        /// Cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
@@ -367,7 +367,7 @@ namespace Io.Gate.GateApi.Api
         List<CrossMarginLoan> RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest);
 
         /// <summary>
-        /// Cross margin repayments
+        /// Cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
@@ -377,7 +377,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CrossMarginLoan&gt;</returns>
         ApiResponse<List<CrossMarginLoan>> RepayCrossMarginLoanWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
-        /// Interest records for the cross margin account
+        /// Interest records for the cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -392,7 +392,7 @@ namespace Io.Gate.GateApi.Api
         List<UniLoanInterestRecord> GetCrossMarginInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// Interest records for the cross margin account
+        /// Interest records for the cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -406,7 +406,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
         ApiResponse<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -417,7 +417,7 @@ namespace Io.Gate.GateApi.Api
         CrossMarginTransferable GetCrossMarginTransferable (string currency);
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -427,7 +427,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CrossMarginTransferable</returns>
         ApiResponse<CrossMarginTransferable> GetCrossMarginTransferableWithHttpInfo (string currency);
         /// <summary>
-        /// Estimated interest rates
+        /// Estimated interest rates. (deprecated)
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
@@ -438,7 +438,7 @@ namespace Io.Gate.GateApi.Api
         Dictionary<string, string> GetCrossMarginEstimateRate (List<string> currencies);
 
         /// <summary>
-        /// Estimated interest rates
+        /// Estimated interest rates. (deprecated)
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
@@ -448,7 +448,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
         ApiResponse<Dictionary<string, string>> GetCrossMarginEstimateRateWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -459,7 +459,7 @@ namespace Io.Gate.GateApi.Api
         UnifiedBorrowable GetCrossMarginBorrowable (string currency);
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -616,7 +616,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (MarginTransferable)</returns>
         Task<ApiResponse<MarginTransferable>> GetMarginTransferableAsyncWithHttpInfo (string currency, string currencyPair = default(string));
         /// <summary>
-        /// Currencies supported by cross margin.
+        /// Currencies supported by cross margin.(deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -626,7 +626,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginCurrency>> ListCrossMarginCurrenciesAsync ();
 
         /// <summary>
-        /// Currencies supported by cross margin.
+        /// Currencies supported by cross margin.(deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -635,7 +635,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginCurrency&gt;)</returns>
         Task<ApiResponse<List<CrossMarginCurrency>>> ListCrossMarginCurrenciesAsyncWithHttpInfo ();
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -646,7 +646,7 @@ namespace Io.Gate.GateApi.Api
         Task<CrossMarginCurrency> GetCrossMarginCurrencyAsync (string currency);
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -656,7 +656,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginCurrency)</returns>
         Task<ApiResponse<CrossMarginCurrency>> GetCrossMarginCurrencyAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// Retrieve cross margin account
+        /// Retrieve cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -666,7 +666,7 @@ namespace Io.Gate.GateApi.Api
         Task<CrossMarginAccount> GetCrossMarginAccountAsync ();
 
         /// <summary>
-        /// Retrieve cross margin account
+        /// Retrieve cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -675,7 +675,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginAccount)</returns>
         Task<ApiResponse<CrossMarginAccount>> GetCrossMarginAccountAsyncWithHttpInfo ();
         /// <summary>
-        /// Retrieve cross margin account change history
+        /// Retrieve cross margin account change history. (deprecated)
         /// </summary>
         /// <remarks>
         /// The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
@@ -691,7 +691,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginAccountBook>> ListCrossMarginAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
         /// <summary>
-        /// Retrieve cross margin account change history
+        /// Retrieve cross margin account change history. (deprecated)
         /// </summary>
         /// <remarks>
         /// The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
@@ -706,7 +706,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginAccountBook&gt;)</returns>
         Task<ApiResponse<List<CrossMarginAccountBook>>> ListCrossMarginAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
-        /// List cross margin borrow history
+        /// List cross margin borrow history. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -721,7 +721,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginLoan>> ListCrossMarginLoansAsync (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
 
         /// <summary>
-        /// List cross margin borrow history
+        /// List cross margin borrow history. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -735,7 +735,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
         Task<ApiResponse<List<CrossMarginLoan>>> ListCrossMarginLoansAsyncWithHttpInfo (int status, string currency = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// Create a cross margin borrow loan
+        /// Create a cross margin borrow loan. (deprecated)
         /// </summary>
         /// <remarks>
         /// Borrow amount cannot be less than currency minimum borrow amount
@@ -746,7 +746,7 @@ namespace Io.Gate.GateApi.Api
         Task<CrossMarginLoan> CreateCrossMarginLoanAsync (CrossMarginLoan crossMarginLoan);
 
         /// <summary>
-        /// Create a cross margin borrow loan
+        /// Create a cross margin borrow loan. (deprecated)
         /// </summary>
         /// <remarks>
         /// Borrow amount cannot be less than currency minimum borrow amount
@@ -756,7 +756,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
         Task<ApiResponse<CrossMarginLoan>> CreateCrossMarginLoanAsyncWithHttpInfo (CrossMarginLoan crossMarginLoan);
         /// <summary>
-        /// Retrieve single borrow loan detail
+        /// Retrieve single borrow loan detail. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -767,7 +767,7 @@ namespace Io.Gate.GateApi.Api
         Task<CrossMarginLoan> GetCrossMarginLoanAsync (string loanId);
 
         /// <summary>
-        /// Retrieve single borrow loan detail
+        /// Retrieve single borrow loan detail. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -777,7 +777,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginLoan)</returns>
         Task<ApiResponse<CrossMarginLoan>> GetCrossMarginLoanAsyncWithHttpInfo (string loanId);
         /// <summary>
-        /// Retrieve cross margin repayments
+        /// Retrieve cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -792,7 +792,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginRepayment>> ListCrossMarginRepaymentsAsync (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
 
         /// <summary>
-        /// Retrieve cross margin repayments
+        /// Retrieve cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
@@ -806,7 +806,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginRepayment&gt;)</returns>
         Task<ApiResponse<List<CrossMarginRepayment>>> ListCrossMarginRepaymentsAsyncWithHttpInfo (string currency = default(string), string loanId = default(string), int? limit = default(int?), int? offset = default(int?), bool? reverse = default(bool?));
         /// <summary>
-        /// Cross margin repayments
+        /// Cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
@@ -817,7 +817,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CrossMarginLoan>> RepayCrossMarginLoanAsync (CrossMarginRepayRequest crossMarginRepayRequest);
 
         /// <summary>
-        /// Cross margin repayments
+        /// Cross margin repayments. (deprecated)
         /// </summary>
         /// <remarks>
         /// When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
@@ -827,7 +827,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CrossMarginLoan&gt;)</returns>
         Task<ApiResponse<List<CrossMarginLoan>>> RepayCrossMarginLoanAsyncWithHttpInfo (CrossMarginRepayRequest crossMarginRepayRequest);
         /// <summary>
-        /// Interest records for the cross margin account
+        /// Interest records for the cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -842,7 +842,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UniLoanInterestRecord>> GetCrossMarginInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// Interest records for the cross margin account
+        /// Interest records for the cross margin account. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -856,7 +856,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
         Task<ApiResponse<List<UniLoanInterestRecord>>> GetCrossMarginInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -867,7 +867,7 @@ namespace Io.Gate.GateApi.Api
         Task<CrossMarginTransferable> GetCrossMarginTransferableAsync (string currency);
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -877,7 +877,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CrossMarginTransferable)</returns>
         Task<ApiResponse<CrossMarginTransferable>> GetCrossMarginTransferableAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// Estimated interest rates
+        /// Estimated interest rates. (deprecated)
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
@@ -888,7 +888,7 @@ namespace Io.Gate.GateApi.Api
         Task<Dictionary<string, string>> GetCrossMarginEstimateRateAsync (List<string> currencies);
 
         /// <summary>
-        /// Estimated interest rates
+        /// Estimated interest rates. (deprecated)
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
@@ -898,7 +898,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
         Task<ApiResponse<Dictionary<string, string>>> GetCrossMarginEstimateRateAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -909,7 +909,7 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedBorrowable> GetCrossMarginBorrowableAsync (string currency);
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated)
         /// </summary>
         /// <remarks>
         /// 
@@ -1805,7 +1805,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currencies supported by cross margin. 
+        /// Currencies supported by cross margin.(deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;CrossMarginCurrency&gt;</returns>
@@ -1816,7 +1816,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currencies supported by cross margin. 
+        /// Currencies supported by cross margin.(deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;CrossMarginCurrency&gt;</returns>
@@ -1853,7 +1853,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currencies supported by cross margin. 
+        /// Currencies supported by cross margin.(deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;CrossMarginCurrency&gt;</returns>
@@ -1865,7 +1865,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currencies supported by cross margin. 
+        /// Currencies supported by cross margin.(deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;CrossMarginCurrency&gt;)</returns>
@@ -1904,7 +1904,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin 
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1916,7 +1916,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin 
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1959,7 +1959,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin 
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -1972,7 +1972,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve detail of one single currency supported by cross margin 
+        /// Retrieve detail of one single currency supported by cross margin. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Currency name</param>
@@ -2017,7 +2017,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account 
+        /// Retrieve cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CrossMarginAccount</returns>
@@ -2028,7 +2028,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account 
+        /// Retrieve cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CrossMarginAccount</returns>
@@ -2067,7 +2067,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account 
+        /// Retrieve cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CrossMarginAccount</returns>
@@ -2079,7 +2079,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account 
+        /// Retrieve cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CrossMarginAccount)</returns>
@@ -2120,7 +2120,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account change history The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+        /// Retrieve cross margin account change history. (deprecated) The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
@@ -2137,7 +2137,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account change history The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+        /// Retrieve cross margin account change history. (deprecated) The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
@@ -2206,7 +2206,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account change history The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+        /// Retrieve cross margin account change history. (deprecated) The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
@@ -2224,7 +2224,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin account change history The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
+        /// Retrieve cross margin account change history. (deprecated) The record query time range is not allowed to exceed 30 days.  When using the limit&amp;page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) &lt;&#x3D; 100000.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Filter by currency (optional)</param>
@@ -2295,7 +2295,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// List cross margin borrow history. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
@@ -2311,7 +2311,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// List cross margin borrow history. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
@@ -2372,7 +2372,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// List cross margin borrow history. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
@@ -2389,7 +2389,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List cross margin borrow history Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// List cross margin borrow history. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Filter by status. Supported values are 2 and 3. (deprecated.)</param>
@@ -2452,7 +2452,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// Create a cross margin borrow loan. (deprecated) Borrow amount cannot be less than currency minimum borrow amount
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginLoan"></param>
@@ -2464,7 +2464,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// Create a cross margin borrow loan. (deprecated) Borrow amount cannot be less than currency minimum borrow amount
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginLoan"></param>
@@ -2510,7 +2510,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// Create a cross margin borrow loan. (deprecated) Borrow amount cannot be less than currency minimum borrow amount
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginLoan"></param>
@@ -2523,7 +2523,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a cross margin borrow loan Borrow amount cannot be less than currency minimum borrow amount
+        /// Create a cross margin borrow loan. (deprecated) Borrow amount cannot be less than currency minimum borrow amount
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginLoan"></param>
@@ -2571,7 +2571,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve single borrow loan detail 
+        /// Retrieve single borrow loan detail. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Borrow loan ID</param>
@@ -2583,7 +2583,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve single borrow loan detail 
+        /// Retrieve single borrow loan detail. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Borrow loan ID</param>
@@ -2628,7 +2628,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve single borrow loan detail 
+        /// Retrieve single borrow loan detail. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Borrow loan ID</param>
@@ -2641,7 +2641,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve single borrow loan detail 
+        /// Retrieve single borrow loan detail. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId">Borrow loan ID</param>
@@ -2688,7 +2688,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// Retrieve cross margin repayments. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
@@ -2704,7 +2704,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// Retrieve cross margin repayments. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
@@ -2768,7 +2768,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// Retrieve cross margin repayments. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
@@ -2785,7 +2785,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve cross margin repayments Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
+        /// Retrieve cross margin repayments. (deprecated) Sort by creation time in descending order by default. Set &#x60;reverse&#x3D;false&#x60; to return ascending results.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency"> (optional)</param>
@@ -2851,7 +2851,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments. (deprecated) When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -2863,7 +2863,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments. (deprecated) When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -2909,7 +2909,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments. (deprecated) When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -2922,7 +2922,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cross margin repayments When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
+        /// Cross margin repayments. (deprecated) When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="crossMarginRepayRequest"></param>
@@ -2970,7 +2970,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Interest records for the cross margin account 
+        /// Interest records for the cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
@@ -2986,7 +2986,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Interest records for the cross margin account 
+        /// Interest records for the cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
@@ -3050,7 +3050,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Interest records for the cross margin account 
+        /// Interest records for the cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
@@ -3067,7 +3067,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Interest records for the cross margin account 
+        /// Interest records for the cross margin account. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
@@ -3133,7 +3133,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3145,7 +3145,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3190,7 +3190,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3203,7 +3203,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max transferable amount for a specific cross margin currency 
+        /// Get the max transferable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3250,7 +3250,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimated interest rates. (deprecated) Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">An array of up to 10 specifying the currency name</param>
@@ -3262,7 +3262,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimated interest rates. (deprecated) Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">An array of up to 10 specifying the currency name</param>
@@ -3307,7 +3307,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimated interest rates. (deprecated) Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">An array of up to 10 specifying the currency name</param>
@@ -3320,7 +3320,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimated interest rates Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimated interest rates. (deprecated) Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">An array of up to 10 specifying the currency name</param>
@@ -3367,7 +3367,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency 
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3379,7 +3379,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency 
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3424,7 +3424,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency 
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
@@ -3437,7 +3437,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the max borrowable amount for a specific cross margin currency 
+        /// Get the max borrowable amount for a specific cross margin currency. (deprecated) 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency</param>
