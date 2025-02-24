@@ -74,7 +74,9 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="id">Currency pair.</param>
         /// <param name="_base">Base currency.</param>
+        /// <param name="baseName">Transaction currency name.</param>
         /// <param name="quote">Quote currency.</param>
+        /// <param name="quoteName">Name of the denominated currency.</param>
         /// <param name="fee">Trading fee.</param>
         /// <param name="minBaseAmount">Minimum amount of base currency to trade, &#x60;null&#x60; means no limit.</param>
         /// <param name="minQuoteAmount">Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit.</param>
@@ -86,11 +88,13 @@ namespace Io.Gate.GateApi.Model
         /// <param name="sellStart">Sell start unix timestamp in seconds.</param>
         /// <param name="buyStart">Buy start unix timestamp in seconds.</param>
         /// <param name="type">Trading pair type, normal: normal, premarket: pre-market.</param>
-        public CurrencyPair(string id = default(string), string _base = default(string), string quote = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long), string type = default(string))
+        public CurrencyPair(string id = default(string), string _base = default(string), string baseName = default(string), string quote = default(string), string quoteName = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long), string type = default(string))
         {
             this.Id = id;
             this.Base = _base;
+            this.BaseName = baseName;
             this.Quote = quote;
+            this.QuoteName = quoteName;
             this.Fee = fee;
             this.MinBaseAmount = minBaseAmount;
             this.MinQuoteAmount = minQuoteAmount;
@@ -119,11 +123,25 @@ namespace Io.Gate.GateApi.Model
         public string Base { get; set; }
 
         /// <summary>
+        /// Transaction currency name
+        /// </summary>
+        /// <value>Transaction currency name</value>
+        [DataMember(Name="base_name")]
+        public string BaseName { get; set; }
+
+        /// <summary>
         /// Quote currency
         /// </summary>
         /// <value>Quote currency</value>
         [DataMember(Name="quote")]
         public string Quote { get; set; }
+
+        /// <summary>
+        /// Name of the denominated currency
+        /// </summary>
+        /// <value>Name of the denominated currency</value>
+        [DataMember(Name="quote_name")]
+        public string QuoteName { get; set; }
 
         /// <summary>
         /// Trading fee
@@ -205,7 +223,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("class CurrencyPair {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
+            sb.Append("  BaseName: ").Append(BaseName).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
+            sb.Append("  QuoteName: ").Append(QuoteName).Append("\n");
             sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("  MinBaseAmount: ").Append(MinBaseAmount).Append("\n");
             sb.Append("  MinQuoteAmount: ").Append(MinQuoteAmount).Append("\n");
@@ -262,9 +282,19 @@ namespace Io.Gate.GateApi.Model
                     this.Base.Equals(input.Base))
                 ) && 
                 (
+                    this.BaseName == input.BaseName ||
+                    (this.BaseName != null &&
+                    this.BaseName.Equals(input.BaseName))
+                ) && 
+                (
                     this.Quote == input.Quote ||
                     (this.Quote != null &&
                     this.Quote.Equals(input.Quote))
+                ) && 
+                (
+                    this.QuoteName == input.QuoteName ||
+                    (this.QuoteName != null &&
+                    this.QuoteName.Equals(input.QuoteName))
                 ) && 
                 (
                     this.Fee == input.Fee ||
@@ -331,8 +361,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Base != null)
                     hashCode = hashCode * 59 + this.Base.GetHashCode();
+                if (this.BaseName != null)
+                    hashCode = hashCode * 59 + this.BaseName.GetHashCode();
                 if (this.Quote != null)
                     hashCode = hashCode * 59 + this.Quote.GetHashCode();
+                if (this.QuoteName != null)
+                    hashCode = hashCode * 59 + this.QuoteName.GetHashCode();
                 if (this.Fee != null)
                     hashCode = hashCode * 59 + this.Fee.GetHashCode();
                 if (this.MinBaseAmount != null)

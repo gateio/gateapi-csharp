@@ -254,7 +254,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="message">Detailed error message, if any, otherwise an empty string.</param>
         /// <param name="currencyPair">Currency pair (required).</param>
         /// <param name="type">Order Type    - limit : Limit Order - market : Market Order (default to TypeEnum.Limit).</param>
-        /// <param name="account">Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to &#x60;cross_margin&#x60; (default to &quot;spot&quot;).</param>
+        /// <param name="account">Account type, spot - spot account, margin - leveraged account, unified - unified account (default to &quot;spot&quot;).</param>
         /// <param name="side">Order side (required).</param>
         /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
         /// <param name="price">Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.</param>
@@ -365,9 +365,9 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;
+        /// Account type, spot - spot account, margin - leveraged account, unified - unified account
         /// </summary>
-        /// <value>Account types， spot - spot account, margin - margin account, unified - unified account, cross_margin - cross margin account.  Portfolio margin accounts can only be set to &#x60;cross_margin&#x60;</value>
+        /// <value>Account type, spot - spot account, margin - leveraged account, unified - unified account</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

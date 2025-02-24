@@ -37,7 +37,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="available">Available amount.</param>
         /// <param name="locked">Locked amount, used in trading.</param>
         /// <param name="updateId">Version number.</param>
-        public SpotAccount(string currency = default(string), string available = default(string), string locked = default(string), int updateId = default(int))
+        public SpotAccount(string currency = default(string), string available = default(string), string locked = default(string), long updateId = default(long))
         {
             this.Currency = currency;
             this.Available = available;
@@ -71,7 +71,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <value>Version number</value>
         [DataMember(Name="update_id")]
-        public int UpdateId { get; set; }
+        public long UpdateId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

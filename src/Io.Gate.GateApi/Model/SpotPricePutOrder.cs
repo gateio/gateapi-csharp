@@ -85,9 +85,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
-        /// Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
+        /// Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading 
         /// </summary>
-        /// <value>Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading </value>
+        /// <value>Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AccountEnum
         {
@@ -104,17 +104,17 @@ namespace Io.Gate.GateApi.Model
             Margin = 2,
 
             /// <summary>
-            /// Enum Crossmargin for value: cross_margin
+            /// Enum Unified for value: unified
             /// </summary>
-            [EnumMember(Value = "cross_margin")]
-            Crossmargin = 3
+            [EnumMember(Value = "unified")]
+            Unified = 3
 
         }
 
         /// <summary>
-        /// Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading 
+        /// Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading 
         /// </summary>
-        /// <value>Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading </value>
+        /// <value>Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading </value>
         [DataMember(Name="account")]
         public AccountEnum Account { get; set; }
         /// <summary>
@@ -156,10 +156,12 @@ namespace Io.Gate.GateApi.Model
         /// <param name="side">Order side  - buy: buy side - sell: sell side (required).</param>
         /// <param name="price">Order price (required).</param>
         /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;cross_margin&#x60;  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading  (required) (default to AccountEnum.Normal).</param>
+        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60;  - normal: spot trading - margin: margin trading - unified: unified trading  (required) (default to AccountEnum.Normal).</param>
         /// <param name="timeInForce">time_in_force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only  (default to TimeInForceEnum.Gtc).</param>
+        /// <param name="autoBorrow">Whether to borrow coins automatically (default to false).</param>
+        /// <param name="autoRepay">Whether to repay the loan automatically (default to false).</param>
         /// <param name="text">The source of the order, including: - web: web - api: api - app: app.</param>
-        public SpotPricePutOrder(TypeEnum? type = TypeEnum.Limit, SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string text = default(string))
+        public SpotPricePutOrder(TypeEnum? type = TypeEnum.Limit, SideEnum side = default(SideEnum), string price = default(string), string amount = default(string), AccountEnum account = AccountEnum.Normal, TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, bool autoBorrow = false, bool autoRepay = false, string text = default(string))
         {
             this.Side = side;
             // to ensure "price" is required (not null)
@@ -169,6 +171,8 @@ namespace Io.Gate.GateApi.Model
             this.Account = account;
             this.Type = type;
             this.TimeInForce = timeInForce;
+            this.AutoBorrow = autoBorrow;
+            this.AutoRepay = autoRepay;
             this.Text = text;
         }
 
@@ -185,6 +189,20 @@ namespace Io.Gate.GateApi.Model
         /// <value>When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; </value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
+
+        /// <summary>
+        /// Whether to borrow coins automatically
+        /// </summary>
+        /// <value>Whether to borrow coins automatically</value>
+        [DataMember(Name="auto_borrow")]
+        public bool AutoBorrow { get; set; }
+
+        /// <summary>
+        /// Whether to repay the loan automatically
+        /// </summary>
+        /// <value>Whether to repay the loan automatically</value>
+        [DataMember(Name="auto_repay")]
+        public bool AutoRepay { get; set; }
 
         /// <summary>
         /// The source of the order, including: - web: web - api: api - app: app
@@ -207,6 +225,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
+            sb.Append("  AutoBorrow: ").Append(AutoBorrow).Append("\n");
+            sb.Append("  AutoRepay: ").Append(AutoRepay).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -269,6 +289,14 @@ namespace Io.Gate.GateApi.Model
                     this.TimeInForce.Equals(input.TimeInForce)
                 ) && 
                 (
+                    this.AutoBorrow == input.AutoBorrow ||
+                    this.AutoBorrow.Equals(input.AutoBorrow)
+                ) && 
+                (
+                    this.AutoRepay == input.AutoRepay ||
+                    this.AutoRepay.Equals(input.AutoRepay)
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
@@ -292,6 +320,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 hashCode = hashCode * 59 + this.Account.GetHashCode();
                 hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
+                hashCode = hashCode * 59 + this.AutoBorrow.GetHashCode();
+                hashCode = hashCode * 59 + this.AutoRepay.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;

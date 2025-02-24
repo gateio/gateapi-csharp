@@ -40,7 +40,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="orderId">The order ID returned upon successful creation or the custom ID specified by the user during creation (i.e., the &#39;text&#39; field). (required).</param>
         /// <param name="currencyPair">Currency pair (required).</param>
-        /// <param name="account">Default to spot, portfolio, and margin accounts if not specified. Use &#39;cross_margin&#39; to query cross margin accounts. Only &#39;cross_margin&#39; can be specified for portfolio margin accounts..</param>
+        /// <param name="account">Default spot, unified account and warehouse-by-store leverage account..</param>
         /// <param name="amount">trade amount, only one of amount and price can be specified.</param>
         /// <param name="price">trade price, only one of amount and price can be specified.</param>
         /// <param name="amendText">Custom info during amending order.</param>
@@ -73,9 +73,9 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Default to spot, portfolio, and margin accounts if not specified. Use &#39;cross_margin&#39; to query cross margin accounts. Only &#39;cross_margin&#39; can be specified for portfolio margin accounts.
+        /// Default spot, unified account and warehouse-by-store leverage account.
         /// </summary>
-        /// <value>Default to spot, portfolio, and margin accounts if not specified. Use &#39;cross_margin&#39; to query cross margin accounts. Only &#39;cross_margin&#39; can be specified for portfolio margin accounts.</value>
+        /// <value>Default spot, unified account and warehouse-by-store leverage account.</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

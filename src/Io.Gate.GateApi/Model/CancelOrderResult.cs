@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="succeeded">Whether cancellation succeeded.</param>
         /// <param name="label">Error label when failed to cancel the order; emtpy if succeeded.</param>
         /// <param name="message">Error message when failed to cancel the order; empty if succeeded.</param>
-        /// <param name="account">Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;.</param>
+        /// <param name="account">Default is empty (deprecated).</param>
         public CancelOrderResult(string currencyPair = default(string), string id = default(string), string text = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string account = default(string))
         {
             this.CurrencyPair = currencyPair;
@@ -94,9 +94,9 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;
+        /// Default is empty (deprecated)
         /// </summary>
-        /// <value>Empty by default. If cancelled order is cross margin order, this field is set to &#x60;cross_margin&#x60;</value>
+        /// <value>Default is empty (deprecated)</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

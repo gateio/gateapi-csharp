@@ -33,7 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Currency" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
+        /// <param name="currency">Currency symbol.</param>
+        /// <param name="name">Currency name.</param>
         /// <param name="delisted">Whether currency is de-listed.</param>
         /// <param name="withdrawDisabled">Whether currency&#39;s withdrawal is disabled.</param>
         /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed.</param>
@@ -41,9 +42,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="tradeDisabled">Whether currency&#39;s trading is disabled.</param>
         /// <param name="fixedRate">Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies.</param>
         /// <param name="chain">Chain of currency.</param>
-        public Currency(string currency = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string), string chain = default(string))
+        public Currency(string currency = default(string), string name = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string), string chain = default(string))
         {
             this._Currency = currency;
+            this.Name = name;
             this.Delisted = delisted;
             this.WithdrawDisabled = withdrawDisabled;
             this.WithdrawDelayed = withdrawDelayed;
@@ -54,11 +56,18 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
+        /// Currency symbol
+        /// </summary>
+        /// <value>Currency symbol</value>
+        [DataMember(Name="currency")]
+        public string _Currency { get; set; }
+
+        /// <summary>
         /// Currency name
         /// </summary>
         /// <value>Currency name</value>
-        [DataMember(Name="currency")]
-        public string _Currency { get; set; }
+        [DataMember(Name="name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// Whether currency is de-listed
@@ -118,6 +127,7 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class Currency {\n");
             sb.Append("  _Currency: ").Append(_Currency).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Delisted: ").Append(Delisted).Append("\n");
             sb.Append("  WithdrawDisabled: ").Append(WithdrawDisabled).Append("\n");
             sb.Append("  WithdrawDelayed: ").Append(WithdrawDelayed).Append("\n");
@@ -165,6 +175,11 @@ namespace Io.Gate.GateApi.Model
                     this._Currency.Equals(input._Currency))
                 ) && 
                 (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.Delisted == input.Delisted ||
                     this.Delisted.Equals(input.Delisted)
                 ) && 
@@ -207,6 +222,8 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this._Currency != null)
                     hashCode = hashCode * 59 + this._Currency.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.Delisted.GetHashCode();
                 hashCode = hashCode * 59 + this.WithdrawDisabled.GetHashCode();
                 hashCode = hashCode * 59 + this.WithdrawDelayed.GetHashCode();

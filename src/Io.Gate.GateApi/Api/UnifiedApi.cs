@@ -35,8 +35,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>UnifiedAccount</returns>
-        UnifiedAccount ListUnifiedAccounts (string currency = default(string));
+        UnifiedAccount ListUnifiedAccounts (string currency = default(string), string subUid = default(string));
 
         /// <summary>
         /// Get unified account information
@@ -46,8 +47,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>ApiResponse of UnifiedAccount</returns>
-        ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string));
+        ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string), string subUid = default(string));
         /// <summary>
         /// Query about the maximum borrowing for the unified account
         /// </summary>
@@ -442,8 +444,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>Task of UnifiedAccount</returns>
-        Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string));
+        Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string), string subUid = default(string));
 
         /// <summary>
         /// Get unified account information
@@ -453,8 +456,9 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedAccount)</returns>
-        Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string));
+        Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string), string subUid = default(string));
         /// <summary>
         /// Query about the maximum borrowing for the unified account
         /// </summary>
@@ -957,10 +961,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>UnifiedAccount</returns>
-        public UnifiedAccount ListUnifiedAccounts (string currency = default(string))
+        public UnifiedAccount ListUnifiedAccounts (string currency = default(string), string subUid = default(string))
         {
-             ApiResponse<UnifiedAccount> localVarResponse = ListUnifiedAccountsWithHttpInfo(currency);
+             ApiResponse<UnifiedAccount> localVarResponse = ListUnifiedAccountsWithHttpInfo(currency, subUid);
              return localVarResponse.Data;
         }
 
@@ -969,8 +974,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>ApiResponse of UnifiedAccount</returns>
-        public ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string))
+        public ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string), string subUid = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -991,6 +997,10 @@ namespace Io.Gate.GateApi.Api
             if (currency != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
             }
 
             // authentication (apiv4) required
@@ -1013,10 +1023,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>Task of UnifiedAccount</returns>
-        public async Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string))
+        public async Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string), string subUid = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<UnifiedAccount> localVarResponse = await ListUnifiedAccountsAsyncWithHttpInfo(currency);
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedAccount> localVarResponse = await ListUnifiedAccountsAsyncWithHttpInfo(currency, subUid);
              return localVarResponse.Data;
 
         }
@@ -1026,8 +1037,9 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="subUid">Sub account user ID (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedAccount)</returns>
-        public async Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string))
+        public async Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string), string subUid = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -1049,6 +1061,10 @@ namespace Io.Gate.GateApi.Api
             if (currency != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (subUid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sub_uid", subUid));
             }
 
             // authentication (apiv4) required

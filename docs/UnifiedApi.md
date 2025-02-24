@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 <a name="listunifiedaccounts"></a>
 # **ListUnifiedAccounts**
-> UnifiedAccount ListUnifiedAccounts (string currency = null)
+> UnifiedAccount ListUnifiedAccounts (string currency = null, string subUid = null)
 
 Get unified account information
 
@@ -52,11 +52,12 @@ namespace Example
 
             var apiInstance = new UnifiedApi(config);
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
+            var subUid = "10001";  // string | Sub account user ID (optional) 
 
             try
             {
                 // Get unified account information
-                UnifiedAccount result = apiInstance.ListUnifiedAccounts(currency);
+                UnifiedAccount result = apiInstance.ListUnifiedAccounts(currency, subUid);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -76,6 +77,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
+ **subUid** | **string**| Sub account user ID | [optional] 
 
 ### Return type
 
