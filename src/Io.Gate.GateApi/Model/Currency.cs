@@ -36,13 +36,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="currency">Currency symbol.</param>
         /// <param name="name">Currency name.</param>
         /// <param name="delisted">Whether currency is de-listed.</param>
-        /// <param name="withdrawDisabled">Whether currency&#39;s withdrawal is disabled.</param>
-        /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed.</param>
-        /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled.</param>
+        /// <param name="withdrawDisabled">Whether currency&#39;s withdrawal is disabled (deprecated).</param>
+        /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed (deprecated).</param>
+        /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled (deprecated).</param>
         /// <param name="tradeDisabled">Whether currency&#39;s trading is disabled.</param>
         /// <param name="fixedRate">Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies.</param>
-        /// <param name="chain">Chain of currency.</param>
-        public Currency(string currency = default(string), string name = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string), string chain = default(string))
+        /// <param name="chain">The main chain corresponding to the coin.</param>
+        /// <param name="chains">All links corresponding to coins.</param>
+        public Currency(string currency = default(string), string name = default(string), bool delisted = default(bool), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool), bool tradeDisabled = default(bool), string fixedRate = default(string), string chain = default(string), List<SpotCurrencyChain> chains = default(List<SpotCurrencyChain>))
         {
             this._Currency = currency;
             this.Name = name;
@@ -53,6 +54,7 @@ namespace Io.Gate.GateApi.Model
             this.TradeDisabled = tradeDisabled;
             this.FixedRate = fixedRate;
             this.Chain = chain;
+            this.Chains = chains;
         }
 
         /// <summary>
@@ -77,23 +79,23 @@ namespace Io.Gate.GateApi.Model
         public bool Delisted { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s withdrawal is disabled
+        /// Whether currency&#39;s withdrawal is disabled (deprecated)
         /// </summary>
-        /// <value>Whether currency&#39;s withdrawal is disabled</value>
+        /// <value>Whether currency&#39;s withdrawal is disabled (deprecated)</value>
         [DataMember(Name="withdraw_disabled")]
         public bool WithdrawDisabled { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s withdrawal is delayed
+        /// Whether currency&#39;s withdrawal is delayed (deprecated)
         /// </summary>
-        /// <value>Whether currency&#39;s withdrawal is delayed</value>
+        /// <value>Whether currency&#39;s withdrawal is delayed (deprecated)</value>
         [DataMember(Name="withdraw_delayed")]
         public bool WithdrawDelayed { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s deposit is disabled
+        /// Whether currency&#39;s deposit is disabled (deprecated)
         /// </summary>
-        /// <value>Whether currency&#39;s deposit is disabled</value>
+        /// <value>Whether currency&#39;s deposit is disabled (deprecated)</value>
         [DataMember(Name="deposit_disabled")]
         public bool DepositDisabled { get; set; }
 
@@ -112,11 +114,18 @@ namespace Io.Gate.GateApi.Model
         public string FixedRate { get; set; }
 
         /// <summary>
-        /// Chain of currency
+        /// The main chain corresponding to the coin
         /// </summary>
-        /// <value>Chain of currency</value>
+        /// <value>The main chain corresponding to the coin</value>
         [DataMember(Name="chain")]
         public string Chain { get; set; }
+
+        /// <summary>
+        /// All links corresponding to coins
+        /// </summary>
+        /// <value>All links corresponding to coins</value>
+        [DataMember(Name="chains")]
+        public List<SpotCurrencyChain> Chains { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,6 +144,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  TradeDisabled: ").Append(TradeDisabled).Append("\n");
             sb.Append("  FixedRate: ").Append(FixedRate).Append("\n");
             sb.Append("  Chain: ").Append(Chain).Append("\n");
+            sb.Append("  Chains: ").Append(Chains).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +218,12 @@ namespace Io.Gate.GateApi.Model
                     this.Chain == input.Chain ||
                     (this.Chain != null &&
                     this.Chain.Equals(input.Chain))
+                ) && 
+                (
+                    this.Chains == input.Chains ||
+                    this.Chains != null &&
+                    input.Chains != null &&
+                    this.Chains.SequenceEqual(input.Chains)
                 );
         }
 
@@ -233,6 +249,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.FixedRate.GetHashCode();
                 if (this.Chain != null)
                     hashCode = hashCode * 59 + this.Chain.GetHashCode();
+                if (this.Chains != null)
+                    hashCode = hashCode * 59 + this.Chains.GetHashCode();
                 return hashCode;
             }
         }
