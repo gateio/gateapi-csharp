@@ -49,14 +49,34 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SwapETH2WithHttpInfo (Eth2Swap eth2Swap);
         /// <summary>
+        /// ETH2 historical rate of return query
+        /// </summary>
+        /// <remarks>
+        /// Check the ETH earnings rate record for the last 31 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Eth2RateList&gt;</returns>
+        List<Eth2RateList> RateListETH2 ();
+
+        /// <summary>
+        /// ETH2 historical rate of return query
+        /// </summary>
+        /// <remarks>
+        /// Check the ETH earnings rate record for the last 31 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Eth2RateList&gt;</returns>
+        ApiResponse<List<Eth2RateList>> RateListETH2WithHttpInfo ();
+        /// <summary>
         /// Dual Investment product list
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
         /// <returns>List&lt;DualGetPlans&gt;</returns>
-        List<DualGetPlans> ListDualInvestmentPlans ();
+        List<DualGetPlans> ListDualInvestmentPlans (long? planId = default(long?));
 
         /// <summary>
         /// Dual Investment product list
@@ -65,8 +85,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
         /// <returns>ApiResponse of List&lt;DualGetPlans&gt;</returns>
-        ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo ();
+        ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo (long? planId = default(long?));
         /// <summary>
         /// Dual Investment order list
         /// </summary>
@@ -74,8 +95,12 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>List&lt;DualGetOrders&gt;</returns>
-        List<DualGetOrders> ListDualOrders ();
+        List<DualGetOrders> ListDualOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// Dual Investment order list
@@ -84,8 +109,12 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;DualGetOrders&gt;</returns>
-        ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo ();
+        ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// Place Dual Investment order
         /// </summary>
@@ -213,14 +242,34 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SwapETH2AsyncWithHttpInfo (Eth2Swap eth2Swap);
         /// <summary>
+        /// ETH2 historical rate of return query
+        /// </summary>
+        /// <remarks>
+        /// Check the ETH earnings rate record for the last 31 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of List&lt;Eth2RateList&gt;</returns>
+        Task<List<Eth2RateList>> RateListETH2Async ();
+
+        /// <summary>
+        /// ETH2 historical rate of return query
+        /// </summary>
+        /// <remarks>
+        /// Check the ETH earnings rate record for the last 31 days
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (List&lt;Eth2RateList&gt;)</returns>
+        Task<ApiResponse<List<Eth2RateList>>> RateListETH2AsyncWithHttpInfo ();
+        /// <summary>
         /// Dual Investment product list
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
         /// <returns>Task of List&lt;DualGetPlans&gt;</returns>
-        Task<List<DualGetPlans>> ListDualInvestmentPlansAsync ();
+        Task<List<DualGetPlans>> ListDualInvestmentPlansAsync (long? planId = default(long?));
 
         /// <summary>
         /// Dual Investment product list
@@ -229,8 +278,9 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetPlans&gt;)</returns>
-        Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo ();
+        Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo (long? planId = default(long?));
         /// <summary>
         /// Dual Investment order list
         /// </summary>
@@ -238,8 +288,12 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of List&lt;DualGetOrders&gt;</returns>
-        Task<List<DualGetOrders>> ListDualOrdersAsync ();
+        Task<List<DualGetOrders>> ListDualOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// Dual Investment order list
@@ -248,8 +302,12 @@ namespace Io.Gate.GateApi.Api
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetOrders&gt;)</returns>
-        Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo ();
+        Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
         /// Place Dual Investment order
         /// </summary>
@@ -582,121 +640,22 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;DualGetPlans&gt;</returns>
-        public List<DualGetPlans> ListDualInvestmentPlans ()
+        /// <returns>List&lt;Eth2RateList&gt;</returns>
+        public List<Eth2RateList> RateListETH2 ()
         {
-             ApiResponse<List<DualGetPlans>> localVarResponse = ListDualInvestmentPlansWithHttpInfo();
+             ApiResponse<List<Eth2RateList>> localVarResponse = RateListETH2WithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;DualGetPlans&gt;</returns>
-        public ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo ()
-        {
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            string[] _contentTypes = {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = {
-                "application/json"
-            };
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<DualGetPlans>>("/earn/dual/investment_plan", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListDualInvestmentPlans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Dual Investment product list 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;DualGetPlans&gt;</returns>
-        public async Task<List<DualGetPlans>> ListDualInvestmentPlansAsync ()
-        {
-             Io.Gate.GateApi.Client.ApiResponse<List<DualGetPlans>> localVarResponse = await ListDualInvestmentPlansAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Dual Investment product list 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;DualGetPlans&gt;)</returns>
-        public async Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo ()
-        {
-
-            RequestOptions localVarRequestOptions = new RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<DualGetPlans>>("/earn/dual/investment_plan", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListDualInvestmentPlans", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Dual Investment order list 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;DualGetOrders&gt;</returns>
-        public List<DualGetOrders> ListDualOrders ()
-        {
-             ApiResponse<List<DualGetOrders>> localVarResponse = ListDualOrdersWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Dual Investment order list 
-        /// </summary>
-        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;DualGetOrders&gt;</returns>
-        public ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo ()
+        /// <returns>ApiResponse of List&lt;Eth2RateList&gt;</returns>
+        public ApiResponse<List<Eth2RateList>> RateListETH2WithHttpInfo ()
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -719,11 +678,11 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<DualGetOrders>>("/earn/dual/orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Eth2RateList>>("/earn/staking/eth2/rate_records", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListDualOrders", localVarResponse);
+                Exception _exception = this.ExceptionFactory("RateListETH2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -731,23 +690,23 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;DualGetOrders&gt;</returns>
-        public async Task<List<DualGetOrders>> ListDualOrdersAsync ()
+        /// <returns>Task of List&lt;Eth2RateList&gt;</returns>
+        public async Task<List<Eth2RateList>> RateListETH2Async ()
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<DualGetOrders>> localVarResponse = await ListDualOrdersAsyncWithHttpInfo();
+             Io.Gate.GateApi.Client.ApiResponse<List<Eth2RateList>> localVarResponse = await RateListETH2AsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;DualGetOrders&gt;)</returns>
-        public async Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (List&lt;Eth2RateList&gt;)</returns>
+        public async Task<ApiResponse<List<Eth2RateList>>> RateListETH2AsyncWithHttpInfo ()
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -766,6 +725,268 @@ namespace Io.Gate.GateApi.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
 
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Eth2RateList>>("/earn/staking/eth2/rate_records", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RateListETH2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Dual Investment product list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
+        /// <returns>List&lt;DualGetPlans&gt;</returns>
+        public List<DualGetPlans> ListDualInvestmentPlans (long? planId = default(long?))
+        {
+             ApiResponse<List<DualGetPlans>> localVarResponse = ListDualInvestmentPlansWithHttpInfo(planId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Dual Investment product list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
+        /// <returns>ApiResponse of List&lt;DualGetPlans&gt;</returns>
+        public ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo (long? planId = default(long?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (planId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "plan_id", planId));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<DualGetPlans>>("/earn/dual/investment_plan", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDualInvestmentPlans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Dual Investment product list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
+        /// <returns>Task of List&lt;DualGetPlans&gt;</returns>
+        public async Task<List<DualGetPlans>> ListDualInvestmentPlansAsync (long? planId = default(long?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<DualGetPlans>> localVarResponse = await ListDualInvestmentPlansAsyncWithHttpInfo(planId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Dual Investment product list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="planId">Financial project id (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;DualGetPlans&gt;)</returns>
+        public async Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo (long? planId = default(long?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (planId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "plan_id", planId));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<DualGetPlans>>("/earn/dual/investment_plan", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDualInvestmentPlans", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Dual Investment order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>List&lt;DualGetOrders&gt;</returns>
+        public List<DualGetOrders> ListDualOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        {
+             ApiResponse<List<DualGetOrders>> localVarResponse = ListDualOrdersWithHttpInfo(from, to, page, limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Dual Investment order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>ApiResponse of List&lt;DualGetOrders&gt;</returns>
+        public ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<DualGetOrders>>("/earn/dual/orders", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDualOrders", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Dual Investment order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of List&lt;DualGetOrders&gt;</returns>
+        public async Task<List<DualGetOrders>> ListDualOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<DualGetOrders>> localVarResponse = await ListDualOrdersAsyncWithHttpInfo(from, to, page, limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Dual Investment order list 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="from">Start checkout time (optional)</param>
+        /// <param name="to">End settlement time (optional)</param>
+        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <returns>Task of ApiResponse (List&lt;DualGetOrders&gt;)</returns>
+        public async Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (from != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+            }
+            if (to != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;

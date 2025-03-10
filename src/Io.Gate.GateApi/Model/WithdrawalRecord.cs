@@ -31,99 +31,6 @@ namespace Io.Gate.GateApi.Model
     public partial class WithdrawalRecord :  IEquatable<WithdrawalRecord>, IValidatableObject
     {
         /// <summary>
-        /// Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically
-        /// </summary>
-        /// <value>Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            /// <summary>
-            /// Enum DONE for value: DONE
-            /// </summary>
-            [EnumMember(Value = "DONE")]
-            DONE = 1,
-
-            /// <summary>
-            /// Enum CANCEL for value: CANCEL
-            /// </summary>
-            [EnumMember(Value = "CANCEL")]
-            CANCEL = 2,
-
-            /// <summary>
-            /// Enum REQUEST for value: REQUEST
-            /// </summary>
-            [EnumMember(Value = "REQUEST")]
-            REQUEST = 3,
-
-            /// <summary>
-            /// Enum MANUAL for value: MANUAL
-            /// </summary>
-            [EnumMember(Value = "MANUAL")]
-            MANUAL = 4,
-
-            /// <summary>
-            /// Enum BCODE for value: BCODE
-            /// </summary>
-            [EnumMember(Value = "BCODE")]
-            BCODE = 5,
-
-            /// <summary>
-            /// Enum EXTPEND for value: EXTPEND
-            /// </summary>
-            [EnumMember(Value = "EXTPEND")]
-            EXTPEND = 6,
-
-            /// <summary>
-            /// Enum FAIL for value: FAIL
-            /// </summary>
-            [EnumMember(Value = "FAIL")]
-            FAIL = 7,
-
-            /// <summary>
-            /// Enum INVALID for value: INVALID
-            /// </summary>
-            [EnumMember(Value = "INVALID")]
-            INVALID = 8,
-
-            /// <summary>
-            /// Enum VERIFY for value: VERIFY
-            /// </summary>
-            [EnumMember(Value = "VERIFY")]
-            VERIFY = 9,
-
-            /// <summary>
-            /// Enum PROCES for value: PROCES
-            /// </summary>
-            [EnumMember(Value = "PROCES")]
-            PROCES = 10,
-
-            /// <summary>
-            /// Enum PEND for value: PEND
-            /// </summary>
-            [EnumMember(Value = "PEND")]
-            PEND = 11,
-
-            /// <summary>
-            /// Enum DMOVE for value: DMOVE
-            /// </summary>
-            [EnumMember(Value = "DMOVE")]
-            DMOVE = 12,
-
-            /// <summary>
-            /// Enum SPLITPEND for value: SPLITPEND
-            /// </summary>
-            [EnumMember(Value = "SPLITPEND")]
-            SPLITPEND = 13
-
-        }
-
-        /// <summary>
-        /// Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically
-        /// </summary>
-        /// <value>Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review - SPLITPEND: cny withdrawal is greater than 50,000, orders will be split automatically</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="WithdrawalRecord" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -219,6 +126,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Additional remarks with regards to the withdrawal</value>
         [DataMember(Name="memo")]
         public string Memo { get; set; }
+
+        /// <summary>
+        /// Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review
+        /// </summary>
+        /// <value>Transaction status  - DONE: Completed (block_number &gt; 0 is considered to be truly completed) - CANCEL: Canceled - REQUEST: Requesting - MANUAL: Pending manual review - BCODE: Recharge code operation - EXTPEND: Sent awaiting confirmation - FAIL: Failure on the chain awaiting confirmation - INVALID: Invalid order - VERIFY: Verifying - PROCES: Processing - PEND: Processing - DMOVE: pending manual review</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; private set; }
 
         /// <summary>
         /// Name of the chain used in withdrawals
@@ -333,7 +247,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Chain == input.Chain ||
@@ -371,7 +286,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
                 if (this.Memo != null)
                     hashCode = hashCode * 59 + this.Memo.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Chain != null)
                     hashCode = hashCode * 59 + this.Chain.GetHashCode();
                 return hashCode;

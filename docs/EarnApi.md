@@ -5,6 +5,7 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SwapETH2**](EarnApi.md#swapeth2) | **POST** /earn/staking/eth2/swap | ETH2 swap
+[**RateListETH2**](EarnApi.md#ratelisteth2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
 [**ListDualInvestmentPlans**](EarnApi.md#listdualinvestmentplans) | **GET** /earn/dual/investment_plan | Dual Investment product list
 [**ListDualOrders**](EarnApi.md#listdualorders) | **GET** /earn/dual/orders | Dual Investment order list
 [**PlaceDualOrder**](EarnApi.md#placedualorder) | **POST** /earn/dual/orders | Place Dual Investment order
@@ -83,9 +84,78 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="ratelisteth2"></a>
+# **RateListETH2**
+> List&lt;Eth2RateList&gt; RateListETH2 ()
+
+ETH2 historical rate of return query
+
+Check the ETH earnings rate record for the last 31 days
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class RateListETH2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new EarnApi(config);
+
+            try
+            {
+                // ETH2 historical rate of return query
+                List<Eth2RateList> result = apiInstance.RateListETH2();
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling EarnApi.RateListETH2: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;Eth2RateList&gt;**](Eth2RateList.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listdualinvestmentplans"></a>
 # **ListDualInvestmentPlans**
-> List&lt;DualGetPlans&gt; ListDualInvestmentPlans ()
+> List&lt;DualGetPlans&gt; ListDualInvestmentPlans (long? planId = null)
 
 Dual Investment product list
 
@@ -106,11 +176,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new EarnApi(config);
+            var planId = 1;  // long? | Financial project id (optional) 
 
             try
             {
                 // Dual Investment product list
-                List<DualGetPlans> result = apiInstance.ListDualInvestmentPlans();
+                List<DualGetPlans> result = apiInstance.ListDualInvestmentPlans(planId);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -126,7 +197,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **planId** | **long?**| Financial project id | [optional] 
 
 ### Return type
 
@@ -150,7 +224,7 @@ No authorization required
 
 <a name="listdualorders"></a>
 # **ListDualOrders**
-> List&lt;DualGetOrders&gt; ListDualOrders ()
+> List&lt;DualGetOrders&gt; ListDualOrders (long? from = null, long? to = null, int? page = null, int? limit = null)
 
 Dual Investment order list
 
@@ -173,11 +247,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new EarnApi(config);
+            var from = 1740727000;  // long? | Start checkout time (optional) 
+            var to = 1740729000;  // long? | End settlement time (optional) 
+            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
             try
             {
                 // Dual Investment order list
-                List<DualGetOrders> result = apiInstance.ListDualOrders();
+                List<DualGetOrders> result = apiInstance.ListDualOrders(from, to, page, limit);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -193,7 +271,13 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **from** | **long?**| Start checkout time | [optional] 
+ **to** | **long?**| End settlement time | [optional] 
+ **page** | **int?**| Page number | [optional] [default to 1]
+ **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
 ### Return type
 

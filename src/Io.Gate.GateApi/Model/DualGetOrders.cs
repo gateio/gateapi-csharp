@@ -49,7 +49,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="apyDisplay">APY.</param>
         /// <param name="apySettlement">Settlement APY.</param>
         /// <param name="deliveryTime">Settlement time.</param>
-        public DualGetOrders(int id = default(int), int planId = default(int), string copies = default(string), string investAmount = default(string), string settlementAmount = default(string), int createTime = default(int), int completeTime = default(int), string status = default(string), string investCurrency = default(string), string exerciseCurrency = default(string), string exercisePrice = default(string), string settlementPrice = default(string), string settlementCurrency = default(string), string apyDisplay = default(string), string apySettlement = default(string), int deliveryTime = default(int))
+        /// <param name="text">Custom order information.</param>
+        public DualGetOrders(int id = default(int), int planId = default(int), string copies = default(string), string investAmount = default(string), string settlementAmount = default(string), int createTime = default(int), int completeTime = default(int), string status = default(string), string investCurrency = default(string), string exerciseCurrency = default(string), string exercisePrice = default(string), string settlementPrice = default(string), string settlementCurrency = default(string), string apyDisplay = default(string), string apySettlement = default(string), int deliveryTime = default(int), string text = default(string))
         {
             this.Id = id;
             this.PlanId = planId;
@@ -67,6 +68,7 @@ namespace Io.Gate.GateApi.Model
             this.ApyDisplay = apyDisplay;
             this.ApySettlement = apySettlement;
             this.DeliveryTime = deliveryTime;
+            this.Text = text;
         }
 
         /// <summary>
@@ -182,6 +184,13 @@ namespace Io.Gate.GateApi.Model
         public int DeliveryTime { get; set; }
 
         /// <summary>
+        /// Custom order information
+        /// </summary>
+        /// <value>Custom order information</value>
+        [DataMember(Name="text")]
+        public string Text { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -205,6 +214,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  ApyDisplay: ").Append(ApyDisplay).Append("\n");
             sb.Append("  ApySettlement: ").Append(ApySettlement).Append("\n");
             sb.Append("  DeliveryTime: ").Append(DeliveryTime).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -313,6 +323,11 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.DeliveryTime == input.DeliveryTime ||
                     this.DeliveryTime.Equals(input.DeliveryTime)
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -352,6 +367,8 @@ namespace Io.Gate.GateApi.Model
                 if (this.ApySettlement != null)
                     hashCode = hashCode * 59 + this.ApySettlement.GetHashCode();
                 hashCode = hashCode * 59 + this.DeliveryTime.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }

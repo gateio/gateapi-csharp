@@ -31,99 +31,6 @@ namespace Io.Gate.GateApi.Model
     public partial class LedgerRecord :  IEquatable<LedgerRecord>, IValidatableObject
     {
         /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
-        /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            /// <summary>
-            /// Enum DONE for value: DONE
-            /// </summary>
-            [EnumMember(Value = "DONE")]
-            DONE = 1,
-
-            /// <summary>
-            /// Enum CANCEL for value: CANCEL
-            /// </summary>
-            [EnumMember(Value = "CANCEL")]
-            CANCEL = 2,
-
-            /// <summary>
-            /// Enum REQUEST for value: REQUEST
-            /// </summary>
-            [EnumMember(Value = "REQUEST")]
-            REQUEST = 3,
-
-            /// <summary>
-            /// Enum MANUAL for value: MANUAL
-            /// </summary>
-            [EnumMember(Value = "MANUAL")]
-            MANUAL = 4,
-
-            /// <summary>
-            /// Enum BCODE for value: BCODE
-            /// </summary>
-            [EnumMember(Value = "BCODE")]
-            BCODE = 5,
-
-            /// <summary>
-            /// Enum EXTPEND for value: EXTPEND
-            /// </summary>
-            [EnumMember(Value = "EXTPEND")]
-            EXTPEND = 6,
-
-            /// <summary>
-            /// Enum FAIL for value: FAIL
-            /// </summary>
-            [EnumMember(Value = "FAIL")]
-            FAIL = 7,
-
-            /// <summary>
-            /// Enum INVALID for value: INVALID
-            /// </summary>
-            [EnumMember(Value = "INVALID")]
-            INVALID = 8,
-
-            /// <summary>
-            /// Enum VERIFY for value: VERIFY
-            /// </summary>
-            [EnumMember(Value = "VERIFY")]
-            VERIFY = 9,
-
-            /// <summary>
-            /// Enum PROCES for value: PROCES
-            /// </summary>
-            [EnumMember(Value = "PROCES")]
-            PROCES = 10,
-
-            /// <summary>
-            /// Enum PEND for value: PEND
-            /// </summary>
-            [EnumMember(Value = "PEND")]
-            PEND = 11,
-
-            /// <summary>
-            /// Enum DMOVE for value: DMOVE
-            /// </summary>
-            [EnumMember(Value = "DMOVE")]
-            DMOVE = 12,
-
-            /// <summary>
-            /// Enum SPLITPEND for value: SPLITPEND
-            /// </summary>
-            [EnumMember(Value = "SPLITPEND")]
-            SPLITPEND = 13
-
-        }
-
-        /// <summary>
-        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
-        /// </summary>
-        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="LedgerRecord" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -205,6 +112,13 @@ namespace Io.Gate.GateApi.Model
         /// <value>Additional remarks with regards to the withdrawal</value>
         [DataMember(Name="memo")]
         public string Memo { get; set; }
+
+        /// <summary>
+        /// Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval
+        /// </summary>
+        /// <value>Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; private set; }
 
         /// <summary>
         /// Name of the chain used in withdrawals
@@ -307,7 +221,8 @@ namespace Io.Gate.GateApi.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Chain == input.Chain ||
@@ -341,7 +256,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
                 if (this.Memo != null)
                     hashCode = hashCode * 59 + this.Memo.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Chain != null)
                     hashCode = hashCode * 59 + this.Chain.GetHashCode();
                 return hashCode;

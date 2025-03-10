@@ -42,7 +42,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="copies">The number of copies is mutually exclusive with the amount field and will be deprecated soon. It is recommended to use the amount parameter..</param>
         /// <param name="isMax">Whether to purchase at the maximum. Mutually exclusive with the amount field. Will be deprecated soon. It is recommended to use the amount parameter..</param>
         /// <param name="amount">Subscription amount, mutually exclusive with the copies field (required).</param>
-        public PlaceDualInvestmentOrder(string planId = default(string), string copies = default(string), int isMax = default(int), string amount = default(string))
+        /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
+        public PlaceDualInvestmentOrder(string planId = default(string), string copies = default(string), int isMax = default(int), string amount = default(string), string text = default(string))
         {
             // to ensure "planId" is required (not null)
             this.PlanId = planId ?? throw new ArgumentNullException("planId", "planId is a required property for PlaceDualInvestmentOrder and cannot be null");
@@ -50,6 +51,7 @@ namespace Io.Gate.GateApi.Model
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for PlaceDualInvestmentOrder and cannot be null");
             this.Copies = copies;
             this.IsMax = isMax;
+            this.Text = text;
         }
 
         /// <summary>
@@ -81,6 +83,13 @@ namespace Io.Gate.GateApi.Model
         public string Amount { get; set; }
 
         /// <summary>
+        /// User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) 
+        /// </summary>
+        /// <value>User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) </value>
+        [DataMember(Name="text")]
+        public string Text { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Copies: ").Append(Copies).Append("\n");
             sb.Append("  IsMax: ").Append(IsMax).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +154,11 @@ namespace Io.Gate.GateApi.Model
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -163,6 +178,8 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.IsMax.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }

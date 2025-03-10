@@ -47,7 +47,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="crossBalance">Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode.</param>
         /// <param name="isoBalance">Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="im">Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
-        /// <param name="mm">Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
+        /// <param name="mm">The full position maintains margin, which is valid in the single currency margin mode, and other cross-currency margin combination margin mode is 0..</param>
         /// <param name="imr">Full-position initial margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="mmr">Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="marginBalance">Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode.</param>
@@ -174,9 +174,9 @@ namespace Io.Gate.GateApi.Model
         public string Im { get; set; }
 
         /// <summary>
-        /// Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode
+        /// The full position maintains margin, which is valid in the single currency margin mode, and other cross-currency margin combination margin mode is 0.
         /// </summary>
-        /// <value>Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode</value>
+        /// <value>The full position maintains margin, which is valid in the single currency margin mode, and other cross-currency margin combination margin mode is 0.</value>
         [DataMember(Name="mm")]
         public string Mm { get; set; }
 
