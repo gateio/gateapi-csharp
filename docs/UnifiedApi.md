@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**GetUserLeverageCurrencyConfig**](UnifiedApi.md#getuserleveragecurrencyconfig) | **GET** /unified/leverage/user_currency_config | Minimum currency leverage that can be set
 [**GetUserLeverageCurrencySetting**](UnifiedApi.md#getuserleveragecurrencysetting) | **GET** /unified/leverage/user_currency_setting | Get the leverage multiple of the user currency
 [**SetUserLeverageCurrencySetting**](UnifiedApi.md#setuserleveragecurrencysetting) | **POST** /unified/leverage/user_currency_setting | Set the loan currency leverage
+[**ListUnifiedCurrencies**](UnifiedApi.md#listunifiedcurrencies) | **GET** /unified/currencies | List of loan currencies supported by unified account
 [**GetHistoryLoanRate**](UnifiedApi.md#gethistoryloanrate) | **GET** /unified/history_loan_rate | get historical lending rates
 
 
@@ -1243,6 +1244,75 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listunifiedcurrencies"></a>
+# **ListUnifiedCurrencies**
+> List&lt;UnifiedCurrency&gt; ListUnifiedCurrencies (string currency = null)
+
+List of loan currencies supported by unified account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListUnifiedCurrenciesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new UnifiedApi(config);
+            var currency = "BTC";  // string | Currency (optional) 
+
+            try
+            {
+                // List of loan currencies supported by unified account
+                List<UnifiedCurrency> result = apiInstance.ListUnifiedCurrencies(currency);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling UnifiedApi.ListUnifiedCurrencies: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency** | **string**| Currency | [optional] 
+
+### Return type
+
+[**List&lt;UnifiedCurrency&gt;**](UnifiedCurrency.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

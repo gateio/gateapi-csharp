@@ -401,6 +401,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
         /// <summary>
+        /// List of loan currencies supported by unified account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>List&lt;UnifiedCurrency&gt;</returns>
+        List<UnifiedCurrency> ListUnifiedCurrencies (string currency = default(string));
+
+        /// <summary>
+        /// List of loan currencies supported by unified account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;UnifiedCurrency&gt;</returns>
+        ApiResponse<List<UnifiedCurrency>> ListUnifiedCurrenciesWithHttpInfo (string currency = default(string));
+        /// <summary>
         /// get historical lending rates
         /// </summary>
         /// <remarks>
@@ -809,6 +830,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="unifiedLeverageSetting"></param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
+        /// <summary>
+        /// List of loan currencies supported by unified account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of List&lt;UnifiedCurrency&gt;</returns>
+        Task<List<UnifiedCurrency>> ListUnifiedCurrenciesAsync (string currency = default(string));
+
+        /// <summary>
+        /// List of loan currencies supported by unified account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;UnifiedCurrency&gt;)</returns>
+        Task<ApiResponse<List<UnifiedCurrency>>> ListUnifiedCurrenciesAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
         /// get historical lending rates
         /// </summary>
@@ -3001,6 +3043,117 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SetUserLeverageCurrencySetting", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of loan currencies supported by unified account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>List&lt;UnifiedCurrency&gt;</returns>
+        public List<UnifiedCurrency> ListUnifiedCurrencies (string currency = default(string))
+        {
+             ApiResponse<List<UnifiedCurrency>> localVarResponse = ListUnifiedCurrenciesWithHttpInfo(currency);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of loan currencies supported by unified account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>ApiResponse of List&lt;UnifiedCurrency&gt;</returns>
+        public ApiResponse<List<UnifiedCurrency>> ListUnifiedCurrenciesWithHttpInfo (string currency = default(string))
+        {
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<UnifiedCurrency>>("/unified/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUnifiedCurrencies", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of loan currencies supported by unified account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of List&lt;UnifiedCurrency&gt;</returns>
+        public async Task<List<UnifiedCurrency>> ListUnifiedCurrenciesAsync (string currency = default(string))
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<UnifiedCurrency>> localVarResponse = await ListUnifiedCurrenciesAsyncWithHttpInfo(currency);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List of loan currencies supported by unified account 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currency">Currency (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;UnifiedCurrency&gt;)</returns>
+        public async Task<ApiResponse<List<UnifiedCurrency>>> ListUnifiedCurrenciesAsyncWithHttpInfo (string currency = default(string))
+        {
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UnifiedCurrency>>("/unified/currencies", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUnifiedCurrencies", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
