@@ -753,7 +753,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of TriggerOrderResponse</returns>
         ApiResponse<TriggerOrderResponse> CreateSpotPriceTriggeredOrderWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -765,7 +765,7 @@ namespace Io.Gate.GateApi.Api
         List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string));
 
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -1552,7 +1552,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (TriggerOrderResponse)</returns>
         Task<ApiResponse<TriggerOrderResponse>> CreateSpotPriceTriggeredOrderAsyncWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -1564,7 +1564,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string));
 
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -5780,7 +5780,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
@@ -5793,7 +5793,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
@@ -5842,7 +5842,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>
@@ -5856,7 +5856,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Currency pair (optional)</param>

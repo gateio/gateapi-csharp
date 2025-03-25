@@ -28,9 +28,9 @@ Method | HTTP request | Description
 [**ListDeliveryLiquidates**](DeliveryApi.md#listdeliveryliquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
 [**ListDeliverySettlements**](DeliveryApi.md#listdeliverysettlements) | **GET** /delivery/{settle}/settlements | List settlement history
 [**ListDeliveryRiskLimitTiers**](DeliveryApi.md#listdeliveryrisklimittiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers
-[**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List all auto orders
+[**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List All Price-triggered Orders
 [**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
-[**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel all open orders
+[**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel All Price-triggered Orders
 [**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
 [**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
 
@@ -1853,7 +1853,7 @@ No authorization required
 # **ListPriceTriggeredDeliveryOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; ListPriceTriggeredDeliveryOrders (string settle, string status, string contract = null, int? limit = null, int? offset = null)
 
-List all auto orders
+List All Price-triggered Orders
 
 ### Example
 ```csharp
@@ -1882,7 +1882,7 @@ namespace Example
 
             try
             {
-                // List all auto orders
+                // List All Price-triggered Orders
                 List<FuturesPriceTriggeredOrder> result = apiInstance.ListPriceTriggeredDeliveryOrders(settle, status, contract, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -2005,7 +2005,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredDeliveryOrderList**
 > List&lt;FuturesPriceTriggeredOrder&gt; CancelPriceTriggeredDeliveryOrderList (string settle, string contract)
 
-Cancel all open orders
+Cancel All Price-triggered Orders
 
 ### Example
 ```csharp
@@ -2031,7 +2031,7 @@ namespace Example
 
             try
             {
-                // Cancel all open orders
+                // Cancel All Price-triggered Orders
                 List<FuturesPriceTriggeredOrder> result = apiInstance.CancelPriceTriggeredDeliveryOrderList(settle, contract);
                 Debug.WriteLine(result);
             }

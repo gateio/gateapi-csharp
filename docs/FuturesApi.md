@@ -46,9 +46,9 @@ Method | HTTP request | Description
 [**GetFuturesFee**](FuturesApi.md#getfuturesfee) | **GET** /futures/{settle}/fee | Query user trading fee rates
 [**CancelBatchFutureOrders**](FuturesApi.md#cancelbatchfutureorders) | **POST** /futures/{settle}/batch_cancel_orders | Cancel a batch of orders with an ID list
 [**AmendBatchFutureOrders**](FuturesApi.md#amendbatchfutureorders) | **POST** /futures/{settle}/batch_amend_orders | Batch modify orders with specified IDs
-[**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List all auto orders
+[**ListPriceTriggeredOrders**](FuturesApi.md#listpricetriggeredorders) | **GET** /futures/{settle}/price_orders | List All Price-triggered Orders
 [**CreatePriceTriggeredOrder**](FuturesApi.md#createpricetriggeredorder) | **POST** /futures/{settle}/price_orders | Create a price-triggered order
-[**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel all open orders
+[**CancelPriceTriggeredOrderList**](FuturesApi.md#cancelpricetriggeredorderlist) | **DELETE** /futures/{settle}/price_orders | Cancel All Price-triggered Orders
 [**GetPriceTriggeredOrder**](FuturesApi.md#getpricetriggeredorder) | **GET** /futures/{settle}/price_orders/{order_id} | Get a price-triggered order
 [**CancelPriceTriggeredOrder**](FuturesApi.md#cancelpricetriggeredorder) | **DELETE** /futures/{settle}/price_orders/{order_id} | cancel a price-triggered order
 
@@ -3287,7 +3287,7 @@ Name | Type | Description  | Notes
 # **ListPriceTriggeredOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; ListPriceTriggeredOrders (string settle, string status, string contract = null, int? limit = null, int? offset = null)
 
-List all auto orders
+List All Price-triggered Orders
 
 ### Example
 ```csharp
@@ -3316,7 +3316,7 @@ namespace Example
 
             try
             {
-                // List all auto orders
+                // List All Price-triggered Orders
                 List<FuturesPriceTriggeredOrder> result = apiInstance.ListPriceTriggeredOrders(settle, status, contract, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -3439,7 +3439,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredOrderList**
 > List&lt;FuturesPriceTriggeredOrder&gt; CancelPriceTriggeredOrderList (string settle, string contract = null)
 
-Cancel all open orders
+Cancel All Price-triggered Orders
 
 ### Example
 ```csharp
@@ -3465,7 +3465,7 @@ namespace Example
 
             try
             {
-                // Cancel all open orders
+                // Cancel All Price-triggered Orders
                 List<FuturesPriceTriggeredOrder> result = apiInstance.CancelPriceTriggeredOrderList(settle, contract);
                 Debug.WriteLine(result);
             }

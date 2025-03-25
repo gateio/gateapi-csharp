@@ -1152,7 +1152,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
         ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
         /// <summary>
-        /// List all auto orders
+        /// List All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -1167,7 +1167,7 @@ namespace Io.Gate.GateApi.Api
         List<FuturesPriceTriggeredOrder> ListPriceTriggeredOrders (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// List all auto orders
+        /// List All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -1204,7 +1204,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of TriggerOrderResponse</returns>
         ApiResponse<TriggerOrderResponse> CreatePriceTriggeredOrderWithHttpInfo (string settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder);
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -1216,7 +1216,7 @@ namespace Io.Gate.GateApi.Api
         List<FuturesPriceTriggeredOrder> CancelPriceTriggeredOrderList (string settle, string contract = default(string));
 
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -2406,7 +2406,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
         Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
         /// <summary>
-        /// List all auto orders
+        /// List All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -2421,7 +2421,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<FuturesPriceTriggeredOrder>> ListPriceTriggeredOrdersAsync (string settle, string status, string contract = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// List all auto orders
+        /// List All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -2458,7 +2458,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (TriggerOrderResponse)</returns>
         Task<ApiResponse<TriggerOrderResponse>> CreatePriceTriggeredOrderAsyncWithHttpInfo (string settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder);
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -2470,7 +2470,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<FuturesPriceTriggeredOrder>> CancelPriceTriggeredOrderListAsync (string settle, string contract = default(string));
 
         /// <summary>
-        /// Cancel all open orders
+        /// Cancel All Price-triggered Orders
         /// </summary>
         /// <remarks>
         /// 
@@ -9035,7 +9035,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all auto orders 
+        /// List All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9051,7 +9051,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all auto orders 
+        /// List All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9117,7 +9117,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all auto orders 
+        /// List All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9134,7 +9134,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all auto orders 
+        /// List All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9335,7 +9335,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9348,7 +9348,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9398,7 +9398,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>
@@ -9412,7 +9412,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all open orders 
+        /// Cancel All Price-triggered Orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settle">Settle currency</param>

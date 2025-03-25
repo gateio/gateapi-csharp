@@ -33,7 +33,7 @@ Method | HTTP request | Description
 [**GetSpotInsuranceHistory**](SpotApi.md#getspotinsurancehistory) | **GET** /spot/insurance_history | Query spot insurance fund historical data
 [**ListSpotPriceTriggeredOrders**](SpotApi.md#listspotpricetriggeredorders) | **GET** /spot/price_orders | Retrieve running auto order list
 [**CreateSpotPriceTriggeredOrder**](SpotApi.md#createspotpricetriggeredorder) | **POST** /spot/price_orders | Create a price-triggered order
-[**CancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelspotpricetriggeredorderlist) | **DELETE** /spot/price_orders | Cancel all open orders
+[**CancelSpotPriceTriggeredOrderList**](SpotApi.md#cancelspotpricetriggeredorderlist) | **DELETE** /spot/price_orders | Cancel All Price-triggered Orders
 [**GetSpotPriceTriggeredOrder**](SpotApi.md#getspotpricetriggeredorder) | **GET** /spot/price_orders/{order_id} | Get a price-triggered order
 [**CancelSpotPriceTriggeredOrder**](SpotApi.md#cancelspotpricetriggeredorder) | **DELETE** /spot/price_orders/{order_id} | cancel a price-triggered order
 
@@ -2231,7 +2231,7 @@ Name | Type | Description  | Notes
 # **CancelSpotPriceTriggeredOrderList**
 > List&lt;SpotPriceTriggeredOrder&gt; CancelSpotPriceTriggeredOrderList (string market = null, string account = null)
 
-Cancel all open orders
+Cancel All Price-triggered Orders
 
 ### Example
 ```csharp
@@ -2257,7 +2257,7 @@ namespace Example
 
             try
             {
-                // Cancel all open orders
+                // Cancel All Price-triggered Orders
                 List<SpotPriceTriggeredOrder> result = apiInstance.CancelSpotPriceTriggeredOrderList(market, account);
                 Debug.WriteLine(result);
             }
