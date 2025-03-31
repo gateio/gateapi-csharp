@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Change** | **string** | Amount changed. Positive value means transferring in, while negative out | [optional] 
 **Balance** | **string** | Balance after change | [optional] 
 **Type** | **string** | Account book type.  Please refer to [account book type](#accountbook-type) for more detail | [optional] 
+**Code** | **string** | Account change code, see [Asset Record Code] (Asset Record Code) | [optional] 
 **Text** | **string** | Additional information | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

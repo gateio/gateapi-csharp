@@ -295,8 +295,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>List&lt;SpotAccountBook&gt;</returns>
-        List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
 
         /// <summary>
         /// Query account book
@@ -311,8 +312,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
-        ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
         /// <summary>
         /// Create a batch of orders
         /// </summary>
@@ -1094,8 +1096,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
-        Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
 
         /// <summary>
         /// Query account book
@@ -1110,8 +1113,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
-        Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string));
+        Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
         /// <summary>
         /// Create a batch of orders
         /// </summary>
@@ -3135,10 +3139,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>List&lt;SpotAccountBook&gt;</returns>
-        public List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string))
         {
-             ApiResponse<List<SpotAccountBook>> localVarResponse = ListSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type);
+             ApiResponse<List<SpotAccountBook>> localVarResponse = ListSpotAccountBookWithHttpInfo(currency, from, to, page, limit, type, code);
              return localVarResponse.Data;
         }
 
@@ -3152,8 +3157,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
-        public ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -3195,6 +3201,10 @@ namespace Io.Gate.GateApi.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
+            if (code != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "code", code));
+            }
 
             // authentication (apiv4) required
             localVarRequestOptions.RequireApiV4Auth = true;
@@ -3221,10 +3231,11 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
-        public async Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string))
         {
-             Io.Gate.GateApi.Client.ApiResponse<List<SpotAccountBook>> localVarResponse = await ListSpotAccountBookAsyncWithHttpInfo(currency, from, to, page, limit, type);
+             Io.Gate.GateApi.Client.ApiResponse<List<SpotAccountBook>> localVarResponse = await ListSpotAccountBookAsyncWithHttpInfo(currency, from, to, page, limit, type, code);
              return localVarResponse.Data;
 
         }
@@ -3239,8 +3250,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="page">Page number (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
+        /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
-        public async Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string))
+        public async Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -3282,6 +3294,10 @@ namespace Io.Gate.GateApi.Api
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+            if (code != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "code", code));
             }
 
             // authentication (apiv4) required

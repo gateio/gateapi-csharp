@@ -34,15 +34,21 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="MarginAccount" /> class.
         /// </summary>
         /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="accountType">Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated.</param>
+        /// <param name="leverage">User current market leverage multiple.</param>
         /// <param name="locked">Whether account is locked.</param>
-        /// <param name="risk">Current risk rate of margin account.</param>
+        /// <param name="risk">Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account).</param>
+        /// <param name="mmr">Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account).</param>
         /// <param name="_base">_base.</param>
         /// <param name="quote">quote.</param>
-        public MarginAccount(string currencyPair = default(string), bool locked = default(bool), string risk = default(string), MarginAccountCurrency _base = default(MarginAccountCurrency), MarginAccountCurrency quote = default(MarginAccountCurrency))
+        public MarginAccount(string currencyPair = default(string), string accountType = default(string), string leverage = default(string), bool locked = default(bool), string risk = default(string), string mmr = default(string), MarginAccountCurrency _base = default(MarginAccountCurrency), MarginAccountCurrency quote = default(MarginAccountCurrency))
         {
             this.CurrencyPair = currencyPair;
+            this.AccountType = accountType;
+            this.Leverage = leverage;
             this.Locked = locked;
             this.Risk = risk;
+            this.Mmr = mmr;
             this.Base = _base;
             this.Quote = quote;
         }
@@ -55,6 +61,20 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; set; }
 
         /// <summary>
+        /// Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+        /// </summary>
+        /// <value>Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated</value>
+        [DataMember(Name="account_type")]
+        public string AccountType { get; set; }
+
+        /// <summary>
+        /// User current market leverage multiple
+        /// </summary>
+        /// <value>User current market leverage multiple</value>
+        [DataMember(Name="leverage")]
+        public string Leverage { get; set; }
+
+        /// <summary>
         /// Whether account is locked
         /// </summary>
         /// <value>Whether account is locked</value>
@@ -62,11 +82,18 @@ namespace Io.Gate.GateApi.Model
         public bool Locked { get; set; }
 
         /// <summary>
-        /// Current risk rate of margin account
+        /// Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account)
         /// </summary>
-        /// <value>Current risk rate of margin account</value>
+        /// <value>Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account)</value>
         [DataMember(Name="risk")]
         public string Risk { get; set; }
+
+        /// <summary>
+        /// Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
+        /// </summary>
+        /// <value>Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)</value>
+        [DataMember(Name="mmr")]
+        public string Mmr { get; set; }
 
         /// <summary>
         /// Gets or Sets Base
@@ -89,8 +116,11 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class MarginAccount {\n");
             sb.Append("  CurrencyPair: ").Append(CurrencyPair).Append("\n");
+            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            sb.Append("  Leverage: ").Append(Leverage).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Risk: ").Append(Risk).Append("\n");
+            sb.Append("  Mmr: ").Append(Mmr).Append("\n");
             sb.Append("  Base: ").Append(Base).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
             sb.Append("}\n");
@@ -133,6 +163,16 @@ namespace Io.Gate.GateApi.Model
                     this.CurrencyPair.Equals(input.CurrencyPair))
                 ) && 
                 (
+                    this.AccountType == input.AccountType ||
+                    (this.AccountType != null &&
+                    this.AccountType.Equals(input.AccountType))
+                ) && 
+                (
+                    this.Leverage == input.Leverage ||
+                    (this.Leverage != null &&
+                    this.Leverage.Equals(input.Leverage))
+                ) && 
+                (
                     this.Locked == input.Locked ||
                     this.Locked.Equals(input.Locked)
                 ) && 
@@ -140,6 +180,11 @@ namespace Io.Gate.GateApi.Model
                     this.Risk == input.Risk ||
                     (this.Risk != null &&
                     this.Risk.Equals(input.Risk))
+                ) && 
+                (
+                    this.Mmr == input.Mmr ||
+                    (this.Mmr != null &&
+                    this.Mmr.Equals(input.Mmr))
                 ) && 
                 (
                     this.Base == input.Base ||
@@ -164,9 +209,15 @@ namespace Io.Gate.GateApi.Model
                 int hashCode = 41;
                 if (this.CurrencyPair != null)
                     hashCode = hashCode * 59 + this.CurrencyPair.GetHashCode();
+                if (this.AccountType != null)
+                    hashCode = hashCode * 59 + this.AccountType.GetHashCode();
+                if (this.Leverage != null)
+                    hashCode = hashCode * 59 + this.Leverage.GetHashCode();
                 hashCode = hashCode * 59 + this.Locked.GetHashCode();
                 if (this.Risk != null)
                     hashCode = hashCode * 59 + this.Risk.GetHashCode();
+                if (this.Mmr != null)
+                    hashCode = hashCode * 59 + this.Mmr.GetHashCode();
                 if (this.Base != null)
                     hashCode = hashCode * 59 + this.Base.GetHashCode();
                 if (this.Quote != null)

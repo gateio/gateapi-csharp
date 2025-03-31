@@ -93,6 +93,27 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of UnifiedTransferable</returns>
         ApiResponse<UnifiedTransferable> GetUnifiedTransferableWithHttpInfo (string currency);
         /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>List&lt;TransferablesResult&gt;</returns>
+        List<TransferablesResult> GetUnifiedTransferables (string currencies);
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>ApiResponse of List&lt;TransferablesResult&gt;</returns>
+        ApiResponse<List<TransferablesResult>> GetUnifiedTransferablesWithHttpInfo (string currencies);
+        /// <summary>
         /// List loans
         /// </summary>
         /// <remarks>
@@ -522,6 +543,27 @@ namespace Io.Gate.GateApi.Api
         /// <param name="currency">Retrieve data of the specified currency</param>
         /// <returns>Task of ApiResponse (UnifiedTransferable)</returns>
         Task<ApiResponse<UnifiedTransferable>> GetUnifiedTransferableAsyncWithHttpInfo (string currency);
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>Task of List&lt;TransferablesResult&gt;</returns>
+        Task<List<TransferablesResult>> GetUnifiedTransferablesAsync (string currencies);
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>Task of ApiResponse (List&lt;TransferablesResult&gt;)</returns>
+        Task<ApiResponse<List<TransferablesResult>>> GetUnifiedTransferablesAsyncWithHttpInfo (string currencies);
         /// <summary>
         /// List loans
         /// </summary>
@@ -1353,6 +1395,123 @@ namespace Io.Gate.GateApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUnifiedTransferable", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>List&lt;TransferablesResult&gt;</returns>
+        public List<TransferablesResult> GetUnifiedTransferables (string currencies)
+        {
+             ApiResponse<List<TransferablesResult>> localVarResponse = GetUnifiedTransferablesWithHttpInfo(currencies);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>ApiResponse of List&lt;TransferablesResult&gt;</returns>
+        public ApiResponse<List<TransferablesResult>> GetUnifiedTransferablesWithHttpInfo (string currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling UnifiedApi->GetUnifiedTransferables");
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            string[] _contentTypes = {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = {
+                "application/json"
+            };
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<TransferablesResult>>("/unified/transferables", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUnifiedTransferables", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>Task of List&lt;TransferablesResult&gt;</returns>
+        public async Task<List<TransferablesResult>> GetUnifiedTransferablesAsync (string currencies)
+        {
+             Io.Gate.GateApi.Client.ApiResponse<List<TransferablesResult>> localVarResponse = await GetUnifiedTransferablesAsyncWithHttpInfo(currencies);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Batch query can be transferred out at most for unified accounts; each currency is the maximum value. After the user withdraws the currency, the amount of transferable currency will be changed. 
+        /// </summary>
+        /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currencies">Specify the currency name to query in batches, and support up to 100 pass parameters at a time.</param>
+        /// <returns>Task of ApiResponse (List&lt;TransferablesResult&gt;)</returns>
+        public async Task<ApiResponse<List<TransferablesResult>>> GetUnifiedTransferablesAsyncWithHttpInfo (string currencies)
+        {
+            // verify the required parameter 'currencies' is set
+            if (currencies == null)
+                throw new ApiException(400, "Missing required parameter 'currencies' when calling UnifiedApi->GetUnifiedTransferables");
+
+
+            RequestOptions localVarRequestOptions = new RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "currencies", currencies));
+
+            // authentication (apiv4) required
+            localVarRequestOptions.RequireApiV4Auth = true;
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<TransferablesResult>>("/unified/transferables", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUnifiedTransferables", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

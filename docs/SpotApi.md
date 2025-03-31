@@ -837,7 +837,7 @@ Name | Type | Description  | Notes
 
 <a name="listspotaccountbook"></a>
 # **ListSpotAccountBook**
-> List&lt;SpotAccountBook&gt; ListSpotAccountBook (string currency = null, long? from = null, long? to = null, int? page = null, int? limit = null, string type = null)
+> List&lt;SpotAccountBook&gt; ListSpotAccountBook (string currency = null, long? from = null, long? to = null, int? page = null, int? limit = null, string type = null, string code = null)
 
 Query account book
 
@@ -868,11 +868,12 @@ namespace Example
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var type = "lend";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
+            var code = "code_example";  // string | Specify account change code query, if not specified, all change types are included, and the priority is higher than `type` (optional) 
 
             try
             {
                 // Query account book
-                List<SpotAccountBook> result = apiInstance.ListSpotAccountBook(currency, from, to, page, limit, type);
+                List<SpotAccountBook> result = apiInstance.ListSpotAccountBook(currency, from, to, page, limit, type, code);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -897,6 +898,7 @@ Name | Type | Description  | Notes
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional] 
+ **code** | **string**| Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; | [optional] 
 
 ### Return type
 

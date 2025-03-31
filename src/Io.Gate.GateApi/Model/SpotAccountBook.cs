@@ -39,8 +39,9 @@ namespace Io.Gate.GateApi.Model
         /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
         /// <param name="balance">Balance after change.</param>
         /// <param name="type">Account book type.  Please refer to [account book type](#accountbook-type) for more detail.</param>
+        /// <param name="code">Account change code, see [Asset Record Code] (Asset Record Code).</param>
         /// <param name="text">Additional information.</param>
-        public SpotAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), string type = default(string), string text = default(string))
+        public SpotAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), string type = default(string), string code = default(string), string text = default(string))
         {
             this.Id = id;
             this.Time = time;
@@ -48,6 +49,7 @@ namespace Io.Gate.GateApi.Model
             this.Change = change;
             this.Balance = balance;
             this.Type = type;
+            this.Code = code;
             this.Text = text;
         }
 
@@ -94,6 +96,13 @@ namespace Io.Gate.GateApi.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Account change code, see [Asset Record Code] (Asset Record Code)
+        /// </summary>
+        /// <value>Account change code, see [Asset Record Code] (Asset Record Code)</value>
+        [DataMember(Name="code")]
+        public string Code { get; set; }
+
+        /// <summary>
         /// Additional information
         /// </summary>
         /// <value>Additional information</value>
@@ -114,6 +123,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Change: ").Append(Change).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -179,6 +189,11 @@ namespace Io.Gate.GateApi.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
@@ -205,6 +220,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Balance.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;

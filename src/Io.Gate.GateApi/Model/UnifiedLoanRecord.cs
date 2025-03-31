@@ -54,9 +54,9 @@ namespace Io.Gate.GateApi.Model
         public string Type { get; private set; }
 
         /// <summary>
-        /// Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+        /// Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
         /// </summary>
-        /// <value>Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation</value>
+        /// <value>Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment</value>
         [DataMember(Name="repayment_type", EmitDefaultValue=false)]
         public string RepaymentType { get; private set; }
 
