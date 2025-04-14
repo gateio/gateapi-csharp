@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesInitialOrder :  IEquatable<FuturesInitialOrder>, IValidatableObject
     {
         /// <summary>
-        /// Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+        /// Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
         /// </summary>
-        /// <value>Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
+        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TifEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+        /// Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
         /// </summary>
-        /// <value>Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
+        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
         [DataMember(Name="tif")]
         public TifEnum? Tif { get; set; }
         /// <summary>
@@ -66,13 +66,13 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FuturesInitialOrder" /> class.
         /// </summary>
         /// <param name="contract">Futures contract (required).</param>
-        /// <param name="size">Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position.</param>
+        /// <param name="size">Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0.</param>
         /// <param name="price">Order price. Set to 0 to use market price (required).</param>
-        /// <param name="close">Set to true if trying to close the position (default to false).</param>
-        /// <param name="tif">Time in force. If using market price, only &#x60;ioc&#x60; is supported.  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
+        /// <param name="close">When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false (default to false).</param>
+        /// <param name="tif">Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
         /// <param name="text">The source of the order, including: - web: web - api: api - app: app.</param>
-        /// <param name="reduceOnly">Set to true to create a reduce-only order (default to false).</param>
-        /// <param name="autoSize">Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0.</param>
+        /// <param name="reduceOnly">When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions (default to false).</param>
+        /// <param name="autoSize">Do not set auto_size When the dual-position mode is closed all positions (size&#x3D;0), auto_size, close_long, close_short, short When the double-storey mode partially closes the position (size ≠ 0), there is no need to set auto_size.</param>
         public FuturesInitialOrder(string contract = default(string), long size = default(long), string price = default(string), bool close = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), bool reduceOnly = false, string autoSize = default(string))
         {
             // to ensure "contract" is required (not null)
@@ -95,9 +95,9 @@ namespace Io.Gate.GateApi.Model
         public string Contract { get; set; }
 
         /// <summary>
-        /// Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position
+        /// Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0
         /// </summary>
-        /// <value>Order size. Positive size means to buy, while negative one means to sell. Set to 0 to close the position</value>
+        /// <value>Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0</value>
         [DataMember(Name="size")]
         public long Size { get; set; }
 
@@ -109,9 +109,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// Set to true if trying to close the position
+        /// When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false
         /// </summary>
-        /// <value>Set to true if trying to close the position</value>
+        /// <value>When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false</value>
         [DataMember(Name="close")]
         public bool Close { get; set; }
 
@@ -123,16 +123,16 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// Set to true to create a reduce-only order
+        /// When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions
         /// </summary>
-        /// <value>Set to true to create a reduce-only order</value>
+        /// <value>When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions</value>
         [DataMember(Name="reduce_only")]
         public bool ReduceOnly { get; set; }
 
         /// <summary>
-        /// Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0
+        /// Do not set auto_size When the dual-position mode is closed all positions (size&#x3D;0), auto_size, close_long, close_short, short When the double-storey mode partially closes the position (size ≠ 0), there is no need to set auto_size
         /// </summary>
-        /// <value>Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0</value>
+        /// <value>Do not set auto_size When the dual-position mode is closed all positions (size&#x3D;0), auto_size, close_long, close_short, short When the double-storey mode partially closes the position (size ≠ 0), there is no need to set auto_size</value>
         [DataMember(Name="auto_size")]
         public string AutoSize { get; set; }
 

@@ -730,7 +730,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
+        FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a futures order
@@ -743,7 +743,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
+        ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
@@ -754,9 +754,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
-        List<FuturesOrder> CancelFuturesOrders (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
+        List<FuturesOrder> CancelFuturesOrders (string settle, string contract, string xGateExptime = default(string), string side = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
@@ -768,9 +768,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
-        ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
+        ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, string xGateExptime = default(string), string side = default(string));
         /// <summary>
         /// List Futures Orders By Time Range
         /// </summary>
@@ -813,7 +813,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
+        List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a batch of futures orders
@@ -826,7 +826,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
+        ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -862,7 +862,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
+        FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string));
 
         /// <summary>
         /// Amend an order
@@ -876,7 +876,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
+        ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
@@ -888,7 +888,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = default(long?));
+        FuturesOrder CancelFuturesOrder (string settle, string orderId, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -901,7 +901,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?));
+        ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, string xGateExptime = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -1112,7 +1112,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;FutureCancelOrderResult&gt;</returns>
-        List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -1125,7 +1125,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;FutureCancelOrderResult&gt;</returns>
-        ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, string xGateExptime = default(string));
         /// <summary>
         /// Batch modify orders with specified IDs
         /// </summary>
@@ -1137,7 +1137,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+        List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string));
 
         /// <summary>
         /// Batch modify orders with specified IDs
@@ -1150,7 +1150,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+        ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string));
         /// <summary>
         /// List All Price-triggered Orders
         /// </summary>
@@ -1984,7 +1984,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
+        Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a futures order
@@ -1997,7 +1997,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?));
+        Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
         /// </summary>
@@ -2008,9 +2008,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
-        Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
+        Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, string xGateExptime = default(string), string side = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders matched
@@ -2022,9 +2022,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
-        Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string));
+        Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, string xGateExptime = default(string), string side = default(string));
         /// <summary>
         /// List Futures Orders By Time Range
         /// </summary>
@@ -2067,7 +2067,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
+        Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a batch of futures orders
@@ -2080,7 +2080,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -2116,7 +2116,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
+        Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string));
 
         /// <summary>
         /// Amend an order
@@ -2130,7 +2130,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?));
+        Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string));
         /// <summary>
         /// Cancel a single order
         /// </summary>
@@ -2142,7 +2142,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, long? xGateExptime = default(long?));
+        Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -2155,7 +2155,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?));
+        Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, string xGateExptime = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -2366,7 +2366,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;FutureCancelOrderResult&gt;</returns>
-        Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -2379,7 +2379,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FutureCancelOrderResult&gt;)</returns>
-        Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, string xGateExptime = default(string));
         /// <summary>
         /// Batch modify orders with specified IDs
         /// </summary>
@@ -2391,7 +2391,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+        Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string));
 
         /// <summary>
         /// Batch modify orders with specified IDs
@@ -2404,7 +2404,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string));
         /// <summary>
         /// List All Price-triggered Orders
         /// </summary>
@@ -6562,7 +6562,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
+        public FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string))
         {
              ApiResponse<FuturesOrder> localVarResponse = CreateFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
@@ -6576,7 +6576,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
+        public ApiResponse<FuturesOrder> CreateFuturesOrderWithHttpInfo (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6633,7 +6633,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
+        public async Task<FuturesOrder> CreateFuturesOrderAsync (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CreateFuturesOrderAsyncWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
@@ -6648,7 +6648,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<FuturesOrder>> CreateFuturesOrderAsyncWithHttpInfo (string settle, FuturesOrder futuresOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6706,9 +6706,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>List&lt;FuturesOrder&gt;</returns>
-        public List<FuturesOrder> CancelFuturesOrders (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
+        public List<FuturesOrder> CancelFuturesOrders (string settle, string contract, string xGateExptime = default(string), string side = default(string))
         {
              ApiResponse<List<FuturesOrder>> localVarResponse = CancelFuturesOrdersWithHttpInfo(settle, contract, xGateExptime, side);
              return localVarResponse.Data;
@@ -6721,9 +6721,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesOrder&gt;</returns>
-        public ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
+        public ApiResponse<List<FuturesOrder>> CancelFuturesOrdersWithHttpInfo (string settle, string contract, string xGateExptime = default(string), string side = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -6782,9 +6782,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>Task of List&lt;FuturesOrder&gt;</returns>
-        public async Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
+        public async Task<List<FuturesOrder>> CancelFuturesOrdersAsync (string settle, string contract, string xGateExptime = default(string), string side = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<FuturesOrder>> localVarResponse = await CancelFuturesOrdersAsyncWithHttpInfo(settle, contract, xGateExptime, side);
              return localVarResponse.Data;
@@ -6798,9 +6798,9 @@ namespace Io.Gate.GateApi.Api
         /// <param name="settle">Settle currency</param>
         /// <param name="contract">Futures contract</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="side">Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesOrder&gt;)</returns>
-        public async Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, long? xGateExptime = default(long?), string side = default(string))
+        public async Task<ApiResponse<List<FuturesOrder>>> CancelFuturesOrdersAsyncWithHttpInfo (string settle, string contract, string xGateExptime = default(string), string side = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7039,7 +7039,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        public List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
+        public List<BatchFuturesOrder> CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string))
         {
              ApiResponse<List<BatchFuturesOrder>> localVarResponse = CreateBatchFuturesOrderWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
@@ -7053,7 +7053,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        public ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
+        public ApiResponse<List<BatchFuturesOrder>> CreateBatchFuturesOrderWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7110,7 +7110,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        public async Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
+        public async Task<List<BatchFuturesOrder>> CreateBatchFuturesOrderAsync (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<BatchFuturesOrder>> localVarResponse = await CreateBatchFuturesOrderAsyncWithHttpInfo(settle, futuresOrder, xGateExptime);
              return localVarResponse.Data;
@@ -7125,7 +7125,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<BatchFuturesOrder>>> CreateBatchFuturesOrderAsyncWithHttpInfo (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7316,7 +7316,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
+        public FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string))
         {
              ApiResponse<FuturesOrder> localVarResponse = AmendFuturesOrderWithHttpInfo(settle, orderId, futuresOrderAmendment, xGateExptime);
              return localVarResponse.Data;
@@ -7331,7 +7331,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
+        public ApiResponse<FuturesOrder> AmendFuturesOrderWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7394,7 +7394,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
+        public async Task<FuturesOrder> AmendFuturesOrderAsync (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await AmendFuturesOrderAsyncWithHttpInfo(settle, orderId, futuresOrderAmendment, xGateExptime);
              return localVarResponse.Data;
@@ -7410,7 +7410,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="futuresOrderAmendment"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<FuturesOrder>> AmendFuturesOrderAsyncWithHttpInfo (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7474,7 +7474,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>FuturesOrder</returns>
-        public FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = default(long?))
+        public FuturesOrder CancelFuturesOrder (string settle, string orderId, string xGateExptime = default(string))
         {
              ApiResponse<FuturesOrder> localVarResponse = CancelFuturesOrderWithHttpInfo(settle, orderId, xGateExptime);
              return localVarResponse.Data;
@@ -7488,7 +7488,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of FuturesOrder</returns>
-        public ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?))
+        public ApiResponse<FuturesOrder> CancelFuturesOrderWithHttpInfo (string settle, string orderId, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -7544,7 +7544,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of FuturesOrder</returns>
-        public async Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, long? xGateExptime = default(long?))
+        public async Task<FuturesOrder> CancelFuturesOrderAsync (string settle, string orderId, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<FuturesOrder> localVarResponse = await CancelFuturesOrderAsyncWithHttpInfo(settle, orderId, xGateExptime);
              return localVarResponse.Data;
@@ -7559,7 +7559,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="orderId">Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (FuturesOrder)</returns>
-        public async Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<FuturesOrder>> CancelFuturesOrderAsyncWithHttpInfo (string settle, string orderId, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8752,7 +8752,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;FutureCancelOrderResult&gt;</returns>
-        public List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = default(long?))
+        public List<FutureCancelOrderResult> CancelBatchFutureOrders (string settle, List<string> requestBody, string xGateExptime = default(string))
         {
              ApiResponse<List<FutureCancelOrderResult>> localVarResponse = CancelBatchFutureOrdersWithHttpInfo(settle, requestBody, xGateExptime);
              return localVarResponse.Data;
@@ -8766,7 +8766,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;FutureCancelOrderResult&gt;</returns>
-        public ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?))
+        public ApiResponse<List<FutureCancelOrderResult>> CancelBatchFutureOrdersWithHttpInfo (string settle, List<string> requestBody, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8823,7 +8823,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;FutureCancelOrderResult&gt;</returns>
-        public async Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, long? xGateExptime = default(long?))
+        public async Task<List<FutureCancelOrderResult>> CancelBatchFutureOrdersAsync (string settle, List<string> requestBody, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<FutureCancelOrderResult>> localVarResponse = await CancelBatchFutureOrdersAsyncWithHttpInfo(settle, requestBody, xGateExptime);
              return localVarResponse.Data;
@@ -8838,7 +8838,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="requestBody"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FutureCancelOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<FutureCancelOrderResult>>> CancelBatchFutureOrdersAsyncWithHttpInfo (string settle, List<string> requestBody, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8897,7 +8897,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchFuturesOrder&gt;</returns>
-        public List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        public List<BatchFuturesOrder> AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string))
         {
              ApiResponse<List<BatchFuturesOrder>> localVarResponse = AmendBatchFutureOrdersWithHttpInfo(settle, batchAmendOrderReq, xGateExptime);
              return localVarResponse.Data;
@@ -8911,7 +8911,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchFuturesOrder&gt;</returns>
-        public ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        public ApiResponse<List<BatchFuturesOrder>> AmendBatchFutureOrdersWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)
@@ -8968,7 +8968,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchFuturesOrder&gt;</returns>
-        public async Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        public async Task<List<BatchFuturesOrder>> AmendBatchFutureOrdersAsync (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<BatchFuturesOrder>> localVarResponse = await AmendBatchFutureOrdersAsyncWithHttpInfo(settle, batchAmendOrderReq, xGateExptime);
              return localVarResponse.Data;
@@ -8983,7 +8983,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendOrderReq"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchFuturesOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<BatchFuturesOrder>>> AmendBatchFutureOrdersAsyncWithHttpInfo (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = default(string))
         {
             // verify the required parameter 'settle' is set
             if (settle == null)

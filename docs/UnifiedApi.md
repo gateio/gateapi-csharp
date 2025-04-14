@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 <a name="createunifiedloan"></a>
 # **CreateUnifiedLoan**
-> void CreateUnifiedLoan (UnifiedLoan unifiedLoan)
+> UnifiedLoanResult CreateUnifiedLoan (UnifiedLoan unifiedLoan)
 
 Borrow or repay
 
@@ -423,7 +423,8 @@ namespace Example
             try
             {
                 // Borrow or repay
-                apiInstance.CreateUnifiedLoan(unifiedLoan);
+                UnifiedLoanResult result = apiInstance.CreateUnifiedLoan(unifiedLoan);
+                Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
@@ -445,7 +446,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**UnifiedLoanResult**](UnifiedLoanResult.md)
 
 ### Authorization
 
@@ -454,12 +455,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Operated successfully |  -  |
+| **200** | Operated successfully |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

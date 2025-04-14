@@ -922,7 +922,7 @@ Name | Type | Description  | Notes
 
 <a name="createbatchorders"></a>
 # **CreateBatchOrders**
-> List&lt;BatchOrder&gt; CreateBatchOrders (List<Order> order, long? xGateExptime = null)
+> List&lt;BatchOrder&gt; CreateBatchOrders (List<Order> order, string xGateExptime = null)
 
 Create a batch of orders
 
@@ -948,7 +948,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var order = new List<Order>(); // List<Order> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -973,7 +973,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**List&lt;Order&gt;**](Order.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1234,7 +1234,7 @@ Name | Type | Description  | Notes
 
 <a name="createorder"></a>
 # **CreateOrder**
-> Order CreateOrder (Order order, long? xGateExptime = null)
+> Order CreateOrder (Order order, string xGateExptime = null)
 
 Create an order
 
@@ -1260,7 +1260,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var order = new Order(); // Order | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1285,7 +1285,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**Order**](Order.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1309,7 +1309,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorders"></a>
 # **CancelOrders**
-> List&lt;OrderCancel&gt; CancelOrders (string currencyPair = null, string side = null, string account = null, string actionMode = null, long? xGateExptime = null)
+> List&lt;OrderCancel&gt; CancelOrders (string currencyPair = null, string side = null, string account = null, string actionMode = null, string xGateExptime = null)
 
 Cancel all `open` orders in specified currency pair
 
@@ -1338,7 +1338,7 @@ namespace Example
             var side = "sell";  // string | All bids or asks. Both included if not specified (optional) 
             var account = "spot";  // string | Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify `unified` (optional) 
             var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1366,7 +1366,7 @@ Name | Type | Description  | Notes
  **side** | **string**| All bids or asks. Both included if not specified | [optional] 
  **account** | **string**| Specify Account Type  - Classic Account: If not specified, all include  - Unified Account: Specify &#x60;unified&#x60; | [optional] 
  **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1390,7 +1390,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelbatchorders"></a>
 # **CancelBatchOrders**
-> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = null)
+> List&lt;CancelOrderResult&gt; CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = null)
 
 Cancel a batch of orders with an ID list
 
@@ -1416,7 +1416,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var cancelBatchOrder = new List<CancelBatchOrder>(); // List<CancelBatchOrder> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1441,7 +1441,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cancelBatchOrder** | [**List&lt;CancelBatchOrder&gt;**](CancelBatchOrder.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1542,7 +1542,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelorder"></a>
 # **CancelOrder**
-> Order CancelOrder (string orderId, string currencyPair, string account = null, string actionMode = null, long? xGateExptime = null)
+> Order CancelOrder (string orderId, string currencyPair, string account = null, string actionMode = null, string xGateExptime = null)
 
 Cancel a single order
 
@@ -1571,7 +1571,7 @@ namespace Example
             var currencyPair = "BTC_USDT";  // string | Currency pair
             var account = "spot";  // string | Specify query account. (optional) 
             var actionMode = "ACK";  // string | Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional) 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1599,7 +1599,7 @@ Name | Type | Description  | Notes
  **currencyPair** | **string**| Currency pair | 
  **account** | **string**| Specify query account. | [optional] 
  **actionMode** | **string**| Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) | [optional] 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1623,7 +1623,7 @@ Name | Type | Description  | Notes
 
 <a name="amendorder"></a>
 # **AmendOrder**
-> Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = null, string account = null, long? xGateExptime = null)
+> Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = null, string account = null, string xGateExptime = null)
 
 Amend an order
 
@@ -1652,7 +1652,7 @@ namespace Example
             var orderPatch = new OrderPatch(); // OrderPatch | 
             var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
             var account = "spot";  // string | Specify query account. (optional) 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1680,7 +1680,7 @@ Name | Type | Description  | Notes
  **orderPatch** | [**OrderPatch**](OrderPatch.md)|  | 
  **currencyPair** | **string**| Currency pair | [optional] 
  **account** | **string**| Specify query account. | [optional] 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -1927,7 +1927,7 @@ Name | Type | Description  | Notes
 
 <a name="amendbatchorders"></a>
 # **AmendBatchOrders**
-> List&lt;BatchOrder&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = null)
+> List&lt;BatchOrder&gt; AmendBatchOrders (List<BatchAmendItem> batchAmendItem, string xGateExptime = null)
 
 Batch modification of orders
 
@@ -1953,7 +1953,7 @@ namespace Example
 
             var apiInstance = new SpotApi(config);
             var batchAmendItem = new List<BatchAmendItem>(); // List<BatchAmendItem> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -1978,7 +1978,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batchAmendItem** | [**List&lt;BatchAmendItem&gt;**](BatchAmendItem.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 

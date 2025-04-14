@@ -325,7 +325,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        List<BatchOrder> CreateBatchOrders (List<Order> order, long? xGateExptime = default(long?));
+        List<BatchOrder> CreateBatchOrders (List<Order> order, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a batch of orders
@@ -337,7 +337,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, long? xGateExptime = default(long?));
+        ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, string xGateExptime = default(string));
         /// <summary>
         /// List all open orders
         /// </summary>
@@ -429,7 +429,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order CreateOrder (Order order, long? xGateExptime = default(long?));
+        Order CreateOrder (Order order, string xGateExptime = default(string));
 
         /// <summary>
         /// Create an order
@@ -441,7 +441,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> CreateOrderWithHttpInfo (Order order, long? xGateExptime = default(long?));
+        ApiResponse<Order> CreateOrderWithHttpInfo (Order order, string xGateExptime = default(string));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
@@ -455,7 +455,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;OrderCancel&gt;</returns>
-        List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -470,7 +470,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderCancel&gt;</returns>
-        ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -481,7 +481,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
+        List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -493,7 +493,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
+        ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -532,7 +532,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -547,7 +547,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
@@ -561,7 +561,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
+        Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Amend an order
@@ -576,7 +576,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
+        ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -660,7 +660,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
+        List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
 
         /// <summary>
         /// Batch modification of orders
@@ -672,7 +672,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
+        ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
         /// <summary>
         /// Query spot insurance fund historical data
         /// </summary>
@@ -1126,7 +1126,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, long? xGateExptime = default(long?));
+        Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, string xGateExptime = default(string));
 
         /// <summary>
         /// Create a batch of orders
@@ -1138,7 +1138,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, string xGateExptime = default(string));
         /// <summary>
         /// List all open orders
         /// </summary>
@@ -1230,7 +1230,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> CreateOrderAsync (Order order, long? xGateExptime = default(long?));
+        Task<Order> CreateOrderAsync (Order order, string xGateExptime = default(string));
 
         /// <summary>
         /// Create an order
@@ -1242,7 +1242,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, long? xGateExptime = default(long?));
+        Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, string xGateExptime = default(string));
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
         /// </summary>
@@ -1256,7 +1256,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;OrderCancel&gt;</returns>
-        Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel all &#x60;open&#x60; orders in specified currency pair
@@ -1271,7 +1271,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OrderCancel&gt;)</returns>
-        Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
         /// Cancel a batch of orders with an ID list
         /// </summary>
@@ -1282,7 +1282,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
+        Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a batch of orders with an ID list
@@ -1294,7 +1294,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
         /// <summary>
         /// Get a single order
         /// </summary>
@@ -1333,7 +1333,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Cancel a single order
@@ -1348,7 +1348,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?));
+        Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
         /// Amend an order
         /// </summary>
@@ -1362,7 +1362,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
+        Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
 
         /// <summary>
         /// Amend an order
@@ -1377,7 +1377,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?));
+        Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
         /// <summary>
         /// List personal trading history
         /// </summary>
@@ -1461,7 +1461,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
+        Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
 
         /// <summary>
         /// Batch modification of orders
@@ -1473,7 +1473,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?));
+        Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
         /// <summary>
         /// Query spot insurance fund historical data
         /// </summary>
@@ -3323,7 +3323,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        public List<BatchOrder> CreateBatchOrders (List<Order> order, long? xGateExptime = default(long?))
+        public List<BatchOrder> CreateBatchOrders (List<Order> order, string xGateExptime = default(string))
         {
              ApiResponse<List<BatchOrder>> localVarResponse = CreateBatchOrdersWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
@@ -3336,7 +3336,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        public ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, long? xGateExptime = default(long?))
+        public ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, string xGateExptime = default(string))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3387,7 +3387,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        public async Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, long? xGateExptime = default(long?))
+        public async Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await CreateBatchOrdersAsyncWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
@@ -3401,7 +3401,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, string xGateExptime = default(string))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3915,7 +3915,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order CreateOrder (Order order, long? xGateExptime = default(long?))
+        public Order CreateOrder (Order order, string xGateExptime = default(string))
         {
              ApiResponse<Order> localVarResponse = CreateOrderWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
@@ -3928,7 +3928,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> CreateOrderWithHttpInfo (Order order, long? xGateExptime = default(long?))
+        public ApiResponse<Order> CreateOrderWithHttpInfo (Order order, string xGateExptime = default(string))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -3979,7 +3979,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> CreateOrderAsync (Order order, long? xGateExptime = default(long?))
+        public async Task<Order> CreateOrderAsync (Order order, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CreateOrderAsyncWithHttpInfo(order, xGateExptime);
              return localVarResponse.Data;
@@ -3993,7 +3993,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="order"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, string xGateExptime = default(string))
         {
             // verify the required parameter 'order' is set
             if (order == null)
@@ -4049,7 +4049,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;OrderCancel&gt;</returns>
-        public List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
              ApiResponse<List<OrderCancel>> localVarResponse = CancelOrdersWithHttpInfo(currencyPair, side, account, actionMode, xGateExptime);
              return localVarResponse.Data;
@@ -4065,7 +4065,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderCancel&gt;</returns>
-        public ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
             RequestOptions localVarRequestOptions = new RequestOptions();
 
@@ -4129,7 +4129,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;OrderCancel&gt;</returns>
-        public async Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public async Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<OrderCancel>> localVarResponse = await CancelOrdersAsyncWithHttpInfo(currencyPair, side, account, actionMode, xGateExptime);
              return localVarResponse.Data;
@@ -4146,7 +4146,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OrderCancel&gt;)</returns>
-        public async Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
 
             RequestOptions localVarRequestOptions = new RequestOptions();
@@ -4209,7 +4209,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;CancelOrderResult&gt;</returns>
-        public List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
+        public List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string))
         {
              ApiResponse<List<CancelOrderResult>> localVarResponse = CancelBatchOrdersWithHttpInfo(cancelBatchOrder, xGateExptime);
              return localVarResponse.Data;
@@ -4222,7 +4222,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
-        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
+        public ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'cancelBatchOrder' is set
             if (cancelBatchOrder == null)
@@ -4273,7 +4273,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;CancelOrderResult&gt;</returns>
-        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
+        public async Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<CancelOrderResult>> localVarResponse = await CancelBatchOrdersAsyncWithHttpInfo(cancelBatchOrder, xGateExptime);
              return localVarResponse.Data;
@@ -4287,7 +4287,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="cancelBatchOrder"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
-        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string))
         {
             // verify the required parameter 'cancelBatchOrder' is set
             if (cancelBatchOrder == null)
@@ -4486,7 +4486,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
              ApiResponse<Order> localVarResponse = CancelOrderWithHttpInfo(orderId, currencyPair, account, actionMode, xGateExptime);
              return localVarResponse.Data;
@@ -4502,7 +4502,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4568,7 +4568,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public async Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await CancelOrderAsyncWithHttpInfo(orderId, currencyPair, account, actionMode, xGateExptime);
              return localVarResponse.Data;
@@ -4585,7 +4585,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), long? xGateExptime = default(long?))
+        public async Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4653,7 +4653,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
-        public Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
+        public Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string))
         {
              ApiResponse<Order> localVarResponse = AmendOrderWithHttpInfo(orderId, orderPatch, currencyPair, account, xGateExptime);
              return localVarResponse.Data;
@@ -4669,7 +4669,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
-        public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
+        public ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -4736,7 +4736,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
-        public async Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
+        public async Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<Order> localVarResponse = await AmendOrderAsyncWithHttpInfo(orderId, orderPatch, currencyPair, account, xGateExptime);
              return localVarResponse.Data;
@@ -4753,7 +4753,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
-        public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), long? xGateExptime = default(long?))
+        public async Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
@@ -5224,7 +5224,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>List&lt;BatchOrder&gt;</returns>
-        public List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
+        public List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string))
         {
              ApiResponse<List<BatchOrder>> localVarResponse = AmendBatchOrdersWithHttpInfo(batchAmendItem, xGateExptime);
              return localVarResponse.Data;
@@ -5237,7 +5237,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
-        public ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
+        public ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string))
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)
@@ -5288,7 +5288,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of List&lt;BatchOrder&gt;</returns>
-        public async Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
+        public async Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string))
         {
              Io.Gate.GateApi.Client.ApiResponse<List<BatchOrder>> localVarResponse = await AmendBatchOrdersAsyncWithHttpInfo(batchAmendItem, xGateExptime);
              return localVarResponse.Data;
@@ -5302,7 +5302,7 @@ namespace Io.Gate.GateApi.Api
         /// <param name="batchAmendItem"></param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
-        public async Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, long? xGateExptime = default(long?))
+        public async Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string))
         {
             // verify the required parameter 'batchAmendItem' is set
             if (batchAmendItem == null)

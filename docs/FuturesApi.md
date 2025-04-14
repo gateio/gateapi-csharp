@@ -2037,7 +2037,7 @@ Name | Type | Description  | Notes
 
 <a name="createfuturesorder"></a>
 # **CreateFuturesOrder**
-> FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, long? xGateExptime = null)
+> FuturesOrder CreateFuturesOrder (string settle, FuturesOrder futuresOrder, string xGateExptime = null)
 
 Create a futures order
 
@@ -2064,7 +2064,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var futuresOrder = new FuturesOrder(); // FuturesOrder | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -2090,7 +2090,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2114,7 +2114,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelfuturesorders"></a>
 # **CancelFuturesOrders**
-> List&lt;FuturesOrder&gt; CancelFuturesOrders (string settle, string contract, long? xGateExptime = null, string side = null)
+> List&lt;FuturesOrder&gt; CancelFuturesOrders (string settle, string contract, string xGateExptime = null, string side = null)
 
 Cancel all `open` orders matched
 
@@ -2141,8 +2141,8 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT";  // string | Futures contract
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
-            var side = "ask";  // string | All bids or asks. Both included if not specified (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var side = "ask";  // string | Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask (optional) 
 
             try
             {
@@ -2168,8 +2168,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
- **side** | **string**| All bids or asks. Both included if not specified | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **side** | **string**| Specify all buy orders or all sell orders, if not specify them, both are included. Revoke all buy orders and revoke all sell orders and make ask | [optional] 
 
 ### Return type
 
@@ -2274,7 +2274,7 @@ Name | Type | Description  | Notes
 
 <a name="createbatchfuturesorder"></a>
 # **CreateBatchFuturesOrder**
-> List&lt;BatchFuturesOrder&gt; CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, long? xGateExptime = null)
+> List&lt;BatchFuturesOrder&gt; CreateBatchFuturesOrder (string settle, List<FuturesOrder> futuresOrder, string xGateExptime = null)
 
 Create a batch of futures orders
 
@@ -2301,7 +2301,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var futuresOrder = new List<FuturesOrder>(); // List<FuturesOrder> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -2327,7 +2327,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **futuresOrder** | [**List&lt;FuturesOrder&gt;**](FuturesOrder.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2426,7 +2426,7 @@ Name | Type | Description  | Notes
 
 <a name="amendfuturesorder"></a>
 # **AmendFuturesOrder**
-> FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, long? xGateExptime = null)
+> FuturesOrder AmendFuturesOrder (string settle, string orderId, FuturesOrderAmendment futuresOrderAmendment, string xGateExptime = null)
 
 Amend an order
 
@@ -2452,7 +2452,7 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
             var futuresOrderAmendment = new FuturesOrderAmendment(); // FuturesOrderAmendment | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -2479,7 +2479,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. | 
  **futuresOrderAmendment** | [**FuturesOrderAmendment**](FuturesOrderAmendment.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -2503,7 +2503,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelfuturesorder"></a>
 # **CancelFuturesOrder**
-> FuturesOrder CancelFuturesOrder (string settle, string orderId, long? xGateExptime = null)
+> FuturesOrder CancelFuturesOrder (string settle, string orderId, string xGateExptime = null)
 
 Cancel a single order
 
@@ -2528,7 +2528,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var orderId = "12345";  // string | Order ID returned, or user custom ID(i.e., `text` field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted.
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -2554,7 +2554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **orderId** | **string**| Order ID returned, or user custom ID(i.e., &#x60;text&#x60; field). Operations based on custom ID can only be checked when the order is in orderbook.  When the order is finished, it can be checked within 60 seconds after the end of the order.  After that, only order ID is accepted. | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -3131,7 +3131,7 @@ Name | Type | Description  | Notes
 
 <a name="cancelbatchfutureorders"></a>
 # **CancelBatchFutureOrders**
-> List&lt;FutureCancelOrderResult&gt; CancelBatchFutureOrders (string settle, List<string> requestBody, long? xGateExptime = null)
+> List&lt;FutureCancelOrderResult&gt; CancelBatchFutureOrders (string settle, List<string> requestBody, string xGateExptime = null)
 
 Cancel a batch of orders with an ID list
 
@@ -3158,7 +3158,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var requestBody = new List<string>(); // List<string> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -3184,7 +3184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **requestBody** | [**List&lt;string&gt;**](string.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 
@@ -3208,7 +3208,7 @@ Name | Type | Description  | Notes
 
 <a name="amendbatchfutureorders"></a>
 # **AmendBatchFutureOrders**
-> List&lt;BatchFuturesOrder&gt; AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, long? xGateExptime = null)
+> List&lt;BatchFuturesOrder&gt; AmendBatchFutureOrders (string settle, List<BatchAmendOrderReq> batchAmendOrderReq, string xGateExptime = null)
 
 Batch modify orders with specified IDs
 
@@ -3235,7 +3235,7 @@ namespace Example
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
             var batchAmendOrderReq = new List<BatchAmendOrderReq>(); // List<BatchAmendOrderReq> | 
-            var xGateExptime = 1689560679123;  // long? | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
+            var xGateExptime = "1689560679123";  // string | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional) 
 
             try
             {
@@ -3261,7 +3261,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **batchAmendOrderReq** | [**List&lt;BatchAmendOrderReq&gt;**](BatchAmendOrderReq.md)|  | 
- **xGateExptime** | **long?**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
+ **xGateExptime** | **string**| Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected | [optional] 
 
 ### Return type
 

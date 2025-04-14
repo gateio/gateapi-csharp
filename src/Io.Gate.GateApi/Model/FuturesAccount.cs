@@ -51,11 +51,14 @@ namespace Io.Gate.GateApi.Model
         /// <param name="crossMaintenanceMargin">Maintain deposit in full warehouse, suitable for new classic account margin models.</param>
         /// <param name="crossUnrealisedPnl">The full warehouse does not achieve profit and loss, suitable for the new classic account margin model.</param>
         /// <param name="crossAvailable">Full warehouse available amount, suitable for the new classic account margin model.</param>
+        /// <param name="crossMarginBalance">Full margin balance, suitable for the new classic account margin model.</param>
+        /// <param name="crossMmr">Maintain margin ratio for the full position, suitable for the new classic account margin model.</param>
+        /// <param name="crossImr">The initial margin rate of the full position is suitable for the new classic account margin model.</param>
         /// <param name="isolatedPositionMargin">Ware -position margin, suitable for the new classic account margin model.</param>
         /// <param name="enableNewDualMode">Whether to open a new two-way position mode.</param>
         /// <param name="marginMode">Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode.</param>
         /// <param name="history">history.</param>
-        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), bool enableEvolvedClassic = default(bool), string crossOrderMargin = default(string), string crossInitialMargin = default(string), string crossMaintenanceMargin = default(string), string crossUnrealisedPnl = default(string), string crossAvailable = default(string), string isolatedPositionMargin = default(string), bool enableNewDualMode = default(bool), int marginMode = default(int), FuturesAccountHistory history = default(FuturesAccountHistory))
+        public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), bool enableEvolvedClassic = default(bool), string crossOrderMargin = default(string), string crossInitialMargin = default(string), string crossMaintenanceMargin = default(string), string crossUnrealisedPnl = default(string), string crossAvailable = default(string), string crossMarginBalance = default(string), string crossMmr = default(string), string crossImr = default(string), string isolatedPositionMargin = default(string), bool enableNewDualMode = default(bool), int marginMode = default(int), FuturesAccountHistory history = default(FuturesAccountHistory))
         {
             this.Total = total;
             this.UnrealisedPnl = unrealisedPnl;
@@ -75,6 +78,9 @@ namespace Io.Gate.GateApi.Model
             this.CrossMaintenanceMargin = crossMaintenanceMargin;
             this.CrossUnrealisedPnl = crossUnrealisedPnl;
             this.CrossAvailable = crossAvailable;
+            this.CrossMarginBalance = crossMarginBalance;
+            this.CrossMmr = crossMmr;
+            this.CrossImr = crossImr;
             this.IsolatedPositionMargin = isolatedPositionMargin;
             this.EnableNewDualMode = enableNewDualMode;
             this.MarginMode = marginMode;
@@ -208,6 +214,27 @@ namespace Io.Gate.GateApi.Model
         public string CrossAvailable { get; set; }
 
         /// <summary>
+        /// Full margin balance, suitable for the new classic account margin model
+        /// </summary>
+        /// <value>Full margin balance, suitable for the new classic account margin model</value>
+        [DataMember(Name="cross_margin_balance")]
+        public string CrossMarginBalance { get; set; }
+
+        /// <summary>
+        /// Maintain margin ratio for the full position, suitable for the new classic account margin model
+        /// </summary>
+        /// <value>Maintain margin ratio for the full position, suitable for the new classic account margin model</value>
+        [DataMember(Name="cross_mmr")]
+        public string CrossMmr { get; set; }
+
+        /// <summary>
+        /// The initial margin rate of the full position is suitable for the new classic account margin model
+        /// </summary>
+        /// <value>The initial margin rate of the full position is suitable for the new classic account margin model</value>
+        [DataMember(Name="cross_imr")]
+        public string CrossImr { get; set; }
+
+        /// <summary>
         /// Ware -position margin, suitable for the new classic account margin model
         /// </summary>
         /// <value>Ware -position margin, suitable for the new classic account margin model</value>
@@ -260,6 +287,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  CrossMaintenanceMargin: ").Append(CrossMaintenanceMargin).Append("\n");
             sb.Append("  CrossUnrealisedPnl: ").Append(CrossUnrealisedPnl).Append("\n");
             sb.Append("  CrossAvailable: ").Append(CrossAvailable).Append("\n");
+            sb.Append("  CrossMarginBalance: ").Append(CrossMarginBalance).Append("\n");
+            sb.Append("  CrossMmr: ").Append(CrossMmr).Append("\n");
+            sb.Append("  CrossImr: ").Append(CrossImr).Append("\n");
             sb.Append("  IsolatedPositionMargin: ").Append(IsolatedPositionMargin).Append("\n");
             sb.Append("  EnableNewDualMode: ").Append(EnableNewDualMode).Append("\n");
             sb.Append("  MarginMode: ").Append(MarginMode).Append("\n");
@@ -386,6 +416,21 @@ namespace Io.Gate.GateApi.Model
                     this.CrossAvailable.Equals(input.CrossAvailable))
                 ) && 
                 (
+                    this.CrossMarginBalance == input.CrossMarginBalance ||
+                    (this.CrossMarginBalance != null &&
+                    this.CrossMarginBalance.Equals(input.CrossMarginBalance))
+                ) && 
+                (
+                    this.CrossMmr == input.CrossMmr ||
+                    (this.CrossMmr != null &&
+                    this.CrossMmr.Equals(input.CrossMmr))
+                ) && 
+                (
+                    this.CrossImr == input.CrossImr ||
+                    (this.CrossImr != null &&
+                    this.CrossImr.Equals(input.CrossImr))
+                ) && 
+                (
                     this.IsolatedPositionMargin == input.IsolatedPositionMargin ||
                     (this.IsolatedPositionMargin != null &&
                     this.IsolatedPositionMargin.Equals(input.IsolatedPositionMargin))
@@ -447,6 +492,12 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.CrossUnrealisedPnl.GetHashCode();
                 if (this.CrossAvailable != null)
                     hashCode = hashCode * 59 + this.CrossAvailable.GetHashCode();
+                if (this.CrossMarginBalance != null)
+                    hashCode = hashCode * 59 + this.CrossMarginBalance.GetHashCode();
+                if (this.CrossMmr != null)
+                    hashCode = hashCode * 59 + this.CrossMmr.GetHashCode();
+                if (this.CrossImr != null)
+                    hashCode = hashCode * 59 + this.CrossImr.GetHashCode();
                 if (this.IsolatedPositionMargin != null)
                     hashCode = hashCode * 59 + this.IsolatedPositionMargin.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableNewDualMode.GetHashCode();

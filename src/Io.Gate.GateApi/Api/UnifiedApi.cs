@@ -148,8 +148,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns></returns>
-        void CreateUnifiedLoan (UnifiedLoan unifiedLoan);
+        /// <returns>UnifiedLoanResult</returns>
+        UnifiedLoanResult CreateUnifiedLoan (UnifiedLoan unifiedLoan);
 
         /// <summary>
         /// Borrow or repay
@@ -159,8 +159,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateUnifiedLoanWithHttpInfo (UnifiedLoan unifiedLoan);
+        /// <returns>ApiResponse of UnifiedLoanResult</returns>
+        ApiResponse<UnifiedLoanResult> CreateUnifiedLoanWithHttpInfo (UnifiedLoan unifiedLoan);
         /// <summary>
         /// Get load records
         /// </summary>
@@ -599,8 +599,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>Task of void</returns>
-        Task CreateUnifiedLoanAsync (UnifiedLoan unifiedLoan);
+        /// <returns>Task of UnifiedLoanResult</returns>
+        Task<UnifiedLoanResult> CreateUnifiedLoanAsync (UnifiedLoan unifiedLoan);
 
         /// <summary>
         /// Borrow or repay
@@ -610,8 +610,8 @@ namespace Io.Gate.GateApi.Api
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> CreateUnifiedLoanAsyncWithHttpInfo (UnifiedLoan unifiedLoan);
+        /// <returns>Task of ApiResponse (UnifiedLoanResult)</returns>
+        Task<ApiResponse<UnifiedLoanResult>> CreateUnifiedLoanAsyncWithHttpInfo (UnifiedLoan unifiedLoan);
         /// <summary>
         /// Get load records
         /// </summary>
@@ -1674,10 +1674,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns></returns>
-        public void CreateUnifiedLoan (UnifiedLoan unifiedLoan)
+        /// <returns>UnifiedLoanResult</returns>
+        public UnifiedLoanResult CreateUnifiedLoan (UnifiedLoan unifiedLoan)
         {
-             CreateUnifiedLoanWithHttpInfo(unifiedLoan);
+             ApiResponse<UnifiedLoanResult> localVarResponse = CreateUnifiedLoanWithHttpInfo(unifiedLoan);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1685,8 +1686,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> CreateUnifiedLoanWithHttpInfo (UnifiedLoan unifiedLoan)
+        /// <returns>ApiResponse of UnifiedLoanResult</returns>
+        public ApiResponse<UnifiedLoanResult> CreateUnifiedLoanWithHttpInfo (UnifiedLoan unifiedLoan)
         {
             // verify the required parameter 'unifiedLoan' is set
             if (unifiedLoan == null)
@@ -1700,6 +1701,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             string[] _accepts = {
+                "application/json"
             };
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1714,7 +1716,7 @@ namespace Io.Gate.GateApi.Api
             localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/unified/loans", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnifiedLoanResult>("/unified/loans", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1730,10 +1732,11 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>Task of void</returns>
-        public async Task CreateUnifiedLoanAsync (UnifiedLoan unifiedLoan)
+        /// <returns>Task of UnifiedLoanResult</returns>
+        public async Task<UnifiedLoanResult> CreateUnifiedLoanAsync (UnifiedLoan unifiedLoan)
         {
-             await CreateUnifiedLoanAsyncWithHttpInfo(unifiedLoan);
+             Io.Gate.GateApi.Client.ApiResponse<UnifiedLoanResult> localVarResponse = await CreateUnifiedLoanAsyncWithHttpInfo(unifiedLoan);
+             return localVarResponse.Data;
 
         }
 
@@ -1742,8 +1745,8 @@ namespace Io.Gate.GateApi.Api
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> CreateUnifiedLoanAsyncWithHttpInfo (UnifiedLoan unifiedLoan)
+        /// <returns>Task of ApiResponse (UnifiedLoanResult)</returns>
+        public async Task<ApiResponse<UnifiedLoanResult>> CreateUnifiedLoanAsyncWithHttpInfo (UnifiedLoan unifiedLoan)
         {
             // verify the required parameter 'unifiedLoan' is set
             if (unifiedLoan == null)
@@ -1758,6 +1761,7 @@ namespace Io.Gate.GateApi.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "application/json"
             };
 
             foreach (var _contentType in _contentTypes)
@@ -1773,7 +1777,7 @@ namespace Io.Gate.GateApi.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/unified/loans", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UnifiedLoanResult>("/unified/loans", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
