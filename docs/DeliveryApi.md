@@ -416,7 +416,7 @@ No authorization required
 
 <a name="listdeliverytickers"></a>
 # **ListDeliveryTickers**
-> List&lt;FuturesTicker&gt; ListDeliveryTickers (string settle, string contract = null)
+> List&lt;DeliveryTicker&gt; ListDeliveryTickers (string settle, string contract = null)
 
 List futures tickers
 
@@ -443,7 +443,7 @@ namespace Example
             try
             {
                 // List futures tickers
-                List<FuturesTicker> result = apiInstance.ListDeliveryTickers(settle, contract);
+                List<DeliveryTicker> result = apiInstance.ListDeliveryTickers(settle, contract);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;FuturesTicker&gt;**](FuturesTicker.md)
+[**List&lt;DeliveryTicker&gt;**](DeliveryTicker.md)
 
 ### Authorization
 

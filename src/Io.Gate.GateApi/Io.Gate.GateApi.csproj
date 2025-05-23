@@ -6,13 +6,13 @@
     <AssemblyName>Io.Gate.GateApi</AssemblyName>
     <PackageId>Io.Gate.GateApi</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>Gate.io</Authors>
-    <Company>Gate.io</Company>
+    <Authors>Gate</Authors>
+    <Company>Gate</Company>
     <AssemblyTitle>Gate API C# client library</AssemblyTitle>
     <Description>C# client SDK for Gate API</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Io.Gate.GateApi</RootNamespace>
-    <Version>6.97.2</Version>
+    <Version>6.97.4</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Io.Gate.GateApi.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/gateio/gateapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

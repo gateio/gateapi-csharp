@@ -25,13 +25,13 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// FuturesTicker
+    /// DeliveryTicker
     /// </summary>
     [DataContract]
-    public partial class FuturesTicker :  IEquatable<FuturesTicker>, IValidatableObject
+    public partial class DeliveryTicker :  IEquatable<DeliveryTicker>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FuturesTicker" /> class.
+        /// Initializes a new instance of the <see cref="DeliveryTicker" /> class.
         /// </summary>
         /// <param name="contract">Futures contract.</param>
         /// <param name="last">Last trading price.</param>
@@ -50,11 +50,13 @@ namespace Io.Gate.GateApi.Model
         /// <param name="fundingRateIndicative">Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).</param>
         /// <param name="indexPrice">Index price.</param>
         /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
+        /// <param name="basisRate">Basis rate.</param>
+        /// <param name="basisValue">Basis value.</param>
         /// <param name="lowestAsk">Recent lowest ask.</param>
         /// <param name="lowestSize">The latest seller&#39;s lowest price order quantity.</param>
         /// <param name="highestBid">Recent highest bid.</param>
         /// <param name="highestSize">The latest buyer&#39;s highest price order volume.</param>
-        public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string))
+        public DeliveryTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string basisRate = default(string), string basisValue = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string))
         {
             this.Contract = contract;
             this.Last = last;
@@ -73,6 +75,8 @@ namespace Io.Gate.GateApi.Model
             this.FundingRateIndicative = fundingRateIndicative;
             this.IndexPrice = indexPrice;
             this.QuantoBaseRate = quantoBaseRate;
+            this.BasisRate = basisRate;
+            this.BasisValue = basisValue;
             this.LowestAsk = lowestAsk;
             this.LowestSize = lowestSize;
             this.HighestBid = highestBid;
@@ -199,6 +203,20 @@ namespace Io.Gate.GateApi.Model
         public string QuantoBaseRate { get; set; }
 
         /// <summary>
+        /// Basis rate
+        /// </summary>
+        /// <value>Basis rate</value>
+        [DataMember(Name="basis_rate")]
+        public string BasisRate { get; set; }
+
+        /// <summary>
+        /// Basis value
+        /// </summary>
+        /// <value>Basis value</value>
+        [DataMember(Name="basis_value")]
+        public string BasisValue { get; set; }
+
+        /// <summary>
         /// Recent lowest ask
         /// </summary>
         /// <value>Recent lowest ask</value>
@@ -233,7 +251,7 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FuturesTicker {\n");
+            sb.Append("class DeliveryTicker {\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Last: ").Append(Last).Append("\n");
             sb.Append("  ChangePercentage: ").Append(ChangePercentage).Append("\n");
@@ -251,6 +269,8 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FundingRateIndicative: ").Append(FundingRateIndicative).Append("\n");
             sb.Append("  IndexPrice: ").Append(IndexPrice).Append("\n");
             sb.Append("  QuantoBaseRate: ").Append(QuantoBaseRate).Append("\n");
+            sb.Append("  BasisRate: ").Append(BasisRate).Append("\n");
+            sb.Append("  BasisValue: ").Append(BasisValue).Append("\n");
             sb.Append("  LowestAsk: ").Append(LowestAsk).Append("\n");
             sb.Append("  LowestSize: ").Append(LowestSize).Append("\n");
             sb.Append("  HighestBid: ").Append(HighestBid).Append("\n");
@@ -275,15 +295,15 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FuturesTicker);
+            return this.Equals(input as DeliveryTicker);
         }
 
         /// <summary>
-        /// Returns true if FuturesTicker instances are equal
+        /// Returns true if DeliveryTicker instances are equal
         /// </summary>
-        /// <param name="input">Instance of FuturesTicker to be compared</param>
+        /// <param name="input">Instance of DeliveryTicker to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FuturesTicker input)
+        public bool Equals(DeliveryTicker input)
         {
             if (input == null)
                 return false;
@@ -375,6 +395,16 @@ namespace Io.Gate.GateApi.Model
                     this.QuantoBaseRate.Equals(input.QuantoBaseRate))
                 ) && 
                 (
+                    this.BasisRate == input.BasisRate ||
+                    (this.BasisRate != null &&
+                    this.BasisRate.Equals(input.BasisRate))
+                ) && 
+                (
+                    this.BasisValue == input.BasisValue ||
+                    (this.BasisValue != null &&
+                    this.BasisValue.Equals(input.BasisValue))
+                ) && 
+                (
                     this.LowestAsk == input.LowestAsk ||
                     (this.LowestAsk != null &&
                     this.LowestAsk.Equals(input.LowestAsk))
@@ -439,6 +469,10 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.IndexPrice.GetHashCode();
                 if (this.QuantoBaseRate != null)
                     hashCode = hashCode * 59 + this.QuantoBaseRate.GetHashCode();
+                if (this.BasisRate != null)
+                    hashCode = hashCode * 59 + this.BasisRate.GetHashCode();
+                if (this.BasisValue != null)
+                    hashCode = hashCode * 59 + this.BasisValue.GetHashCode();
                 if (this.LowestAsk != null)
                     hashCode = hashCode * 59 + this.LowestAsk.GetHashCode();
                 if (this.LowestSize != null)
