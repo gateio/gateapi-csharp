@@ -1483,8 +1483,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
             var apiInstance = new UnifiedApi(config);
             var currency = "USDT";  // string | Currency
             var tier = "1";  // string | The VIP level of the floating rate that needs to be queried (optional) 
@@ -1524,7 +1522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiv4](../README.md#apiv4)
+No authorization required
 
 ### HTTP request headers
 

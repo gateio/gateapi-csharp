@@ -38,68 +38,28 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountTransfer" /> class.
         /// </summary>
-        /// <param name="currency">Transfer currency name (required).</param>
         /// <param name="subAccount">Sub account user ID (required).</param>
-        /// <param name="direction">Transfer direction. to - transfer into sub account; from - transfer out from sub account (required).</param>
-        /// <param name="amount">Transfer amount (required).</param>
-        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters..</param>
         /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account (default to &quot;spot&quot;).</param>
-        public SubAccountTransfer(string currency = default(string), string subAccount = default(string), string direction = default(string), string amount = default(string), string clientOrderId = default(string), string subAccountType = "spot")
+        /// <param name="currency">Transfer currency name (required).</param>
+        /// <param name="amount">Transfer amount (required).</param>
+        /// <param name="direction">Transfer direction. to - transfer into sub account; from - transfer out from sub account (required).</param>
+        /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters..</param>
+        /// <param name="status">Sub-account transfer record status, currently only success.</param>
+        public SubAccountTransfer(string subAccount = default(string), string subAccountType = "spot", string currency = default(string), string amount = default(string), string direction = default(string), string clientOrderId = default(string), string status = default(string))
         {
-            // to ensure "currency" is required (not null)
-            this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for SubAccountTransfer and cannot be null");
             // to ensure "subAccount" is required (not null)
             this.SubAccount = subAccount ?? throw new ArgumentNullException("subAccount", "subAccount is a required property for SubAccountTransfer and cannot be null");
-            // to ensure "direction" is required (not null)
-            this.Direction = direction ?? throw new ArgumentNullException("direction", "direction is a required property for SubAccountTransfer and cannot be null");
+            // to ensure "currency" is required (not null)
+            this.Currency = currency ?? throw new ArgumentNullException("currency", "currency is a required property for SubAccountTransfer and cannot be null");
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount", "amount is a required property for SubAccountTransfer and cannot be null");
-            this.ClientOrderId = clientOrderId;
+            // to ensure "direction" is required (not null)
+            this.Direction = direction ?? throw new ArgumentNullException("direction", "direction is a required property for SubAccountTransfer and cannot be null");
             // use default value if no "subAccountType" provided
             this.SubAccountType = subAccountType ?? "spot";
+            this.ClientOrderId = clientOrderId;
+            this.Status = status;
         }
-
-        /// <summary>
-        /// Transfer currency name
-        /// </summary>
-        /// <value>Transfer currency name</value>
-        [DataMember(Name="currency")]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// Sub account user ID
-        /// </summary>
-        /// <value>Sub account user ID</value>
-        [DataMember(Name="sub_account")]
-        public string SubAccount { get; set; }
-
-        /// <summary>
-        /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
-        /// </summary>
-        /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
-        [DataMember(Name="direction")]
-        public string Direction { get; set; }
-
-        /// <summary>
-        /// Transfer amount
-        /// </summary>
-        /// <value>Transfer amount</value>
-        [DataMember(Name="amount")]
-        public string Amount { get; set; }
-
-        /// <summary>
-        /// Main account user ID
-        /// </summary>
-        /// <value>Main account user ID</value>
-        [DataMember(Name="uid", EmitDefaultValue=false)]
-        public string Uid { get; private set; }
-
-        /// <summary>
-        /// The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters.
-        /// </summary>
-        /// <value>The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters.</value>
-        [DataMember(Name="client_order_id")]
-        public string ClientOrderId { get; set; }
 
         /// <summary>
         /// Transfer timestamp
@@ -109,11 +69,18 @@ namespace Io.Gate.GateApi.Model
         public string Timest { get; private set; }
 
         /// <summary>
-        /// Where the operation is initiated from
+        /// Main account user ID
         /// </summary>
-        /// <value>Where the operation is initiated from</value>
-        [DataMember(Name="source", EmitDefaultValue=false)]
-        public string Source { get; private set; }
+        /// <value>Main account user ID</value>
+        [DataMember(Name="uid", EmitDefaultValue=false)]
+        public string Uid { get; private set; }
+
+        /// <summary>
+        /// Sub account user ID
+        /// </summary>
+        /// <value>Sub account user ID</value>
+        [DataMember(Name="sub_account")]
+        public string SubAccount { get; set; }
 
         /// <summary>
         /// Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account
@@ -123,6 +90,48 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountType { get; set; }
 
         /// <summary>
+        /// Transfer currency name
+        /// </summary>
+        /// <value>Transfer currency name</value>
+        [DataMember(Name="currency")]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Transfer amount
+        /// </summary>
+        /// <value>Transfer amount</value>
+        [DataMember(Name="amount")]
+        public string Amount { get; set; }
+
+        /// <summary>
+        /// Transfer direction. to - transfer into sub account; from - transfer out from sub account
+        /// </summary>
+        /// <value>Transfer direction. to - transfer into sub account; from - transfer out from sub account</value>
+        [DataMember(Name="direction")]
+        public string Direction { get; set; }
+
+        /// <summary>
+        /// Where the operation is initiated from
+        /// </summary>
+        /// <value>Where the operation is initiated from</value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public string Source { get; private set; }
+
+        /// <summary>
+        /// The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters.
+        /// </summary>
+        /// <value>The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters.</value>
+        [DataMember(Name="client_order_id")]
+        public string ClientOrderId { get; set; }
+
+        /// <summary>
+        /// Sub-account transfer record status, currently only success
+        /// </summary>
+        /// <value>Sub-account transfer record status, currently only success</value>
+        [DataMember(Name="status")]
+        public string Status { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,15 +139,16 @@ namespace Io.Gate.GateApi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SubAccountTransfer {\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  SubAccount: ").Append(SubAccount).Append("\n");
-            sb.Append("  Direction: ").Append(Direction).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Uid: ").Append(Uid).Append("\n");
-            sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
             sb.Append("  Timest: ").Append(Timest).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Uid: ").Append(Uid).Append("\n");
+            sb.Append("  SubAccount: ").Append(SubAccount).Append("\n");
             sb.Append("  SubAccountType: ").Append(SubAccountType).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Direction: ").Append(Direction).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,24 +184,9 @@ namespace Io.Gate.GateApi.Model
 
             return 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.SubAccount == input.SubAccount ||
-                    (this.SubAccount != null &&
-                    this.SubAccount.Equals(input.SubAccount))
-                ) && 
-                (
-                    this.Direction == input.Direction ||
-                    (this.Direction != null &&
-                    this.Direction.Equals(input.Direction))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
+                    this.Timest == input.Timest ||
+                    (this.Timest != null &&
+                    this.Timest.Equals(input.Timest))
                 ) && 
                 (
                     this.Uid == input.Uid ||
@@ -199,14 +194,29 @@ namespace Io.Gate.GateApi.Model
                     this.Uid.Equals(input.Uid))
                 ) && 
                 (
-                    this.ClientOrderId == input.ClientOrderId ||
-                    (this.ClientOrderId != null &&
-                    this.ClientOrderId.Equals(input.ClientOrderId))
+                    this.SubAccount == input.SubAccount ||
+                    (this.SubAccount != null &&
+                    this.SubAccount.Equals(input.SubAccount))
                 ) && 
                 (
-                    this.Timest == input.Timest ||
-                    (this.Timest != null &&
-                    this.Timest.Equals(input.Timest))
+                    this.SubAccountType == input.SubAccountType ||
+                    (this.SubAccountType != null &&
+                    this.SubAccountType.Equals(input.SubAccountType))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.Direction == input.Direction ||
+                    (this.Direction != null &&
+                    this.Direction.Equals(input.Direction))
                 ) && 
                 (
                     this.Source == input.Source ||
@@ -214,9 +224,14 @@ namespace Io.Gate.GateApi.Model
                     this.Source.Equals(input.Source))
                 ) && 
                 (
-                    this.SubAccountType == input.SubAccountType ||
-                    (this.SubAccountType != null &&
-                    this.SubAccountType.Equals(input.SubAccountType))
+                    this.ClientOrderId == input.ClientOrderId ||
+                    (this.ClientOrderId != null &&
+                    this.ClientOrderId.Equals(input.ClientOrderId))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -229,24 +244,26 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                if (this.SubAccount != null)
-                    hashCode = hashCode * 59 + this.SubAccount.GetHashCode();
-                if (this.Direction != null)
-                    hashCode = hashCode * 59 + this.Direction.GetHashCode();
-                if (this.Amount != null)
-                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                if (this.Uid != null)
-                    hashCode = hashCode * 59 + this.Uid.GetHashCode();
-                if (this.ClientOrderId != null)
-                    hashCode = hashCode * 59 + this.ClientOrderId.GetHashCode();
                 if (this.Timest != null)
                     hashCode = hashCode * 59 + this.Timest.GetHashCode();
-                if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                if (this.Uid != null)
+                    hashCode = hashCode * 59 + this.Uid.GetHashCode();
+                if (this.SubAccount != null)
+                    hashCode = hashCode * 59 + this.SubAccount.GetHashCode();
                 if (this.SubAccountType != null)
                     hashCode = hashCode * 59 + this.SubAccountType.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.Direction != null)
+                    hashCode = hashCode * 59 + this.Direction.GetHashCode();
+                if (this.Source != null)
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                if (this.ClientOrderId != null)
+                    hashCode = hashCode * 59 + this.ClientOrderId.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

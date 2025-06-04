@@ -3542,8 +3542,6 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<UnifiedHistoryLoanRate>("/unified/history_loan_rate", localVarRequestOptions, this.Configuration);
@@ -3619,8 +3617,6 @@ namespace Io.Gate.GateApi.Api
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (apiv4) required
-            localVarRequestOptions.RequireApiV4Auth = true;
 
             // make the HTTP request
 

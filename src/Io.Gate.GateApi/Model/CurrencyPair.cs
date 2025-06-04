@@ -87,8 +87,10 @@ namespace Io.Gate.GateApi.Model
         /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
         /// <param name="sellStart">Sell start unix timestamp in seconds.</param>
         /// <param name="buyStart">Buy start unix timestamp in seconds.</param>
+        /// <param name="delistingTime">Expected time to remove the shelves, Unix timestamp in seconds.</param>
         /// <param name="type">Trading pair type, normal: normal, premarket: pre-market.</param>
-        public CurrencyPair(string id = default(string), string _base = default(string), string baseName = default(string), string quote = default(string), string quoteName = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long), string type = default(string))
+        /// <param name="tradeUrl">Transaction link.</param>
+        public CurrencyPair(string id = default(string), string _base = default(string), string baseName = default(string), string quote = default(string), string quoteName = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long), long delistingTime = default(long), string type = default(string), string tradeUrl = default(string))
         {
             this.Id = id;
             this.Base = _base;
@@ -105,7 +107,9 @@ namespace Io.Gate.GateApi.Model
             this.TradeStatus = tradeStatus;
             this.SellStart = sellStart;
             this.BuyStart = buyStart;
+            this.DelistingTime = delistingTime;
             this.Type = type;
+            this.TradeUrl = tradeUrl;
         }
 
         /// <summary>
@@ -207,11 +211,25 @@ namespace Io.Gate.GateApi.Model
         public long BuyStart { get; set; }
 
         /// <summary>
+        /// Expected time to remove the shelves, Unix timestamp in seconds
+        /// </summary>
+        /// <value>Expected time to remove the shelves, Unix timestamp in seconds</value>
+        [DataMember(Name="delisting_time")]
+        public long DelistingTime { get; set; }
+
+        /// <summary>
         /// Trading pair type, normal: normal, premarket: pre-market
         /// </summary>
         /// <value>Trading pair type, normal: normal, premarket: pre-market</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Transaction link
+        /// </summary>
+        /// <value>Transaction link</value>
+        [DataMember(Name="trade_url")]
+        public string TradeUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -236,7 +254,9 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  TradeStatus: ").Append(TradeStatus).Append("\n");
             sb.Append("  SellStart: ").Append(SellStart).Append("\n");
             sb.Append("  BuyStart: ").Append(BuyStart).Append("\n");
+            sb.Append("  DelistingTime: ").Append(DelistingTime).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  TradeUrl: ").Append(TradeUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -342,9 +362,18 @@ namespace Io.Gate.GateApi.Model
                     this.BuyStart.Equals(input.BuyStart)
                 ) && 
                 (
+                    this.DelistingTime == input.DelistingTime ||
+                    this.DelistingTime.Equals(input.DelistingTime)
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.TradeUrl == input.TradeUrl ||
+                    (this.TradeUrl != null &&
+                    this.TradeUrl.Equals(input.TradeUrl))
                 );
         }
 
@@ -382,8 +411,11 @@ namespace Io.Gate.GateApi.Model
                 hashCode = hashCode * 59 + this.TradeStatus.GetHashCode();
                 hashCode = hashCode * 59 + this.SellStart.GetHashCode();
                 hashCode = hashCode * 59 + this.BuyStart.GetHashCode();
+                hashCode = hashCode * 59 + this.DelistingTime.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.TradeUrl != null)
+                    hashCode = hashCode * 59 + this.TradeUrl.GetHashCode();
                 return hashCode;
             }
         }

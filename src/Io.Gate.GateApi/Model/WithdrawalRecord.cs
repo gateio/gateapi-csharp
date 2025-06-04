@@ -41,7 +41,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="withdrawOrderId">Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
         /// <param name="amount">Currency amount (required).</param>
         /// <param name="currency">Currency name (required).</param>
-        /// <param name="address">提现地址.</param>
+        /// <param name="address">Withdrawal address.</param>
         /// <param name="failReason">The reason for withdrawal failure is that there is a value when status &#x3D; CANCEL, and the rest of the state is empty.</param>
         /// <param name="timestamp2">The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the time to withdrawal success.</param>
         /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
@@ -118,9 +118,9 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// 提现地址
+        /// Withdrawal address
         /// </summary>
-        /// <value>提现地址</value>
+        /// <value>Withdrawal address</value>
         [DataMember(Name="address")]
         public string Address { get; set; }
 

@@ -25,33 +25,34 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// InlineResponse200
+    /// InlineResponse2001
     /// </summary>
     [DataContract]
-    public partial class InlineResponse200 :  IEquatable<InlineResponse200>, IValidatableObject
+    public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="time">time.</param>
-        /// <param name="value">value.</param>
-        public InlineResponse200(long time = default(long), string value = default(string))
+        /// <param name="currency">currency.</param>
+        /// <param name="estRate">Unconverted percentage.</param>
+        public InlineResponse2001(string currency = default(string), string estRate = default(string))
         {
-            this.Time = time;
-            this.Value = value;
+            this.Currency = currency;
+            this.EstRate = estRate;
         }
 
         /// <summary>
-        /// Gets or Sets Time
+        /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name="time")]
-        public long Time { get; set; }
+        [DataMember(Name="currency")]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Unconverted percentage
         /// </summary>
-        [DataMember(Name="value")]
-        public string Value { get; set; }
+        /// <value>Unconverted percentage</value>
+        [DataMember(Name="est_rate")]
+        public string EstRate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +61,9 @@ namespace Io.Gate.GateApi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse200 {\n");
-            sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class InlineResponse2001 {\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  EstRate: ").Append(EstRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,28 +84,29 @@ namespace Io.Gate.GateApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse200);
+            return this.Equals(input as InlineResponse2001);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse200 instances are equal
+        /// Returns true if InlineResponse2001 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse200 to be compared</param>
+        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse200 input)
+        public bool Equals(InlineResponse2001 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Time == input.Time ||
-                    this.Time.Equals(input.Time)
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.EstRate == input.EstRate ||
+                    (this.EstRate != null &&
+                    this.EstRate.Equals(input.EstRate))
                 );
         }
 
@@ -117,9 +119,10 @@ namespace Io.Gate.GateApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Time.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Currency != null)
+                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.EstRate != null)
+                    hashCode = hashCode * 59 + this.EstRate.GetHashCode();
                 return hashCode;
             }
         }

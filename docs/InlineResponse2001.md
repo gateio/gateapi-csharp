@@ -1,12 +1,12 @@
 
-# Io.Gate.GateApi.Model.InlineResponse200
+# Io.Gate.GateApi.Model.InlineResponse2001
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** | **long** |  | [optional] 
-**Value** | **string** |  | [optional] 
+**Currency** | **string** |  | [optional] 
+**EstRate** | **string** | Unconverted percentage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
