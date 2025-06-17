@@ -5,28 +5,17 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ListMarginAccounts**](MarginApi.md#listmarginaccounts) | **GET** /margin/accounts | Margin account list
+[**GetUserMarginTier**](MarginApi.md#getusermargintier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market
+[**GetMarketMarginTier**](MarginApi.md#getmarketmargintier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient
+[**SetUserMarketLeverage**](MarginApi.md#setusermarketleverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple
+[**ListMarginUserAccount**](MarginApi.md#listmarginuseraccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list
 [**ListMarginAccountBook**](MarginApi.md#listmarginaccountbook) | **GET** /margin/account_book | List margin account balance change history
 [**ListFundingAccounts**](MarginApi.md#listfundingaccounts) | **GET** /margin/funding_accounts | Funding account list
 [**GetAutoRepayStatus**](MarginApi.md#getautorepaystatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**SetAutoRepay**](MarginApi.md#setautorepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 [**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
-[**ListCrossMarginCurrencies**](MarginApi.md#listcrossmargincurrencies) | **GET** /margin/cross/currencies | Currencies supported by cross margin.(deprecated)
-[**GetCrossMarginCurrency**](MarginApi.md#getcrossmargincurrency) | **GET** /margin/cross/currencies/{currency} | Retrieve detail of one single currency supported by cross margin. (deprecated)
-[**GetCrossMarginAccount**](MarginApi.md#getcrossmarginaccount) | **GET** /margin/cross/accounts | Retrieve cross margin account. (deprecated)
-[**ListCrossMarginAccountBook**](MarginApi.md#listcrossmarginaccountbook) | **GET** /margin/cross/account_book | Retrieve cross margin account change history. (deprecated)
 [**ListCrossMarginLoans**](MarginApi.md#listcrossmarginloans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated)
-[**CreateCrossMarginLoan**](MarginApi.md#createcrossmarginloan) | **POST** /margin/cross/loans | Create a cross margin borrow loan. (deprecated)
-[**GetCrossMarginLoan**](MarginApi.md#getcrossmarginloan) | **GET** /margin/cross/loans/{loan_id} | Retrieve single borrow loan detail. (deprecated)
 [**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
-[**RepayCrossMarginLoan**](MarginApi.md#repaycrossmarginloan) | **POST** /margin/cross/repayments | Cross margin repayments. (deprecated)
-[**GetCrossMarginInterestRecords**](MarginApi.md#getcrossmargininterestrecords) | **GET** /margin/cross/interest_records | Interest records for the cross margin account. (deprecated)
-[**GetCrossMarginTransferable**](MarginApi.md#getcrossmargintransferable) | **GET** /margin/cross/transferable | Get the max transferable amount for a specific cross margin currency. (deprecated)
-[**GetCrossMarginEstimateRate**](MarginApi.md#getcrossmarginestimaterate) | **GET** /margin/cross/estimate_rate | Estimated interest rates. (deprecated)
-[**GetCrossMarginBorrowable**](MarginApi.md#getcrossmarginborrowable) | **GET** /margin/cross/borrowable | Get the max borrowable amount for a specific cross margin currency. (deprecated)
-[**GetUserMarginTier**](MarginApi.md#getusermargintier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market
-[**GetMarketMarginTier**](MarginApi.md#getmarketmargintier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient
-[**SetUserMarketLeverage**](MarginApi.md#setusermarketleverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple
-[**ListMarginUserAccount**](MarginApi.md#listmarginuseraccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list
 
 
 <a name="listmarginaccounts"></a>
@@ -65,6 +54,289 @@ namespace Example
             catch (GateApiException e)
             {
                 Debug.Print("Exception when calling MarginApi.ListMarginAccounts: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | [optional] 
+
+### Return type
+
+[**List&lt;MarginAccount&gt;**](MarginAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusermargintier"></a>
+# **GetUserMarginTier**
+> List&lt;MarginLeverageTier&gt; GetUserMarginTier (string currencyPair)
+
+Check the user's own leverage lending gradient in the current market
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetUserMarginTierExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair
+
+            try
+            {
+                // Check the user's own leverage lending gradient in the current market
+                List<MarginLeverageTier> result = apiInstance.GetUserMarginTier(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetUserMarginTier: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | 
+
+### Return type
+
+[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmarketmargintier"></a>
+# **GetMarketMarginTier**
+> List&lt;MarginLeverageTier&gt; GetMarketMarginTier (string currencyPair)
+
+Query the current market leverage lending gradient
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMarketMarginTierExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair
+
+            try
+            {
+                // Query the current market leverage lending gradient
+                List<MarginLeverageTier> result = apiInstance.GetMarketMarginTier(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetMarketMarginTier: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | 
+
+### Return type
+
+[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setusermarketleverage"></a>
+# **SetUserMarketLeverage**
+> void SetUserMarketLeverage (MarginMarketLeverage marginMarketLeverage)
+
+Set the user market leverage multiple
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetUserMarketLeverageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var marginMarketLeverage = new MarginMarketLeverage(); // MarginMarketLeverage | 
+
+            try
+            {
+                // Set the user market leverage multiple
+                apiInstance.SetUserMarketLeverage(marginMarketLeverage);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.SetUserMarketLeverage: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **marginMarketLeverage** | [**MarginMarketLeverage**](MarginMarketLeverage.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listmarginuseraccount"></a>
+# **ListMarginUserAccount**
+> List&lt;MarginAccount&gt; ListMarginUserAccount (string currencyPair = null)
+
+Query the user's leverage account list
+
+Support querying risk rate per position account and margin rate per position account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListMarginUserAccountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
+
+            try
+            {
+                // Query the user's leverage account list
+                List<MarginAccount> result = apiInstance.ListMarginUserAccount(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.ListMarginUserAccount: " + e.Message);
                 Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
@@ -467,290 +739,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="listcrossmargincurrencies"></a>
-# **ListCrossMarginCurrencies**
-> List&lt;CrossMarginCurrency&gt; ListCrossMarginCurrencies ()
-
-Currencies supported by cross margin.(deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class ListCrossMarginCurrenciesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            var apiInstance = new MarginApi(config);
-
-            try
-            {
-                // Currencies supported by cross margin.(deprecated)
-                List<CrossMarginCurrency> result = apiInstance.ListCrossMarginCurrencies();
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.ListCrossMarginCurrencies: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;CrossMarginCurrency&gt;**](CrossMarginCurrency.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmargincurrency"></a>
-# **GetCrossMarginCurrency**
-> CrossMarginCurrency GetCrossMarginCurrency (string currency)
-
-Retrieve detail of one single currency supported by cross margin. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginCurrencyExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Currency name
-
-            try
-            {
-                // Retrieve detail of one single currency supported by cross margin. (deprecated)
-                CrossMarginCurrency result = apiInstance.GetCrossMarginCurrency(currency);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginCurrency: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name | 
-
-### Return type
-
-[**CrossMarginCurrency**](CrossMarginCurrency.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmarginaccount"></a>
-# **GetCrossMarginAccount**
-> CrossMarginAccount GetCrossMarginAccount ()
-
-Retrieve cross margin account. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginAccountExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-
-            try
-            {
-                // Retrieve cross margin account. (deprecated)
-                CrossMarginAccount result = apiInstance.GetCrossMarginAccount();
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginAccount: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CrossMarginAccount**](CrossMarginAccount.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="listcrossmarginaccountbook"></a>
-# **ListCrossMarginAccountBook**
-> List&lt;CrossMarginAccountBook&gt; ListCrossMarginAccountBook (string currency = null, long? from = null, long? to = null, int? page = null, int? limit = null, string type = null)
-
-Retrieve cross margin account change history. (deprecated)
-
-The record query time range is not allowed to exceed 30 days.  When using the limit&page paging function to retrieve data, the maximum number of pages is 100,000, that is, (limit page - 1) <= 100000.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class ListCrossMarginAccountBookExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currency = "currency_example";  // string | Filter by currency (optional) 
-            var from = 1627706330;  // long? | Start timestamp of the query (optional) 
-            var to = 1635329650;  // long? | Time range ending, default to current time (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var type = "borrow";  // string | Only retrieve changes of the specified type. All types will be returned if not specified. (optional) 
-
-            try
-            {
-                // Retrieve cross margin account change history. (deprecated)
-                List<CrossMarginAccountBook> result = apiInstance.ListCrossMarginAccountBook(currency, from, to, page, limit, type);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.ListCrossMarginAccountBook: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency | [optional] 
- **from** | **long?**| Start timestamp of the query | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **type** | **string**| Only retrieve changes of the specified type. All types will be returned if not specified. | [optional] 
-
-### Return type
-
-[**List&lt;CrossMarginAccountBook&gt;**](CrossMarginAccountBook.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="listcrossmarginloans"></a>
 # **ListCrossMarginLoans**
 > List&lt;CrossMarginLoan&gt; ListCrossMarginLoans (int status, string currency = null, int? limit = null, int? offset = null, bool? reverse = null)
@@ -832,150 +820,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createcrossmarginloan"></a>
-# **CreateCrossMarginLoan**
-> CrossMarginLoan CreateCrossMarginLoan (CrossMarginLoan crossMarginLoan)
-
-Create a cross margin borrow loan. (deprecated)
-
-Borrow amount cannot be less than currency minimum borrow amount
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class CreateCrossMarginLoanExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var crossMarginLoan = new CrossMarginLoan(); // CrossMarginLoan | 
-
-            try
-            {
-                // Create a cross margin borrow loan. (deprecated)
-                CrossMarginLoan result = apiInstance.CreateCrossMarginLoan(crossMarginLoan);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.CreateCrossMarginLoan: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **crossMarginLoan** | [**CrossMarginLoan**](CrossMarginLoan.md)|  | 
-
-### Return type
-
-[**CrossMarginLoan**](CrossMarginLoan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully borrowed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmarginloan"></a>
-# **GetCrossMarginLoan**
-> CrossMarginLoan GetCrossMarginLoan (string loanId)
-
-Retrieve single borrow loan detail. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginLoanExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var loanId = "12345";  // string | Borrow loan ID
-
-            try
-            {
-                // Retrieve single borrow loan detail. (deprecated)
-                CrossMarginLoan result = apiInstance.GetCrossMarginLoan(loanId);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginLoan: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loanId** | **string**| Borrow loan ID | 
-
-### Return type
-
-[**CrossMarginLoan**](CrossMarginLoan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="listcrossmarginrepayments"></a>
 # **ListCrossMarginRepayments**
 > List&lt;CrossMarginRepayment&gt; ListCrossMarginRepayments (string currency = null, string loanId = null, int? limit = null, int? offset = null, bool? reverse = null)
@@ -1040,656 +884,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;CrossMarginRepayment&gt;**](CrossMarginRepayment.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="repaycrossmarginloan"></a>
-# **RepayCrossMarginLoan**
-> List&lt;CrossMarginLoan&gt; RepayCrossMarginLoan (CrossMarginRepayRequest crossMarginRepayRequest)
-
-Cross margin repayments. (deprecated)
-
-When the liquidity of the currency is insufficient and the transaction risk is high, the currency will be disabled, and funds cannot be transferred.When the available balance of cross-margin is insufficient, the balance of the spot account can be used for repayment. Please ensure that the balance of the spot account is sufficient, and system uses cross-margin account for repayment first
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class RepayCrossMarginLoanExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var crossMarginRepayRequest = new CrossMarginRepayRequest(); // CrossMarginRepayRequest | 
-
-            try
-            {
-                // Cross margin repayments. (deprecated)
-                List<CrossMarginLoan> result = apiInstance.RepayCrossMarginLoan(crossMarginRepayRequest);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.RepayCrossMarginLoan: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **crossMarginRepayRequest** | [**CrossMarginRepayRequest**](CrossMarginRepayRequest.md)|  | 
-
-### Return type
-
-[**List&lt;CrossMarginLoan&gt;**](CrossMarginLoan.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Loan repaid |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmargininterestrecords"></a>
-# **GetCrossMarginInterestRecords**
-> List&lt;UniLoanInterestRecord&gt; GetCrossMarginInterestRecords (string currency = null, int? page = null, int? limit = null, long? from = null, long? to = null)
-
-Interest records for the cross margin account. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginInterestRecordsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
-            var from = 1547706332;  // long? | Start timestamp (optional) 
-            var to = 1547706332;  // long? | End timestamp (optional) 
-
-            try
-            {
-                // Interest records for the cross margin account. (deprecated)
-                List<UniLoanInterestRecord> result = apiInstance.GetCrossMarginInterestRecords(currency, page, limit, from, to);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginInterestRecords: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
- **from** | **long?**| Start timestamp | [optional] 
- **to** | **long?**| End timestamp | [optional] 
-
-### Return type
-
-[**List&lt;UniLoanInterestRecord&gt;**](UniLoanInterestRecord.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmargintransferable"></a>
-# **GetCrossMarginTransferable**
-> CrossMarginTransferable GetCrossMarginTransferable (string currency)
-
-Get the max transferable amount for a specific cross margin currency. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginTransferableExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieve data of the specified currency
-
-            try
-            {
-                // Get the max transferable amount for a specific cross margin currency. (deprecated)
-                CrossMarginTransferable result = apiInstance.GetCrossMarginTransferable(currency);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginTransferable: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency | 
-
-### Return type
-
-[**CrossMarginTransferable**](CrossMarginTransferable.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmarginestimaterate"></a>
-# **GetCrossMarginEstimateRate**
-> Dictionary&lt;string, string&gt; GetCrossMarginEstimateRate (List<string> currencies)
-
-Estimated interest rates. (deprecated)
-
-Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginEstimateRateExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currencies = new List<string>(); // List<string> | An array of up to 10 specifying the currency name
-
-            try
-            {
-                // Estimated interest rates. (deprecated)
-                Dictionary<string, string> result = apiInstance.GetCrossMarginEstimateRate(currencies);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginEstimateRate: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;string&gt;**](string.md)| An array of up to 10 specifying the currency name | 
-
-### Return type
-
-**Dictionary<string, string>**
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getcrossmarginborrowable"></a>
-# **GetCrossMarginBorrowable**
-> UnifiedBorrowable GetCrossMarginBorrowable (string currency)
-
-Get the max borrowable amount for a specific cross margin currency. (deprecated)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetCrossMarginBorrowableExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currency = "BTC";  // string | Retrieve data of the specified currency
-
-            try
-            {
-                // Get the max borrowable amount for a specific cross margin currency. (deprecated)
-                UnifiedBorrowable result = apiInstance.GetCrossMarginBorrowable(currency);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetCrossMarginBorrowable: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency | 
-
-### Return type
-
-[**UnifiedBorrowable**](UnifiedBorrowable.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getusermargintier"></a>
-# **GetUserMarginTier**
-> List&lt;MarginLeverageTier&gt; GetUserMarginTier (string currencyPair)
-
-Check the user's own leverage lending gradient in the current market
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetUserMarginTierExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
-
-            try
-            {
-                // Check the user's own leverage lending gradient in the current market
-                List<MarginLeverageTier> result = apiInstance.GetUserMarginTier(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetUserMarginTier: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
-
-### Return type
-
-[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getmarketmargintier"></a>
-# **GetMarketMarginTier**
-> List&lt;MarginLeverageTier&gt; GetMarketMarginTier (string currencyPair)
-
-Query the current market leverage lending gradient
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetMarketMarginTierExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
-
-            try
-            {
-                // Query the current market leverage lending gradient
-                List<MarginLeverageTier> result = apiInstance.GetMarketMarginTier(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetMarketMarginTier: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
-
-### Return type
-
-[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="setusermarketleverage"></a>
-# **SetUserMarketLeverage**
-> void SetUserMarketLeverage (MarginMarketLeverage marginMarketLeverage)
-
-Set the user market leverage multiple
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class SetUserMarketLeverageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var marginMarketLeverage = new MarginMarketLeverage(); // MarginMarketLeverage | 
-
-            try
-            {
-                // Set the user market leverage multiple
-                apiInstance.SetUserMarketLeverage(marginMarketLeverage);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.SetUserMarketLeverage: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **marginMarketLeverage** | [**MarginMarketLeverage**](MarginMarketLeverage.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="listmarginuseraccount"></a>
-# **ListMarginUserAccount**
-> List&lt;MarginAccount&gt; ListMarginUserAccount (string currencyPair = null)
-
-Query the user's leverage account list
-
-Support querying risk rate per position account and margin rate per position account
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class ListMarginUserAccountExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
-
-            try
-            {
-                // Query the user's leverage account list
-                List<MarginAccount> result = apiInstance.ListMarginUserAccount(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.ListMarginUserAccount: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | [optional] 
-
-### Return type
-
-[**List&lt;MarginAccount&gt;**](MarginAccount.md)
 
 ### Authorization
 
