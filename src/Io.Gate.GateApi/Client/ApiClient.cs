@@ -347,6 +347,12 @@ namespace Io.Gate.GateApi.Client
                     http.Headers.Add(new HttpHeader{Name = "KEY", Value = configuration.ApiV4Key});
                     long timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
                     http.Headers.Add(new HttpHeader{Name = "Timestamp", Value = timestamp.ToString()});
+
+                    if (!string.IsNullOrWhiteSpace(configuration.ChannelId))
+                    {
+                        http.Headers.Add(new HttpHeader { Name = "X-Gate-Channel-Id", Value = configuration.ChannelId });
+                    }
+
                     using (SHA512 sha512Hash = SHA512.Create())
                     {
                         var sourceBytes = Encoding.UTF8.GetBytes(http.RequestBody ?? "");
