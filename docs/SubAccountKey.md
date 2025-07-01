@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | **string** | User ID | [optional] [readonly] 
+**UserId** | **long** | User ID | [optional] [readonly] 
 **Mode** | **int** | Mode: 1 - classic 2 - portfolio account | [optional] 
 **Name** | **string** | API key name | [optional] 
 **Perms** | [**List&lt;SubAccountKeyPerms&gt;**](SubAccountKeyPerms.md) |  | [optional] 

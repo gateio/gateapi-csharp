@@ -5,15 +5,15 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ListMarginAccounts**](MarginApi.md#listmarginaccounts) | **GET** /margin/accounts | Margin account list
-[**GetUserMarginTier**](MarginApi.md#getusermargintier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market
-[**GetMarketMarginTier**](MarginApi.md#getmarketmargintier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient
-[**SetUserMarketLeverage**](MarginApi.md#setusermarketleverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple
-[**ListMarginUserAccount**](MarginApi.md#listmarginuseraccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list
 [**ListMarginAccountBook**](MarginApi.md#listmarginaccountbook) | **GET** /margin/account_book | List margin account balance change history
 [**ListFundingAccounts**](MarginApi.md#listfundingaccounts) | **GET** /margin/funding_accounts | Funding account list
 [**GetAutoRepayStatus**](MarginApi.md#getautorepaystatus) | **GET** /margin/auto_repay | Retrieve user auto repayment setting
 [**SetAutoRepay**](MarginApi.md#setautorepay) | **POST** /margin/auto_repay | Update user&#39;s auto repayment setting
 [**GetMarginTransferable**](MarginApi.md#getmargintransferable) | **GET** /margin/transferable | Get the max transferable amount for a specific margin currency
+[**GetUserMarginTier**](MarginApi.md#getusermargintier) | **GET** /margin/user/loan_margin_tiers | Check the user&#39;s own leverage lending gradient in the current market
+[**GetMarketMarginTier**](MarginApi.md#getmarketmargintier) | **GET** /margin/loan_margin_tiers | Query the current market leverage lending gradient
+[**SetUserMarketLeverage**](MarginApi.md#setusermarketleverage) | **POST** /margin/leverage/user_market_setting | Set the user market leverage multiple
+[**ListMarginUserAccount**](MarginApi.md#listmarginuseraccount) | **GET** /margin/user/account | Query the user&#39;s leverage account list
 [**ListCrossMarginLoans**](MarginApi.md#listcrossmarginloans) | **GET** /margin/cross/loans | List cross margin borrow history. (deprecated)
 [**ListCrossMarginRepayments**](MarginApi.md#listcrossmarginrepayments) | **GET** /margin/cross/repayments | Retrieve cross margin repayments. (deprecated)
 
@@ -54,289 +54,6 @@ namespace Example
             catch (GateApiException e)
             {
                 Debug.Print("Exception when calling MarginApi.ListMarginAccounts: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | [optional] 
-
-### Return type
-
-[**List&lt;MarginAccount&gt;**](MarginAccount.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getusermargintier"></a>
-# **GetUserMarginTier**
-> List&lt;MarginLeverageTier&gt; GetUserMarginTier (string currencyPair)
-
-Check the user's own leverage lending gradient in the current market
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetUserMarginTierExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
-
-            try
-            {
-                // Check the user's own leverage lending gradient in the current market
-                List<MarginLeverageTier> result = apiInstance.GetUserMarginTier(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetUserMarginTier: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
-
-### Return type
-
-[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getmarketmargintier"></a>
-# **GetMarketMarginTier**
-> List&lt;MarginLeverageTier&gt; GetMarketMarginTier (string currencyPair)
-
-Query the current market leverage lending gradient
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class GetMarketMarginTierExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair
-
-            try
-            {
-                // Query the current market leverage lending gradient
-                List<MarginLeverageTier> result = apiInstance.GetMarketMarginTier(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.GetMarketMarginTier: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Currency pair | 
-
-### Return type
-
-[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="setusermarketleverage"></a>
-# **SetUserMarketLeverage**
-> void SetUserMarketLeverage (MarginMarketLeverage marginMarketLeverage)
-
-Set the user market leverage multiple
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class SetUserMarketLeverageExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var marginMarketLeverage = new MarginMarketLeverage(); // MarginMarketLeverage | 
-
-            try
-            {
-                // Set the user market leverage multiple
-                apiInstance.SetUserMarketLeverage(marginMarketLeverage);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.SetUserMarketLeverage: " + e.Message);
-                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **marginMarketLeverage** | [**MarginMarketLeverage**](MarginMarketLeverage.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiv4](../README.md#apiv4)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="listmarginuseraccount"></a>
-# **ListMarginUserAccount**
-> List&lt;MarginAccount&gt; ListMarginUserAccount (string currencyPair = null)
-
-Query the user's leverage account list
-
-Support querying risk rate per position account and margin rate per position account
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Io.Gate.GateApi.Api;
-using Io.Gate.GateApi.Client;
-using Io.Gate.GateApi.Model;
-
-namespace Example
-{
-    public class ListMarginUserAccountExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.gateio.ws/api/v4";
-            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
-
-            var apiInstance = new MarginApi(config);
-            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
-
-            try
-            {
-                // Query the user's leverage account list
-                List<MarginAccount> result = apiInstance.ListMarginUserAccount(currencyPair);
-                Debug.WriteLine(result);
-            }
-            catch (GateApiException e)
-            {
-                Debug.Print("Exception when calling MarginApi.ListMarginUserAccount: " + e.Message);
                 Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
@@ -736,6 +453,289 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusermargintier"></a>
+# **GetUserMarginTier**
+> List&lt;MarginLeverageTier&gt; GetUserMarginTier (string currencyPair)
+
+Check the user's own leverage lending gradient in the current market
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetUserMarginTierExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair
+
+            try
+            {
+                // Check the user's own leverage lending gradient in the current market
+                List<MarginLeverageTier> result = apiInstance.GetUserMarginTier(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetUserMarginTier: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | 
+
+### Return type
+
+[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmarketmargintier"></a>
+# **GetMarketMarginTier**
+> List&lt;MarginLeverageTier&gt; GetMarketMarginTier (string currencyPair)
+
+Query the current market leverage lending gradient
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class GetMarketMarginTierExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair
+
+            try
+            {
+                // Query the current market leverage lending gradient
+                List<MarginLeverageTier> result = apiInstance.GetMarketMarginTier(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.GetMarketMarginTier: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | 
+
+### Return type
+
+[**List&lt;MarginLeverageTier&gt;**](MarginLeverageTier.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="setusermarketleverage"></a>
+# **SetUserMarketLeverage**
+> void SetUserMarketLeverage (MarginMarketLeverage marginMarketLeverage)
+
+Set the user market leverage multiple
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class SetUserMarketLeverageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var marginMarketLeverage = new MarginMarketLeverage(); // MarginMarketLeverage | 
+
+            try
+            {
+                // Set the user market leverage multiple
+                apiInstance.SetUserMarketLeverage(marginMarketLeverage);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.SetUserMarketLeverage: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **marginMarketLeverage** | [**MarginMarketLeverage**](MarginMarketLeverage.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listmarginuseraccount"></a>
+# **ListMarginUserAccount**
+> List&lt;MarginAccount&gt; ListMarginUserAccount (string currencyPair = null)
+
+Query the user's leverage account list
+
+Support querying risk rate per position account and margin rate per position account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class ListMarginUserAccountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new MarginApi(config);
+            var currencyPair = "BTC_USDT";  // string | Currency pair (optional) 
+
+            try
+            {
+                // Query the user's leverage account list
+                List<MarginAccount> result = apiInstance.ListMarginUserAccount(currencyPair);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling MarginApi.ListMarginUserAccount: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currencyPair** | **string**| Currency pair | [optional] 
+
+### Return type
+
+[**List&lt;MarginAccount&gt;**](MarginAccount.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List retrieved |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

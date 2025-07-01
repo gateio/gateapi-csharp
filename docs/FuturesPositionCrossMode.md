@@ -1,5 +1,5 @@
 
-# Io.Gate.GateApi.Model.InlineObject
+# Io.Gate.GateApi.Model.FuturesPositionCrossMode
 
 ## Properties
 

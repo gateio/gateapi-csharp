@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 <a name="listsubaccounttransfers"></a>
 # **ListSubAccountTransfers**
-> List&lt;SubAccountTransfer&gt; ListSubAccountTransfers (string subUid = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
+> List&lt;SubAccountTransferRecordItem&gt; ListSubAccountTransfers (string subUid = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
 Retrieve transfer records between main and sub accounts
 
@@ -444,7 +444,7 @@ namespace Example
             try
             {
                 // Retrieve transfer records between main and sub accounts
-                List<SubAccountTransfer> result = apiInstance.ListSubAccountTransfers(subUid, from, to, limit, offset);
+                List<SubAccountTransferRecordItem> result = apiInstance.ListSubAccountTransfers(subUid, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;SubAccountTransfer&gt;**](SubAccountTransfer.md)
+[**List&lt;SubAccountTransferRecordItem&gt;**](SubAccountTransferRecordItem.md)
 
 ### Authorization
 

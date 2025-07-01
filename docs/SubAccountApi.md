@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 <a name="createsubaccountkeys"></a>
 # **CreateSubAccountKeys**
-> List&lt;SubAccountKey&gt; CreateSubAccountKeys (long userId, SubAccountKey subAccountKey)
+> SubAccountKey CreateSubAccountKeys (long userId, SubAccountKey subAccountKey)
 
 Create API Key of the sub-account
 
@@ -332,7 +332,7 @@ namespace Example
             try
             {
                 // Create API Key of the sub-account
-                List<SubAccountKey> result = apiInstance.CreateSubAccountKeys(userId, subAccountKey);
+                SubAccountKey result = apiInstance.CreateSubAccountKeys(userId, subAccountKey);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;SubAccountKey&gt;**](SubAccountKey.md)
+[**SubAccountKey**](SubAccountKey.md)
 
 ### Authorization
 

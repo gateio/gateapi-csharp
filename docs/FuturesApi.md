@@ -1503,7 +1503,7 @@ Name | Type | Description  | Notes
 
 <a name="updatepositioncrossmode"></a>
 # **UpdatePositionCrossMode**
-> Position UpdatePositionCrossMode (string settle, InlineObject inlineObject)
+> Position UpdatePositionCrossMode (string settle, FuturesPositionCrossMode futuresPositionCrossMode)
 
 Switch to the full position-by-store mode
 
@@ -1527,12 +1527,12 @@ namespace Example
 
             var apiInstance = new FuturesApi(config);
             var settle = "usdt";  // string | Settle currency
-            var inlineObject = new InlineObject(); // InlineObject | 
+            var futuresPositionCrossMode = new FuturesPositionCrossMode(); // FuturesPositionCrossMode | 
 
             try
             {
                 // Switch to the full position-by-store mode
-                Position result = apiInstance.UpdatePositionCrossMode(settle, inlineObject);
+                Position result = apiInstance.UpdatePositionCrossMode(settle, futuresPositionCrossMode);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -1552,7 +1552,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **futuresPositionCrossMode** | [**FuturesPositionCrossMode**](FuturesPositionCrossMode.md)|  | 
 
 ### Return type
 
