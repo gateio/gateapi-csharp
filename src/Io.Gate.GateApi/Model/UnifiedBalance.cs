@@ -52,7 +52,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="mmr">Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="marginBalance">Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode.</param>
         /// <param name="availableMargin">Full margin available for full position is valid in single currency margin mode, and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
-        public UnifiedBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string), string spotInUse = default(string), string funding = default(string), string fundingVersion = default(string), string crossBalance = default(string), string isoBalance = default(string), string im = default(string), string mm = default(string), string imr = default(string), string mmr = default(string), string marginBalance = default(string), string availableMargin = default(string))
+        /// <param name="enabledCollateral">币种开启作为保证金，true - 启用，false - 未启用.</param>
+        public UnifiedBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string), string spotInUse = default(string), string funding = default(string), string fundingVersion = default(string), string crossBalance = default(string), string isoBalance = default(string), string im = default(string), string mm = default(string), string imr = default(string), string mmr = default(string), string marginBalance = default(string), string availableMargin = default(string), bool enabledCollateral = default(bool))
         {
             this.Available = available;
             this.Freeze = freeze;
@@ -73,6 +74,7 @@ namespace Io.Gate.GateApi.Model
             this.Mmr = mmr;
             this.MarginBalance = marginBalance;
             this.AvailableMargin = availableMargin;
+            this.EnabledCollateral = enabledCollateral;
         }
 
         /// <summary>
@@ -209,6 +211,13 @@ namespace Io.Gate.GateApi.Model
         public string AvailableMargin { get; set; }
 
         /// <summary>
+        /// 币种开启作为保证金，true - 启用，false - 未启用
+        /// </summary>
+        /// <value>币种开启作为保证金，true - 启用，false - 未启用</value>
+        [DataMember(Name="enabled_collateral")]
+        public bool EnabledCollateral { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -235,6 +244,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Mmr: ").Append(Mmr).Append("\n");
             sb.Append("  MarginBalance: ").Append(MarginBalance).Append("\n");
             sb.Append("  AvailableMargin: ").Append(AvailableMargin).Append("\n");
+            sb.Append("  EnabledCollateral: ").Append(EnabledCollateral).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -363,6 +373,10 @@ namespace Io.Gate.GateApi.Model
                     this.AvailableMargin == input.AvailableMargin ||
                     (this.AvailableMargin != null &&
                     this.AvailableMargin.Equals(input.AvailableMargin))
+                ) && 
+                (
+                    this.EnabledCollateral == input.EnabledCollateral ||
+                    this.EnabledCollateral.Equals(input.EnabledCollateral)
                 );
         }
 
@@ -413,6 +427,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.MarginBalance.GetHashCode();
                 if (this.AvailableMargin != null)
                     hashCode = hashCode * 59 + this.AvailableMargin.GetHashCode();
+                hashCode = hashCode * 59 + this.EnabledCollateral.GetHashCode();
                 return hashCode;
             }
         }

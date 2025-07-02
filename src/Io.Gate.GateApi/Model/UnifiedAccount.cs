@@ -51,7 +51,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="spotOrderLoss">Total pending order loss, in USDT, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
         /// <param name="spotHedge">Spot hedging status, true - enabled, false - not enabled..</param>
         /// <param name="useFunding">Whether to use funds as margin.</param>
-        public UnifiedAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, UnifiedBalance> balances = default(Dictionary<string, UnifiedBalance>), string total = default(string), string borrowed = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string unifiedAccountTotal = default(string), string unifiedAccountTotalLiab = default(string), string unifiedAccountTotalEquity = default(string), string spotOrderLoss = default(string), bool spotHedge = default(bool), bool useFunding = default(bool))
+        /// <param name="isAllCollateral">是否所有币种均作为保证金，true - 所有币种作为保证金，false - 否.</param>
+        public UnifiedAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, UnifiedBalance> balances = default(Dictionary<string, UnifiedBalance>), string total = default(string), string borrowed = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string unifiedAccountTotal = default(string), string unifiedAccountTotalLiab = default(string), string unifiedAccountTotalEquity = default(string), string spotOrderLoss = default(string), bool spotHedge = default(bool), bool useFunding = default(bool), bool isAllCollateral = default(bool))
         {
             this.UserId = userId;
             this.RefreshTime = refreshTime;
@@ -71,6 +72,7 @@ namespace Io.Gate.GateApi.Model
             this.SpotOrderLoss = spotOrderLoss;
             this.SpotHedge = spotHedge;
             this.UseFunding = useFunding;
+            this.IsAllCollateral = isAllCollateral;
         }
 
         /// <summary>
@@ -206,6 +208,13 @@ namespace Io.Gate.GateApi.Model
         public bool UseFunding { get; set; }
 
         /// <summary>
+        /// 是否所有币种均作为保证金，true - 所有币种作为保证金，false - 否
+        /// </summary>
+        /// <value>是否所有币种均作为保证金，true - 所有币种作为保证金，false - 否</value>
+        [DataMember(Name="is_all_collateral")]
+        public bool IsAllCollateral { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -232,6 +241,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  SpotOrderLoss: ").Append(SpotOrderLoss).Append("\n");
             sb.Append("  SpotHedge: ").Append(SpotHedge).Append("\n");
             sb.Append("  UseFunding: ").Append(UseFunding).Append("\n");
+            sb.Append("  IsAllCollateral: ").Append(IsAllCollateral).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -356,6 +366,10 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.UseFunding == input.UseFunding ||
                     this.UseFunding.Equals(input.UseFunding)
+                ) && 
+                (
+                    this.IsAllCollateral == input.IsAllCollateral ||
+                    this.IsAllCollateral.Equals(input.IsAllCollateral)
                 );
         }
 
@@ -401,6 +415,7 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.SpotOrderLoss.GetHashCode();
                 hashCode = hashCode * 59 + this.SpotHedge.GetHashCode();
                 hashCode = hashCode * 59 + this.UseFunding.GetHashCode();
+                hashCode = hashCode * 59 + this.IsAllCollateral.GetHashCode();
                 return hashCode;
             }
         }

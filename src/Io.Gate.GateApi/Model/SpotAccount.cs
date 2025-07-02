@@ -37,14 +37,12 @@ namespace Io.Gate.GateApi.Model
         /// <param name="available">Available amount.</param>
         /// <param name="locked">Locked amount, used in trading.</param>
         /// <param name="updateId">Version number.</param>
-        /// <param name="refreshTime">Asset Refresh Time (ms).</param>
-        public SpotAccount(string currency = default(string), string available = default(string), string locked = default(string), long updateId = default(long), long refreshTime = default(long))
+        public SpotAccount(string currency = default(string), string available = default(string), string locked = default(string), long updateId = default(long))
         {
             this.Currency = currency;
             this.Available = available;
             this.Locked = locked;
             this.UpdateId = updateId;
-            this.RefreshTime = refreshTime;
         }
 
         /// <summary>
@@ -76,13 +74,6 @@ namespace Io.Gate.GateApi.Model
         public long UpdateId { get; set; }
 
         /// <summary>
-        /// Asset Refresh Time (ms)
-        /// </summary>
-        /// <value>Asset Refresh Time (ms)</value>
-        [DataMember(Name="refresh_time")]
-        public long RefreshTime { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,7 +85,6 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  UpdateId: ").Append(UpdateId).Append("\n");
-            sb.Append("  RefreshTime: ").Append(RefreshTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,10 +137,6 @@ namespace Io.Gate.GateApi.Model
                 (
                     this.UpdateId == input.UpdateId ||
                     this.UpdateId.Equals(input.UpdateId)
-                ) && 
-                (
-                    this.RefreshTime == input.RefreshTime ||
-                    this.RefreshTime.Equals(input.RefreshTime)
                 );
         }
 
@@ -170,7 +156,6 @@ namespace Io.Gate.GateApi.Model
                 if (this.Locked != null)
                     hashCode = hashCode * 59 + this.Locked.GetHashCode();
                 hashCode = hashCode * 59 + this.UpdateId.GetHashCode();
-                hashCode = hashCode * 59 + this.RefreshTime.GetHashCode();
                 return hashCode;
             }
         }
