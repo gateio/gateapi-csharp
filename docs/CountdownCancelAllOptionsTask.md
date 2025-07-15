@@ -7,7 +7,7 @@ Countdown cancel task detail
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timeout** | **int** | Countdown time, in seconds  At least 5 seconds, 0 means cancel the countdown | 
+**Timeout** | **int** | Countdown time in seconds At least 5 seconds, 0 means cancel countdown | 
 **Contract** | **string** | Options contract name | [optional] 
 **Underlying** | **string** | Underlying | [optional] 
 

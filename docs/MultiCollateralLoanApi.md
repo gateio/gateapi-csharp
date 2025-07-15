@@ -45,8 +45,8 @@ namespace Example
             var apiInstance = new MultiCollateralLoanApi(config);
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 10;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 10)
-            var sort = "ltv_asc";  // string | Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv. (optional) 
-            var orderType = "current";  // string | Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders (optional) 
+            var sort = "ltv_asc";  // string | Query the current interest rate of the currency in the previous hour (optional) 
+            var orderType = "current";  // string | Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional) 
 
             try
             {
@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 10]
- **sort** | **string**| Sort types: time_desc - default sorting by creation time in descending order, ltv_asc - ascending order of ltv, ltv_desc - descending order of ltv. | [optional] 
- **orderType** | **string**| Order type, current - query current orders, fixed - query fixed orders. If not specified, default to querying current orders | [optional] 
+ **sort** | **string**| Query the current interest rate of the currency in the previous hour | [optional] 
+ **orderType** | **string**| Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified | [optional] 
 
 ### Return type
 
@@ -564,8 +564,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new MultiCollateralLoanApi(config);
-            var type = "collateral";  // string | Currency types: collateral - collateral currency, borrow - borrowing currency.
-            var currency = "BTC";  // string | When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided.
+            var type = "collateral";  // string | Currency type: collateral - Collateral currency, borrow - Borrowing 
+            var currency = "BTC";  // string | When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc
 
             try
             {
@@ -589,8 +589,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Currency types: collateral - collateral currency, borrow - borrowing currency. | 
- **currency** | **string**| When specifying collateral currencies, you can use commas to separate multiple currencies; for borrowing currencies, only one currency can be provided. | 
+ **type** | **string**| Currency type: collateral - Collateral currency, borrow - Borrowing  | 
+ **currency** | **string**| When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc | 
 
 ### Return type
 
@@ -815,7 +815,7 @@ No authorization required
 
 Query the current interest rate of the currency
 
-Query the current interest rate of the currency in the last hour. The current interest rate is updated every hour.
+Query the current interest rate of the currency in the previous hour.
 
 ### Example
 ```csharp
@@ -834,7 +834,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new MultiCollateralLoanApi(config);
-            var currencies = new List<string>(); // List<string> | Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items.
+            var currencies = new List<string>(); // List<string> | Specify currency name query array, separated by commas, maximum 100items.
             var vipLevel = "\"0\"";  // string | VIP level, defaults to 0 if not transferred (optional)  (default to "0")
 
             try
@@ -859,7 +859,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencies** | [**List&lt;string&gt;**](string.md)| Specify the currency name to query the array. The array is separated by commas and has a maximum of 100 items. | 
+ **currencies** | [**List&lt;string&gt;**](string.md)| Specify currency name query array, separated by commas, maximum 100items. | 
  **vipLevel** | **string**| VIP level, defaults to 0 if not transferred | [optional] [default to &quot;0&quot;]
 
 ### Return type

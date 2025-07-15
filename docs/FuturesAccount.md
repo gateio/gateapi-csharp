@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **IsolatedPositionMargin** | **string** | Ware -position margin, suitable for the new classic account margin model | [optional] 
 **EnableNewDualMode** | **bool** | Whether to open a new two-way position mode | [optional] 
 **MarginMode** | **int** | Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode | [optional] 
+**EnableTieredMm** | **bool** | Whether to enable tiered maintenance margin calculation | [optional] 
 **History** | [**FuturesAccountHistory**](FuturesAccountHistory.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

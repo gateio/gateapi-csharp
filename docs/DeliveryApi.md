@@ -204,7 +204,7 @@ namespace Example
             var contract = "BTC_USDT_20200814";  // string | Futures contract
             var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
             var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
-            var withId = false;  // bool? | Whether the order book update ID will be returned. This ID increases by 1 on every order book update (optional)  (default to false)
+            var withId = false;  // bool? | Whether to return depth update ID. This ID increments by 1 each time. (optional)  (default to false)
 
             try
             {
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract | 
  **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
  **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
- **withId** | **bool?**| Whether the order book update ID will be returned. This ID increases by 1 on every order book update | [optional] [default to false]
+ **withId** | **bool?**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
 
@@ -250,7 +250,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order book retrieved |  -  |
+| **200** | Depth query successful |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -280,7 +280,7 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT_20200814";  // string | Futures contract
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var lastId = "12345";  // string | Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use `from` and `to` instead to limit time range (optional) 
+            var lastId = "12345";  // string | 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 `from` 和 `to` 字段来限定时间范围 (optional) 
             var from = 1546905600;  // long? | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional) 
             var to = 1546935600;  // long? | Specify end time in Unix seconds, default to current time (optional) 
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **lastId** | **string**| Specify the starting point for this list based on a previously retrieved id  This parameter is deprecated. Use &#x60;from&#x60; and &#x60;to&#x60; instead to limit time range | [optional] 
+ **lastId** | **string**| 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 &#x60;from&#x60; 和 &#x60;to&#x60; 字段来限定时间范围 | [optional] 
  **from** | **long?**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional] 
  **to** | **long?**| Specify end time in Unix seconds, default to current time | [optional] 
 
@@ -361,9 +361,9 @@ namespace Example
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT_20200814";  // string | Futures contract
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
-            var to = 1546935600;  // long? | End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional) 
+            var to = 1546935600;  // long? | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0 (optional)  (default to 5m)
+            var interval = "5m";  // string | Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek  (optional)  (default to 5m)
 
             try
             {
@@ -390,9 +390,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
- **to** | **long?**| End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time | [optional] 
+ **to** | **long?**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 | [optional] [default to 5m]
+ **interval** | **string**| Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek  | [optional] [default to 5m]
 
 ### Return type
 
@@ -654,8 +654,8 @@ namespace Example
             var apiInstance = new DeliveryApi(config);
             var settle = "usdt";  // string | Settle currency
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var from = 1547706332;  // long? | Start timestamp (optional) 
-            var to = 1547706332;  // long? | End timestamp (optional) 
+            var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
+            var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
             var type = "dnw";  // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional) 
 
             try
@@ -682,8 +682,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **long?**| Start timestamp | [optional] 
- **to** | **long?**| End timestamp | [optional] 
+ **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
+ **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
  **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] 
 
 ### Return type
@@ -877,7 +877,7 @@ namespace Example
             var apiInstance = new DeliveryApi(config);
             var settle = "usdt";  // string | Settle currency
             var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var change = "0.01";  // string | Margin change. Use positive number to increase margin, negative number otherwise.
+            var change = "0.01";  // string | Margin change amount, positive number increases, negative number 
 
             try
             {
@@ -903,7 +903,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **settle** | **string**| Settle currency | 
  **contract** | **string**| Futures contract | 
- **change** | **string**| Margin change. Use positive number to increase margin, negative number otherwise. | 
+ **change** | **string**| Margin change amount, positive number increases, negative number  | 
 
 ### Return type
 
@@ -1107,7 +1107,7 @@ namespace Example
             var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
-            var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
+            var lastId = "12345";  // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional) 
             var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return) (optional)  (default to 0)
 
             try
@@ -1137,7 +1137,7 @@ Name | Type | Description  | Notes
  **contract** | **string**| Futures contract | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
- **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
+ **lastId** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional] 
  **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
 
 ### Return type
@@ -1490,7 +1490,7 @@ namespace Example
             var order = 12345;  // long? | Futures order ID, return related data only if specified (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
             var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
-            var lastId = "12345";  // string | Specify list staring point using the `id` of last record in previous list-query results (optional) 
+            var lastId = "12345";  // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional) 
             var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return) (optional)  (default to 0)
 
             try
@@ -1520,7 +1520,7 @@ Name | Type | Description  | Notes
  **order** | **long?**| Futures order ID, return related data only if specified | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
  **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
- **lastId** | **string**| Specify list staring point using the &#x60;id&#x60; of last record in previous list-query results | [optional] 
+ **lastId** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional] 
  **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
 
 ### Return type

@@ -38,6 +38,8 @@ Name | Type | Description | Notes
 **UpdateTime** | **long** | Last update time | [optional] [readonly] 
 **UpdateId** | **long** | Update id. Each time the position is updated, the value will be +1. | [optional] [readonly] 
 **OpenTime** | **long** | First Open Time | [optional] 
+**RiskLimitTable** | **string** | Risk limit table ID | [optional] [readonly] 
+**AverageMaintenanceRate** | **string** | Average maintenance margin rate | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -476,8 +476,8 @@ namespace Example
             var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var from = 1547706332;  // long? | Start timestamp (optional) 
-            var to = 1547706332;  // long? | End timestamp (optional) 
+            var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
+            var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
@@ -505,8 +505,8 @@ Name | Type | Description  | Notes
  **currency** | **string**| Retrieve data of the specified currency | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **from** | **long?**| Start timestamp | [optional] 
- **to** | **long?**| End timestamp | [optional] 
+ **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
+ **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
 ### Return type
 

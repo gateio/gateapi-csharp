@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**ListStructuredProducts**](EarnApi.md#liststructuredproducts) | **GET** /earn/structured/products | Structured Product List
 [**ListStructuredOrders**](EarnApi.md#liststructuredorders) | **GET** /earn/structured/orders | Structured Product Order List
 [**PlaceStructuredOrder**](EarnApi.md#placestructuredorder) | **POST** /earn/structured/orders | Place Structured Product Order
-[**FindCoin**](EarnApi.md#findcoin) | **GET** /earn/staking/coins | 链上赚币币种
+[**FindCoin**](EarnApi.md#findcoin) | **GET** /earn/staking/coins | Staking Coins
 [**SwapStakingCoin**](EarnApi.md#swapstakingcoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins
 
 
@@ -394,8 +394,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new EarnApi(config);
-            var status = "in_process";  // string | Status (default: all)  `in_process`-processing  `will_begin`-unstarted  `wait_settlement`-unsettled  `done`-finish
-            var type = "BullishSharkFin";  // string | Product Type (default all)  `SharkFin2.0`-SharkFin  `BullishSharkFin`-BullishSharkFin  `BearishSharkFin`-BearishSharkFin `DoubleNoTouch`-DoubleNoTouch `RangeAccrual`-RangeAccrual `SnowBall`-SnowBall (optional) 
+            var status = "in_process";  // string | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed 
+            var type = "BullishSharkFin";  // string | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball  (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
@@ -421,8 +421,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Status (default: all)  &#x60;in_process&#x60;-processing  &#x60;will_begin&#x60;-unstarted  &#x60;wait_settlement&#x60;-unsettled  &#x60;done&#x60;-finish | 
- **type** | **string**| Product Type (default all)  &#x60;SharkFin2.0&#x60;-SharkFin  &#x60;BullishSharkFin&#x60;-BullishSharkFin  &#x60;BearishSharkFin&#x60;-BearishSharkFin &#x60;DoubleNoTouch&#x60;-DoubleNoTouch &#x60;RangeAccrual&#x60;-RangeAccrual &#x60;SnowBall&#x60;-SnowBall | [optional] 
+ **status** | **string**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed  | 
+ **type** | **string**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -471,8 +471,8 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new EarnApi(config);
-            var from = 1547706332;  // long? | Start timestamp (optional) 
-            var to = 1547706332;  // long? | End timestamp (optional) 
+            var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
+            var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
             var page = 1;  // int? | Page number (optional)  (default to 1)
             var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
 
@@ -498,8 +498,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **long?**| Start timestamp | [optional] 
- **to** | **long?**| End timestamp | [optional] 
+ **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
+ **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
  **page** | **int?**| Page number | [optional] [default to 1]
  **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
 
@@ -597,7 +597,7 @@ void (empty response body)
 # **FindCoin**
 > List&lt;string&gt; FindCoin (FindCoin findCoin)
 
-链上赚币币种
+Staking Coins
 
 ### Example
 ```csharp
@@ -622,7 +622,7 @@ namespace Example
 
             try
             {
-                // 链上赚币币种
+                // Staking Coins
                 List<string> result = apiInstance.FindCoin(findCoin);
                 Debug.WriteLine(result);
             }
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 <a name="swapstakingcoin"></a>
 # **SwapStakingCoin**
-> void SwapStakingCoin (SwapCoin swapCoin)
+> SwapCoinStruct SwapStakingCoin (SwapCoin swapCoin)
 
 On-chain Token Swap for Earned Coins
 
@@ -694,7 +694,8 @@ namespace Example
             try
             {
                 // On-chain Token Swap for Earned Coins
-                apiInstance.SwapStakingCoin(swapCoin);
+                SwapCoinStruct result = apiInstance.SwapStakingCoin(swapCoin);
+                Debug.WriteLine(result);
             }
             catch (GateApiException e)
             {
@@ -716,7 +717,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**SwapCoinStruct**](SwapCoinStruct.md)
 
 ### Authorization
 
@@ -725,7 +726,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
