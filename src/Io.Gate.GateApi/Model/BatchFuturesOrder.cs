@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures order details
+    /// Futures order details.
     /// </summary>
     [DataContract]
     public partial class BatchFuturesOrder :  IEquatable<BatchFuturesOrder>, IValidatableObject
     {
         /// <summary>
-        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
         /// </summary>
-        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention </value>
+        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -94,9 +94,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
+        /// How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention 
         /// </summary>
-        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - reduce_only: cancelled because of increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention </value>
+        /// <value>How the order was finished.  - filled: all filled - cancelled: manually cancelled - liquidated: cancelled because of liquidation - ioc: time in force is &#x60;IOC&#x60;, finish immediately - auto_deleveraged: finished by ADL - increasing position while &#x60;reduce-only&#x60; set- position_closed: cancelled because of position close - position_closed: canceled because the position was closed - reduce_out: only reduce positions by excluding hard-to-fill orders - stp: cancelled because self trade prevention </value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
@@ -193,9 +193,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="auto_size")]
         public AutoSizeEnum? AutoSize { get; set; }
         /// <summary>
-        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
         /// </summary>
-        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StpActEnum
         {
@@ -226,27 +226,27 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
         /// </summary>
-        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
         [DataMember(Name="stp_act")]
         public StpActEnum? StpAct { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchFuturesOrder" /> class.
         /// </summary>
-        /// <param name="succeeded">Whether the batch of orders succeeded.</param>
-        /// <param name="label">Error label, only exists if execution fails.</param>
+        /// <param name="succeeded">Whether the batch of orders succeeded..</param>
+        /// <param name="label">Error label, only exists if execution fails..</param>
         /// <param name="detail">Error detail, only present if execution failed and details need to be given.</param>
-        /// <param name="contract">Futures contract.</param>
+        /// <param name="contract">Futures contract..</param>
         /// <param name="size">Order size. Specify positive number to make a bid, and negative number to ask.</param>
         /// <param name="iceberg">Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size.</param>
-        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.</param>
-        /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 (default to false).</param>
-        /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
+        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;..</param>
+        /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0. (default to false).</param>
+        /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order. (default to false).</param>
         /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none (default to TifEnum.Gtc).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance .</param>
         /// <param name="autoSize">Set side to close dual-mode position. &#x60;close_long&#x60; closes the long side; while &#x60;close_short&#x60; the short one. Note &#x60;size&#x60; also needs to be set to 0.</param>
-        /// <param name="stpAct">Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled.</param>
+        /// <param name="stpAct">Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled.</param>
         public BatchFuturesOrder(bool succeeded = default(bool), string label = default(string), string detail = default(string), string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, TifEnum? tif = TifEnum.Gtc, string text = default(string), AutoSizeEnum? autoSize = default(AutoSizeEnum?), StpActEnum? stpAct = default(StpActEnum?))
         {
             this.Succeeded = succeeded;
@@ -265,16 +265,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Whether the batch of orders succeeded
+        /// Whether the batch of orders succeeded.
         /// </summary>
-        /// <value>Whether the batch of orders succeeded</value>
+        /// <value>Whether the batch of orders succeeded.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
-        /// Error label, only exists if execution fails
+        /// Error label, only exists if execution fails.
         /// </summary>
-        /// <value>Error label, only exists if execution fails</value>
+        /// <value>Error label, only exists if execution fails.</value>
         [DataMember(Name="label")]
         public string Label { get; set; }
 
@@ -286,37 +286,37 @@ namespace Io.Gate.GateApi.Model
         public string Detail { get; set; }
 
         /// <summary>
-        /// Futures order ID
+        /// Futures order ID.
         /// </summary>
-        /// <value>Futures order ID</value>
+        /// <value>Futures order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
-        /// Creation time of order
+        /// Creation time of order.
         /// </summary>
-        /// <value>Creation time of order</value>
+        /// <value>Creation time of order.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
         /// <summary>
-        /// Order finished time. Not returned if order is open
+        /// Order finished time. Not returned if order is open.
         /// </summary>
-        /// <value>Order finished time. Not returned if order is open</value>
+        /// <value>Order finished time. Not returned if order is open.</value>
         [DataMember(Name="finish_time", EmitDefaultValue=false)]
         public double FinishTime { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
@@ -335,58 +335,58 @@ namespace Io.Gate.GateApi.Model
         public long Iceberg { get; set; }
 
         /// <summary>
-        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;
+        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.
         /// </summary>
-        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;</value>
+        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60;.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
+        /// Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.
         /// </summary>
-        /// <value>Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0</value>
+        /// <value>Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.</value>
         [DataMember(Name="close")]
         public bool Close { get; set; }
 
         /// <summary>
-        /// Is the order to close position
+        /// Is the order to close position.
         /// </summary>
-        /// <value>Is the order to close position</value>
+        /// <value>Is the order to close position.</value>
         [DataMember(Name="is_close", EmitDefaultValue=false)]
         public bool IsClose { get; private set; }
 
         /// <summary>
-        /// Set as &#x60;true&#x60; to be reduce-only order
+        /// Set as &#x60;true&#x60; to be reduce-only order.
         /// </summary>
-        /// <value>Set as &#x60;true&#x60; to be reduce-only order</value>
+        /// <value>Set as &#x60;true&#x60; to be reduce-only order.</value>
         [DataMember(Name="reduce_only")]
         public bool ReduceOnly { get; set; }
 
         /// <summary>
-        /// Is the order reduce-only
+        /// Is the order reduce-only.
         /// </summary>
-        /// <value>Is the order reduce-only</value>
+        /// <value>Is the order reduce-only.</value>
         [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
-        /// Is the order for liquidation
+        /// Is the order for liquidation.
         /// </summary>
-        /// <value>Is the order for liquidation</value>
+        /// <value>Is the order for liquidation.</value>
         [DataMember(Name="is_liq", EmitDefaultValue=false)]
         public bool IsLiq { get; private set; }
 
         /// <summary>
-        /// Size left to be traded
+        /// Size left to be traded.
         /// </summary>
-        /// <value>Size left to be traded</value>
+        /// <value>Size left to be traded.</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public long Left { get; private set; }
 
         /// <summary>
-        /// Fill price of the order
+        /// Fill price of the order.
         /// </summary>
-        /// <value>Fill price of the order</value>
+        /// <value>Fill price of the order.</value>
         [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
@@ -398,23 +398,23 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// Taker fee
+        /// Taker fee.
         /// </summary>
-        /// <value>Taker fee</value>
+        /// <value>Taker fee.</value>
         [DataMember(Name="tkfr", EmitDefaultValue=false)]
         public string Tkfr { get; private set; }
 
         /// <summary>
-        /// Maker fee
+        /// Maker fee.
         /// </summary>
-        /// <value>Maker fee</value>
+        /// <value>Maker fee.</value>
         [DataMember(Name="mkfr", EmitDefaultValue=false)]
         public string Mkfr { get; private set; }
 
         /// <summary>
-        /// Reference user ID
+        /// Reference user ID.
         /// </summary>
-        /// <value>Reference user ID</value>
+        /// <value>Reference user ID.</value>
         [DataMember(Name="refu", EmitDefaultValue=false)]
         public int Refu { get; private set; }
 

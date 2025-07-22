@@ -33,23 +33,23 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DualGetOrders" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
-        /// <param name="planId">Plan ID.</param>
-        /// <param name="copies">Copies.</param>
-        /// <param name="investAmount">Investment Amount.</param>
-        /// <param name="settlementAmount">Settlement Amount.</param>
-        /// <param name="createTime">Creation time.</param>
-        /// <param name="completeTime">Completion Time.</param>
+        /// <param name="id">Order ID..</param>
+        /// <param name="planId">Plan ID..</param>
+        /// <param name="copies">Copies..</param>
+        /// <param name="investAmount">Investment Amount..</param>
+        /// <param name="settlementAmount">Settlement Amount..</param>
+        /// <param name="createTime">Creation time..</param>
+        /// <param name="completeTime">Completion Time..</param>
         /// <param name="status">Status:  &#x60;INIT&#x60;-INIT &#x60;SETTLEMENT_SUCCESS&#x60;-Settlement Success &#x60;SETTLEMENT_PROCESSING&#x60;-SEttlement Processing &#x60;CANCELED&#x60;-Canceled &#x60;FAILED&#x60;-Failed.</param>
-        /// <param name="investCurrency">Investment Currency.</param>
-        /// <param name="exerciseCurrency">Strike Currency.</param>
-        /// <param name="exercisePrice">Strike price.</param>
-        /// <param name="settlementPrice">settlement price.</param>
-        /// <param name="settlementCurrency">Settle currency.</param>
-        /// <param name="apyDisplay">APY.</param>
-        /// <param name="apySettlement">Settlement APY.</param>
-        /// <param name="deliveryTime">Settlement time.</param>
-        /// <param name="text">Custom order information.</param>
+        /// <param name="investCurrency">Investment Currency..</param>
+        /// <param name="exerciseCurrency">Strike Currency..</param>
+        /// <param name="exercisePrice">Strike price..</param>
+        /// <param name="settlementPrice">settlement price..</param>
+        /// <param name="settlementCurrency">Settle currency..</param>
+        /// <param name="apyDisplay">APY..</param>
+        /// <param name="apySettlement">Settlement APY..</param>
+        /// <param name="deliveryTime">Settlement time..</param>
+        /// <param name="text">Custom order information..</param>
         public DualGetOrders(int id = default(int), int planId = default(int), string copies = default(string), string investAmount = default(string), string settlementAmount = default(string), int createTime = default(int), int completeTime = default(int), string status = default(string), string investCurrency = default(string), string exerciseCurrency = default(string), string exercisePrice = default(string), string settlementPrice = default(string), string settlementCurrency = default(string), string apyDisplay = default(string), string apySettlement = default(string), int deliveryTime = default(int), string text = default(string))
         {
             this.Id = id;
@@ -72,51 +72,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="plan_id")]
         public int PlanId { get; set; }
 
         /// <summary>
-        /// Copies
+        /// Copies.
         /// </summary>
-        /// <value>Copies</value>
+        /// <value>Copies.</value>
         [DataMember(Name="copies")]
         public string Copies { get; set; }
 
         /// <summary>
-        /// Investment Amount
+        /// Investment Amount.
         /// </summary>
-        /// <value>Investment Amount</value>
+        /// <value>Investment Amount.</value>
         [DataMember(Name="invest_amount")]
         public string InvestAmount { get; set; }
 
         /// <summary>
-        /// Settlement Amount
+        /// Settlement Amount.
         /// </summary>
-        /// <value>Settlement Amount</value>
+        /// <value>Settlement Amount.</value>
         [DataMember(Name="settlement_amount")]
         public string SettlementAmount { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time")]
         public int CreateTime { get; set; }
 
         /// <summary>
-        /// Completion Time
+        /// Completion Time.
         /// </summary>
-        /// <value>Completion Time</value>
+        /// <value>Completion Time.</value>
         [DataMember(Name="complete_time")]
         public int CompleteTime { get; set; }
 
@@ -128,65 +128,65 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Investment Currency
+        /// Investment Currency.
         /// </summary>
-        /// <value>Investment Currency</value>
+        /// <value>Investment Currency.</value>
         [DataMember(Name="invest_currency")]
         public string InvestCurrency { get; set; }
 
         /// <summary>
-        /// Strike Currency
+        /// Strike Currency.
         /// </summary>
-        /// <value>Strike Currency</value>
+        /// <value>Strike Currency.</value>
         [DataMember(Name="exercise_currency")]
         public string ExerciseCurrency { get; set; }
 
         /// <summary>
-        /// Strike price
+        /// Strike price.
         /// </summary>
-        /// <value>Strike price</value>
+        /// <value>Strike price.</value>
         [DataMember(Name="exercise_price")]
         public string ExercisePrice { get; set; }
 
         /// <summary>
-        /// settlement price
+        /// settlement price.
         /// </summary>
-        /// <value>settlement price</value>
+        /// <value>settlement price.</value>
         [DataMember(Name="settlement_price")]
         public string SettlementPrice { get; set; }
 
         /// <summary>
-        /// Settle currency
+        /// Settle currency.
         /// </summary>
-        /// <value>Settle currency</value>
+        /// <value>Settle currency.</value>
         [DataMember(Name="settlement_currency")]
         public string SettlementCurrency { get; set; }
 
         /// <summary>
-        /// APY
+        /// APY.
         /// </summary>
-        /// <value>APY</value>
+        /// <value>APY.</value>
         [DataMember(Name="apy_display")]
         public string ApyDisplay { get; set; }
 
         /// <summary>
-        /// Settlement APY
+        /// Settlement APY.
         /// </summary>
-        /// <value>Settlement APY</value>
+        /// <value>Settlement APY.</value>
         [DataMember(Name="apy_settlement")]
         public string ApySettlement { get; set; }
 
         /// <summary>
-        /// Settlement time
+        /// Settlement time.
         /// </summary>
-        /// <value>Settlement time</value>
+        /// <value>Settlement time.</value>
         [DataMember(Name="delivery_time")]
         public int DeliveryTime { get; set; }
 
         /// <summary>
-        /// Custom order information
+        /// Custom order information.
         /// </summary>
-        /// <value>Custom order information</value>
+        /// <value>Custom order information.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 

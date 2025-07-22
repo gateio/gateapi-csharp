@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options contract detail
+    /// Options contract detail.
     /// </summary>
     [DataContract]
     public partial class OptionsContract :  IEquatable<OptionsContract>, IValidatableObject
@@ -33,31 +33,31 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsContract" /> class.
         /// </summary>
-        /// <param name="name">Options contract name.</param>
-        /// <param name="tag">tag.</param>
-        /// <param name="createTime">Creation time.</param>
-        /// <param name="expirationTime">Expiration time.</param>
-        /// <param name="isCall">&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options.</param>
-        /// <param name="multiplier">Multiplier used in converting from invoicing to settlement currency.</param>
-        /// <param name="underlying">Underlying.</param>
-        /// <param name="underlyingPrice">Underlying price (quote currency).</param>
-        /// <param name="lastPrice">Last trading price.</param>
-        /// <param name="markPrice">Current mark price (quote currency).</param>
-        /// <param name="indexPrice">Current index price (quote currency).</param>
-        /// <param name="makerFeeRate">Maker fee rate, where negative means rebate.</param>
-        /// <param name="takerFeeRate">Taker fee rate.</param>
-        /// <param name="orderPriceRound">Minimum order price increment.</param>
-        /// <param name="markPriceRound">Minimum mark price increment.</param>
-        /// <param name="orderSizeMin">Minimum order size the contract allowed.</param>
-        /// <param name="orderSizeMax">Maximum order size the contract allowed.</param>
-        /// <param name="orderPriceDeviate">The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders.</param>
-        /// <param name="refDiscountRate">Referral fee rate discount.</param>
-        /// <param name="refRebateRate">Referrer commission rate.</param>
-        /// <param name="orderbookId">Current orderbook ID.</param>
-        /// <param name="tradeId">Current trade ID.</param>
-        /// <param name="tradeSize">Historical accumulated trade size.</param>
-        /// <param name="positionSize">Current total long position size.</param>
-        /// <param name="ordersLimit">Maximum number of open orders.</param>
+        /// <param name="name">Options contract name..</param>
+        /// <param name="tag">tag..</param>
+        /// <param name="createTime">Creation time..</param>
+        /// <param name="expirationTime">Expiration time..</param>
+        /// <param name="isCall">&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options..</param>
+        /// <param name="multiplier">Multiplier used in converting from invoicing to settlement currency..</param>
+        /// <param name="underlying">Underlying..</param>
+        /// <param name="underlyingPrice">Underlying price (quote currency)..</param>
+        /// <param name="lastPrice">Last trading price..</param>
+        /// <param name="markPrice">Current mark price (quote currency)..</param>
+        /// <param name="indexPrice">Current index price (quote currency)..</param>
+        /// <param name="makerFeeRate">Maker fee rate, where negative means rebate..</param>
+        /// <param name="takerFeeRate">Taker fee rate..</param>
+        /// <param name="orderPriceRound">Minimum order price increment..</param>
+        /// <param name="markPriceRound">Minimum mark price increment..</param>
+        /// <param name="orderSizeMin">Minimum order size the contract allowed..</param>
+        /// <param name="orderSizeMax">Maximum order size the contract allowed..</param>
+        /// <param name="orderPriceDeviate">The positive and negative offset allowed between the order price and the current mark price, that &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders.</param>
+        /// <param name="refDiscountRate">Referral fee rate discount..</param>
+        /// <param name="refRebateRate">Referrer commission rate..</param>
+        /// <param name="orderbookId">Current orderbook ID..</param>
+        /// <param name="tradeId">Current trade ID..</param>
+        /// <param name="tradeSize">Historical accumulated trade size..</param>
+        /// <param name="positionSize">Current total long position size..</param>
+        /// <param name="ordersLimit">Maximum number of open orders..</param>
         public OptionsContract(string name = default(string), string tag = default(string), double createTime = default(double), double expirationTime = default(double), bool isCall = default(bool), string multiplier = default(string), string underlying = default(string), string underlyingPrice = default(string), string lastPrice = default(string), string markPrice = default(string), string indexPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), int ordersLimit = default(int))
         {
             this.Name = name;
@@ -88,177 +88,177 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// tag
+        /// tag.
         /// </summary>
-        /// <value>tag</value>
+        /// <value>tag.</value>
         [DataMember(Name="tag")]
         public string Tag { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
         /// <summary>
-        /// Expiration time
+        /// Expiration time.
         /// </summary>
-        /// <value>Expiration time</value>
+        /// <value>Expiration time.</value>
         [DataMember(Name="expiration_time")]
         public double ExpirationTime { get; set; }
 
         /// <summary>
-        /// &#x60;true&#x60; means call options, while &#x60;false&#x60; is put options
+        /// &#x60;true&#x60; means call options, while &#x60;false&#x60; is put options.
         /// </summary>
-        /// <value>&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options</value>
+        /// <value>&#x60;true&#x60; means call options, while &#x60;false&#x60; is put options.</value>
         [DataMember(Name="is_call")]
         public bool IsCall { get; set; }
 
         /// <summary>
-        /// Multiplier used in converting from invoicing to settlement currency
+        /// Multiplier used in converting from invoicing to settlement currency.
         /// </summary>
-        /// <value>Multiplier used in converting from invoicing to settlement currency</value>
+        /// <value>Multiplier used in converting from invoicing to settlement currency.</value>
         [DataMember(Name="multiplier")]
         public string Multiplier { get; set; }
 
         /// <summary>
-        /// Underlying
+        /// Underlying.
         /// </summary>
-        /// <value>Underlying</value>
+        /// <value>Underlying.</value>
         [DataMember(Name="underlying")]
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Underlying price (quote currency)
+        /// Underlying price (quote currency).
         /// </summary>
-        /// <value>Underlying price (quote currency)</value>
+        /// <value>Underlying price (quote currency).</value>
         [DataMember(Name="underlying_price")]
         public string UnderlyingPrice { get; set; }
 
         /// <summary>
-        /// Last trading price
+        /// Last trading price.
         /// </summary>
-        /// <value>Last trading price</value>
+        /// <value>Last trading price.</value>
         [DataMember(Name="last_price")]
         public string LastPrice { get; set; }
 
         /// <summary>
-        /// Current mark price (quote currency)
+        /// Current mark price (quote currency).
         /// </summary>
-        /// <value>Current mark price (quote currency)</value>
+        /// <value>Current mark price (quote currency).</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Current index price (quote currency)
+        /// Current index price (quote currency).
         /// </summary>
-        /// <value>Current index price (quote currency)</value>
+        /// <value>Current index price (quote currency).</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Maker fee rate, where negative means rebate
+        /// Maker fee rate, where negative means rebate.
         /// </summary>
-        /// <value>Maker fee rate, where negative means rebate</value>
+        /// <value>Maker fee rate, where negative means rebate.</value>
         [DataMember(Name="maker_fee_rate")]
         public string MakerFeeRate { get; set; }
 
         /// <summary>
-        /// Taker fee rate
+        /// Taker fee rate.
         /// </summary>
-        /// <value>Taker fee rate</value>
+        /// <value>Taker fee rate.</value>
         [DataMember(Name="taker_fee_rate")]
         public string TakerFeeRate { get; set; }
 
         /// <summary>
-        /// Minimum order price increment
+        /// Minimum order price increment.
         /// </summary>
-        /// <value>Minimum order price increment</value>
+        /// <value>Minimum order price increment.</value>
         [DataMember(Name="order_price_round")]
         public string OrderPriceRound { get; set; }
 
         /// <summary>
-        /// Minimum mark price increment
+        /// Minimum mark price increment.
         /// </summary>
-        /// <value>Minimum mark price increment</value>
+        /// <value>Minimum mark price increment.</value>
         [DataMember(Name="mark_price_round")]
         public string MarkPriceRound { get; set; }
 
         /// <summary>
-        /// Minimum order size the contract allowed
+        /// Minimum order size the contract allowed.
         /// </summary>
-        /// <value>Minimum order size the contract allowed</value>
+        /// <value>Minimum order size the contract allowed.</value>
         [DataMember(Name="order_size_min")]
         public long OrderSizeMin { get; set; }
 
         /// <summary>
-        /// Maximum order size the contract allowed
+        /// Maximum order size the contract allowed.
         /// </summary>
-        /// <value>Maximum order size the contract allowed</value>
+        /// <value>Maximum order size the contract allowed.</value>
         [DataMember(Name="order_size_max")]
         public long OrderSizeMax { get; set; }
 
         /// <summary>
-        /// The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders
+        /// The positive and negative offset allowed between the order price and the current mark price, that &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders
         /// </summary>
-        /// <value>The positive and negative offset allowed between the order price and the current mark price, that is, the order price &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price  and does not distinguish between buy and sell orders</value>
+        /// <value>The positive and negative offset allowed between the order price and the current mark price, that &#x60;order_price&#x60; must meet the following conditions:   order_price is within the range of mark_price +/- order_price_deviate * underlying_price and does not distinguish between buy and sell orders</value>
         [DataMember(Name="order_price_deviate")]
         public string OrderPriceDeviate { get; set; }
 
         /// <summary>
-        /// Referral fee rate discount
+        /// Referral fee rate discount.
         /// </summary>
-        /// <value>Referral fee rate discount</value>
+        /// <value>Referral fee rate discount.</value>
         [DataMember(Name="ref_discount_rate")]
         public string RefDiscountRate { get; set; }
 
         /// <summary>
-        /// Referrer commission rate
+        /// Referrer commission rate.
         /// </summary>
-        /// <value>Referrer commission rate</value>
+        /// <value>Referrer commission rate.</value>
         [DataMember(Name="ref_rebate_rate")]
         public string RefRebateRate { get; set; }
 
         /// <summary>
-        /// Current orderbook ID
+        /// Current orderbook ID.
         /// </summary>
-        /// <value>Current orderbook ID</value>
+        /// <value>Current orderbook ID.</value>
         [DataMember(Name="orderbook_id")]
         public long OrderbookId { get; set; }
 
         /// <summary>
-        /// Current trade ID
+        /// Current trade ID.
         /// </summary>
-        /// <value>Current trade ID</value>
+        /// <value>Current trade ID.</value>
         [DataMember(Name="trade_id")]
         public long TradeId { get; set; }
 
         /// <summary>
-        /// Historical accumulated trade size
+        /// Historical accumulated trade size.
         /// </summary>
-        /// <value>Historical accumulated trade size</value>
+        /// <value>Historical accumulated trade size.</value>
         [DataMember(Name="trade_size")]
         public long TradeSize { get; set; }
 
         /// <summary>
-        /// Current total long position size
+        /// Current total long position size.
         /// </summary>
-        /// <value>Current total long position size</value>
+        /// <value>Current total long position size.</value>
         [DataMember(Name="position_size")]
         public long PositionSize { get; set; }
 
         /// <summary>
-        /// Maximum number of open orders
+        /// Maximum number of open orders.
         /// </summary>
-        /// <value>Maximum number of open orders</value>
+        /// <value>Maximum number of open orders.</value>
         [DataMember(Name="orders_limit")]
         public int OrdersLimit { get; set; }
 

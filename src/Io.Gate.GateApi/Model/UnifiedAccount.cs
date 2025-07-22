@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedAccount" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="refreshTime">Time of the most recent refresh.</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="refreshTime">Time of the most recent refresh..</param>
         /// <param name="locked">Whether the account is locked, valid in cross-currency margin/combined margin mode, false in other modes such as single-currency margin mode.</param>
         /// <param name="balances">balances.</param>
-        /// <param name="total">Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total).</param>
+        /// <param name="total">Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60; in all currencies (deprecated, to be deprecated, replaced by unified_account_total).</param>
         /// <param name="borrowed">The total borrowed amount of the account converted into USD, i.e. the sum of &#x60;borrowed * price&#x60; of all currencies (excluding Point Cards). It is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode..</param>
         /// <param name="totalInitialMargin">Total initial margin, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
         /// <param name="totalMarginBalance">Total margin balance, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
@@ -50,8 +50,8 @@ namespace Io.Gate.GateApi.Model
         /// <param name="unifiedAccountTotalEquity">Unify the total account equity, valid in single currency margin/cross-currency margin/combined margin mode.</param>
         /// <param name="spotOrderLoss">Total pending order loss, in USDT, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
         /// <param name="spotHedge">Spot hedging status, true - enabled, false - not enabled..</param>
-        /// <param name="useFunding">Whether to use funds as margin.</param>
-        /// <param name="isAllCollateral">Whether all currencies are used as margin, true - All currencies are used as margin, false - No.</param>
+        /// <param name="useFunding">Whether to use funds as margin..</param>
+        /// <param name="isAllCollateral">Whether all currencies are used as margin, true - false - No.</param>
         public UnifiedAccount(long userId = default(long), long refreshTime = default(long), bool locked = default(bool), Dictionary<string, UnifiedBalance> balances = default(Dictionary<string, UnifiedBalance>), string total = default(string), string borrowed = default(string), string totalInitialMargin = default(string), string totalMarginBalance = default(string), string totalMaintenanceMargin = default(string), string totalInitialMarginRate = default(string), string totalMaintenanceMarginRate = default(string), string totalAvailableMargin = default(string), string unifiedAccountTotal = default(string), string unifiedAccountTotalLiab = default(string), string unifiedAccountTotalEquity = default(string), string spotOrderLoss = default(string), bool spotHedge = default(bool), bool useFunding = default(bool), bool isAllCollateral = default(bool))
         {
             this.UserId = userId;
@@ -76,16 +76,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Time of the most recent refresh
+        /// Time of the most recent refresh.
         /// </summary>
-        /// <value>Time of the most recent refresh</value>
+        /// <value>Time of the most recent refresh.</value>
         [DataMember(Name="refresh_time")]
         public long RefreshTime { get; set; }
 
@@ -103,9 +103,9 @@ namespace Io.Gate.GateApi.Model
         public Dictionary<string, UnifiedBalance> Balances { get; set; }
 
         /// <summary>
-        /// Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
+        /// Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60; in all currencies (deprecated, to be deprecated, replaced by unified_account_total)
         /// </summary>
-        /// <value>Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60;  in all currencies (deprecated, to be deprecated, replaced by unified_account_total)</value>
+        /// <value>Total account assets converted to USD, i.e. the sum of &#x60;(available + freeze) * price&#x60; in all currencies (deprecated, to be deprecated, replaced by unified_account_total)</value>
         [DataMember(Name="total")]
         public string Total { get; set; }
 
@@ -180,9 +180,9 @@ namespace Io.Gate.GateApi.Model
         public string UnifiedAccountTotalEquity { get; set; }
 
         /// <summary>
-        /// Actual leverage, valid in cross-currency margin/combined margin mode
+        /// Actual leverage, valid in cross-currency margin/combined margin mode.
         /// </summary>
-        /// <value>Actual leverage, valid in cross-currency margin/combined margin mode</value>
+        /// <value>Actual leverage, valid in cross-currency margin/combined margin mode.</value>
         [DataMember(Name="leverage", EmitDefaultValue=false)]
         public string Leverage { get; private set; }
 
@@ -201,16 +201,16 @@ namespace Io.Gate.GateApi.Model
         public bool SpotHedge { get; set; }
 
         /// <summary>
-        /// Whether to use funds as margin
+        /// Whether to use funds as margin.
         /// </summary>
-        /// <value>Whether to use funds as margin</value>
+        /// <value>Whether to use funds as margin.</value>
         [DataMember(Name="use_funding")]
         public bool UseFunding { get; set; }
 
         /// <summary>
-        /// Whether all currencies are used as margin, true - All currencies are used as margin, false - No
+        /// Whether all currencies are used as margin, true - false - No
         /// </summary>
-        /// <value>Whether all currencies are used as margin, true - All currencies are used as margin, false - No</value>
+        /// <value>Whether all currencies are used as margin, true - false - No</value>
         [DataMember(Name="is_all_collateral")]
         public bool IsAllCollateral { get; set; }
 

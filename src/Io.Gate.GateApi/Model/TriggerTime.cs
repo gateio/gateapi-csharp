@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TriggerTime" /> class.
         /// </summary>
-        /// <param name="triggerTime">Timestamp of the end of the countdown, in milliseconds.</param>
+        /// <param name="triggerTime">Timestamp of the end of the countdown, in milliseconds..</param>
         public TriggerTime(long triggerTime = default(long))
         {
             this._TriggerTime = triggerTime;
         }
 
         /// <summary>
-        /// Timestamp of the end of the countdown, in milliseconds
+        /// Timestamp of the end of the countdown, in milliseconds.
         /// </summary>
-        /// <value>Timestamp of the end of the countdown, in milliseconds</value>
+        /// <value>Timestamp of the end of the countdown, in milliseconds.</value>
         [DataMember(Name="triggerTime")]
         public long _TriggerTime { get; set; }
 

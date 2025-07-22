@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot order details
+    /// Spot order details.
     /// </summary>
     [DataContract]
     public partial class OrderPatch :  IEquatable<OrderPatch>, IValidatableObject
@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderPatch" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="currencyPair">Currency pair..</param>
         /// <param name="account">Specify query account..</param>
-        /// <param name="amount">Trading Quantity. Either amountor pricemust be specified.</param>
-        /// <param name="price">Trading Price. Either amountor pricemust be specified.</param>
-        /// <param name="amendText">Custom info during amending order.</param>
+        /// <param name="amount">Trading Quantity. Either amountor pricemust be specified..</param>
+        /// <param name="price">Trading Price. Either amountor pricemust be specified..</param>
+        /// <param name="amendText">Custom info during amending order..</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
         public OrderPatch(string currencyPair = default(string), string account = default(string), string amount = default(string), string price = default(string), string amendText = default(string), string actionMode = default(string))
         {
@@ -50,9 +50,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
@@ -64,23 +64,23 @@ namespace Io.Gate.GateApi.Model
         public string Account { get; set; }
 
         /// <summary>
-        /// Trading Quantity. Either amountor pricemust be specified
+        /// Trading Quantity. Either amountor pricemust be specified.
         /// </summary>
-        /// <value>Trading Quantity. Either amountor pricemust be specified</value>
+        /// <value>Trading Quantity. Either amountor pricemust be specified.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Trading Price. Either amountor pricemust be specified
+        /// Trading Price. Either amountor pricemust be specified.
         /// </summary>
-        /// <value>Trading Price. Either amountor pricemust be specified</value>
+        /// <value>Trading Price. Either amountor pricemust be specified.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Custom info during amending order
+        /// Custom info during amending order.
         /// </summary>
-        /// <value>Custom info during amending order</value>
+        /// <value>Custom info during amending order.</value>
         [DataMember(Name="amend_text")]
         public string AmendText { get; set; }
 

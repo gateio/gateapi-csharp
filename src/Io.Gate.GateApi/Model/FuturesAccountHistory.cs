@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Statistical data
+    /// Statistical data.
     /// </summary>
     [DataContract]
     public partial class FuturesAccountHistory :  IEquatable<FuturesAccountHistory>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesAccountHistory" /> class.
         /// </summary>
-        /// <param name="dnw">total amount of deposit and withdraw.</param>
-        /// <param name="pnl">total amount of trading profit and loss.</param>
-        /// <param name="fee">total amount of fee.</param>
-        /// <param name="refr">total amount of referrer rebates.</param>
-        /// <param name="fund">total amount of funding costs.</param>
-        /// <param name="pointDnw">total amount of point deposit and withdraw.</param>
-        /// <param name="pointFee">total amount of point fee.</param>
-        /// <param name="pointRefr">total amount of referrer rebates of point fee.</param>
-        /// <param name="bonusDnw">total amount of perpetual contract bonus transfer.</param>
-        /// <param name="bonusOffset">total amount of perpetual contract bonus deduction.</param>
+        /// <param name="dnw">total amount of deposit and withdraw..</param>
+        /// <param name="pnl">total amount of trading profit and loss..</param>
+        /// <param name="fee">total amount of fee..</param>
+        /// <param name="refr">total amount of referrer rebates..</param>
+        /// <param name="fund">total amount of funding costs..</param>
+        /// <param name="pointDnw">total amount of point deposit and withdraw..</param>
+        /// <param name="pointFee">total amount of point fee..</param>
+        /// <param name="pointRefr">total amount of referrer rebates of point fee..</param>
+        /// <param name="bonusDnw">total amount of perpetual contract bonus transfer..</param>
+        /// <param name="bonusOffset">total amount of perpetual contract bonus deduction..</param>
         public FuturesAccountHistory(string dnw = default(string), string pnl = default(string), string fee = default(string), string refr = default(string), string fund = default(string), string pointDnw = default(string), string pointFee = default(string), string pointRefr = default(string), string bonusDnw = default(string), string bonusOffset = default(string))
         {
             this.Dnw = dnw;
@@ -58,72 +58,72 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// total amount of deposit and withdraw
+        /// total amount of deposit and withdraw.
         /// </summary>
-        /// <value>total amount of deposit and withdraw</value>
+        /// <value>total amount of deposit and withdraw.</value>
         [DataMember(Name="dnw")]
         public string Dnw { get; set; }
 
         /// <summary>
-        /// total amount of trading profit and loss
+        /// total amount of trading profit and loss.
         /// </summary>
-        /// <value>total amount of trading profit and loss</value>
+        /// <value>total amount of trading profit and loss.</value>
         [DataMember(Name="pnl")]
         public string Pnl { get; set; }
 
         /// <summary>
-        /// total amount of fee
+        /// total amount of fee.
         /// </summary>
-        /// <value>total amount of fee</value>
+        /// <value>total amount of fee.</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// total amount of referrer rebates
+        /// total amount of referrer rebates.
         /// </summary>
-        /// <value>total amount of referrer rebates</value>
+        /// <value>total amount of referrer rebates.</value>
         [DataMember(Name="refr")]
         public string Refr { get; set; }
 
         /// <summary>
-        /// total amount of funding costs
+        /// total amount of funding costs.
         /// </summary>
-        /// <value>total amount of funding costs</value>
+        /// <value>total amount of funding costs.</value>
         [DataMember(Name="fund")]
         public string Fund { get; set; }
 
         /// <summary>
-        /// total amount of point deposit and withdraw
+        /// total amount of point deposit and withdraw.
         /// </summary>
-        /// <value>total amount of point deposit and withdraw</value>
+        /// <value>total amount of point deposit and withdraw.</value>
         [DataMember(Name="point_dnw")]
         public string PointDnw { get; set; }
 
         /// <summary>
-        /// total amount of point fee
+        /// total amount of point fee.
         /// </summary>
-        /// <value>total amount of point fee</value>
+        /// <value>total amount of point fee.</value>
         [DataMember(Name="point_fee")]
         public string PointFee { get; set; }
 
         /// <summary>
-        /// total amount of referrer rebates of point fee
+        /// total amount of referrer rebates of point fee.
         /// </summary>
-        /// <value>total amount of referrer rebates of point fee</value>
+        /// <value>total amount of referrer rebates of point fee.</value>
         [DataMember(Name="point_refr")]
         public string PointRefr { get; set; }
 
         /// <summary>
-        /// total amount of perpetual contract bonus transfer
+        /// total amount of perpetual contract bonus transfer.
         /// </summary>
-        /// <value>total amount of perpetual contract bonus transfer</value>
+        /// <value>total amount of perpetual contract bonus transfer.</value>
         [DataMember(Name="bonus_dnw")]
         public string BonusDnw { get; set; }
 
         /// <summary>
-        /// total amount of perpetual contract bonus deduction
+        /// total amount of perpetual contract bonus deduction.
         /// </summary>
-        /// <value>total amount of perpetual contract bonus deduction</value>
+        /// <value>total amount of perpetual contract bonus deduction.</value>
         [DataMember(Name="bonus_offset")]
         public string BonusOffset { get; set; }
 

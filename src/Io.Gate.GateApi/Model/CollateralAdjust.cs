@@ -38,9 +38,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralAdjust" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID (required).</param>
+        /// <param name="orderId">Order ID. (required).</param>
         /// <param name="type">Operation types: append - for adding collateral, redeem - for withdrawing collateral (required).</param>
-        /// <param name="collaterals">Collateral Currency List.</param>
+        /// <param name="collaterals">Collateral Currency List..</param>
         public CollateralAdjust(long orderId = default(long), string type = default(string), List<CollateralCurrency> collaterals = default(List<CollateralCurrency>))
         {
             this.OrderId = orderId;
@@ -50,9 +50,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
@@ -64,9 +64,9 @@ namespace Io.Gate.GateApi.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Collateral Currency List
+        /// Collateral Currency List.
         /// </summary>
-        /// <value>Collateral Currency List</value>
+        /// <value>Collateral Currency List.</value>
         [DataMember(Name="collaterals")]
         public List<CollateralCurrency> Collaterals { get; set; }
 

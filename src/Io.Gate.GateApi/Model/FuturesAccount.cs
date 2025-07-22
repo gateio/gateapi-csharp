@@ -34,30 +34,30 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FuturesAccount" /> class.
         /// </summary>
         /// <param name="total">total is the balance after the user&#39;s accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total &#x3D; SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund).</param>
-        /// <param name="unrealisedPnl">Unrealized PNL.</param>
-        /// <param name="positionMargin">Position margin.</param>
-        /// <param name="orderMargin">Order margin of unfinished orders.</param>
-        /// <param name="available">The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus).</param>
-        /// <param name="point">POINT amount.</param>
-        /// <param name="currency">Settle currency.</param>
-        /// <param name="inDualMode">Whether dual mode is enabled.</param>
-        /// <param name="enableCredit">Whether portfolio margin account mode is enabled.</param>
-        /// <param name="positionInitialMargin">Initial margin position, applicable to the portfolio margin account model.</param>
+        /// <param name="unrealisedPnl">Unrealized PNL..</param>
+        /// <param name="positionMargin">Position margin..</param>
+        /// <param name="orderMargin">Order margin of unfinished orders..</param>
+        /// <param name="available">The available balance for transferring or trading(including bonus. Bonus can&#39;t be withdrawn. The transfer amount needs to deduct the bonus).</param>
+        /// <param name="point">POINT amount..</param>
+        /// <param name="currency">Settle currency..</param>
+        /// <param name="inDualMode">Whether dual mode is enabled..</param>
+        /// <param name="enableCredit">Whether portfolio margin account mode is enabled..</param>
+        /// <param name="positionInitialMargin">Initial margin position, applicable to the portfolio margin account model..</param>
         /// <param name="maintenanceMargin">The maintenance deposit occupied by the position is suitable for the new classic account margin model and unified account model.</param>
-        /// <param name="bonus">Perpetual Contract Bonus.</param>
-        /// <param name="enableEvolvedClassic">Classic account margin mode, true-new mode, false-old mode.</param>
+        /// <param name="bonus">Perpetual Contract Bonus..</param>
+        /// <param name="enableEvolvedClassic">Classic account margin mode, true-new mode, false-old mode..</param>
         /// <param name="crossOrderMargin">Full -warehouse hanging order deposit, suitable for the new classic account margin model.</param>
         /// <param name="crossInitialMargin">The initial security deposit of the full warehouse is suitable for the new classic account margin model.</param>
         /// <param name="crossMaintenanceMargin">Maintain deposit in full warehouse, suitable for new classic account margin models.</param>
         /// <param name="crossUnrealisedPnl">The full warehouse does not achieve profit and loss, suitable for the new classic account margin model.</param>
         /// <param name="crossAvailable">Full warehouse available amount, suitable for the new classic account margin model.</param>
-        /// <param name="crossMarginBalance">Full margin balance, suitable for the new classic account margin model.</param>
+        /// <param name="crossMarginBalance">Full margin balance, suitable for the new classic account margin model..</param>
         /// <param name="crossMmr">Maintain margin ratio for the full position, suitable for the new classic account margin model.</param>
         /// <param name="crossImr">The initial margin rate of the full position is suitable for the new classic account margin model.</param>
-        /// <param name="isolatedPositionMargin">Ware -position margin, suitable for the new classic account margin model.</param>
-        /// <param name="enableNewDualMode">Whether to open a new two-way position mode.</param>
+        /// <param name="isolatedPositionMargin">Ware -position margin, suitable for the new classic account margin model..</param>
+        /// <param name="enableNewDualMode">Whether to open a new two-way position mode..</param>
         /// <param name="marginMode">Margin mode, 0-classic margin mode, 1-cross-currency margin mode, 2-combined margin mode.</param>
-        /// <param name="enableTieredMm">Whether to enable tiered maintenance margin calculation.</param>
+        /// <param name="enableTieredMm">Whether to enable tiered maintenance margin calculation..</param>
         /// <param name="history">history.</param>
         public FuturesAccount(string total = default(string), string unrealisedPnl = default(string), string positionMargin = default(string), string orderMargin = default(string), string available = default(string), string point = default(string), string currency = default(string), bool inDualMode = default(bool), bool enableCredit = default(bool), string positionInitialMargin = default(string), string maintenanceMargin = default(string), string bonus = default(string), bool enableEvolvedClassic = default(bool), string crossOrderMargin = default(string), string crossInitialMargin = default(string), string crossMaintenanceMargin = default(string), string crossUnrealisedPnl = default(string), string crossAvailable = default(string), string crossMarginBalance = default(string), string crossMmr = default(string), string crossImr = default(string), string isolatedPositionMargin = default(string), bool enableNewDualMode = default(bool), int marginMode = default(int), bool enableTieredMm = default(bool), FuturesAccountHistory history = default(FuturesAccountHistory))
         {
@@ -97,65 +97,65 @@ namespace Io.Gate.GateApi.Model
         public string Total { get; set; }
 
         /// <summary>
-        /// Unrealized PNL
+        /// Unrealized PNL.
         /// </summary>
-        /// <value>Unrealized PNL</value>
+        /// <value>Unrealized PNL.</value>
         [DataMember(Name="unrealised_pnl")]
         public string UnrealisedPnl { get; set; }
 
         /// <summary>
-        /// Position margin
+        /// Position margin.
         /// </summary>
-        /// <value>Position margin</value>
+        /// <value>Position margin.</value>
         [DataMember(Name="position_margin")]
         public string PositionMargin { get; set; }
 
         /// <summary>
-        /// Order margin of unfinished orders
+        /// Order margin of unfinished orders.
         /// </summary>
-        /// <value>Order margin of unfinished orders</value>
+        /// <value>Order margin of unfinished orders.</value>
         [DataMember(Name="order_margin")]
         public string OrderMargin { get; set; }
 
         /// <summary>
-        /// The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)
+        /// The available balance for transferring or trading(including bonus. Bonus can&#39;t be withdrawn. The transfer amount needs to deduct the bonus)
         /// </summary>
-        /// <value>The available balance for transferring or trading(including bonus.  Bonus can&#39;t be be withdrawn. The transfer amount needs to deduct the bonus)</value>
+        /// <value>The available balance for transferring or trading(including bonus. Bonus can&#39;t be withdrawn. The transfer amount needs to deduct the bonus)</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
-        /// POINT amount
+        /// POINT amount.
         /// </summary>
-        /// <value>POINT amount</value>
+        /// <value>POINT amount.</value>
         [DataMember(Name="point")]
         public string Point { get; set; }
 
         /// <summary>
-        /// Settle currency
+        /// Settle currency.
         /// </summary>
-        /// <value>Settle currency</value>
+        /// <value>Settle currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Whether dual mode is enabled
+        /// Whether dual mode is enabled.
         /// </summary>
-        /// <value>Whether dual mode is enabled</value>
+        /// <value>Whether dual mode is enabled.</value>
         [DataMember(Name="in_dual_mode")]
         public bool InDualMode { get; set; }
 
         /// <summary>
-        /// Whether portfolio margin account mode is enabled
+        /// Whether portfolio margin account mode is enabled.
         /// </summary>
-        /// <value>Whether portfolio margin account mode is enabled</value>
+        /// <value>Whether portfolio margin account mode is enabled.</value>
         [DataMember(Name="enable_credit")]
         public bool EnableCredit { get; set; }
 
         /// <summary>
-        /// Initial margin position, applicable to the portfolio margin account model
+        /// Initial margin position, applicable to the portfolio margin account model.
         /// </summary>
-        /// <value>Initial margin position, applicable to the portfolio margin account model</value>
+        /// <value>Initial margin position, applicable to the portfolio margin account model.</value>
         [DataMember(Name="position_initial_margin")]
         public string PositionInitialMargin { get; set; }
 
@@ -167,16 +167,16 @@ namespace Io.Gate.GateApi.Model
         public string MaintenanceMargin { get; set; }
 
         /// <summary>
-        /// Perpetual Contract Bonus
+        /// Perpetual Contract Bonus.
         /// </summary>
-        /// <value>Perpetual Contract Bonus</value>
+        /// <value>Perpetual Contract Bonus.</value>
         [DataMember(Name="bonus")]
         public string Bonus { get; set; }
 
         /// <summary>
-        /// Classic account margin mode, true-new mode, false-old mode
+        /// Classic account margin mode, true-new mode, false-old mode.
         /// </summary>
-        /// <value>Classic account margin mode, true-new mode, false-old mode</value>
+        /// <value>Classic account margin mode, true-new mode, false-old mode.</value>
         [DataMember(Name="enable_evolved_classic")]
         public bool EnableEvolvedClassic { get; set; }
 
@@ -216,9 +216,9 @@ namespace Io.Gate.GateApi.Model
         public string CrossAvailable { get; set; }
 
         /// <summary>
-        /// Full margin balance, suitable for the new classic account margin model
+        /// Full margin balance, suitable for the new classic account margin model.
         /// </summary>
-        /// <value>Full margin balance, suitable for the new classic account margin model</value>
+        /// <value>Full margin balance, suitable for the new classic account margin model.</value>
         [DataMember(Name="cross_margin_balance")]
         public string CrossMarginBalance { get; set; }
 
@@ -237,16 +237,16 @@ namespace Io.Gate.GateApi.Model
         public string CrossImr { get; set; }
 
         /// <summary>
-        /// Ware -position margin, suitable for the new classic account margin model
+        /// Ware -position margin, suitable for the new classic account margin model.
         /// </summary>
-        /// <value>Ware -position margin, suitable for the new classic account margin model</value>
+        /// <value>Ware -position margin, suitable for the new classic account margin model.</value>
         [DataMember(Name="isolated_position_margin")]
         public string IsolatedPositionMargin { get; set; }
 
         /// <summary>
-        /// Whether to open a new two-way position mode
+        /// Whether to open a new two-way position mode.
         /// </summary>
-        /// <value>Whether to open a new two-way position mode</value>
+        /// <value>Whether to open a new two-way position mode.</value>
         [DataMember(Name="enable_new_dual_mode")]
         public bool EnableNewDualMode { get; set; }
 
@@ -258,9 +258,9 @@ namespace Io.Gate.GateApi.Model
         public int MarginMode { get; set; }
 
         /// <summary>
-        /// Whether to enable tiered maintenance margin calculation
+        /// Whether to enable tiered maintenance margin calculation.
         /// </summary>
-        /// <value>Whether to enable tiered maintenance margin calculation</value>
+        /// <value>Whether to enable tiered maintenance margin calculation.</value>
         [DataMember(Name="enable_tiered_mm")]
         public bool EnableTieredMm { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Flash swap order
+    /// Flash swap order.
     /// </summary>
     [DataContract]
     public partial class FlashSwapOrder :  IEquatable<FlashSwapOrder>, IValidatableObject
@@ -39,58 +39,58 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Flash swap order ID
+        /// Flash swap order ID.
         /// </summary>
-        /// <value>Flash swap order ID</value>
+        /// <value>Flash swap order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// Creation time of order (in milliseconds)
+        /// Creation time of order (in milliseconds).
         /// </summary>
-        /// <value>Creation time of order (in milliseconds)</value>
+        /// <value>Creation time of order (in milliseconds).</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id", EmitDefaultValue=false)]
         public long UserId { get; private set; }
 
         /// <summary>
-        /// Currency to sell
+        /// Currency to sell.
         /// </summary>
-        /// <value>Currency to sell</value>
+        /// <value>Currency to sell.</value>
         [DataMember(Name="sell_currency", EmitDefaultValue=false)]
         public string SellCurrency { get; private set; }
 
         /// <summary>
-        /// Amount to sell
+        /// Amount to sell.
         /// </summary>
-        /// <value>Amount to sell</value>
+        /// <value>Amount to sell.</value>
         [DataMember(Name="sell_amount", EmitDefaultValue=false)]
         public string SellAmount { get; private set; }
 
         /// <summary>
-        /// Currency to buy
+        /// Currency to buy.
         /// </summary>
-        /// <value>Currency to buy</value>
+        /// <value>Currency to buy.</value>
         [DataMember(Name="buy_currency", EmitDefaultValue=false)]
         public string BuyCurrency { get; private set; }
 
         /// <summary>
-        /// Amount to buy
+        /// Amount to buy.
         /// </summary>
-        /// <value>Amount to buy</value>
+        /// <value>Amount to buy.</value>
         [DataMember(Name="buy_amount", EmitDefaultValue=false)]
         public string BuyAmount { get; private set; }
 
         /// <summary>
-        /// Price
+        /// Price.
         /// </summary>
-        /// <value>Price</value>
+        /// <value>Price.</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
         public string Price { get; private set; }
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CurrencyPair** | **string** | Currency pair | [optional] 
+**CurrencyPair** | **string** | Currency pair. | [optional] 
 **Total** | **int** | The total number of pending orders for this trading pair on the current page | [optional] 
 **Orders** | [**List&lt;Order&gt;**](Order.md) |  | [optional] 
 

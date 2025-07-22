@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountCrossMarginBalance" /> class.
         /// </summary>
-        /// <param name="uid">User ID.</param>
+        /// <param name="uid">User ID..</param>
         /// <param name="available">账户余额信息.</param>
         public SubAccountCrossMarginBalance(string uid = default(string), SubCrossMarginAccount available = default(SubCrossMarginAccount))
         {
@@ -42,9 +42,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="uid")]
         public string Uid { get; set; }
 

@@ -33,16 +33,17 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrokerTransaction1" /> class.
         /// </summary>
-        /// <param name="transactionTime">Transaction Time. (unix timestamp).</param>
-        /// <param name="userId">User ID.</param>
-        /// <param name="groupName">Group name.</param>
-        /// <param name="fee">fee (usdt).</param>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="amount">Commission Amount.</param>
-        /// <param name="feeAsset">Fee currency.</param>
-        /// <param name="source">Rebate Type: Spot、Futures、Options.</param>
+        /// <param name="transactionTime">Transaction Time. (unix timestamp)..</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="groupName">Group name..</param>
+        /// <param name="fee">fee (usdt)..</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="amount">Commission Amount..</param>
+        /// <param name="feeAsset">Fee currency..</param>
+        /// <param name="source">Rebate Type: Spot、Futures、Options.、Alpha.</param>
         /// <param name="subBrokerInfo">subBrokerInfo.</param>
-        public BrokerTransaction1(long transactionTime = default(long), long userId = default(long), string groupName = default(string), string fee = default(string), string currencyPair = default(string), string amount = default(string), string feeAsset = default(string), string source = default(string), BrokerCommissionSubBrokerInfo subBrokerInfo = default(BrokerCommissionSubBrokerInfo))
+        /// <param name="alphaContractAddr">Alpha token address.</param>
+        public BrokerTransaction1(long transactionTime = default(long), long userId = default(long), string groupName = default(string), string fee = default(string), string currencyPair = default(string), string amount = default(string), string feeAsset = default(string), string source = default(string), BrokerCommissionSubBrokerInfo subBrokerInfo = default(BrokerCommissionSubBrokerInfo), string alphaContractAddr = default(string))
         {
             this.TransactionTime = transactionTime;
             this.UserId = userId;
@@ -53,61 +54,62 @@ namespace Io.Gate.GateApi.Model
             this.FeeAsset = feeAsset;
             this.Source = source;
             this.SubBrokerInfo = subBrokerInfo;
+            this.AlphaContractAddr = alphaContractAddr;
         }
 
         /// <summary>
-        /// Transaction Time. (unix timestamp)
+        /// Transaction Time. (unix timestamp).
         /// </summary>
-        /// <value>Transaction Time. (unix timestamp)</value>
+        /// <value>Transaction Time. (unix timestamp).</value>
         [DataMember(Name="transaction_time")]
         public long TransactionTime { get; set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Group name
+        /// Group name.
         /// </summary>
-        /// <value>Group name</value>
+        /// <value>Group name.</value>
         [DataMember(Name="group_name")]
         public string GroupName { get; set; }
 
         /// <summary>
-        /// fee (usdt)
+        /// fee (usdt).
         /// </summary>
-        /// <value>fee (usdt)</value>
+        /// <value>fee (usdt).</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Commission Amount
+        /// Commission Amount.
         /// </summary>
-        /// <value>Commission Amount</value>
+        /// <value>Commission Amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Fee currency
+        /// Fee currency.
         /// </summary>
-        /// <value>Fee currency</value>
+        /// <value>Fee currency.</value>
         [DataMember(Name="fee_asset")]
         public string FeeAsset { get; set; }
 
         /// <summary>
-        /// Rebate Type: Spot、Futures、Options
+        /// Rebate Type: Spot、Futures、Options.、Alpha
         /// </summary>
-        /// <value>Rebate Type: Spot、Futures、Options</value>
+        /// <value>Rebate Type: Spot、Futures、Options.、Alpha</value>
         [DataMember(Name="source")]
         public string Source { get; set; }
 
@@ -116,6 +118,13 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         [DataMember(Name="sub_broker_info")]
         public BrokerCommissionSubBrokerInfo SubBrokerInfo { get; set; }
+
+        /// <summary>
+        /// Alpha token address
+        /// </summary>
+        /// <value>Alpha token address</value>
+        [DataMember(Name="alpha_contract_addr")]
+        public string AlphaContractAddr { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,6 +143,7 @@ namespace Io.Gate.GateApi.Model
             sb.Append("  FeeAsset: ").Append(FeeAsset).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  SubBrokerInfo: ").Append(SubBrokerInfo).Append("\n");
+            sb.Append("  AlphaContractAddr: ").Append(AlphaContractAddr).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +220,11 @@ namespace Io.Gate.GateApi.Model
                     this.SubBrokerInfo == input.SubBrokerInfo ||
                     (this.SubBrokerInfo != null &&
                     this.SubBrokerInfo.Equals(input.SubBrokerInfo))
+                ) && 
+                (
+                    this.AlphaContractAddr == input.AlphaContractAddr ||
+                    (this.AlphaContractAddr != null &&
+                    this.AlphaContractAddr.Equals(input.AlphaContractAddr))
                 );
         }
 
@@ -238,6 +253,8 @@ namespace Io.Gate.GateApi.Model
                     hashCode = hashCode * 59 + this.Source.GetHashCode();
                 if (this.SubBrokerInfo != null)
                     hashCode = hashCode * 59 + this.SubBrokerInfo.GetHashCode();
+                if (this.AlphaContractAddr != null)
+                    hashCode = hashCode * 59 + this.AlphaContractAddr.GetHashCode();
                 return hashCode;
             }
         }

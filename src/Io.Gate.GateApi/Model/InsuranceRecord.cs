@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InsuranceRecord" /> class.
         /// </summary>
-        /// <param name="t">Unix timestamp in seconds.</param>
-        /// <param name="b">Insurance balance.</param>
+        /// <param name="t">Unix timestamp in seconds..</param>
+        /// <param name="b">Insurance balance..</param>
         public InsuranceRecord(long t = default(long), string b = default(string))
         {
             this.T = t;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Unix timestamp in seconds
+        /// Unix timestamp in seconds.
         /// </summary>
-        /// <value>Unix timestamp in seconds</value>
+        /// <value>Unix timestamp in seconds.</value>
         [DataMember(Name="t")]
         public long T { get; set; }
 
         /// <summary>
-        /// Insurance balance
+        /// Insurance balance.
         /// </summary>
-        /// <value>Insurance balance</value>
+        /// <value>Insurance balance.</value>
         [DataMember(Name="b")]
         public string B { get; set; }
 

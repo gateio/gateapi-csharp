@@ -33,14 +33,14 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginAccountBook" /> class.
         /// </summary>
-        /// <param name="id">Balance change record ID.</param>
-        /// <param name="time">Balance changed timestamp.</param>
-        /// <param name="timeMs">The timestamp of the change (in milliseconds).</param>
-        /// <param name="currency">Currency changed.</param>
-        /// <param name="currencyPair">Account currency pair.</param>
-        /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
-        /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Account book type.  Please refer to [account book type](#accountbook-type) for more detail.</param>
+        /// <param name="id">Balance change record ID..</param>
+        /// <param name="time">Balance changed timestamp..</param>
+        /// <param name="timeMs">The timestamp of the change (in milliseconds)..</param>
+        /// <param name="currency">Currency changed..</param>
+        /// <param name="currencyPair">Account currency pair..</param>
+        /// <param name="change">Amount changed. Positive value means transferring in, while negative out..</param>
+        /// <param name="balance">Balance after change..</param>
+        /// <param name="type">Account book type. Please refer to [account book type](#accountbook-type) for more detail.</param>
         public MarginAccountBook(string id = default(string), string time = default(string), long timeMs = default(long), string currency = default(string), string currencyPair = default(string), string change = default(string), string balance = default(string), string type = default(string))
         {
             this.Id = id;
@@ -54,58 +54,58 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Balance change record ID
+        /// Balance change record ID.
         /// </summary>
-        /// <value>Balance change record ID</value>
+        /// <value>Balance change record ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Balance changed timestamp
+        /// Balance changed timestamp.
         /// </summary>
-        /// <value>Balance changed timestamp</value>
+        /// <value>Balance changed timestamp.</value>
         [DataMember(Name="time")]
         public string Time { get; set; }
 
         /// <summary>
-        /// The timestamp of the change (in milliseconds)
+        /// The timestamp of the change (in milliseconds).
         /// </summary>
-        /// <value>The timestamp of the change (in milliseconds)</value>
+        /// <value>The timestamp of the change (in milliseconds).</value>
         [DataMember(Name="time_ms")]
         public long TimeMs { get; set; }
 
         /// <summary>
-        /// Currency changed
+        /// Currency changed.
         /// </summary>
-        /// <value>Currency changed</value>
+        /// <value>Currency changed.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Account currency pair
+        /// Account currency pair.
         /// </summary>
-        /// <value>Account currency pair</value>
+        /// <value>Account currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Amount changed. Positive value means transferring in, while negative out
+        /// Amount changed. Positive value means transferring in, while negative out.
         /// </summary>
-        /// <value>Amount changed. Positive value means transferring in, while negative out</value>
+        /// <value>Amount changed. Positive value means transferring in, while negative out.</value>
         [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
-        /// Balance after change
+        /// Balance after change.
         /// </summary>
-        /// <value>Balance after change</value>
+        /// <value>Balance after change.</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>
-        /// Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+        /// Account book type. Please refer to [account book type](#accountbook-type) for more detail
         /// </summary>
-        /// <value>Account book type.  Please refer to [account book type](#accountbook-type) for more detail</value>
+        /// <value>Account book type. Please refer to [account book type](#accountbook-type) for more detail</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
 

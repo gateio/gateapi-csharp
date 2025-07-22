@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// User&#39;s balance in all accounts
+    /// User&#39;s balance in all accounts.
     /// </summary>
     [DataContract]
     public partial class TotalBalance :  IEquatable<TotalBalance>, IValidatableObject

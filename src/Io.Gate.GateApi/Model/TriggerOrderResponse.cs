@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TriggerOrderResponse" /> class.
         /// </summary>
-        /// <param name="id">Auto order ID.</param>
+        /// <param name="id">Auto order ID..</param>
         public TriggerOrderResponse(long id = default(long))
         {
             this.Id = id;
         }
 
         /// <summary>
-        /// Auto order ID
+        /// Auto order ID.
         /// </summary>
-        /// <value>Auto order ID</value>
+        /// <value>Auto order ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 

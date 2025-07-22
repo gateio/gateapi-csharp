@@ -39,72 +39,72 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Automatic deleveraging time
+        /// Automatic deleveraging time.
         /// </summary>
-        /// <value>Automatic deleveraging time</value>
+        /// <value>Automatic deleveraging time.</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
         public long Time { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public long User { get; private set; }
 
         /// <summary>
-        /// Order ID. Order IDs before 2023-02-20 are null
+        /// Order ID. Order IDs before 2023-02-20 are null.
         /// </summary>
-        /// <value>Order ID. Order IDs before 2023-02-20 are null</value>
+        /// <value>Order ID. Order IDs before 2023-02-20 are null.</value>
         [DataMember(Name="order_id", EmitDefaultValue=false)]
         public long OrderId { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// Position leverage
+        /// Position leverage.
         /// </summary>
-        /// <value>Position leverage</value>
+        /// <value>Position leverage.</value>
         [DataMember(Name="leverage", EmitDefaultValue=false)]
         public string Leverage { get; private set; }
 
         /// <summary>
-        /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)
+        /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).
         /// </summary>
-        /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)</value>
+        /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).</value>
         [DataMember(Name="cross_leverage_limit", EmitDefaultValue=false)]
         public string CrossLeverageLimit { get; private set; }
 
         /// <summary>
-        /// Average entry price
+        /// Average entry price.
         /// </summary>
-        /// <value>Average entry price</value>
+        /// <value>Average entry price.</value>
         [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
-        /// Average fill price
+        /// Average fill price.
         /// </summary>
-        /// <value>Average fill price</value>
+        /// <value>Average fill price.</value>
         [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
-        /// Trading size
+        /// Trading size.
         /// </summary>
-        /// <value>Trading size</value>
+        /// <value>Trading size.</value>
         [DataMember(Name="trade_size", EmitDefaultValue=false)]
         public long TradeSize { get; private set; }
 
         /// <summary>
-        /// Positions after auto-deleveraging
+        /// Positions after auto-deleveraging.
         /// </summary>
-        /// <value>Positions after auto-deleveraging</value>
+        /// <value>Positions after auto-deleveraging.</value>
         [DataMember(Name="position_size", EmitDefaultValue=false)]
         public long PositionSize { get; private set; }
 

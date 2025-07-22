@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Currency pair of the loan
+    /// Currency pair of the loan.
     /// </summary>
     [DataContract]
     public partial class UniCurrencyPair :  IEquatable<UniCurrencyPair>, IValidatableObject
@@ -39,30 +39,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// Minimum borrow amount of base currency
+        /// Minimum borrow amount of base currency.
         /// </summary>
-        /// <value>Minimum borrow amount of base currency</value>
+        /// <value>Minimum borrow amount of base currency.</value>
         [DataMember(Name="base_min_borrow_amount", EmitDefaultValue=false)]
         public string BaseMinBorrowAmount { get; private set; }
 
         /// <summary>
-        /// Minimum borrow amount of quote currency
+        /// Minimum borrow amount of quote currency.
         /// </summary>
-        /// <value>Minimum borrow amount of quote currency</value>
+        /// <value>Minimum borrow amount of quote currency.</value>
         [DataMember(Name="quote_min_borrow_amount", EmitDefaultValue=false)]
         public string QuoteMinBorrowAmount { get; private set; }
 
         /// <summary>
-        /// Position leverage
+        /// Position leverage.
         /// </summary>
-        /// <value>Position leverage</value>
+        /// <value>Position leverage.</value>
         [DataMember(Name="leverage", EmitDefaultValue=false)]
         public string Leverage { get; private set; }
 

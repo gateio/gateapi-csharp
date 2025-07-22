@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures contract details
+    /// Futures contract details.
     /// </summary>
     [DataContract]
     public partial class Contract :  IEquatable<Contract>, IValidatableObject
     {
         /// <summary>
-        /// Futures contract type
+        /// Futures contract type.
         /// </summary>
-        /// <value>Futures contract type</value>
+        /// <value>Futures contract type.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -52,15 +52,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Futures contract type
+        /// Futures contract type.
         /// </summary>
-        /// <value>Futures contract type</value>
+        /// <value>Futures contract type.</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Mark price type, internal - based on internal trading, index - based on external index price
+        /// Mark price type, internal - based on internal trading, external index price
         /// </summary>
-        /// <value>Mark price type, internal - based on internal trading, index - based on external index price</value>
+        /// <value>Mark price type, internal - based on internal trading, external index price</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MarkTypeEnum
         {
@@ -79,52 +79,52 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Mark price type, internal - based on internal trading, index - based on external index price
+        /// Mark price type, internal - based on internal trading, external index price
         /// </summary>
-        /// <value>Mark price type, internal - based on internal trading, index - based on external index price</value>
+        /// <value>Mark price type, internal - based on internal trading, external index price</value>
         [DataMember(Name="mark_type")]
         public MarkTypeEnum? MarkType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Contract" /> class.
         /// </summary>
-        /// <param name="name">Futures contract.</param>
-        /// <param name="type">Futures contract type.</param>
-        /// <param name="quantoMultiplier">Multiplier used in converting from invoicing to settlement currency.</param>
-        /// <param name="leverageMin">Minimum leverage.</param>
-        /// <param name="leverageMax">Maximum leverage.</param>
-        /// <param name="maintenanceRate">Maintenance rate of margin.</param>
-        /// <param name="markType">Mark price type, internal - based on internal trading, index - based on external index price.</param>
-        /// <param name="markPrice">Current mark price.</param>
-        /// <param name="indexPrice">Current index price.</param>
-        /// <param name="lastPrice">Last trading price.</param>
-        /// <param name="makerFeeRate">Maker fee rate, where negative means rebate.</param>
-        /// <param name="takerFeeRate">Taker fee rate.</param>
-        /// <param name="orderPriceRound">Minimum order price increment.</param>
-        /// <param name="markPriceRound">Minimum mark price increment.</param>
-        /// <param name="fundingRate">Current funding rate.</param>
-        /// <param name="fundingInterval">Funding application interval, unit in seconds.</param>
-        /// <param name="fundingNextApply">Next funding time.</param>
-        /// <param name="riskLimitBase">Risk limit base,deprecated.</param>
-        /// <param name="riskLimitStep">Step of adjusting risk limit,deprecated.</param>
+        /// <param name="name">Futures contract..</param>
+        /// <param name="type">Futures contract type..</param>
+        /// <param name="quantoMultiplier">Multiplier used in converting from invoicing to settlement currency..</param>
+        /// <param name="leverageMin">Minimum leverage..</param>
+        /// <param name="leverageMax">Maximum leverage..</param>
+        /// <param name="maintenanceRate">Maintenance rate of margin..</param>
+        /// <param name="markType">Mark price type, internal - based on internal trading, external index price.</param>
+        /// <param name="markPrice">Current mark price..</param>
+        /// <param name="indexPrice">Current index price..</param>
+        /// <param name="lastPrice">Last trading price..</param>
+        /// <param name="makerFeeRate">Maker fee rate, where negative means rebate..</param>
+        /// <param name="takerFeeRate">Taker fee rate..</param>
+        /// <param name="orderPriceRound">Minimum order price increment..</param>
+        /// <param name="markPriceRound">Minimum mark price increment..</param>
+        /// <param name="fundingRate">Current funding rate..</param>
+        /// <param name="fundingInterval">Funding application interval, unit in seconds..</param>
+        /// <param name="fundingNextApply">Next funding time..</param>
+        /// <param name="riskLimitBase">Risk limit base,deprecated..</param>
+        /// <param name="riskLimitStep">Step of adjusting risk limit,deprecated..</param>
         /// <param name="riskLimitMax">Maximum risk limit the contract allowed,deprecated,It is recommended to use /futures/{settle}/risk_limit_tiers to query risk limits..</param>
-        /// <param name="orderSizeMin">Minimum order size the contract allowed.</param>
-        /// <param name="orderSizeMax">Maximum order size the contract allowed.</param>
+        /// <param name="orderSizeMin">Minimum order size the contract allowed..</param>
+        /// <param name="orderSizeMax">Maximum order size the contract allowed..</param>
         /// <param name="orderPriceDeviate">deviation between order price and current index price. If price of an order is denoted as order_price, it must meet the following condition:   abs(order_price - mark_price) &lt;&#x3D; mark_price * order_price_deviate.</param>
-        /// <param name="refDiscountRate">Referral fee rate discount.</param>
-        /// <param name="refRebateRate">Referrer commission rate.</param>
-        /// <param name="orderbookId">Current orderbook ID.</param>
-        /// <param name="tradeId">Current trade ID.</param>
-        /// <param name="tradeSize">Historical accumulated trade size.</param>
-        /// <param name="positionSize">Current total long position size.</param>
-        /// <param name="configChangeTime">Last changed time of configuration.</param>
-        /// <param name="inDelisting">&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline.</param>
-        /// <param name="ordersLimit">Maximum number of open orders.</param>
-        /// <param name="enableBonus">Whether bouns is enabled.</param>
-        /// <param name="enableCredit">Whether portfolio margin account is enabled.</param>
-        /// <param name="createTime">Created time of the contract.</param>
+        /// <param name="refDiscountRate">Referral fee rate discount..</param>
+        /// <param name="refRebateRate">Referrer commission rate..</param>
+        /// <param name="orderbookId">Current orderbook ID..</param>
+        /// <param name="tradeId">Current trade ID..</param>
+        /// <param name="tradeSize">Historical accumulated trade size..</param>
+        /// <param name="positionSize">Current total long position size..</param>
+        /// <param name="configChangeTime">Last changed time of configuration..</param>
+        /// <param name="inDelisting">&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; contract is offline.</param>
+        /// <param name="ordersLimit">Maximum number of open orders..</param>
+        /// <param name="enableBonus">Whether bouns is enabled..</param>
+        /// <param name="enableCredit">Whether portfolio margin account is enabled..</param>
+        /// <param name="createTime">Created time of the contract..</param>
         /// <param name="fundingCapRatio">The factor for the maximum of the funding rate. Maximum of funding rate &#x3D; (1/market maximum leverage - maintenance margin rate) * funding_cap_ratio.</param>
-        /// <param name="status">Contract Status Types include:  prelaunch,  trading, delisting,  delisted .</param>
-        /// <param name="launchTime">Contract expiry timestamp.</param>
+        /// <param name="status">Contract Status Types include: prelaunch, trading, delisting, delisted..</param>
+        /// <param name="launchTime">Contract expiry timestamp..</param>
         public Contract(string name = default(string), TypeEnum? type = default(TypeEnum?), string quantoMultiplier = default(string), string leverageMin = default(string), string leverageMax = default(string), string maintenanceRate = default(string), MarkTypeEnum? markType = default(MarkTypeEnum?), string markPrice = default(string), string indexPrice = default(string), string lastPrice = default(string), string makerFeeRate = default(string), string takerFeeRate = default(string), string orderPriceRound = default(string), string markPriceRound = default(string), string fundingRate = default(string), int fundingInterval = default(int), double fundingNextApply = default(double), string riskLimitBase = default(string), string riskLimitStep = default(string), string riskLimitMax = default(string), long orderSizeMin = default(long), long orderSizeMax = default(long), string orderPriceDeviate = default(string), string refDiscountRate = default(string), string refRebateRate = default(string), long orderbookId = default(long), long tradeId = default(long), long tradeSize = default(long), long positionSize = default(long), double configChangeTime = default(double), bool inDelisting = default(bool), int ordersLimit = default(int), bool enableBonus = default(bool), bool enableCredit = default(bool), double createTime = default(double), string fundingCapRatio = default(string), string status = default(string), long launchTime = default(long))
         {
             this.Name = name;
@@ -168,121 +168,121 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Multiplier used in converting from invoicing to settlement currency
+        /// Multiplier used in converting from invoicing to settlement currency.
         /// </summary>
-        /// <value>Multiplier used in converting from invoicing to settlement currency</value>
+        /// <value>Multiplier used in converting from invoicing to settlement currency.</value>
         [DataMember(Name="quanto_multiplier")]
         public string QuantoMultiplier { get; set; }
 
         /// <summary>
-        /// Minimum leverage
+        /// Minimum leverage.
         /// </summary>
-        /// <value>Minimum leverage</value>
+        /// <value>Minimum leverage.</value>
         [DataMember(Name="leverage_min")]
         public string LeverageMin { get; set; }
 
         /// <summary>
-        /// Maximum leverage
+        /// Maximum leverage.
         /// </summary>
-        /// <value>Maximum leverage</value>
+        /// <value>Maximum leverage.</value>
         [DataMember(Name="leverage_max")]
         public string LeverageMax { get; set; }
 
         /// <summary>
-        /// Maintenance rate of margin
+        /// Maintenance rate of margin.
         /// </summary>
-        /// <value>Maintenance rate of margin</value>
+        /// <value>Maintenance rate of margin.</value>
         [DataMember(Name="maintenance_rate")]
         public string MaintenanceRate { get; set; }
 
         /// <summary>
-        /// Current mark price
+        /// Current mark price.
         /// </summary>
-        /// <value>Current mark price</value>
+        /// <value>Current mark price.</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Current index price
+        /// Current index price.
         /// </summary>
-        /// <value>Current index price</value>
+        /// <value>Current index price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Last trading price
+        /// Last trading price.
         /// </summary>
-        /// <value>Last trading price</value>
+        /// <value>Last trading price.</value>
         [DataMember(Name="last_price")]
         public string LastPrice { get; set; }
 
         /// <summary>
-        /// Maker fee rate, where negative means rebate
+        /// Maker fee rate, where negative means rebate.
         /// </summary>
-        /// <value>Maker fee rate, where negative means rebate</value>
+        /// <value>Maker fee rate, where negative means rebate.</value>
         [DataMember(Name="maker_fee_rate")]
         public string MakerFeeRate { get; set; }
 
         /// <summary>
-        /// Taker fee rate
+        /// Taker fee rate.
         /// </summary>
-        /// <value>Taker fee rate</value>
+        /// <value>Taker fee rate.</value>
         [DataMember(Name="taker_fee_rate")]
         public string TakerFeeRate { get; set; }
 
         /// <summary>
-        /// Minimum order price increment
+        /// Minimum order price increment.
         /// </summary>
-        /// <value>Minimum order price increment</value>
+        /// <value>Minimum order price increment.</value>
         [DataMember(Name="order_price_round")]
         public string OrderPriceRound { get; set; }
 
         /// <summary>
-        /// Minimum mark price increment
+        /// Minimum mark price increment.
         /// </summary>
-        /// <value>Minimum mark price increment</value>
+        /// <value>Minimum mark price increment.</value>
         [DataMember(Name="mark_price_round")]
         public string MarkPriceRound { get; set; }
 
         /// <summary>
-        /// Current funding rate
+        /// Current funding rate.
         /// </summary>
-        /// <value>Current funding rate</value>
+        /// <value>Current funding rate.</value>
         [DataMember(Name="funding_rate")]
         public string FundingRate { get; set; }
 
         /// <summary>
-        /// Funding application interval, unit in seconds
+        /// Funding application interval, unit in seconds.
         /// </summary>
-        /// <value>Funding application interval, unit in seconds</value>
+        /// <value>Funding application interval, unit in seconds.</value>
         [DataMember(Name="funding_interval")]
         public int FundingInterval { get; set; }
 
         /// <summary>
-        /// Next funding time
+        /// Next funding time.
         /// </summary>
-        /// <value>Next funding time</value>
+        /// <value>Next funding time.</value>
         [DataMember(Name="funding_next_apply")]
         public double FundingNextApply { get; set; }
 
         /// <summary>
-        /// Risk limit base,deprecated
+        /// Risk limit base,deprecated.
         /// </summary>
-        /// <value>Risk limit base,deprecated</value>
+        /// <value>Risk limit base,deprecated.</value>
         [DataMember(Name="risk_limit_base")]
         public string RiskLimitBase { get; set; }
 
         /// <summary>
-        /// Step of adjusting risk limit,deprecated
+        /// Step of adjusting risk limit,deprecated.
         /// </summary>
-        /// <value>Step of adjusting risk limit,deprecated</value>
+        /// <value>Step of adjusting risk limit,deprecated.</value>
         [DataMember(Name="risk_limit_step")]
         public string RiskLimitStep { get; set; }
 
@@ -294,16 +294,16 @@ namespace Io.Gate.GateApi.Model
         public string RiskLimitMax { get; set; }
 
         /// <summary>
-        /// Minimum order size the contract allowed
+        /// Minimum order size the contract allowed.
         /// </summary>
-        /// <value>Minimum order size the contract allowed</value>
+        /// <value>Minimum order size the contract allowed.</value>
         [DataMember(Name="order_size_min")]
         public long OrderSizeMin { get; set; }
 
         /// <summary>
-        /// Maximum order size the contract allowed
+        /// Maximum order size the contract allowed.
         /// </summary>
-        /// <value>Maximum order size the contract allowed</value>
+        /// <value>Maximum order size the contract allowed.</value>
         [DataMember(Name="order_size_max")]
         public long OrderSizeMax { get; set; }
 
@@ -315,86 +315,86 @@ namespace Io.Gate.GateApi.Model
         public string OrderPriceDeviate { get; set; }
 
         /// <summary>
-        /// Referral fee rate discount
+        /// Referral fee rate discount.
         /// </summary>
-        /// <value>Referral fee rate discount</value>
+        /// <value>Referral fee rate discount.</value>
         [DataMember(Name="ref_discount_rate")]
         public string RefDiscountRate { get; set; }
 
         /// <summary>
-        /// Referrer commission rate
+        /// Referrer commission rate.
         /// </summary>
-        /// <value>Referrer commission rate</value>
+        /// <value>Referrer commission rate.</value>
         [DataMember(Name="ref_rebate_rate")]
         public string RefRebateRate { get; set; }
 
         /// <summary>
-        /// Current orderbook ID
+        /// Current orderbook ID.
         /// </summary>
-        /// <value>Current orderbook ID</value>
+        /// <value>Current orderbook ID.</value>
         [DataMember(Name="orderbook_id")]
         public long OrderbookId { get; set; }
 
         /// <summary>
-        /// Current trade ID
+        /// Current trade ID.
         /// </summary>
-        /// <value>Current trade ID</value>
+        /// <value>Current trade ID.</value>
         [DataMember(Name="trade_id")]
         public long TradeId { get; set; }
 
         /// <summary>
-        /// Historical accumulated trade size
+        /// Historical accumulated trade size.
         /// </summary>
-        /// <value>Historical accumulated trade size</value>
+        /// <value>Historical accumulated trade size.</value>
         [DataMember(Name="trade_size")]
         public long TradeSize { get; set; }
 
         /// <summary>
-        /// Current total long position size
+        /// Current total long position size.
         /// </summary>
-        /// <value>Current total long position size</value>
+        /// <value>Current total long position size.</value>
         [DataMember(Name="position_size")]
         public long PositionSize { get; set; }
 
         /// <summary>
-        /// Last changed time of configuration
+        /// Last changed time of configuration.
         /// </summary>
-        /// <value>Last changed time of configuration</value>
+        /// <value>Last changed time of configuration.</value>
         [DataMember(Name="config_change_time")]
         public double ConfigChangeTime { get; set; }
 
         /// <summary>
-        /// &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline
+        /// &#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; contract is offline
         /// </summary>
-        /// <value>&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; And when position_size&#x3D;0, it means the contract is offline</value>
+        /// <value>&#x60;in_delisting&#x3D;true&#x60; And when position_size&gt;0, it means the contract is in the offline transition period &#x60;in_delisting&#x3D;true&#x60; contract is offline</value>
         [DataMember(Name="in_delisting")]
         public bool InDelisting { get; set; }
 
         /// <summary>
-        /// Maximum number of open orders
+        /// Maximum number of open orders.
         /// </summary>
-        /// <value>Maximum number of open orders</value>
+        /// <value>Maximum number of open orders.</value>
         [DataMember(Name="orders_limit")]
         public int OrdersLimit { get; set; }
 
         /// <summary>
-        /// Whether bouns is enabled
+        /// Whether bouns is enabled.
         /// </summary>
-        /// <value>Whether bouns is enabled</value>
+        /// <value>Whether bouns is enabled.</value>
         [DataMember(Name="enable_bonus")]
         public bool EnableBonus { get; set; }
 
         /// <summary>
-        /// Whether portfolio margin account is enabled
+        /// Whether portfolio margin account is enabled.
         /// </summary>
-        /// <value>Whether portfolio margin account is enabled</value>
+        /// <value>Whether portfolio margin account is enabled.</value>
         [DataMember(Name="enable_credit")]
         public bool EnableCredit { get; set; }
 
         /// <summary>
-        /// Created time of the contract
+        /// Created time of the contract.
         /// </summary>
-        /// <value>Created time of the contract</value>
+        /// <value>Created time of the contract.</value>
         [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
@@ -406,16 +406,16 @@ namespace Io.Gate.GateApi.Model
         public string FundingCapRatio { get; set; }
 
         /// <summary>
-        /// Contract Status Types include:  prelaunch,  trading, delisting,  delisted 
+        /// Contract Status Types include: prelaunch, trading, delisting, delisted.
         /// </summary>
-        /// <value>Contract Status Types include:  prelaunch,  trading, delisting,  delisted </value>
+        /// <value>Contract Status Types include: prelaunch, trading, delisting, delisted.</value>
         [DataMember(Name="status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// Contract expiry timestamp
+        /// Contract expiry timestamp.
         /// </summary>
-        /// <value>Contract expiry timestamp</value>
+        /// <value>Contract expiry timestamp.</value>
         [DataMember(Name="launch_time")]
         public long LaunchTime { get; set; }
 

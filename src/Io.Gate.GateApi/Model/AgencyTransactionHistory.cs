@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgencyTransactionHistory" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="total">Total.</param>
-        /// <param name="list">List of transaction history.</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="total">Total..</param>
+        /// <param name="list">List of transaction history..</param>
         public AgencyTransactionHistory(string currencyPair = default(string), long total = default(long), List<AgencyTransaction> list = default(List<AgencyTransaction>))
         {
             this.CurrencyPair = currencyPair;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Total
+        /// Total.
         /// </summary>
-        /// <value>Total</value>
+        /// <value>Total.</value>
         [DataMember(Name="total")]
         public long Total { get; set; }
 
         /// <summary>
-        /// List of transaction history
+        /// List of transaction history.
         /// </summary>
-        /// <value>List of transaction history</value>
+        /// <value>List of transaction history.</value>
         [DataMember(Name="list")]
         public List<AgencyTransaction> List { get; set; }
 

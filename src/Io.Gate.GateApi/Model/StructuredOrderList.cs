@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Structured order
+    /// Structured order.
     /// </summary>
     [DataContract]
     public partial class StructuredOrderList :  IEquatable<StructuredOrderList>, IValidatableObject
@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredOrderList" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
-        /// <param name="pid">Plan ID.</param>
-        /// <param name="lockCoin">Locked coin.</param>
-        /// <param name="amount">Locked amount.</param>
+        /// <param name="id">Order ID..</param>
+        /// <param name="pid">Plan ID..</param>
+        /// <param name="lockCoin">Locked coin..</param>
+        /// <param name="amount">Locked amount..</param>
         /// <param name="status">Status:   SUCCESS - SUCCESS  FAILED - FAILED DONE - DONE.</param>
-        /// <param name="income">Income.</param>
-        /// <param name="createTime">Created time.</param>
+        /// <param name="income">Income..</param>
+        /// <param name="createTime">Created time..</param>
         public StructuredOrderList(int id = default(int), string pid = default(string), string lockCoin = default(string), string amount = default(string), string status = default(string), string income = default(string), int createTime = default(int))
         {
             this.Id = id;
@@ -52,30 +52,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="pid")]
         public string Pid { get; set; }
 
         /// <summary>
-        /// Locked coin
+        /// Locked coin.
         /// </summary>
-        /// <value>Locked coin</value>
+        /// <value>Locked coin.</value>
         [DataMember(Name="lock_coin")]
         public string LockCoin { get; set; }
 
         /// <summary>
-        /// Locked amount
+        /// Locked amount.
         /// </summary>
-        /// <value>Locked amount</value>
+        /// <value>Locked amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
@@ -87,16 +87,16 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Income
+        /// Income.
         /// </summary>
-        /// <value>Income</value>
+        /// <value>Income.</value>
         [DataMember(Name="income")]
         public string Income { get; set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time")]
         public int CreateTime { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// ETH2 Staking
+    /// ETH2 Staking.
     /// </summary>
     [DataContract]
     public partial class Eth2Swap :  IEquatable<Eth2Swap>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Eth2Swap" /> class.
         /// </summary>
-        /// <param name="side">1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH） (required).</param>
-        /// <param name="amount">amount (required).</param>
+        /// <param name="side">1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）. (required).</param>
+        /// <param name="amount">amount. (required).</param>
         public Eth2Swap(string side = default(string), string amount = default(string))
         {
             // to ensure "side" is required (not null)
@@ -49,16 +49,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// 1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）
+        /// 1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）.
         /// </summary>
-        /// <value>1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）</value>
+        /// <value>1-Forward Swap（ETH -&gt; ETH2）, 2-Reverse Swap（ETH2 -&gt; ETH）.</value>
         [DataMember(Name="side")]
         public string Side { get; set; }
 
         /// <summary>
-        /// amount
+        /// amount.
         /// </summary>
-        /// <value>amount</value>
+        /// <value>amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

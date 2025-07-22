@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options underlying detail
+    /// Options underlying detail.
     /// </summary>
     [DataContract]
     public partial class OptionsUnderlyingTicker :  IEquatable<OptionsUnderlyingTicker>, IValidatableObject
@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsUnderlyingTicker" /> class.
         /// </summary>
-        /// <param name="tradePut">Total put options trades amount in last 24h.</param>
-        /// <param name="tradeCall">Total call options trades amount in last 24h.</param>
-        /// <param name="indexPrice">Index price (quote currency).</param>
+        /// <param name="tradePut">Total put options trades amount in last 24h..</param>
+        /// <param name="tradeCall">Total call options trades amount in last 24h..</param>
+        /// <param name="indexPrice">Index price (quote currency)..</param>
         public OptionsUnderlyingTicker(long tradePut = default(long), long tradeCall = default(long), string indexPrice = default(string))
         {
             this.TradePut = tradePut;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Total put options trades amount in last 24h
+        /// Total put options trades amount in last 24h.
         /// </summary>
-        /// <value>Total put options trades amount in last 24h</value>
+        /// <value>Total put options trades amount in last 24h.</value>
         [DataMember(Name="trade_put")]
         public long TradePut { get; set; }
 
         /// <summary>
-        /// Total call options trades amount in last 24h
+        /// Total call options trades amount in last 24h.
         /// </summary>
-        /// <value>Total call options trades amount in last 24h</value>
+        /// <value>Total call options trades amount in last 24h.</value>
         [DataMember(Name="trade_call")]
         public long TradeCall { get; set; }
 
         /// <summary>
-        /// Index price (quote currency)
+        /// Index price (quote currency).
         /// </summary>
-        /// <value>Index price (quote currency)</value>
+        /// <value>Index price (quote currency).</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 

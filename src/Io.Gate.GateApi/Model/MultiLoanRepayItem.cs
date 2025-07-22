@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiLoanRepayItem" /> class.
         /// </summary>
-        /// <param name="currency">Repayment currency.</param>
-        /// <param name="amount">Size.</param>
+        /// <param name="currency">Repayment currency..</param>
+        /// <param name="amount">Size..</param>
         /// <param name="repaidAll">Repayment method, set to true for full repayment, false for partial repayment..</param>
         public MultiLoanRepayItem(string currency = default(string), string amount = default(string), bool repaidAll = default(bool))
         {
@@ -44,16 +44,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Repayment currency
+        /// Repayment currency.
         /// </summary>
-        /// <value>Repayment currency</value>
+        /// <value>Repayment currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Size
+        /// Size.
         /// </summary>
-        /// <value>Size</value>
+        /// <value>Size.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

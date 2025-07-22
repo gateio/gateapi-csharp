@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Blockchain Mining
+    /// Blockchain Mining.
     /// </summary>
     [DataContract]
     public partial class SwapCoin :  IEquatable<SwapCoin>, IValidatableObject
@@ -38,10 +38,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SwapCoin" /> class.
         /// </summary>
-        /// <param name="coin">Currency (required).</param>
-        /// <param name="side">0 - Stake  1 - Redeem (required).</param>
-        /// <param name="amount">Size (required).</param>
-        /// <param name="pid">DeFi-type Mining Protocol Identifier.</param>
+        /// <param name="coin">Currency. (required).</param>
+        /// <param name="side">0 - Stake 1 - Redeem. (required).</param>
+        /// <param name="amount">Size. (required).</param>
+        /// <param name="pid">DeFi-type Mining Protocol Identifier..</param>
         public SwapCoin(string coin = default(string), string side = default(string), string amount = default(string), int pid = default(int))
         {
             // to ensure "coin" is required (not null)
@@ -54,30 +54,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="coin")]
         public string Coin { get; set; }
 
         /// <summary>
-        /// 0 - Stake  1 - Redeem
+        /// 0 - Stake 1 - Redeem.
         /// </summary>
-        /// <value>0 - Stake  1 - Redeem</value>
+        /// <value>0 - Stake 1 - Redeem.</value>
         [DataMember(Name="side")]
         public string Side { get; set; }
 
         /// <summary>
-        /// Size
+        /// Size.
         /// </summary>
-        /// <value>Size</value>
+        /// <value>Size.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// DeFi-type Mining Protocol Identifier
+        /// DeFi-type Mining Protocol Identifier.
         /// </summary>
-        /// <value>DeFi-type Mining Protocol Identifier</value>
+        /// <value>DeFi-type Mining Protocol Identifier.</value>
         [DataMember(Name="pid")]
         public int Pid { get; set; }
 

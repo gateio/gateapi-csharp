@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedLeverageConfig" /> class.
         /// </summary>
-        /// <param name="currentLeverage">Current leverage ratio.</param>
-        /// <param name="minLeverage">Minimum adjustable leverage ratio.</param>
-        /// <param name="maxLeverage">Maximum adjustable leverage ratio.</param>
-        /// <param name="debit">Current liabilities.</param>
-        /// <param name="availableMargin">Available Margin.</param>
-        /// <param name="borrowable">The current leverage you can choose is.</param>
-        /// <param name="exceptLeverageBorrowable">The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller.</param>
+        /// <param name="currentLeverage">Current leverage ratio..</param>
+        /// <param name="minLeverage">Minimum adjustable leverage ratio..</param>
+        /// <param name="maxLeverage">Maximum adjustable leverage ratio..</param>
+        /// <param name="debit">Current liabilities..</param>
+        /// <param name="availableMargin">Available Margin..</param>
+        /// <param name="borrowable">The current leverage you can choose is..</param>
+        /// <param name="exceptLeverageBorrowable">The maximum amount of margin that can be borrowed and the be borrowed, whichever is smaller.</param>
         public UnifiedLeverageConfig(string currentLeverage = default(string), string minLeverage = default(string), string maxLeverage = default(string), string debit = default(string), string availableMargin = default(string), string borrowable = default(string), string exceptLeverageBorrowable = default(string))
         {
             this.CurrentLeverage = currentLeverage;
@@ -52,51 +52,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Current leverage ratio
+        /// Current leverage ratio.
         /// </summary>
-        /// <value>Current leverage ratio</value>
+        /// <value>Current leverage ratio.</value>
         [DataMember(Name="current_leverage")]
         public string CurrentLeverage { get; set; }
 
         /// <summary>
-        /// Minimum adjustable leverage ratio
+        /// Minimum adjustable leverage ratio.
         /// </summary>
-        /// <value>Minimum adjustable leverage ratio</value>
+        /// <value>Minimum adjustable leverage ratio.</value>
         [DataMember(Name="min_leverage")]
         public string MinLeverage { get; set; }
 
         /// <summary>
-        /// Maximum adjustable leverage ratio
+        /// Maximum adjustable leverage ratio.
         /// </summary>
-        /// <value>Maximum adjustable leverage ratio</value>
+        /// <value>Maximum adjustable leverage ratio.</value>
         [DataMember(Name="max_leverage")]
         public string MaxLeverage { get; set; }
 
         /// <summary>
-        /// Current liabilities
+        /// Current liabilities.
         /// </summary>
-        /// <value>Current liabilities</value>
+        /// <value>Current liabilities.</value>
         [DataMember(Name="debit")]
         public string Debit { get; set; }
 
         /// <summary>
-        /// Available Margin
+        /// Available Margin.
         /// </summary>
-        /// <value>Available Margin</value>
+        /// <value>Available Margin.</value>
         [DataMember(Name="available_margin")]
         public string AvailableMargin { get; set; }
 
         /// <summary>
-        /// The current leverage you can choose is
+        /// The current leverage you can choose is.
         /// </summary>
-        /// <value>The current leverage you can choose is</value>
+        /// <value>The current leverage you can choose is.</value>
         [DataMember(Name="borrowable")]
         public string Borrowable { get; set; }
 
         /// <summary>
-        /// The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller
+        /// The maximum amount of margin that can be borrowed and the be borrowed, whichever is smaller
         /// </summary>
-        /// <value>The maximum amount of margin that can be borrowed and the maximum amount of Uniloan that can be borrowed, whichever is smaller</value>
+        /// <value>The maximum amount of margin that can be borrowed and the be borrowed, whichever is smaller</value>
         [DataMember(Name="except_leverage_borrowable")]
         public string ExceptLeverageBorrowable { get; set; }
 

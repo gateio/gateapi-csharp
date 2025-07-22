@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Borrow or repay
+    /// Borrow or repay.
     /// </summary>
     [DataContract]
     public partial class UnifiedLoan :  IEquatable<UnifiedLoan>, IValidatableObject
     {
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [DataMember(Name="type")]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -65,11 +65,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedLoan" /> class.
         /// </summary>
-        /// <param name="currency">Currency (required).</param>
-        /// <param name="type">type: borrow - borrow, repay - repay (required).</param>
-        /// <param name="amount">The amount of lending or repaying (required).</param>
+        /// <param name="currency">Currency. (required).</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (required).</param>
+        /// <param name="amount">The amount of lending or repaying. (required).</param>
         /// <param name="repaidAll">Full repayment is solely for repayment operations. When set to &#39;true,&#39; it overrides the &#39;amount,&#39; allowing for direct full repayment..</param>
-        /// <param name="text">User defined custom ID.</param>
+        /// <param name="text">User defined custom ID..</param>
         public UnifiedLoan(string currency = default(string), TypeEnum type = default(TypeEnum), string amount = default(string), bool repaidAll = default(bool), string text = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -82,16 +82,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The amount of lending or repaying
+        /// The amount of lending or repaying.
         /// </summary>
-        /// <value>The amount of lending or repaying</value>
+        /// <value>The amount of lending or repaying.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
@@ -103,9 +103,9 @@ namespace Io.Gate.GateApi.Model
         public bool RepaidAll { get; set; }
 
         /// <summary>
-        /// User defined custom ID
+        /// User defined custom ID.
         /// </summary>
-        /// <value>User defined custom ID</value>
+        /// <value>User defined custom ID.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 

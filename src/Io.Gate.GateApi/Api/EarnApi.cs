@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// ETH2 swap
+        /// ETH2 swap.
         /// </summary>
         /// <remarks>
         /// 
@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Api
         void SwapETH2 (Eth2Swap eth2Swap);
 
         /// <summary>
-        /// ETH2 swap
+        /// ETH2 swap.
         /// </summary>
         /// <remarks>
         /// 
@@ -49,74 +49,74 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SwapETH2WithHttpInfo (Eth2Swap eth2Swap);
         /// <summary>
-        /// ETH2 historical rate of return query
+        /// ETH2 historical rate of return query.
         /// </summary>
         /// <remarks>
-        /// Check the ETH earnings rate record for the last 31 days
+        /// Check the ETH earnings rate record for the last 31 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Eth2RateList&gt;</returns>
         List<Eth2RateList> RateListETH2 ();
 
         /// <summary>
-        /// ETH2 historical rate of return query
+        /// ETH2 historical rate of return query.
         /// </summary>
         /// <remarks>
-        /// Check the ETH earnings rate record for the last 31 days
+        /// Check the ETH earnings rate record for the last 31 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Eth2RateList&gt;</returns>
         ApiResponse<List<Eth2RateList>> RateListETH2WithHttpInfo ();
         /// <summary>
-        /// Dual Investment product list
+        /// Dual Investment product list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>List&lt;DualGetPlans&gt;</returns>
         List<DualGetPlans> ListDualInvestmentPlans (long? planId = default(long?));
 
         /// <summary>
-        /// Dual Investment product list
+        /// Dual Investment product list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>ApiResponse of List&lt;DualGetPlans&gt;</returns>
         ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo (long? planId = default(long?));
         /// <summary>
-        /// Dual Investment order list
+        /// Dual Investment order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;DualGetOrders&gt;</returns>
         List<DualGetOrders> ListDualOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Dual Investment order list
+        /// Dual Investment order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;DualGetOrders&gt;</returns>
         ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Place Dual Investment order
+        /// Place Dual Investment order.
         /// </summary>
         /// <remarks>
         /// 
@@ -127,7 +127,7 @@ namespace Io.Gate.GateApi.Api
         void PlaceDualOrder (PlaceDualInvestmentOrder placeDualInvestmentOrder);
 
         /// <summary>
-        /// Place Dual Investment order
+        /// Place Dual Investment order.
         /// </summary>
         /// <remarks>
         /// 
@@ -137,7 +137,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PlaceDualOrderWithHttpInfo (PlaceDualInvestmentOrder placeDualInvestmentOrder);
         /// <summary>
-        /// Structured Product List
+        /// Structured Product List.
         /// </summary>
         /// <remarks>
         /// 
@@ -145,13 +145,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;StructuredGetProjectList&gt;</returns>
         List<StructuredGetProjectList> ListStructuredProducts (string status, string type = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Structured Product List
+        /// Structured Product List.
         /// </summary>
         /// <remarks>
         /// 
@@ -159,12 +159,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;StructuredGetProjectList&gt;</returns>
         ApiResponse<List<StructuredGetProjectList>> ListStructuredProductsWithHttpInfo (string status, string type = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Structured Product Order List
+        /// Structured Product Order List.
         /// </summary>
         /// <remarks>
         /// 
@@ -172,13 +172,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;StructuredOrderList&gt;</returns>
         List<StructuredOrderList> ListStructuredOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Structured Product Order List
+        /// Structured Product Order List.
         /// </summary>
         /// <remarks>
         /// 
@@ -186,12 +186,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;StructuredOrderList&gt;</returns>
         ApiResponse<List<StructuredOrderList>> ListStructuredOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Place Structured Product Order
+        /// Place Structured Product Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -202,7 +202,7 @@ namespace Io.Gate.GateApi.Api
         void PlaceStructuredOrder (StructuredBuy structuredBuy);
 
         /// <summary>
-        /// Place Structured Product Order
+        /// Place Structured Product Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -212,7 +212,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PlaceStructuredOrderWithHttpInfo (StructuredBuy structuredBuy);
         /// <summary>
-        /// Staking Coins
+        /// Staking Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -223,7 +223,7 @@ namespace Io.Gate.GateApi.Api
         List<string> FindCoin (FindCoin findCoin);
 
         /// <summary>
-        /// Staking Coins
+        /// Staking Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -233,7 +233,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
         ApiResponse<List<string>> FindCoinWithHttpInfo (FindCoin findCoin);
         /// <summary>
-        /// On-chain Token Swap for Earned Coins
+        /// On-chain Token Swap for Earned Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -244,7 +244,7 @@ namespace Io.Gate.GateApi.Api
         SwapCoinStruct SwapStakingCoin (SwapCoin swapCoin);
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins
+        /// On-chain Token Swap for Earned Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -263,7 +263,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// ETH2 swap
+        /// ETH2 swap.
         /// </summary>
         /// <remarks>
         /// 
@@ -274,7 +274,7 @@ namespace Io.Gate.GateApi.Api
         Task SwapETH2Async (Eth2Swap eth2Swap);
 
         /// <summary>
-        /// ETH2 swap
+        /// ETH2 swap.
         /// </summary>
         /// <remarks>
         /// 
@@ -284,74 +284,74 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SwapETH2AsyncWithHttpInfo (Eth2Swap eth2Swap);
         /// <summary>
-        /// ETH2 historical rate of return query
+        /// ETH2 historical rate of return query.
         /// </summary>
         /// <remarks>
-        /// Check the ETH earnings rate record for the last 31 days
+        /// Check the ETH earnings rate record for the last 31 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Eth2RateList&gt;</returns>
         Task<List<Eth2RateList>> RateListETH2Async ();
 
         /// <summary>
-        /// ETH2 historical rate of return query
+        /// ETH2 historical rate of return query.
         /// </summary>
         /// <remarks>
-        /// Check the ETH earnings rate record for the last 31 days
+        /// Check the ETH earnings rate record for the last 31 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Eth2RateList&gt;)</returns>
         Task<ApiResponse<List<Eth2RateList>>> RateListETH2AsyncWithHttpInfo ();
         /// <summary>
-        /// Dual Investment product list
+        /// Dual Investment product list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>Task of List&lt;DualGetPlans&gt;</returns>
         Task<List<DualGetPlans>> ListDualInvestmentPlansAsync (long? planId = default(long?));
 
         /// <summary>
-        /// Dual Investment product list
+        /// Dual Investment product list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetPlans&gt;)</returns>
         Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo (long? planId = default(long?));
         /// <summary>
-        /// Dual Investment order list
+        /// Dual Investment order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;DualGetOrders&gt;</returns>
         Task<List<DualGetOrders>> ListDualOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Dual Investment order list
+        /// Dual Investment order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetOrders&gt;)</returns>
         Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Place Dual Investment order
+        /// Place Dual Investment order.
         /// </summary>
         /// <remarks>
         /// 
@@ -362,7 +362,7 @@ namespace Io.Gate.GateApi.Api
         Task PlaceDualOrderAsync (PlaceDualInvestmentOrder placeDualInvestmentOrder);
 
         /// <summary>
-        /// Place Dual Investment order
+        /// Place Dual Investment order.
         /// </summary>
         /// <remarks>
         /// 
@@ -372,7 +372,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> PlaceDualOrderAsyncWithHttpInfo (PlaceDualInvestmentOrder placeDualInvestmentOrder);
         /// <summary>
-        /// Structured Product List
+        /// Structured Product List.
         /// </summary>
         /// <remarks>
         /// 
@@ -380,13 +380,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;StructuredGetProjectList&gt;</returns>
         Task<List<StructuredGetProjectList>> ListStructuredProductsAsync (string status, string type = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Structured Product List
+        /// Structured Product List.
         /// </summary>
         /// <remarks>
         /// 
@@ -394,12 +394,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;StructuredGetProjectList&gt;)</returns>
         Task<ApiResponse<List<StructuredGetProjectList>>> ListStructuredProductsAsyncWithHttpInfo (string status, string type = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Structured Product Order List
+        /// Structured Product Order List.
         /// </summary>
         /// <remarks>
         /// 
@@ -407,13 +407,13 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;StructuredOrderList&gt;</returns>
         Task<List<StructuredOrderList>> ListStructuredOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Structured Product Order List
+        /// Structured Product Order List.
         /// </summary>
         /// <remarks>
         /// 
@@ -421,12 +421,12 @@ namespace Io.Gate.GateApi.Api
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;StructuredOrderList&gt;)</returns>
         Task<ApiResponse<List<StructuredOrderList>>> ListStructuredOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Place Structured Product Order
+        /// Place Structured Product Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -437,7 +437,7 @@ namespace Io.Gate.GateApi.Api
         Task PlaceStructuredOrderAsync (StructuredBuy structuredBuy);
 
         /// <summary>
-        /// Place Structured Product Order
+        /// Place Structured Product Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -447,7 +447,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> PlaceStructuredOrderAsyncWithHttpInfo (StructuredBuy structuredBuy);
         /// <summary>
-        /// Staking Coins
+        /// Staking Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -458,7 +458,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<string>> FindCoinAsync (FindCoin findCoin);
 
         /// <summary>
-        /// Staking Coins
+        /// Staking Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -468,7 +468,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
         Task<ApiResponse<List<string>>> FindCoinAsyncWithHttpInfo (FindCoin findCoin);
         /// <summary>
-        /// On-chain Token Swap for Earned Coins
+        /// On-chain Token Swap for Earned Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -479,7 +479,7 @@ namespace Io.Gate.GateApi.Api
         Task<SwapCoinStruct> SwapStakingCoinAsync (SwapCoin swapCoin);
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins
+        /// On-chain Token Swap for Earned Coins.
         /// </summary>
         /// <remarks>
         /// 
@@ -609,7 +609,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 swap 
+        /// ETH2 swap. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eth2Swap"></param>
@@ -620,7 +620,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 swap 
+        /// ETH2 swap. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eth2Swap"></param>
@@ -665,7 +665,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 swap 
+        /// ETH2 swap. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eth2Swap"></param>
@@ -677,7 +677,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 swap 
+        /// ETH2 swap. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eth2Swap"></param>
@@ -724,7 +724,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
+        /// ETH2 historical rate of return query. Check the ETH earnings rate record for the last 31 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Eth2RateList&gt;</returns>
@@ -735,7 +735,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
+        /// ETH2 historical rate of return query. Check the ETH earnings rate record for the last 31 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Eth2RateList&gt;</returns>
@@ -774,7 +774,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
+        /// ETH2 historical rate of return query. Check the ETH earnings rate record for the last 31 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Eth2RateList&gt;</returns>
@@ -786,7 +786,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// ETH2 historical rate of return query Check the ETH earnings rate record for the last 31 days
+        /// ETH2 historical rate of return query. Check the ETH earnings rate record for the last 31 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Eth2RateList&gt;)</returns>
@@ -827,10 +827,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// Dual Investment product list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>List&lt;DualGetPlans&gt;</returns>
         public List<DualGetPlans> ListDualInvestmentPlans (long? planId = default(long?))
         {
@@ -839,10 +839,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// Dual Investment product list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>ApiResponse of List&lt;DualGetPlans&gt;</returns>
         public ApiResponse<List<DualGetPlans>> ListDualInvestmentPlansWithHttpInfo (long? planId = default(long?))
         {
@@ -881,10 +881,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// Dual Investment product list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>Task of List&lt;DualGetPlans&gt;</returns>
         public async Task<List<DualGetPlans>> ListDualInvestmentPlansAsync (long? planId = default(long?))
         {
@@ -894,10 +894,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment product list 
+        /// Dual Investment product list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="planId">Financial project id (optional)</param>
+        /// <param name="planId">Financial project id. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetPlans&gt;)</returns>
         public async Task<ApiResponse<List<DualGetPlans>>> ListDualInvestmentPlansAsyncWithHttpInfo (long? planId = default(long?))
         {
@@ -938,13 +938,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// Dual Investment order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;DualGetOrders&gt;</returns>
         public List<DualGetOrders> ListDualOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -953,13 +953,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// Dual Investment order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;DualGetOrders&gt;</returns>
         public ApiResponse<List<DualGetOrders>> ListDualOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1012,13 +1012,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// Dual Investment order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;DualGetOrders&gt;</returns>
         public async Task<List<DualGetOrders>> ListDualOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1028,13 +1028,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Dual Investment order list 
+        /// Dual Investment order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start checkout time (optional)</param>
-        /// <param name="to">End settlement time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="from">Start checkout time. (optional)</param>
+        /// <param name="to">End settlement time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;DualGetOrders&gt;)</returns>
         public async Task<ApiResponse<List<DualGetOrders>>> ListDualOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1089,7 +1089,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Dual Investment order 
+        /// Place Dual Investment order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeDualInvestmentOrder"></param>
@@ -1100,7 +1100,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Dual Investment order 
+        /// Place Dual Investment order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeDualInvestmentOrder"></param>
@@ -1145,7 +1145,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Dual Investment order 
+        /// Place Dual Investment order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeDualInvestmentOrder"></param>
@@ -1157,7 +1157,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Dual Investment order 
+        /// Place Dual Investment order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeDualInvestmentOrder"></param>
@@ -1204,13 +1204,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product List 
+        /// Structured Product List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;StructuredGetProjectList&gt;</returns>
         public List<StructuredGetProjectList> ListStructuredProducts (string status, string type = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1219,13 +1219,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product List 
+        /// Structured Product List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;StructuredGetProjectList&gt;</returns>
         public ApiResponse<List<StructuredGetProjectList>> ListStructuredProductsWithHttpInfo (string status, string type = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1277,13 +1277,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product List 
+        /// Structured Product List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;StructuredGetProjectList&gt;</returns>
         public async Task<List<StructuredGetProjectList>> ListStructuredProductsAsync (string status, string type = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1293,13 +1293,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product List 
+        /// Structured Product List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed </param>
         /// <param name="type">Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;StructuredGetProjectList&gt;)</returns>
         public async Task<ApiResponse<List<StructuredGetProjectList>>> ListStructuredProductsAsyncWithHttpInfo (string status, string type = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1353,13 +1353,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product Order List 
+        /// Structured Product Order List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>List&lt;StructuredOrderList&gt;</returns>
         public List<StructuredOrderList> ListStructuredOrders (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1368,13 +1368,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product Order List 
+        /// Structured Product Order List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;StructuredOrderList&gt;</returns>
         public ApiResponse<List<StructuredOrderList>> ListStructuredOrdersWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1427,13 +1427,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product Order List 
+        /// Structured Product Order List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of List&lt;StructuredOrderList&gt;</returns>
         public async Task<List<StructuredOrderList>> ListStructuredOrdersAsync (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1443,13 +1443,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Structured Product Order List 
+        /// Structured Product Order List. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;StructuredOrderList&gt;)</returns>
         public async Task<ApiResponse<List<StructuredOrderList>>> ListStructuredOrdersAsyncWithHttpInfo (long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?))
         {
@@ -1504,7 +1504,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Structured Product Order 
+        /// Place Structured Product Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="structuredBuy"></param>
@@ -1515,7 +1515,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Structured Product Order 
+        /// Place Structured Product Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="structuredBuy"></param>
@@ -1560,7 +1560,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Structured Product Order 
+        /// Place Structured Product Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="structuredBuy"></param>
@@ -1572,7 +1572,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Place Structured Product Order 
+        /// Place Structured Product Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="structuredBuy"></param>
@@ -1619,7 +1619,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Staking Coins 
+        /// Staking Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findCoin"></param>
@@ -1631,7 +1631,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Staking Coins 
+        /// Staking Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findCoin"></param>
@@ -1677,7 +1677,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Staking Coins 
+        /// Staking Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findCoin"></param>
@@ -1690,7 +1690,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Staking Coins 
+        /// Staking Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findCoin"></param>
@@ -1738,7 +1738,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins 
+        /// On-chain Token Swap for Earned Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="swapCoin"></param>
@@ -1750,7 +1750,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins 
+        /// On-chain Token Swap for Earned Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="swapCoin"></param>
@@ -1796,7 +1796,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins 
+        /// On-chain Token Swap for Earned Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="swapCoin"></param>
@@ -1809,7 +1809,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// On-chain Token Swap for Earned Coins 
+        /// On-chain Token Swap for Earned Coins. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="swapCoin"></param>

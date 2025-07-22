@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedHistoryLoanRate" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="tier">The VIP level of the floating rate required.</param>
-        /// <param name="tierUpRate">VIP level corresponding floating rate.</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="tier">The VIP level of the floating rate required..</param>
+        /// <param name="tierUpRate">VIP level corresponding floating rate..</param>
         /// <param name="rates">Historical interest rate information, one data per hour, the array size is determined by the page and limit parameters provided by the interface request parameters, sorted from recent to far in time.</param>
         public UnifiedHistoryLoanRate(string currency = default(string), string tier = default(string), string tierUpRate = default(string), List<UnifiedHistoryLoanRateRates> rates = default(List<UnifiedHistoryLoanRateRates>))
         {
@@ -46,23 +46,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The VIP level of the floating rate required
+        /// The VIP level of the floating rate required.
         /// </summary>
-        /// <value>The VIP level of the floating rate required</value>
+        /// <value>The VIP level of the floating rate required.</value>
         [DataMember(Name="tier")]
         public string Tier { get; set; }
 
         /// <summary>
-        /// VIP level corresponding floating rate
+        /// VIP level corresponding floating rate.
         /// </summary>
-        /// <value>VIP level corresponding floating rate</value>
+        /// <value>VIP level corresponding floating rate.</value>
         [DataMember(Name="tier_up_rate")]
         public string TierUpRate { get; set; }
 

@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionID" /> class.
         /// </summary>
-        /// <param name="txId">Order id.</param>
+        /// <param name="txId">Order id..</param>
         public TransactionID(long txId = default(long))
         {
             this.TxId = txId;
         }
 
         /// <summary>
-        /// Order id
+        /// Order id.
         /// </summary>
-        /// <value>Order id</value>
+        /// <value>Order id.</value>
         [DataMember(Name="tx_id")]
         public long TxId { get; set; }
 

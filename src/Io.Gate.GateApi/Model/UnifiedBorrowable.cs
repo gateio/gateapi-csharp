@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedBorrowable" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail.</param>
-        /// <param name="amount">Max borrowable amount.</param>
+        /// <param name="currency">Currency detail..</param>
+        /// <param name="amount">Max borrowable amount..</param>
         public UnifiedBorrowable(string currency = default(string), string amount = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Max borrowable amount
+        /// Max borrowable amount.
         /// </summary>
-        /// <value>Max borrowable amount</value>
+        /// <value>Max borrowable amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Structured Products
+    /// Structured Products.
     /// </summary>
     [DataContract]
     public partial class StructuredGetProjectList :  IEquatable<StructuredGetProjectList>, IValidatableObject
@@ -33,17 +33,17 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredGetProjectList" /> class.
         /// </summary>
-        /// <param name="id">Plan ID.</param>
+        /// <param name="id">Plan ID..</param>
         /// <param name="type">product type:   &#x60;SharkFin2.0&#x60;-Shark Fin2.0  &#x60;BullishSharkFin&#x60;-Bullish Shark Fin  &#x60;BearishSharkFin&#x60;-Bearish Shark Fin &#x60;DoubleNoTouch&#x60;-Double No-Touch &#x60;RangeAccrual&#x60;-Range Accrual &#x60;SnowBall&#x60;-Snow Ball.</param>
-        /// <param name="nameEn">name.</param>
-        /// <param name="investmentCoin">Investment Currency.</param>
-        /// <param name="investmentPeriod">Investment term.</param>
-        /// <param name="minAnnualRate">Minimum annual rate.</param>
-        /// <param name="midAnnualRate">Intermediate annual rate.</param>
-        /// <param name="maxAnnualRate">Maximum annual rate.</param>
-        /// <param name="watchMarket">Watch market.</param>
-        /// <param name="startTime">start time.</param>
-        /// <param name="endTime">Finished time.</param>
+        /// <param name="nameEn">name..</param>
+        /// <param name="investmentCoin">Investment Currency..</param>
+        /// <param name="investmentPeriod">Investment term..</param>
+        /// <param name="minAnnualRate">Minimum annual rate..</param>
+        /// <param name="midAnnualRate">Intermediate annual rate..</param>
+        /// <param name="maxAnnualRate">Maximum annual rate..</param>
+        /// <param name="watchMarket">Watch market..</param>
+        /// <param name="startTime">start time..</param>
+        /// <param name="endTime">Finished time..</param>
         /// <param name="status">Status:   &#x60;in_process&#x60;-in progress  &#x60;will_begin&#x60;-will begin  &#x60;wait_settlement&#x60;-waiting for settlement  &#x60;done&#x60;-done.</param>
         public StructuredGetProjectList(int id = default(int), string type = default(string), string nameEn = default(string), string investmentCoin = default(string), string investmentPeriod = default(string), string minAnnualRate = default(string), string midAnnualRate = default(string), string maxAnnualRate = default(string), string watchMarket = default(string), int startTime = default(int), int endTime = default(int), string status = default(string))
         {
@@ -62,9 +62,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="id")]
         public int Id { get; set; }
 
@@ -76,65 +76,65 @@ namespace Io.Gate.GateApi.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// name
+        /// name.
         /// </summary>
-        /// <value>name</value>
+        /// <value>name.</value>
         [DataMember(Name="name_en")]
         public string NameEn { get; set; }
 
         /// <summary>
-        /// Investment Currency
+        /// Investment Currency.
         /// </summary>
-        /// <value>Investment Currency</value>
+        /// <value>Investment Currency.</value>
         [DataMember(Name="investment_coin")]
         public string InvestmentCoin { get; set; }
 
         /// <summary>
-        /// Investment term
+        /// Investment term.
         /// </summary>
-        /// <value>Investment term</value>
+        /// <value>Investment term.</value>
         [DataMember(Name="investment_period")]
         public string InvestmentPeriod { get; set; }
 
         /// <summary>
-        /// Minimum annual rate
+        /// Minimum annual rate.
         /// </summary>
-        /// <value>Minimum annual rate</value>
+        /// <value>Minimum annual rate.</value>
         [DataMember(Name="min_annual_rate")]
         public string MinAnnualRate { get; set; }
 
         /// <summary>
-        /// Intermediate annual rate
+        /// Intermediate annual rate.
         /// </summary>
-        /// <value>Intermediate annual rate</value>
+        /// <value>Intermediate annual rate.</value>
         [DataMember(Name="mid_annual_rate")]
         public string MidAnnualRate { get; set; }
 
         /// <summary>
-        /// Maximum annual rate
+        /// Maximum annual rate.
         /// </summary>
-        /// <value>Maximum annual rate</value>
+        /// <value>Maximum annual rate.</value>
         [DataMember(Name="max_annual_rate")]
         public string MaxAnnualRate { get; set; }
 
         /// <summary>
-        /// Watch market
+        /// Watch market.
         /// </summary>
-        /// <value>Watch market</value>
+        /// <value>Watch market.</value>
         [DataMember(Name="watch_market")]
         public string WatchMarket { get; set; }
 
         /// <summary>
-        /// start time
+        /// start time.
         /// </summary>
-        /// <value>start time</value>
+        /// <value>start time.</value>
         [DataMember(Name="start_time")]
         public int StartTime { get; set; }
 
         /// <summary>
-        /// Finished time
+        /// Finished time.
         /// </summary>
-        /// <value>Finished time</value>
+        /// <value>Finished time.</value>
         [DataMember(Name="end_time")]
         public int EndTime { get; set; }
 

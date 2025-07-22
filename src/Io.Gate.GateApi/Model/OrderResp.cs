@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderResp" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
+        /// <param name="orderId">Order ID..</param>
         public OrderResp(long orderId = default(long))
         {
             this.OrderId = orderId;
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 

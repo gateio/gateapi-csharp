@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Countdown cancel task detail
+    /// Countdown cancel task detail.
     /// </summary>
     [DataContract]
     public partial class CountdownCancelAllOptionsTask :  IEquatable<CountdownCancelAllOptionsTask>, IValidatableObject
@@ -39,8 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CountdownCancelAllOptionsTask" /> class.
         /// </summary>
         /// <param name="timeout">Countdown time in seconds At least 5 seconds, 0 means cancel countdown (required).</param>
-        /// <param name="contract">Options contract name.</param>
-        /// <param name="underlying">Underlying.</param>
+        /// <param name="contract">Options contract name..</param>
+        /// <param name="underlying">Underlying..</param>
         public CountdownCancelAllOptionsTask(int timeout = default(int), string contract = default(string), string underlying = default(string))
         {
             this.Timeout = timeout;
@@ -56,16 +56,16 @@ namespace Io.Gate.GateApi.Model
         public int Timeout { get; set; }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Underlying
+        /// Underlying.
         /// </summary>
-        /// <value>Underlying</value>
+        /// <value>Underlying.</value>
         [DataMember(Name="underlying")]
         public string Underlying { get; set; }
 

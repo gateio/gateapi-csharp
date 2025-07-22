@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot currency pair
+    /// Spot currency pair.
     /// </summary>
     [DataContract]
     public partial class CurrencyPair :  IEquatable<CurrencyPair>, IValidatableObject
     {
         /// <summary>
-        /// How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
+        /// How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: sold
         /// </summary>
-        /// <value>How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold</value>
+        /// <value>How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: sold</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TradeStatusEnum
         {
@@ -64,33 +64,33 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold
+        /// How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: sold
         /// </summary>
-        /// <value>How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold</value>
+        /// <value>How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: sold</value>
         [DataMember(Name="trade_status")]
         public TradeStatusEnum? TradeStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyPair" /> class.
         /// </summary>
-        /// <param name="id">Currency pair.</param>
-        /// <param name="_base">Base currency.</param>
-        /// <param name="baseName">Transaction currency name.</param>
-        /// <param name="quote">Quote currency.</param>
-        /// <param name="quoteName">Name of the denominated currency.</param>
-        /// <param name="fee">Trading fee.</param>
-        /// <param name="minBaseAmount">Minimum amount of base currency to trade, &#x60;null&#x60; means no limit.</param>
-        /// <param name="minQuoteAmount">Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit.</param>
-        /// <param name="maxBaseAmount">Maximum amount of base currency to trade, &#x60;null&#x60; means no limit.</param>
-        /// <param name="maxQuoteAmount">Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit.</param>
-        /// <param name="amountPrecision">Amount scale.</param>
-        /// <param name="precision">Price scale.</param>
-        /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: can be bought or sold.</param>
-        /// <param name="sellStart">Sell start unix timestamp in seconds.</param>
-        /// <param name="buyStart">Buy start unix timestamp in seconds.</param>
-        /// <param name="delistingTime">Expected time to remove the shelves, Unix timestamp in seconds.</param>
-        /// <param name="type">Trading pair type, normal: normal, premarket: pre-market.</param>
-        /// <param name="tradeUrl">Transaction link.</param>
-        /// <param name="stTag">Whether the trading pair is in ST risk assessment, false - No, true - Yes.</param>
+        /// <param name="id">Currency pair..</param>
+        /// <param name="_base">Base currency..</param>
+        /// <param name="baseName">Transaction currency name..</param>
+        /// <param name="quote">Quote currency..</param>
+        /// <param name="quoteName">Name of the denominated currency..</param>
+        /// <param name="fee">Trading fee..</param>
+        /// <param name="minBaseAmount">Minimum amount of base currency to trade, &#x60;null&#x60; means no limit..</param>
+        /// <param name="minQuoteAmount">Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit..</param>
+        /// <param name="maxBaseAmount">Maximum amount of base currency to trade, &#x60;null&#x60; means no limit..</param>
+        /// <param name="maxQuoteAmount">Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit..</param>
+        /// <param name="amountPrecision">Amount scale..</param>
+        /// <param name="precision">Price scale..</param>
+        /// <param name="tradeStatus">How currency pair can be traded  - untradable: cannot be bought or sold - buyable: can be bought - sellable: can be sold - tradable: sold.</param>
+        /// <param name="sellStart">Sell start unix timestamp in seconds..</param>
+        /// <param name="buyStart">Buy start unix timestamp in seconds..</param>
+        /// <param name="delistingTime">Expected time to remove the shelves, Unix timestamp in seconds..</param>
+        /// <param name="type">Trading pair type, normal: normal, premarket: pre-market..</param>
+        /// <param name="tradeUrl">Transaction link..</param>
+        /// <param name="stTag">Whether the trading pair is in ST risk assessment, false - No, true - Yes..</param>
         public CurrencyPair(string id = default(string), string _base = default(string), string baseName = default(string), string quote = default(string), string quoteName = default(string), string fee = default(string), string minBaseAmount = default(string), string minQuoteAmount = default(string), string maxBaseAmount = default(string), string maxQuoteAmount = default(string), int amountPrecision = default(int), int precision = default(int), TradeStatusEnum? tradeStatus = default(TradeStatusEnum?), long sellStart = default(long), long buyStart = default(long), long delistingTime = default(long), string type = default(string), string tradeUrl = default(string), bool stTag = default(bool))
         {
             this.Id = id;
@@ -115,128 +115,128 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Base currency
+        /// Base currency.
         /// </summary>
-        /// <value>Base currency</value>
+        /// <value>Base currency.</value>
         [DataMember(Name="base")]
         public string Base { get; set; }
 
         /// <summary>
-        /// Transaction currency name
+        /// Transaction currency name.
         /// </summary>
-        /// <value>Transaction currency name</value>
+        /// <value>Transaction currency name.</value>
         [DataMember(Name="base_name")]
         public string BaseName { get; set; }
 
         /// <summary>
-        /// Quote currency
+        /// Quote currency.
         /// </summary>
-        /// <value>Quote currency</value>
+        /// <value>Quote currency.</value>
         [DataMember(Name="quote")]
         public string Quote { get; set; }
 
         /// <summary>
-        /// Name of the denominated currency
+        /// Name of the denominated currency.
         /// </summary>
-        /// <value>Name of the denominated currency</value>
+        /// <value>Name of the denominated currency.</value>
         [DataMember(Name="quote_name")]
         public string QuoteName { get; set; }
 
         /// <summary>
-        /// Trading fee
+        /// Trading fee.
         /// </summary>
-        /// <value>Trading fee</value>
+        /// <value>Trading fee.</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Minimum amount of base currency to trade, &#x60;null&#x60; means no limit
+        /// Minimum amount of base currency to trade, &#x60;null&#x60; means no limit.
         /// </summary>
-        /// <value>Minimum amount of base currency to trade, &#x60;null&#x60; means no limit</value>
+        /// <value>Minimum amount of base currency to trade, &#x60;null&#x60; means no limit.</value>
         [DataMember(Name="min_base_amount")]
         public string MinBaseAmount { get; set; }
 
         /// <summary>
-        /// Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit
+        /// Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit.
         /// </summary>
-        /// <value>Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit</value>
+        /// <value>Minimum amount of quote currency to trade, &#x60;null&#x60; means no limit.</value>
         [DataMember(Name="min_quote_amount")]
         public string MinQuoteAmount { get; set; }
 
         /// <summary>
-        /// Maximum amount of base currency to trade, &#x60;null&#x60; means no limit
+        /// Maximum amount of base currency to trade, &#x60;null&#x60; means no limit.
         /// </summary>
-        /// <value>Maximum amount of base currency to trade, &#x60;null&#x60; means no limit</value>
+        /// <value>Maximum amount of base currency to trade, &#x60;null&#x60; means no limit.</value>
         [DataMember(Name="max_base_amount")]
         public string MaxBaseAmount { get; set; }
 
         /// <summary>
-        /// Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit
+        /// Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit.
         /// </summary>
-        /// <value>Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit</value>
+        /// <value>Maximum amount of quote currency to trade, &#x60;null&#x60; means no limit.</value>
         [DataMember(Name="max_quote_amount")]
         public string MaxQuoteAmount { get; set; }
 
         /// <summary>
-        /// Amount scale
+        /// Amount scale.
         /// </summary>
-        /// <value>Amount scale</value>
+        /// <value>Amount scale.</value>
         [DataMember(Name="amount_precision")]
         public int AmountPrecision { get; set; }
 
         /// <summary>
-        /// Price scale
+        /// Price scale.
         /// </summary>
-        /// <value>Price scale</value>
+        /// <value>Price scale.</value>
         [DataMember(Name="precision")]
         public int Precision { get; set; }
 
         /// <summary>
-        /// Sell start unix timestamp in seconds
+        /// Sell start unix timestamp in seconds.
         /// </summary>
-        /// <value>Sell start unix timestamp in seconds</value>
+        /// <value>Sell start unix timestamp in seconds.</value>
         [DataMember(Name="sell_start")]
         public long SellStart { get; set; }
 
         /// <summary>
-        /// Buy start unix timestamp in seconds
+        /// Buy start unix timestamp in seconds.
         /// </summary>
-        /// <value>Buy start unix timestamp in seconds</value>
+        /// <value>Buy start unix timestamp in seconds.</value>
         [DataMember(Name="buy_start")]
         public long BuyStart { get; set; }
 
         /// <summary>
-        /// Expected time to remove the shelves, Unix timestamp in seconds
+        /// Expected time to remove the shelves, Unix timestamp in seconds.
         /// </summary>
-        /// <value>Expected time to remove the shelves, Unix timestamp in seconds</value>
+        /// <value>Expected time to remove the shelves, Unix timestamp in seconds.</value>
         [DataMember(Name="delisting_time")]
         public long DelistingTime { get; set; }
 
         /// <summary>
-        /// Trading pair type, normal: normal, premarket: pre-market
+        /// Trading pair type, normal: normal, premarket: pre-market.
         /// </summary>
-        /// <value>Trading pair type, normal: normal, premarket: pre-market</value>
+        /// <value>Trading pair type, normal: normal, premarket: pre-market.</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Transaction link
+        /// Transaction link.
         /// </summary>
-        /// <value>Transaction link</value>
+        /// <value>Transaction link.</value>
         [DataMember(Name="trade_url")]
         public string TradeUrl { get; set; }
 
         /// <summary>
-        /// Whether the trading pair is in ST risk assessment, false - No, true - Yes
+        /// Whether the trading pair is in ST risk assessment, false - No, true - Yes.
         /// </summary>
-        /// <value>Whether the trading pair is in ST risk assessment, false - No, true - Yes</value>
+        /// <value>Whether the trading pair is in ST risk assessment, false - No, true - Yes.</value>
         [DataMember(Name="st_tag")]
         public bool StTag { get; set; }
 

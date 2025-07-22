@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options contract detail
+    /// Options contract detail.
     /// </summary>
     [DataContract]
     public partial class OptionsTicker :  IEquatable<OptionsTicker>, IValidatableObject
@@ -33,24 +33,24 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsTicker" /> class.
         /// </summary>
-        /// <param name="name">Options contract name.</param>
-        /// <param name="lastPrice">Last trading price (quote currency).</param>
-        /// <param name="markPrice">Current mark price (quote currency).</param>
-        /// <param name="indexPrice">Current index price (quote currency).</param>
-        /// <param name="ask1Size">Best ask size.</param>
-        /// <param name="ask1Price">Best ask price.</param>
-        /// <param name="bid1Size">Best bid size.</param>
-        /// <param name="bid1Price">Best bid price.</param>
-        /// <param name="positionSize">Current total long position size.</param>
-        /// <param name="markIv">Implied volatility.</param>
-        /// <param name="bidIv">Bid side implied volatility.</param>
-        /// <param name="askIv">Ask side implied volatility.</param>
-        /// <param name="leverage">Current leverage. Formula: underlying_price / mark_price * delta.</param>
-        /// <param name="delta">Delta.</param>
-        /// <param name="gamma">Gamma.</param>
-        /// <param name="vega">Vega.</param>
-        /// <param name="theta">Theta.</param>
-        /// <param name="rho">Rho.</param>
+        /// <param name="name">Options contract name..</param>
+        /// <param name="lastPrice">Last trading price (quote currency)..</param>
+        /// <param name="markPrice">Current mark price (quote currency)..</param>
+        /// <param name="indexPrice">Current index price (quote currency)..</param>
+        /// <param name="ask1Size">Best ask size..</param>
+        /// <param name="ask1Price">Best ask price..</param>
+        /// <param name="bid1Size">Best bid size..</param>
+        /// <param name="bid1Price">Best bid price..</param>
+        /// <param name="positionSize">Current total long position size..</param>
+        /// <param name="markIv">Implied volatility..</param>
+        /// <param name="bidIv">Bid side implied volatility..</param>
+        /// <param name="askIv">Ask side implied volatility..</param>
+        /// <param name="leverage">Current leverage. Formula: underlying_price / mark_price * delta..</param>
+        /// <param name="delta">Delta..</param>
+        /// <param name="gamma">Gamma..</param>
+        /// <param name="vega">Vega..</param>
+        /// <param name="theta">Theta..</param>
+        /// <param name="rho">Rho..</param>
         public OptionsTicker(string name = default(string), string lastPrice = default(string), string markPrice = default(string), string indexPrice = default(string), long ask1Size = default(long), string ask1Price = default(string), long bid1Size = default(long), string bid1Price = default(string), long positionSize = default(long), string markIv = default(string), string bidIv = default(string), string askIv = default(string), string leverage = default(string), string delta = default(string), string gamma = default(string), string vega = default(string), string theta = default(string), string rho = default(string))
         {
             this.Name = name;
@@ -74,128 +74,128 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Last trading price (quote currency)
+        /// Last trading price (quote currency).
         /// </summary>
-        /// <value>Last trading price (quote currency)</value>
+        /// <value>Last trading price (quote currency).</value>
         [DataMember(Name="last_price")]
         public string LastPrice { get; set; }
 
         /// <summary>
-        /// Current mark price (quote currency)
+        /// Current mark price (quote currency).
         /// </summary>
-        /// <value>Current mark price (quote currency)</value>
+        /// <value>Current mark price (quote currency).</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Current index price (quote currency)
+        /// Current index price (quote currency).
         /// </summary>
-        /// <value>Current index price (quote currency)</value>
+        /// <value>Current index price (quote currency).</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Best ask size
+        /// Best ask size.
         /// </summary>
-        /// <value>Best ask size</value>
+        /// <value>Best ask size.</value>
         [DataMember(Name="ask1_size")]
         public long Ask1Size { get; set; }
 
         /// <summary>
-        /// Best ask price
+        /// Best ask price.
         /// </summary>
-        /// <value>Best ask price</value>
+        /// <value>Best ask price.</value>
         [DataMember(Name="ask1_price")]
         public string Ask1Price { get; set; }
 
         /// <summary>
-        /// Best bid size
+        /// Best bid size.
         /// </summary>
-        /// <value>Best bid size</value>
+        /// <value>Best bid size.</value>
         [DataMember(Name="bid1_size")]
         public long Bid1Size { get; set; }
 
         /// <summary>
-        /// Best bid price
+        /// Best bid price.
         /// </summary>
-        /// <value>Best bid price</value>
+        /// <value>Best bid price.</value>
         [DataMember(Name="bid1_price")]
         public string Bid1Price { get; set; }
 
         /// <summary>
-        /// Current total long position size
+        /// Current total long position size.
         /// </summary>
-        /// <value>Current total long position size</value>
+        /// <value>Current total long position size.</value>
         [DataMember(Name="position_size")]
         public long PositionSize { get; set; }
 
         /// <summary>
-        /// Implied volatility
+        /// Implied volatility.
         /// </summary>
-        /// <value>Implied volatility</value>
+        /// <value>Implied volatility.</value>
         [DataMember(Name="mark_iv")]
         public string MarkIv { get; set; }
 
         /// <summary>
-        /// Bid side implied volatility
+        /// Bid side implied volatility.
         /// </summary>
-        /// <value>Bid side implied volatility</value>
+        /// <value>Bid side implied volatility.</value>
         [DataMember(Name="bid_iv")]
         public string BidIv { get; set; }
 
         /// <summary>
-        /// Ask side implied volatility
+        /// Ask side implied volatility.
         /// </summary>
-        /// <value>Ask side implied volatility</value>
+        /// <value>Ask side implied volatility.</value>
         [DataMember(Name="ask_iv")]
         public string AskIv { get; set; }
 
         /// <summary>
-        /// Current leverage. Formula: underlying_price / mark_price * delta
+        /// Current leverage. Formula: underlying_price / mark_price * delta.
         /// </summary>
-        /// <value>Current leverage. Formula: underlying_price / mark_price * delta</value>
+        /// <value>Current leverage. Formula: underlying_price / mark_price * delta.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 
         /// <summary>
-        /// Delta
+        /// Delta.
         /// </summary>
-        /// <value>Delta</value>
+        /// <value>Delta.</value>
         [DataMember(Name="delta")]
         public string Delta { get; set; }
 
         /// <summary>
-        /// Gamma
+        /// Gamma.
         /// </summary>
-        /// <value>Gamma</value>
+        /// <value>Gamma.</value>
         [DataMember(Name="gamma")]
         public string Gamma { get; set; }
 
         /// <summary>
-        /// Vega
+        /// Vega.
         /// </summary>
-        /// <value>Vega</value>
+        /// <value>Vega.</value>
         [DataMember(Name="vega")]
         public string Vega { get; set; }
 
         /// <summary>
-        /// Theta
+        /// Theta.
         /// </summary>
-        /// <value>Theta</value>
+        /// <value>Theta.</value>
         [DataMember(Name="theta")]
         public string Theta { get; set; }
 
         /// <summary>
-        /// Rho
+        /// Rho.
         /// </summary>
-        /// <value>Rho</value>
+        /// <value>Rho.</value>
         [DataMember(Name="rho")]
         public string Rho { get; set; }
 

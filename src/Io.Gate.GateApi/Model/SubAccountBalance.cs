@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountBalance" /> class.
         /// </summary>
-        /// <param name="uid">User ID.</param>
-        /// <param name="available">Available balances of currencies.</param>
+        /// <param name="uid">User ID..</param>
+        /// <param name="available">Available balances of currencies..</param>
         public SubAccountBalance(string uid = default(string), Dictionary<string, string> available = default(Dictionary<string, string>))
         {
             this.Uid = uid;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="uid")]
         public string Uid { get; set; }
 
         /// <summary>
-        /// Available balances of currencies
+        /// Available balances of currencies.
         /// </summary>
-        /// <value>Available balances of currencies</value>
+        /// <value>Available balances of currencies.</value>
         [DataMember(Name="available")]
         public Dictionary<string, string> Available { get; set; }
 

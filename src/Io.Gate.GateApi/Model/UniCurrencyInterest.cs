@@ -39,16 +39,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
         /// </summary>
-        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment</value>
+        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment</value>
         [DataMember(Name="interest_status", EmitDefaultValue=false)]
         public string InterestStatus { get; private set; }
 

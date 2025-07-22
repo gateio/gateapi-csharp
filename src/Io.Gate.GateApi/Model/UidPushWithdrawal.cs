@@ -38,9 +38,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UidPushWithdrawal" /> class.
         /// </summary>
-        /// <param name="receiveUid">Recipient UID (required).</param>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="amount">Transfer amount (required).</param>
+        /// <param name="receiveUid">Recipient UID. (required).</param>
+        /// <param name="currency">Currency name. (required).</param>
+        /// <param name="amount">Transfer amount. (required).</param>
         public UidPushWithdrawal(long receiveUid = default(long), string currency = default(string), string amount = default(string))
         {
             this.ReceiveUid = receiveUid;
@@ -51,23 +51,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Recipient UID
+        /// Recipient UID.
         /// </summary>
-        /// <value>Recipient UID</value>
+        /// <value>Recipient UID.</value>
         [DataMember(Name="receive_uid")]
         public long ReceiveUid { get; set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Transfer amount
+        /// Transfer amount.
         /// </summary>
-        /// <value>Transfer amount</value>
+        /// <value>Transfer amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan currency leverage
+    /// Loan currency leverage.
     /// </summary>
     [DataContract]
     public partial class UnifiedLeverageSetting :  IEquatable<UnifiedLeverageSetting>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedLeverageSetting" /> class.
         /// </summary>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="leverage">multiple (required).</param>
+        /// <param name="currency">Currency name. (required).</param>
+        /// <param name="leverage">multiple. (required).</param>
         public UnifiedLeverageSetting(string currency = default(string), string leverage = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -49,16 +49,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// multiple
+        /// multiple.
         /// </summary>
-        /// <value>multiple</value>
+        /// <value>multiple.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 

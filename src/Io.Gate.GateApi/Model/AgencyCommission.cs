@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgencyCommission" /> class.
         /// </summary>
-        /// <param name="commissionTime">Commission Time. (unix timestamp).</param>
-        /// <param name="userId">User ID.</param>
-        /// <param name="groupName">Group name.</param>
-        /// <param name="commissionAmount">Commission Amount.</param>
-        /// <param name="commissionAsset">Commission Asset.</param>
-        /// <param name="source">Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate.</param>
+        /// <param name="commissionTime">Commission Time. (unix timestamp)..</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="groupName">Group name..</param>
+        /// <param name="commissionAmount">Commission Amount..</param>
+        /// <param name="commissionAsset">Commission Asset..</param>
+        /// <param name="source">Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate..</param>
         public AgencyCommission(long commissionTime = default(long), long userId = default(long), string groupName = default(string), string commissionAmount = default(string), string commissionAsset = default(string), string source = default(string))
         {
             this.CommissionTime = commissionTime;
@@ -50,44 +50,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Commission Time. (unix timestamp)
+        /// Commission Time. (unix timestamp).
         /// </summary>
-        /// <value>Commission Time. (unix timestamp)</value>
+        /// <value>Commission Time. (unix timestamp).</value>
         [DataMember(Name="commission_time")]
         public long CommissionTime { get; set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Group name
+        /// Group name.
         /// </summary>
-        /// <value>Group name</value>
+        /// <value>Group name.</value>
         [DataMember(Name="group_name")]
         public string GroupName { get; set; }
 
         /// <summary>
-        /// Commission Amount
+        /// Commission Amount.
         /// </summary>
-        /// <value>Commission Amount</value>
+        /// <value>Commission Amount.</value>
         [DataMember(Name="commission_amount")]
         public string CommissionAmount { get; set; }
 
         /// <summary>
-        /// Commission Asset
+        /// Commission Asset.
         /// </summary>
-        /// <value>Commission Asset</value>
+        /// <value>Commission Asset.</value>
         [DataMember(Name="commission_asset")]
         public string CommissionAsset { get; set; }
 
         /// <summary>
-        /// Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+        /// Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.
         /// </summary>
-        /// <value>Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate</value>
+        /// <value>Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.</value>
         [DataMember(Name="source")]
         public string Source { get; set; }
 

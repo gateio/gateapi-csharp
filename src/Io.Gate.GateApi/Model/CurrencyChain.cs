@@ -33,14 +33,14 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyChain" /> class.
         /// </summary>
-        /// <param name="chain">Chain name.</param>
-        /// <param name="nameCn">Chain name in Chinese.</param>
-        /// <param name="nameEn">Chain name in English.</param>
+        /// <param name="chain">Chain name..</param>
+        /// <param name="nameCn">Chain name in Chinese..</param>
+        /// <param name="nameEn">Chain name in English..</param>
         /// <param name="contractAddress">Smart contract address for the currency; if no address is available, it will be an empty string.</param>
-        /// <param name="isDisabled">If it is disabled. 0 means NOT being disabled.</param>
-        /// <param name="isDepositDisabled">Is deposit disabled. 0 means not.</param>
-        /// <param name="isWithdrawDisabled">Is withdrawal disabled. 0 means not.</param>
-        /// <param name="_decimal">Withdrawal precision.</param>
+        /// <param name="isDisabled">If it is disabled. 0 means NOT being disabled..</param>
+        /// <param name="isDepositDisabled">Is deposit disabled. 0 means not..</param>
+        /// <param name="isWithdrawDisabled">Is withdrawal disabled. 0 means not..</param>
+        /// <param name="_decimal">Withdrawal precision..</param>
         public CurrencyChain(string chain = default(string), string nameCn = default(string), string nameEn = default(string), string contractAddress = default(string), int isDisabled = default(int), int isDepositDisabled = default(int), int isWithdrawDisabled = default(int), string _decimal = default(string))
         {
             this.Chain = chain;
@@ -54,23 +54,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Chain name
+        /// Chain name.
         /// </summary>
-        /// <value>Chain name</value>
+        /// <value>Chain name.</value>
         [DataMember(Name="chain")]
         public string Chain { get; set; }
 
         /// <summary>
-        /// Chain name in Chinese
+        /// Chain name in Chinese.
         /// </summary>
-        /// <value>Chain name in Chinese</value>
+        /// <value>Chain name in Chinese.</value>
         [DataMember(Name="name_cn")]
         public string NameCn { get; set; }
 
         /// <summary>
-        /// Chain name in English
+        /// Chain name in English.
         /// </summary>
-        /// <value>Chain name in English</value>
+        /// <value>Chain name in English.</value>
         [DataMember(Name="name_en")]
         public string NameEn { get; set; }
 
@@ -82,30 +82,30 @@ namespace Io.Gate.GateApi.Model
         public string ContractAddress { get; set; }
 
         /// <summary>
-        /// If it is disabled. 0 means NOT being disabled
+        /// If it is disabled. 0 means NOT being disabled.
         /// </summary>
-        /// <value>If it is disabled. 0 means NOT being disabled</value>
+        /// <value>If it is disabled. 0 means NOT being disabled.</value>
         [DataMember(Name="is_disabled")]
         public int IsDisabled { get; set; }
 
         /// <summary>
-        /// Is deposit disabled. 0 means not
+        /// Is deposit disabled. 0 means not.
         /// </summary>
-        /// <value>Is deposit disabled. 0 means not</value>
+        /// <value>Is deposit disabled. 0 means not.</value>
         [DataMember(Name="is_deposit_disabled")]
         public int IsDepositDisabled { get; set; }
 
         /// <summary>
-        /// Is withdrawal disabled. 0 means not
+        /// Is withdrawal disabled. 0 means not.
         /// </summary>
-        /// <value>Is withdrawal disabled. 0 means not</value>
+        /// <value>Is withdrawal disabled. 0 means not.</value>
         [DataMember(Name="is_withdraw_disabled")]
         public int IsWithdrawDisabled { get; set; }
 
         /// <summary>
-        /// Withdrawal precision
+        /// Withdrawal precision.
         /// </summary>
-        /// <value>Withdrawal precision</value>
+        /// <value>Withdrawal precision.</value>
         [DataMember(Name="decimal")]
         public string Decimal { get; set; }
 

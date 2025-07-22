@@ -4,23 +4,23 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SwapETH2**](EarnApi.md#swapeth2) | **POST** /earn/staking/eth2/swap | ETH2 swap
-[**RateListETH2**](EarnApi.md#ratelisteth2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query
-[**ListDualInvestmentPlans**](EarnApi.md#listdualinvestmentplans) | **GET** /earn/dual/investment_plan | Dual Investment product list
-[**ListDualOrders**](EarnApi.md#listdualorders) | **GET** /earn/dual/orders | Dual Investment order list
-[**PlaceDualOrder**](EarnApi.md#placedualorder) | **POST** /earn/dual/orders | Place Dual Investment order
-[**ListStructuredProducts**](EarnApi.md#liststructuredproducts) | **GET** /earn/structured/products | Structured Product List
-[**ListStructuredOrders**](EarnApi.md#liststructuredorders) | **GET** /earn/structured/orders | Structured Product Order List
-[**PlaceStructuredOrder**](EarnApi.md#placestructuredorder) | **POST** /earn/structured/orders | Place Structured Product Order
-[**FindCoin**](EarnApi.md#findcoin) | **GET** /earn/staking/coins | Staking Coins
-[**SwapStakingCoin**](EarnApi.md#swapstakingcoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins
+[**SwapETH2**](EarnApi.md#swapeth2) | **POST** /earn/staking/eth2/swap | ETH2 swap.
+[**RateListETH2**](EarnApi.md#ratelisteth2) | **GET** /earn/staking/eth2/rate_records | ETH2 historical rate of return query.
+[**ListDualInvestmentPlans**](EarnApi.md#listdualinvestmentplans) | **GET** /earn/dual/investment_plan | Dual Investment product list.
+[**ListDualOrders**](EarnApi.md#listdualorders) | **GET** /earn/dual/orders | Dual Investment order list.
+[**PlaceDualOrder**](EarnApi.md#placedualorder) | **POST** /earn/dual/orders | Place Dual Investment order.
+[**ListStructuredProducts**](EarnApi.md#liststructuredproducts) | **GET** /earn/structured/products | Structured Product List.
+[**ListStructuredOrders**](EarnApi.md#liststructuredorders) | **GET** /earn/structured/orders | Structured Product Order List.
+[**PlaceStructuredOrder**](EarnApi.md#placestructuredorder) | **POST** /earn/structured/orders | Place Structured Product Order.
+[**FindCoin**](EarnApi.md#findcoin) | **GET** /earn/staking/coins | Staking Coins.
+[**SwapStakingCoin**](EarnApi.md#swapstakingcoin) | **POST** /earn/staking/swap | On-chain Token Swap for Earned Coins.
 
 
 <a name="swapeth2"></a>
 # **SwapETH2**
 > void SwapETH2 (Eth2Swap eth2Swap)
 
-ETH2 swap
+ETH2 swap.
 
 ### Example
 ```csharp
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // ETH2 swap
+                // ETH2 swap.
                 apiInstance.SwapETH2(eth2Swap);
             }
             catch (GateApiException e)
@@ -82,7 +82,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | swap success |  -  |
+| **200** | swap success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -90,9 +90,9 @@ void (empty response body)
 # **RateListETH2**
 > List&lt;Eth2RateList&gt; RateListETH2 ()
 
-ETH2 historical rate of return query
+ETH2 historical rate of return query.
 
-Check the ETH earnings rate record for the last 31 days
+Check the ETH earnings rate record for the last 31 days.
 
 ### Example
 ```csharp
@@ -116,7 +116,7 @@ namespace Example
 
             try
             {
-                // ETH2 historical rate of return query
+                // ETH2 historical rate of return query.
                 List<Eth2RateList> result = apiInstance.RateListETH2();
                 Debug.WriteLine(result);
             }
@@ -151,7 +151,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -159,7 +159,7 @@ This endpoint does not need any parameter.
 # **ListDualInvestmentPlans**
 > List&lt;DualGetPlans&gt; ListDualInvestmentPlans (long? planId = null)
 
-Dual Investment product list
+Dual Investment product list.
 
 ### Example
 ```csharp
@@ -178,11 +178,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new EarnApi(config);
-            var planId = 1;  // long? | Financial project id (optional) 
+            var planId = 1;  // long? | Financial project id. (optional) 
 
             try
             {
-                // Dual Investment product list
+                // Dual Investment product list.
                 List<DualGetPlans> result = apiInstance.ListDualInvestmentPlans(planId);
                 Debug.WriteLine(result);
             }
@@ -202,7 +202,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **planId** | **long?**| Financial project id | [optional] 
+ **planId** | **long?**| Financial project id. | [optional] 
 
 ### Return type
 
@@ -220,7 +220,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -228,7 +228,7 @@ No authorization required
 # **ListDualOrders**
 > List&lt;DualGetOrders&gt; ListDualOrders (long? from = null, long? to = null, int? page = null, int? limit = null)
 
-Dual Investment order list
+Dual Investment order list.
 
 ### Example
 ```csharp
@@ -249,14 +249,14 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new EarnApi(config);
-            var from = 1740727000;  // long? | Start checkout time (optional) 
-            var to = 1740729000;  // long? | End settlement time (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var from = 1740727000;  // long? | Start checkout time. (optional) 
+            var to = 1740729000;  // long? | End settlement time. (optional) 
+            var page = 1;  // int? | Page number. (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
 
             try
             {
-                // Dual Investment order list
+                // Dual Investment order list.
                 List<DualGetOrders> result = apiInstance.ListDualOrders(from, to, page, limit);
                 Debug.WriteLine(result);
             }
@@ -276,10 +276,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **long?**| Start checkout time | [optional] 
- **to** | **long?**| End settlement time | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **from** | **long?**| Start checkout time. | [optional] 
+ **to** | **long?**| End settlement time. | [optional] 
+ **page** | **int?**| Page number. | [optional] [default to 1]
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 # **PlaceDualOrder**
 > void PlaceDualOrder (PlaceDualInvestmentOrder placeDualInvestmentOrder)
 
-Place Dual Investment order
+Place Dual Investment order.
 
 ### Example
 ```csharp
@@ -330,7 +330,7 @@ namespace Example
 
             try
             {
-                // Place Dual Investment order
+                // Place Dual Investment order.
                 apiInstance.PlaceDualOrder(placeDualInvestmentOrder);
             }
             catch (GateApiException e)
@@ -367,7 +367,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -375,7 +375,7 @@ void (empty response body)
 # **ListStructuredProducts**
 > List&lt;StructuredGetProjectList&gt; ListStructuredProducts (string status, string type = null, int? page = null, int? limit = null)
 
-Structured Product List
+Structured Product List.
 
 ### Example
 ```csharp
@@ -396,12 +396,12 @@ namespace Example
             var apiInstance = new EarnApi(config);
             var status = "in_process";  // string | Status (Default empty to query all)  `in_process`-In progress `will_begin`-Not started `wait_settlement`-Pending settlement `done`-Completed 
             var type = "BullishSharkFin";  // string | Product Type (Default empty to query all)  `SharkFin2.0`-Shark Fin `BullishSharkFin`-Bullish Treasure `BearishSharkFin`-Bearish Treasure `DoubleNoTouch`-Volatility Treasure `RangeAccrual`-Range Smart Yield `SnowBall`-Snowball  (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var page = 1;  // int? | Page number. (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
 
             try
             {
-                // Structured Product List
+                // Structured Product List.
                 List<StructuredGetProjectList> result = apiInstance.ListStructuredProducts(status, type, page, limit);
                 Debug.WriteLine(result);
             }
@@ -423,8 +423,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **status** | **string**| Status (Default empty to query all)  &#x60;in_process&#x60;-In progress &#x60;will_begin&#x60;-Not started &#x60;wait_settlement&#x60;-Pending settlement &#x60;done&#x60;-Completed  | 
  **type** | **string**| Product Type (Default empty to query all)  &#x60;SharkFin2.0&#x60;-Shark Fin &#x60;BullishSharkFin&#x60;-Bullish Treasure &#x60;BearishSharkFin&#x60;-Bearish Treasure &#x60;DoubleNoTouch&#x60;-Volatility Treasure &#x60;RangeAccrual&#x60;-Range Smart Yield &#x60;SnowBall&#x60;-Snowball  | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **page** | **int?**| Page number. | [optional] [default to 1]
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -442,7 +442,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -450,7 +450,7 @@ No authorization required
 # **ListStructuredOrders**
 > List&lt;StructuredOrderList&gt; ListStructuredOrders (long? from = null, long? to = null, int? page = null, int? limit = null)
 
-Structured Product Order List
+Structured Product Order List.
 
 ### Example
 ```csharp
@@ -473,12 +473,12 @@ namespace Example
             var apiInstance = new EarnApi(config);
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var page = 1;  // int? | Page number. (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
 
             try
             {
-                // Structured Product Order List
+                // Structured Product Order List.
                 List<StructuredOrderList> result = apiInstance.ListStructuredOrders(from, to, page, limit);
                 Debug.WriteLine(result);
             }
@@ -500,8 +500,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **page** | **int?**| Page number. | [optional] [default to 1]
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -527,7 +527,7 @@ Name | Type | Description  | Notes
 # **PlaceStructuredOrder**
 > void PlaceStructuredOrder (StructuredBuy structuredBuy)
 
-Place Structured Product Order
+Place Structured Product Order.
 
 ### Example
 ```csharp
@@ -552,7 +552,7 @@ namespace Example
 
             try
             {
-                // Place Structured Product Order
+                // Place Structured Product Order.
                 apiInstance.PlaceStructuredOrder(structuredBuy);
             }
             catch (GateApiException e)
@@ -589,7 +589,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -597,7 +597,7 @@ void (empty response body)
 # **FindCoin**
 > List&lt;string&gt; FindCoin (FindCoin findCoin)
 
-Staking Coins
+Staking Coins.
 
 ### Example
 ```csharp
@@ -622,7 +622,7 @@ namespace Example
 
             try
             {
-                // Staking Coins
+                // Staking Coins.
                 List<string> result = apiInstance.FindCoin(findCoin);
                 Debug.WriteLine(result);
             }
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 # **SwapStakingCoin**
 > SwapCoinStruct SwapStakingCoin (SwapCoin swapCoin)
 
-On-chain Token Swap for Earned Coins
+On-chain Token Swap for Earned Coins.
 
 ### Example
 ```csharp
@@ -693,7 +693,7 @@ namespace Example
 
             try
             {
-                // On-chain Token Swap for Earned Coins
+                // On-chain Token Swap for Earned Coins.
                 SwapCoinStruct result = apiInstance.SwapStakingCoin(swapCoin);
                 Debug.WriteLine(result);
             }
@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | swap success |  -  |
+| **200** | swap success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

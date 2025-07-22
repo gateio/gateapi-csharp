@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountMarginBalance" /> class.
         /// </summary>
-        /// <param name="uid">User ID.</param>
-        /// <param name="available">Margin account balances.</param>
+        /// <param name="uid">User ID..</param>
+        /// <param name="available">Margin account balances..</param>
         public SubAccountMarginBalance(string uid = default(string), List<MarginAccount> available = default(List<MarginAccount>))
         {
             this.Uid = uid;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="uid")]
         public string Uid { get; set; }
 
         /// <summary>
-        /// Margin account balances
+        /// Margin account balances.
         /// </summary>
-        /// <value>Margin account balances</value>
+        /// <value>Margin account balances.</value>
         [DataMember(Name="available")]
         public List<MarginAccount> Available { get; set; }
 

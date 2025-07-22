@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class MyFuturesTradeTimeRange :  IEquatable<MyFuturesTradeTimeRange>, IValidatableObject
     {
         /// <summary>
-        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
         /// </summary>
-        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;</value>
+        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -52,25 +52,25 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
         /// </summary>
-        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;</value>
+        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</value>
         [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MyFuturesTradeTimeRange" /> class.
         /// </summary>
-        /// <param name="tradeId">Trade ID.</param>
-        /// <param name="createTime">Trading time.</param>
-        /// <param name="contract">Futures contract.</param>
-        /// <param name="orderId">Order ID related.</param>
-        /// <param name="size">Trading size.</param>
-        /// <param name="closeSize">Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position.</param>
-        /// <param name="price">Trading price.</param>
-        /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</param>
-        /// <param name="text">User defined information.</param>
-        /// <param name="fee">Fee deducted.</param>
-        /// <param name="pointFee">Points used to deduct fee.</param>
+        /// <param name="tradeId">Trade ID..</param>
+        /// <param name="createTime">Trading time..</param>
+        /// <param name="contract">Futures contract..</param>
+        /// <param name="orderId">Order ID related..</param>
+        /// <param name="size">Trading size..</param>
+        /// <param name="closeSize">Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0 Open long position close_size&#x3D;0 &amp;&amp; size＜0 Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position.</param>
+        /// <param name="price">Trading price..</param>
+        /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;..</param>
+        /// <param name="text">User defined information..</param>
+        /// <param name="fee">Fee deducted..</param>
+        /// <param name="pointFee">Points used to deduct fee..</param>
         public MyFuturesTradeTimeRange(string tradeId = default(string), double createTime = default(double), string contract = default(string), string orderId = default(string), long size = default(long), long closeSize = default(long), string price = default(string), RoleEnum? role = default(RoleEnum?), string text = default(string), string fee = default(string), string pointFee = default(string))
         {
             this.TradeId = tradeId;
@@ -87,72 +87,72 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade ID
+        /// Trade ID.
         /// </summary>
-        /// <value>Trade ID</value>
+        /// <value>Trade ID.</value>
         [DataMember(Name="trade_id")]
         public string TradeId { get; set; }
 
         /// <summary>
-        /// Trading time
+        /// Trading time.
         /// </summary>
-        /// <value>Trading time</value>
+        /// <value>Trading time.</value>
         [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Order ID related
+        /// Order ID related.
         /// </summary>
-        /// <value>Order ID related</value>
+        /// <value>Order ID related.</value>
         [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
-        /// Trading size
+        /// Trading size.
         /// </summary>
-        /// <value>Trading size</value>
+        /// <value>Trading size.</value>
         [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
-        /// Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
+        /// Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0 Open long position close_size&#x3D;0 &amp;&amp; size＜0 Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position
         /// </summary>
-        /// <value>Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0       Open long position close_size&#x3D;0 &amp;&amp; size＜0       Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close short postion close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position</value>
+        /// <value>Number of closed positions:  close_size&#x3D;0 &amp;&amp; size＞0 Open long position close_size&#x3D;0 &amp;&amp; size＜0 Open short position close_size&gt;0 &amp;&amp; size&gt;0 &amp;&amp; size &lt;&#x3D; close_size Close &gt; close_size Close short position and open long position close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &gt;&#x3D; close_size Close long postion close_size&lt;0 &amp;&amp; size&lt;0 &amp;&amp; size &lt; close_size Close long position and open short position</value>
         [DataMember(Name="close_size")]
         public long CloseSize { get; set; }
 
         /// <summary>
-        /// Trading price
+        /// Trading price.
         /// </summary>
-        /// <value>Trading price</value>
+        /// <value>Trading price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// User defined information
+        /// User defined information.
         /// </summary>
-        /// <value>User defined information</value>
+        /// <value>User defined information.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
-        /// Fee deducted
+        /// Fee deducted.
         /// </summary>
-        /// <value>Fee deducted</value>
+        /// <value>Fee deducted.</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Points used to deduct fee
+        /// Points used to deduct fee.
         /// </summary>
-        /// <value>Points used to deduct fee</value>
+        /// <value>Points used to deduct fee.</value>
         [DataMember(Name="point_fee")]
         public string PointFee { get; set; }
 

@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsSettlement" /> class.
         /// </summary>
-        /// <param name="time">Last changed time of configuration.</param>
-        /// <param name="contract">Options contract name.</param>
-        /// <param name="profit">Settlement profit per size (quote currency).</param>
-        /// <param name="fee">Settlement fee per size (quote currency).</param>
-        /// <param name="strikePrice">Strike price (quote currency).</param>
-        /// <param name="settlePrice">Settlement price (quote currency).</param>
+        /// <param name="time">Last changed time of configuration..</param>
+        /// <param name="contract">Options contract name..</param>
+        /// <param name="profit">Settlement profit per size (quote currency)..</param>
+        /// <param name="fee">Settlement fee per size (quote currency)..</param>
+        /// <param name="strikePrice">Strike price (quote currency)..</param>
+        /// <param name="settlePrice">Settlement price (quote currency)..</param>
         public OptionsSettlement(double time = default(double), string contract = default(string), string profit = default(string), string fee = default(string), string strikePrice = default(string), string settlePrice = default(string))
         {
             this.Time = time;
@@ -50,44 +50,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Last changed time of configuration
+        /// Last changed time of configuration.
         /// </summary>
-        /// <value>Last changed time of configuration</value>
+        /// <value>Last changed time of configuration.</value>
         [DataMember(Name="time")]
         public double Time { get; set; }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Settlement profit per size (quote currency)
+        /// Settlement profit per size (quote currency).
         /// </summary>
-        /// <value>Settlement profit per size (quote currency)</value>
+        /// <value>Settlement profit per size (quote currency).</value>
         [DataMember(Name="profit")]
         public string Profit { get; set; }
 
         /// <summary>
-        /// Settlement fee per size (quote currency)
+        /// Settlement fee per size (quote currency).
         /// </summary>
-        /// <value>Settlement fee per size (quote currency)</value>
+        /// <value>Settlement fee per size (quote currency).</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Strike price (quote currency)
+        /// Strike price (quote currency).
         /// </summary>
-        /// <value>Strike price (quote currency)</value>
+        /// <value>Strike price (quote currency).</value>
         [DataMember(Name="strike_price")]
         public string StrikePrice { get; set; }
 
         /// <summary>
-        /// Settlement price (quote currency)
+        /// Settlement price (quote currency).
         /// </summary>
-        /// <value>Settlement price (quote currency)</value>
+        /// <value>Settlement price (quote currency).</value>
         [DataMember(Name="settle_price")]
         public string SettlePrice { get; set; }
 

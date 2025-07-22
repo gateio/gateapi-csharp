@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Multi-currency pledge current interest rate
+    /// Multi-currency pledge current interest rate.
     /// </summary>
     [DataContract]
     public partial class CollateralCurrentRate :  IEquatable<CollateralCurrentRate>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralCurrentRate" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="currentRate">Currency current interest rate.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="currentRate">Currency current interest rate..</param>
         public CollateralCurrentRate(string currency = default(string), string currentRate = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency current interest rate
+        /// Currency current interest rate.
         /// </summary>
-        /// <value>Currency current interest rate</value>
+        /// <value>Currency current interest rate.</value>
         [DataMember(Name="current_rate")]
         public string CurrentRate { get; set; }
 

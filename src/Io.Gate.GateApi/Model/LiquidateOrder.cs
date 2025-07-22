@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Liquidate Order detail
+    /// Liquidate Order detail.
     /// </summary>
     [DataContract]
     public partial class LiquidateOrder :  IEquatable<LiquidateOrder>, IValidatableObject
@@ -39,9 +39,9 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="LiquidateOrder" /> class.
         /// </summary>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
-        /// <param name="currencyPair">Currency pair (required).</param>
-        /// <param name="amount">Trade amount (required).</param>
-        /// <param name="price">Order price (required).</param>
+        /// <param name="currencyPair">Currency pair. (required).</param>
+        /// <param name="amount">Trade amount. (required).</param>
+        /// <param name="price">Order price. (required).</param>
         /// <param name="actionMode">Processing Mode:  Different fields are returned when placing an order based on action_mode. This field is only valid during the request, and it is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
         public LiquidateOrder(string text = default(string), string currencyPair = default(string), string amount = default(string), string price = default(string), string actionMode = default(string))
         {
@@ -63,23 +63,23 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Trade amount
+        /// Trade amount.
         /// </summary>
-        /// <value>Trade amount</value>
+        /// <value>Trade amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Order price
+        /// Order price.
         /// </summary>
-        /// <value>Order price</value>
+        /// <value>Order price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

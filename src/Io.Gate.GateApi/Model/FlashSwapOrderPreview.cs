@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Initiate a flash swap order preview
+    /// Initiate a flash swap order preview.
     /// </summary>
     [DataContract]
     public partial class FlashSwapOrderPreview :  IEquatable<FlashSwapOrderPreview>, IValidatableObject
@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlashSwapOrderPreview" /> class.
         /// </summary>
-        /// <param name="previewId">Preview result ID.</param>
+        /// <param name="previewId">Preview result ID..</param>
         /// <param name="sellCurrency">Name of the sold asset,  Refer to the interface Query the list of currencies supported for flash swap GET /flash_swap/currenciesto obtain.</param>
-        /// <param name="sellAmount">Amount to sell.</param>
+        /// <param name="sellAmount">Amount to sell..</param>
         /// <param name="buyCurrency">Name of the purchased asset,  Refer to the interface Query the list of currencies supported for flash swap GET /flash_swap/currenciesto obtain.</param>
-        /// <param name="buyAmount">Amount to buy.</param>
-        /// <param name="price">Price.</param>
+        /// <param name="buyAmount">Amount to buy..</param>
+        /// <param name="price">Price..</param>
         public FlashSwapOrderPreview(string previewId = default(string), string sellCurrency = default(string), string sellAmount = default(string), string buyCurrency = default(string), string buyAmount = default(string), string price = default(string))
         {
             this.PreviewId = previewId;
@@ -50,9 +50,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Preview result ID
+        /// Preview result ID.
         /// </summary>
-        /// <value>Preview result ID</value>
+        /// <value>Preview result ID.</value>
         [DataMember(Name="preview_id")]
         public string PreviewId { get; set; }
 
@@ -64,9 +64,9 @@ namespace Io.Gate.GateApi.Model
         public string SellCurrency { get; set; }
 
         /// <summary>
-        /// Amount to sell
+        /// Amount to sell.
         /// </summary>
-        /// <value>Amount to sell</value>
+        /// <value>Amount to sell.</value>
         [DataMember(Name="sell_amount")]
         public string SellAmount { get; set; }
 
@@ -78,16 +78,16 @@ namespace Io.Gate.GateApi.Model
         public string BuyCurrency { get; set; }
 
         /// <summary>
-        /// Amount to buy
+        /// Amount to buy.
         /// </summary>
-        /// <value>Amount to buy</value>
+        /// <value>Amount to buy.</value>
         [DataMember(Name="buy_amount")]
         public string BuyAmount { get; set; }
 
         /// <summary>
-        /// Price
+        /// Price.
         /// </summary>
-        /// <value>Price</value>
+        /// <value>Price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BorrowCurrencyInfo" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="leftRepayPrincipal">outstanding principal.</param>
-        /// <param name="leftRepayInterest">outstanding interest.</param>
-        /// <param name="leftRepayUsdt">Value of left total repayments amount in USDT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="leftRepayPrincipal">outstanding principal..</param>
+        /// <param name="leftRepayInterest">outstanding interest..</param>
+        /// <param name="leftRepayUsdt">Value of left total repayments amount in USDT..</param>
         public BorrowCurrencyInfo(string currency = default(string), string indexPrice = default(string), string leftRepayPrincipal = default(string), string leftRepayInterest = default(string), string leftRepayUsdt = default(string))
         {
             this.Currency = currency;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// outstanding principal
+        /// outstanding principal.
         /// </summary>
-        /// <value>outstanding principal</value>
+        /// <value>outstanding principal.</value>
         [DataMember(Name="left_repay_principal")]
         public string LeftRepayPrincipal { get; set; }
 
         /// <summary>
-        /// outstanding interest
+        /// outstanding interest.
         /// </summary>
-        /// <value>outstanding interest</value>
+        /// <value>outstanding interest.</value>
         [DataMember(Name="left_repay_interest")]
         public string LeftRepayInterest { get; set; }
 
         /// <summary>
-        /// Value of left total repayments amount in USDT
+        /// Value of left total repayments amount in USDT.
         /// </summary>
-        /// <value>Value of left total repayments amount in USDT</value>
+        /// <value>Value of left total repayments amount in USDT.</value>
         [DataMember(Name="left_repay_usdt")]
         public string LeftRepayUsdt { get; set; }
 

@@ -28,214 +28,214 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;AgencyTransactionHistory&gt;</returns>
         List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyTransactionHistory&gt;</returns>
         ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The agency obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;AgencyCommissionHistory&gt;</returns>
         List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyCommissionHistory&gt;</returns>
         ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner obtains transaction records of recommended users
+        /// Partner obtains transaction records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerTransactionHistory</returns>
         PartnerTransactionHistory PartnerTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users
+        /// Partner obtains transaction records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerTransactionHistory</returns>
         ApiResponse<PartnerTransactionHistory> PartnerTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner obtains commission records of recommended users
+        /// Partner obtains commission records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerCommissionHistory</returns>
         PartnerCommissionHistory PartnerCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner obtains commission records of recommended users
+        /// Partner obtains commission records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerCommissionHistory</returns>
         ApiResponse<PartnerCommissionHistory> PartnerCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner subordinate list
+        /// Partner subordinate list.
         /// </summary>
         /// <remarks>
-        /// Including sub-agents, direct customers, indirect customers
+        /// Including sub-agents, direct customers, indirect customers.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerSubList</returns>
         PartnerSubList PartnerSubList (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner subordinate list
+        /// Partner subordinate list.
         /// </summary>
         /// <remarks>
-        /// Including sub-agents, direct customers, indirect customers
+        /// Including sub-agents, direct customers, indirect customers.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerSubList</returns>
         ApiResponse<PartnerSubList> PartnerSubListWithHttpInfo (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records
+        /// The broker obtains the user&#39;s commission rebate records.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;BrokerCommission&gt;</returns>
         List<BrokerCommission> RebateBrokerCommissionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records
+        /// The broker obtains the user&#39;s commission rebate records.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;BrokerCommission&gt;</returns>
         ApiResponse<List<BrokerCommission>> RebateBrokerCommissionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// The broker obtains the user&#39;s trading history
+        /// The broker obtains the user&#39;s trading history.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;BrokerTransaction&gt;</returns>
         List<BrokerTransaction> RebateBrokerTransactionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history
+        /// The broker obtains the user&#39;s trading history.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;BrokerTransaction&gt;</returns>
         ApiResponse<List<BrokerTransaction>> RebateBrokerTransactionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// User retrieves rebate information
+        /// User retrieves rebate information.
         /// </summary>
         /// <remarks>
         /// 
@@ -245,7 +245,7 @@ namespace Io.Gate.GateApi.Api
         List<RebateUserInfo> RebateUserInfo ();
 
         /// <summary>
-        /// User retrieves rebate information
+        /// User retrieves rebate information.
         /// </summary>
         /// <remarks>
         /// 
@@ -254,24 +254,24 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
         ApiResponse<List<RebateUserInfo>> RebateUserInfoWithHttpInfo ();
         /// <summary>
-        /// User-subordinate relationship
+        /// User-subordinate relationship.
         /// </summary>
         /// <remarks>
-        /// Query whether the specified user is in the system
+        /// Query whether the specified user is in the system.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>UserSubRelation</returns>
         UserSubRelation UserSubRelation (string userIdList);
 
         /// <summary>
-        /// User-subordinate relationship
+        /// User-subordinate relationship.
         /// </summary>
         /// <remarks>
-        /// Query whether the specified user is in the system
+        /// Query whether the specified user is in the system.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>ApiResponse of UserSubRelation</returns>
         ApiResponse<UserSubRelation> UserSubRelationWithHttpInfo (string userIdList);
         #endregion Synchronous Operations
@@ -284,214 +284,214 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyTransactionHistory&gt;</returns>
         Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user
+        /// The agency obtains the transaction history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyTransactionHistory&gt;)</returns>
         Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The agency obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyCommissionHistory&gt;</returns>
         Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user
+        /// The agency obtains the commission history of the recommended user.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyCommissionHistory&gt;)</returns>
         Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner obtains transaction records of recommended users
+        /// Partner obtains transaction records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerTransactionHistory</returns>
         Task<PartnerTransactionHistory> PartnerTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users
+        /// Partner obtains transaction records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerTransactionHistory)</returns>
         Task<ApiResponse<PartnerTransactionHistory>> PartnerTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner obtains commission records of recommended users
+        /// Partner obtains commission records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerCommissionHistory</returns>
         Task<PartnerCommissionHistory> PartnerCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner obtains commission records of recommended users
+        /// Partner obtains commission records of recommended users.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerCommissionHistory)</returns>
         Task<ApiResponse<PartnerCommissionHistory>> PartnerCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Partner subordinate list
+        /// Partner subordinate list.
         /// </summary>
         /// <remarks>
-        /// Including sub-agents, direct customers, indirect customers
+        /// Including sub-agents, direct customers, indirect customers.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerSubList</returns>
         Task<PartnerSubList> PartnerSubListAsync (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Partner subordinate list
+        /// Partner subordinate list.
         /// </summary>
         /// <remarks>
-        /// Including sub-agents, direct customers, indirect customers
+        /// Including sub-agents, direct customers, indirect customers.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerSubList)</returns>
         Task<ApiResponse<PartnerSubList>> PartnerSubListAsyncWithHttpInfo (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records
+        /// The broker obtains the user&#39;s commission rebate records.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;BrokerCommission&gt;</returns>
         Task<List<BrokerCommission>> RebateBrokerCommissionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records
+        /// The broker obtains the user&#39;s commission rebate records.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BrokerCommission&gt;)</returns>
         Task<ApiResponse<List<BrokerCommission>>> RebateBrokerCommissionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// The broker obtains the user&#39;s trading history
+        /// The broker obtains the user&#39;s trading history.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;BrokerTransaction&gt;</returns>
         Task<List<BrokerTransaction>> RebateBrokerTransactionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history
+        /// The broker obtains the user&#39;s trading history.
         /// </summary>
         /// <remarks>
-        /// Record time range cannot exceed 30 days
+        /// Record time range cannot exceed 30 days.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BrokerTransaction&gt;)</returns>
         Task<ApiResponse<List<BrokerTransaction>>> RebateBrokerTransactionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// User retrieves rebate information
+        /// User retrieves rebate information.
         /// </summary>
         /// <remarks>
         /// 
@@ -501,7 +501,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<RebateUserInfo>> RebateUserInfoAsync ();
 
         /// <summary>
-        /// User retrieves rebate information
+        /// User retrieves rebate information.
         /// </summary>
         /// <remarks>
         /// 
@@ -510,24 +510,24 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
         Task<ApiResponse<List<RebateUserInfo>>> RebateUserInfoAsyncWithHttpInfo ();
         /// <summary>
-        /// User-subordinate relationship
+        /// User-subordinate relationship.
         /// </summary>
         /// <remarks>
-        /// Query whether the specified user is in the system
+        /// Query whether the specified user is in the system.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>Task of UserSubRelation</returns>
         Task<UserSubRelation> UserSubRelationAsync (string userIdList);
 
         /// <summary>
-        /// User-subordinate relationship
+        /// User-subordinate relationship.
         /// </summary>
         /// <remarks>
-        /// Query whether the specified user is in the system
+        /// Query whether the specified user is in the system.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>Task of ApiResponse (UserSubRelation)</returns>
         Task<ApiResponse<UserSubRelation>> UserSubRelationAsyncWithHttpInfo (string userIdList);
         #endregion Asynchronous Operations
@@ -651,15 +651,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;AgencyTransactionHistory&gt;</returns>
         public List<AgencyTransactionHistory> AgencyTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -668,15 +668,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyTransactionHistory&gt;</returns>
         public ApiResponse<List<AgencyTransactionHistory>> AgencyTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -737,15 +737,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyTransactionHistory&gt;</returns>
         public async Task<List<AgencyTransactionHistory>> AgencyTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -755,15 +755,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the transaction history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the transaction history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyTransactionHistory&gt;)</returns>
         public async Task<ApiResponse<List<AgencyTransactionHistory>>> AgencyTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -826,15 +826,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;AgencyCommissionHistory&gt;</returns>
         public List<AgencyCommissionHistory> AgencyCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -843,15 +843,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;AgencyCommissionHistory&gt;</returns>
         public ApiResponse<List<AgencyCommissionHistory>> AgencyCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -912,15 +912,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;AgencyCommissionHistory&gt;</returns>
         public async Task<List<AgencyCommissionHistory>> AgencyCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -930,15 +930,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The agency obtains the commission history of the recommended user Record time range cannot exceed 30 days
+        /// The agency obtains the commission history of the recommended user. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;AgencyCommissionHistory&gt;)</returns>
         public async Task<ApiResponse<List<AgencyCommissionHistory>>> AgencyCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1001,15 +1001,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains transaction records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerTransactionHistory</returns>
         public PartnerTransactionHistory PartnerTransactionHistory (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1018,15 +1018,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains transaction records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerTransactionHistory</returns>
         public ApiResponse<PartnerTransactionHistory> PartnerTransactionHistoryWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1087,15 +1087,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains transaction records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerTransactionHistory</returns>
         public async Task<PartnerTransactionHistory> PartnerTransactionHistoryAsync (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1105,15 +1105,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains transaction records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains transaction records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currencyPair">Specify the currency pair, if not specified, return all currency pairs. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerTransactionHistory)</returns>
         public async Task<ApiResponse<PartnerTransactionHistory>> PartnerTransactionHistoryAsyncWithHttpInfo (string currencyPair = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1176,15 +1176,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains commission records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains commission records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerCommissionHistory</returns>
         public PartnerCommissionHistory PartnerCommissionsHistory (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1193,15 +1193,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains commission records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains commission records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerCommissionHistory</returns>
         public ApiResponse<PartnerCommissionHistory> PartnerCommissionsHistoryWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1262,15 +1262,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains commission records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains commission records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerCommissionHistory</returns>
         public async Task<PartnerCommissionHistory> PartnerCommissionsHistoryAsync (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1280,15 +1280,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner obtains commission records of recommended users Record time range cannot exceed 30 days
+        /// Partner obtains commission records of recommended users. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Filter by currency. Return all currency records if not specified (optional)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="from">Time range beginning, default to 7 days before current time (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="currency">Filter by currency. Return all currency records if not specified. (optional)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="from">Time range beginning, default to 7 days before current time. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerCommissionHistory)</returns>
         public async Task<ApiResponse<PartnerCommissionHistory>> PartnerCommissionsHistoryAsyncWithHttpInfo (string currency = default(string), long? userId = default(long?), long? from = default(long?), long? to = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1351,12 +1351,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner subordinate list Including sub-agents, direct customers, indirect customers
+        /// Partner subordinate list. Including sub-agents, direct customers, indirect customers.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>PartnerSubList</returns>
         public PartnerSubList PartnerSubList (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1365,12 +1365,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner subordinate list Including sub-agents, direct customers, indirect customers
+        /// Partner subordinate list. Including sub-agents, direct customers, indirect customers.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of PartnerSubList</returns>
         public ApiResponse<PartnerSubList> PartnerSubListWithHttpInfo (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1419,12 +1419,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner subordinate list Including sub-agents, direct customers, indirect customers
+        /// Partner subordinate list. Including sub-agents, direct customers, indirect customers.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of PartnerSubList</returns>
         public async Task<PartnerSubList> PartnerSubListAsync (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1434,12 +1434,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Partner subordinate list Including sub-agents, direct customers, indirect customers
+        /// Partner subordinate list. Including sub-agents, direct customers, indirect customers.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (PartnerSubList)</returns>
         public async Task<ApiResponse<PartnerSubList>> PartnerSubListAsyncWithHttpInfo (long? userId = default(long?), int? limit = default(int?), int? offset = default(int?))
         {
@@ -1490,14 +1490,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s commission rebate records. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;BrokerCommission&gt;</returns>
         public List<BrokerCommission> RebateBrokerCommissionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1506,14 +1506,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s commission rebate records. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;BrokerCommission&gt;</returns>
         public ApiResponse<List<BrokerCommission>> RebateBrokerCommissionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1570,14 +1570,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s commission rebate records. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;BrokerCommission&gt;</returns>
         public async Task<List<BrokerCommission>> RebateBrokerCommissionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1587,14 +1587,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s commission rebate records Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s commission rebate records. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BrokerCommission&gt;)</returns>
         public async Task<ApiResponse<List<BrokerCommission>>> RebateBrokerCommissionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1653,14 +1653,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s trading history. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;BrokerTransaction&gt;</returns>
         public List<BrokerTransaction> RebateBrokerTransactionHistory (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1669,14 +1669,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s trading history. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;BrokerTransaction&gt;</returns>
         public ApiResponse<List<BrokerTransaction>> RebateBrokerTransactionHistoryWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1733,14 +1733,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s trading history. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;BrokerTransaction&gt;</returns>
         public async Task<List<BrokerTransaction>> RebateBrokerTransactionHistoryAsync (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1750,14 +1750,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// The broker obtains the user&#39;s trading history Record time range cannot exceed 30 days
+        /// The broker obtains the user&#39;s trading history. Record time range cannot exceed 30 days.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
-        /// <param name="userId">User ID. If not specified, all user records will be returned (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
+        /// <param name="userId">User ID. If not specified, all user records will be returned. (optional)</param>
         /// <param name="from">The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;BrokerTransaction&gt;)</returns>
         public async Task<ApiResponse<List<BrokerTransaction>>> RebateBrokerTransactionHistoryAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? userId = default(long?), long? from = default(long?), long? to = default(long?))
         {
@@ -1816,7 +1816,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User retrieves rebate information 
+        /// User retrieves rebate information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;RebateUserInfo&gt;</returns>
@@ -1827,7 +1827,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User retrieves rebate information 
+        /// User retrieves rebate information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;RebateUserInfo&gt;</returns>
@@ -1866,7 +1866,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User retrieves rebate information 
+        /// User retrieves rebate information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;RebateUserInfo&gt;</returns>
@@ -1878,7 +1878,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User retrieves rebate information 
+        /// User retrieves rebate information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;RebateUserInfo&gt;)</returns>
@@ -1919,10 +1919,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User-subordinate relationship Query whether the specified user is in the system
+        /// User-subordinate relationship. Query whether the specified user is in the system.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>UserSubRelation</returns>
         public UserSubRelation UserSubRelation (string userIdList)
         {
@@ -1931,10 +1931,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User-subordinate relationship Query whether the specified user is in the system
+        /// User-subordinate relationship. Query whether the specified user is in the system.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>ApiResponse of UserSubRelation</returns>
         public ApiResponse<UserSubRelation> UserSubRelationWithHttpInfo (string userIdList)
         {
@@ -1976,10 +1976,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User-subordinate relationship Query whether the specified user is in the system
+        /// User-subordinate relationship. Query whether the specified user is in the system.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>Task of UserSubRelation</returns>
         public async Task<UserSubRelation> UserSubRelationAsync (string userIdList)
         {
@@ -1989,10 +1989,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// User-subordinate relationship Query whether the specified user is in the system
+        /// User-subordinate relationship. Query whether the specified user is in the system.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100</param>
+        /// <param name="userIdList">Query the user&#39;s ID list, split by,, if there are more than 100, take 100.</param>
         /// <returns>Task of ApiResponse (UserSubRelation)</returns>
         public async Task<ApiResponse<UserSubRelation>> UserSubRelationAsyncWithHttpInfo (string userIdList)
         {

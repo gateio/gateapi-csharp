@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class SpotPriceTrigger :  IEquatable<SpotPriceTrigger>, IValidatableObject
     {
         /// <summary>
-        /// Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: triggered when market price less than or equal to &#x60;price&#x60; field 
+        /// Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: or equal to &#x60;price&#x60; field 
         /// </summary>
-        /// <value>Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: triggered when market price less than or equal to &#x60;price&#x60; field </value>
+        /// <value>Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: or equal to &#x60;price&#x60; field </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RuleEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: triggered when market price less than or equal to &#x60;price&#x60; field 
+        /// Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: or equal to &#x60;price&#x60; field 
         /// </summary>
-        /// <value>Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: triggered when market price less than or equal to &#x60;price&#x60; field </value>
+        /// <value>Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: or equal to &#x60;price&#x60; field </value>
         [DataMember(Name="rule")]
         public RuleEnum Rule { get; set; }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotPriceTrigger" /> class.
         /// </summary>
-        /// <param name="price">Trigger price (required).</param>
-        /// <param name="rule">Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: triggered when market price less than or equal to &#x60;price&#x60; field  (required).</param>
+        /// <param name="price">Trigger price. (required).</param>
+        /// <param name="rule">Price trigger condition  - &#x60;&gt;&#x3D;&#x60;: triggered when market price larger than or equal to &#x60;price&#x60; field - &#x60;&lt;&#x3D;&#x60;: or equal to &#x60;price&#x60; field  (required).</param>
         /// <param name="expiration">How long (in seconds) to wait for the condition to be triggered before cancelling the order. (required).</param>
         public SpotPriceTrigger(string price = default(string), RuleEnum rule = default(RuleEnum), int expiration = default(int))
         {
@@ -77,9 +77,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trigger price
+        /// Trigger price.
         /// </summary>
-        /// <value>Trigger price</value>
+        /// <value>Trigger price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

@@ -38,10 +38,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountTransfer" /> class.
         /// </summary>
-        /// <param name="subAccount">Sub account user ID (required).</param>
+        /// <param name="subAccount">Sub account user ID. (required).</param>
         /// <param name="subAccountType">Target sub user&#39;s account. &#x60;spot&#x60; - spot account, &#x60;futures&#x60; - perpetual contract account, &#x60;delivery&#x60; - delivery account (default to &quot;spot&quot;).</param>
-        /// <param name="currency">Transfer currency name (required).</param>
-        /// <param name="amount">Transfer amount (required).</param>
+        /// <param name="currency">Transfer currency name. (required).</param>
+        /// <param name="amount">Transfer amount. (required).</param>
         /// <param name="direction">Transfer direction. to - transfer into sub account; from - transfer out from sub account (required).</param>
         /// <param name="clientOrderId">The custom ID provided by the customer serves as a safeguard against duplicate transfers. It can be a combination of letters (case-sensitive), numbers, hyphens &#39;-&#39;, and underscores &#39;_&#39;, with a length ranging from 1 to 64 characters..</param>
         public SubAccountTransfer(string subAccount = default(string), string subAccountType = "spot", string currency = default(string), string amount = default(string), string direction = default(string), string clientOrderId = default(string))
@@ -60,9 +60,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Sub account user ID
+        /// Sub account user ID.
         /// </summary>
-        /// <value>Sub account user ID</value>
+        /// <value>Sub account user ID.</value>
         [DataMember(Name="sub_account")]
         public string SubAccount { get; set; }
 
@@ -74,16 +74,16 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountType { get; set; }
 
         /// <summary>
-        /// Transfer currency name
+        /// Transfer currency name.
         /// </summary>
-        /// <value>Transfer currency name</value>
+        /// <value>Transfer currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Transfer amount
+        /// Transfer amount.
         /// </summary>
-        /// <value>Transfer amount</value>
+        /// <value>Transfer amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

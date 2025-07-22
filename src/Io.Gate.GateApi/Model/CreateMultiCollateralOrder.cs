@@ -38,15 +38,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateMultiCollateralOrder" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="orderType">current - current, fixed - fixed, if not specified, default to current.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="orderType">current - current, fixed - fixed, if not specified, default to current..</param>
         /// <param name="fixedType">Fixed interest rate loan period: 7d - 7 days, 30d - 30 days. Must be provided for fixed.</param>
-        /// <param name="fixedRate">Fixed interest rate, must be specified for fixed.</param>
-        /// <param name="autoRenew">Fixed interest rate, automatic renewal.</param>
-        /// <param name="autoRepay">Fixed interest rate, automatic repayment.</param>
-        /// <param name="borrowCurrency">Borrowed currency (required).</param>
-        /// <param name="borrowAmount">Borrowing amount (required).</param>
-        /// <param name="collateralCurrencies">Collateral currency and amount.</param>
+        /// <param name="fixedRate">Fixed interest rate, must be specified for fixed..</param>
+        /// <param name="autoRenew">Fixed interest rate, automatic renewal..</param>
+        /// <param name="autoRepay">Fixed interest rate, automatic repayment..</param>
+        /// <param name="borrowCurrency">Borrowed currency. (required).</param>
+        /// <param name="borrowAmount">Borrowing amount. (required).</param>
+        /// <param name="collateralCurrencies">Collateral currency and amount..</param>
         public CreateMultiCollateralOrder(string orderId = default(string), string orderType = default(string), string fixedType = default(string), string fixedRate = default(string), bool autoRenew = default(bool), bool autoRepay = default(bool), string borrowCurrency = default(string), string borrowAmount = default(string), List<CollateralCurrency> collateralCurrencies = default(List<CollateralCurrency>))
         {
             // to ensure "borrowCurrency" is required (not null)
@@ -63,16 +63,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
-        /// current - current, fixed - fixed, if not specified, default to current
+        /// current - current, fixed - fixed, if not specified, default to current.
         /// </summary>
-        /// <value>current - current, fixed - fixed, if not specified, default to current</value>
+        /// <value>current - current, fixed - fixed, if not specified, default to current.</value>
         [DataMember(Name="order_type")]
         public string OrderType { get; set; }
 
@@ -84,44 +84,44 @@ namespace Io.Gate.GateApi.Model
         public string FixedType { get; set; }
 
         /// <summary>
-        /// Fixed interest rate, must be specified for fixed
+        /// Fixed interest rate, must be specified for fixed.
         /// </summary>
-        /// <value>Fixed interest rate, must be specified for fixed</value>
+        /// <value>Fixed interest rate, must be specified for fixed.</value>
         [DataMember(Name="fixed_rate")]
         public string FixedRate { get; set; }
 
         /// <summary>
-        /// Fixed interest rate, automatic renewal
+        /// Fixed interest rate, automatic renewal.
         /// </summary>
-        /// <value>Fixed interest rate, automatic renewal</value>
+        /// <value>Fixed interest rate, automatic renewal.</value>
         [DataMember(Name="auto_renew")]
         public bool AutoRenew { get; set; }
 
         /// <summary>
-        /// Fixed interest rate, automatic repayment
+        /// Fixed interest rate, automatic repayment.
         /// </summary>
-        /// <value>Fixed interest rate, automatic repayment</value>
+        /// <value>Fixed interest rate, automatic repayment.</value>
         [DataMember(Name="auto_repay")]
         public bool AutoRepay { get; set; }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="borrow_currency")]
         public string BorrowCurrency { get; set; }
 
         /// <summary>
-        /// Borrowing amount
+        /// Borrowing amount.
         /// </summary>
-        /// <value>Borrowing amount</value>
+        /// <value>Borrowing amount.</value>
         [DataMember(Name="borrow_amount")]
         public string BorrowAmount { get; set; }
 
         /// <summary>
-        /// Collateral currency and amount
+        /// Collateral currency and amount.
         /// </summary>
-        /// <value>Collateral currency and amount</value>
+        /// <value>Collateral currency and amount.</value>
         [DataMember(Name="collateral_currencies")]
         public List<CollateralCurrency> CollateralCurrencies { get; set; }
 

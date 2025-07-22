@@ -39,11 +39,11 @@ namespace Io.Gate.GateApi.Model
         /// <param name="negativeLiab">Negative balance loan is valid in cross-currency margin/combined margin mode, and is 0 in other modes such as single-currency margin mode.</param>
         /// <param name="futuresPosLiab">Contract opening position borrowing currency (abandoned, to be offline field).</param>
         /// <param name="equity">Equity, valid in single currency margin/cross currency margin/combined margin mode.</param>
-        /// <param name="totalFreeze">Total occupancy (discarded, to be offline field).</param>
+        /// <param name="totalFreeze">Total occupancy (discarded, to be offline field)..</param>
         /// <param name="totalLiab">Total borrowing, valid in cross-currency margin/combined margin mode, 0 in other modes such as single-currency margin mode.</param>
         /// <param name="spotInUse">The amount of spot hedging is valid in the combined margin mode, and is 0 in other margin modes such as single currency and cross-currency margin modes.</param>
-        /// <param name="funding">Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch.</param>
-        /// <param name="fundingVersion">Funding version.</param>
+        /// <param name="funding">Uniloan financial management amount, effective when turned on as a unified account margin switch.</param>
+        /// <param name="fundingVersion">Funding version..</param>
         /// <param name="crossBalance">Full margin balance is valid in single currency margin mode, and is 0 in other modes such as cross currency margin/combined margin mode.</param>
         /// <param name="isoBalance">Isolated margin balance is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="im">Full-position initial margin is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
@@ -52,7 +52,7 @@ namespace Io.Gate.GateApi.Model
         /// <param name="mmr">Full-position maintenance margin rate is valid in single-currency margin mode and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
         /// <param name="marginBalance">Full margin balance is valid in single currency margin mode and is 0 in other modes such as cross currency margin/combined margin mode.</param>
         /// <param name="availableMargin">Full margin available for full position is valid in single currency margin mode, and is 0 in other modes such as cross-currency margin/combined margin mode.</param>
-        /// <param name="enabledCollateral">Currency enabled as margin: true - Enabled, false - Disabled.</param>
+        /// <param name="enabledCollateral">Currency enabled as margin: true - Enabled, false - Disabled..</param>
         public UnifiedBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string negativeLiab = default(string), string futuresPosLiab = default(string), string equity = default(string), string totalFreeze = default(string), string totalLiab = default(string), string spotInUse = default(string), string funding = default(string), string fundingVersion = default(string), string crossBalance = default(string), string isoBalance = default(string), string im = default(string), string mm = default(string), string imr = default(string), string mmr = default(string), string marginBalance = default(string), string availableMargin = default(string), bool enabledCollateral = default(bool))
         {
             this.Available = available;
@@ -120,9 +120,9 @@ namespace Io.Gate.GateApi.Model
         public string Equity { get; set; }
 
         /// <summary>
-        /// Total occupancy (discarded, to be offline field)
+        /// Total occupancy (discarded, to be offline field).
         /// </summary>
-        /// <value>Total occupancy (discarded, to be offline field)</value>
+        /// <value>Total occupancy (discarded, to be offline field).</value>
         [DataMember(Name="total_freeze")]
         public string TotalFreeze { get; set; }
 
@@ -141,16 +141,16 @@ namespace Io.Gate.GateApi.Model
         public string SpotInUse { get; set; }
 
         /// <summary>
-        /// Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch
+        /// Uniloan financial management amount, effective when turned on as a unified account margin switch
         /// </summary>
-        /// <value>Uniloan financial management amount, effective when Uniloan financial management is turned on as a unified account margin switch</value>
+        /// <value>Uniloan financial management amount, effective when turned on as a unified account margin switch</value>
         [DataMember(Name="funding")]
         public string Funding { get; set; }
 
         /// <summary>
-        /// Funding version
+        /// Funding version.
         /// </summary>
-        /// <value>Funding version</value>
+        /// <value>Funding version.</value>
         [DataMember(Name="funding_version")]
         public string FundingVersion { get; set; }
 
@@ -211,9 +211,9 @@ namespace Io.Gate.GateApi.Model
         public string AvailableMargin { get; set; }
 
         /// <summary>
-        /// Currency enabled as margin: true - Enabled, false - Disabled
+        /// Currency enabled as margin: true - Enabled, false - Disabled.
         /// </summary>
-        /// <value>Currency enabled as margin: true - Enabled, false - Disabled</value>
+        /// <value>Currency enabled as margin: true - Enabled, false - Disabled.</value>
         [DataMember(Name="enabled_collateral")]
         public bool EnabledCollateral { get; set; }
 

@@ -1,16 +1,16 @@
 
 # Io.Gate.GateApi.Model.SwapCoin
 
-Blockchain Mining
+Blockchain Mining.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Coin** | **string** | Currency | 
-**Side** | **string** | 0 - Stake  1 - Redeem | 
-**Amount** | **string** | Size | 
-**Pid** | **int** | DeFi-type Mining Protocol Identifier | [optional] 
+**Coin** | **string** | Currency. | 
+**Side** | **string** | 0 - Stake 1 - Redeem. | 
+**Amount** | **string** | Size. | 
+**Pid** | **int** | DeFi-type Mining Protocol Identifier. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

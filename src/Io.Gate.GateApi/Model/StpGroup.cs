@@ -38,10 +38,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StpGroup" /> class.
         /// </summary>
-        /// <param name="id">STP Group ID.</param>
-        /// <param name="name">STP Group name (required).</param>
-        /// <param name="creatorId">Creator ID.</param>
-        /// <param name="createTime">Creation time.</param>
+        /// <param name="id">STP Group ID..</param>
+        /// <param name="name">STP Group name. (required).</param>
+        /// <param name="creatorId">Creator ID..</param>
+        /// <param name="createTime">Creation time..</param>
         public StpGroup(long id = default(long), string name = default(string), long creatorId = default(long), long createTime = default(long))
         {
             // to ensure "name" is required (not null)
@@ -52,30 +52,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// STP Group ID
+        /// STP Group ID.
         /// </summary>
-        /// <value>STP Group ID</value>
+        /// <value>STP Group ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// STP Group name
+        /// STP Group name.
         /// </summary>
-        /// <value>STP Group name</value>
+        /// <value>STP Group name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Creator ID
+        /// Creator ID.
         /// </summary>
-        /// <value>Creator ID</value>
+        /// <value>Creator ID.</value>
         [DataMember(Name="creator_id")]
         public long CreatorId { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time")]
         public long CreateTime { get; set; }
 

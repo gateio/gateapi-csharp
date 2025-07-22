@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesAccountBook :  IEquatable<FuturesAccountBook>, IValidatableObject
     {
         /// <summary>
-        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         /// </summary>
-        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
+        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -94,22 +94,22 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
+        /// Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction
         /// </summary>
-        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
+        /// <value>Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesAccountBook" /> class.
         /// </summary>
-        /// <param name="time">Change time.</param>
-        /// <param name="change">Change amount.</param>
-        /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction.</param>
-        /// <param name="text">Comment.</param>
+        /// <param name="time">Change time..</param>
+        /// <param name="change">Change amount..</param>
+        /// <param name="balance">Balance after change..</param>
+        /// <param name="type">Changing Type：  - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate - bonus_offset: bouns deduction.</param>
+        /// <param name="text">Comment..</param>
         /// <param name="contract">Futures contract, the field is only available for data after 2023-10-30..</param>
-        /// <param name="tradeId">trade id.</param>
-        /// <param name="id">Account change record ID.</param>
+        /// <param name="tradeId">trade id..</param>
+        /// <param name="id">Account change record ID..</param>
         public FuturesAccountBook(double time = default(double), string change = default(string), string balance = default(string), TypeEnum? type = default(TypeEnum?), string text = default(string), string contract = default(string), string tradeId = default(string), string id = default(string))
         {
             this.Time = time;
@@ -123,30 +123,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Change time
+        /// Change time.
         /// </summary>
-        /// <value>Change time</value>
+        /// <value>Change time.</value>
         [DataMember(Name="time")]
         public double Time { get; set; }
 
         /// <summary>
-        /// Change amount
+        /// Change amount.
         /// </summary>
-        /// <value>Change amount</value>
+        /// <value>Change amount.</value>
         [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
-        /// Balance after change
+        /// Balance after change.
         /// </summary>
-        /// <value>Balance after change</value>
+        /// <value>Balance after change.</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>
-        /// Comment
+        /// Comment.
         /// </summary>
-        /// <value>Comment</value>
+        /// <value>Comment.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 
@@ -158,16 +158,16 @@ namespace Io.Gate.GateApi.Model
         public string Contract { get; set; }
 
         /// <summary>
-        /// trade id
+        /// trade id.
         /// </summary>
-        /// <value>trade id</value>
+        /// <value>trade id.</value>
         [DataMember(Name="trade_id")]
         public string TradeId { get; set; }
 
         /// <summary>
-        /// Account change record ID
+        /// Account change record ID.
         /// </summary>
-        /// <value>Account change record ID</value>
+        /// <value>Account change record ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 

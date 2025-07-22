@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Unified margin tiers
+    /// Unified margin tiers.
     /// </summary>
     [DataContract]
     public partial class UnifiedMarginTiers :  IEquatable<UnifiedMarginTiers>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedMarginTiers" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="marginTiers">Margin tiers.</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="marginTiers">Margin tiers..</param>
         public UnifiedMarginTiers(string currency = default(string), List<MarginTiers> marginTiers = default(List<MarginTiers>))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Margin tiers
+        /// Margin tiers.
         /// </summary>
-        /// <value>Margin tiers</value>
+        /// <value>Margin tiers.</value>
         [DataMember(Name="margin_tiers")]
         public List<MarginTiers> MarginTiers { get; set; }
 

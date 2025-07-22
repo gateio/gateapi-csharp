@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.MockFuturesPosition
 
-Futures positions
+Futures positions.
 
 ## Properties
 

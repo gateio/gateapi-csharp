@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Interest record
+    /// Interest record.
     /// </summary>
     [DataContract]
     public partial class UniLoanInterestRecord :  IEquatable<UniLoanInterestRecord>, IValidatableObject
@@ -39,51 +39,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// Actual rate
+        /// Actual rate.
         /// </summary>
-        /// <value>Actual rate</value>
+        /// <value>Actual rate.</value>
         [DataMember(Name="actual_rate", EmitDefaultValue=false)]
         public string ActualRate { get; private set; }
 
         /// <summary>
-        /// Interest
+        /// Interest.
         /// </summary>
-        /// <value>Interest</value>
+        /// <value>Interest.</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; private set; }
 
         /// <summary>
-        /// Status: 0 - fail, 1 - success
+        /// Status: 0 - fail, 1 - success.
         /// </summary>
-        /// <value>Status: 0 - fail, 1 - success</value>
+        /// <value>Status: 0 - fail, 1 - success.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public int Status { get; private set; }
 
         /// <summary>
-        /// Type, platform - platform，margin - margin
+        /// Type, platform - platform，margin - margin.
         /// </summary>
-        /// <value>Type, platform - platform，margin - margin</value>
+        /// <value>Type, platform - platform，margin - margin.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

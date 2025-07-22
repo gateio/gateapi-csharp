@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Currency Quota
+    /// Currency Quota.
     /// </summary>
     [DataContract]
     public partial class CurrencyQuota :  IEquatable<CurrencyQuota>, IValidatableObject
@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyQuota" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="minQuota">Minimum borrowing/collateral quota for the currency.</param>
-        /// <param name="leftQuota">Remaining borrowing/collateral limit for the currency.</param>
-        /// <param name="leftQuoteUsdt">Remaining currency limit converted to USDT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="minQuota">Minimum borrowing/collateral quota for the currency..</param>
+        /// <param name="leftQuota">Remaining borrowing/collateral limit for the currency..</param>
+        /// <param name="leftQuoteUsdt">Remaining currency limit converted to USDT..</param>
         public CurrencyQuota(string currency = default(string), string indexPrice = default(string), string minQuota = default(string), string leftQuota = default(string), string leftQuoteUsdt = default(string))
         {
             this.Currency = currency;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Minimum borrowing/collateral quota for the currency
+        /// Minimum borrowing/collateral quota for the currency.
         /// </summary>
-        /// <value>Minimum borrowing/collateral quota for the currency</value>
+        /// <value>Minimum borrowing/collateral quota for the currency.</value>
         [DataMember(Name="min_quota")]
         public string MinQuota { get; set; }
 
         /// <summary>
-        /// Remaining borrowing/collateral limit for the currency
+        /// Remaining borrowing/collateral limit for the currency.
         /// </summary>
-        /// <value>Remaining borrowing/collateral limit for the currency</value>
+        /// <value>Remaining borrowing/collateral limit for the currency.</value>
         [DataMember(Name="left_quota")]
         public string LeftQuota { get; set; }
 
         /// <summary>
-        /// Remaining currency limit converted to USDT
+        /// Remaining currency limit converted to USDT.
         /// </summary>
-        /// <value>Remaining currency limit converted to USDT</value>
+        /// <value>Remaining currency limit converted to USDT.</value>
         [DataMember(Name="left_quote_usdt")]
         public string LeftQuoteUsdt { get; set; }
 

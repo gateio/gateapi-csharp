@@ -1,14 +1,14 @@
 
 # Io.Gate.GateApi.Model.UnifiedDiscount
 
-Currency discount tiers
+Currency discount tiers.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Currency** | **string** | Currency name | [optional] 
-**DiscountTiers** | [**List&lt;UnifiedDiscountTiers&gt;**](UnifiedDiscountTiers.md) | Tiered discount | [optional] 
+**Currency** | **string** | Currency name. | [optional] 
+**DiscountTiers** | [**List&lt;UnifiedDiscountTiers&gt;**](UnifiedDiscountTiers.md) | Tiered discount. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Currency** | **string** |  | [optional] 
-**EstRate** | **string** | Unconverted percentage | [optional] 
+**EstRate** | **string** | Unconverted percentage. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

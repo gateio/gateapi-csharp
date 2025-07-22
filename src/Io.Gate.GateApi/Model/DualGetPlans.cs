@@ -33,18 +33,18 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DualGetPlans" /> class.
         /// </summary>
-        /// <param name="id">Plan ID.</param>
-        /// <param name="instrumentName">Instrument Name.</param>
-        /// <param name="investCurrency">Investment Currency.</param>
-        /// <param name="exerciseCurrency">Strike Currency.</param>
-        /// <param name="exercisePrice">Strike price.</param>
-        /// <param name="deliveryTime">Settlement time.</param>
-        /// <param name="minCopies">Minimum Copies.</param>
-        /// <param name="maxCopies">Maximum Copies.</param>
-        /// <param name="perValue">Per Unit Value.</param>
-        /// <param name="apyDisplay">APY.</param>
-        /// <param name="startTime">start time.</param>
-        /// <param name="endTime">Finished time.</param>
+        /// <param name="id">Plan ID..</param>
+        /// <param name="instrumentName">Instrument Name..</param>
+        /// <param name="investCurrency">Investment Currency..</param>
+        /// <param name="exerciseCurrency">Strike Currency..</param>
+        /// <param name="exercisePrice">Strike price..</param>
+        /// <param name="deliveryTime">Settlement time..</param>
+        /// <param name="minCopies">Minimum Copies..</param>
+        /// <param name="maxCopies">Maximum Copies..</param>
+        /// <param name="perValue">Per Unit Value..</param>
+        /// <param name="apyDisplay">APY..</param>
+        /// <param name="startTime">start time..</param>
+        /// <param name="endTime">Finished time..</param>
         /// <param name="status">Status:   &#x60;NOTSTARTED&#x60;-not started  &#x60;ONGOING&#x60;-ongoing  &#x60;ENDED&#x60;-ended.</param>
         public DualGetPlans(int id = default(int), string instrumentName = default(string), string investCurrency = default(string), string exerciseCurrency = default(string), double exercisePrice = default(double), int deliveryTime = default(int), int minCopies = default(int), int maxCopies = default(int), string perValue = default(string), string apyDisplay = default(string), int startTime = default(int), int endTime = default(int), string status = default(string))
         {
@@ -64,86 +64,86 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// Instrument Name
+        /// Instrument Name.
         /// </summary>
-        /// <value>Instrument Name</value>
+        /// <value>Instrument Name.</value>
         [DataMember(Name="instrument_name")]
         public string InstrumentName { get; set; }
 
         /// <summary>
-        /// Investment Currency
+        /// Investment Currency.
         /// </summary>
-        /// <value>Investment Currency</value>
+        /// <value>Investment Currency.</value>
         [DataMember(Name="invest_currency")]
         public string InvestCurrency { get; set; }
 
         /// <summary>
-        /// Strike Currency
+        /// Strike Currency.
         /// </summary>
-        /// <value>Strike Currency</value>
+        /// <value>Strike Currency.</value>
         [DataMember(Name="exercise_currency")]
         public string ExerciseCurrency { get; set; }
 
         /// <summary>
-        /// Strike price
+        /// Strike price.
         /// </summary>
-        /// <value>Strike price</value>
+        /// <value>Strike price.</value>
         [DataMember(Name="exercise_price")]
         public double ExercisePrice { get; set; }
 
         /// <summary>
-        /// Settlement time
+        /// Settlement time.
         /// </summary>
-        /// <value>Settlement time</value>
+        /// <value>Settlement time.</value>
         [DataMember(Name="delivery_time")]
         public int DeliveryTime { get; set; }
 
         /// <summary>
-        /// Minimum Copies
+        /// Minimum Copies.
         /// </summary>
-        /// <value>Minimum Copies</value>
+        /// <value>Minimum Copies.</value>
         [DataMember(Name="min_copies")]
         public int MinCopies { get; set; }
 
         /// <summary>
-        /// Maximum Copies
+        /// Maximum Copies.
         /// </summary>
-        /// <value>Maximum Copies</value>
+        /// <value>Maximum Copies.</value>
         [DataMember(Name="max_copies")]
         public int MaxCopies { get; set; }
 
         /// <summary>
-        /// Per Unit Value
+        /// Per Unit Value.
         /// </summary>
-        /// <value>Per Unit Value</value>
+        /// <value>Per Unit Value.</value>
         [DataMember(Name="per_value")]
         public string PerValue { get; set; }
 
         /// <summary>
-        /// APY
+        /// APY.
         /// </summary>
-        /// <value>APY</value>
+        /// <value>APY.</value>
         [DataMember(Name="apy_display")]
         public string ApyDisplay { get; set; }
 
         /// <summary>
-        /// start time
+        /// start time.
         /// </summary>
-        /// <value>start time</value>
+        /// <value>start time.</value>
         [DataMember(Name="start_time")]
         public int StartTime { get; set; }
 
         /// <summary>
-        /// Finished time
+        /// Finished time.
         /// </summary>
-        /// <value>Finished time</value>
+        /// <value>Finished time.</value>
         [DataMember(Name="end_time")]
         public int EndTime { get; set; }
 

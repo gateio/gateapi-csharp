@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Retrieve user rebate information
+    /// Retrieve user rebate information.
     /// </summary>
     [DataContract]
     public partial class RebateUserInfo :  IEquatable<RebateUserInfo>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RebateUserInfo" /> class.
         /// </summary>
-        /// <param name="inviteUid">My inviter&#39;s UID.</param>
+        /// <param name="inviteUid">My inviter&#39;s UID..</param>
         public RebateUserInfo(long inviteUid = default(long))
         {
             this.InviteUid = inviteUid;
         }
 
         /// <summary>
-        /// My inviter&#39;s UID
+        /// My inviter&#39;s UID.
         /// </summary>
-        /// <value>My inviter&#39;s UID</value>
+        /// <value>My inviter&#39;s UID.</value>
         [DataMember(Name="invite_uid")]
         public long InviteUid { get; set; }
 

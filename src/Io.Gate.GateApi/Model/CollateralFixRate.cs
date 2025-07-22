@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Multi-collateral fixed interest rate
+    /// Multi-collateral fixed interest rate.
     /// </summary>
     [DataContract]
     public partial class CollateralFixRate :  IEquatable<CollateralFixRate>, IValidatableObject
@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralFixRate" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="rate7d">Fixed interest rate for a lending period of 7 days.</param>
-        /// <param name="rate30d">Fixed interest rate for a lending period of 30 days.</param>
-        /// <param name="updateTime">Update time, timestamp, unit in seconds.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="rate7d">Fixed interest rate for a lending period of 7 days..</param>
+        /// <param name="rate30d">Fixed interest rate for a lending period of 30 days..</param>
+        /// <param name="updateTime">Update time, timestamp, unit in seconds..</param>
         public CollateralFixRate(string currency = default(string), string rate7d = default(string), string rate30d = default(string), long updateTime = default(long))
         {
             this.Currency = currency;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Fixed interest rate for a lending period of 7 days
+        /// Fixed interest rate for a lending period of 7 days.
         /// </summary>
-        /// <value>Fixed interest rate for a lending period of 7 days</value>
+        /// <value>Fixed interest rate for a lending period of 7 days.</value>
         [DataMember(Name="rate_7d")]
         public string Rate7d { get; set; }
 
         /// <summary>
-        /// Fixed interest rate for a lending period of 30 days
+        /// Fixed interest rate for a lending period of 30 days.
         /// </summary>
-        /// <value>Fixed interest rate for a lending period of 30 days</value>
+        /// <value>Fixed interest rate for a lending period of 30 days.</value>
         [DataMember(Name="rate_30d")]
         public string Rate30d { get; set; }
 
         /// <summary>
-        /// Update time, timestamp, unit in seconds
+        /// Update time, timestamp, unit in seconds.
         /// </summary>
-        /// <value>Update time, timestamp, unit in seconds</value>
+        /// <value>Update time, timestamp, unit in seconds.</value>
         [DataMember(Name="update_time")]
         public long UpdateTime { get; set; }
 

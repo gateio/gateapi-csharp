@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Convert Small Balance
+    /// Convert Small Balance.
     /// </summary>
     [DataContract]
     public partial class ConvertSmallBalance :  IEquatable<ConvertSmallBalance>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConvertSmallBalance" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="isAll">Whether to exchange all.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="isAll">Whether to exchange all..</param>
         public ConvertSmallBalance(List<string> currency = default(List<string>), bool isAll = default(bool))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public List<string> Currency { get; set; }
 
         /// <summary>
-        /// Whether to exchange all
+        /// Whether to exchange all.
         /// </summary>
-        /// <value>Whether to exchange all</value>
+        /// <value>Whether to exchange all.</value>
         [DataMember(Name="is_all")]
         public bool IsAll { get; set; }
 

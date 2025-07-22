@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Lend or redeem
+    /// Lend or redeem.
     /// </summary>
     [DataContract]
     public partial class CreateUniLend :  IEquatable<CreateUniLend>, IValidatableObject
     {
         /// <summary>
-        /// type: lend - lend, redeem - redeem
+        /// type: lend - lend, redeem - redeem.
         /// </summary>
-        /// <value>type: lend - lend, redeem - redeem</value>
+        /// <value>type: lend - lend, redeem - redeem.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// type: lend - lend, redeem - redeem
+        /// type: lend - lend, redeem - redeem.
         /// </summary>
-        /// <value>type: lend - lend, redeem - redeem</value>
+        /// <value>type: lend - lend, redeem - redeem.</value>
         [DataMember(Name="type")]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -65,9 +65,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateUniLend" /> class.
         /// </summary>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="amount">The amount of currency could be lent (required).</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (required).</param>
+        /// <param name="currency">Currency name. (required).</param>
+        /// <param name="amount">The amount of currency could be lent. (required).</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (required).</param>
         /// <param name="minRate">The minimum interest rate. If the value is too high, it might lead to the unsuccessful lending and no profit will be gained for that hour. .</param>
         public CreateUniLend(string currency = default(string), string amount = default(string), TypeEnum type = default(TypeEnum), string minRate = default(string))
         {
@@ -80,16 +80,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The amount of currency could be lent
+        /// The amount of currency could be lent.
         /// </summary>
-        /// <value>The amount of currency could be lent</value>
+        /// <value>The amount of currency could be lent.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

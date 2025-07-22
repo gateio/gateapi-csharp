@@ -33,15 +33,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UidPushOrder" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
-        /// <param name="pushUid">Initiator User ID.</param>
-        /// <param name="receiveUid">Recipient User ID.</param>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="amount">Transfer amount.</param>
-        /// <param name="createTime">Creation time.</param>
+        /// <param name="id">Order ID..</param>
+        /// <param name="pushUid">Initiator User ID..</param>
+        /// <param name="receiveUid">Recipient User ID..</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="amount">Transfer amount..</param>
+        /// <param name="createTime">Creation time..</param>
         /// <param name="status">Withdrawal Status  - CREATING: Creating - PENDING: Waiting for receiving(Please contact the other party to accept the transfer on the Gate official website) - CANCELLING: Cancelling - CANCELLED: Revoked - REFUSING: Rejection - REFUSED: Rejected - RECEIVING: Receiving - RECEIVED: Success.</param>
-        /// <param name="message">PENDING Reason Tips.</param>
-        /// <param name="transactionType">Order Type.</param>
+        /// <param name="message">PENDING Reason Tips..</param>
+        /// <param name="transactionType">Order Type..</param>
         public UidPushOrder(long id = default(long), long pushUid = default(long), long receiveUid = default(long), string currency = default(string), string amount = default(string), long createTime = default(long), string status = default(string), string message = default(string), string transactionType = default(string))
         {
             this.Id = id;
@@ -56,44 +56,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// Initiator User ID
+        /// Initiator User ID.
         /// </summary>
-        /// <value>Initiator User ID</value>
+        /// <value>Initiator User ID.</value>
         [DataMember(Name="push_uid")]
         public long PushUid { get; set; }
 
         /// <summary>
-        /// Recipient User ID
+        /// Recipient User ID.
         /// </summary>
-        /// <value>Recipient User ID</value>
+        /// <value>Recipient User ID.</value>
         [DataMember(Name="receive_uid")]
         public long ReceiveUid { get; set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Transfer amount
+        /// Transfer amount.
         /// </summary>
-        /// <value>Transfer amount</value>
+        /// <value>Transfer amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time")]
         public long CreateTime { get; set; }
 
@@ -105,16 +105,16 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// PENDING Reason Tips
+        /// PENDING Reason Tips.
         /// </summary>
-        /// <value>PENDING Reason Tips</value>
+        /// <value>PENDING Reason Tips.</value>
         [DataMember(Name="message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Order Type
+        /// Order Type.
         /// </summary>
-        /// <value>Order Type</value>
+        /// <value>Order Type.</value>
         [DataMember(Name="transaction_type")]
         public string TransactionType { get; set; }
 

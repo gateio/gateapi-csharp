@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StpGroupUser" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="stpId">STP Group ID.</param>
-        /// <param name="createTime">Creation time.</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="stpId">STP Group ID..</param>
+        /// <param name="createTime">Creation time..</param>
         public StpGroupUser(long userId = default(long), long stpId = default(long), long createTime = default(long))
         {
             this.UserId = userId;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// STP Group ID
+        /// STP Group ID.
         /// </summary>
-        /// <value>STP Group ID</value>
+        /// <value>STP Group ID.</value>
         [DataMember(Name="stp_id")]
         public long StpId { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time")]
         public long CreateTime { get; set; }
 

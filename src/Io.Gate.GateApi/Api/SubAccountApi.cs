@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List sub-accounts
+        /// List sub-accounts.
         /// </summary>
         /// <remarks>
         /// 
@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Api
         List<SubAccount> ListSubAccounts (string type = default(string));
 
         /// <summary>
-        /// List sub-accounts
+        /// List sub-accounts.
         /// </summary>
         /// <remarks>
         /// 
@@ -49,7 +49,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;SubAccount&gt;</returns>
         ApiResponse<List<SubAccount>> ListSubAccountsWithHttpInfo (string type = default(string));
         /// <summary>
-        /// Create a new sub-account
+        /// Create a new sub-account.
         /// </summary>
         /// <remarks>
         /// 
@@ -60,7 +60,7 @@ namespace Io.Gate.GateApi.Api
         SubAccount CreateSubAccounts (SubAccount subAccount);
 
         /// <summary>
-        /// Create a new sub-account
+        /// Create a new sub-account.
         /// </summary>
         /// <remarks>
         /// 
@@ -70,185 +70,185 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of SubAccount</returns>
         ApiResponse<SubAccount> CreateSubAccountsWithHttpInfo (SubAccount subAccount);
         /// <summary>
-        /// Get the sub-account
+        /// Get the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>SubAccount</returns>
         SubAccount GetSubAccount (long userId);
 
         /// <summary>
-        /// Get the sub-account
+        /// Get the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>ApiResponse of SubAccount</returns>
         ApiResponse<SubAccount> GetSubAccountWithHttpInfo (long userId);
         /// <summary>
-        /// List all API Key of the sub-account
+        /// List all API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>List&lt;SubAccountKey&gt;</returns>
         List<SubAccountKey> ListSubAccountKeys (int userId);
 
         /// <summary>
-        /// List all API Key of the sub-account
+        /// List all API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>ApiResponse of List&lt;SubAccountKey&gt;</returns>
         ApiResponse<List<SubAccountKey>> ListSubAccountKeysWithHttpInfo (int userId);
         /// <summary>
-        /// Create API Key of the sub-account
+        /// Create API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>SubAccountKey</returns>
         SubAccountKey CreateSubAccountKeys (long userId, SubAccountKey subAccountKey);
 
         /// <summary>
-        /// Create API Key of the sub-account
+        /// Create API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>ApiResponse of SubAccountKey</returns>
         ApiResponse<SubAccountKey> CreateSubAccountKeysWithHttpInfo (long userId, SubAccountKey subAccountKey);
         /// <summary>
-        /// Get the API Key of the sub-account
+        /// Get the API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>SubAccountKey</returns>
         SubAccountKey GetSubAccountKey (int userId, string key);
 
         /// <summary>
-        /// Get the API Key of the sub-account
+        /// Get the API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>ApiResponse of SubAccountKey</returns>
         ApiResponse<SubAccountKey> GetSubAccountKeyWithHttpInfo (int userId, string key);
         /// <summary>
-        /// Update API key of the sub-account
+        /// Update API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns></returns>
         void UpdateSubAccountKeys (int userId, string key, SubAccountKey subAccountKey);
 
         /// <summary>
-        /// Update API key of the sub-account
+        /// Update API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateSubAccountKeysWithHttpInfo (int userId, string key, SubAccountKey subAccountKey);
         /// <summary>
-        /// Delete API key of the sub-account
+        /// Delete API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns></returns>
         void DeleteSubAccountKeys (int userId, string key);
 
         /// <summary>
-        /// Delete API key of the sub-account
+        /// Delete API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSubAccountKeysWithHttpInfo (int userId, string key);
         /// <summary>
-        /// Lock the sub-account
+        /// Lock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns></returns>
         void LockSubAccount (long userId);
 
         /// <summary>
-        /// Lock the sub-account
+        /// Lock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LockSubAccountWithHttpInfo (long userId);
         /// <summary>
-        /// Unlock the sub-account
+        /// Unlock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns></returns>
         void UnlockSubAccount (long userId);
 
         /// <summary>
-        /// Unlock the sub-account
+        /// Unlock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId);
         /// <summary>
-        /// Get sub-account mode
+        /// Get sub-account mode.
         /// </summary>
         /// <remarks>
         /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
@@ -258,7 +258,7 @@ namespace Io.Gate.GateApi.Api
         List<SubUserMode> ListUnifiedMode ();
 
         /// <summary>
-        /// Get sub-account mode
+        /// Get sub-account mode.
         /// </summary>
         /// <remarks>
         /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
@@ -276,7 +276,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List sub-accounts
+        /// List sub-accounts.
         /// </summary>
         /// <remarks>
         /// 
@@ -287,7 +287,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<SubAccount>> ListSubAccountsAsync (string type = default(string));
 
         /// <summary>
-        /// List sub-accounts
+        /// List sub-accounts.
         /// </summary>
         /// <remarks>
         /// 
@@ -297,7 +297,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;SubAccount&gt;)</returns>
         Task<ApiResponse<List<SubAccount>>> ListSubAccountsAsyncWithHttpInfo (string type = default(string));
         /// <summary>
-        /// Create a new sub-account
+        /// Create a new sub-account.
         /// </summary>
         /// <remarks>
         /// 
@@ -308,7 +308,7 @@ namespace Io.Gate.GateApi.Api
         Task<SubAccount> CreateSubAccountsAsync (SubAccount subAccount);
 
         /// <summary>
-        /// Create a new sub-account
+        /// Create a new sub-account.
         /// </summary>
         /// <remarks>
         /// 
@@ -318,185 +318,185 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (SubAccount)</returns>
         Task<ApiResponse<SubAccount>> CreateSubAccountsAsyncWithHttpInfo (SubAccount subAccount);
         /// <summary>
-        /// Get the sub-account
+        /// Get the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of SubAccount</returns>
         Task<SubAccount> GetSubAccountAsync (long userId);
 
         /// <summary>
-        /// Get the sub-account
+        /// Get the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of ApiResponse (SubAccount)</returns>
         Task<ApiResponse<SubAccount>> GetSubAccountAsyncWithHttpInfo (long userId);
         /// <summary>
-        /// List all API Key of the sub-account
+        /// List all API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of List&lt;SubAccountKey&gt;</returns>
         Task<List<SubAccountKey>> ListSubAccountKeysAsync (int userId);
 
         /// <summary>
-        /// List all API Key of the sub-account
+        /// List all API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountKey&gt;)</returns>
         Task<ApiResponse<List<SubAccountKey>>> ListSubAccountKeysAsyncWithHttpInfo (int userId);
         /// <summary>
-        /// Create API Key of the sub-account
+        /// Create API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of SubAccountKey</returns>
         Task<SubAccountKey> CreateSubAccountKeysAsync (long userId, SubAccountKey subAccountKey);
 
         /// <summary>
-        /// Create API Key of the sub-account
+        /// Create API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of ApiResponse (SubAccountKey)</returns>
         Task<ApiResponse<SubAccountKey>> CreateSubAccountKeysAsyncWithHttpInfo (long userId, SubAccountKey subAccountKey);
         /// <summary>
-        /// Get the API Key of the sub-account
+        /// Get the API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of SubAccountKey</returns>
         Task<SubAccountKey> GetSubAccountKeyAsync (int userId, string key);
 
         /// <summary>
-        /// Get the API Key of the sub-account
+        /// Get the API Key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of ApiResponse (SubAccountKey)</returns>
         Task<ApiResponse<SubAccountKey>> GetSubAccountKeyAsyncWithHttpInfo (int userId, string key);
         /// <summary>
-        /// Update API key of the sub-account
+        /// Update API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of void</returns>
         Task UpdateSubAccountKeysAsync (int userId, string key, SubAccountKey subAccountKey);
 
         /// <summary>
-        /// Update API key of the sub-account
+        /// Update API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> UpdateSubAccountKeysAsyncWithHttpInfo (int userId, string key, SubAccountKey subAccountKey);
         /// <summary>
-        /// Delete API key of the sub-account
+        /// Delete API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of void</returns>
         Task DeleteSubAccountKeysAsync (int userId, string key);
 
         /// <summary>
-        /// Delete API key of the sub-account
+        /// Delete API key of the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteSubAccountKeysAsyncWithHttpInfo (int userId, string key);
         /// <summary>
-        /// Lock the sub-account
+        /// Lock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of void</returns>
         Task LockSubAccountAsync (long userId);
 
         /// <summary>
-        /// Lock the sub-account
+        /// Lock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId);
         /// <summary>
-        /// Unlock the sub-account
+        /// Unlock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of void</returns>
         Task UnlockSubAccountAsync (long userId);
 
         /// <summary>
-        /// Unlock the sub-account
+        /// Unlock the sub-account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId);
         /// <summary>
-        /// Get sub-account mode
+        /// Get sub-account mode.
         /// </summary>
         /// <remarks>
         /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
@@ -506,7 +506,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<SubUserMode>> ListUnifiedModeAsync ();
 
         /// <summary>
-        /// Get sub-account mode
+        /// Get sub-account mode.
         /// </summary>
         /// <remarks>
         /// Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
@@ -635,7 +635,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List sub-accounts 
+        /// List sub-accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
@@ -647,7 +647,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List sub-accounts 
+        /// List sub-accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
@@ -691,7 +691,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List sub-accounts 
+        /// List sub-accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
@@ -704,7 +704,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List sub-accounts 
+        /// List sub-accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">&#x60;0&#x60; to list all types of sub-accounts (currently supporting cross margin accounts and sub-accounts).  &#x60;1&#x60; to list sub-accounts only. If no parameter is passed, only sub-accounts will be listed by default. (optional)</param>
@@ -750,7 +750,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a new sub-account 
+        /// Create a new sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccount"></param>
@@ -762,7 +762,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a new sub-account 
+        /// Create a new sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccount"></param>
@@ -808,7 +808,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a new sub-account 
+        /// Create a new sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccount"></param>
@@ -821,7 +821,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a new sub-account 
+        /// Create a new sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subAccount"></param>
@@ -869,10 +869,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the sub-account 
+        /// Get the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>SubAccount</returns>
         public SubAccount GetSubAccount (long userId)
         {
@@ -881,10 +881,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the sub-account 
+        /// Get the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>ApiResponse of SubAccount</returns>
         public ApiResponse<SubAccount> GetSubAccountWithHttpInfo (long userId)
         {
@@ -922,10 +922,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the sub-account 
+        /// Get the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of SubAccount</returns>
         public async Task<SubAccount> GetSubAccountAsync (long userId)
         {
@@ -935,10 +935,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the sub-account 
+        /// Get the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of ApiResponse (SubAccount)</returns>
         public async Task<ApiResponse<SubAccount>> GetSubAccountAsyncWithHttpInfo (long userId)
         {
@@ -978,10 +978,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all API Key of the sub-account 
+        /// List all API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>List&lt;SubAccountKey&gt;</returns>
         public List<SubAccountKey> ListSubAccountKeys (int userId)
         {
@@ -990,10 +990,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all API Key of the sub-account 
+        /// List all API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>ApiResponse of List&lt;SubAccountKey&gt;</returns>
         public ApiResponse<List<SubAccountKey>> ListSubAccountKeysWithHttpInfo (int userId)
         {
@@ -1031,10 +1031,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all API Key of the sub-account 
+        /// List all API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of List&lt;SubAccountKey&gt;</returns>
         public async Task<List<SubAccountKey>> ListSubAccountKeysAsync (int userId)
         {
@@ -1044,10 +1044,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all API Key of the sub-account 
+        /// List all API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <returns>Task of ApiResponse (List&lt;SubAccountKey&gt;)</returns>
         public async Task<ApiResponse<List<SubAccountKey>>> ListSubAccountKeysAsyncWithHttpInfo (int userId)
         {
@@ -1087,10 +1087,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create API Key of the sub-account 
+        /// Create API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>SubAccountKey</returns>
         public SubAccountKey CreateSubAccountKeys (long userId, SubAccountKey subAccountKey)
@@ -1100,10 +1100,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create API Key of the sub-account 
+        /// Create API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>ApiResponse of SubAccountKey</returns>
         public ApiResponse<SubAccountKey> CreateSubAccountKeysWithHttpInfo (long userId, SubAccountKey subAccountKey)
@@ -1148,10 +1148,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create API Key of the sub-account 
+        /// Create API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of SubAccountKey</returns>
         public async Task<SubAccountKey> CreateSubAccountKeysAsync (long userId, SubAccountKey subAccountKey)
@@ -1162,10 +1162,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create API Key of the sub-account 
+        /// Create API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
+        /// <param name="userId">Sub-account user id.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of ApiResponse (SubAccountKey)</returns>
         public async Task<ApiResponse<SubAccountKey>> CreateSubAccountKeysAsyncWithHttpInfo (long userId, SubAccountKey subAccountKey)
@@ -1212,11 +1212,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the API Key of the sub-account 
+        /// Get the API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>SubAccountKey</returns>
         public SubAccountKey GetSubAccountKey (int userId, string key)
         {
@@ -1225,11 +1225,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the API Key of the sub-account 
+        /// Get the API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>ApiResponse of SubAccountKey</returns>
         public ApiResponse<SubAccountKey> GetSubAccountKeyWithHttpInfo (int userId, string key)
         {
@@ -1272,11 +1272,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the API Key of the sub-account 
+        /// Get the API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of SubAccountKey</returns>
         public async Task<SubAccountKey> GetSubAccountKeyAsync (int userId, string key)
         {
@@ -1286,11 +1286,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the API Key of the sub-account 
+        /// Get the API Key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of ApiResponse (SubAccountKey)</returns>
         public async Task<ApiResponse<SubAccountKey>> GetSubAccountKeyAsyncWithHttpInfo (int userId, string key)
         {
@@ -1335,11 +1335,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Update API key of the sub-account 
+        /// Update API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns></returns>
         public void UpdateSubAccountKeys (int userId, string key, SubAccountKey subAccountKey)
@@ -1348,11 +1348,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Update API key of the sub-account 
+        /// Update API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UpdateSubAccountKeysWithHttpInfo (int userId, string key, SubAccountKey subAccountKey)
@@ -1401,11 +1401,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Update API key of the sub-account 
+        /// Update API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of void</returns>
         public async Task UpdateSubAccountKeysAsync (int userId, string key, SubAccountKey subAccountKey)
@@ -1415,11 +1415,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Update API key of the sub-account 
+        /// Update API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <param name="subAccountKey"></param>
         /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> UpdateSubAccountKeysAsyncWithHttpInfo (int userId, string key, SubAccountKey subAccountKey)
@@ -1470,11 +1470,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete API key of the sub-account 
+        /// Delete API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns></returns>
         public void DeleteSubAccountKeys (int userId, string key)
         {
@@ -1482,11 +1482,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete API key of the sub-account 
+        /// Delete API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteSubAccountKeysWithHttpInfo (int userId, string key)
         {
@@ -1528,11 +1528,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete API key of the sub-account 
+        /// Delete API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of void</returns>
         public async Task DeleteSubAccountKeysAsync (int userId, string key)
         {
@@ -1541,11 +1541,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete API key of the sub-account 
+        /// Delete API key of the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">Sub-account user id</param>
-        /// <param name="key">The API Key of the sub-account</param>
+        /// <param name="userId">Sub-account user id.</param>
+        /// <param name="key">The API Key of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> DeleteSubAccountKeysAsyncWithHttpInfo (int userId, string key)
         {
@@ -1589,10 +1589,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lock the sub-account 
+        /// Lock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns></returns>
         public void LockSubAccount (long userId)
         {
@@ -1600,10 +1600,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lock the sub-account 
+        /// Lock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> LockSubAccountWithHttpInfo (long userId)
         {
@@ -1640,10 +1640,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lock the sub-account 
+        /// Lock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of void</returns>
         public async Task LockSubAccountAsync (long userId)
         {
@@ -1652,10 +1652,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lock the sub-account 
+        /// Lock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> LockSubAccountAsyncWithHttpInfo (long userId)
         {
@@ -1694,10 +1694,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Unlock the sub-account 
+        /// Unlock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns></returns>
         public void UnlockSubAccount (long userId)
         {
@@ -1705,10 +1705,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Unlock the sub-account 
+        /// Unlock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> UnlockSubAccountWithHttpInfo (long userId)
         {
@@ -1745,10 +1745,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Unlock the sub-account 
+        /// Unlock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of void</returns>
         public async Task UnlockSubAccountAsync (long userId)
         {
@@ -1757,10 +1757,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Unlock the sub-account 
+        /// Unlock the sub-account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId">The user id of the sub-account</param>
+        /// <param name="userId">The user id of the sub-account.</param>
         /// <returns>Task of ApiResponse</returns>
         public async Task<ApiResponse<Object>> UnlockSubAccountAsyncWithHttpInfo (long userId)
         {
@@ -1799,7 +1799,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// Get sub-account mode. Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;SubUserMode&gt;</returns>
@@ -1810,7 +1810,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// Get sub-account mode. Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;SubUserMode&gt;</returns>
@@ -1849,7 +1849,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// Get sub-account mode. Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;SubUserMode&gt;</returns>
@@ -1861,7 +1861,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get sub-account mode Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
+        /// Get sub-account mode. Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;SubUserMode&gt;)</returns>

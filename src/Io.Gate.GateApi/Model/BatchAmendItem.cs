@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Order information that needs to be modified
+    /// Order information that needs to be modified.
     /// </summary>
     [DataContract]
     public partial class BatchAmendItem :  IEquatable<BatchAmendItem>, IValidatableObject
@@ -39,11 +39,11 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="BatchAmendItem" /> class.
         /// </summary>
         /// <param name="orderId">The order ID returned upon successful creation or the custom ID specified by the user during creation (i.e., the &#39;text&#39; field). (required).</param>
-        /// <param name="currencyPair">Currency pair (required).</param>
+        /// <param name="currencyPair">Currency pair. (required).</param>
         /// <param name="account">Default spot, unified account and warehouse-by-store leverage account..</param>
         /// <param name="amount">Trading Quantity. Only one of amountor pricecan be specified..</param>
         /// <param name="price">Trading Price. Only one of amountor pricecan be specified..</param>
-        /// <param name="amendText">Custom info during amending order.</param>
+        /// <param name="amendText">Custom info during amending order..</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
         public BatchAmendItem(string orderId = default(string), string currencyPair = default(string), string account = default(string), string amount = default(string), string price = default(string), string amendText = default(string), string actionMode = default(string))
         {
@@ -66,9 +66,9 @@ namespace Io.Gate.GateApi.Model
         public string OrderId { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
@@ -94,9 +94,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// Custom info during amending order
+        /// Custom info during amending order.
         /// </summary>
-        /// <value>Custom info during amending order</value>
+        /// <value>Custom info during amending order.</value>
         [DataMember(Name="amend_text")]
         public string AmendText { get; set; }
 

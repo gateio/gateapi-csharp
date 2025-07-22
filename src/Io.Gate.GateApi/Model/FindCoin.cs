@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FindCoin" /> class.
         /// </summary>
-        /// <param name="coin">Currency.</param>
-        /// <param name="cointype">Coin Type  swap-Voucher  lock-Locked.</param>
+        /// <param name="coin">Currency..</param>
+        /// <param name="cointype">Coin Type swap-Voucher lock-Locked..</param>
         public FindCoin(string coin = default(string), string cointype = default(string))
         {
             this.Coin = coin;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="coin")]
         public string Coin { get; set; }
 
         /// <summary>
-        /// Coin Type  swap-Voucher  lock-Locked
+        /// Coin Type swap-Voucher lock-Locked.
         /// </summary>
-        /// <value>Coin Type  swap-Voucher  lock-Locked</value>
+        /// <value>Coin Type swap-Voucher lock-Locked.</value>
         [DataMember(Name="cointype")]
         public string Cointype { get; set; }
 

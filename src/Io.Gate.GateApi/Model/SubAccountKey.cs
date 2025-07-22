@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountKey" /> class.
         /// </summary>
-        /// <param name="mode">Mode: 1 - classic 2 - portfolio account.</param>
-        /// <param name="name">API key name.</param>
+        /// <param name="mode">Mode: 1 - classic 2 - portfolio account..</param>
+        /// <param name="name">API key name..</param>
         /// <param name="perms">perms.</param>
-        /// <param name="ipWhitelist">ip white list (list will be removed if no value is passed).</param>
+        /// <param name="ipWhitelist">ip white list (list will be removed if no value is passed)..</param>
         public SubAccountKey(int mode = default(int), string name = default(string), List<SubAccountKeyPerms> perms = default(List<SubAccountKeyPerms>), List<string> ipWhitelist = default(List<string>))
         {
             this.Mode = mode;
@@ -46,23 +46,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id", EmitDefaultValue=false)]
         public long UserId { get; private set; }
 
         /// <summary>
-        /// Mode: 1 - classic 2 - portfolio account
+        /// Mode: 1 - classic 2 - portfolio account.
         /// </summary>
-        /// <value>Mode: 1 - classic 2 - portfolio account</value>
+        /// <value>Mode: 1 - classic 2 - portfolio account.</value>
         [DataMember(Name="mode")]
         public int Mode { get; set; }
 
         /// <summary>
-        /// API key name
+        /// API key name.
         /// </summary>
-        /// <value>API key name</value>
+        /// <value>API key name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
@@ -73,44 +73,44 @@ namespace Io.Gate.GateApi.Model
         public List<SubAccountKeyPerms> Perms { get; set; }
 
         /// <summary>
-        /// ip white list (list will be removed if no value is passed)
+        /// ip white list (list will be removed if no value is passed).
         /// </summary>
-        /// <value>ip white list (list will be removed if no value is passed)</value>
+        /// <value>ip white list (list will be removed if no value is passed).</value>
         [DataMember(Name="ip_whitelist")]
         public List<string> IpWhitelist { get; set; }
 
         /// <summary>
-        /// API Key
+        /// API Key.
         /// </summary>
-        /// <value>API Key</value>
+        /// <value>API Key.</value>
         [DataMember(Name="key", EmitDefaultValue=false)]
         public string Key { get; private set; }
 
         /// <summary>
-        /// State 1 - normal 2 - locked 3 - frozen
+        /// State 1 - normal 2 - locked 3 - frozen.
         /// </summary>
-        /// <value>State 1 - normal 2 - locked 3 - frozen</value>
+        /// <value>State 1 - normal 2 - locked 3 - frozen.</value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public int State { get; private set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="created_at", EmitDefaultValue=false)]
         public long CreatedAt { get; private set; }
 
         /// <summary>
-        /// Last update time
+        /// Last update time.
         /// </summary>
-        /// <value>Last update time</value>
+        /// <value>Last update time.</value>
         [DataMember(Name="updated_at", EmitDefaultValue=false)]
         public long UpdatedAt { get; private set; }
 
         /// <summary>
-        /// Last access time
+        /// Last access time.
         /// </summary>
-        /// <value>Last access time</value>
+        /// <value>Last access time.</value>
         [DataMember(Name="last_access", EmitDefaultValue=false)]
         public long LastAccess { get; private set; }
 

@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options order detail
+    /// Options order detail.
     /// </summary>
     [DataContract]
     public partial class OptionsOrder :  IEquatable<OptionsOrder>, IValidatableObject
     {
         /// <summary>
-        /// Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
+        /// Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
         /// </summary>
-        /// <value>Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled</value>
+        /// <value>Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -94,9 +94,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
+        /// Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled
         /// </summary>
-        /// <value>Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, because reduce_only is set or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled</value>
+        /// <value>Ending method, including:  - filled: fully completed - canceled: user canceled - liquidated: forced liquidation cancellation - ioc: Not fully filled immediately because tif is set to ioc - auto_deleveraged: automatic deleveraging cancel - reduce_only: Increased position is cancelled, or the position is closed - position_closed: Because the position was closed, the pending order was canceled - reduce_out: Only reduce the excluded pending orders that are not easy to be filled - mmp_cancelled: MMP canceled</value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
@@ -167,13 +167,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsOrder" /> class.
         /// </summary>
-        /// <param name="contract">Contract name (required).</param>
+        /// <param name="contract">Contract name. (required).</param>
         /// <param name="size">Order size. Specify positive number to make a bid, and negative number to ask (required).</param>
         /// <param name="iceberg">Display size for iceberg order. 0 for non-iceberg. Note that you will have to pay the taker fee for the hidden size.</param>
-        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).</param>
-        /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0 (default to false).</param>
-        /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order (default to false).</param>
-        /// <param name="mmp">When set to true, delegate to MMP (default to false).</param>
+        /// <param name="price">Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)..</param>
+        /// <param name="close">Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0. (default to false).</param>
+        /// <param name="reduceOnly">Set as &#x60;true&#x60; to be reduce-only order. (default to false).</param>
+        /// <param name="mmp">When set to true, delegate to MMP. (default to false).</param>
         /// <param name="tif">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee (default to TifEnum.Gtc).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) Besides user defined information, reserved contents are listed below, denoting how the order is created:  - web: from web - api: from API - app: from mobile phones - auto_deleveraging: from ADL - liquidation: from liquidation - insurance: from insurance .</param>
         public OptionsOrder(string contract = default(string), long size = default(long), long iceberg = default(long), string price = default(string), bool close = false, bool reduceOnly = false, bool mmp = false, TifEnum? tif = TifEnum.Gtc, string text = default(string))
@@ -191,37 +191,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Options order ID
+        /// Options order ID.
         /// </summary>
-        /// <value>Options order ID</value>
+        /// <value>Options order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
-        /// Creation time of order
+        /// Creation time of order.
         /// </summary>
-        /// <value>Creation time of order</value>
+        /// <value>Creation time of order.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
         /// <summary>
-        /// Order finished time. Not returned if order is open
+        /// Order finished time. Not returned if order is open.
         /// </summary>
-        /// <value>Order finished time. Not returned if order is open</value>
+        /// <value>Order finished time. Not returned if order is open.</value>
         [DataMember(Name="finish_time", EmitDefaultValue=false)]
         public double FinishTime { get; private set; }
 
         /// <summary>
-        /// Contract name
+        /// Contract name.
         /// </summary>
-        /// <value>Contract name</value>
+        /// <value>Contract name.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
@@ -240,51 +240,51 @@ namespace Io.Gate.GateApi.Model
         public long Iceberg { get; set; }
 
         /// <summary>
-        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)
+        /// Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).
         /// </summary>
-        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT)</value>
+        /// <value>Order price. 0 for market order with &#x60;tif&#x60; set as &#x60;ioc&#x60; (USDT).</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0
+        /// Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.
         /// </summary>
-        /// <value>Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0</value>
+        /// <value>Set as &#x60;true&#x60; to close the position, with &#x60;size&#x60; set to 0.</value>
         [DataMember(Name="close")]
         public bool Close { get; set; }
 
         /// <summary>
-        /// Is the order to close position
+        /// Is the order to close position.
         /// </summary>
-        /// <value>Is the order to close position</value>
+        /// <value>Is the order to close position.</value>
         [DataMember(Name="is_close", EmitDefaultValue=false)]
         public bool IsClose { get; private set; }
 
         /// <summary>
-        /// Set as &#x60;true&#x60; to be reduce-only order
+        /// Set as &#x60;true&#x60; to be reduce-only order.
         /// </summary>
-        /// <value>Set as &#x60;true&#x60; to be reduce-only order</value>
+        /// <value>Set as &#x60;true&#x60; to be reduce-only order.</value>
         [DataMember(Name="reduce_only")]
         public bool ReduceOnly { get; set; }
 
         /// <summary>
-        /// Is the order reduce-only
+        /// Is the order reduce-only.
         /// </summary>
-        /// <value>Is the order reduce-only</value>
+        /// <value>Is the order reduce-only.</value>
         [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
-        /// Is the order for liquidation
+        /// Is the order for liquidation.
         /// </summary>
-        /// <value>Is the order for liquidation</value>
+        /// <value>Is the order for liquidation.</value>
         [DataMember(Name="is_liq", EmitDefaultValue=false)]
         public bool IsLiq { get; private set; }
 
         /// <summary>
-        /// When set to true, delegate to MMP
+        /// When set to true, delegate to MMP.
         /// </summary>
-        /// <value>When set to true, delegate to MMP</value>
+        /// <value>When set to true, delegate to MMP.</value>
         [DataMember(Name="mmp")]
         public bool Mmp { get; set; }
 
@@ -296,16 +296,16 @@ namespace Io.Gate.GateApi.Model
         public bool IsMmp { get; private set; }
 
         /// <summary>
-        /// Size left to be traded
+        /// Size left to be traded.
         /// </summary>
-        /// <value>Size left to be traded</value>
+        /// <value>Size left to be traded.</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public long Left { get; private set; }
 
         /// <summary>
-        /// Fill price of the order
+        /// Fill price of the order.
         /// </summary>
-        /// <value>Fill price of the order</value>
+        /// <value>Fill price of the order.</value>
         [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
@@ -317,30 +317,30 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// Taker fee
+        /// Taker fee.
         /// </summary>
-        /// <value>Taker fee</value>
+        /// <value>Taker fee.</value>
         [DataMember(Name="tkfr", EmitDefaultValue=false)]
         public string Tkfr { get; private set; }
 
         /// <summary>
-        /// Maker fee
+        /// Maker fee.
         /// </summary>
-        /// <value>Maker fee</value>
+        /// <value>Maker fee.</value>
         [DataMember(Name="mkfr", EmitDefaultValue=false)]
         public string Mkfr { get; private set; }
 
         /// <summary>
-        /// Reference user ID
+        /// Reference user ID.
         /// </summary>
-        /// <value>Reference user ID</value>
+        /// <value>Reference user ID.</value>
         [DataMember(Name="refu", EmitDefaultValue=false)]
         public int Refu { get; private set; }
 
         /// <summary>
-        /// Referrer rebate
+        /// Referrer rebate.
         /// </summary>
-        /// <value>Referrer rebate</value>
+        /// <value>Referrer rebate.</value>
         [DataMember(Name="refr", EmitDefaultValue=false)]
         public string Refr { get; private set; }
 

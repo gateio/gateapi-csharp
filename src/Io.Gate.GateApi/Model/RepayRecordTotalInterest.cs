@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRecordTotalInterest" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="amount">Interest Amount.</param>
-        /// <param name="amountUsdt">Interest amount converted to USDT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="amount">Interest Amount..</param>
+        /// <param name="amountUsdt">Interest amount converted to USDT..</param>
         public RepayRecordTotalInterest(string currency = default(string), string indexPrice = default(string), string amount = default(string), string amountUsdt = default(string))
         {
             this.Currency = currency;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Interest Amount
+        /// Interest Amount.
         /// </summary>
-        /// <value>Interest Amount</value>
+        /// <value>Interest Amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Interest amount converted to USDT
+        /// Interest amount converted to USDT.
         /// </summary>
-        /// <value>Interest amount converted to USDT</value>
+        /// <value>Interest amount converted to USDT.</value>
         [DataMember(Name="amount_usdt")]
         public string AmountUsdt { get; set; }
 

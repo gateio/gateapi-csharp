@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Result of multi-collateral adjustment
+    /// Result of multi-collateral adjustment.
     /// </summary>
     [DataContract]
     public partial class CollateralAdjustRes :  IEquatable<CollateralAdjustRes>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralAdjustRes" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="collateralCurrencies">Collateral Currency Information.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="collateralCurrencies">Collateral Currency Information..</param>
         public CollateralAdjustRes(long orderId = default(long), List<CollateralCurrencyRes> collateralCurrencies = default(List<CollateralCurrencyRes>))
         {
             this.OrderId = orderId;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Collateral Currency Information
+        /// Collateral Currency Information.
         /// </summary>
-        /// <value>Collateral Currency Information</value>
+        /// <value>Collateral Currency Information.</value>
         [DataMember(Name="collateral_currencies")]
         public List<CollateralCurrencyRes> CollateralCurrencies { get; set; }
 

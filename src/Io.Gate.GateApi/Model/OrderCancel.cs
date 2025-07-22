@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot order details
+    /// Spot order details.
     /// </summary>
     [DataContract]
     public partial class OrderCancel :  IEquatable<OrderCancel>, IValidatableObject
@@ -91,9 +91,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Buy or sell order
+        /// Buy or sell order.
         /// </summary>
-        /// <value>Buy or sell order</value>
+        /// <value>Buy or sell order.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -112,9 +112,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Buy or sell order
+        /// Buy or sell order.
         /// </summary>
-        /// <value>Buy or sell order</value>
+        /// <value>Buy or sell order.</value>
         [DataMember(Name="side")]
         public SideEnum Side { get; set; }
         /// <summary>
@@ -157,9 +157,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="time_in_force")]
         public TimeInForceEnum? TimeInForce { get; set; }
         /// <summary>
-        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
         /// </summary>
-        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StpActEnum
         {
@@ -190,9 +190,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled
+        /// Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled
         /// </summary>
-        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
+        /// <value>Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled</value>
         [DataMember(Name="stp_act")]
         public StpActEnum? StpAct { get; set; }
         /// <summary>
@@ -249,20 +249,20 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OrderCancel" /> class.
         /// </summary>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)  Besides user defined information, reserved contents are listed below, denoting how the order is created:  - 101: from android - 102: from IOS - 103: from IPAD - 104: from webapp - 3: from web - 2: from apiv2 - apiv4: from apiv4 .</param>
-        /// <param name="succeeded">Whether the batch of orders succeeded.</param>
-        /// <param name="label">Error label, if any, otherwise an empty string.</param>
-        /// <param name="message">Detailed error message, if any, otherwise an empty string.</param>
-        /// <param name="currencyPair">Currency pair (required).</param>
+        /// <param name="succeeded">Whether the batch of orders succeeded..</param>
+        /// <param name="label">Error label, if any, otherwise an empty string..</param>
+        /// <param name="message">Detailed error message, if any, otherwise an empty string..</param>
+        /// <param name="currencyPair">Currency pair. (required).</param>
         /// <param name="type">Order Type   - limit : Limit Order - market : Market Order (default to TypeEnum.Limit).</param>
         /// <param name="account">Account type, spot - spot account, margin - leveraged account, unified - unified account (default to &quot;spot&quot;).</param>
-        /// <param name="side">Buy or sell order (required).</param>
-        /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
-        /// <param name="price">Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.</param>
+        /// <param name="side">Buy or sell order. (required).</param>
+        /// <param name="amount">When &#x60;type&#x60; is limit, it refers to base currency. For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  (required).</param>
+        /// <param name="price">Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;..</param>
         /// <param name="timeInForce">Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none Only &#x60;ioc&#x60; and &#x60;fok&#x60; are supported when &#x60;type&#x60;&#x3D;&#x60;market&#x60; (default to TimeInForceEnum.Gtc).</param>
-        /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported..</param>
+        /// <param name="iceberg">Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported..</param>
         /// <param name="autoBorrow">Used in margin or cross margin trading to allow automatic loan of insufficient amount if balance is not enough..</param>
         /// <param name="autoRepay">Enable or disable automatic repayment for automatic borrow loan generated by cross margin order. Default is disabled. Note that:  1. This field is only effective for cross margin orders. Margin account does not support setting auto repayment for orders. 2. &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; can be both set to true in one order..</param>
-        /// <param name="stpAct">Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, Cancel old orders and keep new ones - cb: Cancel both, Both old and new orders will be cancelled.</param>
+        /// <param name="stpAct">Self-Trading Prevention Action. Users can use this field to set self-trade prevetion strategies  1. After users join the &#x60;STP Group&#x60;, he can pass &#x60;stp_act&#x60; to limit the user&#39;s self-trade prevetion strategy. If &#x60;stp_act&#x60; is not passed, the default is &#x60;cn&#x60; strategy。 2. When the user does not join the &#x60;STP group&#x60;, an error will be returned when passing the &#x60;stp_act&#x60; parameter。 3. If the user did not use &#39;stp_act&#39; when placing the order, &#39;stp_act&#39; will return &#39;-&#39;  - cn: Cancel newest, Cancel new orders and keep old ones - co: Cancel oldest, new ones - cb: Cancel both, Both old and new orders will be cancelled.</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
         public OrderCancel(string text = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string currencyPair = default(string), TypeEnum? type = TypeEnum.Limit, string account = "spot", SideEnum side = default(SideEnum), string amount = default(string), string price = default(string), TimeInForceEnum? timeInForce = TimeInForceEnum.Gtc, string iceberg = default(string), bool autoBorrow = default(bool), bool autoRepay = default(bool), StpActEnum? stpAct = default(StpActEnum?), string actionMode = default(string))
         {
@@ -288,9 +288,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
@@ -302,65 +302,65 @@ namespace Io.Gate.GateApi.Model
         public string Text { get; set; }
 
         /// <summary>
-        /// The custom data that the user remarked when amending the order
+        /// The custom data that the user remarked when amending the order.
         /// </summary>
-        /// <value>The custom data that the user remarked when amending the order</value>
+        /// <value>The custom data that the user remarked when amending the order.</value>
         [DataMember(Name="amend_text", EmitDefaultValue=false)]
         public string AmendText { get; private set; }
 
         /// <summary>
-        /// Whether the batch of orders succeeded
+        /// Whether the batch of orders succeeded.
         /// </summary>
-        /// <value>Whether the batch of orders succeeded</value>
+        /// <value>Whether the batch of orders succeeded.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
-        /// Error label, if any, otherwise an empty string
+        /// Error label, if any, otherwise an empty string.
         /// </summary>
-        /// <value>Error label, if any, otherwise an empty string</value>
+        /// <value>Error label, if any, otherwise an empty string.</value>
         [DataMember(Name="label")]
         public string Label { get; set; }
 
         /// <summary>
-        /// Detailed error message, if any, otherwise an empty string
+        /// Detailed error message, if any, otherwise an empty string.
         /// </summary>
-        /// <value>Detailed error message, if any, otherwise an empty string</value>
+        /// <value>Detailed error message, if any, otherwise an empty string.</value>
         [DataMember(Name="message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Creation time of order
+        /// Creation time of order.
         /// </summary>
-        /// <value>Creation time of order</value>
+        /// <value>Creation time of order.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public string CreateTime { get; private set; }
 
         /// <summary>
-        /// Last modification time of order
+        /// Last modification time of order.
         /// </summary>
-        /// <value>Last modification time of order</value>
+        /// <value>Last modification time of order.</value>
         [DataMember(Name="update_time", EmitDefaultValue=false)]
         public string UpdateTime { get; private set; }
 
         /// <summary>
-        /// Creation time of order (in milliseconds)
+        /// Creation time of order (in milliseconds).
         /// </summary>
-        /// <value>Creation time of order (in milliseconds)</value>
+        /// <value>Creation time of order (in milliseconds).</value>
         [DataMember(Name="create_time_ms", EmitDefaultValue=false)]
         public long CreateTimeMs { get; private set; }
 
         /// <summary>
-        /// Last modification time of order (in milliseconds)
+        /// Last modification time of order (in milliseconds).
         /// </summary>
-        /// <value>Last modification time of order (in milliseconds)</value>
+        /// <value>Last modification time of order (in milliseconds).</value>
         [DataMember(Name="update_time_ms", EmitDefaultValue=false)]
         public long UpdateTimeMs { get; private set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
@@ -372,23 +372,23 @@ namespace Io.Gate.GateApi.Model
         public string Account { get; set; }
 
         /// <summary>
-        /// When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
+        /// When &#x60;type&#x60; is limit, it refers to base currency. For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; 
         /// </summary>
-        /// <value>When &#x60;type&#x60; is limit, it refers to base currency.  For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When &#x60;type&#x60; is &#x60;market&#x60;, it refers to different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; </value>
+        /// <value>When &#x60;type&#x60; is limit, it refers to base currency. For instance, &#x60;BTC_USDT&#x60; means &#x60;BTC&#x60;  When different currency according to &#x60;side&#x60;  - &#x60;side&#x60; : &#x60;buy&#x60; means quote currency, &#x60;BTC_USDT&#x60; means &#x60;USDT&#x60; - &#x60;side&#x60; : &#x60;sell&#x60; means base currency，&#x60;BTC_USDT&#x60; means &#x60;BTC&#x60; </value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;
+        /// Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.
         /// </summary>
-        /// <value>Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;</value>
+        /// <value>Price can&#39;t be empty when &#x60;type&#x60;&#x3D; &#x60;limit&#x60;.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
+        /// Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.
         /// </summary>
-        /// <value>Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.</value>
+        /// <value>Amount to display for the iceberg order. Null or 0 for normal orders. Hiding all amount is not supported.</value>
         [DataMember(Name="iceberg")]
         public string Iceberg { get; set; }
 
@@ -407,100 +407,100 @@ namespace Io.Gate.GateApi.Model
         public bool AutoRepay { get; set; }
 
         /// <summary>
-        /// Amount left to fill
+        /// Amount left to fill.
         /// </summary>
-        /// <value>Amount left to fill</value>
+        /// <value>Amount left to fill.</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public string Left { get; private set; }
 
         /// <summary>
-        /// Amount traded to fill 
+        /// Amount traded to fill.
         /// </summary>
-        /// <value>Amount traded to fill </value>
+        /// <value>Amount traded to fill.</value>
         [DataMember(Name="filled_amount", EmitDefaultValue=false)]
         public string FilledAmount { get; private set; }
 
         /// <summary>
-        /// Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;
+        /// Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;.
         /// </summary>
-        /// <value>Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;</value>
+        /// <value>Total filled in quote currency. Deprecated in favor of &#x60;filled_total&#x60;.</value>
         [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
-        /// Total filled in quote currency
+        /// Total filled in quote currency.
         /// </summary>
-        /// <value>Total filled in quote currency</value>
+        /// <value>Total filled in quote currency.</value>
         [DataMember(Name="filled_total", EmitDefaultValue=false)]
         public string FilledTotal { get; private set; }
 
         /// <summary>
-        /// Average fill price
+        /// Average fill price.
         /// </summary>
-        /// <value>Average fill price</value>
+        /// <value>Average fill price.</value>
         [DataMember(Name="avg_deal_price", EmitDefaultValue=false)]
         public string AvgDealPrice { get; private set; }
 
         /// <summary>
-        /// Fee deducted
+        /// Fee deducted.
         /// </summary>
-        /// <value>Fee deducted</value>
+        /// <value>Fee deducted.</value>
         [DataMember(Name="fee", EmitDefaultValue=false)]
         public string Fee { get; private set; }
 
         /// <summary>
-        /// Fee currency unit
+        /// Fee currency unit.
         /// </summary>
-        /// <value>Fee currency unit</value>
+        /// <value>Fee currency unit.</value>
         [DataMember(Name="fee_currency", EmitDefaultValue=false)]
         public string FeeCurrency { get; private set; }
 
         /// <summary>
-        /// Points used to deduct fee
+        /// Points used to deduct fee.
         /// </summary>
-        /// <value>Points used to deduct fee</value>
+        /// <value>Points used to deduct fee.</value>
         [DataMember(Name="point_fee", EmitDefaultValue=false)]
         public string PointFee { get; private set; }
 
         /// <summary>
-        /// GT used to deduct fee
+        /// GT used to deduct fee.
         /// </summary>
-        /// <value>GT used to deduct fee</value>
+        /// <value>GT used to deduct fee.</value>
         [DataMember(Name="gt_fee", EmitDefaultValue=false)]
         public string GtFee { get; private set; }
 
         /// <summary>
-        /// GT used to deduct maker fee
+        /// GT used to deduct maker fee.
         /// </summary>
-        /// <value>GT used to deduct maker fee</value>
+        /// <value>GT used to deduct maker fee.</value>
         [DataMember(Name="gt_maker_fee", EmitDefaultValue=false)]
         public string GtMakerFee { get; private set; }
 
         /// <summary>
-        /// GT used to deduct taker fee
+        /// GT used to deduct taker fee.
         /// </summary>
-        /// <value>GT used to deduct taker fee</value>
+        /// <value>GT used to deduct taker fee.</value>
         [DataMember(Name="gt_taker_fee", EmitDefaultValue=false)]
         public string GtTakerFee { get; private set; }
 
         /// <summary>
-        /// Whether GT fee discount is used
+        /// Whether GT fee discount is used.
         /// </summary>
-        /// <value>Whether GT fee discount is used</value>
+        /// <value>Whether GT fee discount is used.</value>
         [DataMember(Name="gt_discount", EmitDefaultValue=false)]
         public bool GtDiscount { get; private set; }
 
         /// <summary>
-        /// Rebated fee
+        /// Rebated fee.
         /// </summary>
-        /// <value>Rebated fee</value>
+        /// <value>Rebated fee.</value>
         [DataMember(Name="rebated_fee", EmitDefaultValue=false)]
         public string RebatedFee { get; private set; }
 
         /// <summary>
-        /// Rebated fee currency unit
+        /// Rebated fee currency unit.
         /// </summary>
-        /// <value>Rebated fee currency unit</value>
+        /// <value>Rebated fee currency unit.</value>
         [DataMember(Name="rebated_fee_currency", EmitDefaultValue=false)]
         public string RebatedFeeCurrency { get; private set; }
 

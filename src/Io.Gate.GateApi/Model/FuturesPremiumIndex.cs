@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// data point in every timestamp
+    /// data point in every timestamp.
     /// </summary>
     [DataContract]
     public partial class FuturesPremiumIndex :  IEquatable<FuturesPremiumIndex>, IValidatableObject
@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPremiumIndex" /> class.
         /// </summary>
-        /// <param name="t">Unix timestamp in seconds.</param>
-        /// <param name="c">Close price.</param>
-        /// <param name="h">Highest price.</param>
-        /// <param name="l">Lowest price&#x60;.</param>
-        /// <param name="o">Open price.</param>
+        /// <param name="t">Unix timestamp in seconds..</param>
+        /// <param name="c">Close price..</param>
+        /// <param name="h">Highest price..</param>
+        /// <param name="l">Lowest price&#x60;..</param>
+        /// <param name="o">Open price..</param>
         public FuturesPremiumIndex(double t = default(double), string c = default(string), string h = default(string), string l = default(string), string o = default(string))
         {
             this.T = t;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Unix timestamp in seconds
+        /// Unix timestamp in seconds.
         /// </summary>
-        /// <value>Unix timestamp in seconds</value>
+        /// <value>Unix timestamp in seconds.</value>
         [DataMember(Name="t")]
         public double T { get; set; }
 
         /// <summary>
-        /// Close price
+        /// Close price.
         /// </summary>
-        /// <value>Close price</value>
+        /// <value>Close price.</value>
         [DataMember(Name="c")]
         public string C { get; set; }
 
         /// <summary>
-        /// Highest price
+        /// Highest price.
         /// </summary>
-        /// <value>Highest price</value>
+        /// <value>Highest price.</value>
         [DataMember(Name="h")]
         public string H { get; set; }
 
         /// <summary>
-        /// Lowest price&#x60;
+        /// Lowest price&#x60;.
         /// </summary>
-        /// <value>Lowest price&#x60;</value>
+        /// <value>Lowest price&#x60;.</value>
         [DataMember(Name="l")]
         public string L { get; set; }
 
         /// <summary>
-        /// Open price
+        /// Open price.
         /// </summary>
-        /// <value>Open price</value>
+        /// <value>Open price.</value>
         [DataMember(Name="o")]
         public string O { get; set; }
 

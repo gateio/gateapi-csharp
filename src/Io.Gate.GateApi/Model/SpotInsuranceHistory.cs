@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotInsuranceHistory" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="balance">balance.</param>
-        /// <param name="time">Creation time, timestamp, milliseconds.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="balance">balance..</param>
+        /// <param name="time">Creation time, timestamp, milliseconds..</param>
         public SpotInsuranceHistory(string currency = default(string), string balance = default(string), long time = default(long))
         {
             this.Currency = currency;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// balance
+        /// balance.
         /// </summary>
-        /// <value>balance</value>
+        /// <value>balance.</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>
-        /// Creation time, timestamp, milliseconds
+        /// Creation time, timestamp, milliseconds.
         /// </summary>
-        /// <value>Creation time, timestamp, milliseconds</value>
+        /// <value>Creation time, timestamp, milliseconds.</value>
         [DataMember(Name="time")]
         public long Time { get; set; }
 

@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Total balances calculated with specified currency unit
+    /// Total balances calculated with specified currency unit.
     /// </summary>
     [DataContract]
     public partial class AccountBalance :  IEquatable<AccountBalance>, IValidatableObject
     {
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CurrencyEnum
         {
@@ -64,18 +64,18 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public CurrencyEnum? Currency { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountBalance" /> class.
         /// </summary>
-        /// <param name="amount">Account total balance amount.</param>
-        /// <param name="currency">Currency.</param>
+        /// <param name="amount">Account total balance amount..</param>
+        /// <param name="currency">Currency..</param>
         /// <param name="unrealisedPnl">Unrealised_pnl, this field will only appear in futures, options, delivery, and total accounts.</param>
-        /// <param name="borrowed">Borrowed，this field will only appear in margin and cross_margin accounts.</param>
+        /// <param name="borrowed">Borrowed，this field will only appear in margin and cross_margin accounts..</param>
         public AccountBalance(string amount = default(string), CurrencyEnum? currency = default(CurrencyEnum?), string unrealisedPnl = default(string), string borrowed = default(string))
         {
             this.Amount = amount;
@@ -85,9 +85,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account total balance amount
+        /// Account total balance amount.
         /// </summary>
-        /// <value>Account total balance amount</value>
+        /// <value>Account total balance amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
@@ -99,9 +99,9 @@ namespace Io.Gate.GateApi.Model
         public string UnrealisedPnl { get; set; }
 
         /// <summary>
-        /// Borrowed，this field will only appear in margin and cross_margin accounts
+        /// Borrowed，this field will only appear in margin and cross_margin accounts.
         /// </summary>
-        /// <value>Borrowed，this field will only appear in margin and cross_margin accounts</value>
+        /// <value>Borrowed，this field will only appear in margin and cross_margin accounts.</value>
         [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 

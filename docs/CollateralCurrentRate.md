@@ -1,14 +1,14 @@
 
 # Io.Gate.GateApi.Model.CollateralCurrentRate
 
-Multi-currency pledge current interest rate
+Multi-currency pledge current interest rate.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Currency** | **string** | Currency | [optional] 
-**CurrentRate** | **string** | Currency current interest rate | [optional] 
+**Currency** | **string** | Currency. | [optional] 
+**CurrentRate** | **string** | Currency current interest rate. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

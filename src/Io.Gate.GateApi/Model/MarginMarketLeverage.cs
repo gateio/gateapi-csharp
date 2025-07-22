@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Market leverage settings
+    /// Market leverage settings.
     /// </summary>
     [DataContract]
     public partial class MarginMarketLeverage :  IEquatable<MarginMarketLeverage>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginMarketLeverage" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="leverage">Position leverage (required).</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="leverage">Position leverage. (required).</param>
         public MarginMarketLeverage(string currencyPair = default(string), string leverage = default(string))
         {
             // to ensure "leverage" is required (not null)
@@ -48,16 +48,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Position leverage
+        /// Position leverage.
         /// </summary>
-        /// <value>Position leverage</value>
+        /// <value>Position leverage.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Convert Small Balance
+    /// Convert Small Balance.
     /// </summary>
     [DataContract]
     public partial class SmallBalance :  IEquatable<SmallBalance>, IValidatableObject
@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SmallBalance" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="availableBalance">Available balance.</param>
-        /// <param name="estimatedAsBtc">Estimated as BTC.</param>
-        /// <param name="convertibleToGt">Estimated conversion to GT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="availableBalance">Available balance..</param>
+        /// <param name="estimatedAsBtc">Estimated as BTC..</param>
+        /// <param name="convertibleToGt">Estimated conversion to GT..</param>
         public SmallBalance(string currency = default(string), string availableBalance = default(string), string estimatedAsBtc = default(string), string convertibleToGt = default(string))
         {
             this.Currency = currency;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Available balance
+        /// Available balance.
         /// </summary>
-        /// <value>Available balance</value>
+        /// <value>Available balance.</value>
         [DataMember(Name="available_balance")]
         public string AvailableBalance { get; set; }
 
         /// <summary>
-        /// Estimated as BTC
+        /// Estimated as BTC.
         /// </summary>
-        /// <value>Estimated as BTC</value>
+        /// <value>Estimated as BTC.</value>
         [DataMember(Name="estimated_as_btc")]
         public string EstimatedAsBtc { get; set; }
 
         /// <summary>
-        /// Estimated conversion to GT
+        /// Estimated conversion to GT.
         /// </summary>
-        /// <value>Estimated conversion to GT</value>
+        /// <value>Estimated conversion to GT.</value>
         [DataMember(Name="convertible_to_gt")]
         public string ConvertibleToGt { get; set; }
 

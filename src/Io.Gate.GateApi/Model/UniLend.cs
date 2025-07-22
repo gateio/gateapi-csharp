@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan record
+    /// Loan record.
     /// </summary>
     [DataContract]
     public partial class UniLend :  IEquatable<UniLend>, IValidatableObject
@@ -39,72 +39,72 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Current amount
+        /// Current amount.
         /// </summary>
-        /// <value>Current amount</value>
+        /// <value>Current amount.</value>
         [DataMember(Name="current_amount", EmitDefaultValue=false)]
         public string CurrentAmount { get; private set; }
 
         /// <summary>
-        /// Total amount
+        /// Total amount.
         /// </summary>
-        /// <value>Total amount</value>
+        /// <value>Total amount.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; private set; }
 
         /// <summary>
-        /// Lent amount
+        /// Lent amount.
         /// </summary>
-        /// <value>Lent amount</value>
+        /// <value>Lent amount.</value>
         [DataMember(Name="lent_amount", EmitDefaultValue=false)]
         public string LentAmount { get; private set; }
 
         /// <summary>
-        /// Frozen amount
+        /// Frozen amount.
         /// </summary>
-        /// <value>Frozen amount</value>
+        /// <value>Frozen amount.</value>
         [DataMember(Name="frozen_amount", EmitDefaultValue=false)]
         public string FrozenAmount { get; private set; }
 
         /// <summary>
-        /// Minimum interest rate
+        /// Minimum interest rate.
         /// </summary>
-        /// <value>Minimum interest rate</value>
+        /// <value>Minimum interest rate.</value>
         [DataMember(Name="min_rate", EmitDefaultValue=false)]
         public string MinRate { get; private set; }
 
         /// <summary>
-        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
         /// </summary>
-        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment</value>
+        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment</value>
         [DataMember(Name="interest_status", EmitDefaultValue=false)]
         public string InterestStatus { get; private set; }
 
         /// <summary>
-        /// Amount not reinvested
+        /// Amount not reinvested.
         /// </summary>
-        /// <value>Amount not reinvested</value>
+        /// <value>Amount not reinvested.</value>
         [DataMember(Name="reinvest_left_amount", EmitDefaultValue=false)]
         public string ReinvestLeftAmount { get; private set; }
 
         /// <summary>
-        /// Created time of the lending order
+        /// Created time of the lending order.
         /// </summary>
-        /// <value>Created time of the lending order</value>
+        /// <value>Created time of the lending order.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 
         /// <summary>
-        /// Upated time of the lending order
+        /// Upated time of the lending order.
         /// </summary>
-        /// <value>Upated time of the lending order</value>
+        /// <value>Upated time of the lending order.</value>
         [DataMember(Name="update_time", EmitDefaultValue=false)]
         public long UpdateTime { get; private set; }
 

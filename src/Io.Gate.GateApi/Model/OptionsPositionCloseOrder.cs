@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Current close order if any, or &#x60;null&#x60;
+    /// Current close order if any, or &#x60;null&#x60;.
     /// </summary>
     [DataContract]
     public partial class OptionsPositionCloseOrder :  IEquatable<OptionsPositionCloseOrder>, IValidatableObject
@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsPositionCloseOrder" /> class.
         /// </summary>
-        /// <param name="id">Close order ID.</param>
-        /// <param name="price">Close order price （quote currency).</param>
-        /// <param name="isLiq">Is the close order from liquidation.</param>
+        /// <param name="id">Close order ID..</param>
+        /// <param name="price">Close order price （quote currency)..</param>
+        /// <param name="isLiq">Is the close order from liquidation..</param>
         public OptionsPositionCloseOrder(long id = default(long), string price = default(string), bool isLiq = default(bool))
         {
             this.Id = id;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Close order ID
+        /// Close order ID.
         /// </summary>
-        /// <value>Close order ID</value>
+        /// <value>Close order ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// Close order price （quote currency)
+        /// Close order price （quote currency).
         /// </summary>
-        /// <value>Close order price （quote currency)</value>
+        /// <value>Close order price （quote currency).</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Is the close order from liquidation
+        /// Is the close order from liquidation.
         /// </summary>
-        /// <value>Is the close order from liquidation</value>
+        /// <value>Is the close order from liquidation.</value>
         [DataMember(Name="is_liq")]
         public bool IsLiq { get; set; }
 

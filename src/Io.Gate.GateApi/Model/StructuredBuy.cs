@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Dual Investment Purchase
+    /// Dual Investment Purchase.
     /// </summary>
     [DataContract]
     public partial class StructuredBuy :  IEquatable<StructuredBuy>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredBuy" /> class.
         /// </summary>
-        /// <param name="pid">Plan ID.</param>
-        /// <param name="amount">Purchase Amount.</param>
+        /// <param name="pid">Plan ID..</param>
+        /// <param name="amount">Purchase Amount..</param>
         public StructuredBuy(string pid = default(string), string amount = default(string))
         {
             this.Pid = pid;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="pid")]
         public string Pid { get; set; }
 
         /// <summary>
-        /// Purchase Amount
+        /// Purchase Amount.
         /// </summary>
-        /// <value>Purchase Amount</value>
+        /// <value>Purchase Amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

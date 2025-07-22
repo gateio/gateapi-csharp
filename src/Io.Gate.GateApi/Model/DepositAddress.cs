@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DepositAddress" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail (required).</param>
-        /// <param name="address">Deposit address (required).</param>
+        /// <param name="currency">Currency detail. (required).</param>
+        /// <param name="address">Deposit address. (required).</param>
         /// <param name="multichainAddresses">multichainAddresses.</param>
         public DepositAddress(string currency = default(string), string address = default(string), List<MultiChainAddressItem> multichainAddresses = default(List<MultiChainAddressItem>))
         {
@@ -51,16 +51,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Deposit address
+        /// Deposit address.
         /// </summary>
-        /// <value>Deposit address</value>
+        /// <value>Deposit address.</value>
         [DataMember(Name="address")]
         public string Address { get; set; }
 

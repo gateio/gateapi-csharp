@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List all underlyings
+        /// List all underlyings.
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<OptionsUnderlying> ListOptionsUnderlyings ();
 
         /// <summary>
-        /// List all underlyings
+        /// List all underlyings.
         /// </summary>
         /// <remarks>
         /// 
@@ -47,51 +47,51 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;OptionsUnderlying&gt;</returns>
         ApiResponse<List<OptionsUnderlying>> ListOptionsUnderlyingsWithHttpInfo ();
         /// <summary>
-        /// List all expiration times
+        /// List all expiration times.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>List&lt;long&gt;</returns>
         List<long> ListOptionsExpirations (string underlying);
 
         /// <summary>
-        /// List all expiration times
+        /// List all expiration times.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>ApiResponse of List&lt;long&gt;</returns>
         ApiResponse<List<long>> ListOptionsExpirationsWithHttpInfo (string underlying);
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time
+        /// List all the contracts with specified underlying and expiration time.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>List&lt;OptionsContract&gt;</returns>
         List<OptionsContract> ListOptionsContracts (string underlying, long? expiration = default(long?));
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time
+        /// List all the contracts with specified underlying and expiration time.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsContract&gt;</returns>
         ApiResponse<List<OptionsContract>> ListOptionsContractsWithHttpInfo (string underlying, long? expiration = default(long?));
         /// <summary>
-        /// Query specified contract detail
+        /// Query specified contract detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -102,7 +102,7 @@ namespace Io.Gate.GateApi.Api
         OptionsContract GetOptionsContract (string contract);
 
         /// <summary>
-        /// Query specified contract detail
+        /// Query specified contract detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -112,250 +112,250 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsContract</returns>
         ApiResponse<OptionsContract> GetOptionsContractWithHttpInfo (string contract);
         /// <summary>
-        /// List settlement history
+        /// List settlement history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsSettlement&gt;</returns>
         List<OptionsSettlement> ListOptionsSettlements (string underlying, int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List settlement history
+        /// List settlement history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsSettlement&gt;</returns>
         ApiResponse<List<OptionsSettlement>> ListOptionsSettlementsWithHttpInfo (string underlying, int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get specified contract&#39;s settlement
+        /// Get specified contract&#39;s settlement.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>OptionsSettlement</returns>
         OptionsSettlement GetOptionsSettlement (string contract, string underlying, long at);
 
         /// <summary>
-        /// Get specified contract&#39;s settlement
+        /// Get specified contract&#39;s settlement.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>ApiResponse of OptionsSettlement</returns>
         ApiResponse<OptionsSettlement> GetOptionsSettlementWithHttpInfo (string contract, string underlying, long at);
         /// <summary>
-        /// List my options settlements
+        /// List my options settlements.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsMySettlements&gt;</returns>
         List<OptionsMySettlements> ListMyOptionsSettlements (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List my options settlements
+        /// List my options settlements.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMySettlements&gt;</returns>
         ApiResponse<List<OptionsMySettlements>> ListMyOptionsSettlementsWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Options order book
+        /// Options order book.
         /// </summary>
         /// <remarks>
-        /// Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
         FuturesOrderBook ListOptionsOrderBook (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
-        /// Options order book
+        /// Options order book.
         /// </summary>
         /// <remarks>
-        /// Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
         ApiResponse<FuturesOrderBook> ListOptionsOrderBookWithHttpInfo (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
-        /// List tickers of options contracts
+        /// List tickers of options contracts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>List&lt;OptionsTicker&gt;</returns>
         List<OptionsTicker> ListOptionsTickers (string underlying);
 
         /// <summary>
-        /// List tickers of options contracts
+        /// List tickers of options contracts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>ApiResponse of List&lt;OptionsTicker&gt;</returns>
         ApiResponse<List<OptionsTicker>> ListOptionsTickersWithHttpInfo (string underlying);
         /// <summary>
-        /// Get underlying ticker
+        /// Get underlying ticker.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>OptionsUnderlyingTicker</returns>
         OptionsUnderlyingTicker ListOptionsUnderlyingTickers (string underlying);
 
         /// <summary>
-        /// Get underlying ticker
+        /// Get underlying ticker.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>ApiResponse of OptionsUnderlyingTicker</returns>
         ApiResponse<OptionsUnderlyingTicker> ListOptionsUnderlyingTickersWithHttpInfo (string underlying);
         /// <summary>
-        /// Get options candlesticks
+        /// Get options candlesticks.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>List&lt;OptionsCandlestick&gt;</returns>
         List<OptionsCandlestick> ListOptionsCandlesticks (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Get options candlesticks
+        /// Get options candlesticks.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;OptionsCandlestick&gt;</returns>
         ApiResponse<List<OptionsCandlestick>> ListOptionsCandlesticksWithHttpInfo (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Mark price candlesticks of an underlying
+        /// Mark price candlesticks of an underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         List<FuturesCandlestick> ListOptionsUnderlyingCandlesticks (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Mark price candlesticks of an underlying
+        /// Mark price candlesticks of an underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         ApiResponse<List<FuturesCandlestick>> ListOptionsUnderlyingCandlesticksWithHttpInfo (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Options trade history
+        /// Options trade history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
         List<FuturesTrade> ListOptionsTrades (string contract = default(string), string type = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// Options trade history
+        /// Options trade history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
         ApiResponse<List<FuturesTrade>> ListOptionsTradesWithHttpInfo (string contract = default(string), string type = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// List options account
+        /// List options account.
         /// </summary>
         /// <remarks>
         /// 
@@ -365,7 +365,7 @@ namespace Io.Gate.GateApi.Api
         OptionsAccount ListOptionsAccount ();
 
         /// <summary>
-        /// List options account
+        /// List options account.
         /// </summary>
         /// <remarks>
         /// 
@@ -374,14 +374,14 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsAccount</returns>
         ApiResponse<OptionsAccount> ListOptionsAccountWithHttpInfo ();
         /// <summary>
-        /// List account changing history
+        /// List account changing history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -389,42 +389,42 @@ namespace Io.Gate.GateApi.Api
         List<OptionsAccountBook> ListOptionsAccountBook (int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List account changing history
+        /// List account changing history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsAccountBook&gt;</returns>
         ApiResponse<List<OptionsAccountBook>> ListOptionsAccountBookWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// List user&#39;s positions of specified underlying
+        /// List user&#39;s positions of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>List&lt;OptionsPosition&gt;</returns>
         List<OptionsPosition> ListOptionsPositions (string underlying = default(string));
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying
+        /// List user&#39;s positions of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsPosition&gt;</returns>
         ApiResponse<List<OptionsPosition>> ListOptionsPositionsWithHttpInfo (string underlying = default(string));
         /// <summary>
-        /// Get specified contract position
+        /// Get specified contract position.
         /// </summary>
         /// <remarks>
         /// 
@@ -435,7 +435,7 @@ namespace Io.Gate.GateApi.Api
         OptionsPosition GetOptionsPosition (string contract);
 
         /// <summary>
-        /// Get specified contract position
+        /// Get specified contract position.
         /// </summary>
         /// <remarks>
         /// 
@@ -445,63 +445,63 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsPosition</returns>
         ApiResponse<OptionsPosition> GetOptionsPositionWithHttpInfo (string contract);
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying
+        /// List user&#39;s liquidation history of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>List&lt;OptionsPositionClose&gt;</returns>
         List<OptionsPositionClose> ListOptionsPositionClose (string underlying, string contract = default(string));
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying
+        /// List user&#39;s liquidation history of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsPositionClose&gt;</returns>
         ApiResponse<List<OptionsPositionClose>> ListOptionsPositionCloseWithHttpInfo (string underlying, string contract = default(string));
         /// <summary>
-        /// List options orders
+        /// List options orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsOrder&gt;</returns>
         List<OptionsOrder> ListOptionsOrders (string status, string contract = default(string), string underlying = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List options orders
+        /// List options orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsOrder&gt;</returns>
         ApiResponse<List<OptionsOrder>> ListOptionsOrdersWithHttpInfo (string status, string contract = default(string), string underlying = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Create an options order
+        /// Create an options order.
         /// </summary>
         /// <remarks>
         /// 
@@ -512,7 +512,7 @@ namespace Io.Gate.GateApi.Api
         OptionsOrder CreateOptionsOrder (OptionsOrder optionsOrder);
 
         /// <summary>
-        /// Create an options order
+        /// Create an options order.
         /// </summary>
         /// <remarks>
         /// 
@@ -522,77 +522,77 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OptionsOrder</returns>
         ApiResponse<OptionsOrder> CreateOptionsOrderWithHttpInfo (OptionsOrder optionsOrder);
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched
+        /// Cancel all &#x60;open&#x60; orders matched.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>List&lt;OptionsOrder&gt;</returns>
         List<OptionsOrder> CancelOptionsOrders (string contract = default(string), string underlying = default(string), string side = default(string));
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched
+        /// Cancel all &#x60;open&#x60; orders matched.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsOrder&gt;</returns>
         ApiResponse<List<OptionsOrder>> CancelOptionsOrdersWithHttpInfo (string contract = default(string), string underlying = default(string), string side = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>OptionsOrder</returns>
         OptionsOrder GetOptionsOrder (long orderId);
 
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of OptionsOrder</returns>
         ApiResponse<OptionsOrder> GetOptionsOrderWithHttpInfo (long orderId);
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>OptionsOrder</returns>
         OptionsOrder CancelOptionsOrder (long orderId);
 
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of OptionsOrder</returns>
         ApiResponse<OptionsOrder> CancelOptionsOrderWithHttpInfo (long orderId);
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -600,65 +600,65 @@ namespace Io.Gate.GateApi.Api
         TriggerTime CountdownCancelAllOptions (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
 
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
         /// <returns>ApiResponse of TriggerTime</returns>
         ApiResponse<TriggerTime> CountdownCancelAllOptionsWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsMyTrade&gt;</returns>
         List<OptionsMyTrade> ListMyOptionsTrades (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMyTrade&gt;</returns>
         ApiResponse<List<OptionsMyTrade>> ListMyOptionsTradesWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// MMP Query
+        /// MMP Query.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>List&lt;OptionsMMP&gt;</returns>
         List<OptionsMMP> GetOptionsMMP (string underlying = default(string));
 
         /// <summary>
-        /// MMP Query
+        /// MMP Query.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMMP&gt;</returns>
         ApiResponse<List<OptionsMMP>> GetOptionsMMPWithHttpInfo (string underlying = default(string));
         /// <summary>
@@ -713,7 +713,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List all underlyings
+        /// List all underlyings.
         /// </summary>
         /// <remarks>
         /// 
@@ -723,7 +723,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<OptionsUnderlying>> ListOptionsUnderlyingsAsync ();
 
         /// <summary>
-        /// List all underlyings
+        /// List all underlyings.
         /// </summary>
         /// <remarks>
         /// 
@@ -732,51 +732,51 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;OptionsUnderlying&gt;)</returns>
         Task<ApiResponse<List<OptionsUnderlying>>> ListOptionsUnderlyingsAsyncWithHttpInfo ();
         /// <summary>
-        /// List all expiration times
+        /// List all expiration times.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of List&lt;long&gt;</returns>
         Task<List<long>> ListOptionsExpirationsAsync (string underlying);
 
         /// <summary>
-        /// List all expiration times
+        /// List all expiration times.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of ApiResponse (List&lt;long&gt;)</returns>
         Task<ApiResponse<List<long>>> ListOptionsExpirationsAsyncWithHttpInfo (string underlying);
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time
+        /// List all the contracts with specified underlying and expiration time.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>Task of List&lt;OptionsContract&gt;</returns>
         Task<List<OptionsContract>> ListOptionsContractsAsync (string underlying, long? expiration = default(long?));
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time
+        /// List all the contracts with specified underlying and expiration time.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsContract&gt;)</returns>
         Task<ApiResponse<List<OptionsContract>>> ListOptionsContractsAsyncWithHttpInfo (string underlying, long? expiration = default(long?));
         /// <summary>
-        /// Query specified contract detail
+        /// Query specified contract detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -787,7 +787,7 @@ namespace Io.Gate.GateApi.Api
         Task<OptionsContract> GetOptionsContractAsync (string contract);
 
         /// <summary>
-        /// Query specified contract detail
+        /// Query specified contract detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -797,250 +797,250 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OptionsContract)</returns>
         Task<ApiResponse<OptionsContract>> GetOptionsContractAsyncWithHttpInfo (string contract);
         /// <summary>
-        /// List settlement history
+        /// List settlement history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsSettlement&gt;</returns>
         Task<List<OptionsSettlement>> ListOptionsSettlementsAsync (string underlying, int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List settlement history
+        /// List settlement history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsSettlement&gt;)</returns>
         Task<ApiResponse<List<OptionsSettlement>>> ListOptionsSettlementsAsyncWithHttpInfo (string underlying, int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get specified contract&#39;s settlement
+        /// Get specified contract&#39;s settlement.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>Task of OptionsSettlement</returns>
         Task<OptionsSettlement> GetOptionsSettlementAsync (string contract, string underlying, long at);
 
         /// <summary>
-        /// Get specified contract&#39;s settlement
+        /// Get specified contract&#39;s settlement.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>Task of ApiResponse (OptionsSettlement)</returns>
         Task<ApiResponse<OptionsSettlement>> GetOptionsSettlementAsyncWithHttpInfo (string contract, string underlying, long at);
         /// <summary>
-        /// List my options settlements
+        /// List my options settlements.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsMySettlements&gt;</returns>
         Task<List<OptionsMySettlements>> ListMyOptionsSettlementsAsync (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List my options settlements
+        /// List my options settlements.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMySettlements&gt;)</returns>
         Task<ApiResponse<List<OptionsMySettlements>>> ListMyOptionsSettlementsAsyncWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Options order book
+        /// Options order book.
         /// </summary>
         /// <remarks>
-        /// Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
         Task<FuturesOrderBook> ListOptionsOrderBookAsync (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
-        /// Options order book
+        /// Options order book.
         /// </summary>
         /// <remarks>
-        /// Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
         Task<ApiResponse<FuturesOrderBook>> ListOptionsOrderBookAsyncWithHttpInfo (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
-        /// List tickers of options contracts
+        /// List tickers of options contracts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of List&lt;OptionsTicker&gt;</returns>
         Task<List<OptionsTicker>> ListOptionsTickersAsync (string underlying);
 
         /// <summary>
-        /// List tickers of options contracts
+        /// List tickers of options contracts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsTicker&gt;)</returns>
         Task<ApiResponse<List<OptionsTicker>>> ListOptionsTickersAsyncWithHttpInfo (string underlying);
         /// <summary>
-        /// Get underlying ticker
+        /// Get underlying ticker.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>Task of OptionsUnderlyingTicker</returns>
         Task<OptionsUnderlyingTicker> ListOptionsUnderlyingTickersAsync (string underlying);
 
         /// <summary>
-        /// Get underlying ticker
+        /// Get underlying ticker.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>Task of ApiResponse (OptionsUnderlyingTicker)</returns>
         Task<ApiResponse<OptionsUnderlyingTicker>> ListOptionsUnderlyingTickersAsyncWithHttpInfo (string underlying);
         /// <summary>
-        /// Get options candlesticks
+        /// Get options candlesticks.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of List&lt;OptionsCandlestick&gt;</returns>
         Task<List<OptionsCandlestick>> ListOptionsCandlesticksAsync (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Get options candlesticks
+        /// Get options candlesticks.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsCandlestick&gt;)</returns>
         Task<ApiResponse<List<OptionsCandlestick>>> ListOptionsCandlesticksAsyncWithHttpInfo (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Mark price candlesticks of an underlying
+        /// Mark price candlesticks of an underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         Task<List<FuturesCandlestick>> ListOptionsUnderlyingCandlesticksAsync (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Mark price candlesticks of an underlying
+        /// Mark price candlesticks of an underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         Task<ApiResponse<List<FuturesCandlestick>>> ListOptionsUnderlyingCandlesticksAsyncWithHttpInfo (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Options trade history
+        /// Options trade history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
         Task<List<FuturesTrade>> ListOptionsTradesAsync (string contract = default(string), string type = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// Options trade history
+        /// Options trade history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
         Task<ApiResponse<List<FuturesTrade>>> ListOptionsTradesAsyncWithHttpInfo (string contract = default(string), string type = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// List options account
+        /// List options account.
         /// </summary>
         /// <remarks>
         /// 
@@ -1050,7 +1050,7 @@ namespace Io.Gate.GateApi.Api
         Task<OptionsAccount> ListOptionsAccountAsync ();
 
         /// <summary>
-        /// List options account
+        /// List options account.
         /// </summary>
         /// <remarks>
         /// 
@@ -1059,14 +1059,14 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OptionsAccount)</returns>
         Task<ApiResponse<OptionsAccount>> ListOptionsAccountAsyncWithHttpInfo ();
         /// <summary>
-        /// List account changing history
+        /// List account changing history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -1074,42 +1074,42 @@ namespace Io.Gate.GateApi.Api
         Task<List<OptionsAccountBook>> ListOptionsAccountBookAsync (int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List account changing history
+        /// List account changing history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsAccountBook&gt;)</returns>
         Task<ApiResponse<List<OptionsAccountBook>>> ListOptionsAccountBookAsyncWithHttpInfo (int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// List user&#39;s positions of specified underlying
+        /// List user&#39;s positions of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of List&lt;OptionsPosition&gt;</returns>
         Task<List<OptionsPosition>> ListOptionsPositionsAsync (string underlying = default(string));
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying
+        /// List user&#39;s positions of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsPosition&gt;)</returns>
         Task<ApiResponse<List<OptionsPosition>>> ListOptionsPositionsAsyncWithHttpInfo (string underlying = default(string));
         /// <summary>
-        /// Get specified contract position
+        /// Get specified contract position.
         /// </summary>
         /// <remarks>
         /// 
@@ -1120,7 +1120,7 @@ namespace Io.Gate.GateApi.Api
         Task<OptionsPosition> GetOptionsPositionAsync (string contract);
 
         /// <summary>
-        /// Get specified contract position
+        /// Get specified contract position.
         /// </summary>
         /// <remarks>
         /// 
@@ -1130,63 +1130,63 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OptionsPosition)</returns>
         Task<ApiResponse<OptionsPosition>> GetOptionsPositionAsyncWithHttpInfo (string contract);
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying
+        /// List user&#39;s liquidation history of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>Task of List&lt;OptionsPositionClose&gt;</returns>
         Task<List<OptionsPositionClose>> ListOptionsPositionCloseAsync (string underlying, string contract = default(string));
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying
+        /// List user&#39;s liquidation history of specified underlying.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsPositionClose&gt;)</returns>
         Task<ApiResponse<List<OptionsPositionClose>>> ListOptionsPositionCloseAsyncWithHttpInfo (string underlying, string contract = default(string));
         /// <summary>
-        /// List options orders
+        /// List options orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsOrder&gt;</returns>
         Task<List<OptionsOrder>> ListOptionsOrdersAsync (string status, string contract = default(string), string underlying = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List options orders
+        /// List options orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsOrder&gt;)</returns>
         Task<ApiResponse<List<OptionsOrder>>> ListOptionsOrdersAsyncWithHttpInfo (string status, string contract = default(string), string underlying = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Create an options order
+        /// Create an options order.
         /// </summary>
         /// <remarks>
         /// 
@@ -1197,7 +1197,7 @@ namespace Io.Gate.GateApi.Api
         Task<OptionsOrder> CreateOptionsOrderAsync (OptionsOrder optionsOrder);
 
         /// <summary>
-        /// Create an options order
+        /// Create an options order.
         /// </summary>
         /// <remarks>
         /// 
@@ -1207,77 +1207,77 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         Task<ApiResponse<OptionsOrder>> CreateOptionsOrderAsyncWithHttpInfo (OptionsOrder optionsOrder);
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched
+        /// Cancel all &#x60;open&#x60; orders matched.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of List&lt;OptionsOrder&gt;</returns>
         Task<List<OptionsOrder>> CancelOptionsOrdersAsync (string contract = default(string), string underlying = default(string), string side = default(string));
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched
+        /// Cancel all &#x60;open&#x60; orders matched.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsOrder&gt;)</returns>
         Task<ApiResponse<List<OptionsOrder>>> CancelOptionsOrdersAsyncWithHttpInfo (string contract = default(string), string underlying = default(string), string side = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of OptionsOrder</returns>
         Task<OptionsOrder> GetOptionsOrderAsync (long orderId);
 
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         Task<ApiResponse<OptionsOrder>> GetOptionsOrderAsyncWithHttpInfo (long orderId);
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of OptionsOrder</returns>
         Task<OptionsOrder> CancelOptionsOrderAsync (long orderId);
 
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         Task<ApiResponse<OptionsOrder>> CancelOptionsOrderAsyncWithHttpInfo (long orderId);
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -1285,65 +1285,65 @@ namespace Io.Gate.GateApi.Api
         Task<TriggerTime> CountdownCancelAllOptionsAsync (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
 
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
         /// <returns>Task of ApiResponse (TriggerTime)</returns>
         Task<ApiResponse<TriggerTime>> CountdownCancelAllOptionsAsyncWithHttpInfo (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask);
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsMyTrade&gt;</returns>
         Task<List<OptionsMyTrade>> ListMyOptionsTradesAsync (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMyTrade&gt;)</returns>
         Task<ApiResponse<List<OptionsMyTrade>>> ListMyOptionsTradesAsyncWithHttpInfo (string underlying, string contract = default(string), int? limit = default(int?), int? offset = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// MMP Query
+        /// MMP Query.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of List&lt;OptionsMMP&gt;</returns>
         Task<List<OptionsMMP>> GetOptionsMMPAsync (string underlying = default(string));
 
         /// <summary>
-        /// MMP Query
+        /// MMP Query.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMMP&gt;)</returns>
         Task<ApiResponse<List<OptionsMMP>>> GetOptionsMMPAsyncWithHttpInfo (string underlying = default(string));
         /// <summary>
@@ -1509,7 +1509,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all underlyings 
+        /// List all underlyings. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;OptionsUnderlying&gt;</returns>
@@ -1520,7 +1520,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all underlyings 
+        /// List all underlyings. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;OptionsUnderlying&gt;</returns>
@@ -1557,7 +1557,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all underlyings 
+        /// List all underlyings. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;OptionsUnderlying&gt;</returns>
@@ -1569,7 +1569,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all underlyings 
+        /// List all underlyings. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;OptionsUnderlying&gt;)</returns>
@@ -1608,10 +1608,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all expiration times 
+        /// List all expiration times. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>List&lt;long&gt;</returns>
         public List<long> ListOptionsExpirations (string underlying)
         {
@@ -1620,10 +1620,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all expiration times 
+        /// List all expiration times. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>ApiResponse of List&lt;long&gt;</returns>
         public ApiResponse<List<long>> ListOptionsExpirationsWithHttpInfo (string underlying)
         {
@@ -1663,10 +1663,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all expiration times 
+        /// List all expiration times. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of List&lt;long&gt;</returns>
         public async Task<List<long>> ListOptionsExpirationsAsync (string underlying)
         {
@@ -1676,10 +1676,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all expiration times 
+        /// List all expiration times. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of ApiResponse (List&lt;long&gt;)</returns>
         public async Task<ApiResponse<List<long>>> ListOptionsExpirationsAsyncWithHttpInfo (string underlying)
         {
@@ -1721,11 +1721,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time 
+        /// List all the contracts with specified underlying and expiration time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>List&lt;OptionsContract&gt;</returns>
         public List<OptionsContract> ListOptionsContracts (string underlying, long? expiration = default(long?))
         {
@@ -1734,11 +1734,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time 
+        /// List all the contracts with specified underlying and expiration time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsContract&gt;</returns>
         public ApiResponse<List<OptionsContract>> ListOptionsContractsWithHttpInfo (string underlying, long? expiration = default(long?))
         {
@@ -1782,11 +1782,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time 
+        /// List all the contracts with specified underlying and expiration time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>Task of List&lt;OptionsContract&gt;</returns>
         public async Task<List<OptionsContract>> ListOptionsContractsAsync (string underlying, long? expiration = default(long?))
         {
@@ -1796,11 +1796,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all the contracts with specified underlying and expiration time 
+        /// List all the contracts with specified underlying and expiration time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="expiration">Unix timestamp of the expiration time (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="expiration">Unix timestamp of the expiration time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsContract&gt;)</returns>
         public async Task<ApiResponse<List<OptionsContract>>> ListOptionsContractsAsyncWithHttpInfo (string underlying, long? expiration = default(long?))
         {
@@ -1846,7 +1846,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query specified contract detail 
+        /// Query specified contract detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -1858,7 +1858,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query specified contract detail 
+        /// Query specified contract detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -1901,7 +1901,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query specified contract detail 
+        /// Query specified contract detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -1914,7 +1914,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query specified contract detail 
+        /// Query specified contract detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -1959,12 +1959,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List settlement history 
+        /// List settlement history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsSettlement&gt;</returns>
@@ -1975,12 +1975,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List settlement history 
+        /// List settlement history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsSettlement&gt;</returns>
@@ -2038,12 +2038,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List settlement history 
+        /// List settlement history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsSettlement&gt;</returns>
@@ -2055,12 +2055,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List settlement history 
+        /// List settlement history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsSettlement&gt;)</returns>
@@ -2120,11 +2120,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract&#39;s settlement 
+        /// Get specified contract&#39;s settlement. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>OptionsSettlement</returns>
         public OptionsSettlement GetOptionsSettlement (string contract, string underlying, long at)
@@ -2134,11 +2134,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract&#39;s settlement 
+        /// Get specified contract&#39;s settlement. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>ApiResponse of OptionsSettlement</returns>
         public ApiResponse<OptionsSettlement> GetOptionsSettlementWithHttpInfo (string contract, string underlying, long at)
@@ -2185,11 +2185,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract&#39;s settlement 
+        /// Get specified contract&#39;s settlement. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>Task of OptionsSettlement</returns>
         public async Task<OptionsSettlement> GetOptionsSettlementAsync (string contract, string underlying, long at)
@@ -2200,11 +2200,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract&#39;s settlement 
+        /// Get specified contract&#39;s settlement. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <param name="at"></param>
         /// <returns>Task of ApiResponse (OptionsSettlement)</returns>
         public async Task<ApiResponse<OptionsSettlement>> GetOptionsSettlementAsyncWithHttpInfo (string contract, string underlying, long at)
@@ -2253,13 +2253,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List my options settlements 
+        /// List my options settlements. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsMySettlements&gt;</returns>
@@ -2270,13 +2270,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List my options settlements 
+        /// List my options settlements. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMySettlements&gt;</returns>
@@ -2340,13 +2340,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List my options settlements 
+        /// List my options settlements. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsMySettlements&gt;</returns>
@@ -2358,13 +2358,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List my options settlements 
+        /// List my options settlements. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMySettlements&gt;)</returns>
@@ -2430,12 +2430,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options order book Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Options order book. Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>FuturesOrderBook</returns>
         public FuturesOrderBook ListOptionsOrderBook (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
@@ -2445,12 +2445,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options order book Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Options order book. Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>ApiResponse of FuturesOrderBook</returns>
         public ApiResponse<FuturesOrderBook> ListOptionsOrderBookWithHttpInfo (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
@@ -2503,12 +2503,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options order book Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Options order book. Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>Task of FuturesOrderBook</returns>
         public async Task<FuturesOrderBook> ListOptionsOrderBookAsync (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
@@ -2519,12 +2519,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options order book Bids will be sorted by price from high to low, while asks sorted reversely
+        /// Options order book. Bids will be sorted by price from high to low, while asks sorted reversely.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to 0)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
         /// <param name="withId">Whether to return depth update ID. This ID increments by 1 each time. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (FuturesOrderBook)</returns>
         public async Task<ApiResponse<FuturesOrderBook>> ListOptionsOrderBookAsyncWithHttpInfo (string contract, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
@@ -2579,10 +2579,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List tickers of options contracts 
+        /// List tickers of options contracts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>List&lt;OptionsTicker&gt;</returns>
         public List<OptionsTicker> ListOptionsTickers (string underlying)
         {
@@ -2591,10 +2591,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List tickers of options contracts 
+        /// List tickers of options contracts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>ApiResponse of List&lt;OptionsTicker&gt;</returns>
         public ApiResponse<List<OptionsTicker>> ListOptionsTickersWithHttpInfo (string underlying)
         {
@@ -2634,10 +2634,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List tickers of options contracts 
+        /// List tickers of options contracts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of List&lt;OptionsTicker&gt;</returns>
         public async Task<List<OptionsTicker>> ListOptionsTickersAsync (string underlying)
         {
@@ -2647,10 +2647,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List tickers of options contracts 
+        /// List tickers of options contracts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsTicker&gt;)</returns>
         public async Task<ApiResponse<List<OptionsTicker>>> ListOptionsTickersAsyncWithHttpInfo (string underlying)
         {
@@ -2692,10 +2692,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get underlying ticker 
+        /// Get underlying ticker. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>OptionsUnderlyingTicker</returns>
         public OptionsUnderlyingTicker ListOptionsUnderlyingTickers (string underlying)
         {
@@ -2704,10 +2704,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get underlying ticker 
+        /// Get underlying ticker. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>ApiResponse of OptionsUnderlyingTicker</returns>
         public ApiResponse<OptionsUnderlyingTicker> ListOptionsUnderlyingTickersWithHttpInfo (string underlying)
         {
@@ -2747,10 +2747,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get underlying ticker 
+        /// Get underlying ticker. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>Task of OptionsUnderlyingTicker</returns>
         public async Task<OptionsUnderlyingTicker> ListOptionsUnderlyingTickersAsync (string underlying)
         {
@@ -2760,10 +2760,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get underlying ticker 
+        /// Get underlying ticker. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying</param>
+        /// <param name="underlying">Underlying.</param>
         /// <returns>Task of ApiResponse (OptionsUnderlyingTicker)</returns>
         public async Task<ApiResponse<OptionsUnderlyingTicker>> ListOptionsUnderlyingTickersAsyncWithHttpInfo (string underlying)
         {
@@ -2805,14 +2805,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get options candlesticks 
+        /// Get options candlesticks. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>List&lt;OptionsCandlestick&gt;</returns>
         public List<OptionsCandlestick> ListOptionsCandlesticks (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2821,14 +2821,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get options candlesticks 
+        /// Get options candlesticks. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;OptionsCandlestick&gt;</returns>
         public ApiResponse<List<OptionsCandlestick>> ListOptionsCandlesticksWithHttpInfo (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2884,14 +2884,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get options candlesticks 
+        /// Get options candlesticks. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of List&lt;OptionsCandlestick&gt;</returns>
         public async Task<List<OptionsCandlestick>> ListOptionsCandlesticksAsync (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2901,14 +2901,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get options candlesticks 
+        /// Get options candlesticks. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="contract">Options contract name.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsCandlestick&gt;)</returns>
         public async Task<ApiResponse<List<OptionsCandlestick>>> ListOptionsCandlesticksAsyncWithHttpInfo (string contract, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2966,14 +2966,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Mark price candlesticks of an underlying 
+        /// Mark price candlesticks of an underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>List&lt;FuturesCandlestick&gt;</returns>
         public List<FuturesCandlestick> ListOptionsUnderlyingCandlesticks (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -2982,14 +2982,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Mark price candlesticks of an underlying 
+        /// Mark price candlesticks of an underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>ApiResponse of List&lt;FuturesCandlestick&gt;</returns>
         public ApiResponse<List<FuturesCandlestick>> ListOptionsUnderlyingCandlesticksWithHttpInfo (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -3045,14 +3045,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Mark price candlesticks of an underlying 
+        /// Mark price candlesticks of an underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of List&lt;FuturesCandlestick&gt;</returns>
         public async Task<List<FuturesCandlestick>> ListOptionsUnderlyingCandlesticksAsync (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -3062,14 +3062,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Mark price candlesticks of an underlying 
+        /// Mark price candlesticks of an underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="interval">Interval time between data points (optional, default to 5m)</param>
+        /// <param name="interval">Interval time between data points. (optional, default to 5m)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesCandlestick&gt;)</returns>
         public async Task<ApiResponse<List<FuturesCandlestick>>> ListOptionsUnderlyingCandlesticksAsyncWithHttpInfo (string underlying, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
         {
@@ -3127,13 +3127,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options trade history 
+        /// Options trade history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;FuturesTrade&gt;</returns>
@@ -3144,13 +3144,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options trade history 
+        /// Options trade history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;FuturesTrade&gt;</returns>
@@ -3211,13 +3211,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options trade history 
+        /// Options trade history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;FuturesTrade&gt;</returns>
@@ -3229,13 +3229,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Options trade history 
+        /// Options trade history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="type">&#x60;C&#x60; is call, while &#x60;P&#x60; is put. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;FuturesTrade&gt;)</returns>
@@ -3298,7 +3298,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options account 
+        /// List options account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OptionsAccount</returns>
@@ -3309,7 +3309,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options account 
+        /// List options account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OptionsAccount</returns>
@@ -3348,7 +3348,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options account 
+        /// List options account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of OptionsAccount</returns>
@@ -3360,7 +3360,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options account 
+        /// List options account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (OptionsAccount)</returns>
@@ -3401,11 +3401,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List account changing history 
+        /// List account changing history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -3417,11 +3417,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List account changing history 
+        /// List account changing history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -3481,11 +3481,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List account changing history 
+        /// List account changing history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -3498,11 +3498,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List account changing history 
+        /// List account changing history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <param name="type">Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional)</param>
@@ -3564,10 +3564,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying 
+        /// List user&#39;s positions of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>List&lt;OptionsPosition&gt;</returns>
         public List<OptionsPosition> ListOptionsPositions (string underlying = default(string))
         {
@@ -3576,10 +3576,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying 
+        /// List user&#39;s positions of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsPosition&gt;</returns>
         public ApiResponse<List<OptionsPosition>> ListOptionsPositionsWithHttpInfo (string underlying = default(string))
         {
@@ -3620,10 +3620,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying 
+        /// List user&#39;s positions of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of List&lt;OptionsPosition&gt;</returns>
         public async Task<List<OptionsPosition>> ListOptionsPositionsAsync (string underlying = default(string))
         {
@@ -3633,10 +3633,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s positions of specified underlying 
+        /// List user&#39;s positions of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsPosition&gt;)</returns>
         public async Task<ApiResponse<List<OptionsPosition>>> ListOptionsPositionsAsyncWithHttpInfo (string underlying = default(string))
         {
@@ -3679,7 +3679,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract position 
+        /// Get specified contract position. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -3691,7 +3691,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract position 
+        /// Get specified contract position. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -3736,7 +3736,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract position 
+        /// Get specified contract position. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -3749,7 +3749,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get specified contract position 
+        /// Get specified contract position. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contract"></param>
@@ -3796,11 +3796,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying 
+        /// List user&#39;s liquidation history of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>List&lt;OptionsPositionClose&gt;</returns>
         public List<OptionsPositionClose> ListOptionsPositionClose (string underlying, string contract = default(string))
         {
@@ -3809,11 +3809,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying 
+        /// List user&#39;s liquidation history of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsPositionClose&gt;</returns>
         public ApiResponse<List<OptionsPositionClose>> ListOptionsPositionCloseWithHttpInfo (string underlying, string contract = default(string))
         {
@@ -3859,11 +3859,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying 
+        /// List user&#39;s liquidation history of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>Task of List&lt;OptionsPositionClose&gt;</returns>
         public async Task<List<OptionsPositionClose>> ListOptionsPositionCloseAsync (string underlying, string contract = default(string))
         {
@@ -3873,11 +3873,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s liquidation history of specified underlying 
+        /// List user&#39;s liquidation history of specified underlying. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsPositionClose&gt;)</returns>
         public async Task<ApiResponse<List<OptionsPositionClose>>> ListOptionsPositionCloseAsyncWithHttpInfo (string underlying, string contract = default(string))
         {
@@ -3925,14 +3925,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options orders 
+        /// List options orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsOrder&gt;</returns>
@@ -3943,14 +3943,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options orders 
+        /// List options orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsOrder&gt;</returns>
@@ -4018,14 +4018,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options orders 
+        /// List options orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsOrder&gt;</returns>
@@ -4037,14 +4037,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List options orders 
+        /// List options orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsOrder&gt;)</returns>
@@ -4114,7 +4114,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an options order 
+        /// Create an options order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsOrder"></param>
@@ -4126,7 +4126,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an options order 
+        /// Create an options order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsOrder"></param>
@@ -4172,7 +4172,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an options order 
+        /// Create an options order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsOrder"></param>
@@ -4185,7 +4185,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an options order 
+        /// Create an options order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="optionsOrder"></param>
@@ -4233,12 +4233,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched 
+        /// Cancel all &#x60;open&#x60; orders matched. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>List&lt;OptionsOrder&gt;</returns>
         public List<OptionsOrder> CancelOptionsOrders (string contract = default(string), string underlying = default(string), string side = default(string))
         {
@@ -4247,12 +4247,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched 
+        /// Cancel all &#x60;open&#x60; orders matched. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsOrder&gt;</returns>
         public ApiResponse<List<OptionsOrder>> CancelOptionsOrdersWithHttpInfo (string contract = default(string), string underlying = default(string), string side = default(string))
         {
@@ -4301,12 +4301,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched 
+        /// Cancel all &#x60;open&#x60; orders matched. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of List&lt;OptionsOrder&gt;</returns>
         public async Task<List<OptionsOrder>> CancelOptionsOrdersAsync (string contract = default(string), string underlying = default(string), string side = default(string))
         {
@@ -4316,12 +4316,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders matched 
+        /// Cancel all &#x60;open&#x60; orders matched. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="underlying">Underlying (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsOrder&gt;)</returns>
         public async Task<ApiResponse<List<OptionsOrder>>> CancelOptionsOrdersAsyncWithHttpInfo (string contract = default(string), string underlying = default(string), string side = default(string))
         {
@@ -4372,10 +4372,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>OptionsOrder</returns>
         public OptionsOrder GetOptionsOrder (long orderId)
         {
@@ -4384,10 +4384,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of OptionsOrder</returns>
         public ApiResponse<OptionsOrder> GetOptionsOrderWithHttpInfo (long orderId)
         {
@@ -4425,10 +4425,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of OptionsOrder</returns>
         public async Task<OptionsOrder> GetOptionsOrderAsync (long orderId)
         {
@@ -4438,10 +4438,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order 
+        /// Get a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         public async Task<ApiResponse<OptionsOrder>> GetOptionsOrderAsyncWithHttpInfo (long orderId)
         {
@@ -4481,10 +4481,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// Cancel a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>OptionsOrder</returns>
         public OptionsOrder CancelOptionsOrder (long orderId)
         {
@@ -4493,10 +4493,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// Cancel a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of OptionsOrder</returns>
         public ApiResponse<OptionsOrder> CancelOptionsOrderWithHttpInfo (long orderId)
         {
@@ -4534,10 +4534,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// Cancel a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of OptionsOrder</returns>
         public async Task<OptionsOrder> CancelOptionsOrderAsync (long orderId)
         {
@@ -4547,10 +4547,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order 
+        /// Cancel a single order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (OptionsOrder)</returns>
         public async Task<ApiResponse<OptionsOrder>> CancelOptionsOrderAsyncWithHttpInfo (long orderId)
         {
@@ -4590,7 +4590,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -4602,7 +4602,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -4648,7 +4648,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -4661,7 +4661,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, all pending orders of the user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Option order heartbeat detection, when the &#x60;timeout&#x60; time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related &#x60;option pending order&#x60; will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown &#x60;timeout&#x60; set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the &#x60;underlying&#x60; &#x60;contract&#x60; you specified will be automatically cancelled. If &#x60;underlying&#x60; &#x60;contract&#x60; is not specified, user will be automatically cancelled  If &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllOptionsTask"></param>
@@ -4709,13 +4709,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;OptionsMyTrade&gt;</returns>
@@ -4726,13 +4726,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMyTrade&gt;</returns>
@@ -4796,13 +4796,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;OptionsMyTrade&gt;</returns>
@@ -4814,13 +4814,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history 
+        /// List personal trading history. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint)</param>
-        /// <param name="contract">Options contract name (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="underlying">Underlying (Obtained by listing underlying endpoint).</param>
+        /// <param name="contract">Options contract name. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMyTrade&gt;)</returns>
@@ -4886,10 +4886,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// MMP Query 
+        /// MMP Query. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>List&lt;OptionsMMP&gt;</returns>
         public List<OptionsMMP> GetOptionsMMP (string underlying = default(string))
         {
@@ -4898,10 +4898,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// MMP Query 
+        /// MMP Query. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>ApiResponse of List&lt;OptionsMMP&gt;</returns>
         public ApiResponse<List<OptionsMMP>> GetOptionsMMPWithHttpInfo (string underlying = default(string))
         {
@@ -4942,10 +4942,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// MMP Query 
+        /// MMP Query. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of List&lt;OptionsMMP&gt;</returns>
         public async Task<List<OptionsMMP>> GetOptionsMMPAsync (string underlying = default(string))
         {
@@ -4955,10 +4955,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// MMP Query 
+        /// MMP Query. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="underlying">Underlying (optional)</param>
+        /// <param name="underlying">Underlying. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OptionsMMP&gt;)</returns>
         public async Task<ApiResponse<List<OptionsMMP>>> GetOptionsMMPAsyncWithHttpInfo (string underlying = default(string))
         {

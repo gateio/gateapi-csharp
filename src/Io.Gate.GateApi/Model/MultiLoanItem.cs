@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiLoanItem" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="price">Latest price of the currency.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="price">Latest price of the currency..</param>
         public MultiLoanItem(string currency = default(string), string price = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Latest price of the currency
+        /// Latest price of the currency.
         /// </summary>
-        /// <value>Latest price of the currency</value>
+        /// <value>Latest price of the currency.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

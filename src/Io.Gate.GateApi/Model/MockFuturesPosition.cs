@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures positions
+    /// Futures positions.
     /// </summary>
     [DataContract]
     public partial class MockFuturesPosition :  IEquatable<MockFuturesPosition>, IValidatableObject

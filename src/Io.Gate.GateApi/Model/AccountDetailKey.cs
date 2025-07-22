@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// API Key detail
+    /// API Key detail.
     /// </summary>
     [DataContract]
     public partial class AccountDetailKey :  IEquatable<AccountDetailKey>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountDetailKey" /> class.
         /// </summary>
-        /// <param name="mode">mode: 1 - classic account 2 - portfolio margin account.</param>
+        /// <param name="mode">mode: 1 - classic account 2 - portfolio margin account..</param>
         public AccountDetailKey(int mode = default(int))
         {
             this.Mode = mode;
         }
 
         /// <summary>
-        /// mode: 1 - classic account 2 - portfolio margin account
+        /// mode: 1 - classic account 2 - portfolio margin account.
         /// </summary>
-        /// <value>mode: 1 - classic account 2 - portfolio margin account</value>
+        /// <value>mode: 1 - classic account 2 - portfolio margin account.</value>
         [DataMember(Name="mode")]
         public int Mode { get; set; }
 

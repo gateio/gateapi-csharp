@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginRepayment" /> class.
         /// </summary>
-        /// <param name="id">Loan record ID.</param>
-        /// <param name="createTime">Repayment time.</param>
-        /// <param name="loanId">Loan record ID.</param>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="principal">Repaid principal.</param>
-        /// <param name="interest">Repaid interest.</param>
+        /// <param name="id">Loan record ID..</param>
+        /// <param name="createTime">Repayment time..</param>
+        /// <param name="loanId">Loan record ID..</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="principal">Repaid principal..</param>
+        /// <param name="interest">Repaid interest..</param>
         public CrossMarginRepayment(string id = default(string), long createTime = default(long), string loanId = default(string), string currency = default(string), string principal = default(string), string interest = default(string))
         {
             this.Id = id;
@@ -50,51 +50,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Loan record ID
+        /// Loan record ID.
         /// </summary>
-        /// <value>Loan record ID</value>
+        /// <value>Loan record ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Repayment time
+        /// Repayment time.
         /// </summary>
-        /// <value>Repayment time</value>
+        /// <value>Repayment time.</value>
         [DataMember(Name="create_time")]
         public long CreateTime { get; set; }
 
         /// <summary>
-        /// Loan record ID
+        /// Loan record ID.
         /// </summary>
-        /// <value>Loan record ID</value>
+        /// <value>Loan record ID.</value>
         [DataMember(Name="loan_id")]
         public string LoanId { get; set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Repaid principal
+        /// Repaid principal.
         /// </summary>
-        /// <value>Repaid principal</value>
+        /// <value>Repaid principal.</value>
         [DataMember(Name="principal")]
         public string Principal { get; set; }
 
         /// <summary>
-        /// Repaid interest
+        /// Repaid interest.
         /// </summary>
-        /// <value>Repaid interest</value>
+        /// <value>Repaid interest.</value>
         [DataMember(Name="interest")]
         public string Interest { get; set; }
 
         /// <summary>
-        /// Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation
+        /// Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment after cancellation
         /// </summary>
-        /// <value>Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment, cancel_auto_repay - automatic repayment after cancellation</value>
+        /// <value>Repayment type: none - no repayment type, manual_repay - manual repayment, auto_repay - automatic repayment after cancellation</value>
         [DataMember(Name="repayment_type", EmitDefaultValue=false)]
         public string RepaymentType { get; private set; }
 

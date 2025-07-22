@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AgencyTransactionHistory**](RebateApi.md#agencytransactionhistory) | **GET** /rebate/agency/transaction_history | The agency obtains the transaction history of the recommended user
-[**AgencyCommissionsHistory**](RebateApi.md#agencycommissionshistory) | **GET** /rebate/agency/commission_history | The agency obtains the commission history of the recommended user
-[**PartnerTransactionHistory**](RebateApi.md#partnertransactionhistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction records of recommended users
-[**PartnerCommissionsHistory**](RebateApi.md#partnercommissionshistory) | **GET** /rebate/partner/commission_history | Partner obtains commission records of recommended users
-[**PartnerSubList**](RebateApi.md#partnersublist) | **GET** /rebate/partner/sub_list | Partner subordinate list
-[**RebateBrokerCommissionHistory**](RebateApi.md#rebatebrokercommissionhistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records
-[**RebateBrokerTransactionHistory**](RebateApi.md#rebatebrokertransactionhistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history
-[**RebateUserInfo**](RebateApi.md#rebateuserinfo) | **GET** /rebate/user/info | User retrieves rebate information
-[**UserSubRelation**](RebateApi.md#usersubrelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship
+[**AgencyTransactionHistory**](RebateApi.md#agencytransactionhistory) | **GET** /rebate/agency/transaction_history | The agency obtains the transaction history of the recommended user.
+[**AgencyCommissionsHistory**](RebateApi.md#agencycommissionshistory) | **GET** /rebate/agency/commission_history | The agency obtains the commission history of the recommended user.
+[**PartnerTransactionHistory**](RebateApi.md#partnertransactionhistory) | **GET** /rebate/partner/transaction_history | Partner obtains transaction records of recommended users.
+[**PartnerCommissionsHistory**](RebateApi.md#partnercommissionshistory) | **GET** /rebate/partner/commission_history | Partner obtains commission records of recommended users.
+[**PartnerSubList**](RebateApi.md#partnersublist) | **GET** /rebate/partner/sub_list | Partner subordinate list.
+[**RebateBrokerCommissionHistory**](RebateApi.md#rebatebrokercommissionhistory) | **GET** /rebate/broker/commission_history | The broker obtains the user&#39;s commission rebate records.
+[**RebateBrokerTransactionHistory**](RebateApi.md#rebatebrokertransactionhistory) | **GET** /rebate/broker/transaction_history | The broker obtains the user&#39;s trading history.
+[**RebateUserInfo**](RebateApi.md#rebateuserinfo) | **GET** /rebate/user/info | User retrieves rebate information.
+[**UserSubRelation**](RebateApi.md#usersubrelation) | **GET** /rebate/user/sub_relation | User-subordinate relationship.
 
 
 <a name="agencytransactionhistory"></a>
 # **AgencyTransactionHistory**
 > List&lt;AgencyTransactionHistory&gt; AgencyTransactionHistory (string currencyPair = null, long? userId = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-The agency obtains the transaction history of the recommended user
+The agency obtains the transaction history of the recommended user.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -42,16 +42,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var currencyPair = "BTC_USDT";  // string | Specify the currency pair, if not specified, return all currency pairs (optional) 
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var currencyPair = "BTC_USDT";  // string | Specify the currency pair, if not specified, return all currency pairs. (optional) 
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // The agency obtains the transaction history of the recommended user
+                // The agency obtains the transaction history of the recommended user.
                 List<AgencyTransactionHistory> result = apiInstance.AgencyTransactionHistory(currencyPair, userId, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -71,12 +71,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Specify the currency pair, if not specified, return all currency pairs | [optional] 
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **currencyPair** | **string**| Specify the currency pair, if not specified, return all currency pairs. | [optional] 
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -102,9 +102,9 @@ Name | Type | Description  | Notes
 # **AgencyCommissionsHistory**
 > List&lt;AgencyCommissionHistory&gt; AgencyCommissionsHistory (string currency = null, long? userId = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-The agency obtains the commission history of the recommended user
+The agency obtains the commission history of the recommended user.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -125,16 +125,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified. (optional) 
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // The agency obtains the commission history of the recommended user
+                // The agency obtains the commission history of the recommended user.
                 List<AgencyCommissionHistory> result = apiInstance.AgencyCommissionsHistory(currency, userId, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -154,12 +154,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional] 
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -185,9 +185,9 @@ Name | Type | Description  | Notes
 # **PartnerTransactionHistory**
 > PartnerTransactionHistory PartnerTransactionHistory (string currencyPair = null, long? userId = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Partner obtains transaction records of recommended users
+Partner obtains transaction records of recommended users.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -208,16 +208,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var currencyPair = "BTC_USDT";  // string | Specify the currency pair, if not specified, return all currency pairs (optional) 
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var currencyPair = "BTC_USDT";  // string | Specify the currency pair, if not specified, return all currency pairs. (optional) 
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Partner obtains transaction records of recommended users
+                // Partner obtains transaction records of recommended users.
                 PartnerTransactionHistory result = apiInstance.PartnerTransactionHistory(currencyPair, userId, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -237,12 +237,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currencyPair** | **string**| Specify the currency pair, if not specified, return all currency pairs | [optional] 
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **currencyPair** | **string**| Specify the currency pair, if not specified, return all currency pairs. | [optional] 
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -268,9 +268,9 @@ Name | Type | Description  | Notes
 # **PartnerCommissionsHistory**
 > PartnerCommissionHistory PartnerCommissionsHistory (string currency = null, long? userId = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Partner obtains commission records of recommended users
+Partner obtains commission records of recommended users.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -291,16 +291,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified. (optional) 
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Partner obtains commission records of recommended users
+                // Partner obtains commission records of recommended users.
                 PartnerCommissionHistory result = apiInstance.PartnerCommissionsHistory(currency, userId, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -320,12 +320,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional] 
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -351,9 +351,9 @@ Name | Type | Description  | Notes
 # **PartnerSubList**
 > PartnerSubList PartnerSubList (long? userId = null, int? limit = null, int? offset = null)
 
-Partner subordinate list
+Partner subordinate list.
 
-Including sub-agents, direct customers, indirect customers
+Including sub-agents, direct customers, indirect customers.
 
 ### Example
 ```csharp
@@ -374,13 +374,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Partner subordinate list
+                // Partner subordinate list.
                 PartnerSubList result = apiInstance.PartnerSubList(userId, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -400,9 +400,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -428,9 +428,9 @@ Name | Type | Description  | Notes
 # **RebateBrokerCommissionHistory**
 > List&lt;BrokerCommission&gt; RebateBrokerCommissionHistory (int? limit = null, int? offset = null, long? userId = null, long? from = null, long? to = null)
 
-The broker obtains the user's commission rebate records
+The broker obtains the user's commission rebate records.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -451,15 +451,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
             var from = 1711929600;  // long? | The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional) 
-            var to = 1714521600;  // long? | Time range ending, default to current time (optional) 
+            var to = 1714521600;  // long? | Time range ending, default to current time. (optional) 
 
             try
             {
-                // The broker obtains the user's commission rebate records
+                // The broker obtains the user's commission rebate records.
                 List<BrokerCommission> result = apiInstance.RebateBrokerCommissionHistory(limit, offset, userId, from, to);
                 Debug.WriteLine(result);
             }
@@ -479,11 +479,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
  **from** | **long?**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
 
 ### Return type
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -509,9 +509,9 @@ Name | Type | Description  | Notes
 # **RebateBrokerTransactionHistory**
 > List&lt;BrokerTransaction&gt; RebateBrokerTransactionHistory (int? limit = null, int? offset = null, long? userId = null, long? from = null, long? to = null)
 
-The broker obtains the user's trading history
+The broker obtains the user's trading history.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -532,15 +532,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
-            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
+            var userId = 10003;  // long? | User ID. If not specified, all user records will be returned. (optional) 
             var from = 1711929600;  // long? | The start time of the query record. If not specified, the default is to push forward 30 days from the current time. (optional) 
-            var to = 1714521600;  // long? | Time range ending, default to current time (optional) 
+            var to = 1714521600;  // long? | Time range ending, default to current time. (optional) 
 
             try
             {
-                // The broker obtains the user's trading history
+                // The broker obtains the user's trading history.
                 List<BrokerTransaction> result = apiInstance.RebateBrokerTransactionHistory(limit, offset, userId, from, to);
                 Debug.WriteLine(result);
             }
@@ -560,11 +560,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
- **userId** | **long?**| User ID. If not specified, all user records will be returned | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
+ **userId** | **long?**| User ID. If not specified, all user records will be returned. | [optional] 
  **from** | **long?**| The start time of the query record. If not specified, the default is to push forward 30 days from the current time. | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
 
 ### Return type
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 # **RebateUserInfo**
 > List&lt;RebateUserInfo&gt; RebateUserInfo ()
 
-User retrieves rebate information
+User retrieves rebate information.
 
 ### Example
 ```csharp
@@ -614,7 +614,7 @@ namespace Example
 
             try
             {
-                // User retrieves rebate information
+                // User retrieves rebate information.
                 List<RebateUserInfo> result = apiInstance.RebateUserInfo();
                 Debug.WriteLine(result);
             }
@@ -649,7 +649,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -657,9 +657,9 @@ This endpoint does not need any parameter.
 # **UserSubRelation**
 > UserSubRelation UserSubRelation (string userIdList)
 
-User-subordinate relationship
+User-subordinate relationship.
 
-Query whether the specified user is in the system
+Query whether the specified user is in the system.
 
 ### Example
 ```csharp
@@ -680,11 +680,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new RebateApi(config);
-            var userIdList = "1, 2, 3";  // string | Query the user's ID list, split by,, if there are more than 100, take 100
+            var userIdList = "1, 2, 3";  // string | Query the user's ID list, split by,, if there are more than 100, take 100.
 
             try
             {
-                // User-subordinate relationship
+                // User-subordinate relationship.
                 UserSubRelation result = apiInstance.UserSubRelation(userIdList);
                 Debug.WriteLine(result);
             }
@@ -704,7 +704,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userIdList** | **string**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100 | 
+ **userIdList** | **string**| Query the user&#39;s ID list, split by,, if there are more than 100, take 100. | 
 
 ### Return type
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

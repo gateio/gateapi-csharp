@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Currency** | **string** | Currency detail | [optional] 
-**Available** | **string** | Available amount | [optional] 
-**Locked** | **string** | Locked amount, used in trading | [optional] 
-**UpdateId** | **long** | Version number | [optional] 
+**Currency** | **string** | Currency detail. | [optional] 
+**Available** | **string** | Available amount. | [optional] 
+**Locked** | **string** | Locked amount, used in trading. | [optional] 
+**UpdateId** | **long** | Version number. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

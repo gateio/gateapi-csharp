@@ -55,9 +55,9 @@ namespace Io.Gate.GateApi.Model
         [DataMember(Name="strategy_type")]
         public StrategyTypeEnum? StrategyType { get; set; }
         /// <summary>
-        /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price
+        /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price.
         /// </summary>
-        /// <value>Price type. 0 - latest deal price, 1 - mark price, 2 - index price</value>
+        /// <value>Price type. 0 - latest deal price, 1 - mark price, 2 - index price.</value>
         public enum PriceTypeEnum
         {
             /// <summary>
@@ -78,15 +78,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price
+        /// Price type. 0 - latest deal price, 1 - mark price, 2 - index price.
         /// </summary>
-        /// <value>Price type. 0 - latest deal price, 1 - mark price, 2 - index price</value>
+        /// <value>Price type. 0 - latest deal price, 1 - mark price, 2 - index price.</value>
         [DataMember(Name="price_type")]
         public PriceTypeEnum? PriceType { get; set; }
         /// <summary>
-        /// Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
+        /// Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
         /// </summary>
-        /// <value>Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price</value>
+        /// <value>Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price</value>
         public enum RuleEnum
         {
             /// <summary>
@@ -102,18 +102,18 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
+        /// Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price
         /// </summary>
-        /// <value>Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price</value>
+        /// <value>Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price</value>
         [DataMember(Name="rule")]
         public RuleEnum? Rule { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPriceTrigger" /> class.
         /// </summary>
         /// <param name="strategyType">Trigger Policy   - 0: Price trigger, that is, when the price meets the conditions  - 1: Price spread trigger, i.e. the last price specified in &#x60;price_type&#x60; minus the second-last price difference At present, only 0 is the latest transaction price.</param>
-        /// <param name="priceType">Price type. 0 - latest deal price, 1 - mark price, 2 - index price.</param>
-        /// <param name="price">Value of price on price triggered, or price gap on price gap triggered.</param>
-        /// <param name="rule">Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - 2: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price.</param>
+        /// <param name="priceType">Price type. 0 - latest deal price, 1 - mark price, 2 - index price..</param>
+        /// <param name="price">Value of price on price triggered, or price gap on price gap triggered..</param>
+        /// <param name="rule">Price Condition Type  - 1: Indicates that the price calculated based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is greater than or equal to &#x60;Trigger.Price&#x60; Trigger, while Trigger.Price must &gt; last_price - based on &#x60;strategy_type&#x60; and &#x60;price_type&#x60; is less than or equal to &#x60;Trigger.Price&#x60; Trigger, and Trigger.Price must &lt; last_price.</param>
         /// <param name="expiration">How long (in seconds) to wait for the condition to be triggered before cancelling the order..</param>
         public FuturesPriceTrigger(StrategyTypeEnum? strategyType = default(StrategyTypeEnum?), PriceTypeEnum? priceType = default(PriceTypeEnum?), string price = default(string), RuleEnum? rule = default(RuleEnum?), int expiration = default(int))
         {
@@ -125,9 +125,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Value of price on price triggered, or price gap on price gap triggered
+        /// Value of price on price triggered, or price gap on price gap triggered.
         /// </summary>
-        /// <value>Value of price on price triggered, or price gap on price gap triggered</value>
+        /// <value>Value of price on price triggered, or price gap on price gap triggered.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 

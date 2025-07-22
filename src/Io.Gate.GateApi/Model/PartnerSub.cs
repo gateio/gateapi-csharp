@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnerSub" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="userJoinTime">The time when the user joined the system, in seconds Unix timestamp.</param>
-        /// <param name="type">Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer).</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="userJoinTime">The time when the user joined the system, in seconds Unix timestamp..</param>
+        /// <param name="type">Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer)..</param>
         public PartnerSub(long userId = default(long), long userJoinTime = default(long), long type = default(long))
         {
             this.UserId = userId;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// The time when the user joined the system, in seconds Unix timestamp
+        /// The time when the user joined the system, in seconds Unix timestamp.
         /// </summary>
-        /// <value>The time when the user joined the system, in seconds Unix timestamp</value>
+        /// <value>The time when the user joined the system, in seconds Unix timestamp.</value>
         [DataMember(Name="user_join_time")]
         public long UserJoinTime { get; set; }
 
         /// <summary>
-        /// Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer)
+        /// Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer).
         /// </summary>
-        /// <value>Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer)</value>
+        /// <value>Type (1-Sub-agent 2-Indirect Customer 3-Direct Customer).</value>
         [DataMember(Name="type")]
         public long Type { get; set; }
 

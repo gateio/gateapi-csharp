@@ -4,24 +4,24 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListSubAccounts**](SubAccountApi.md#listsubaccounts) | **GET** /sub_accounts | List sub-accounts
-[**CreateSubAccounts**](SubAccountApi.md#createsubaccounts) | **POST** /sub_accounts | Create a new sub-account
-[**GetSubAccount**](SubAccountApi.md#getsubaccount) | **GET** /sub_accounts/{user_id} | Get the sub-account
-[**ListSubAccountKeys**](SubAccountApi.md#listsubaccountkeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account
-[**CreateSubAccountKeys**](SubAccountApi.md#createsubaccountkeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account
-[**GetSubAccountKey**](SubAccountApi.md#getsubaccountkey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account
-[**UpdateSubAccountKeys**](SubAccountApi.md#updatesubaccountkeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account
-[**DeleteSubAccountKeys**](SubAccountApi.md#deletesubaccountkeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account
-[**LockSubAccount**](SubAccountApi.md#locksubaccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account
-[**UnlockSubAccount**](SubAccountApi.md#unlocksubaccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account
-[**ListUnifiedMode**](SubAccountApi.md#listunifiedmode) | **GET** /sub_accounts/unified_mode | Get sub-account mode
+[**ListSubAccounts**](SubAccountApi.md#listsubaccounts) | **GET** /sub_accounts | List sub-accounts.
+[**CreateSubAccounts**](SubAccountApi.md#createsubaccounts) | **POST** /sub_accounts | Create a new sub-account.
+[**GetSubAccount**](SubAccountApi.md#getsubaccount) | **GET** /sub_accounts/{user_id} | Get the sub-account.
+[**ListSubAccountKeys**](SubAccountApi.md#listsubaccountkeys) | **GET** /sub_accounts/{user_id}/keys | List all API Key of the sub-account.
+[**CreateSubAccountKeys**](SubAccountApi.md#createsubaccountkeys) | **POST** /sub_accounts/{user_id}/keys | Create API Key of the sub-account.
+[**GetSubAccountKey**](SubAccountApi.md#getsubaccountkey) | **GET** /sub_accounts/{user_id}/keys/{key} | Get the API Key of the sub-account.
+[**UpdateSubAccountKeys**](SubAccountApi.md#updatesubaccountkeys) | **PUT** /sub_accounts/{user_id}/keys/{key} | Update API key of the sub-account.
+[**DeleteSubAccountKeys**](SubAccountApi.md#deletesubaccountkeys) | **DELETE** /sub_accounts/{user_id}/keys/{key} | Delete API key of the sub-account.
+[**LockSubAccount**](SubAccountApi.md#locksubaccount) | **POST** /sub_accounts/{user_id}/lock | Lock the sub-account.
+[**UnlockSubAccount**](SubAccountApi.md#unlocksubaccount) | **POST** /sub_accounts/{user_id}/unlock | Unlock the sub-account.
+[**ListUnifiedMode**](SubAccountApi.md#listunifiedmode) | **GET** /sub_accounts/unified_mode | Get sub-account mode.
 
 
 <a name="listsubaccounts"></a>
 # **ListSubAccounts**
 > List&lt;SubAccount&gt; ListSubAccounts (string type = null)
 
-List sub-accounts
+List sub-accounts.
 
 ### Example
 ```csharp
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // List sub-accounts
+                // List sub-accounts.
                 List<SubAccount> result = apiInstance.ListSubAccounts(type);
                 Debug.WriteLine(result);
             }
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 # **CreateSubAccounts**
 > SubAccount CreateSubAccounts (SubAccount subAccount)
 
-Create a new sub-account
+Create a new sub-account.
 
 ### Example
 ```csharp
@@ -117,7 +117,7 @@ namespace Example
 
             try
             {
-                // Create a new sub-account
+                // Create a new sub-account.
                 SubAccount result = apiInstance.CreateSubAccounts(subAccount);
                 Debug.WriteLine(result);
             }
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Created Successfully |  -  |
+| **201** | Created Successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 # **GetSubAccount**
 > SubAccount GetSubAccount (long userId)
 
-Get the sub-account
+Get the sub-account.
 
 ### Example
 ```csharp
@@ -184,11 +184,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // long | Sub-account user id
+            var userId = 56;  // long | Sub-account user id.
 
             try
             {
-                // Get the sub-account
+                // Get the sub-account.
                 SubAccount result = apiInstance.GetSubAccount(userId);
                 Debug.WriteLine(result);
             }
@@ -208,7 +208,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **long**| Sub-account user id | 
+ **userId** | **long**| Sub-account user id. | 
 
 ### Return type
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountKeys**
 > List&lt;SubAccountKey&gt; ListSubAccountKeys (int userId)
 
-List all API Key of the sub-account
+List all API Key of the sub-account.
 
 ### Example
 ```csharp
@@ -255,11 +255,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // int | Sub-account user id
+            var userId = 56;  // int | Sub-account user id.
 
             try
             {
-                // List all API Key of the sub-account
+                // List all API Key of the sub-account.
                 List<SubAccountKey> result = apiInstance.ListSubAccountKeys(userId);
                 Debug.WriteLine(result);
             }
@@ -279,7 +279,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int**| Sub-account user id | 
+ **userId** | **int**| Sub-account user id. | 
 
 ### Return type
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 # **CreateSubAccountKeys**
 > SubAccountKey CreateSubAccountKeys (long userId, SubAccountKey subAccountKey)
 
-Create API Key of the sub-account
+Create API Key of the sub-account.
 
 ### Example
 ```csharp
@@ -326,12 +326,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // long | Sub-account user id
+            var userId = 56;  // long | Sub-account user id.
             var subAccountKey = new SubAccountKey(); // SubAccountKey | 
 
             try
             {
-                // Create API Key of the sub-account
+                // Create API Key of the sub-account.
                 SubAccountKey result = apiInstance.CreateSubAccountKeys(userId, subAccountKey);
                 Debug.WriteLine(result);
             }
@@ -351,7 +351,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **long**| Sub-account user id | 
+ **userId** | **long**| Sub-account user id. | 
  **subAccountKey** | [**SubAccountKey**](SubAccountKey.md)|  | 
 
 ### Return type
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Created Successfully |  -  |
+| **200** | Created Successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 # **GetSubAccountKey**
 > SubAccountKey GetSubAccountKey (int userId, string key)
 
-Get the API Key of the sub-account
+Get the API Key of the sub-account.
 
 ### Example
 ```csharp
@@ -399,12 +399,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // int | Sub-account user id
-            var key = "key_example";  // string | The API Key of the sub-account
+            var userId = 56;  // int | Sub-account user id.
+            var key = "key_example";  // string | The API Key of the sub-account.
 
             try
             {
-                // Get the API Key of the sub-account
+                // Get the API Key of the sub-account.
                 SubAccountKey result = apiInstance.GetSubAccountKey(userId, key);
                 Debug.WriteLine(result);
             }
@@ -424,8 +424,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int**| Sub-account user id | 
- **key** | **string**| The API Key of the sub-account | 
+ **userId** | **int**| Sub-account user id. | 
+ **key** | **string**| The API Key of the sub-account. | 
 
 ### Return type
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful |  -  |
+| **200** | Successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 # **UpdateSubAccountKeys**
 > void UpdateSubAccountKeys (int userId, string key, SubAccountKey subAccountKey)
 
-Update API key of the sub-account
+Update API key of the sub-account.
 
 ### Example
 ```csharp
@@ -472,13 +472,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // int | Sub-account user id
-            var key = "key_example";  // string | The API Key of the sub-account
+            var userId = 56;  // int | Sub-account user id.
+            var key = "key_example";  // string | The API Key of the sub-account.
             var subAccountKey = new SubAccountKey(); // SubAccountKey | 
 
             try
             {
-                // Update API key of the sub-account
+                // Update API key of the sub-account.
                 apiInstance.UpdateSubAccountKeys(userId, key, subAccountKey);
             }
             catch (GateApiException e)
@@ -497,8 +497,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int**| Sub-account user id | 
- **key** | **string**| The API Key of the sub-account | 
+ **userId** | **int**| Sub-account user id. | 
+ **key** | **string**| The API Key of the sub-account. | 
  **subAccountKey** | [**SubAccountKey**](SubAccountKey.md)|  | 
 
 ### Return type
@@ -517,7 +517,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Updated |  -  |
+| **204** | Updated. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -525,7 +525,7 @@ void (empty response body)
 # **DeleteSubAccountKeys**
 > void DeleteSubAccountKeys (int userId, string key)
 
-Delete API key of the sub-account
+Delete API key of the sub-account.
 
 ### Example
 ```csharp
@@ -546,12 +546,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // int | Sub-account user id
-            var key = "key_example";  // string | The API Key of the sub-account
+            var userId = 56;  // int | Sub-account user id.
+            var key = "key_example";  // string | The API Key of the sub-account.
 
             try
             {
-                // Delete API key of the sub-account
+                // Delete API key of the sub-account.
                 apiInstance.DeleteSubAccountKeys(userId, key);
             }
             catch (GateApiException e)
@@ -570,8 +570,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int**| Sub-account user id | 
- **key** | **string**| The API Key of the sub-account | 
+ **userId** | **int**| Sub-account user id. | 
+ **key** | **string**| The API Key of the sub-account. | 
 
 ### Return type
 
@@ -589,7 +589,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Delete successfully |  -  |
+| **204** | Delete successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -597,7 +597,7 @@ void (empty response body)
 # **LockSubAccount**
 > void LockSubAccount (long userId)
 
-Lock the sub-account
+Lock the sub-account.
 
 ### Example
 ```csharp
@@ -618,11 +618,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // long | The user id of the sub-account
+            var userId = 56;  // long | The user id of the sub-account.
 
             try
             {
-                // Lock the sub-account
+                // Lock the sub-account.
                 apiInstance.LockSubAccount(userId);
             }
             catch (GateApiException e)
@@ -641,7 +641,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **long**| The user id of the sub-account | 
+ **userId** | **long**| The user id of the sub-account. | 
 
 ### Return type
 
@@ -659,7 +659,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Lock successfully |  -  |
+| **204** | Lock successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -667,7 +667,7 @@ void (empty response body)
 # **UnlockSubAccount**
 > void UnlockSubAccount (long userId)
 
-Unlock the sub-account
+Unlock the sub-account.
 
 ### Example
 ```csharp
@@ -688,11 +688,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new SubAccountApi(config);
-            var userId = 56;  // long | The user id of the sub-account
+            var userId = 56;  // long | The user id of the sub-account.
 
             try
             {
-                // Unlock the sub-account
+                // Unlock the sub-account.
                 apiInstance.UnlockSubAccount(userId);
             }
             catch (GateApiException e)
@@ -711,7 +711,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **long**| The user id of the sub-account | 
+ **userId** | **long**| The user id of the sub-account. | 
 
 ### Return type
 
@@ -729,7 +729,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Unlock successfully |  -  |
+| **204** | Unlock successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -737,7 +737,7 @@ void (empty response body)
 # **ListUnifiedMode**
 > List&lt;SubUserMode&gt; ListUnifiedMode ()
 
-Get sub-account mode
+Get sub-account mode.
 
 Unified account mode： - `classic`: Classic account mode - `multi_currency`: Multi-currency margin mode - `portfolio`: Portfolio margin mode
 
@@ -763,7 +763,7 @@ namespace Example
 
             try
             {
-                // Get sub-account mode
+                // Get sub-account mode.
                 List<SubUserMode> result = apiInstance.ListUnifiedMode();
                 Debug.WriteLine(result);
             }
@@ -798,7 +798,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

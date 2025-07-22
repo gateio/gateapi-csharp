@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Margin result
+    /// Margin result.
     /// </summary>
     [DataContract]
     public partial class MockMarginResult :  IEquatable<MockMarginResult>, IValidatableObject
@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MockMarginResult" /> class.
         /// </summary>
-        /// <param name="type">Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; - Negative delta + Original position.</param>
-        /// <param name="profitLossRanges">The results of 33 pressure scenarios for MR1.</param>
+        /// <param name="type">Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; position.</param>
+        /// <param name="profitLossRanges">The results of 3 pressure scenarios for MR1..</param>
         /// <param name="maxLoss">最大损失.</param>
-        /// <param name="mr1">Stress testing.</param>
-        /// <param name="mr2">Basis spread risk.</param>
-        /// <param name="mr3">Volatility spread risk.</param>
-        /// <param name="mr4">Option short risk.</param>
+        /// <param name="mr1">Stress testing..</param>
+        /// <param name="mr2">Basis spread risk..</param>
+        /// <param name="mr3">Volatility spread risk..</param>
+        /// <param name="mr4">Option short risk..</param>
         public MockMarginResult(string type = default(string), List<ProfitLossRange> profitLossRanges = default(List<ProfitLossRange>), ProfitLossRange maxLoss = default(ProfitLossRange), string mr1 = default(string), string mr2 = default(string), string mr3 = default(string), string mr4 = default(string))
         {
             this.Type = type;
@@ -52,16 +52,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; - Negative delta + Original position
+        /// Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; position
         /// </summary>
-        /// <value>Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; - Negative delta + Original position</value>
+        /// <value>Position combination type &#x60;original_position&#x60; - Original position &#x60;long_delta_original_position&#x60; - Positive delta + Original position &#x60;short_delta_original_position&#x60; position</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// The results of 33 pressure scenarios for MR1
+        /// The results of 3 pressure scenarios for MR1.
         /// </summary>
-        /// <value>The results of 33 pressure scenarios for MR1</value>
+        /// <value>The results of 3 pressure scenarios for MR1.</value>
         [DataMember(Name="profit_loss_ranges")]
         public List<ProfitLossRange> ProfitLossRanges { get; set; }
 
@@ -73,30 +73,30 @@ namespace Io.Gate.GateApi.Model
         public ProfitLossRange MaxLoss { get; set; }
 
         /// <summary>
-        /// Stress testing
+        /// Stress testing.
         /// </summary>
-        /// <value>Stress testing</value>
+        /// <value>Stress testing.</value>
         [DataMember(Name="mr1")]
         public string Mr1 { get; set; }
 
         /// <summary>
-        /// Basis spread risk
+        /// Basis spread risk.
         /// </summary>
-        /// <value>Basis spread risk</value>
+        /// <value>Basis spread risk.</value>
         [DataMember(Name="mr2")]
         public string Mr2 { get; set; }
 
         /// <summary>
-        /// Volatility spread risk
+        /// Volatility spread risk.
         /// </summary>
-        /// <value>Volatility spread risk</value>
+        /// <value>Volatility spread risk.</value>
         [DataMember(Name="mr3")]
         public string Mr3 { get; set; }
 
         /// <summary>
-        /// Option short risk
+        /// Option short risk.
         /// </summary>
-        /// <value>Option short risk</value>
+        /// <value>Option short risk.</value>
         [DataMember(Name="mr4")]
         public string Mr4 { get; set; }
 

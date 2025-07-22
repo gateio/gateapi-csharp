@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRecordRepaidCurrency" /> class.
         /// </summary>
-        /// <param name="currency">Repayment currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="repaidAmount">Repayment amount.</param>
-        /// <param name="repaidPrincipal">Principal.</param>
-        /// <param name="repaidInterest">Interest.</param>
-        /// <param name="repaidAmountUsdt">Value of the repayment amount in USDT.</param>
+        /// <param name="currency">Repayment currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="repaidAmount">Repayment amount..</param>
+        /// <param name="repaidPrincipal">Principal..</param>
+        /// <param name="repaidInterest">Interest..</param>
+        /// <param name="repaidAmountUsdt">Value of the repayment amount in USDT..</param>
         public RepayRecordRepaidCurrency(string currency = default(string), string indexPrice = default(string), string repaidAmount = default(string), string repaidPrincipal = default(string), string repaidInterest = default(string), string repaidAmountUsdt = default(string))
         {
             this.Currency = currency;
@@ -50,44 +50,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Repayment currency
+        /// Repayment currency.
         /// </summary>
-        /// <value>Repayment currency</value>
+        /// <value>Repayment currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Repayment amount
+        /// Repayment amount.
         /// </summary>
-        /// <value>Repayment amount</value>
+        /// <value>Repayment amount.</value>
         [DataMember(Name="repaid_amount")]
         public string RepaidAmount { get; set; }
 
         /// <summary>
-        /// Principal
+        /// Principal.
         /// </summary>
-        /// <value>Principal</value>
+        /// <value>Principal.</value>
         [DataMember(Name="repaid_principal")]
         public string RepaidPrincipal { get; set; }
 
         /// <summary>
-        /// Interest
+        /// Interest.
         /// </summary>
-        /// <value>Interest</value>
+        /// <value>Interest.</value>
         [DataMember(Name="repaid_interest")]
         public string RepaidInterest { get; set; }
 
         /// <summary>
-        /// Value of the repayment amount in USDT
+        /// Value of the repayment amount in USDT.
         /// </summary>
-        /// <value>Value of the repayment amount in USDT</value>
+        /// <value>Value of the repayment amount in USDT.</value>
         [DataMember(Name="repaid_amount_usdt")]
         public string RepaidAmountUsdt { get; set; }
 

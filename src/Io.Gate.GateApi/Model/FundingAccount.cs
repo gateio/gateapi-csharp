@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundingAccount" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="available">Available assets to lend, which is identical to spot account &#x60;available&#x60;.</param>
-        /// <param name="locked">Locked amount. i.e. amount in &#x60;open&#x60; loans.</param>
-        /// <param name="lent">Outstanding loan amount yet to be repaid.</param>
-        /// <param name="totalLent">Amount used for lending. total_lent &#x3D; lent + locked.</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="available">Available assets to lend, which is identical to spot account &#x60;available&#x60;..</param>
+        /// <param name="locked">Locked amount. i.e. amount in &#x60;open&#x60; loans..</param>
+        /// <param name="lent">Outstanding loan amount yet to be repaid..</param>
+        /// <param name="totalLent">Amount used for lending. total_lent &#x3D; lent + locked..</param>
         public FundingAccount(string currency = default(string), string available = default(string), string locked = default(string), string lent = default(string), string totalLent = default(string))
         {
             this.Currency = currency;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Available assets to lend, which is identical to spot account &#x60;available&#x60;
+        /// Available assets to lend, which is identical to spot account &#x60;available&#x60;.
         /// </summary>
-        /// <value>Available assets to lend, which is identical to spot account &#x60;available&#x60;</value>
+        /// <value>Available assets to lend, which is identical to spot account &#x60;available&#x60;.</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
-        /// Locked amount. i.e. amount in &#x60;open&#x60; loans
+        /// Locked amount. i.e. amount in &#x60;open&#x60; loans.
         /// </summary>
-        /// <value>Locked amount. i.e. amount in &#x60;open&#x60; loans</value>
+        /// <value>Locked amount. i.e. amount in &#x60;open&#x60; loans.</value>
         [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>
-        /// Outstanding loan amount yet to be repaid
+        /// Outstanding loan amount yet to be repaid.
         /// </summary>
-        /// <value>Outstanding loan amount yet to be repaid</value>
+        /// <value>Outstanding loan amount yet to be repaid.</value>
         [DataMember(Name="lent")]
         public string Lent { get; set; }
 
         /// <summary>
-        /// Amount used for lending. total_lent &#x3D; lent + locked
+        /// Amount used for lending. total_lent &#x3D; lent + locked.
         /// </summary>
-        /// <value>Amount used for lending. total_lent &#x3D; lent + locked</value>
+        /// <value>Amount used for lending. total_lent &#x3D; lent + locked.</value>
         [DataMember(Name="total_lent")]
         public string TotalLent { get; set; }
 

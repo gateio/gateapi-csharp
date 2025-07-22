@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Dual Investment order
+    /// Dual Investment order.
     /// </summary>
     [DataContract]
     public partial class PlaceDualInvestmentOrder :  IEquatable<PlaceDualInvestmentOrder>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceDualInvestmentOrder" /> class.
         /// </summary>
-        /// <param name="planId">Plan ID (required).</param>
-        /// <param name="amount">Subscription amount, mutually exclusive with the copies field (required).</param>
+        /// <param name="planId">Plan ID. (required).</param>
+        /// <param name="amount">Subscription amount, mutually exclusive with the copies field. (required).</param>
         /// <param name="text">User defined information. If not empty, must follow the rules below:  1. prefixed with &#x60;t-&#x60; 2. no longer than 28 bytes without &#x60;t-&#x60; prefix 3. can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
         public PlaceDualInvestmentOrder(string planId = default(string), string amount = default(string), string text = default(string))
         {
@@ -51,16 +51,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Plan ID
+        /// Plan ID.
         /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="plan_id")]
         public string PlanId { get; set; }
 
         /// <summary>
-        /// Subscription amount, mutually exclusive with the copies field
+        /// Subscription amount, mutually exclusive with the copies field.
         /// </summary>
-        /// <value>Subscription amount, mutually exclusive with the copies field</value>
+        /// <value>Subscription amount, mutually exclusive with the copies field.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FundingRateRecord" /> class.
         /// </summary>
-        /// <param name="t">Unix timestamp in seconds.</param>
-        /// <param name="r">Funding rate.</param>
+        /// <param name="t">Unix timestamp in seconds..</param>
+        /// <param name="r">Funding rate..</param>
         public FundingRateRecord(long t = default(long), string r = default(string))
         {
             this.T = t;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Unix timestamp in seconds
+        /// Unix timestamp in seconds.
         /// </summary>
-        /// <value>Unix timestamp in seconds</value>
+        /// <value>Unix timestamp in seconds.</value>
         [DataMember(Name="t")]
         public long T { get; set; }
 
         /// <summary>
-        /// Funding rate
+        /// Funding rate.
         /// </summary>
-        /// <value>Funding rate</value>
+        /// <value>Funding rate.</value>
         [DataMember(Name="r")]
         public string R { get; set; }
 

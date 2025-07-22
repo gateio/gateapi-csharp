@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List all currencies&#39; details
+        /// List all currencies&#39; details.
         /// </summary>
         /// <remarks>
         /// When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<Currency> ListCurrencies ();
 
         /// <summary>
-        /// List all currencies&#39; details
+        /// List all currencies&#39; details.
         /// </summary>
         /// <remarks>
         /// When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
@@ -47,28 +47,28 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
         ApiResponse<List<Currency>> ListCurrenciesWithHttpInfo ();
         /// <summary>
-        /// Get details of a specific currency
+        /// Get details of a specific currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Currency</returns>
         Currency GetCurrency (string currency);
 
         /// <summary>
-        /// Get details of a specific currency
+        /// Get details of a specific currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>ApiResponse of Currency</returns>
         ApiResponse<Currency> GetCurrencyWithHttpInfo (string currency);
         /// <summary>
-        /// List all currency pairs supported
+        /// List all currency pairs supported.
         /// </summary>
         /// <remarks>
         /// 
@@ -78,7 +78,7 @@ namespace Io.Gate.GateApi.Api
         List<CurrencyPair> ListCurrencyPairs ();
 
         /// <summary>
-        /// List all currency pairs supported
+        /// List all currency pairs supported.
         /// </summary>
         /// <remarks>
         /// 
@@ -87,140 +87,140 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CurrencyPair&gt;</returns>
         ApiResponse<List<CurrencyPair>> ListCurrencyPairsWithHttpInfo ();
         /// <summary>
-        /// Get details of a specifc currency pair
+        /// Get details of a specifc currency pair.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>CurrencyPair</returns>
         CurrencyPair GetCurrencyPair (string currencyPair);
 
         /// <summary>
-        /// Get details of a specifc currency pair
+        /// Get details of a specifc currency pair.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of CurrencyPair</returns>
         ApiResponse<CurrencyPair> GetCurrencyPairWithHttpInfo (string currencyPair);
         /// <summary>
-        /// Retrieve ticker information
+        /// Retrieve ticker information.
         /// </summary>
         /// <remarks>
         /// Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>List&lt;Ticker&gt;</returns>
         List<Ticker> ListTickers (string currencyPair = default(string), string timezone = default(string));
 
         /// <summary>
-        /// Retrieve ticker information
+        /// Retrieve ticker information.
         /// </summary>
         /// <remarks>
         /// Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>ApiResponse of List&lt;Ticker&gt;</returns>
         ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string), string timezone = default(string));
         /// <summary>
-        /// Retrieve order book
+        /// Retrieve order book.
         /// </summary>
         /// <remarks>
-        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>OrderBook</returns>
         OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
-        /// Retrieve order book
+        /// Retrieve order book.
         /// </summary>
         /// <remarks>
-        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>ApiResponse of OrderBook</returns>
         ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
-        /// Retrieve market trades
+        /// Retrieve market trades.
         /// </summary>
         /// <remarks>
-        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
 
         /// <summary>
-        /// Retrieve market trades
+        /// Retrieve market trades.
         /// </summary>
         /// <remarks>
-        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
         /// <summary>
-        /// Market candlesticks
+        /// Market candlesticks.
         /// </summary>
         /// <remarks>
         /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>List&lt;List&lt;string&gt;&gt;</returns>
         List<List<string>> ListCandlesticks (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Market candlesticks
+        /// Market candlesticks.
         /// </summary>
         /// <remarks>
         /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>ApiResponse of List&lt;List&lt;string&gt;&gt;</returns>
         ApiResponse<List<List<string>>> ListCandlesticksWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Query user trading fee rates
+        /// Query user trading fee rates.
         /// </summary>
         /// <remarks>
         /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
@@ -231,7 +231,7 @@ namespace Io.Gate.GateApi.Api
         SpotFee GetFee (string currencyPair = default(string));
 
         /// <summary>
-        /// Query user trading fee rates
+        /// Query user trading fee rates.
         /// </summary>
         /// <remarks>
         /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
@@ -241,82 +241,82 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of SpotFee</returns>
         ApiResponse<SpotFee> GetFeeWithHttpInfo (string currencyPair = default(string));
         /// <summary>
-        /// Query a batch of user trading fee rates
+        /// Query a batch of user trading fee rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Dictionary&lt;string, SpotFee&gt;</returns>
         Dictionary<string, SpotFee> GetBatchSpotFee (string currencyPairs);
 
         /// <summary>
-        /// Query a batch of user trading fee rates
+        /// Query a batch of user trading fee rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, SpotFee&gt;</returns>
         ApiResponse<Dictionary<string, SpotFee>> GetBatchSpotFeeWithHttpInfo (string currencyPairs);
         /// <summary>
-        /// List spot accounts
+        /// List spot accounts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>List&lt;SpotAccount&gt;</returns>
         List<SpotAccount> ListSpotAccounts (string currency = default(string));
 
         /// <summary>
-        /// List spot accounts
+        /// List spot accounts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccount&gt;</returns>
         ApiResponse<List<SpotAccount>> ListSpotAccountsWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// Query account book
+        /// Query account book.
         /// </summary>
         /// <remarks>
-        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>List&lt;SpotAccountBook&gt;</returns>
         List<SpotAccountBook> ListSpotAccountBook (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
 
         /// <summary>
-        /// Query account book
+        /// Query account book.
         /// </summary>
         /// <remarks>
-        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
         ApiResponse<List<SpotAccountBook>> ListSpotAccountBookWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
         /// <summary>
-        /// Create a batch of orders
+        /// Create a batch of orders.
         /// </summary>
         /// <remarks>
         /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
@@ -328,7 +328,7 @@ namespace Io.Gate.GateApi.Api
         List<BatchOrder> CreateBatchOrders (List<Order> order, string xGateExptime = default(string));
 
         /// <summary>
-        /// Create a batch of orders
+        /// Create a batch of orders.
         /// </summary>
         /// <remarks>
         /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
@@ -339,32 +339,32 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
         ApiResponse<List<BatchOrder>> CreateBatchOrdersWithHttpInfo (List<Order> order, string xGateExptime = default(string));
         /// <summary>
-        /// List all open orders
+        /// List all open orders.
         /// </summary>
         /// <remarks>
-        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
         /// <summary>
-        /// List all open orders
+        /// List all open orders.
         /// </summary>
         /// <remarks>
-        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
         /// <summary>
-        /// close position when cross-currency is disabled
+        /// close position when cross-currency is disabled.
         /// </summary>
         /// <remarks>
         /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
@@ -375,7 +375,7 @@ namespace Io.Gate.GateApi.Api
         Order CreateCrossLiquidateOrder (LiquidateOrder liquidateOrder);
 
         /// <summary>
-        /// close position when cross-currency is disabled
+        /// close position when cross-currency is disabled.
         /// </summary>
         /// <remarks>
         /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
@@ -385,45 +385,45 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CreateCrossLiquidateOrderWithHttpInfo (LiquidateOrder liquidateOrder);
         /// <summary>
-        /// List orders
+        /// List orders.
         /// </summary>
         /// <remarks>
-        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
 
         /// <summary>
-        /// List orders
+        /// List orders.
         /// </summary>
         /// <remarks>
-        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
         /// <summary>
-        /// Create an order
+        /// Create an order.
         /// </summary>
         /// <remarks>
-        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -432,10 +432,10 @@ namespace Io.Gate.GateApi.Api
         Order CreateOrder (Order order, string xGateExptime = default(string));
 
         /// <summary>
-        /// Create an order
+        /// Create an order.
         /// </summary>
         /// <remarks>
-        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -443,14 +443,14 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CreateOrderWithHttpInfo (Order order, string xGateExptime = default(string));
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair.
         /// </summary>
         /// <remarks>
-        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -458,21 +458,21 @@ namespace Io.Gate.GateApi.Api
         List<OrderCancel> CancelOrders (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair.
         /// </summary>
         /// <remarks>
-        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderCancel&gt;</returns>
         ApiResponse<List<OrderCancel>> CancelOrdersWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// Cancel a batch of orders with an ID list
+        /// Cancel a batch of orders with an ID list.
         /// </summary>
         /// <remarks>
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
@@ -484,7 +484,7 @@ namespace Io.Gate.GateApi.Api
         List<CancelOrderResult> CancelBatchOrders (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list
+        /// Cancel a batch of orders with an ID list.
         /// </summary>
         /// <remarks>
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
@@ -495,39 +495,39 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CancelOrderResult&gt;</returns>
         ApiResponse<List<CancelOrderResult>> CancelBatchOrdersWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Order</returns>
         Order GetOrder (string orderId, string currencyPair, string account = default(string));
 
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -535,83 +535,83 @@ namespace Io.Gate.GateApi.Api
         Order CancelOrder (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> CancelOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// Amend an order
+        /// Amend an order.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
         Order AmendOrder (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Amend an order
+        /// Amend an order.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         ApiResponse<Order> AmendOrderWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
-        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         List<Trade> ListMyTrades (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
-        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get server current time
+        /// Get server current time.
         /// </summary>
         /// <remarks>
         /// 
@@ -621,7 +621,7 @@ namespace Io.Gate.GateApi.Api
         SystemTime GetSystemTime ();
 
         /// <summary>
-        /// Get server current time
+        /// Get server current time.
         /// </summary>
         /// <remarks>
         /// 
@@ -630,10 +630,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of SystemTime</returns>
         ApiResponse<SystemTime> GetSystemTimeWithHttpInfo ();
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -641,20 +641,20 @@ namespace Io.Gate.GateApi.Api
         TriggerTime CountdownCancelAllSpot (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
 
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
         /// <returns>ApiResponse of TriggerTime</returns>
         ApiResponse<TriggerTime> CountdownCancelAllSpotWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
         /// <summary>
-        /// Batch modification of orders
+        /// Batch modification of orders.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -663,10 +663,10 @@ namespace Io.Gate.GateApi.Api
         List<BatchOrder> AmendBatchOrders (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
 
         /// <summary>
-        /// Batch modification of orders
+        /// Batch modification of orders.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -674,67 +674,67 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;BatchOrder&gt;</returns>
         ApiResponse<List<BatchOrder>> AmendBatchOrdersWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
         /// <summary>
-        /// Query spot insurance fund historical data
+        /// Query spot insurance fund historical data.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>List&lt;SpotInsuranceHistory&gt;</returns>
         List<SpotInsuranceHistory> GetSpotInsuranceHistory (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Query spot insurance fund historical data
+        /// Query spot insurance fund historical data.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>ApiResponse of List&lt;SpotInsuranceHistory&gt;</returns>
         ApiResponse<List<SpotInsuranceHistory>> GetSpotInsuranceHistoryWithHttpInfo (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Retrieve running auto order list
+        /// Retrieve running auto order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Retrieve running auto order list
+        /// Retrieve running auto order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Create a price-triggered order
+        /// Create a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
@@ -745,7 +745,7 @@ namespace Io.Gate.GateApi.Api
         TriggerOrderResponse CreateSpotPriceTriggeredOrder (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
 
         /// <summary>
-        /// Create a price-triggered order
+        /// Create a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
@@ -755,68 +755,68 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of TriggerOrderResponse</returns>
         ApiResponse<TriggerOrderResponse> CreateSpotPriceTriggeredOrderWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
         /// <summary>
-        /// Cancel All Price-triggered Orders
+        /// Cancel All Price-triggered Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string));
 
         /// <summary>
-        /// Cancel All Price-triggered Orders
+        /// Cancel All Price-triggered Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
-        /// Get a price-triggered order
+        /// Get a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId);
 
         /// <summary>
-        /// Get a price-triggered order
+        /// Get a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         /// <summary>
-        /// cancel a price-triggered order
+        /// cancel a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId);
 
         /// <summary>
-        /// cancel a price-triggered order
+        /// cancel a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId);
         #endregion Synchronous Operations
@@ -829,7 +829,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List all currencies&#39; details
+        /// List all currencies&#39; details.
         /// </summary>
         /// <remarks>
         /// When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
@@ -839,7 +839,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<Currency>> ListCurrenciesAsync ();
 
         /// <summary>
-        /// List all currencies&#39; details
+        /// List all currencies&#39; details.
         /// </summary>
         /// <remarks>
         /// When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
@@ -848,28 +848,28 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
         Task<ApiResponse<List<Currency>>> ListCurrenciesAsyncWithHttpInfo ();
         /// <summary>
-        /// Get details of a specific currency
+        /// Get details of a specific currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Task of Currency</returns>
         Task<Currency> GetCurrencyAsync (string currency);
 
         /// <summary>
-        /// Get details of a specific currency
+        /// Get details of a specific currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Task of ApiResponse (Currency)</returns>
         Task<ApiResponse<Currency>> GetCurrencyAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// List all currency pairs supported
+        /// List all currency pairs supported.
         /// </summary>
         /// <remarks>
         /// 
@@ -879,7 +879,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CurrencyPair>> ListCurrencyPairsAsync ();
 
         /// <summary>
-        /// List all currency pairs supported
+        /// List all currency pairs supported.
         /// </summary>
         /// <remarks>
         /// 
@@ -888,140 +888,140 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CurrencyPair&gt;)</returns>
         Task<ApiResponse<List<CurrencyPair>>> ListCurrencyPairsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get details of a specifc currency pair
+        /// Get details of a specifc currency pair.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of CurrencyPair</returns>
         Task<CurrencyPair> GetCurrencyPairAsync (string currencyPair);
 
         /// <summary>
-        /// Get details of a specifc currency pair
+        /// Get details of a specifc currency pair.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (CurrencyPair)</returns>
         Task<ApiResponse<CurrencyPair>> GetCurrencyPairAsyncWithHttpInfo (string currencyPair);
         /// <summary>
-        /// Retrieve ticker information
+        /// Retrieve ticker information.
         /// </summary>
         /// <remarks>
         /// Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>Task of List&lt;Ticker&gt;</returns>
         Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string), string timezone = default(string));
 
         /// <summary>
-        /// Retrieve ticker information
+        /// Retrieve ticker information.
         /// </summary>
         /// <remarks>
         /// Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Ticker&gt;)</returns>
         Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string), string timezone = default(string));
         /// <summary>
-        /// Retrieve order book
+        /// Retrieve order book.
         /// </summary>
         /// <remarks>
-        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>Task of OrderBook</returns>
         Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
 
         /// <summary>
-        /// Retrieve order book
+        /// Retrieve order book.
         /// </summary>
         /// <remarks>
-        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (OrderBook)</returns>
         Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?));
         /// <summary>
-        /// Retrieve market trades
+        /// Retrieve market trades.
         /// </summary>
         /// <remarks>
-        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
 
         /// <summary>
-        /// Retrieve market trades
+        /// Retrieve market trades.
         /// </summary>
         /// <remarks>
-        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?));
         /// <summary>
-        /// Market candlesticks
+        /// Market candlesticks.
         /// </summary>
         /// <remarks>
         /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of List&lt;List&lt;string&gt;&gt;</returns>
         Task<List<List<string>>> ListCandlesticksAsync (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
 
         /// <summary>
-        /// Market candlesticks
+        /// Market candlesticks.
         /// </summary>
         /// <remarks>
         /// Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of ApiResponse (List&lt;List&lt;string&gt;&gt;)</returns>
         Task<ApiResponse<List<List<string>>>> ListCandlesticksAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string));
         /// <summary>
-        /// Query user trading fee rates
+        /// Query user trading fee rates.
         /// </summary>
         /// <remarks>
         /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
@@ -1032,7 +1032,7 @@ namespace Io.Gate.GateApi.Api
         Task<SpotFee> GetFeeAsync (string currencyPair = default(string));
 
         /// <summary>
-        /// Query user trading fee rates
+        /// Query user trading fee rates.
         /// </summary>
         /// <remarks>
         /// This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
@@ -1042,82 +1042,82 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (SpotFee)</returns>
         Task<ApiResponse<SpotFee>> GetFeeAsyncWithHttpInfo (string currencyPair = default(string));
         /// <summary>
-        /// Query a batch of user trading fee rates
+        /// Query a batch of user trading fee rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Task of Dictionary&lt;string, SpotFee&gt;</returns>
         Task<Dictionary<string, SpotFee>> GetBatchSpotFeeAsync (string currencyPairs);
 
         /// <summary>
-        /// Query a batch of user trading fee rates
+        /// Query a batch of user trading fee rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, SpotFee&gt;)</returns>
         Task<ApiResponse<Dictionary<string, SpotFee>>> GetBatchSpotFeeAsyncWithHttpInfo (string currencyPairs);
         /// <summary>
-        /// List spot accounts
+        /// List spot accounts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>Task of List&lt;SpotAccount&gt;</returns>
         Task<List<SpotAccount>> ListSpotAccountsAsync (string currency = default(string));
 
         /// <summary>
-        /// List spot accounts
+        /// List spot accounts.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccount&gt;)</returns>
         Task<ApiResponse<List<SpotAccount>>> ListSpotAccountsAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// Query account book
+        /// Query account book.
         /// </summary>
         /// <remarks>
-        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
         Task<List<SpotAccountBook>> ListSpotAccountBookAsync (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
 
         /// <summary>
-        /// Query account book
+        /// Query account book.
         /// </summary>
         /// <remarks>
-        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
         Task<ApiResponse<List<SpotAccountBook>>> ListSpotAccountBookAsyncWithHttpInfo (string currency = default(string), long? from = default(long?), long? to = default(long?), int? page = default(int?), int? limit = default(int?), string type = default(string), string code = default(string));
         /// <summary>
-        /// Create a batch of orders
+        /// Create a batch of orders.
         /// </summary>
         /// <remarks>
         /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
@@ -1129,7 +1129,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<BatchOrder>> CreateBatchOrdersAsync (List<Order> order, string xGateExptime = default(string));
 
         /// <summary>
-        /// Create a batch of orders
+        /// Create a batch of orders.
         /// </summary>
         /// <remarks>
         /// Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
@@ -1140,32 +1140,32 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
         Task<ApiResponse<List<BatchOrder>>> CreateBatchOrdersAsyncWithHttpInfo (List<Order> order, string xGateExptime = default(string));
         /// <summary>
-        /// List all open orders
+        /// List all open orders.
         /// </summary>
         /// <remarks>
-        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string));
 
         /// <summary>
-        /// List all open orders
+        /// List all open orders.
         /// </summary>
         /// <remarks>
-        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string));
         /// <summary>
-        /// close position when cross-currency is disabled
+        /// close position when cross-currency is disabled.
         /// </summary>
         /// <remarks>
         /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
@@ -1176,7 +1176,7 @@ namespace Io.Gate.GateApi.Api
         Task<Order> CreateCrossLiquidateOrderAsync (LiquidateOrder liquidateOrder);
 
         /// <summary>
-        /// close position when cross-currency is disabled
+        /// close position when cross-currency is disabled.
         /// </summary>
         /// <remarks>
         /// Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
@@ -1186,45 +1186,45 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CreateCrossLiquidateOrderAsyncWithHttpInfo (LiquidateOrder liquidateOrder);
         /// <summary>
-        /// List orders
+        /// List orders.
         /// </summary>
         /// <remarks>
-        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
 
         /// <summary>
-        /// List orders
+        /// List orders.
         /// </summary>
         /// <remarks>
-        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string));
         /// <summary>
-        /// Create an order
+        /// Create an order.
         /// </summary>
         /// <remarks>
-        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1233,10 +1233,10 @@ namespace Io.Gate.GateApi.Api
         Task<Order> CreateOrderAsync (Order order, string xGateExptime = default(string));
 
         /// <summary>
-        /// Create an order
+        /// Create an order.
         /// </summary>
         /// <remarks>
-        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -1244,14 +1244,14 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CreateOrderAsyncWithHttpInfo (Order order, string xGateExptime = default(string));
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair.
         /// </summary>
         /// <remarks>
-        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -1259,21 +1259,21 @@ namespace Io.Gate.GateApi.Api
         Task<List<OrderCancel>> CancelOrdersAsync (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair.
         /// </summary>
         /// <remarks>
-        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OrderCancel&gt;)</returns>
         Task<ApiResponse<List<OrderCancel>>> CancelOrdersAsyncWithHttpInfo (string currencyPair = default(string), string side = default(string), string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// Cancel a batch of orders with an ID list
+        /// Cancel a batch of orders with an ID list.
         /// </summary>
         /// <remarks>
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
@@ -1285,7 +1285,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CancelOrderResult>> CancelBatchOrdersAsync (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list
+        /// Cancel a batch of orders with an ID list.
         /// </summary>
         /// <remarks>
         /// Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
@@ -1296,39 +1296,39 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CancelOrderResult&gt;)</returns>
         Task<ApiResponse<List<CancelOrderResult>>> CancelBatchOrdersAsyncWithHttpInfo (List<CancelBatchOrder> cancelBatchOrder, string xGateExptime = default(string));
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string));
 
         /// <summary>
-        /// Get a single order
+        /// Get a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string));
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -1336,83 +1336,83 @@ namespace Io.Gate.GateApi.Api
         Task<Order> CancelOrderAsync (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Cancel a single order
+        /// Cancel a single order.
         /// </summary>
         /// <remarks>
         /// By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> CancelOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string), string actionMode = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// Amend an order
+        /// Amend an order.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
         Task<Order> AmendOrderAsync (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
 
         /// <summary>
-        /// Amend an order
+        /// Amend an order.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         Task<ApiResponse<Order>> AmendOrderAsyncWithHttpInfo (string orderId, OrderPatch orderPatch, string currencyPair = default(string), string account = default(string), string xGateExptime = default(string));
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
-        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         Task<List<Trade>> ListMyTradesAsync (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List personal trading history
+        /// List personal trading history.
         /// </summary>
         /// <remarks>
-        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get server current time
+        /// Get server current time.
         /// </summary>
         /// <remarks>
         /// 
@@ -1422,7 +1422,7 @@ namespace Io.Gate.GateApi.Api
         Task<SystemTime> GetSystemTimeAsync ();
 
         /// <summary>
-        /// Get server current time
+        /// Get server current time.
         /// </summary>
         /// <remarks>
         /// 
@@ -1431,10 +1431,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (SystemTime)</returns>
         Task<ApiResponse<SystemTime>> GetSystemTimeAsyncWithHttpInfo ();
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -1442,20 +1442,20 @@ namespace Io.Gate.GateApi.Api
         Task<TriggerTime> CountdownCancelAllSpotAsync (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
 
         /// <summary>
-        /// Countdown cancel orders
+        /// Countdown cancel orders.
         /// </summary>
         /// <remarks>
-        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
         /// <returns>Task of ApiResponse (TriggerTime)</returns>
         Task<ApiResponse<TriggerTime>> CountdownCancelAllSpotAsyncWithHttpInfo (CountdownCancelAllSpotTask countdownCancelAllSpotTask);
         /// <summary>
-        /// Batch modification of orders
+        /// Batch modification of orders.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -1464,10 +1464,10 @@ namespace Io.Gate.GateApi.Api
         Task<List<BatchOrder>> AmendBatchOrdersAsync (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
 
         /// <summary>
-        /// Batch modification of orders
+        /// Batch modification of orders.
         /// </summary>
         /// <remarks>
-        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -1475,67 +1475,67 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;BatchOrder&gt;)</returns>
         Task<ApiResponse<List<BatchOrder>>> AmendBatchOrdersAsyncWithHttpInfo (List<BatchAmendItem> batchAmendItem, string xGateExptime = default(string));
         /// <summary>
-        /// Query spot insurance fund historical data
+        /// Query spot insurance fund historical data.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>Task of List&lt;SpotInsuranceHistory&gt;</returns>
         Task<List<SpotInsuranceHistory>> GetSpotInsuranceHistoryAsync (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Query spot insurance fund historical data
+        /// Query spot insurance fund historical data.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotInsuranceHistory&gt;)</returns>
         Task<ApiResponse<List<SpotInsuranceHistory>>> GetSpotInsuranceHistoryAsyncWithHttpInfo (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Retrieve running auto order list
+        /// Retrieve running auto order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
 
         /// <summary>
-        /// Retrieve running auto order list
+        /// Retrieve running auto order list.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?));
         /// <summary>
-        /// Create a price-triggered order
+        /// Create a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
@@ -1546,7 +1546,7 @@ namespace Io.Gate.GateApi.Api
         Task<TriggerOrderResponse> CreateSpotPriceTriggeredOrderAsync (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
 
         /// <summary>
-        /// Create a price-triggered order
+        /// Create a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
@@ -1556,68 +1556,68 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (TriggerOrderResponse)</returns>
         Task<ApiResponse<TriggerOrderResponse>> CreateSpotPriceTriggeredOrderAsyncWithHttpInfo (SpotPriceTriggeredOrder spotPriceTriggeredOrder);
         /// <summary>
-        /// Cancel All Price-triggered Orders
+        /// Cancel All Price-triggered Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string));
 
         /// <summary>
-        /// Cancel All Price-triggered Orders
+        /// Cancel All Price-triggered Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string));
         /// <summary>
-        /// Get a price-triggered order
+        /// Get a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId);
 
         /// <summary>
-        /// Get a price-triggered order
+        /// Get a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         /// <summary>
-        /// cancel a price-triggered order
+        /// cancel a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId);
 
         /// <summary>
-        /// cancel a price-triggered order
+        /// cancel a price-triggered order.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId);
         #endregion Asynchronous Operations
@@ -1741,7 +1741,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; details When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
+        /// List all currencies&#39; details. When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Currency&gt;</returns>
@@ -1752,7 +1752,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; details When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
+        /// List all currencies&#39; details. When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Currency&gt;</returns>
@@ -1789,7 +1789,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; details When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
+        /// List all currencies&#39; details. When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Currency&gt;</returns>
@@ -1801,7 +1801,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currencies&#39; details When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
+        /// List all currencies&#39; details. When a currency corresponds to multiple chains, you can query the information of multiple chains through the &#x60;chains&#x60; field, such as the charging and recharge status, identification, etc. of the chain.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Currency&gt;)</returns>
@@ -1840,10 +1840,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specific currency 
+        /// Get details of a specific currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Currency</returns>
         public Currency GetCurrency (string currency)
         {
@@ -1852,10 +1852,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specific currency 
+        /// Get details of a specific currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>ApiResponse of Currency</returns>
         public ApiResponse<Currency> GetCurrencyWithHttpInfo (string currency)
         {
@@ -1895,10 +1895,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specific currency 
+        /// Get details of a specific currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Task of Currency</returns>
         public async Task<Currency> GetCurrencyAsync (string currency)
         {
@@ -1908,10 +1908,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specific currency 
+        /// Get details of a specific currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency name</param>
+        /// <param name="currency">Currency name.</param>
         /// <returns>Task of ApiResponse (Currency)</returns>
         public async Task<ApiResponse<Currency>> GetCurrencyAsyncWithHttpInfo (string currency)
         {
@@ -1953,7 +1953,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currency pairs supported 
+        /// List all currency pairs supported. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;CurrencyPair&gt;</returns>
@@ -1964,7 +1964,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currency pairs supported 
+        /// List all currency pairs supported. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;CurrencyPair&gt;</returns>
@@ -2001,7 +2001,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currency pairs supported 
+        /// List all currency pairs supported. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;CurrencyPair&gt;</returns>
@@ -2013,7 +2013,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all currency pairs supported 
+        /// List all currency pairs supported. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;CurrencyPair&gt;)</returns>
@@ -2052,10 +2052,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc currency pair 
+        /// Get details of a specifc currency pair. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>CurrencyPair</returns>
         public CurrencyPair GetCurrencyPair (string currencyPair)
         {
@@ -2064,10 +2064,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc currency pair 
+        /// Get details of a specifc currency pair. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of CurrencyPair</returns>
         public ApiResponse<CurrencyPair> GetCurrencyPairWithHttpInfo (string currencyPair)
         {
@@ -2107,10 +2107,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc currency pair 
+        /// Get details of a specifc currency pair. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of CurrencyPair</returns>
         public async Task<CurrencyPair> GetCurrencyPairAsync (string currencyPair)
         {
@@ -2120,10 +2120,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get details of a specifc currency pair 
+        /// Get details of a specifc currency pair. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (CurrencyPair)</returns>
         public async Task<ApiResponse<CurrencyPair>> GetCurrencyPairAsyncWithHttpInfo (string currencyPair)
         {
@@ -2165,11 +2165,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve ticker information Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
+        /// Retrieve ticker information. Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>List&lt;Ticker&gt;</returns>
         public List<Ticker> ListTickers (string currencyPair = default(string), string timezone = default(string))
         {
@@ -2178,11 +2178,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve ticker information Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
+        /// Retrieve ticker information. Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>ApiResponse of List&lt;Ticker&gt;</returns>
         public ApiResponse<List<Ticker>> ListTickersWithHttpInfo (string currencyPair = default(string), string timezone = default(string))
         {
@@ -2225,11 +2225,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve ticker information Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
+        /// Retrieve ticker information. Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>Task of List&lt;Ticker&gt;</returns>
         public async Task<List<Ticker>> ListTickersAsync (string currencyPair = default(string), string timezone = default(string))
         {
@@ -2239,11 +2239,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve ticker information Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
+        /// Retrieve ticker information. Return only related data if &#x60;currency_pair&#x60; is specified; otherwise return all of them
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="timezone">Timezone (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="timezone">Timezone. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Ticker&gt;)</returns>
         public async Task<ApiResponse<List<Ticker>>> ListTickersAsyncWithHttpInfo (string currencyPair = default(string), string timezone = default(string))
         {
@@ -2288,13 +2288,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Retrieve order book. Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>OrderBook</returns>
         public OrderBook ListOrderBook (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -2303,13 +2303,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Retrieve order book. Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>ApiResponse of OrderBook</returns>
         public ApiResponse<OrderBook> ListOrderBookWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -2361,13 +2361,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Retrieve order book. Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>Task of OrderBook</returns>
         public async Task<OrderBook> ListOrderBookAsync (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -2377,13 +2377,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve order book Market depth buy orders are sorted by price from high to low, sell orders are reversed are reversed
+        /// Retrieve order book. Market depth buy orders are sorted by price from high to low, sell orders are reversed
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0 (optional, default to &quot;0&quot;)</param>
-        /// <param name="limit">Maximum number of order depth data in asks or bids (optional, default to 10)</param>
-        /// <param name="withId">Return order book ID (optional, default to false)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="interval">Order depth. 0 means no aggregation is applied. default to 0. (optional, default to &quot;0&quot;)</param>
+        /// <param name="limit">Maximum number of order depth data in asks or bids. (optional, default to 10)</param>
+        /// <param name="withId">Return order book ID. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (OrderBook)</returns>
         public async Task<ApiResponse<OrderBook>> ListOrderBookAsyncWithHttpInfo (string currencyPair, string interval = default(string), int? limit = default(int?), bool? withId = default(bool?))
         {
@@ -2437,16 +2437,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Retrieve market trades. Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         public List<Trade> ListTrades (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
@@ -2455,16 +2455,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Retrieve market trades. Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         public ApiResponse<List<Trade>> ListTradesWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
@@ -2528,16 +2528,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Retrieve market trades. Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         public async Task<List<Trade>> ListTradesAsync (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
@@ -2547,16 +2547,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve market trades Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, query by time range is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Retrieve market trades. Supports &#x60;from&#x60; and &#x60;to&#x60; by time range query or page-turn query based on &#x60;last_id&#x60;. By default, is the last 30 days.  The query method based on &#x60;last_id&#x60; page turn is no longer recommended. If &#x60;last_id&#x60; is specified, the time range query parameters will be ignored.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
         /// <param name="lastId">Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional)</param>
         /// <param name="reverse">Whether the id of records to be retrieved should be less than the last_id specified. Default to false.  When &#x60;last_id&#x60; is specified. Set &#x60;reverse&#x60; to &#x60;true&#x60; to trace back trading history; &#x60;false&#x60; to retrieve latest tradings.  No effect if &#x60;last_id&#x60; is not specified. (optional, default to false)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         public async Task<ApiResponse<List<Trade>>> ListTradesAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), string lastId = default(string), bool? reverse = default(bool?), long? from = default(long?), long? to = default(long?), int? page = default(int?))
         {
@@ -2622,13 +2622,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+        /// Market candlesticks. Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>List&lt;List&lt;string&gt;&gt;</returns>
         public List<List<string>> ListCandlesticks (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
@@ -2638,13 +2638,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+        /// Market candlesticks. Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>ApiResponse of List&lt;List&lt;string&gt;&gt;</returns>
         public ApiResponse<List<List<string>>> ListCandlesticksWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
@@ -2701,13 +2701,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+        /// Market candlesticks. Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of List&lt;List&lt;string&gt;&gt;</returns>
         public async Task<List<List<string>>> ListCandlesticksAsync (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
@@ -2718,13 +2718,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Market candlesticks Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
+        /// Market candlesticks. Maximum of 1000 points can be returned in a query. Be sure not to exceed the limit when specifying from, to and interval
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="limit">Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)</param>
         /// <param name="from">Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)</param>
-        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional)</param>
+        /// <param name="to">Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional)</param>
         /// <param name="interval">Interval time between data points. Note that &#x60;30d&#x60; means 1 natual month, not 30 days (optional, default to 30m)</param>
         /// <returns>Task of ApiResponse (List&lt;List&lt;string&gt;&gt;)</returns>
         public async Task<ApiResponse<List<List<string>>>> ListCandlesticksAsyncWithHttpInfo (string currencyPair, int? limit = default(int?), long? from = default(long?), long? to = default(long?), string interval = default(string))
@@ -2783,7 +2783,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
+        /// Query user trading fee rates. This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2795,7 +2795,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
+        /// Query user trading fee rates. This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2839,7 +2839,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
+        /// Query user trading fee rates. This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2852,7 +2852,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query user trading fee rates This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
+        /// Query user trading fee rates. This API is deprecated in favour of new fee retrieving API &#x60;/wallet/fee&#x60;.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Specify a currency pair to retrieve precise fee rate  This field is optional. In most cases, the fee rate is identical among all currency pairs (optional)</param>
@@ -2898,10 +2898,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query a batch of user trading fee rates 
+        /// Query a batch of user trading fee rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Dictionary&lt;string, SpotFee&gt;</returns>
         public Dictionary<string, SpotFee> GetBatchSpotFee (string currencyPairs)
         {
@@ -2910,10 +2910,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query a batch of user trading fee rates 
+        /// Query a batch of user trading fee rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, SpotFee&gt;</returns>
         public ApiResponse<Dictionary<string, SpotFee>> GetBatchSpotFeeWithHttpInfo (string currencyPairs)
         {
@@ -2955,10 +2955,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query a batch of user trading fee rates 
+        /// Query a batch of user trading fee rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Task of Dictionary&lt;string, SpotFee&gt;</returns>
         public async Task<Dictionary<string, SpotFee>> GetBatchSpotFeeAsync (string currencyPairs)
         {
@@ -2968,10 +2968,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query a batch of user trading fee rates 
+        /// Query a batch of user trading fee rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPairs">A request can only query up to 50 currency pairs</param>
+        /// <param name="currencyPairs">A request can only query up to 50 currency pairs.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, SpotFee&gt;)</returns>
         public async Task<ApiResponse<Dictionary<string, SpotFee>>> GetBatchSpotFeeAsyncWithHttpInfo (string currencyPairs)
         {
@@ -3015,10 +3015,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List spot accounts 
+        /// List spot accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>List&lt;SpotAccount&gt;</returns>
         public List<SpotAccount> ListSpotAccounts (string currency = default(string))
         {
@@ -3027,10 +3027,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List spot accounts 
+        /// List spot accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccount&gt;</returns>
         public ApiResponse<List<SpotAccount>> ListSpotAccountsWithHttpInfo (string currency = default(string))
         {
@@ -3071,10 +3071,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List spot accounts 
+        /// List spot accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>Task of List&lt;SpotAccount&gt;</returns>
         public async Task<List<SpotAccount>> ListSpotAccountsAsync (string currency = default(string))
         {
@@ -3084,10 +3084,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List spot accounts 
+        /// List spot accounts. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccount&gt;)</returns>
         public async Task<ApiResponse<List<SpotAccount>>> ListSpotAccountsAsyncWithHttpInfo (string currency = default(string))
         {
@@ -3130,14 +3130,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Query account book. Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>List&lt;SpotAccountBook&gt;</returns>
@@ -3148,14 +3148,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Query account book. Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotAccountBook&gt;</returns>
@@ -3222,14 +3222,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Query account book. Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of List&lt;SpotAccountBook&gt;</returns>
@@ -3241,14 +3241,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query account book Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// Query account book. Record query time range is not allowed to exceed 30 days.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="type">Only retrieve changes of the specified type. All types will be returned if not specified. (optional)</param>
         /// <param name="code">Specify account change code query, if not specified, all change types are included, and the priority is higher than &#x60;type&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotAccountBook&gt;)</returns>
@@ -3317,7 +3317,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders. Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3330,7 +3330,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders. Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3381,7 +3381,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders. Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3395,7 +3395,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a batch of orders Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
+        /// Create a batch of orders. Batch orders requirements:  1. custom order field &#x60;text&#x60; is required 2. At most 4 currency pairs, maximum 10 orders each, are allowed in one request 3. No mixture of spot orders and margin orders, i.e. &#x60;account&#x60; must be identical for all orders 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3448,11 +3448,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// List all open orders. Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>List&lt;OpenOrders&gt;</returns>
         public List<OpenOrders> ListAllOpenOrders (int? page = default(int?), int? limit = default(int?), string account = default(string))
@@ -3462,11 +3462,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// List all open orders. Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>ApiResponse of List&lt;OpenOrders&gt;</returns>
         public ApiResponse<List<OpenOrders>> ListAllOpenOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
@@ -3516,11 +3516,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// List all open orders. Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of List&lt;OpenOrders&gt;</returns>
         public async Task<List<OpenOrders>> ListAllOpenOrdersAsync (int? page = default(int?), int? limit = default(int?), string account = default(string))
@@ -3531,11 +3531,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all open orders Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control for the number of trading pairs. All trading pairs with pending orders will be returned.
+        /// List all open orders. Query the current order list of all trading pairs. Please note that the paging parameter controls the number of pending orders in each trading pair. There is no paging control trading pairs. All trading pairs with pending orders will be returned.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records returned in one page in each currency pair (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records returned in one page in each currency pair. (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OpenOrders&gt;)</returns>
         public async Task<ApiResponse<List<OpenOrders>>> ListAllOpenOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string account = default(string))
@@ -3587,7 +3587,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// close position when cross-currency is disabled. Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="liquidateOrder"></param>
@@ -3599,7 +3599,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// close position when cross-currency is disabled. Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="liquidateOrder"></param>
@@ -3645,7 +3645,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// close position when cross-currency is disabled. Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="liquidateOrder"></param>
@@ -3658,7 +3658,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// close position when cross-currency is disabled Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
+        /// close position when cross-currency is disabled. Currently, only cross-margin accounts are supported to close position when cross currencies are disabled.  Maximum buy quantity &#x3D; (unpaid principal and interest - currency balance - the amount of the currency in the order book) / 0.998
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="liquidateOrder"></param>
@@ -3706,17 +3706,17 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// List orders. Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>List&lt;Order&gt;</returns>
         public List<Order> ListOrders (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
@@ -3725,17 +3725,17 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// List orders. Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>ApiResponse of List&lt;Order&gt;</returns>
         public ApiResponse<List<Order>> ListOrdersWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
@@ -3806,17 +3806,17 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// List orders. Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of List&lt;Order&gt;</returns>
         public async Task<List<Order>> ListOrdersAsync (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
@@ -3826,17 +3826,17 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List orders Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; is set to &#x60;finished&#x60;, that is, when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
+        /// List orders. Note that the query results are spot order lists for spot, unified account and warehouse-by-site leverage accounts by default.  &#x60;status&#x60; is set to &#x60;open&#x60;, that is, when querying the pending order list, only pagination control of &#x60;page&#x60; and &#x60;limit&#x60; is supported. &#x60;limit&#x60; Maximum setting is only allowed to 100 . The &#x60;side&#x60; and &#x60;from&#x60;, &#x60;to&#x60; parameters for time range query are not supported.  &#x60;status&#x60; when querying historical delegations, in addition to pagination queries, &#x60;from&#x60; and &#x60;to&#x60; are also supported by time range queries. In addition, it supports setting the &#x60;side&#x60; parameter to filter one-side history.  The parameters of the time range filtering are processed according to the order end time.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencyPair">Retrieve results with specified currency pair. It is required for open orders, but optional for finished ones.</param>
         /// <param name="status">List orders based on status  &#x60;open&#x60; - order is waiting to be filled &#x60;finished&#x60; - order has been filled or cancelled </param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="limit">Maximum number of records to be returned. If &#x60;status&#x60; is &#x60;open&#x60;, maximum of &#x60;limit&#x60; is 100 (optional, default to 100)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
         public async Task<ApiResponse<List<Order>>> ListOrdersAsyncWithHttpInfo (string currencyPair, string status, int? page = default(int?), int? limit = default(int?), string account = default(string), long? from = default(long?), long? to = default(long?), string side = default(string))
         {
@@ -3909,7 +3909,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Create an order. Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3922,7 +3922,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Create an order. Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3973,7 +3973,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Create an order. Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -3987,7 +3987,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create an order Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified account transactions, that is, when &#x60;account&#x60; is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
+        /// Create an order. Support spot, margin, leverage, and full-position leverage orders. Use different accounts through the &#x60;account&#x60; field, default is &#x60;spot&#x60;, that is, use the spot account to place an order if the user is &#x60;unified&#x60; account, default is to place an order with a unified account  When using leveraged account trading, that is, when &#x60;account&#x60; is set to &#x60;margin&#x60;, you can set &#x60;auto_borrow&#x60; to &#x60;true&#x60;, In the case of insufficient account balance, the system will automatically execute the &#x60;POST /margin/uni/loans&#x60; to borrow the insufficient part. Whether the assets obtained after the leveraged order is automatically used to return the borrowing orders of the leveraged account in a position-by-store leverage account depends on the automatic repayment settings of the user&#39;s position-by-store leverage account**, The account automatic repayment settings can be queried and set through &#x60;/margin/auto_repay&#x60;.  Use unified is set to &#x60;unified&#x60;, &#x60;auto_borrow&#x60; \&quot; can also be enableTo realize the insufficient part of automatic borrowing, but unlike the leverage account, whether the entrustment of a unified account is automatically repayable depends on the   when placing an order&#x60;auto_repay&#x60; setting, this setting is only effective for the current entrustment, that is, only the assets obtained after the entrustment transaction will be used to repay the borrowing orders of the full-position leverage account. Unified account ordering currently supports &#x60;auto_borrow&#x60; and &#x60;auto_repay&#x60; at the same time.  Auto repayment will be triggered at the end of the order, i.e. &#x60;status&#x60; is &#x60;cancelled&#x60; or &#x60;closed&#x60; .  **Delegation Status**  The entrustment status in the pending order is &#x60;open&#x60;, which remains at &#x60;open&#x60; until all the quantity is traded. If it is eaten, the order ends and the status becomes &#x60;closed&#x60;. If the order is cancelled before all transactions are completed, regardless of whether there are partial transactions, the status will become &#x60;cancelled&#x60;  **Iceberg Entrustment**  &#x60;iceberg&#x60; is used to set the number of iceberg delegations displayed, and does not support complete hiding. Note that when hidden part of the transaction is charged according to the taker&#39;s handling rate.  **Restrict user transactions**  Set &#x60;stp_act&#x60; to decide to use strategies that limit user transactions
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="order"></param>
@@ -4040,11 +4040,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair. When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4056,11 +4056,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair. When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4120,11 +4120,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair. When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4137,11 +4137,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel all &#x60;open&#x60; orders in specified currency pair When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When &#x60;currency_pair&#x60; is not specified, all transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
+        /// Cancel all &#x60;open&#x60; orders in specified currency pair. When the &#x60;account&#x60; parameter is not specified, all pending orders including spot, unified account, and position-by-position leverage will be cancelled. When transaction pairs are revoked You can specify a certain account separately to cancel all orders under the specified account
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="side">All bids or asks. Both included if not specified (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="side">All bids or asks. Both included if not specified. (optional)</param>
         /// <param name="account">Specify account type  Classic account: All are included if not specified Unified account: Specify unified (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4203,7 +4203,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
+        /// Cancel a batch of orders with an ID list. Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
@@ -4216,7 +4216,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
+        /// Cancel a batch of orders with an ID list. Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
@@ -4267,7 +4267,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
+        /// Cancel a batch of orders with an ID list. Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
@@ -4281,7 +4281,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a batch of orders with an ID list Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
+        /// Cancel a batch of orders with an ID list. Multiple currency pairs can be specified, but maximum 20 orders are allowed per request
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelBatchOrder"></param>
@@ -4334,11 +4334,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+        /// Get a single order. By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Order</returns>
         public Order GetOrder (string orderId, string currencyPair, string account = default(string))
@@ -4348,11 +4348,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+        /// Get a single order. By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>ApiResponse of Order</returns>
         public ApiResponse<Order> GetOrderWithHttpInfo (string orderId, string currencyPair, string account = default(string))
@@ -4404,11 +4404,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+        /// Get a single order. By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of Order</returns>
         public async Task<Order> GetOrderAsync (string orderId, string currencyPair, string account = default(string))
@@ -4419,11 +4419,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single order By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
+        /// Get a single order. By default, orders for spot, unified account and warehouse-by-site leverage account are checked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is required. If you are querying traded records, this field can be left blank.</param>
+        /// <param name="currencyPair">Specify the transaction pair to query. If you are querying pending order records, this field is traded records, this field can be left blank.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
         public async Task<ApiResponse<Order>> GetOrderAsyncWithHttpInfo (string orderId, string currencyPair, string account = default(string))
@@ -4477,11 +4477,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order By default, orders for spot, unified accounts and leveraged accounts are revoked.
+        /// Cancel a single order. By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4493,11 +4493,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order By default, orders for spot, unified accounts and leveraged accounts are revoked.
+        /// Cancel a single order. By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4559,11 +4559,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order By default, orders for spot, unified accounts and leveraged accounts are revoked.
+        /// Cancel a single order. By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4576,11 +4576,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel a single order By default, orders for spot, unified accounts and leveraged accounts are revoked.
+        /// Cancel a single order. By default, orders for spot, unified accounts and leveraged accounts are revoked.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="actionMode">Processing Mode  When placing an order, different fields are returned based on the action_mode  - ACK: Asynchronous mode, returns only key order fields - RESULT: No clearing information - FULL: Full mode (default) (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
@@ -4644,12 +4644,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Amend an order. Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Order</returns>
@@ -4660,12 +4660,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Amend an order. Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>ApiResponse of Order</returns>
@@ -4727,12 +4727,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Amend an order. Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of Order</returns>
@@ -4744,12 +4744,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend an order Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
+        /// Amend an order. Modify orders in spot, unified account and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation and isolated margin account by default.  Currently both request body and query support currency_pair and account parameters, but request body has higher priority.  currency_pair must be filled in one of the request body or query parameters.  About rate limit: Order modification and order creation share the same rate limit rules.  About matching priority: Only reducing the quantity does not affect the matching priority. Modifying the price or increasing the quantity will adjust the priority to the end of the new price level.  Note: Modifying the quantity to be less than the filled quantity will trigger a cancellation operation.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">The order ID returned when the order was successfully created or the custom ID specified by the user&#39;s creation (i.e. the &#x60;text&#x60; field). Operations based on custom IDs can only be checked in pending orders. Only order ID can be used after the order is finished (transaction/cancel)</param>
         /// <param name="orderPatch"></param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
         /// <param name="xGateExptime">Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)</param>
         /// <returns>Task of ApiResponse (Order)</returns>
@@ -4813,16 +4813,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// List personal trading history. By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;Trade&gt;</returns>
         public List<Trade> ListMyTrades (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
@@ -4831,16 +4831,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// List personal trading history. By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;Trade&gt;</returns>
         public ApiResponse<List<Trade>> ListMyTradesWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
@@ -4905,16 +4905,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// List personal trading history. By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;Trade&gt;</returns>
         public async Task<List<Trade>> ListMyTradesAsync (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
@@ -4924,16 +4924,16 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List personal trading history By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range of &#x60;from&#x60; and &#x60;to&#x60; is not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,000, that is, limit * (page - 1) &lt;&#x3D; 100,000.
+        /// List personal trading history. By default query of transaction records for spot, unified account and warehouse-by-site leverage accounts.  The history within a specified time range can be queried by specifying &#x60;from&#x60; or (and) &#x60;to&#x60;.  - If no time parameters are specified, only data for the last 7 days can be obtained. - If only any parameter of &#x60;from&#x60; or &#x60;to&#x60; is specified, only 7-day data from the start (or end) of the specified time is returned. - The range not allowed to exceed 30 days.  The parameters of the time range filter are processed according to the order end time.  The maximum number of pages when searching data using limit&amp;page paging function is 100,0, that is, limit * (page - 1) &lt;&#x3D; 100,0.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Retrieve results with specified currency pair (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list.  Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="currencyPair">Retrieve results with specified currency pair. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. Default: 100, Minimum: 1, Maximum: 1000 (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <param name="orderId">Filter trades with specified order ID. &#x60;currency_pair&#x60; is also required if this field is present (optional)</param>
         /// <param name="account">Specify query account. (optional)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;Trade&gt;)</returns>
         public async Task<ApiResponse<List<Trade>>> ListMyTradesAsyncWithHttpInfo (string currencyPair = default(string), int? limit = default(int?), int? page = default(int?), string orderId = default(string), string account = default(string), long? from = default(long?), long? to = default(long?))
         {
@@ -5000,7 +5000,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get server current time 
+        /// Get server current time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SystemTime</returns>
@@ -5011,7 +5011,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get server current time 
+        /// Get server current time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SystemTime</returns>
@@ -5048,7 +5048,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get server current time 
+        /// Get server current time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of SystemTime</returns>
@@ -5060,7 +5060,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get server current time 
+        /// Get server current time. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (SystemTime)</returns>
@@ -5099,7 +5099,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -5111,7 +5111,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -5157,7 +5157,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -5170,7 +5170,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Countdown cancel orders Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market pending orders will be cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
+        /// Countdown cancel orders. Spot order heartbeat detection. If there is no \&quot;cancel existing countdown\&quot; or \&quot;set new countdown\&quot; when the user-set &#x60;timeout&#x60; time is reached, the related &#x60;spot pending orders&#x60; will be automatically cancelled. This interface can be called repeatedly to set a new countdown or cancel the countdown. Usage example: Repeat this interface at 30s intervals, setting the countdown &#x60;timeout&#x60; to &#x60;30 (seconds)&#x60; each time. If this interface is not called again within 30 seconds, all pending orders on the &#x60;market&#x60; you specified will be automatically cancelled. If no &#x60;market&#x60; is specified, all market cancelled. If the &#x60;timeout&#x60; is set to 0 within 30 seconds, the countdown timer will be terminated and the automatic order cancellation function will be cancelled.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="countdownCancelAllSpotTask"></param>
@@ -5218,7 +5218,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch modification of orders Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Batch modification of orders. Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -5231,7 +5231,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch modification of orders Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Batch modification of orders. Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -5282,7 +5282,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch modification of orders Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Batch modification of orders. Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -5296,7 +5296,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch modification of orders Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return content order of batch modification orders is consistent with the order list order.
+        /// Batch modification of orders. Modify orders in spot, unified account and isolated margin account by default. Modify uncompleted orders, up to 5 orders can be modified at a time. Request parameters should be passed in array format. If there are order modification failures during the batch modification process, the modification of the next order will continue to be executed, and the execution will return with the corresponding order failure information. The call order of batch modification orders is consistent with the order list order. The return is consistent with the order list order.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchAmendItem"></param>
@@ -5349,15 +5349,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query spot insurance fund historical data 
+        /// Query spot insurance fund historical data. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>List&lt;SpotInsuranceHistory&gt;</returns>
         public List<SpotInsuranceHistory> GetSpotInsuranceHistory (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?))
         {
@@ -5366,15 +5366,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query spot insurance fund historical data 
+        /// Query spot insurance fund historical data. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>ApiResponse of List&lt;SpotInsuranceHistory&gt;</returns>
         public ApiResponse<List<SpotInsuranceHistory>> GetSpotInsuranceHistoryWithHttpInfo (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?))
         {
@@ -5429,15 +5429,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query spot insurance fund historical data 
+        /// Query spot insurance fund historical data. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>Task of List&lt;SpotInsuranceHistory&gt;</returns>
         public async Task<List<SpotInsuranceHistory>> GetSpotInsuranceHistoryAsync (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?))
         {
@@ -5447,15 +5447,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query spot insurance fund historical data 
+        /// Query spot insurance fund historical data. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="business">Leverage business, margin - position by position; unified - unified account</param>
-        /// <param name="currency">Currency</param>
-        /// <param name="from">Start timestamp, seconds</param>
-        /// <param name="to">End timestamp, in seconds</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">The maximum number of items returned in the list, the default value is 30 (optional, default to 30)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="from">Start timestamp, seconds.</param>
+        /// <param name="to">End timestamp, in seconds.</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">The maximum number of items returned in the list, the default value is 30. (optional, default to 30)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotInsuranceHistory&gt;)</returns>
         public async Task<ApiResponse<List<SpotInsuranceHistory>>> GetSpotInsuranceHistoryAsyncWithHttpInfo (string business, string currency, long from, long to, int? page = default(int?), int? limit = default(int?))
         {
@@ -5512,14 +5512,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve running auto order list 
+        /// Retrieve running auto order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public List<SpotPriceTriggeredOrder> ListSpotPriceTriggeredOrders (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
         {
@@ -5528,14 +5528,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve running auto order list 
+        /// Retrieve running auto order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
         {
@@ -5593,14 +5593,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve running auto order list 
+        /// Retrieve running auto order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public async Task<List<SpotPriceTriggeredOrder>> ListSpotPriceTriggeredOrdersAsync (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
         {
@@ -5610,14 +5610,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Retrieve running auto order list 
+        /// Retrieve running auto order list. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="status">Only list the orders with this status</param>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="offset">List offset, starting from 0 (optional, default to 0)</param>
+        /// <param name="status">Only list the orders with this status.</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="offset">List offset, starting from 0. (optional, default to 0)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> ListSpotPriceTriggeredOrdersAsyncWithHttpInfo (string status, string market = default(string), string account = default(string), int? limit = default(int?), int? offset = default(int?))
         {
@@ -5677,7 +5677,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a price-triggered order 
+        /// Create a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spotPriceTriggeredOrder"></param>
@@ -5689,7 +5689,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a price-triggered order 
+        /// Create a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spotPriceTriggeredOrder"></param>
@@ -5735,7 +5735,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a price-triggered order 
+        /// Create a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spotPriceTriggeredOrder"></param>
@@ -5748,7 +5748,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a price-triggered order 
+        /// Create a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="spotPriceTriggeredOrder"></param>
@@ -5796,11 +5796,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel All Price-triggered Orders 
+        /// Cancel All Price-triggered Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public List<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderList (string market = default(string), string account = default(string))
         {
@@ -5809,11 +5809,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel All Price-triggered Orders 
+        /// Cancel All Price-triggered Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>ApiResponse of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public ApiResponse<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListWithHttpInfo (string market = default(string), string account = default(string))
         {
@@ -5858,11 +5858,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel All Price-triggered Orders 
+        /// Cancel All Price-triggered Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>Task of List&lt;SpotPriceTriggeredOrder&gt;</returns>
         public async Task<List<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderListAsync (string market = default(string), string account = default(string))
         {
@@ -5872,11 +5872,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel All Price-triggered Orders 
+        /// Cancel All Price-triggered Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="market">Currency pair (optional)</param>
-        /// <param name="account">Trading account type.  Portfolio margin account must set to &#x60;unified&#x60; (optional)</param>
+        /// <param name="market">Currency pair. (optional)</param>
+        /// <param name="account">Trading account type. Portfolio margin account must set to &#x60;unified&#x60;. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;SpotPriceTriggeredOrder&gt;)</returns>
         public async Task<ApiResponse<List<SpotPriceTriggeredOrder>>> CancelSpotPriceTriggeredOrderListAsyncWithHttpInfo (string market = default(string), string account = default(string))
         {
@@ -5923,10 +5923,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a price-triggered order 
+        /// Get a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         public SpotPriceTriggeredOrder GetSpotPriceTriggeredOrder (string orderId)
         {
@@ -5935,10 +5935,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a price-triggered order 
+        /// Get a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         public ApiResponse<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderWithHttpInfo (string orderId)
         {
@@ -5980,10 +5980,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a price-triggered order 
+        /// Get a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         public async Task<SpotPriceTriggeredOrder> GetSpotPriceTriggeredOrderAsync (string orderId)
         {
@@ -5993,10 +5993,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a price-triggered order 
+        /// Get a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<SpotPriceTriggeredOrder>> GetSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
         {
@@ -6040,10 +6040,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// cancel a price-triggered order 
+        /// cancel a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>SpotPriceTriggeredOrder</returns>
         public SpotPriceTriggeredOrder CancelSpotPriceTriggeredOrder (string orderId)
         {
@@ -6052,10 +6052,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// cancel a price-triggered order 
+        /// cancel a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>ApiResponse of SpotPriceTriggeredOrder</returns>
         public ApiResponse<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderWithHttpInfo (string orderId)
         {
@@ -6097,10 +6097,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// cancel a price-triggered order 
+        /// cancel a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of SpotPriceTriggeredOrder</returns>
         public async Task<SpotPriceTriggeredOrder> CancelSpotPriceTriggeredOrderAsync (string orderId)
         {
@@ -6110,10 +6110,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// cancel a price-triggered order 
+        /// cancel a price-triggered order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Retrieve the data of the order with the specified ID</param>
+        /// <param name="orderId">Retrieve the data of the order with the specified ID.</param>
         /// <returns>Task of ApiResponse (SpotPriceTriggeredOrder)</returns>
         public async Task<ApiResponse<SpotPriceTriggeredOrder>> CancelSpotPriceTriggeredOrderAsyncWithHttpInfo (string orderId)
         {

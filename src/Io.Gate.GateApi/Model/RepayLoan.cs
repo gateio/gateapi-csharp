@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Repay
+    /// Repay.
     /// </summary>
     [DataContract]
     public partial class RepayLoan :  IEquatable<RepayLoan>, IValidatableObject
@@ -38,9 +38,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayLoan" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID (required).</param>
-        /// <param name="repayAmount">Repayment amount, it is mandatory when making partial repayments (required).</param>
-        /// <param name="repaidAll">Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When set to false for partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user.  (required).</param>
+        /// <param name="orderId">Order ID. (required).</param>
+        /// <param name="repayAmount">Repayment amount, it is mandatory when making partial repayments. (required).</param>
+        /// <param name="repaidAll">Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user.  (required).</param>
         public RepayLoan(long orderId = default(long), string repayAmount = default(string), bool repaidAll = default(bool))
         {
             this.OrderId = orderId;
@@ -50,23 +50,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Repayment amount, it is mandatory when making partial repayments
+        /// Repayment amount, it is mandatory when making partial repayments.
         /// </summary>
-        /// <value>Repayment amount, it is mandatory when making partial repayments</value>
+        /// <value>Repayment amount, it is mandatory when making partial repayments.</value>
         [DataMember(Name="repay_amount")]
         public string RepayAmount { get; set; }
 
         /// <summary>
-        /// Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When set to false for partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. 
+        /// Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. 
         /// </summary>
-        /// <value>Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When set to false for partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. </value>
+        /// <value>Repayment method, set to &#x60;true&#x60; for full repayment, and &#x60;false&#x60; for partial repayment; When partial repayment, the repay_amount parameter cannot be greater than the remaining amount to be repaid by the user. </value>
         [DataMember(Name="repaid_all")]
         public bool RepaidAll { get; set; }
 

@@ -38,16 +38,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DebitFee" /> class.
         /// </summary>
-        /// <param name="enabled">Whether GT fee discount is used (required).</param>
+        /// <param name="enabled">Whether GT fee discount is used. (required).</param>
         public DebitFee(bool enabled = default(bool))
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Whether GT fee discount is used
+        /// Whether GT fee discount is used.
         /// </summary>
-        /// <value>Whether GT fee discount is used</value>
+        /// <value>Whether GT fee discount is used.</value>
         [DataMember(Name="enabled")]
         public bool Enabled { get; set; }
 

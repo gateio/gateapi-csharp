@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Risk unit
+    /// Risk unit.
     /// </summary>
     [DataContract]
     public partial class MockRiskUnit :  IEquatable<MockRiskUnit>, IValidatableObject
@@ -33,15 +33,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MockRiskUnit" /> class.
         /// </summary>
-        /// <param name="symbol">Risk unit name.</param>
-        /// <param name="spotInUse">Spot usage.</param>
-        /// <param name="maintainMargin">Maintenance margin.</param>
-        /// <param name="initialMargin">Initial margin.</param>
-        /// <param name="marginResult">Margin result.</param>
-        /// <param name="delta">Total Delta of risk unit.</param>
-        /// <param name="gamma">Total Gamma of risk unit.</param>
-        /// <param name="theta">Total Theta of risk unit.</param>
-        /// <param name="vega">Total Vega of risk unit.</param>
+        /// <param name="symbol">Risk unit name..</param>
+        /// <param name="spotInUse">Spot usage..</param>
+        /// <param name="maintainMargin">Maintenance margin..</param>
+        /// <param name="initialMargin">Initial margin..</param>
+        /// <param name="marginResult">Margin result..</param>
+        /// <param name="delta">Total Delta of risk unit..</param>
+        /// <param name="gamma">Total Gamma of risk unit..</param>
+        /// <param name="theta">Total Theta of risk unit..</param>
+        /// <param name="vega">Total Vega of risk unit..</param>
         public MockRiskUnit(string symbol = default(string), string spotInUse = default(string), string maintainMargin = default(string), string initialMargin = default(string), List<MockMarginResult> marginResult = default(List<MockMarginResult>), string delta = default(string), string gamma = default(string), string theta = default(string), string vega = default(string))
         {
             this.Symbol = symbol;
@@ -56,65 +56,65 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Risk unit name
+        /// Risk unit name.
         /// </summary>
-        /// <value>Risk unit name</value>
+        /// <value>Risk unit name.</value>
         [DataMember(Name="symbol")]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// Spot usage
+        /// Spot usage.
         /// </summary>
-        /// <value>Spot usage</value>
+        /// <value>Spot usage.</value>
         [DataMember(Name="spot_in_use")]
         public string SpotInUse { get; set; }
 
         /// <summary>
-        /// Maintenance margin
+        /// Maintenance margin.
         /// </summary>
-        /// <value>Maintenance margin</value>
+        /// <value>Maintenance margin.</value>
         [DataMember(Name="maintain_margin")]
         public string MaintainMargin { get; set; }
 
         /// <summary>
-        /// Initial margin
+        /// Initial margin.
         /// </summary>
-        /// <value>Initial margin</value>
+        /// <value>Initial margin.</value>
         [DataMember(Name="initial_margin")]
         public string InitialMargin { get; set; }
 
         /// <summary>
-        /// Margin result
+        /// Margin result.
         /// </summary>
-        /// <value>Margin result</value>
+        /// <value>Margin result.</value>
         [DataMember(Name="margin_result")]
         public List<MockMarginResult> MarginResult { get; set; }
 
         /// <summary>
-        /// Total Delta of risk unit
+        /// Total Delta of risk unit.
         /// </summary>
-        /// <value>Total Delta of risk unit</value>
+        /// <value>Total Delta of risk unit.</value>
         [DataMember(Name="delta")]
         public string Delta { get; set; }
 
         /// <summary>
-        /// Total Gamma of risk unit
+        /// Total Gamma of risk unit.
         /// </summary>
-        /// <value>Total Gamma of risk unit</value>
+        /// <value>Total Gamma of risk unit.</value>
         [DataMember(Name="gamma")]
         public string Gamma { get; set; }
 
         /// <summary>
-        /// Total Theta of risk unit
+        /// Total Theta of risk unit.
         /// </summary>
-        /// <value>Total Theta of risk unit</value>
+        /// <value>Total Theta of risk unit.</value>
         [DataMember(Name="theta")]
         public string Theta { get; set; }
 
         /// <summary>
-        /// Total Vega of risk unit
+        /// Total Vega of risk unit.
         /// </summary>
-        /// <value>Total Vega of risk unit</value>
+        /// <value>Total Vega of risk unit.</value>
         [DataMember(Name="vega")]
         public string Vega { get; set; }
 

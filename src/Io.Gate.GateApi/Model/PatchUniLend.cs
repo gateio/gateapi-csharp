@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchUniLend" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="minRate">Minimum interest rate.</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="minRate">Minimum interest rate..</param>
         public PatchUniLend(string currency = default(string), string minRate = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Minimum interest rate
+        /// Minimum interest rate.
         /// </summary>
-        /// <value>Minimum interest rate</value>
+        /// <value>Minimum interest rate.</value>
         [DataMember(Name="min_rate")]
         public string MinRate { get; set; }
 

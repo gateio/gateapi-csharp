@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Order cancellation result
+    /// Order cancellation result.
     /// </summary>
     [DataContract]
     public partial class CancelOrderResult :  IEquatable<CancelOrderResult>, IValidatableObject
@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelOrderResult" /> class.
         /// </summary>
-        /// <param name="currencyPair">Order currency pair.</param>
-        /// <param name="id">Order ID.</param>
-        /// <param name="text">Custom order information.</param>
-        /// <param name="succeeded">Whether cancellation succeeded.</param>
-        /// <param name="label">Error label when failed to cancel the order; emtpy if succeeded.</param>
-        /// <param name="message">Error message when failed to cancel the order; empty if succeeded.</param>
-        /// <param name="account">Default is empty (deprecated).</param>
+        /// <param name="currencyPair">Order currency pair..</param>
+        /// <param name="id">Order ID..</param>
+        /// <param name="text">Custom order information..</param>
+        /// <param name="succeeded">Whether cancellation succeeded..</param>
+        /// <param name="label">Error label when failed to cancel the order; emtpy if succeeded..</param>
+        /// <param name="message">Error message when failed to cancel the order; empty if succeeded..</param>
+        /// <param name="account">Default is empty (deprecated)..</param>
         public CancelOrderResult(string currencyPair = default(string), string id = default(string), string text = default(string), bool succeeded = default(bool), string label = default(string), string message = default(string), string account = default(string))
         {
             this.CurrencyPair = currencyPair;
@@ -52,51 +52,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order currency pair
+        /// Order currency pair.
         /// </summary>
-        /// <value>Order currency pair</value>
+        /// <value>Order currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Custom order information
+        /// Custom order information.
         /// </summary>
-        /// <value>Custom order information</value>
+        /// <value>Custom order information.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
-        /// Whether cancellation succeeded
+        /// Whether cancellation succeeded.
         /// </summary>
-        /// <value>Whether cancellation succeeded</value>
+        /// <value>Whether cancellation succeeded.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
-        /// Error label when failed to cancel the order; emtpy if succeeded
+        /// Error label when failed to cancel the order; emtpy if succeeded.
         /// </summary>
-        /// <value>Error label when failed to cancel the order; emtpy if succeeded</value>
+        /// <value>Error label when failed to cancel the order; emtpy if succeeded.</value>
         [DataMember(Name="label")]
         public string Label { get; set; }
 
         /// <summary>
-        /// Error message when failed to cancel the order; empty if succeeded
+        /// Error message when failed to cancel the order; empty if succeeded.
         /// </summary>
-        /// <value>Error message when failed to cancel the order; empty if succeeded</value>
+        /// <value>Error message when failed to cancel the order; empty if succeeded.</value>
         [DataMember(Name="message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Default is empty (deprecated)
+        /// Default is empty (deprecated).
         /// </summary>
-        /// <value>Default is empty (deprecated)</value>
+        /// <value>Default is empty (deprecated).</value>
         [DataMember(Name="account")]
         public string Account { get; set; }
 

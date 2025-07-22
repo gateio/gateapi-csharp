@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class Transfer :  IEquatable<Transfer>, IValidatableObject
     {
         /// <summary>
-        /// Account to transfer from
+        /// Account to transfer from.
         /// </summary>
-        /// <value>Account to transfer from</value>
+        /// <value>Account to transfer from.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FromEnum
         {
@@ -70,15 +70,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account to transfer from
+        /// Account to transfer from.
         /// </summary>
-        /// <value>Account to transfer from</value>
+        /// <value>Account to transfer from.</value>
         [DataMember(Name="from")]
         public FromEnum From { get; set; }
         /// <summary>
-        /// Account to transfer to
+        /// Account to transfer to.
         /// </summary>
-        /// <value>Account to transfer to</value>
+        /// <value>Account to transfer to.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ToEnum
         {
@@ -115,9 +115,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Account to transfer to
+        /// Account to transfer to.
         /// </summary>
-        /// <value>Account to transfer to</value>
+        /// <value>Account to transfer to.</value>
         [DataMember(Name="to")]
         public ToEnum To { get; set; }
         /// <summary>
@@ -129,10 +129,10 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="Transfer" /> class.
         /// </summary>
         /// <param name="currency">Transfer currency. For futures account, &#x60;currency&#x60; can be set to &#x60;POINT&#x60; or settle currency (required).</param>
-        /// <param name="from">Account to transfer from (required).</param>
-        /// <param name="to">Account to transfer to (required).</param>
-        /// <param name="amount">Transfer amount (required).</param>
-        /// <param name="currencyPair">Margin currency pair. Required if transfer from or to margin account.</param>
+        /// <param name="from">Account to transfer from. (required).</param>
+        /// <param name="to">Account to transfer to. (required).</param>
+        /// <param name="amount">Transfer amount. (required).</param>
+        /// <param name="currencyPair">Margin currency pair. Required if transfer from or to margin account..</param>
         /// <param name="settle">Futures settle currency. Required if transferring from or to futures account.</param>
         public Transfer(string currency = default(string), FromEnum from = default(FromEnum), ToEnum to = default(ToEnum), string amount = default(string), string currencyPair = default(string), string settle = default(string))
         {
@@ -154,16 +154,16 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Transfer amount
+        /// Transfer amount.
         /// </summary>
-        /// <value>Transfer amount</value>
+        /// <value>Transfer amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Margin currency pair. Required if transfer from or to margin account
+        /// Margin currency pair. Required if transfer from or to margin account.
         /// </summary>
-        /// <value>Margin currency pair. Required if transfer from or to margin account</value>
+        /// <value>Margin currency pair. Required if transfer from or to margin account.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

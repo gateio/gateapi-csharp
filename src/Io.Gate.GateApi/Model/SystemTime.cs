@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemTime" /> class.
         /// </summary>
-        /// <param name="serverTime">Server current time(ms).</param>
+        /// <param name="serverTime">Server current time(ms)..</param>
         public SystemTime(long serverTime = default(long))
         {
             this.ServerTime = serverTime;
         }
 
         /// <summary>
-        /// Server current time(ms)
+        /// Server current time(ms).
         /// </summary>
-        /// <value>Server current time(ms)</value>
+        /// <value>Server current time(ms).</value>
         [DataMember(Name="server_time")]
         public long ServerTime { get; set; }
 

@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferOrderStatus" /> class.
         /// </summary>
-        /// <param name="txId">Order id.</param>
+        /// <param name="txId">Order id..</param>
         /// <param name="status">Transfer status, PENDING - in process, SUCCESS - successful transfer, FAIL - failed transfer, PARTIAL_SUCCESS - Partially successful (this status will appear when transferring between sub-subs).</param>
         public TransferOrderStatus(string txId = default(string), string status = default(string))
         {
@@ -42,9 +42,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order id
+        /// Order id.
         /// </summary>
-        /// <value>Order id</value>
+        /// <value>Order id.</value>
         [DataMember(Name="tx_id")]
         public string TxId { get; set; }
 

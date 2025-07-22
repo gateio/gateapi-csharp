@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayCurrencyRes" /> class.
         /// </summary>
-        /// <param name="succeeded">Has the repayment been successful.</param>
+        /// <param name="succeeded">Has the repayment been successful..</param>
         /// <param name="label">Error identifier for unsuccessful operations; empty for successful..</param>
         /// <param name="message">Error description in case of operation failure; empty when successful..</param>
-        /// <param name="currency">Repayment currency.</param>
-        /// <param name="repaidPrincipal">Principal.</param>
-        /// <param name="repaidInterest">Principal.</param>
+        /// <param name="currency">Repayment currency..</param>
+        /// <param name="repaidPrincipal">Principal..</param>
+        /// <param name="repaidInterest">Principal..</param>
         public RepayCurrencyRes(bool succeeded = default(bool), string label = default(string), string message = default(string), string currency = default(string), string repaidPrincipal = default(string), string repaidInterest = default(string))
         {
             this.Succeeded = succeeded;
@@ -50,9 +50,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Has the repayment been successful
+        /// Has the repayment been successful.
         /// </summary>
-        /// <value>Has the repayment been successful</value>
+        /// <value>Has the repayment been successful.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
@@ -71,23 +71,23 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Repayment currency
+        /// Repayment currency.
         /// </summary>
-        /// <value>Repayment currency</value>
+        /// <value>Repayment currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Principal
+        /// Principal.
         /// </summary>
-        /// <value>Principal</value>
+        /// <value>Principal.</value>
         [DataMember(Name="repaid_principal")]
         public string RepaidPrincipal { get; set; }
 
         /// <summary>
-        /// Principal
+        /// Principal.
         /// </summary>
-        /// <value>Principal</value>
+        /// <value>Principal.</value>
         [DataMember(Name="repaid_interest")]
         public string RepaidInterest { get; set; }
 

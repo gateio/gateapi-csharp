@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Convert Small Balance
+    /// Convert Small Balance.
     /// </summary>
     [DataContract]
     public partial class SmallBalanceHistory :  IEquatable<SmallBalanceHistory>, IValidatableObject
@@ -39,37 +39,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// amount
+        /// amount.
         /// </summary>
-        /// <value>amount</value>
+        /// <value>amount.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; private set; }
 
         /// <summary>
-        /// GT amount
+        /// GT amount.
         /// </summary>
-        /// <value>GT amount</value>
+        /// <value>GT amount.</value>
         [DataMember(Name="gt_amount", EmitDefaultValue=false)]
         public string GtAmount { get; private set; }
 
         /// <summary>
-        /// Exchange time (in seconds)
+        /// Exchange time (in seconds).
         /// </summary>
-        /// <value>Exchange time (in seconds)</value>
+        /// <value>Exchange time (in seconds).</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

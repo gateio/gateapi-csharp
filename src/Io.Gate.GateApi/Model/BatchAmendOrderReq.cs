@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Modify contract order parameters
+    /// Modify contract order parameters.
     /// </summary>
     [DataContract]
     public partial class BatchAmendOrderReq :  IEquatable<BatchAmendOrderReq>, IValidatableObject
@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchAmendOrderReq" /> class.
         /// </summary>
-        /// <param name="orderId">Order id, order_id and text must contain at least one.</param>
-        /// <param name="text">User-defined order text, at least one of order_id and text must be passed.</param>
-        /// <param name="size">The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, other orders that only reduce positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price..</param>
+        /// <param name="orderId">Order id, order_id and text must contain at least one..</param>
+        /// <param name="text">User-defined order text, at least one of order_id and text must be passed..</param>
+        /// <param name="size">The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price..</param>
         /// <param name="price">New order price..</param>
-        /// <param name="amendText">Custom info during amending order.</param>
+        /// <param name="amendText">Custom info during amending order..</param>
         public BatchAmendOrderReq(long orderId = default(long), string text = default(string), long size = default(long), string price = default(string), string amendText = default(string))
         {
             this.OrderId = orderId;
@@ -48,23 +48,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order id, order_id and text must contain at least one
+        /// Order id, order_id and text must contain at least one.
         /// </summary>
-        /// <value>Order id, order_id and text must contain at least one</value>
+        /// <value>Order id, order_id and text must contain at least one.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// User-defined order text, at least one of order_id and text must be passed
+        /// User-defined order text, at least one of order_id and text must be passed.
         /// </summary>
-        /// <value>User-defined order text, at least one of order_id and text must be passed</value>
+        /// <value>User-defined order text, at least one of order_id and text must be passed.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
-        /// The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, other orders that only reduce positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.
+        /// The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.
         /// </summary>
-        /// <value>The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, other orders that only reduce positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.</value>
+        /// <value>The new order size, including the executed order size. - If it is less than or equal to the executed quantity, the order will be cancelled. - The new order direction must be consistent with the original one. - The size of the closing order cannot be modified. - For orders that only reduce positions, if the size is increased, positions may be kicked out. - If the price is not modified, reducing the size will not affect the depth of the queue, and increasing the size will place it at the end of the current price.</value>
         [DataMember(Name="size")]
         public long Size { get; set; }
 
@@ -76,9 +76,9 @@ namespace Io.Gate.GateApi.Model
         public string Price { get; set; }
 
         /// <summary>
-        /// Custom info during amending order
+        /// Custom info during amending order.
         /// </summary>
-        /// <value>Custom info during amending order</value>
+        /// <value>Custom info during amending order.</value>
         [DataMember(Name="amend_text")]
         public string AmendText { get; set; }
 

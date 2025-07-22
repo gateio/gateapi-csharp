@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesPositionCrossMode" /> class.
         /// </summary>
-        /// <param name="mode">Full position-by-position model, ISOLATED-by-position, CROSS-full position (required).</param>
-        /// <param name="contract">Contract Market (required).</param>
+        /// <param name="mode">Full position-by-position model, ISOLATED-by-position, CROSS-full position. (required).</param>
+        /// <param name="contract">Contract Market. (required).</param>
         public FuturesPositionCrossMode(string mode = default(string), string contract = default(string))
         {
             // to ensure "mode" is required (not null)
@@ -49,16 +49,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Full position-by-position model, ISOLATED-by-position, CROSS-full position
+        /// Full position-by-position model, ISOLATED-by-position, CROSS-full position.
         /// </summary>
-        /// <value>Full position-by-position model, ISOLATED-by-position, CROSS-full position</value>
+        /// <value>Full position-by-position model, ISOLATED-by-position, CROSS-full position.</value>
         [DataMember(Name="mode")]
         public string Mode { get; set; }
 
         /// <summary>
-        /// Contract Market
+        /// Contract Market.
         /// </summary>
-        /// <value>Contract Market</value>
+        /// <value>Contract Market.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 

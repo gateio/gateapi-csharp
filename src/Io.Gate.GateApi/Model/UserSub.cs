@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSub" /> class.
         /// </summary>
-        /// <param name="uid">User ID.</param>
+        /// <param name="uid">User ID..</param>
         /// <param name="belong">The system to which the user belongs (partner referral). If empty, it means not belonging to any system..</param>
-        /// <param name="type">Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user).</param>
-        /// <param name="refUid">Inviter user ID.</param>
+        /// <param name="type">Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct customer 4-indirect direct customer 5-ordinary user).</param>
+        /// <param name="refUid">Inviter user ID..</param>
         public UserSub(long uid = default(long), string belong = default(string), long type = default(long), long refUid = default(long))
         {
             this.Uid = uid;
@@ -46,9 +46,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="uid")]
         public long Uid { get; set; }
 
@@ -60,16 +60,16 @@ namespace Io.Gate.GateApi.Model
         public string Belong { get; set; }
 
         /// <summary>
-        /// Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user)
+        /// Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct customer 4-indirect direct customer 5-ordinary user)
         /// </summary>
-        /// <value>Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct direct customer 4-indirect direct customer 5-ordinary user)</value>
+        /// <value>Type (0-not in the system 1-direct subordinate agent 2-indirect subordinate agent 3-direct customer 4-indirect direct customer 5-ordinary user)</value>
         [DataMember(Name="type")]
         public long Type { get; set; }
 
         /// <summary>
-        /// Inviter user ID
+        /// Inviter user ID.
         /// </summary>
-        /// <value>Inviter user ID</value>
+        /// <value>Inviter user ID.</value>
         [DataMember(Name="ref_uid")]
         public long RefUid { get; set; }
 

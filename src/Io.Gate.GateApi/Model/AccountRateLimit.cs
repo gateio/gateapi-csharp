@@ -34,9 +34,9 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="AccountRateLimit" /> class.
         /// </summary>
         /// <param name="tier">Frequency limit level (For detailed frequency limit rules, see [Transaction ratio frequency limit](#rate-limit-based-on-fill-ratio)).</param>
-        /// <param name="ratio">Transaction rate.</param>
-        /// <param name="mainRatio">Total transaction ratio of main account.</param>
-        /// <param name="updatedAt">Update time.</param>
+        /// <param name="ratio">Transaction rate..</param>
+        /// <param name="mainRatio">Total transaction ratio of main account..</param>
+        /// <param name="updatedAt">Update time..</param>
         public AccountRateLimit(string tier = default(string), string ratio = default(string), string mainRatio = default(string), string updatedAt = default(string))
         {
             this.Tier = tier;
@@ -53,23 +53,23 @@ namespace Io.Gate.GateApi.Model
         public string Tier { get; set; }
 
         /// <summary>
-        /// Transaction rate
+        /// Transaction rate.
         /// </summary>
-        /// <value>Transaction rate</value>
+        /// <value>Transaction rate.</value>
         [DataMember(Name="ratio")]
         public string Ratio { get; set; }
 
         /// <summary>
-        /// Total transaction ratio of main account
+        /// Total transaction ratio of main account.
         /// </summary>
-        /// <value>Total transaction ratio of main account</value>
+        /// <value>Total transaction ratio of main account.</value>
         [DataMember(Name="main_ratio")]
         public string MainRatio { get; set; }
 
         /// <summary>
-        /// Update time
+        /// Update time.
         /// </summary>
-        /// <value>Update time</value>
+        /// <value>Update time.</value>
         [DataMember(Name="updated_at")]
         public string UpdatedAt { get; set; }
 

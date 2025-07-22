@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralCurrencyRes" /> class.
         /// </summary>
-        /// <param name="succeeded">Update success status.</param>
+        /// <param name="succeeded">Update success status..</param>
         /// <param name="label">Error identifier for unsuccessful operations; empty for successful..</param>
         /// <param name="message">Error description in case of operation failure; empty when successful..</param>
-        /// <param name="currency">Currency.</param>
+        /// <param name="currency">Currency..</param>
         /// <param name="amount">Quantity of successful collateral operation; 0 if the operation fails..</param>
         public CollateralCurrencyRes(bool succeeded = default(bool), string label = default(string), string message = default(string), string currency = default(string), string amount = default(string))
         {
@@ -48,9 +48,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Update success status
+        /// Update success status.
         /// </summary>
-        /// <value>Update success status</value>
+        /// <value>Update success status.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
@@ -69,9 +69,9 @@ namespace Io.Gate.GateApi.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 

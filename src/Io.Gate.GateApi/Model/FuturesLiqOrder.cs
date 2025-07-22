@@ -39,51 +39,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Liquidation time
+        /// Liquidation time.
         /// </summary>
-        /// <value>Liquidation time</value>
+        /// <value>Liquidation time.</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
         public long Time { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// User position size
+        /// User position size.
         /// </summary>
-        /// <value>User position size</value>
+        /// <value>User position size.</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
         /// <summary>
-        /// Number of forced liquidation orders
+        /// Number of forced liquidation orders.
         /// </summary>
-        /// <value>Number of forced liquidation orders</value>
+        /// <value>Number of forced liquidation orders.</value>
         [DataMember(Name="order_size", EmitDefaultValue=false)]
         public long OrderSize { get; private set; }
 
         /// <summary>
-        /// Liquidation order price
+        /// Liquidation order price.
         /// </summary>
-        /// <value>Liquidation order price</value>
+        /// <value>Liquidation order price.</value>
         [DataMember(Name="order_price", EmitDefaultValue=false)]
         public string OrderPrice { get; private set; }
 
         /// <summary>
-        /// Liquidation order average taker price
+        /// Liquidation order average taker price.
         /// </summary>
-        /// <value>Liquidation order average taker price</value>
+        /// <value>Liquidation order average taker price.</value>
         [DataMember(Name="fill_price", EmitDefaultValue=false)]
         public string FillPrice { get; private set; }
 
         /// <summary>
-        /// System liquidation order maker size
+        /// System liquidation order maker size.
         /// </summary>
-        /// <value>System liquidation order maker size</value>
+        /// <value>System liquidation order maker size.</value>
         [DataMember(Name="left", EmitDefaultValue=false)]
         public long Left { get; private set; }
 

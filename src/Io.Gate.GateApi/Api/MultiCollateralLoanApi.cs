@@ -28,34 +28,34 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List Multi-Collateral Orders
+        /// List Multi-Collateral Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>List&lt;MultiCollateralOrder&gt;</returns>
         List<MultiCollateralOrder> ListMultiCollateralOrders (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string));
 
         /// <summary>
-        /// List Multi-Collateral Orders
+        /// List Multi-Collateral Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiCollateralOrder&gt;</returns>
         ApiResponse<List<MultiCollateralOrder>> ListMultiCollateralOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string));
         /// <summary>
-        /// Create Multi-Collateral Order
+        /// Create Multi-Collateral Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -66,7 +66,7 @@ namespace Io.Gate.GateApi.Api
         OrderResp CreateMultiCollateral (CreateMultiCollateralOrder createMultiCollateralOrder);
 
         /// <summary>
-        /// Create Multi-Collateral Order
+        /// Create Multi-Collateral Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -76,59 +76,59 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of OrderResp</returns>
         ApiResponse<OrderResp> CreateMultiCollateralWithHttpInfo (CreateMultiCollateralOrder createMultiCollateralOrder);
         /// <summary>
-        /// Get Multi-Collateral Order Detail
+        /// Get Multi-Collateral Order Detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>MultiCollateralOrder</returns>
         MultiCollateralOrder GetMultiCollateralOrderDetail (string orderId);
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail
+        /// Get Multi-Collateral Order Detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of MultiCollateralOrder</returns>
         ApiResponse<MultiCollateralOrder> GetMultiCollateralOrderDetailWithHttpInfo (string orderId);
         /// <summary>
-        /// List Multi-Collateral Repay Records
+        /// List Multi-Collateral Repay Records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;MultiRepayRecord&gt;</returns>
         List<MultiRepayRecord> ListMultiRepayRecords (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List Multi-Collateral Repay Records
+        /// List Multi-Collateral Repay Records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiRepayRecord&gt;</returns>
         ApiResponse<List<MultiRepayRecord>> ListMultiRepayRecordsWithHttpInfo (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Repay Multi-Collateral Loan
+        /// Repay Multi-Collateral Loan.
         /// </summary>
         /// <remarks>
         /// 
@@ -139,7 +139,7 @@ namespace Io.Gate.GateApi.Api
         MultiRepayResp RepayMultiCollateralLoan (RepayMultiLoan repayMultiLoan);
 
         /// <summary>
-        /// Repay Multi-Collateral Loan
+        /// Repay Multi-Collateral Loan.
         /// </summary>
         /// <remarks>
         /// 
@@ -149,36 +149,36 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of MultiRepayResp</returns>
         ApiResponse<MultiRepayResp> RepayMultiCollateralLoanWithHttpInfo (RepayMultiLoan repayMultiLoan);
         /// <summary>
-        /// Query collateral adjustment records
+        /// Query collateral adjustment records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>List&lt;MultiCollateralRecord&gt;</returns>
         List<MultiCollateralRecord> ListMultiCollateralRecords (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string));
 
         /// <summary>
-        /// Query collateral adjustment records
+        /// Query collateral adjustment records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiCollateralRecord&gt;</returns>
         ApiResponse<List<MultiCollateralRecord>> ListMultiCollateralRecordsWithHttpInfo (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string));
         /// <summary>
-        /// Operate Multi-Collateral
+        /// Operate Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -189,7 +189,7 @@ namespace Io.Gate.GateApi.Api
         CollateralAdjustRes OperateMultiCollateral (CollateralAdjust collateralAdjust);
 
         /// <summary>
-        /// Operate Multi-Collateral
+        /// Operate Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -199,30 +199,30 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CollateralAdjustRes</returns>
         ApiResponse<CollateralAdjustRes> OperateMultiCollateralWithHttpInfo (CollateralAdjust collateralAdjust);
         /// <summary>
-        /// List User Currency Quota
+        /// List User Currency Quota.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>List&lt;CurrencyQuota&gt;</returns>
         List<CurrencyQuota> ListUserCurrencyQuota (string type, string currency);
 
         /// <summary>
-        /// List User Currency Quota
+        /// List User Currency Quota.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>ApiResponse of List&lt;CurrencyQuota&gt;</returns>
         ApiResponse<List<CurrencyQuota>> ListUserCurrencyQuotaWithHttpInfo (string type, string currency);
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral 
+        /// Query supported borrowing and collateral currencies in Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -232,7 +232,7 @@ namespace Io.Gate.GateApi.Api
         MultiCollateralCurrency ListMultiCollateralCurrencies ();
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral 
+        /// Query supported borrowing and collateral currencies in Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -241,7 +241,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of MultiCollateralCurrency</returns>
         ApiResponse<MultiCollateralCurrency> ListMultiCollateralCurrenciesWithHttpInfo ();
         /// <summary>
-        /// Get Multi-Collateral ratio
+        /// Get Multi-Collateral ratio.
         /// </summary>
         /// <remarks>
         /// The Multi-Collateral ratio is fixed, irrespective of the currency.
@@ -251,7 +251,7 @@ namespace Io.Gate.GateApi.Api
         CollateralLtv GetMultiCollateralLtv ();
 
         /// <summary>
-        /// Get Multi-Collateral ratio
+        /// Get Multi-Collateral ratio.
         /// </summary>
         /// <remarks>
         /// The Multi-Collateral ratio is fixed, irrespective of the currency.
@@ -260,7 +260,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of CollateralLtv</returns>
         ApiResponse<CollateralLtv> GetMultiCollateralLtvWithHttpInfo ();
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days
+        /// Query fixed interest rates for the currency for 7 days and 30 days.
         /// </summary>
         /// <remarks>
         /// 
@@ -270,7 +270,7 @@ namespace Io.Gate.GateApi.Api
         List<CollateralFixRate> GetMultiCollateralFixRate ();
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days
+        /// Query fixed interest rates for the currency for 7 days and 30 days.
         /// </summary>
         /// <remarks>
         /// 
@@ -279,26 +279,26 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;CollateralFixRate&gt;</returns>
         ApiResponse<List<CollateralFixRate>> GetMultiCollateralFixRateWithHttpInfo ();
         /// <summary>
-        /// Query the current interest rate of the currency
+        /// Query the current interest rate of the currency.
         /// </summary>
         /// <remarks>
         /// Query the current interest rate of the currency in the previous hour.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>List&lt;CollateralCurrentRate&gt;</returns>
         List<CollateralCurrentRate> GetMultiCollateralCurrentRate (List<string> currencies, string vipLevel = default(string));
 
         /// <summary>
-        /// Query the current interest rate of the currency
+        /// Query the current interest rate of the currency.
         /// </summary>
         /// <remarks>
         /// Query the current interest rate of the currency in the previous hour.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>ApiResponse of List&lt;CollateralCurrentRate&gt;</returns>
         ApiResponse<List<CollateralCurrentRate>> GetMultiCollateralCurrentRateWithHttpInfo (List<string> currencies, string vipLevel = default(string));
         #endregion Synchronous Operations
@@ -311,34 +311,34 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List Multi-Collateral Orders
+        /// List Multi-Collateral Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>Task of List&lt;MultiCollateralOrder&gt;</returns>
         Task<List<MultiCollateralOrder>> ListMultiCollateralOrdersAsync (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string));
 
         /// <summary>
-        /// List Multi-Collateral Orders
+        /// List Multi-Collateral Orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiCollateralOrder&gt;)</returns>
         Task<ApiResponse<List<MultiCollateralOrder>>> ListMultiCollateralOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string));
         /// <summary>
-        /// Create Multi-Collateral Order
+        /// Create Multi-Collateral Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -349,7 +349,7 @@ namespace Io.Gate.GateApi.Api
         Task<OrderResp> CreateMultiCollateralAsync (CreateMultiCollateralOrder createMultiCollateralOrder);
 
         /// <summary>
-        /// Create Multi-Collateral Order
+        /// Create Multi-Collateral Order.
         /// </summary>
         /// <remarks>
         /// 
@@ -359,59 +359,59 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (OrderResp)</returns>
         Task<ApiResponse<OrderResp>> CreateMultiCollateralAsyncWithHttpInfo (CreateMultiCollateralOrder createMultiCollateralOrder);
         /// <summary>
-        /// Get Multi-Collateral Order Detail
+        /// Get Multi-Collateral Order Detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of MultiCollateralOrder</returns>
         Task<MultiCollateralOrder> GetMultiCollateralOrderDetailAsync (string orderId);
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail
+        /// Get Multi-Collateral Order Detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (MultiCollateralOrder)</returns>
         Task<ApiResponse<MultiCollateralOrder>> GetMultiCollateralOrderDetailAsyncWithHttpInfo (string orderId);
         /// <summary>
-        /// List Multi-Collateral Repay Records
+        /// List Multi-Collateral Repay Records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;MultiRepayRecord&gt;</returns>
         Task<List<MultiRepayRecord>> ListMultiRepayRecordsAsync (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List Multi-Collateral Repay Records
+        /// List Multi-Collateral Repay Records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiRepayRecord&gt;)</returns>
         Task<ApiResponse<List<MultiRepayRecord>>> ListMultiRepayRecordsAsyncWithHttpInfo (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Repay Multi-Collateral Loan
+        /// Repay Multi-Collateral Loan.
         /// </summary>
         /// <remarks>
         /// 
@@ -422,7 +422,7 @@ namespace Io.Gate.GateApi.Api
         Task<MultiRepayResp> RepayMultiCollateralLoanAsync (RepayMultiLoan repayMultiLoan);
 
         /// <summary>
-        /// Repay Multi-Collateral Loan
+        /// Repay Multi-Collateral Loan.
         /// </summary>
         /// <remarks>
         /// 
@@ -432,36 +432,36 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (MultiRepayResp)</returns>
         Task<ApiResponse<MultiRepayResp>> RepayMultiCollateralLoanAsyncWithHttpInfo (RepayMultiLoan repayMultiLoan);
         /// <summary>
-        /// Query collateral adjustment records
+        /// Query collateral adjustment records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>Task of List&lt;MultiCollateralRecord&gt;</returns>
         Task<List<MultiCollateralRecord>> ListMultiCollateralRecordsAsync (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string));
 
         /// <summary>
-        /// Query collateral adjustment records
+        /// Query collateral adjustment records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiCollateralRecord&gt;)</returns>
         Task<ApiResponse<List<MultiCollateralRecord>>> ListMultiCollateralRecordsAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string));
         /// <summary>
-        /// Operate Multi-Collateral
+        /// Operate Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -472,7 +472,7 @@ namespace Io.Gate.GateApi.Api
         Task<CollateralAdjustRes> OperateMultiCollateralAsync (CollateralAdjust collateralAdjust);
 
         /// <summary>
-        /// Operate Multi-Collateral
+        /// Operate Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -482,30 +482,30 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CollateralAdjustRes)</returns>
         Task<ApiResponse<CollateralAdjustRes>> OperateMultiCollateralAsyncWithHttpInfo (CollateralAdjust collateralAdjust);
         /// <summary>
-        /// List User Currency Quota
+        /// List User Currency Quota.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>Task of List&lt;CurrencyQuota&gt;</returns>
         Task<List<CurrencyQuota>> ListUserCurrencyQuotaAsync (string type, string currency);
 
         /// <summary>
-        /// List User Currency Quota
+        /// List User Currency Quota.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>Task of ApiResponse (List&lt;CurrencyQuota&gt;)</returns>
         Task<ApiResponse<List<CurrencyQuota>>> ListUserCurrencyQuotaAsyncWithHttpInfo (string type, string currency);
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral 
+        /// Query supported borrowing and collateral currencies in Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -515,7 +515,7 @@ namespace Io.Gate.GateApi.Api
         Task<MultiCollateralCurrency> ListMultiCollateralCurrenciesAsync ();
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral 
+        /// Query supported borrowing and collateral currencies in Multi-Collateral.
         /// </summary>
         /// <remarks>
         /// 
@@ -524,7 +524,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (MultiCollateralCurrency)</returns>
         Task<ApiResponse<MultiCollateralCurrency>> ListMultiCollateralCurrenciesAsyncWithHttpInfo ();
         /// <summary>
-        /// Get Multi-Collateral ratio
+        /// Get Multi-Collateral ratio.
         /// </summary>
         /// <remarks>
         /// The Multi-Collateral ratio is fixed, irrespective of the currency.
@@ -534,7 +534,7 @@ namespace Io.Gate.GateApi.Api
         Task<CollateralLtv> GetMultiCollateralLtvAsync ();
 
         /// <summary>
-        /// Get Multi-Collateral ratio
+        /// Get Multi-Collateral ratio.
         /// </summary>
         /// <remarks>
         /// The Multi-Collateral ratio is fixed, irrespective of the currency.
@@ -543,7 +543,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (CollateralLtv)</returns>
         Task<ApiResponse<CollateralLtv>> GetMultiCollateralLtvAsyncWithHttpInfo ();
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days
+        /// Query fixed interest rates for the currency for 7 days and 30 days.
         /// </summary>
         /// <remarks>
         /// 
@@ -553,7 +553,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<CollateralFixRate>> GetMultiCollateralFixRateAsync ();
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days
+        /// Query fixed interest rates for the currency for 7 days and 30 days.
         /// </summary>
         /// <remarks>
         /// 
@@ -562,26 +562,26 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;CollateralFixRate&gt;)</returns>
         Task<ApiResponse<List<CollateralFixRate>>> GetMultiCollateralFixRateAsyncWithHttpInfo ();
         /// <summary>
-        /// Query the current interest rate of the currency
+        /// Query the current interest rate of the currency.
         /// </summary>
         /// <remarks>
         /// Query the current interest rate of the currency in the previous hour.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>Task of List&lt;CollateralCurrentRate&gt;</returns>
         Task<List<CollateralCurrentRate>> GetMultiCollateralCurrentRateAsync (List<string> currencies, string vipLevel = default(string));
 
         /// <summary>
-        /// Query the current interest rate of the currency
+        /// Query the current interest rate of the currency.
         /// </summary>
         /// <remarks>
         /// Query the current interest rate of the currency in the previous hour.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>Task of ApiResponse (List&lt;CollateralCurrentRate&gt;)</returns>
         Task<ApiResponse<List<CollateralCurrentRate>>> GetMultiCollateralCurrentRateAsyncWithHttpInfo (List<string> currencies, string vipLevel = default(string));
         #endregion Asynchronous Operations
@@ -705,12 +705,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Orders 
+        /// List Multi-Collateral Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>List&lt;MultiCollateralOrder&gt;</returns>
         public List<MultiCollateralOrder> ListMultiCollateralOrders (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string))
@@ -720,12 +720,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Orders 
+        /// List Multi-Collateral Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiCollateralOrder&gt;</returns>
         public ApiResponse<List<MultiCollateralOrder>> ListMultiCollateralOrdersWithHttpInfo (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string))
@@ -779,12 +779,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Orders 
+        /// List Multi-Collateral Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>Task of List&lt;MultiCollateralOrder&gt;</returns>
         public async Task<List<MultiCollateralOrder>> ListMultiCollateralOrdersAsync (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string))
@@ -795,12 +795,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Orders 
+        /// List Multi-Collateral Orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="sort">Query the current interest rate of the currency in the previous hour (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="sort">Query the current interest rate of the currency in the previous hour. (optional)</param>
         /// <param name="orderType">Order type: current - Query current orders, fixed - Query fixed orders, defaults to current orders if not specified (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiCollateralOrder&gt;)</returns>
         public async Task<ApiResponse<List<MultiCollateralOrder>>> ListMultiCollateralOrdersAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), string sort = default(string), string orderType = default(string))
@@ -856,7 +856,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create Multi-Collateral Order 
+        /// Create Multi-Collateral Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createMultiCollateralOrder"></param>
@@ -868,7 +868,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create Multi-Collateral Order 
+        /// Create Multi-Collateral Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createMultiCollateralOrder"></param>
@@ -914,7 +914,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create Multi-Collateral Order 
+        /// Create Multi-Collateral Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createMultiCollateralOrder"></param>
@@ -927,7 +927,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create Multi-Collateral Order 
+        /// Create Multi-Collateral Order. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createMultiCollateralOrder"></param>
@@ -975,10 +975,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail 
+        /// Get Multi-Collateral Order Detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>MultiCollateralOrder</returns>
         public MultiCollateralOrder GetMultiCollateralOrderDetail (string orderId)
         {
@@ -987,10 +987,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail 
+        /// Get Multi-Collateral Order Detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>ApiResponse of MultiCollateralOrder</returns>
         public ApiResponse<MultiCollateralOrder> GetMultiCollateralOrderDetailWithHttpInfo (string orderId)
         {
@@ -1032,10 +1032,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail 
+        /// Get Multi-Collateral Order Detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of MultiCollateralOrder</returns>
         public async Task<MultiCollateralOrder> GetMultiCollateralOrderDetailAsync (string orderId)
         {
@@ -1045,10 +1045,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral Order Detail 
+        /// Get Multi-Collateral Order Detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Order ID returned on successful order creation</param>
+        /// <param name="orderId">Order ID returned on successful order creation.</param>
         /// <returns>Task of ApiResponse (MultiCollateralOrder)</returns>
         public async Task<ApiResponse<MultiCollateralOrder>> GetMultiCollateralOrderDetailAsyncWithHttpInfo (string orderId)
         {
@@ -1092,15 +1092,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Repay Records 
+        /// List Multi-Collateral Repay Records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>List&lt;MultiRepayRecord&gt;</returns>
         public List<MultiRepayRecord> ListMultiRepayRecords (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
@@ -1109,15 +1109,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Repay Records 
+        /// List Multi-Collateral Repay Records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiRepayRecord&gt;</returns>
         public ApiResponse<List<MultiRepayRecord>> ListMultiRepayRecordsWithHttpInfo (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
@@ -1179,15 +1179,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Repay Records 
+        /// List Multi-Collateral Repay Records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of List&lt;MultiRepayRecord&gt;</returns>
         public async Task<List<MultiRepayRecord>> ListMultiRepayRecordsAsync (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
@@ -1197,15 +1197,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List Multi-Collateral Repay Records 
+        /// List Multi-Collateral Repay Records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation</param>
-        /// <param name="borrowCurrency">Borrowed currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="type">Operation type: repay - Regular repayment, liquidate - Liquidation.</param>
+        /// <param name="borrowCurrency">Borrowed currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiRepayRecord&gt;)</returns>
         public async Task<ApiResponse<List<MultiRepayRecord>>> ListMultiRepayRecordsAsyncWithHttpInfo (string type, string borrowCurrency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?))
         {
@@ -1269,7 +1269,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Repay Multi-Collateral Loan 
+        /// Repay Multi-Collateral Loan. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="repayMultiLoan"></param>
@@ -1281,7 +1281,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Repay Multi-Collateral Loan 
+        /// Repay Multi-Collateral Loan. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="repayMultiLoan"></param>
@@ -1327,7 +1327,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Repay Multi-Collateral Loan 
+        /// Repay Multi-Collateral Loan. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="repayMultiLoan"></param>
@@ -1340,7 +1340,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Repay Multi-Collateral Loan 
+        /// Repay Multi-Collateral Loan. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="repayMultiLoan"></param>
@@ -1388,14 +1388,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query collateral adjustment records 
+        /// Query collateral adjustment records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>List&lt;MultiCollateralRecord&gt;</returns>
         public List<MultiCollateralRecord> ListMultiCollateralRecords (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string))
         {
@@ -1404,14 +1404,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query collateral adjustment records 
+        /// Query collateral adjustment records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>ApiResponse of List&lt;MultiCollateralRecord&gt;</returns>
         public ApiResponse<List<MultiCollateralRecord>> ListMultiCollateralRecordsWithHttpInfo (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string))
         {
@@ -1468,14 +1468,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query collateral adjustment records 
+        /// Query collateral adjustment records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>Task of List&lt;MultiCollateralRecord&gt;</returns>
         public async Task<List<MultiCollateralRecord>> ListMultiCollateralRecordsAsync (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string))
         {
@@ -1485,14 +1485,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query collateral adjustment records 
+        /// Query collateral adjustment records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 10)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
-        /// <param name="collateralCurrency">Collateral (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 10)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
+        /// <param name="collateralCurrency">Collateral. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;MultiCollateralRecord&gt;)</returns>
         public async Task<ApiResponse<List<MultiCollateralRecord>>> ListMultiCollateralRecordsAsyncWithHttpInfo (int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string collateralCurrency = default(string))
         {
@@ -1551,7 +1551,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Operate Multi-Collateral 
+        /// Operate Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collateralAdjust"></param>
@@ -1563,7 +1563,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Operate Multi-Collateral 
+        /// Operate Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collateralAdjust"></param>
@@ -1609,7 +1609,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Operate Multi-Collateral 
+        /// Operate Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collateralAdjust"></param>
@@ -1622,7 +1622,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Operate Multi-Collateral 
+        /// Operate Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collateralAdjust"></param>
@@ -1670,11 +1670,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List User Currency Quota 
+        /// List User Currency Quota. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>List&lt;CurrencyQuota&gt;</returns>
         public List<CurrencyQuota> ListUserCurrencyQuota (string type, string currency)
         {
@@ -1683,11 +1683,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List User Currency Quota 
+        /// List User Currency Quota. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>ApiResponse of List&lt;CurrencyQuota&gt;</returns>
         public ApiResponse<List<CurrencyQuota>> ListUserCurrencyQuotaWithHttpInfo (string type, string currency)
         {
@@ -1734,11 +1734,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List User Currency Quota 
+        /// List User Currency Quota. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>Task of List&lt;CurrencyQuota&gt;</returns>
         public async Task<List<CurrencyQuota>> ListUserCurrencyQuotaAsync (string type, string currency)
         {
@@ -1748,11 +1748,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List User Currency Quota 
+        /// List User Currency Quota. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing </param>
-        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas;when it is a borrowing currency, only one currenc</param>
+        /// <param name="type">Currency type: collateral - Collateral currency, borrow - Borrowing.</param>
+        /// <param name="currency">When it is a collateral currency, multiple currencies can be passed separated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one currency can be passedseparated by commas; when it is a borrowing currency, only one commas; when it is a borrowing currency, only one currency can be passed</param>
         /// <returns>Task of ApiResponse (List&lt;CurrencyQuota&gt;)</returns>
         public async Task<ApiResponse<List<CurrencyQuota>>> ListUserCurrencyQuotaAsyncWithHttpInfo (string type, string currency)
         {
@@ -1801,7 +1801,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral  
+        /// Query supported borrowing and collateral currencies in Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>MultiCollateralCurrency</returns>
@@ -1812,7 +1812,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral  
+        /// Query supported borrowing and collateral currencies in Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of MultiCollateralCurrency</returns>
@@ -1849,7 +1849,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral  
+        /// Query supported borrowing and collateral currencies in Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of MultiCollateralCurrency</returns>
@@ -1861,7 +1861,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query supported borrowing and collateral currencies in Multi-Collateral  
+        /// Query supported borrowing and collateral currencies in Multi-Collateral. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (MultiCollateralCurrency)</returns>
@@ -1900,7 +1900,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral ratio The Multi-Collateral ratio is fixed, irrespective of the currency.
+        /// Get Multi-Collateral ratio. The Multi-Collateral ratio is fixed, irrespective of the currency.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CollateralLtv</returns>
@@ -1911,7 +1911,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral ratio The Multi-Collateral ratio is fixed, irrespective of the currency.
+        /// Get Multi-Collateral ratio. The Multi-Collateral ratio is fixed, irrespective of the currency.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CollateralLtv</returns>
@@ -1948,7 +1948,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral ratio The Multi-Collateral ratio is fixed, irrespective of the currency.
+        /// Get Multi-Collateral ratio. The Multi-Collateral ratio is fixed, irrespective of the currency.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CollateralLtv</returns>
@@ -1960,7 +1960,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get Multi-Collateral ratio The Multi-Collateral ratio is fixed, irrespective of the currency.
+        /// Get Multi-Collateral ratio. The Multi-Collateral ratio is fixed, irrespective of the currency.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CollateralLtv)</returns>
@@ -1999,7 +1999,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days 
+        /// Query fixed interest rates for the currency for 7 days and 30 days. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;CollateralFixRate&gt;</returns>
@@ -2010,7 +2010,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days 
+        /// Query fixed interest rates for the currency for 7 days and 30 days. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;CollateralFixRate&gt;</returns>
@@ -2047,7 +2047,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days 
+        /// Query fixed interest rates for the currency for 7 days and 30 days. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;CollateralFixRate&gt;</returns>
@@ -2059,7 +2059,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query fixed interest rates for the currency for 7 days and 30 days 
+        /// Query fixed interest rates for the currency for 7 days and 30 days. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;CollateralFixRate&gt;)</returns>
@@ -2098,11 +2098,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query the current interest rate of the currency Query the current interest rate of the currency in the previous hour.
+        /// Query the current interest rate of the currency. Query the current interest rate of the currency in the previous hour.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>List&lt;CollateralCurrentRate&gt;</returns>
         public List<CollateralCurrentRate> GetMultiCollateralCurrentRate (List<string> currencies, string vipLevel = default(string))
         {
@@ -2111,11 +2111,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query the current interest rate of the currency Query the current interest rate of the currency in the previous hour.
+        /// Query the current interest rate of the currency. Query the current interest rate of the currency in the previous hour.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>ApiResponse of List&lt;CollateralCurrentRate&gt;</returns>
         public ApiResponse<List<CollateralCurrentRate>> GetMultiCollateralCurrentRateWithHttpInfo (List<string> currencies, string vipLevel = default(string))
         {
@@ -2159,11 +2159,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query the current interest rate of the currency Query the current interest rate of the currency in the previous hour.
+        /// Query the current interest rate of the currency. Query the current interest rate of the currency in the previous hour.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>Task of List&lt;CollateralCurrentRate&gt;</returns>
         public async Task<List<CollateralCurrentRate>> GetMultiCollateralCurrentRateAsync (List<string> currencies, string vipLevel = default(string))
         {
@@ -2173,11 +2173,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query the current interest rate of the currency Query the current interest rate of the currency in the previous hour.
+        /// Query the current interest rate of the currency. Query the current interest rate of the currency in the previous hour.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify currency name query array, separated by commas, maximum 100items.</param>
-        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred (optional, default to &quot;0&quot;)</param>
+        /// <param name="vipLevel">VIP level, defaults to 0 if not transferred. (optional, default to &quot;0&quot;)</param>
         /// <returns>Task of ApiResponse (List&lt;CollateralCurrentRate&gt;)</returns>
         public async Task<ApiResponse<List<CollateralCurrentRate>>> GetMultiCollateralCurrentRateAsyncWithHttpInfo (List<string> currencies, string vipLevel = default(string))
         {

@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRecordLeftInterest" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="beforeAmount">Interest amount before repayment.</param>
-        /// <param name="beforeAmountUsdt">Converted value of interest before repayment in USDT.</param>
-        /// <param name="afterAmount">Interest amount after repayment.</param>
-        /// <param name="afterAmountUsdt">Converted value of interest after repayment in USDT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="beforeAmount">Interest amount before repayment..</param>
+        /// <param name="beforeAmountUsdt">Converted value of interest before repayment in USDT..</param>
+        /// <param name="afterAmount">Interest amount after repayment..</param>
+        /// <param name="afterAmountUsdt">Converted value of interest after repayment in USDT..</param>
         public RepayRecordLeftInterest(string currency = default(string), string indexPrice = default(string), string beforeAmount = default(string), string beforeAmountUsdt = default(string), string afterAmount = default(string), string afterAmountUsdt = default(string))
         {
             this.Currency = currency;
@@ -50,44 +50,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Interest amount before repayment
+        /// Interest amount before repayment.
         /// </summary>
-        /// <value>Interest amount before repayment</value>
+        /// <value>Interest amount before repayment.</value>
         [DataMember(Name="before_amount")]
         public string BeforeAmount { get; set; }
 
         /// <summary>
-        /// Converted value of interest before repayment in USDT
+        /// Converted value of interest before repayment in USDT.
         /// </summary>
-        /// <value>Converted value of interest before repayment in USDT</value>
+        /// <value>Converted value of interest before repayment in USDT.</value>
         [DataMember(Name="before_amount_usdt")]
         public string BeforeAmountUsdt { get; set; }
 
         /// <summary>
-        /// Interest amount after repayment
+        /// Interest amount after repayment.
         /// </summary>
-        /// <value>Interest amount after repayment</value>
+        /// <value>Interest amount after repayment.</value>
         [DataMember(Name="after_amount")]
         public string AfterAmount { get; set; }
 
         /// <summary>
-        /// Converted value of interest after repayment in USDT
+        /// Converted value of interest after repayment in USDT.
         /// </summary>
-        /// <value>Converted value of interest after repayment in USDT</value>
+        /// <value>Converted value of interest after repayment in USDT.</value>
         [DataMember(Name="after_amount_usdt")]
         public string AfterAmountUsdt { get; set; }
 

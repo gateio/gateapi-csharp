@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UidPushWithdrawalResp" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
+        /// <param name="id">Order ID..</param>
         public UidPushWithdrawalResp(long id = default(long))
         {
             this.Id = id;
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 

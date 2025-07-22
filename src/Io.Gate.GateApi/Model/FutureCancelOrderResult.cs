@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Order cancellation result
+    /// Order cancellation result.
     /// </summary>
     [DataContract]
     public partial class FutureCancelOrderResult :  IEquatable<FutureCancelOrderResult>, IValidatableObject
@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FutureCancelOrderResult" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
-        /// <param name="userId">User ID.</param>
-        /// <param name="succeeded">Whether cancellation succeeded.</param>
-        /// <param name="message">Error message when failed to cancel the order; empty if succeeded.</param>
+        /// <param name="id">Order ID..</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="succeeded">Whether cancellation succeeded..</param>
+        /// <param name="message">Error message when failed to cancel the order; empty if succeeded..</param>
         public FutureCancelOrderResult(string id = default(string), long userId = default(long), bool succeeded = default(bool), string message = default(string))
         {
             this.Id = id;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Whether cancellation succeeded
+        /// Whether cancellation succeeded.
         /// </summary>
-        /// <value>Whether cancellation succeeded</value>
+        /// <value>Whether cancellation succeeded.</value>
         [DataMember(Name="succeeded")]
         public bool Succeeded { get; set; }
 
         /// <summary>
-        /// Error message when failed to cancel the order; empty if succeeded
+        /// Error message when failed to cancel the order; empty if succeeded.
         /// </summary>
-        /// <value>Error message when failed to cancel the order; empty if succeeded</value>
+        /// <value>Error message when failed to cancel the order; empty if succeeded.</value>
         [DataMember(Name="message")]
         public string Message { get; set; }
 

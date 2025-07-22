@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Account currency details
+    /// Account currency details.
     /// </summary>
     [DataContract]
     public partial class MarginAccountCurrency :  IEquatable<MarginAccountCurrency>, IValidatableObject
@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginAccountCurrency" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
+        /// <param name="currency">Currency name..</param>
         /// <param name="available">Amount suitable for margin trading..</param>
-        /// <param name="locked">Locked amount, used in margin trading.</param>
-        /// <param name="borrowed">Borrowed amount.</param>
-        /// <param name="interest">Unpaid interests.</param>
+        /// <param name="locked">Locked amount, used in margin trading..</param>
+        /// <param name="borrowed">Borrowed amount..</param>
+        /// <param name="interest">Unpaid interests..</param>
         public MarginAccountCurrency(string currency = default(string), string available = default(string), string locked = default(string), string borrowed = default(string), string interest = default(string))
         {
             this.Currency = currency;
@@ -48,9 +48,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
@@ -62,23 +62,23 @@ namespace Io.Gate.GateApi.Model
         public string Available { get; set; }
 
         /// <summary>
-        /// Locked amount, used in margin trading
+        /// Locked amount, used in margin trading.
         /// </summary>
-        /// <value>Locked amount, used in margin trading</value>
+        /// <value>Locked amount, used in margin trading.</value>
         [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>
-        /// Borrowed amount
+        /// Borrowed amount.
         /// </summary>
-        /// <value>Borrowed amount</value>
+        /// <value>Borrowed amount.</value>
         [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 
         /// <summary>
-        /// Unpaid interests
+        /// Unpaid interests.
         /// </summary>
-        /// <value>Unpaid interests</value>
+        /// <value>Unpaid interests.</value>
         [DataMember(Name="interest")]
         public string Interest { get; set; }
 

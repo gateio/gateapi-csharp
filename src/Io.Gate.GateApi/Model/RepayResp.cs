@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Repay
+    /// Repay.
     /// </summary>
     [DataContract]
     public partial class RepayResp :  IEquatable<RepayResp>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayResp" /> class.
         /// </summary>
-        /// <param name="repaidPrincipal">Principal.</param>
-        /// <param name="repaidInterest">Interest.</param>
+        /// <param name="repaidPrincipal">Principal..</param>
+        /// <param name="repaidInterest">Interest..</param>
         public RepayResp(string repaidPrincipal = default(string), string repaidInterest = default(string))
         {
             this.RepaidPrincipal = repaidPrincipal;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Principal
+        /// Principal.
         /// </summary>
-        /// <value>Principal</value>
+        /// <value>Principal.</value>
         [DataMember(Name="repaid_principal")]
         public string RepaidPrincipal { get; set; }
 
         /// <summary>
-        /// Interest
+        /// Interest.
         /// </summary>
-        /// <value>Interest</value>
+        /// <value>Interest.</value>
         [DataMember(Name="repaid_interest")]
         public string RepaidInterest { get; set; }
 

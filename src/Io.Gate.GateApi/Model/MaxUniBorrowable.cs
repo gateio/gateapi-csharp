@@ -39,23 +39,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// Maximum borrowable
+        /// Maximum borrowable.
         /// </summary>
-        /// <value>Maximum borrowable</value>
+        /// <value>Maximum borrowable.</value>
         [DataMember(Name="borrowable", EmitDefaultValue=false)]
         public string Borrowable { get; private set; }
 

@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrokerTransaction" /> class.
         /// </summary>
-        /// <param name="total">Total.</param>
-        /// <param name="list">List of transaction history.</param>
+        /// <param name="total">Total..</param>
+        /// <param name="list">List of transaction history..</param>
         public BrokerTransaction(long total = default(long), List<BrokerTransaction1> list = default(List<BrokerTransaction1>))
         {
             this.Total = total;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Total
+        /// Total.
         /// </summary>
-        /// <value>Total</value>
+        /// <value>Total.</value>
         [DataMember(Name="total")]
         public long Total { get; set; }
 
         /// <summary>
-        /// List of transaction history
+        /// List of transaction history.
         /// </summary>
-        /// <value>List of transaction history</value>
+        /// <value>List of transaction history.</value>
         [DataMember(Name="list")]
         public List<BrokerTransaction1> List { get; set; }
 

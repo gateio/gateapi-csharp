@@ -28,68 +28,68 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get unified account information
+        /// Get unified account information.
         /// </summary>
         /// <remarks>
         /// The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>UnifiedAccount</returns>
         UnifiedAccount ListUnifiedAccounts (string currency = default(string), string subUid = default(string));
 
         /// <summary>
-        /// Get unified account information
+        /// Get unified account information.
         /// </summary>
         /// <remarks>
         /// The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>ApiResponse of UnifiedAccount</returns>
         ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string), string subUid = default(string));
         /// <summary>
-        /// Query about the maximum borrowing for the unified account
+        /// Query about the maximum borrowing for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>UnifiedBorrowable</returns>
         UnifiedBorrowable GetUnifiedBorrowable (string currency);
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account
+        /// Query about the maximum borrowing for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>ApiResponse of UnifiedBorrowable</returns>
         ApiResponse<UnifiedBorrowable> GetUnifiedBorrowableWithHttpInfo (string currency);
         /// <summary>
-        /// Query about the maximum transferable for the unified account
+        /// Query about the maximum transferable for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>UnifiedTransferable</returns>
         UnifiedTransferable GetUnifiedTransferable (string currency);
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account
+        /// Query about the maximum transferable for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>ApiResponse of UnifiedTransferable</returns>
         ApiResponse<UnifiedTransferable> GetUnifiedTransferableWithHttpInfo (string currency);
         /// <summary>
@@ -114,7 +114,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;TransferablesResult&gt;</returns>
         ApiResponse<List<TransferablesResult>> GetUnifiedTransferablesWithHttpInfo (string currencies);
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum
+        /// Batch query unified account can be borrowed up to a maximum.
         /// </summary>
         /// <remarks>
         /// 
@@ -125,7 +125,7 @@ namespace Io.Gate.GateApi.Api
         List<UnifiedBorrowable1> GetUnifiedBorrowableList (List<string> currencies);
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum
+        /// Batch query unified account can be borrowed up to a maximum.
         /// </summary>
         /// <remarks>
         /// 
@@ -135,37 +135,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UnifiedBorrowable1&gt;</returns>
         ApiResponse<List<UnifiedBorrowable1>> GetUnifiedBorrowableListWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>List&lt;UniLoan&gt;</returns>
         List<UniLoan> ListUnifiedLoans (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoan&gt;</returns>
         ApiResponse<List<UniLoan>> ListUnifiedLoansWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
-        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -173,94 +173,94 @@ namespace Io.Gate.GateApi.Api
         UnifiedLoanResult CreateUnifiedLoan (UnifiedLoan unifiedLoan);
 
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
-        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
         /// <returns>ApiResponse of UnifiedLoanResult</returns>
         ApiResponse<UnifiedLoanResult> CreateUnifiedLoanWithHttpInfo (UnifiedLoan unifiedLoan);
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UnifiedLoanRecord&gt;</returns>
         List<UnifiedLoanRecord> ListUnifiedLoanRecords (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UnifiedLoanRecord&gt;</returns>
         ApiResponse<List<UnifiedLoanRecord>> ListUnifiedLoanRecordsWithHttpInfo (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
         List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
         ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// Get user risk unit details
+        /// Get user risk unit details.
         /// </summary>
         /// <remarks>
-        /// Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>UnifiedRiskUnits</returns>
         UnifiedRiskUnits GetUnifiedRiskUnits ();
 
         /// <summary>
-        /// Get user risk unit details
+        /// Get user risk unit details.
         /// </summary>
         /// <remarks>
-        /// Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of UnifiedRiskUnits</returns>
         ApiResponse<UnifiedRiskUnits> GetUnifiedRiskUnitsWithHttpInfo ();
         /// <summary>
-        /// Query mode of the unified account
+        /// Query mode of the unified account.
         /// </summary>
         /// <remarks>
         /// Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
@@ -270,7 +270,7 @@ namespace Io.Gate.GateApi.Api
         UnifiedModeSet GetUnifiedMode ();
 
         /// <summary>
-        /// Query mode of the unified account
+        /// Query mode of the unified account.
         /// </summary>
         /// <remarks>
         /// Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
@@ -279,10 +279,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of UnifiedModeSet</returns>
         ApiResponse<UnifiedModeSet> GetUnifiedModeWithHttpInfo ();
         /// <summary>
-        /// Set mode of the unified account
+        /// Set mode of the unified account.
         /// </summary>
         /// <remarks>
-        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -290,17 +290,17 @@ namespace Io.Gate.GateApi.Api
         void SetUnifiedMode (UnifiedModeSet unifiedModeSet);
 
         /// <summary>
-        /// Set mode of the unified account
+        /// Set mode of the unified account.
         /// </summary>
         /// <remarks>
-        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetUnifiedModeWithHttpInfo (UnifiedModeSet unifiedModeSet);
         /// <summary>
-        /// Get unified estimate rate
+        /// Get unified estimate rate.
         /// </summary>
         /// <remarks>
         /// Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
@@ -311,7 +311,7 @@ namespace Io.Gate.GateApi.Api
         Dictionary<string, string> GetUnifiedEstimateRate (List<string> currencies);
 
         /// <summary>
-        /// Get unified estimate rate
+        /// Get unified estimate rate.
         /// </summary>
         /// <remarks>
         /// Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
@@ -321,7 +321,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
         ApiResponse<Dictionary<string, string>> GetUnifiedEstimateRateWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List currency discount tiers
+        /// List currency discount tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -331,7 +331,7 @@ namespace Io.Gate.GateApi.Api
         List<UnifiedDiscount> ListCurrencyDiscountTiers ();
 
         /// <summary>
-        /// List currency discount tiers
+        /// List currency discount tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -340,7 +340,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UnifiedDiscount&gt;</returns>
         ApiResponse<List<UnifiedDiscount>> ListCurrencyDiscountTiersWithHttpInfo ();
         /// <summary>
-        /// List loan margin tiers
+        /// List loan margin tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -350,7 +350,7 @@ namespace Io.Gate.GateApi.Api
         List<UnifiedMarginTiers> ListLoanMarginTiers ();
 
         /// <summary>
-        /// List loan margin tiers
+        /// List loan margin tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -359,10 +359,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UnifiedMarginTiers&gt;</returns>
         ApiResponse<List<UnifiedMarginTiers>> ListLoanMarginTiersWithHttpInfo ();
         /// <summary>
-        /// Portfolio margin calculator
+        /// Portfolio margin calculator.
         /// </summary>
         /// <remarks>
-        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -370,59 +370,59 @@ namespace Io.Gate.GateApi.Api
         UnifiedPortfolioOutput CalculatePortfolioMargin (UnifiedPortfolioInput unifiedPortfolioInput);
 
         /// <summary>
-        /// Portfolio margin calculator
+        /// Portfolio margin calculator.
         /// </summary>
         /// <remarks>
-        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
         /// <returns>ApiResponse of UnifiedPortfolioOutput</returns>
         ApiResponse<UnifiedPortfolioOutput> CalculatePortfolioMarginWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
         /// <summary>
-        /// Minimum currency leverage that can be set
+        /// Minimum currency leverage that can be set.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UnifiedLeverageConfig</returns>
         UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency);
 
         /// <summary>
-        /// Minimum currency leverage that can be set
+        /// Minimum currency leverage that can be set.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UnifiedLeverageConfig</returns>
         ApiResponse<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigWithHttpInfo (string currency);
         /// <summary>
-        /// Get the leverage multiple of the user currency
+        /// Get the leverage multiple of the user currency.
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>UnifiedLeverageSetting</returns>
         UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = default(string));
 
         /// <summary>
-        /// Get the leverage multiple of the user currency
+        /// Get the leverage multiple of the user currency.
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>ApiResponse of UnifiedLeverageSetting</returns>
         ApiResponse<UnifiedLeverageSetting> GetUserLeverageCurrencySettingWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// Set the loan currency leverage
+        /// Set the loan currency leverage.
         /// </summary>
         /// <remarks>
         /// 
@@ -433,7 +433,7 @@ namespace Io.Gate.GateApi.Api
         void SetUserLeverageCurrencySetting (UnifiedLeverageSetting unifiedLeverageSetting);
 
         /// <summary>
-        /// Set the loan currency leverage
+        /// Set the loan currency leverage.
         /// </summary>
         /// <remarks>
         /// 
@@ -443,55 +443,55 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetUserLeverageCurrencySettingWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
         /// <summary>
-        /// List of loan currencies supported by unified account
+        /// List of loan currencies supported by unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>List&lt;UnifiedCurrency&gt;</returns>
         List<UnifiedCurrency> ListUnifiedCurrencies (string currency = default(string));
 
         /// <summary>
-        /// List of loan currencies supported by unified account
+        /// List of loan currencies supported by unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>ApiResponse of List&lt;UnifiedCurrency&gt;</returns>
         ApiResponse<List<UnifiedCurrency>> ListUnifiedCurrenciesWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// get historical lending rates
+        /// get historical lending rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>UnifiedHistoryLoanRate</returns>
         UnifiedHistoryLoanRate GetHistoryLoanRate (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// get historical lending rates
+        /// get historical lending rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of UnifiedHistoryLoanRate</returns>
         ApiResponse<UnifiedHistoryLoanRate> GetHistoryLoanRateWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Set Collateral Currency
+        /// Set Collateral Currency.
         /// </summary>
         /// <remarks>
         /// 
@@ -502,7 +502,7 @@ namespace Io.Gate.GateApi.Api
         UnifiedCollateralRes SetUnifiedCollateral (UnifiedCollateralReq unifiedCollateralReq);
 
         /// <summary>
-        /// Set Collateral Currency
+        /// Set Collateral Currency.
         /// </summary>
         /// <remarks>
         /// 
@@ -521,68 +521,68 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get unified account information
+        /// Get unified account information.
         /// </summary>
         /// <remarks>
         /// The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>Task of UnifiedAccount</returns>
         Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string), string subUid = default(string));
 
         /// <summary>
-        /// Get unified account information
+        /// Get unified account information.
         /// </summary>
         /// <remarks>
         /// The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedAccount)</returns>
         Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string), string subUid = default(string));
         /// <summary>
-        /// Query about the maximum borrowing for the unified account
+        /// Query about the maximum borrowing for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of UnifiedBorrowable</returns>
         Task<UnifiedBorrowable> GetUnifiedBorrowableAsync (string currency);
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account
+        /// Query about the maximum borrowing for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of ApiResponse (UnifiedBorrowable)</returns>
         Task<ApiResponse<UnifiedBorrowable>> GetUnifiedBorrowableAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// Query about the maximum transferable for the unified account
+        /// Query about the maximum transferable for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of UnifiedTransferable</returns>
         Task<UnifiedTransferable> GetUnifiedTransferableAsync (string currency);
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account
+        /// Query about the maximum transferable for the unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of ApiResponse (UnifiedTransferable)</returns>
         Task<ApiResponse<UnifiedTransferable>> GetUnifiedTransferableAsyncWithHttpInfo (string currency);
         /// <summary>
@@ -607,7 +607,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;TransferablesResult&gt;)</returns>
         Task<ApiResponse<List<TransferablesResult>>> GetUnifiedTransferablesAsyncWithHttpInfo (string currencies);
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum
+        /// Batch query unified account can be borrowed up to a maximum.
         /// </summary>
         /// <remarks>
         /// 
@@ -618,7 +618,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UnifiedBorrowable1>> GetUnifiedBorrowableListAsync (List<string> currencies);
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum
+        /// Batch query unified account can be borrowed up to a maximum.
         /// </summary>
         /// <remarks>
         /// 
@@ -628,37 +628,37 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UnifiedBorrowable1&gt;)</returns>
         Task<ApiResponse<List<UnifiedBorrowable1>>> GetUnifiedBorrowableListAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>Task of List&lt;UniLoan&gt;</returns>
         Task<List<UniLoan>> ListUnifiedLoansAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
 
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoan&gt;)</returns>
         Task<ApiResponse<List<UniLoan>>> ListUnifiedLoansAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string));
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
-        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -666,94 +666,94 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedLoanResult> CreateUnifiedLoanAsync (UnifiedLoan unifiedLoan);
 
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
-        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
         /// <returns>Task of ApiResponse (UnifiedLoanResult)</returns>
         Task<ApiResponse<UnifiedLoanResult>> CreateUnifiedLoanAsyncWithHttpInfo (UnifiedLoan unifiedLoan);
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UnifiedLoanRecord&gt;</returns>
         Task<List<UnifiedLoanRecord>> ListUnifiedLoanRecordsAsync (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UnifiedLoanRecord&gt;)</returns>
         Task<ApiResponse<List<UnifiedLoanRecord>>> ListUnifiedLoanRecordsAsyncWithHttpInfo (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
         Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
         Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// Get user risk unit details
+        /// Get user risk unit details.
         /// </summary>
         /// <remarks>
-        /// Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of UnifiedRiskUnits</returns>
         Task<UnifiedRiskUnits> GetUnifiedRiskUnitsAsync ();
 
         /// <summary>
-        /// Get user risk unit details
+        /// Get user risk unit details.
         /// </summary>
         /// <remarks>
-        /// Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (UnifiedRiskUnits)</returns>
         Task<ApiResponse<UnifiedRiskUnits>> GetUnifiedRiskUnitsAsyncWithHttpInfo ();
         /// <summary>
-        /// Query mode of the unified account
+        /// Query mode of the unified account.
         /// </summary>
         /// <remarks>
         /// Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
@@ -763,7 +763,7 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedModeSet> GetUnifiedModeAsync ();
 
         /// <summary>
-        /// Query mode of the unified account
+        /// Query mode of the unified account.
         /// </summary>
         /// <remarks>
         /// Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
@@ -772,10 +772,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (UnifiedModeSet)</returns>
         Task<ApiResponse<UnifiedModeSet>> GetUnifiedModeAsyncWithHttpInfo ();
         /// <summary>
-        /// Set mode of the unified account
+        /// Set mode of the unified account.
         /// </summary>
         /// <remarks>
-        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -783,17 +783,17 @@ namespace Io.Gate.GateApi.Api
         Task SetUnifiedModeAsync (UnifiedModeSet unifiedModeSet);
 
         /// <summary>
-        /// Set mode of the unified account
+        /// Set mode of the unified account.
         /// </summary>
         /// <remarks>
-        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SetUnifiedModeAsyncWithHttpInfo (UnifiedModeSet unifiedModeSet);
         /// <summary>
-        /// Get unified estimate rate
+        /// Get unified estimate rate.
         /// </summary>
         /// <remarks>
         /// Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
@@ -804,7 +804,7 @@ namespace Io.Gate.GateApi.Api
         Task<Dictionary<string, string>> GetUnifiedEstimateRateAsync (List<string> currencies);
 
         /// <summary>
-        /// Get unified estimate rate
+        /// Get unified estimate rate.
         /// </summary>
         /// <remarks>
         /// Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
@@ -814,7 +814,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
         Task<ApiResponse<Dictionary<string, string>>> GetUnifiedEstimateRateAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List currency discount tiers
+        /// List currency discount tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -824,7 +824,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UnifiedDiscount>> ListCurrencyDiscountTiersAsync ();
 
         /// <summary>
-        /// List currency discount tiers
+        /// List currency discount tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -833,7 +833,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UnifiedDiscount&gt;)</returns>
         Task<ApiResponse<List<UnifiedDiscount>>> ListCurrencyDiscountTiersAsyncWithHttpInfo ();
         /// <summary>
-        /// List loan margin tiers
+        /// List loan margin tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -843,7 +843,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UnifiedMarginTiers>> ListLoanMarginTiersAsync ();
 
         /// <summary>
-        /// List loan margin tiers
+        /// List loan margin tiers.
         /// </summary>
         /// <remarks>
         /// 
@@ -852,10 +852,10 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UnifiedMarginTiers&gt;)</returns>
         Task<ApiResponse<List<UnifiedMarginTiers>>> ListLoanMarginTiersAsyncWithHttpInfo ();
         /// <summary>
-        /// Portfolio margin calculator
+        /// Portfolio margin calculator.
         /// </summary>
         /// <remarks>
-        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -863,59 +863,59 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedPortfolioOutput> CalculatePortfolioMarginAsync (UnifiedPortfolioInput unifiedPortfolioInput);
 
         /// <summary>
-        /// Portfolio margin calculator
+        /// Portfolio margin calculator.
         /// </summary>
         /// <remarks>
-        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
         /// <returns>Task of ApiResponse (UnifiedPortfolioOutput)</returns>
         Task<ApiResponse<UnifiedPortfolioOutput>> CalculatePortfolioMarginAsyncWithHttpInfo (UnifiedPortfolioInput unifiedPortfolioInput);
         /// <summary>
-        /// Minimum currency leverage that can be set
+        /// Minimum currency leverage that can be set.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UnifiedLeverageConfig</returns>
         Task<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigAsync (string currency);
 
         /// <summary>
-        /// Minimum currency leverage that can be set
+        /// Minimum currency leverage that can be set.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UnifiedLeverageConfig)</returns>
         Task<ApiResponse<UnifiedLeverageConfig>> GetUserLeverageCurrencyConfigAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// Get the leverage multiple of the user currency
+        /// Get the leverage multiple of the user currency.
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of UnifiedLeverageSetting</returns>
         Task<UnifiedLeverageSetting> GetUserLeverageCurrencySettingAsync (string currency = default(string));
 
         /// <summary>
-        /// Get the leverage multiple of the user currency
+        /// Get the leverage multiple of the user currency.
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedLeverageSetting)</returns>
         Task<ApiResponse<UnifiedLeverageSetting>> GetUserLeverageCurrencySettingAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// Set the loan currency leverage
+        /// Set the loan currency leverage.
         /// </summary>
         /// <remarks>
         /// 
@@ -926,7 +926,7 @@ namespace Io.Gate.GateApi.Api
         Task SetUserLeverageCurrencySettingAsync (UnifiedLeverageSetting unifiedLeverageSetting);
 
         /// <summary>
-        /// Set the loan currency leverage
+        /// Set the loan currency leverage.
         /// </summary>
         /// <remarks>
         /// 
@@ -936,55 +936,55 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SetUserLeverageCurrencySettingAsyncWithHttpInfo (UnifiedLeverageSetting unifiedLeverageSetting);
         /// <summary>
-        /// List of loan currencies supported by unified account
+        /// List of loan currencies supported by unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of List&lt;UnifiedCurrency&gt;</returns>
         Task<List<UnifiedCurrency>> ListUnifiedCurrenciesAsync (string currency = default(string));
 
         /// <summary>
-        /// List of loan currencies supported by unified account
+        /// List of loan currencies supported by unified account.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UnifiedCurrency&gt;)</returns>
         Task<ApiResponse<List<UnifiedCurrency>>> ListUnifiedCurrenciesAsyncWithHttpInfo (string currency = default(string));
         /// <summary>
-        /// get historical lending rates
+        /// get historical lending rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of UnifiedHistoryLoanRate</returns>
         Task<UnifiedHistoryLoanRate> GetHistoryLoanRateAsync (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// get historical lending rates
+        /// get historical lending rates.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (UnifiedHistoryLoanRate)</returns>
         Task<ApiResponse<UnifiedHistoryLoanRate>> GetHistoryLoanRateAsyncWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Set Collateral Currency
+        /// Set Collateral Currency.
         /// </summary>
         /// <remarks>
         /// 
@@ -995,7 +995,7 @@ namespace Io.Gate.GateApi.Api
         Task<UnifiedCollateralRes> SetUnifiedCollateralAsync (UnifiedCollateralReq unifiedCollateralReq);
 
         /// <summary>
-        /// Set Collateral Currency
+        /// Set Collateral Currency.
         /// </summary>
         /// <remarks>
         /// 
@@ -1125,11 +1125,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified account information The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+        /// Get unified account information. The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>UnifiedAccount</returns>
         public UnifiedAccount ListUnifiedAccounts (string currency = default(string), string subUid = default(string))
         {
@@ -1138,11 +1138,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified account information The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+        /// Get unified account information. The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>ApiResponse of UnifiedAccount</returns>
         public ApiResponse<UnifiedAccount> ListUnifiedAccountsWithHttpInfo (string currency = default(string), string subUid = default(string))
         {
@@ -1187,11 +1187,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified account information The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+        /// Get unified account information. The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>Task of UnifiedAccount</returns>
         public async Task<UnifiedAccount> ListUnifiedAccountsAsync (string currency = default(string), string subUid = default(string))
         {
@@ -1201,11 +1201,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified account information The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
+        /// Get unified account information. The assets of each currency in the account will be adjusted according to their liquidity, defined by corresponding adjustment coefficients, and then uniformly converted to USD to calculate the total asset value and position value of the account.  You can refer to the [Formula](#portfolio-account) in the documentation
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="subUid">Sub account user ID (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="subUid">Sub account user ID. (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedAccount)</returns>
         public async Task<ApiResponse<UnifiedAccount>> ListUnifiedAccountsAsyncWithHttpInfo (string currency = default(string), string subUid = default(string))
         {
@@ -1252,10 +1252,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account 
+        /// Query about the maximum borrowing for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>UnifiedBorrowable</returns>
         public UnifiedBorrowable GetUnifiedBorrowable (string currency)
         {
@@ -1264,10 +1264,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account 
+        /// Query about the maximum borrowing for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>ApiResponse of UnifiedBorrowable</returns>
         public ApiResponse<UnifiedBorrowable> GetUnifiedBorrowableWithHttpInfo (string currency)
         {
@@ -1309,10 +1309,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account 
+        /// Query about the maximum borrowing for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of UnifiedBorrowable</returns>
         public async Task<UnifiedBorrowable> GetUnifiedBorrowableAsync (string currency)
         {
@@ -1322,10 +1322,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum borrowing for the unified account 
+        /// Query about the maximum borrowing for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of ApiResponse (UnifiedBorrowable)</returns>
         public async Task<ApiResponse<UnifiedBorrowable>> GetUnifiedBorrowableAsyncWithHttpInfo (string currency)
         {
@@ -1369,10 +1369,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account 
+        /// Query about the maximum transferable for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>UnifiedTransferable</returns>
         public UnifiedTransferable GetUnifiedTransferable (string currency)
         {
@@ -1381,10 +1381,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account 
+        /// Query about the maximum transferable for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>ApiResponse of UnifiedTransferable</returns>
         public ApiResponse<UnifiedTransferable> GetUnifiedTransferableWithHttpInfo (string currency)
         {
@@ -1426,10 +1426,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account 
+        /// Query about the maximum transferable for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of UnifiedTransferable</returns>
         public async Task<UnifiedTransferable> GetUnifiedTransferableAsync (string currency)
         {
@@ -1439,10 +1439,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query about the maximum transferable for the unified account 
+        /// Query about the maximum transferable for the unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
         /// <returns>Task of ApiResponse (UnifiedTransferable)</returns>
         public async Task<ApiResponse<UnifiedTransferable>> GetUnifiedTransferableAsyncWithHttpInfo (string currency)
         {
@@ -1603,7 +1603,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum 
+        /// Batch query unified account can be borrowed up to a maximum. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -1615,7 +1615,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum 
+        /// Batch query unified account can be borrowed up to a maximum. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -1660,7 +1660,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum 
+        /// Batch query unified account can be borrowed up to a maximum. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -1673,7 +1673,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Batch query unified account can be borrowed up to a maximum 
+        /// Batch query unified account can be borrowed up to a maximum. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -1720,13 +1720,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>List&lt;UniLoan&gt;</returns>
         public List<UniLoan> ListUnifiedLoans (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -1735,13 +1735,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoan&gt;</returns>
         public ApiResponse<List<UniLoan>> ListUnifiedLoansWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -1794,13 +1794,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>Task of List&lt;UniLoan&gt;</returns>
         public async Task<List<UniLoan>> ListUnifiedLoansAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -1810,13 +1810,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="type">Loan type, platform - platform, margin - margin (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="type">Loan type, platform - platform, margin - margin. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoan&gt;)</returns>
         public async Task<ApiResponse<List<UniLoan>>> ListUnifiedLoansAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), string type = default(string))
         {
@@ -1871,7 +1871,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// Borrow or repay. When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -1883,7 +1883,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// Borrow or repay. When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -1929,7 +1929,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// Borrow or repay. When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -1942,7 +1942,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the entire borrowed amount is available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
+        /// Borrow or repay. When borrowing, it is essential to ensure that the borrowed amount is not below the minimum borrowing threshold for the specific cryptocurrency and does not exceed the maximum borrowing limit set by the platform and the user.  The interest on the loan will be automatically deducted from the account at regular intervals. It is the user&#39;s responsibility to manage the repayment of the borrowed amount.  For repayment, the option to repay the available by setting the parameter &#x60;repaid_all&#x3D;true&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLoan"></param>
@@ -1990,13 +1990,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UnifiedLoanRecord&gt;</returns>
         public List<UnifiedLoanRecord> ListUnifiedLoanRecords (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -2005,13 +2005,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UnifiedLoanRecord&gt;</returns>
         public ApiResponse<List<UnifiedLoanRecord>> ListUnifiedLoanRecordsWithHttpInfo (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -2064,13 +2064,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UnifiedLoanRecord&gt;</returns>
         public async Task<List<UnifiedLoanRecord>> ListUnifiedLoanRecordsAsync (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -2080,13 +2080,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repay - indicates the action of repaying the borrowed funds (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">The types of lending records, borrow - indicates the action of borrowing funds, repaying the borrowed funds (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UnifiedLoanRecord&gt;)</returns>
         public async Task<ApiResponse<List<UnifiedLoanRecord>>> ListUnifiedLoanRecordsAsyncWithHttpInfo (string type = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -2141,14 +2141,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
         public List<UniLoanInterestRecord> ListUnifiedLoanInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
@@ -2158,14 +2158,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
         public ApiResponse<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
@@ -2227,14 +2227,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
         public async Task<List<UniLoanInterestRecord>> ListUnifiedLoanInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
@@ -2245,14 +2245,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
-        /// <param name="from">Start timestamp of the query (optional)</param>
-        /// <param name="to">Time range ending, default to current time (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
+        /// <param name="from">Start timestamp of the query. (optional)</param>
+        /// <param name="to">Time range ending, default to current time. (optional)</param>
         /// <param name="type">Loan type, platform loan - platform, leverage loan - margin, if not passed, defaults to margin (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
         public async Task<ApiResponse<List<UniLoanInterestRecord>>> ListUnifiedLoanInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
@@ -2316,7 +2316,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user risk unit details Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Get user risk unit details. Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>UnifiedRiskUnits</returns>
@@ -2327,7 +2327,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user risk unit details Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Get user risk unit details. Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of UnifiedRiskUnits</returns>
@@ -2366,7 +2366,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user risk unit details Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Get user risk unit details. Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of UnifiedRiskUnits</returns>
@@ -2378,7 +2378,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user risk unit details Retrieve user risk unit details, only valid in portfolio margin mode
+        /// Get user risk unit details. Retrieve user risk unit details, only valid in portfolio margin mode.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (UnifiedRiskUnits)</returns>
@@ -2419,7 +2419,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query mode of the unified account Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
+        /// Query mode of the unified account. Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>UnifiedModeSet</returns>
@@ -2430,7 +2430,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query mode of the unified account Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
+        /// Query mode of the unified account. Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of UnifiedModeSet</returns>
@@ -2469,7 +2469,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query mode of the unified account Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
+        /// Query mode of the unified account. Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of UnifiedModeSet</returns>
@@ -2481,7 +2481,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Query mode of the unified account Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
+        /// Query mode of the unified account. Unified account mode: - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Cross-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode - &#x60;single_currency&#x60;: Single-currency margin mode
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (UnifiedModeSet)</returns>
@@ -2522,7 +2522,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set mode of the unified account Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Set mode of the unified account. Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -2533,7 +2533,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set mode of the unified account Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Set mode of the unified account. Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -2578,7 +2578,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set mode of the unified account Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Set mode of the unified account. Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -2590,7 +2590,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set mode of the unified account Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;classic\&quot;     } &#x60;&#x60;&#x60; - When enabling the cross-currency margin mode, mode&#x3D;multi_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;multi_currency\&quot;,       \&quot;settings\&quot;: {          \&quot;usdt_futures\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;portfolio\&quot;,       \&quot;settings\&quot;: {          \&quot;spot_hedge\&quot;: true       }     } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;     PUT /unified/unified_mode     {       \&quot;mode\&quot;: \&quot;single_currency\&quot;     } &#x60;&#x60;&#x60;
+        /// Set mode of the unified account. Each account mode switch only requires passing the corresponding account mode parameter, and also supports turning on or off the configuration switches under the corresponding account mode during the switch. - When enabling the classic account mode, mode&#x3D;classic &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;classic\&quot;  } &#x60;&#x60;&#x60; - When enabling the cross-currency margin \&quot;multi_currency\&quot;,  \&quot;settings\&quot;: {  \&quot;usdt_futures\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the portfolio margin mode, mode&#x3D;portfolio &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;portfolio\&quot;,  \&quot;settings\&quot;: {  \&quot;spot_hedge\&quot;: true  }  } &#x60;&#x60;&#x60; - When enabling the single-currency margin mode, mode&#x3D;single_currency &#x60;&#x60;&#x60;  PUT /unified/unified_mode  {  \&quot;mode\&quot;: \&quot;single_currency\&quot;  } &#x60;&#x60;&#x60;
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedModeSet"></param>
@@ -2637,7 +2637,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified estimate rate Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+        /// Get unified estimate rate. Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -2649,7 +2649,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified estimate rate Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+        /// Get unified estimate rate. Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -2694,7 +2694,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified estimate rate Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+        /// Get unified estimate rate. Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -2707,7 +2707,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get unified estimate rate Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
+        /// Get unified estimate rate. Due to fluctuations in lending depth, hourly interest rates may vary, and thus, I cannot provide exact rates. When a currency is not supported, the interest rate returned will be an empty string.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="currencies">Specify the currency names for querying in an array, separated by commas, with a maximum of 10 currencies.</param>
@@ -2754,7 +2754,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currency discount tiers 
+        /// List currency discount tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UnifiedDiscount&gt;</returns>
@@ -2765,7 +2765,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currency discount tiers 
+        /// List currency discount tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UnifiedDiscount&gt;</returns>
@@ -2802,7 +2802,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currency discount tiers 
+        /// List currency discount tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;UnifiedDiscount&gt;</returns>
@@ -2814,7 +2814,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currency discount tiers 
+        /// List currency discount tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;UnifiedDiscount&gt;)</returns>
@@ -2853,7 +2853,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loan margin tiers 
+        /// List loan margin tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UnifiedMarginTiers&gt;</returns>
@@ -2864,7 +2864,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loan margin tiers 
+        /// List loan margin tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UnifiedMarginTiers&gt;</returns>
@@ -2901,7 +2901,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loan margin tiers 
+        /// List loan margin tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;UnifiedMarginTiers&gt;</returns>
@@ -2913,7 +2913,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loan margin tiers 
+        /// List loan margin tiers. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;UnifiedMarginTiers&gt;)</returns>
@@ -2952,7 +2952,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio margin calculator. Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -2964,7 +2964,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio margin calculator. Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -3008,7 +3008,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio margin calculator. Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -3021,7 +3021,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Portfolio margin calculator Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order quantity,  supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
+        /// Portfolio margin calculator. Portfolio Margin Calculator When inputting a simulated position portfolio, each position includes the position name and quantity held, supporting markets within the range of BTC and ETH perpetual contracts, options, and spot markets. When inputting simulated orders, each order includes the market identifier, order price, and order of BTC and ETH perpetual contracts, options, and spot markets. Market orders are not included.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedPortfolioInput"></param>
@@ -3067,10 +3067,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Minimum currency leverage that can be set 
+        /// Minimum currency leverage that can be set. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UnifiedLeverageConfig</returns>
         public UnifiedLeverageConfig GetUserLeverageCurrencyConfig (string currency)
         {
@@ -3079,10 +3079,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Minimum currency leverage that can be set 
+        /// Minimum currency leverage that can be set. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UnifiedLeverageConfig</returns>
         public ApiResponse<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigWithHttpInfo (string currency)
         {
@@ -3124,10 +3124,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Minimum currency leverage that can be set 
+        /// Minimum currency leverage that can be set. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UnifiedLeverageConfig</returns>
         public async Task<UnifiedLeverageConfig> GetUserLeverageCurrencyConfigAsync (string currency)
         {
@@ -3137,10 +3137,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Minimum currency leverage that can be set 
+        /// Minimum currency leverage that can be set. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UnifiedLeverageConfig)</returns>
         public async Task<ApiResponse<UnifiedLeverageConfig>> GetUserLeverageCurrencyConfigAsyncWithHttpInfo (string currency)
         {
@@ -3184,10 +3184,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the leverage multiple of the user currency Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// Get the leverage multiple of the user currency. Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>UnifiedLeverageSetting</returns>
         public UnifiedLeverageSetting GetUserLeverageCurrencySetting (string currency = default(string))
         {
@@ -3196,10 +3196,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the leverage multiple of the user currency Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// Get the leverage multiple of the user currency. Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>ApiResponse of UnifiedLeverageSetting</returns>
         public ApiResponse<UnifiedLeverageSetting> GetUserLeverageCurrencySettingWithHttpInfo (string currency = default(string))
         {
@@ -3240,10 +3240,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the leverage multiple of the user currency Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// Get the leverage multiple of the user currency. Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of UnifiedLeverageSetting</returns>
         public async Task<UnifiedLeverageSetting> GetUserLeverageCurrencySettingAsync (string currency = default(string))
         {
@@ -3253,10 +3253,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the leverage multiple of the user currency Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
+        /// Get the leverage multiple of the user currency. Get the user&#39;s currency leverage. If currency is not passed, query all currencies.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of ApiResponse (UnifiedLeverageSetting)</returns>
         public async Task<ApiResponse<UnifiedLeverageSetting>> GetUserLeverageCurrencySettingAsyncWithHttpInfo (string currency = default(string))
         {
@@ -3299,7 +3299,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set the loan currency leverage 
+        /// Set the loan currency leverage. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLeverageSetting"></param>
@@ -3310,7 +3310,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set the loan currency leverage 
+        /// Set the loan currency leverage. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLeverageSetting"></param>
@@ -3355,7 +3355,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set the loan currency leverage 
+        /// Set the loan currency leverage. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLeverageSetting"></param>
@@ -3367,7 +3367,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set the loan currency leverage 
+        /// Set the loan currency leverage. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedLeverageSetting"></param>
@@ -3414,10 +3414,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List of loan currencies supported by unified account 
+        /// List of loan currencies supported by unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>List&lt;UnifiedCurrency&gt;</returns>
         public List<UnifiedCurrency> ListUnifiedCurrencies (string currency = default(string))
         {
@@ -3426,10 +3426,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List of loan currencies supported by unified account 
+        /// List of loan currencies supported by unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>ApiResponse of List&lt;UnifiedCurrency&gt;</returns>
         public ApiResponse<List<UnifiedCurrency>> ListUnifiedCurrenciesWithHttpInfo (string currency = default(string))
         {
@@ -3468,10 +3468,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List of loan currencies supported by unified account 
+        /// List of loan currencies supported by unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of List&lt;UnifiedCurrency&gt;</returns>
         public async Task<List<UnifiedCurrency>> ListUnifiedCurrenciesAsync (string currency = default(string))
         {
@@ -3481,10 +3481,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List of loan currencies supported by unified account 
+        /// List of loan currencies supported by unified account. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency (optional)</param>
+        /// <param name="currency">Currency. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UnifiedCurrency&gt;)</returns>
         public async Task<ApiResponse<List<UnifiedCurrency>>> ListUnifiedCurrenciesAsyncWithHttpInfo (string currency = default(string))
         {
@@ -3525,13 +3525,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// get historical lending rates 
+        /// get historical lending rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>UnifiedHistoryLoanRate</returns>
         public UnifiedHistoryLoanRate GetHistoryLoanRate (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3540,13 +3540,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// get historical lending rates 
+        /// get historical lending rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of UnifiedHistoryLoanRate</returns>
         public ApiResponse<UnifiedHistoryLoanRate> GetHistoryLoanRateWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3598,13 +3598,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// get historical lending rates 
+        /// get historical lending rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of UnifiedHistoryLoanRate</returns>
         public async Task<UnifiedHistoryLoanRate> GetHistoryLoanRateAsync (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3614,13 +3614,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// get historical lending rates 
+        /// get historical lending rates. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
-        /// <param name="tier">The VIP level of the floating rate that needs to be queried (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Currency.</param>
+        /// <param name="tier">The VIP level of the floating rate that needs to be queried. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (UnifiedHistoryLoanRate)</returns>
         public async Task<ApiResponse<UnifiedHistoryLoanRate>> GetHistoryLoanRateAsyncWithHttpInfo (string currency, string tier = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -3674,7 +3674,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set Collateral Currency 
+        /// Set Collateral Currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedCollateralReq"></param>
@@ -3686,7 +3686,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set Collateral Currency 
+        /// Set Collateral Currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedCollateralReq"></param>
@@ -3732,7 +3732,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set Collateral Currency 
+        /// Set Collateral Currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedCollateralReq"></param>
@@ -3745,7 +3745,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Set Collateral Currency 
+        /// Set Collateral Currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unifiedCollateralReq"></param>

@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUserMode" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="isUnified">Is it a unified account?.</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="isUnified">Is it a unified account?..</param>
         /// <param name="mode">Unified account mode： - &#x60;classic&#x60;: Classic account mode - &#x60;multi_currency&#x60;: Multi-currency margin mode - &#x60;portfolio&#x60;: Portfolio margin mode.</param>
         public SubUserMode(long userId = default(long), bool isUnified = default(bool), string mode = default(string))
         {
@@ -44,16 +44,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Is it a unified account?
+        /// Is it a unified account?.
         /// </summary>
-        /// <value>Is it a unified account?</value>
+        /// <value>Is it a unified account?.</value>
         [DataMember(Name="is_unified")]
         public bool IsUnified { get; set; }
 

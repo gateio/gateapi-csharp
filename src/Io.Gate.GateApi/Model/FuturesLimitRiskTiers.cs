@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesLimitRiskTiers" /> class.
         /// </summary>
-        /// <param name="tier">Tier.</param>
-        /// <param name="riskLimit">Position risk limit.</param>
-        /// <param name="initialRate">Initial margin rate.</param>
-        /// <param name="maintenanceRate">Maintenance margin rate.</param>
-        /// <param name="leverageMax">Maximum leverage.</param>
-        /// <param name="contract">Markets, visible only during market pagination requests.</param>
-        /// <param name="deduction">Maintenance margin quick calculation deduction.</param>
+        /// <param name="tier">Tier..</param>
+        /// <param name="riskLimit">Position risk limit..</param>
+        /// <param name="initialRate">Initial margin rate..</param>
+        /// <param name="maintenanceRate">Maintenance margin rate..</param>
+        /// <param name="leverageMax">Maximum leverage..</param>
+        /// <param name="contract">Markets, visible only during market pagination requests..</param>
+        /// <param name="deduction">Maintenance margin quick calculation deduction..</param>
         public FuturesLimitRiskTiers(int tier = default(int), string riskLimit = default(string), string initialRate = default(string), string maintenanceRate = default(string), string leverageMax = default(string), string contract = default(string), string deduction = default(string))
         {
             this.Tier = tier;
@@ -52,51 +52,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Tier
+        /// Tier.
         /// </summary>
-        /// <value>Tier</value>
+        /// <value>Tier.</value>
         [DataMember(Name="tier")]
         public int Tier { get; set; }
 
         /// <summary>
-        /// Position risk limit
+        /// Position risk limit.
         /// </summary>
-        /// <value>Position risk limit</value>
+        /// <value>Position risk limit.</value>
         [DataMember(Name="risk_limit")]
         public string RiskLimit { get; set; }
 
         /// <summary>
-        /// Initial margin rate
+        /// Initial margin rate.
         /// </summary>
-        /// <value>Initial margin rate</value>
+        /// <value>Initial margin rate.</value>
         [DataMember(Name="initial_rate")]
         public string InitialRate { get; set; }
 
         /// <summary>
-        /// Maintenance margin rate
+        /// Maintenance margin rate.
         /// </summary>
-        /// <value>Maintenance margin rate</value>
+        /// <value>Maintenance margin rate.</value>
         [DataMember(Name="maintenance_rate")]
         public string MaintenanceRate { get; set; }
 
         /// <summary>
-        /// Maximum leverage
+        /// Maximum leverage.
         /// </summary>
-        /// <value>Maximum leverage</value>
+        /// <value>Maximum leverage.</value>
         [DataMember(Name="leverage_max")]
         public string LeverageMax { get; set; }
 
         /// <summary>
-        /// Markets, visible only during market pagination requests
+        /// Markets, visible only during market pagination requests.
         /// </summary>
-        /// <value>Markets, visible only during market pagination requests</value>
+        /// <value>Markets, visible only during market pagination requests.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Maintenance margin quick calculation deduction
+        /// Maintenance margin quick calculation deduction.
         /// </summary>
-        /// <value>Maintenance margin quick calculation deduction</value>
+        /// <value>Maintenance margin quick calculation deduction.</value>
         [DataMember(Name="deduction")]
         public string Deduction { get; set; }
 

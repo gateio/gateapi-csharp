@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures position details
+    /// Futures position details.
     /// </summary>
     [DataContract]
     public partial class Position :  IEquatable<Position>, IValidatableObject
     {
         /// <summary>
-        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: mode
         /// </summary>
-        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode</value>
+        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: mode</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ModeEnum
         {
@@ -58,21 +58,21 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode
+        /// Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: mode
         /// </summary>
-        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode</value>
+        /// <value>Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: mode</value>
         [DataMember(Name="mode")]
         public ModeEnum? Mode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Position" /> class.
         /// </summary>
         /// <param name="leverage">Position leverage. 0 means cross margin; positive number means isolated margin.</param>
-        /// <param name="riskLimit">Position risk limit.</param>
-        /// <param name="margin">Position margin.</param>
+        /// <param name="riskLimit">Position risk limit..</param>
+        /// <param name="margin">Position margin..</param>
         /// <param name="closeOrder">closeOrder.</param>
-        /// <param name="mode">Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: short position in dual mode.</param>
-        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).</param>
-        /// <param name="openTime">First Open Time.</param>
+        /// <param name="mode">Position mode, including:  - &#x60;single&#x60;: dual mode is not enabled- &#x60;dual_long&#x60;: long position in dual mode- &#x60;dual_short&#x60;: mode.</param>
+        /// <param name="crossLeverageLimit">Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)..</param>
+        /// <param name="openTime">First Open Time..</param>
         public Position(string leverage = default(string), string riskLimit = default(string), string margin = default(string), PositionCloseOrder closeOrder = default(PositionCloseOrder), ModeEnum? mode = default(ModeEnum?), string crossLeverageLimit = default(string), long openTime = default(long))
         {
             this.Leverage = leverage;
@@ -85,23 +85,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public long User { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// Position size
+        /// Position size.
         /// </summary>
-        /// <value>Position size</value>
+        /// <value>Position size.</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
@@ -113,58 +113,58 @@ namespace Io.Gate.GateApi.Model
         public string Leverage { get; set; }
 
         /// <summary>
-        /// Position risk limit
+        /// Position risk limit.
         /// </summary>
-        /// <value>Position risk limit</value>
+        /// <value>Position risk limit.</value>
         [DataMember(Name="risk_limit")]
         public string RiskLimit { get; set; }
 
         /// <summary>
-        /// Maximum leverage under current risk limit
+        /// Maximum leverage under current risk limit.
         /// </summary>
-        /// <value>Maximum leverage under current risk limit</value>
+        /// <value>Maximum leverage under current risk limit.</value>
         [DataMember(Name="leverage_max", EmitDefaultValue=false)]
         public string LeverageMax { get; private set; }
 
         /// <summary>
-        /// Maintenance rate under current risk limit
+        /// Maintenance rate under current risk limit.
         /// </summary>
-        /// <value>Maintenance rate under current risk limit</value>
+        /// <value>Maintenance rate under current risk limit.</value>
         [DataMember(Name="maintenance_rate", EmitDefaultValue=false)]
         public string MaintenanceRate { get; private set; }
 
         /// <summary>
-        /// Position value calculated in settlement currency
+        /// Position value calculated in settlement currency.
         /// </summary>
-        /// <value>Position value calculated in settlement currency</value>
+        /// <value>Position value calculated in settlement currency.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; private set; }
 
         /// <summary>
-        /// Position margin
+        /// Position margin.
         /// </summary>
-        /// <value>Position margin</value>
+        /// <value>Position margin.</value>
         [DataMember(Name="margin")]
         public string Margin { get; set; }
 
         /// <summary>
-        /// Entry price
+        /// Entry price.
         /// </summary>
-        /// <value>Entry price</value>
+        /// <value>Entry price.</value>
         [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
-        /// Liquidation price
+        /// Liquidation price.
         /// </summary>
-        /// <value>Liquidation price</value>
+        /// <value>Liquidation price.</value>
         [DataMember(Name="liq_price", EmitDefaultValue=false)]
         public string LiqPrice { get; private set; }
 
         /// <summary>
-        /// Current mark price
+        /// Current mark price.
         /// </summary>
-        /// <value>Current mark price</value>
+        /// <value>Current mark price.</value>
         [DataMember(Name="mark_price", EmitDefaultValue=false)]
         public string MarkPrice { get; private set; }
 
@@ -183,65 +183,65 @@ namespace Io.Gate.GateApi.Model
         public string MaintenanceMargin { get; private set; }
 
         /// <summary>
-        /// Unrealized PNL
+        /// Unrealized PNL.
         /// </summary>
-        /// <value>Unrealized PNL</value>
+        /// <value>Unrealized PNL.</value>
         [DataMember(Name="unrealised_pnl", EmitDefaultValue=false)]
         public string UnrealisedPnl { get; private set; }
 
         /// <summary>
-        /// Realized PNL
+        /// Realized PNL.
         /// </summary>
-        /// <value>Realized PNL</value>
+        /// <value>Realized PNL.</value>
         [DataMember(Name="realised_pnl", EmitDefaultValue=false)]
         public string RealisedPnl { get; private set; }
 
         /// <summary>
-        /// Realized PNL - Position P/L
+        /// Realized PNL - Position P/L.
         /// </summary>
-        /// <value>Realized PNL - Position P/L</value>
+        /// <value>Realized PNL - Position P/L.</value>
         [DataMember(Name="pnl_pnl", EmitDefaultValue=false)]
         public string PnlPnl { get; private set; }
 
         /// <summary>
-        /// Realized PNL -  Funding Fees
+        /// Realized PNL - Funding Fees.
         /// </summary>
-        /// <value>Realized PNL -  Funding Fees</value>
+        /// <value>Realized PNL - Funding Fees.</value>
         [DataMember(Name="pnl_fund", EmitDefaultValue=false)]
         public string PnlFund { get; private set; }
 
         /// <summary>
-        /// Realized PNL - Transaction Fees
+        /// Realized PNL - Transaction Fees.
         /// </summary>
-        /// <value>Realized PNL - Transaction Fees</value>
+        /// <value>Realized PNL - Transaction Fees.</value>
         [DataMember(Name="pnl_fee", EmitDefaultValue=false)]
         public string PnlFee { get; private set; }
 
         /// <summary>
-        /// History realized PNL
+        /// History realized PNL.
         /// </summary>
-        /// <value>History realized PNL</value>
+        /// <value>History realized PNL.</value>
         [DataMember(Name="history_pnl", EmitDefaultValue=false)]
         public string HistoryPnl { get; private set; }
 
         /// <summary>
-        /// PNL of last position close
+        /// PNL of last position close.
         /// </summary>
-        /// <value>PNL of last position close</value>
+        /// <value>PNL of last position close.</value>
         [DataMember(Name="last_close_pnl", EmitDefaultValue=false)]
         public string LastClosePnl { get; private set; }
 
         /// <summary>
-        /// Realized POINT PNL
+        /// Realized POINT PNL.
         /// </summary>
-        /// <value>Realized POINT PNL</value>
+        /// <value>Realized POINT PNL.</value>
         [DataMember(Name="realised_point", EmitDefaultValue=false)]
         public string RealisedPoint { get; private set; }
 
         /// <summary>
-        /// History realized POINT PNL
+        /// History realized POINT PNL.
         /// </summary>
-        /// <value>History realized POINT PNL</value>
+        /// <value>History realized POINT PNL.</value>
         [DataMember(Name="history_point", EmitDefaultValue=false)]
         public string HistoryPoint { get; private set; }
 
@@ -253,9 +253,9 @@ namespace Io.Gate.GateApi.Model
         public int AdlRanking { get; private set; }
 
         /// <summary>
-        /// Current open orders
+        /// Current open orders.
         /// </summary>
-        /// <value>Current open orders</value>
+        /// <value>Current open orders.</value>
         [DataMember(Name="pending_orders", EmitDefaultValue=false)]
         public int PendingOrders { get; private set; }
 
@@ -266,16 +266,16 @@ namespace Io.Gate.GateApi.Model
         public PositionCloseOrder CloseOrder { get; set; }
 
         /// <summary>
-        /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)
+        /// Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).
         /// </summary>
-        /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0)</value>
+        /// <value>Cross margin leverage(valid only when &#x60;leverage&#x60; is 0).</value>
         [DataMember(Name="cross_leverage_limit")]
         public string CrossLeverageLimit { get; set; }
 
         /// <summary>
-        /// Last update time
+        /// Last update time.
         /// </summary>
-        /// <value>Last update time</value>
+        /// <value>Last update time.</value>
         [DataMember(Name="update_time", EmitDefaultValue=false)]
         public long UpdateTime { get; private set; }
 
@@ -287,23 +287,23 @@ namespace Io.Gate.GateApi.Model
         public long UpdateId { get; private set; }
 
         /// <summary>
-        /// First Open Time
+        /// First Open Time.
         /// </summary>
-        /// <value>First Open Time</value>
+        /// <value>First Open Time.</value>
         [DataMember(Name="open_time")]
         public long OpenTime { get; set; }
 
         /// <summary>
-        /// Risk limit table ID
+        /// Risk limit table ID.
         /// </summary>
-        /// <value>Risk limit table ID</value>
+        /// <value>Risk limit table ID.</value>
         [DataMember(Name="risk_limit_table", EmitDefaultValue=false)]
         public string RiskLimitTable { get; private set; }
 
         /// <summary>
-        /// Average maintenance margin rate
+        /// Average maintenance margin rate.
         /// </summary>
-        /// <value>Average maintenance margin rate</value>
+        /// <value>Average maintenance margin rate.</value>
         [DataMember(Name="average_maintenance_rate", EmitDefaultValue=false)]
         public string AverageMaintenanceRate { get; private set; }
 

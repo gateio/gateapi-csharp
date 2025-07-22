@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountFuturesBalance" /> class.
         /// </summary>
-        /// <param name="uid">User ID.</param>
-        /// <param name="available">Futures account balances.</param>
+        /// <param name="uid">User ID..</param>
+        /// <param name="available">Futures account balances..</param>
         public SubAccountFuturesBalance(string uid = default(string), Dictionary<string, FuturesAccount> available = default(Dictionary<string, FuturesAccount>))
         {
             this.Uid = uid;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="uid")]
         public string Uid { get; set; }
 
         /// <summary>
-        /// Futures account balances
+        /// Futures account balances.
         /// </summary>
-        /// <value>Futures account balances</value>
+        /// <value>Futures account balances.</value>
         [DataMember(Name="available")]
         public Dictionary<string, FuturesAccount> Available { get; set; }
 

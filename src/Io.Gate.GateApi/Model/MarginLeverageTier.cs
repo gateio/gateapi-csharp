@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Market gradient information
+    /// Market gradient information.
     /// </summary>
     [DataContract]
     public partial class MarginLeverageTier :  IEquatable<MarginLeverageTier>, IValidatableObject
@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginLeverageTier" /> class.
         /// </summary>
-        /// <param name="upperLimit">Maximum loan limit.</param>
-        /// <param name="mmr">Maintenance margin rate.</param>
-        /// <param name="leverage">Maximum leverage multiple.</param>
+        /// <param name="upperLimit">Maximum loan limit..</param>
+        /// <param name="mmr">Maintenance margin rate..</param>
+        /// <param name="leverage">Maximum leverage multiple..</param>
         public MarginLeverageTier(string upperLimit = default(string), string mmr = default(string), string leverage = default(string))
         {
             this.UpperLimit = upperLimit;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Maximum loan limit
+        /// Maximum loan limit.
         /// </summary>
-        /// <value>Maximum loan limit</value>
+        /// <value>Maximum loan limit.</value>
         [DataMember(Name="upper_limit")]
         public string UpperLimit { get; set; }
 
         /// <summary>
-        /// Maintenance margin rate
+        /// Maintenance margin rate.
         /// </summary>
-        /// <value>Maintenance margin rate</value>
+        /// <value>Maintenance margin rate.</value>
         [DataMember(Name="mmr")]
         public string Mmr { get; set; }
 
         /// <summary>
-        /// Maximum leverage multiple
+        /// Maximum leverage multiple.
         /// </summary>
-        /// <value>Maximum leverage multiple</value>
+        /// <value>Maximum leverage multiple.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 

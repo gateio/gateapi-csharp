@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot
+    /// Spot.
     /// </summary>
     [DataContract]
     public partial class MockSpotBalance :  IEquatable<MockSpotBalance>, IValidatableObject
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MockSpotBalance" /> class.
         /// </summary>
-        /// <param name="currency">Currency name (required).</param>
+        /// <param name="currency">Currency name. (required).</param>
         /// <param name="equity">Currency equity, where equity &#x3D; balance - borrowed, represents the net delta exposure  of your spot positions, which can be negative. Currently only supports three currencies: BTC, ETH. (required).</param>
         public MockSpotBalance(string currency = default(string), string equity = default(string))
         {
@@ -49,9 +49,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 

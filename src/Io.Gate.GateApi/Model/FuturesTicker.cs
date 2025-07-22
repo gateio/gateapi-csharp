@@ -33,27 +33,27 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesTicker" /> class.
         /// </summary>
-        /// <param name="contract">Futures contract.</param>
-        /// <param name="last">Last trading price.</param>
+        /// <param name="contract">Futures contract..</param>
+        /// <param name="last">Last trading price..</param>
         /// <param name="changePercentage">Change percentage..</param>
-        /// <param name="totalSize">Contract total size.</param>
-        /// <param name="low24h">Lowest trading price in recent 24h.</param>
-        /// <param name="high24h">Highest trading price in recent 24h.</param>
-        /// <param name="volume24h">Trade size in recent 24h.</param>
+        /// <param name="totalSize">Contract total size..</param>
+        /// <param name="low24h">Lowest trading price in recent 24h..</param>
+        /// <param name="high24h">Highest trading price in recent 24h..</param>
+        /// <param name="volume24h">Trade size in recent 24h..</param>
         /// <param name="volume24hBtc">Trade volumes in recent 24h in BTC(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead).</param>
         /// <param name="volume24hUsd">Trade volumes in recent 24h in USD(deprecated, use &#x60;volume_24h_base&#x60;, &#x60;volume_24h_quote&#x60;, &#x60;volume_24h_settle&#x60; instead).</param>
-        /// <param name="volume24hBase">Trade volume in recent 24h, in base currency.</param>
-        /// <param name="volume24hQuote">Trade volume in recent 24h, in quote currency.</param>
-        /// <param name="volume24hSettle">Trade volume in recent 24h, in settle currency.</param>
-        /// <param name="markPrice">Recent mark price.</param>
-        /// <param name="fundingRate">Funding rate.</param>
-        /// <param name="fundingRateIndicative">Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).</param>
-        /// <param name="indexPrice">Index price.</param>
+        /// <param name="volume24hBase">Trade volume in recent 24h, in base currency..</param>
+        /// <param name="volume24hQuote">Trade volume in recent 24h, in quote currency..</param>
+        /// <param name="volume24hSettle">Trade volume in recent 24h, in settle currency..</param>
+        /// <param name="markPrice">Recent mark price..</param>
+        /// <param name="fundingRate">Funding rate..</param>
+        /// <param name="fundingRateIndicative">Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)..</param>
+        /// <param name="indexPrice">Index price..</param>
         /// <param name="quantoBaseRate">Exchange rate of base currency and settlement currency in Quanto contract. Does not exists in contracts of other types.</param>
-        /// <param name="lowestAsk">Recent lowest ask.</param>
-        /// <param name="lowestSize">The latest seller&#39;s lowest price order quantity.</param>
-        /// <param name="highestBid">Recent highest bid.</param>
-        /// <param name="highestSize">The latest buyer&#39;s highest price order volume.</param>
+        /// <param name="lowestAsk">Recent lowest ask..</param>
+        /// <param name="lowestSize">The latest seller&#39;s lowest price order quantity..</param>
+        /// <param name="highestBid">Recent highest bid..</param>
+        /// <param name="highestSize">The latest buyer&#39;s highest price order volume..</param>
         public FuturesTicker(string contract = default(string), string last = default(string), string changePercentage = default(string), string totalSize = default(string), string low24h = default(string), string high24h = default(string), string volume24h = default(string), string volume24hBtc = default(string), string volume24hUsd = default(string), string volume24hBase = default(string), string volume24hQuote = default(string), string volume24hSettle = default(string), string markPrice = default(string), string fundingRate = default(string), string fundingRateIndicative = default(string), string indexPrice = default(string), string quantoBaseRate = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string))
         {
             this.Contract = contract;
@@ -80,16 +80,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Last trading price
+        /// Last trading price.
         /// </summary>
-        /// <value>Last trading price</value>
+        /// <value>Last trading price.</value>
         [DataMember(Name="last")]
         public string Last { get; set; }
 
@@ -101,30 +101,30 @@ namespace Io.Gate.GateApi.Model
         public string ChangePercentage { get; set; }
 
         /// <summary>
-        /// Contract total size
+        /// Contract total size.
         /// </summary>
-        /// <value>Contract total size</value>
+        /// <value>Contract total size.</value>
         [DataMember(Name="total_size")]
         public string TotalSize { get; set; }
 
         /// <summary>
-        /// Lowest trading price in recent 24h
+        /// Lowest trading price in recent 24h.
         /// </summary>
-        /// <value>Lowest trading price in recent 24h</value>
+        /// <value>Lowest trading price in recent 24h.</value>
         [DataMember(Name="low_24h")]
         public string Low24h { get; set; }
 
         /// <summary>
-        /// Highest trading price in recent 24h
+        /// Highest trading price in recent 24h.
         /// </summary>
-        /// <value>Highest trading price in recent 24h</value>
+        /// <value>Highest trading price in recent 24h.</value>
         [DataMember(Name="high_24h")]
         public string High24h { get; set; }
 
         /// <summary>
-        /// Trade size in recent 24h
+        /// Trade size in recent 24h.
         /// </summary>
-        /// <value>Trade size in recent 24h</value>
+        /// <value>Trade size in recent 24h.</value>
         [DataMember(Name="volume_24h")]
         public string Volume24h { get; set; }
 
@@ -143,51 +143,51 @@ namespace Io.Gate.GateApi.Model
         public string Volume24hUsd { get; set; }
 
         /// <summary>
-        /// Trade volume in recent 24h, in base currency
+        /// Trade volume in recent 24h, in base currency.
         /// </summary>
-        /// <value>Trade volume in recent 24h, in base currency</value>
+        /// <value>Trade volume in recent 24h, in base currency.</value>
         [DataMember(Name="volume_24h_base")]
         public string Volume24hBase { get; set; }
 
         /// <summary>
-        /// Trade volume in recent 24h, in quote currency
+        /// Trade volume in recent 24h, in quote currency.
         /// </summary>
-        /// <value>Trade volume in recent 24h, in quote currency</value>
+        /// <value>Trade volume in recent 24h, in quote currency.</value>
         [DataMember(Name="volume_24h_quote")]
         public string Volume24hQuote { get; set; }
 
         /// <summary>
-        /// Trade volume in recent 24h, in settle currency
+        /// Trade volume in recent 24h, in settle currency.
         /// </summary>
-        /// <value>Trade volume in recent 24h, in settle currency</value>
+        /// <value>Trade volume in recent 24h, in settle currency.</value>
         [DataMember(Name="volume_24h_settle")]
         public string Volume24hSettle { get; set; }
 
         /// <summary>
-        /// Recent mark price
+        /// Recent mark price.
         /// </summary>
-        /// <value>Recent mark price</value>
+        /// <value>Recent mark price.</value>
         [DataMember(Name="mark_price")]
         public string MarkPrice { get; set; }
 
         /// <summary>
-        /// Funding rate
+        /// Funding rate.
         /// </summary>
-        /// <value>Funding rate</value>
+        /// <value>Funding rate.</value>
         [DataMember(Name="funding_rate")]
         public string FundingRate { get; set; }
 
         /// <summary>
-        /// Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)
+        /// Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).
         /// </summary>
-        /// <value>Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;)</value>
+        /// <value>Indicative Funding rate in next period. (deprecated. use &#x60;funding_rate&#x60;).</value>
         [DataMember(Name="funding_rate_indicative")]
         public string FundingRateIndicative { get; set; }
 
         /// <summary>
-        /// Index price
+        /// Index price.
         /// </summary>
-        /// <value>Index price</value>
+        /// <value>Index price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
@@ -199,30 +199,30 @@ namespace Io.Gate.GateApi.Model
         public string QuantoBaseRate { get; set; }
 
         /// <summary>
-        /// Recent lowest ask
+        /// Recent lowest ask.
         /// </summary>
-        /// <value>Recent lowest ask</value>
+        /// <value>Recent lowest ask.</value>
         [DataMember(Name="lowest_ask")]
         public string LowestAsk { get; set; }
 
         /// <summary>
-        /// The latest seller&#39;s lowest price order quantity
+        /// The latest seller&#39;s lowest price order quantity.
         /// </summary>
-        /// <value>The latest seller&#39;s lowest price order quantity</value>
+        /// <value>The latest seller&#39;s lowest price order quantity.</value>
         [DataMember(Name="lowest_size")]
         public string LowestSize { get; set; }
 
         /// <summary>
-        /// Recent highest bid
+        /// Recent highest bid.
         /// </summary>
-        /// <value>Recent highest bid</value>
+        /// <value>Recent highest bid.</value>
         [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
 
         /// <summary>
-        /// The latest buyer&#39;s highest price order volume
+        /// The latest buyer&#39;s highest price order volume.
         /// </summary>
-        /// <value>The latest buyer&#39;s highest price order volume</value>
+        /// <value>The latest buyer&#39;s highest price order volume.</value>
         [DataMember(Name="highest_size")]
         public string HighestSize { get; set; }
 

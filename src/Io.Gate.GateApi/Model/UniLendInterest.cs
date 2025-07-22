@@ -39,16 +39,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Interest
+        /// Interest.
         /// </summary>
-        /// <value>Interest</value>
+        /// <value>Interest.</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; private set; }
 

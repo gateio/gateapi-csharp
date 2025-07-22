@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class OptionsMyTrade :  IEquatable<OptionsMyTrade>, IValidatableObject
     {
         /// <summary>
-        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
         /// </summary>
-        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;</value>
+        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -52,22 +52,22 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;
+        /// Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.
         /// </summary>
-        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;</value>
+        /// <value>Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</value>
         [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsMyTrade" /> class.
         /// </summary>
-        /// <param name="id">Trade ID.</param>
-        /// <param name="createTime">Trading time.</param>
-        /// <param name="contract">Options contract name.</param>
-        /// <param name="orderId">Order ID related.</param>
-        /// <param name="size">Trading size.</param>
-        /// <param name="price">Trading price (quote currency).</param>
-        /// <param name="underlyingPrice">Underlying price (quote currency).</param>
-        /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;.</param>
+        /// <param name="id">Trade ID..</param>
+        /// <param name="createTime">Trading time..</param>
+        /// <param name="contract">Options contract name..</param>
+        /// <param name="orderId">Order ID related..</param>
+        /// <param name="size">Trading size..</param>
+        /// <param name="price">Trading price (quote currency)..</param>
+        /// <param name="underlyingPrice">Underlying price (quote currency)..</param>
+        /// <param name="role">Trade role. Available values are &#x60;taker&#x60; and &#x60;maker&#x60;..</param>
         public OptionsMyTrade(long id = default(long), double createTime = default(double), string contract = default(string), int orderId = default(int), long size = default(long), string price = default(string), string underlyingPrice = default(string), RoleEnum? role = default(RoleEnum?))
         {
             this.Id = id;
@@ -81,51 +81,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade ID
+        /// Trade ID.
         /// </summary>
-        /// <value>Trade ID</value>
+        /// <value>Trade ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// Trading time
+        /// Trading time.
         /// </summary>
-        /// <value>Trading time</value>
+        /// <value>Trading time.</value>
         [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Order ID related
+        /// Order ID related.
         /// </summary>
-        /// <value>Order ID related</value>
+        /// <value>Order ID related.</value>
         [DataMember(Name="order_id")]
         public int OrderId { get; set; }
 
         /// <summary>
-        /// Trading size
+        /// Trading size.
         /// </summary>
-        /// <value>Trading size</value>
+        /// <value>Trading size.</value>
         [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
-        /// Trading price (quote currency)
+        /// Trading price (quote currency).
         /// </summary>
-        /// <value>Trading price (quote currency)</value>
+        /// <value>Trading price (quote currency).</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Underlying price (quote currency)
+        /// Underlying price (quote currency).
         /// </summary>
-        /// <value>Underlying price (quote currency)</value>
+        /// <value>Underlying price (quote currency).</value>
         [DataMember(Name="underlying_price")]
         public string UnderlyingPrice { get; set; }
 

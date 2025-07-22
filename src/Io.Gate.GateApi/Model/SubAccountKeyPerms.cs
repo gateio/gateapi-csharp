@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="SubAccountKeyPerms" /> class.
         /// </summary>
         /// <param name="name">Permission function name (no value will be cleared) - wallet: wallet - spot: spot/leverage - futures: perpetual contract - delivery: delivery contract - earn: financial management - custody: custody - options: options - account: account information - loan: loan - margin: leverage - unified: unified account - copy: copy.</param>
-        /// <param name="readOnly">read only.</param>
+        /// <param name="readOnly">read only..</param>
         public SubAccountKeyPerms(string name = default(string), bool readOnly = default(bool))
         {
             this.Name = name;
@@ -49,9 +49,9 @@ namespace Io.Gate.GateApi.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// read only
+        /// read only.
         /// </summary>
-        /// <value>read only</value>
+        /// <value>read only.</value>
         [DataMember(Name="read_only")]
         public bool ReadOnly { get; set; }
 

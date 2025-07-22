@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class FuturesInitialOrder :  IEquatable<FuturesInitialOrder>, IValidatableObject
     {
         /// <summary>
-        /// Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+        /// Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
         /// </summary>
-        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
+        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TifEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
+        /// Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled
         /// </summary>
-        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
+        /// <value>Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled</value>
         [DataMember(Name="tif")]
         public TifEnum? Tif { get; set; }
         /// <summary>
@@ -65,11 +65,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesInitialOrder" /> class.
         /// </summary>
-        /// <param name="contract">Futures contract (required).</param>
+        /// <param name="contract">Futures contract. (required).</param>
         /// <param name="size">Represents the number of contracts that need to be closed, full closing: size&#x3D;0 Partial closing: plan-close-short-position size&gt;0  Partial closing: plan-close-long-position size&lt;0.</param>
-        /// <param name="price">Order price. Set to 0 to use market price (required).</param>
+        /// <param name="price">Order price. Set to 0 to use market price. (required).</param>
         /// <param name="close">When all positions are closed in a single position mode, it must be set to true to perform the closing operation When partially closed positions in single-store mode/double-store mode, you can not set close, or close&#x3D;false (default to false).</param>
-        /// <param name="tif">Time in force strategy, default is gtc, market order currently only supports ioc mode Market order currently only supports ioc mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
+        /// <param name="tif">Time in force strategy, default is gtc, market order currently only supports ioc mode mode  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled (default to TifEnum.Gtc).</param>
         /// <param name="text">The source of the order, including: - web: web - api: api - app: app.</param>
         /// <param name="reduceOnly">When set to true, perform automatic position reduction operation. Set to true to ensure that the order will not open a new position, and is only used to close or reduce positions (default to false).</param>
         /// <param name="autoSize">Do not set auto_size When the dual-position mode is closed all positions (size&#x3D;0), auto_size, close_long, close_short, short When the double-storey mode partially closes the position (size ≠ 0), there is no need to set auto_size.</param>
@@ -88,9 +88,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
@@ -102,9 +102,9 @@ namespace Io.Gate.GateApi.Model
         public long Size { get; set; }
 
         /// <summary>
-        /// Order price. Set to 0 to use market price
+        /// Order price. Set to 0 to use market price.
         /// </summary>
-        /// <value>Order price. Set to 0 to use market price</value>
+        /// <value>Order price. Set to 0 to use market price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
@@ -137,16 +137,16 @@ namespace Io.Gate.GateApi.Model
         public string AutoSize { get; set; }
 
         /// <summary>
-        /// Is the order reduce-only
+        /// Is the order reduce-only.
         /// </summary>
-        /// <value>Is the order reduce-only</value>
+        /// <value>Is the order reduce-only.</value>
         [DataMember(Name="is_reduce_only", EmitDefaultValue=false)]
         public bool IsReduceOnly { get; private set; }
 
         /// <summary>
-        /// Is the order to close position
+        /// Is the order to close position.
         /// </summary>
-        /// <value>Is the order to close position</value>
+        /// <value>Is the order to close position.</value>
         [DataMember(Name="is_close", EmitDefaultValue=false)]
         public bool IsClose { get; private set; }
 

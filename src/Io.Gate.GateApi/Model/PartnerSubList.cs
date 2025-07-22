@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnerSubList" /> class.
         /// </summary>
-        /// <param name="total">Total.</param>
-        /// <param name="list">Subordinate list.</param>
+        /// <param name="total">Total..</param>
+        /// <param name="list">Subordinate list..</param>
         public PartnerSubList(long total = default(long), List<PartnerSub> list = default(List<PartnerSub>))
         {
             this.Total = total;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Total
+        /// Total.
         /// </summary>
-        /// <value>Total</value>
+        /// <value>Total.</value>
         [DataMember(Name="total")]
         public long Total { get; set; }
 
         /// <summary>
-        /// Subordinate list
+        /// Subordinate list.
         /// </summary>
-        /// <value>Subordinate list</value>
+        /// <value>Subordinate list.</value>
         [DataMember(Name="list")]
         public List<PartnerSub> List { get; set; }
 

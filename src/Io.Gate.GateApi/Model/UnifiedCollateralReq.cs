@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class UnifiedCollateralReq :  IEquatable<UnifiedCollateralReq>, IValidatableObject
     {
         /// <summary>
-        /// User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
+        /// User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
         /// </summary>
-        /// <value>User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid</value>
+        /// <value>User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CollateralTypeEnum
         {
@@ -50,17 +50,17 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
+        /// User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid
         /// </summary>
-        /// <value>User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid</value>
+        /// <value>User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid</value>
         [DataMember(Name="collateral_type")]
         public CollateralTypeEnum? CollateralType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedCollateralReq" /> class.
         /// </summary>
-        /// <param name="collateralType">User-set collateral mode0(all)-All currencies used as collateral, 1(custom)-Custom currencies used as collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid.</param>
+        /// <param name="collateralType">User-set collateral mode0(all)-All currencies used as collateral, collateral; when collateral_type is 0(all), the enable_list and disable_list parameters are invalid.</param>
         /// <param name="enableList">Currency list, where collateral_type&#x3D;1(custom) indicates the logic of addition.</param>
-        /// <param name="disableList">Cancellation list, indicating the logic of cancellation.</param>
+        /// <param name="disableList">Cancellation list, indicating the logic of cancellation..</param>
         public UnifiedCollateralReq(CollateralTypeEnum? collateralType = default(CollateralTypeEnum?), List<string> enableList = default(List<string>), List<string> disableList = default(List<string>))
         {
             this.CollateralType = collateralType;
@@ -76,9 +76,9 @@ namespace Io.Gate.GateApi.Model
         public List<string> EnableList { get; set; }
 
         /// <summary>
-        /// Cancellation list, indicating the logic of cancellation
+        /// Cancellation list, indicating the logic of cancellation.
         /// </summary>
-        /// <value>Cancellation list, indicating the logic of cancellation</value>
+        /// <value>Cancellation list, indicating the logic of cancellation.</value>
         [DataMember(Name="disable_list")]
         public List<string> DisableList { get; set; }
 

@@ -33,14 +33,14 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotAccountBook" /> class.
         /// </summary>
-        /// <param name="id">Balance change record ID.</param>
-        /// <param name="time">The timestamp of the change (in milliseconds).</param>
-        /// <param name="currency">Currency changed.</param>
-        /// <param name="change">Amount changed. Positive value means transferring in, while negative out.</param>
-        /// <param name="balance">Balance after change.</param>
-        /// <param name="type">Account book type.  Please refer to [account book type](#accountbook-type) for more detail.</param>
-        /// <param name="code">Account change code, see [Asset Record Code] (Asset Record Code).</param>
-        /// <param name="text">Additional information.</param>
+        /// <param name="id">Balance change record ID..</param>
+        /// <param name="time">The timestamp of the change (in milliseconds)..</param>
+        /// <param name="currency">Currency changed..</param>
+        /// <param name="change">Amount changed. Positive value means transferring in, while negative out..</param>
+        /// <param name="balance">Balance after change..</param>
+        /// <param name="type">Account book type. Please refer to [account book type](#accountbook-type) for more detail.</param>
+        /// <param name="code">Account change code, see [Asset Record Code] (Asset Record Code)..</param>
+        /// <param name="text">Additional information..</param>
         public SpotAccountBook(string id = default(string), long time = default(long), string currency = default(string), string change = default(string), string balance = default(string), string type = default(string), string code = default(string), string text = default(string))
         {
             this.Id = id;
@@ -54,58 +54,58 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Balance change record ID
+        /// Balance change record ID.
         /// </summary>
-        /// <value>Balance change record ID</value>
+        /// <value>Balance change record ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// The timestamp of the change (in milliseconds)
+        /// The timestamp of the change (in milliseconds).
         /// </summary>
-        /// <value>The timestamp of the change (in milliseconds)</value>
+        /// <value>The timestamp of the change (in milliseconds).</value>
         [DataMember(Name="time")]
         public long Time { get; set; }
 
         /// <summary>
-        /// Currency changed
+        /// Currency changed.
         /// </summary>
-        /// <value>Currency changed</value>
+        /// <value>Currency changed.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Amount changed. Positive value means transferring in, while negative out
+        /// Amount changed. Positive value means transferring in, while negative out.
         /// </summary>
-        /// <value>Amount changed. Positive value means transferring in, while negative out</value>
+        /// <value>Amount changed. Positive value means transferring in, while negative out.</value>
         [DataMember(Name="change")]
         public string Change { get; set; }
 
         /// <summary>
-        /// Balance after change
+        /// Balance after change.
         /// </summary>
-        /// <value>Balance after change</value>
+        /// <value>Balance after change.</value>
         [DataMember(Name="balance")]
         public string Balance { get; set; }
 
         /// <summary>
-        /// Account book type.  Please refer to [account book type](#accountbook-type) for more detail
+        /// Account book type. Please refer to [account book type](#accountbook-type) for more detail
         /// </summary>
-        /// <value>Account book type.  Please refer to [account book type](#accountbook-type) for more detail</value>
+        /// <value>Account book type. Please refer to [account book type](#accountbook-type) for more detail</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Account change code, see [Asset Record Code] (Asset Record Code)
+        /// Account change code, see [Asset Record Code] (Asset Record Code).
         /// </summary>
-        /// <value>Account change code, see [Asset Record Code] (Asset Record Code)</value>
+        /// <value>Account change code, see [Asset Record Code] (Asset Record Code).</value>
         [DataMember(Name="code")]
         public string Code { get; set; }
 
         /// <summary>
-        /// Additional information
+        /// Additional information.
         /// </summary>
-        /// <value>Additional information</value>
+        /// <value>Additional information.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 

@@ -33,15 +33,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgencyTransaction" /> class.
         /// </summary>
-        /// <param name="transactionTime">Transaction Time. (unix timestamp).</param>
-        /// <param name="userId">User ID.</param>
-        /// <param name="groupName">Group name.</param>
-        /// <param name="fee">Fee.</param>
-        /// <param name="feeAsset">Fee currency.</param>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="amount">Commission Amount.</param>
-        /// <param name="amountAsset">Commission Asset.</param>
-        /// <param name="source">Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate.</param>
+        /// <param name="transactionTime">Transaction Time. (unix timestamp)..</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="groupName">Group name..</param>
+        /// <param name="fee">Fee..</param>
+        /// <param name="feeAsset">Fee currency..</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="amount">Commission Amount..</param>
+        /// <param name="amountAsset">Commission Asset..</param>
+        /// <param name="source">Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate..</param>
         public AgencyTransaction(long transactionTime = default(long), long userId = default(long), string groupName = default(string), string fee = default(string), string feeAsset = default(string), string currencyPair = default(string), string amount = default(string), string amountAsset = default(string), string source = default(string))
         {
             this.TransactionTime = transactionTime;
@@ -56,65 +56,65 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Transaction Time. (unix timestamp)
+        /// Transaction Time. (unix timestamp).
         /// </summary>
-        /// <value>Transaction Time. (unix timestamp)</value>
+        /// <value>Transaction Time. (unix timestamp).</value>
         [DataMember(Name="transaction_time")]
         public long TransactionTime { get; set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// Group name
+        /// Group name.
         /// </summary>
-        /// <value>Group name</value>
+        /// <value>Group name.</value>
         [DataMember(Name="group_name")]
         public string GroupName { get; set; }
 
         /// <summary>
-        /// Fee
+        /// Fee.
         /// </summary>
-        /// <value>Fee</value>
+        /// <value>Fee.</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Fee currency
+        /// Fee currency.
         /// </summary>
-        /// <value>Fee currency</value>
+        /// <value>Fee currency.</value>
         [DataMember(Name="fee_asset")]
         public string FeeAsset { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Commission Amount
+        /// Commission Amount.
         /// </summary>
-        /// <value>Commission Amount</value>
+        /// <value>Commission Amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Commission Asset
+        /// Commission Asset.
         /// </summary>
-        /// <value>Commission Asset</value>
+        /// <value>Commission Asset.</value>
         [DataMember(Name="amount_asset")]
         public string AmountAsset { get; set; }
 
         /// <summary>
-        /// Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate
+        /// Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.
         /// </summary>
-        /// <value>Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate</value>
+        /// <value>Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate.</value>
         [DataMember(Name="source")]
         public string Source { get; set; }
 

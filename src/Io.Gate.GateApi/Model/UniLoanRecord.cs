@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan records
+    /// Loan records.
     /// </summary>
     [DataContract]
     public partial class UniLoanRecord :  IEquatable<UniLoanRecord>, IValidatableObject
@@ -39,37 +39,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// The amount of lending or repaying
+        /// The amount of lending or repaying.
         /// </summary>
-        /// <value>The amount of lending or repaying</value>
+        /// <value>The amount of lending or repaying.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; private set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.MockOptionsPosition
 
-Options positions
+Options positions.
 
 ## Properties
 

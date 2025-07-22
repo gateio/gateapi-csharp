@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Batch query unified account can be borrowed up to a maximum of results
+    /// Batch query unified account can be borrowed up to a maximum of results.
     /// </summary>
     [DataContract]
     public partial class UnifiedBorrowable1 :  IEquatable<UnifiedBorrowable1>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedBorrowable1" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail.</param>
-        /// <param name="amount">The maximum amount to borrow.</param>
+        /// <param name="currency">Currency detail..</param>
+        /// <param name="amount">The maximum amount to borrow..</param>
         public UnifiedBorrowable1(string currency = default(string), string amount = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The maximum amount to borrow
+        /// The maximum amount to borrow.
         /// </summary>
-        /// <value>The maximum amount to borrow</value>
+        /// <value>The maximum amount to borrow.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

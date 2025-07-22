@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Parameters of flash swap order creation
+    /// Parameters of flash swap order creation.
     /// </summary>
     [DataContract]
     public partial class FlashSwapPreviewRequest :  IEquatable<FlashSwapPreviewRequest>, IValidatableObject

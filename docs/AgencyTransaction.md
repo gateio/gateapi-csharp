@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TransactionTime** | **long** | Transaction Time. (unix timestamp) | [optional] 
-**UserId** | **long** | User ID | [optional] 
-**GroupName** | **string** | Group name | [optional] 
-**Fee** | **string** | Fee | [optional] 
-**FeeAsset** | **string** | Fee currency | [optional] 
-**CurrencyPair** | **string** | Currency pair | [optional] 
-**Amount** | **string** | Commission Amount | [optional] 
-**AmountAsset** | **string** | Commission Asset | [optional] 
-**Source** | **string** | Source.  SPOT - SPOT Rebate, FUTURES - Futures Rebate | [optional] 
+**TransactionTime** | **long** | Transaction Time. (unix timestamp). | [optional] 
+**UserId** | **long** | User ID. | [optional] 
+**GroupName** | **string** | Group name. | [optional] 
+**Fee** | **string** | Fee. | [optional] 
+**FeeAsset** | **string** | Fee currency. | [optional] 
+**CurrencyPair** | **string** | Currency pair. | [optional] 
+**Amount** | **string** | Commission Amount. | [optional] 
+**AmountAsset** | **string** | Commission Asset. | [optional] 
+**Source** | **string** | Source. SPOT - SPOT Rebate, FUTURES - Futures Rebate. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

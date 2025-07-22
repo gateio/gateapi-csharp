@@ -34,9 +34,9 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="UnifiedPortfolioOutput" /> class.
         /// </summary>
         /// <param name="maintainMarginTotal">Total maintenance margin, including only the portfolio margin calculation results for positions in the risk unit,  excluding borrowed margin. If borrowing exists, conventional borrowing margin requirements will still apply..</param>
-        /// <param name="initialMarginTotal">Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders..</param>
-        /// <param name="calculateTime">Calculate time.</param>
-        /// <param name="riskUnit">Risk unit.</param>
+        /// <param name="initialMarginTotal">Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, orders..</param>
+        /// <param name="calculateTime">Calculate time..</param>
+        /// <param name="riskUnit">Risk unit..</param>
         public UnifiedPortfolioOutput(string maintainMarginTotal = default(string), string initialMarginTotal = default(string), long calculateTime = default(long), List<MockRiskUnit> riskUnit = default(List<MockRiskUnit>))
         {
             this.MaintainMarginTotal = maintainMarginTotal;
@@ -53,23 +53,23 @@ namespace Io.Gate.GateApi.Model
         public string MaintainMarginTotal { get; set; }
 
         /// <summary>
-        /// Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders.
+        /// Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, orders.
         /// </summary>
-        /// <value>Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, position + negative delta orders.</value>
+        /// <value>Total initial margin, calculated as the maximum of the following three combinations: position,  position + positive delta orders, orders.</value>
         [DataMember(Name="initial_margin_total")]
         public string InitialMarginTotal { get; set; }
 
         /// <summary>
-        /// Calculate time
+        /// Calculate time.
         /// </summary>
-        /// <value>Calculate time</value>
+        /// <value>Calculate time.</value>
         [DataMember(Name="calculate_time")]
         public long CalculateTime { get; set; }
 
         /// <summary>
-        /// Risk unit
+        /// Risk unit.
         /// </summary>
-        /// <value>Risk unit</value>
+        /// <value>Risk unit.</value>
         [DataMember(Name="risk_unit")]
         public List<MockRiskUnit> RiskUnit { get; set; }
 

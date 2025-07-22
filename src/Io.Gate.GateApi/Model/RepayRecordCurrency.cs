@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRecordCurrency" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="beforeAmount">Amount before the operation.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="beforeAmount">Amount before the operation..</param>
         /// <param name="beforeAmountUsdt">USDT Amount before the operation..</param>
         /// <param name="afterAmount">Amount after the operation..</param>
         /// <param name="afterAmountUsdt">USDT Amount after the operation..</param>
@@ -50,23 +50,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Amount before the operation
+        /// Amount before the operation.
         /// </summary>
-        /// <value>Amount before the operation</value>
+        /// <value>Amount before the operation.</value>
         [DataMember(Name="before_amount")]
         public string BeforeAmount { get; set; }
 

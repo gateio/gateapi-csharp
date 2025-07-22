@@ -33,14 +33,14 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskUnits" /> class.
         /// </summary>
-        /// <param name="symbol">Risk unit flag.</param>
-        /// <param name="spotInUse">Spot hedging utilization.</param>
-        /// <param name="maintainMargin">Maintenance margin for risk unit.</param>
-        /// <param name="initialMargin">Initial margin for risk unit.</param>
-        /// <param name="delta">Total Delta of risk unit.</param>
-        /// <param name="gamma">Total Gamma of risk unit.</param>
-        /// <param name="theta">Total Theta of risk unit.</param>
-        /// <param name="vega">Total Vega of risk unit.</param>
+        /// <param name="symbol">Risk unit flag..</param>
+        /// <param name="spotInUse">Spot hedging utilization..</param>
+        /// <param name="maintainMargin">Maintenance margin for risk unit..</param>
+        /// <param name="initialMargin">Initial margin for risk unit..</param>
+        /// <param name="delta">Total Delta of risk unit..</param>
+        /// <param name="gamma">Total Gamma of risk unit..</param>
+        /// <param name="theta">Total Theta of risk unit..</param>
+        /// <param name="vega">Total Vega of risk unit..</param>
         public RiskUnits(string symbol = default(string), string spotInUse = default(string), string maintainMargin = default(string), string initialMargin = default(string), string delta = default(string), string gamma = default(string), string theta = default(string), string vega = default(string))
         {
             this.Symbol = symbol;
@@ -54,58 +54,58 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Risk unit flag
+        /// Risk unit flag.
         /// </summary>
-        /// <value>Risk unit flag</value>
+        /// <value>Risk unit flag.</value>
         [DataMember(Name="symbol")]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// Spot hedging utilization
+        /// Spot hedging utilization.
         /// </summary>
-        /// <value>Spot hedging utilization</value>
+        /// <value>Spot hedging utilization.</value>
         [DataMember(Name="spot_in_use")]
         public string SpotInUse { get; set; }
 
         /// <summary>
-        /// Maintenance margin for risk unit
+        /// Maintenance margin for risk unit.
         /// </summary>
-        /// <value>Maintenance margin for risk unit</value>
+        /// <value>Maintenance margin for risk unit.</value>
         [DataMember(Name="maintain_margin")]
         public string MaintainMargin { get; set; }
 
         /// <summary>
-        /// Initial margin for risk unit
+        /// Initial margin for risk unit.
         /// </summary>
-        /// <value>Initial margin for risk unit</value>
+        /// <value>Initial margin for risk unit.</value>
         [DataMember(Name="initial_margin")]
         public string InitialMargin { get; set; }
 
         /// <summary>
-        /// Total Delta of risk unit
+        /// Total Delta of risk unit.
         /// </summary>
-        /// <value>Total Delta of risk unit</value>
+        /// <value>Total Delta of risk unit.</value>
         [DataMember(Name="delta")]
         public string Delta { get; set; }
 
         /// <summary>
-        /// Total Gamma of risk unit
+        /// Total Gamma of risk unit.
         /// </summary>
-        /// <value>Total Gamma of risk unit</value>
+        /// <value>Total Gamma of risk unit.</value>
         [DataMember(Name="gamma")]
         public string Gamma { get; set; }
 
         /// <summary>
-        /// Total Theta of risk unit
+        /// Total Theta of risk unit.
         /// </summary>
-        /// <value>Total Theta of risk unit</value>
+        /// <value>Total Theta of risk unit.</value>
         [DataMember(Name="theta")]
         public string Theta { get; set; }
 
         /// <summary>
-        /// Total Vega of risk unit
+        /// Total Vega of risk unit.
         /// </summary>
-        /// <value>Total Vega of risk unit</value>
+        /// <value>Total Vega of risk unit.</value>
         [DataMember(Name="vega")]
         public string Vega { get; set; }
 

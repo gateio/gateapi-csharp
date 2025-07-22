@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedCurrency" /> class.
         /// </summary>
-        /// <param name="name">Currency name.</param>
-        /// <param name="prec">Currency precision.</param>
-        /// <param name="minBorrowAmount">The minimum debit limit is the unit of currency.</param>
-        /// <param name="userMaxBorrowAmount">The minimum debit limit is the unit of currency.</param>
-        /// <param name="totalMaxBorrowAmount">The maximum debit limit for the platform is USDT.</param>
+        /// <param name="name">Currency name..</param>
+        /// <param name="prec">Currency precision..</param>
+        /// <param name="minBorrowAmount">The minimum debit limit is the unit of currency..</param>
+        /// <param name="userMaxBorrowAmount">The minimum debit limit is the unit of currency..</param>
+        /// <param name="totalMaxBorrowAmount">The maximum debit limit for the platform is USDT..</param>
         /// <param name="loanStatus">Does the lending status  - &#x60;disable&#x60; : Loans are prohibited  - &#x60;enable&#x60;: Support lending.</param>
         public UnifiedCurrency(string name = default(string), string prec = default(string), string minBorrowAmount = default(string), string userMaxBorrowAmount = default(string), string totalMaxBorrowAmount = default(string), string loanStatus = default(string))
         {
@@ -50,37 +50,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Currency precision
+        /// Currency precision.
         /// </summary>
-        /// <value>Currency precision</value>
+        /// <value>Currency precision.</value>
         [DataMember(Name="prec")]
         public string Prec { get; set; }
 
         /// <summary>
-        /// The minimum debit limit is the unit of currency
+        /// The minimum debit limit is the unit of currency.
         /// </summary>
-        /// <value>The minimum debit limit is the unit of currency</value>
+        /// <value>The minimum debit limit is the unit of currency.</value>
         [DataMember(Name="min_borrow_amount")]
         public string MinBorrowAmount { get; set; }
 
         /// <summary>
-        /// The minimum debit limit is the unit of currency
+        /// The minimum debit limit is the unit of currency.
         /// </summary>
-        /// <value>The minimum debit limit is the unit of currency</value>
+        /// <value>The minimum debit limit is the unit of currency.</value>
         [DataMember(Name="user_max_borrow_amount")]
         public string UserMaxBorrowAmount { get; set; }
 
         /// <summary>
-        /// The maximum debit limit for the platform is USDT
+        /// The maximum debit limit for the platform is USDT.
         /// </summary>
-        /// <value>The maximum debit limit for the platform is USDT</value>
+        /// <value>The maximum debit limit for the platform is USDT.</value>
         [DataMember(Name="total_max_borrow_amount")]
         public string TotalMaxBorrowAmount { get; set; }
 

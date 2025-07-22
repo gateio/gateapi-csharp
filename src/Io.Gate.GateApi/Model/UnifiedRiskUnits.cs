@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedRiskUnits" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
+        /// <param name="userId">User ID..</param>
         /// <param name="spotHedge">Spot hedging status, true - enabled, false - not enabled..</param>
-        /// <param name="riskUnits">Risk unit.</param>
+        /// <param name="riskUnits">Risk unit..</param>
         public UnifiedRiskUnits(long userId = default(long), bool spotHedge = default(bool), List<RiskUnits> riskUnits = default(List<RiskUnits>))
         {
             this.UserId = userId;
@@ -44,9 +44,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         public bool SpotHedge { get; set; }
 
         /// <summary>
-        /// Risk unit
+        /// Risk unit.
         /// </summary>
-        /// <value>Risk unit</value>
+        /// <value>Risk unit.</value>
         [DataMember(Name="risk_units")]
         public List<RiskUnits> RiskUnits { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// data point in every timestamp
+    /// data point in every timestamp.
     /// </summary>
     [DataContract]
     public partial class FuturesCandlestick :  IEquatable<FuturesCandlestick>, IValidatableObject
@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesCandlestick" /> class.
         /// </summary>
-        /// <param name="t">Unix timestamp in seconds.</param>
-        /// <param name="v">size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed.</param>
-        /// <param name="c">Close price (quote currency).</param>
-        /// <param name="h">Highest price (quote currency).</param>
-        /// <param name="l">Lowest price (quote currency).</param>
-        /// <param name="o">Open price (quote currency).</param>
-        /// <param name="sum">Trading volume (unit: Quote currency).</param>
+        /// <param name="t">Unix timestamp in seconds..</param>
+        /// <param name="v">size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed..</param>
+        /// <param name="c">Close price (quote currency)..</param>
+        /// <param name="h">Highest price (quote currency)..</param>
+        /// <param name="l">Lowest price (quote currency)..</param>
+        /// <param name="o">Open price (quote currency)..</param>
+        /// <param name="sum">Trading volume (unit: Quote currency)..</param>
         public FuturesCandlestick(double t = default(double), long v = default(long), string c = default(string), string h = default(string), string l = default(string), string o = default(string), string sum = default(string))
         {
             this.T = t;
@@ -52,51 +52,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Unix timestamp in seconds
+        /// Unix timestamp in seconds.
         /// </summary>
-        /// <value>Unix timestamp in seconds</value>
+        /// <value>Unix timestamp in seconds.</value>
         [DataMember(Name="t")]
         public double T { get; set; }
 
         /// <summary>
-        /// size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed
+        /// size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed.
         /// </summary>
-        /// <value>size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed</value>
+        /// <value>size volume (contract size). Only returned if &#x60;contract&#x60; is not prefixed.</value>
         [DataMember(Name="v")]
         public long V { get; set; }
 
         /// <summary>
-        /// Close price (quote currency)
+        /// Close price (quote currency).
         /// </summary>
-        /// <value>Close price (quote currency)</value>
+        /// <value>Close price (quote currency).</value>
         [DataMember(Name="c")]
         public string C { get; set; }
 
         /// <summary>
-        /// Highest price (quote currency)
+        /// Highest price (quote currency).
         /// </summary>
-        /// <value>Highest price (quote currency)</value>
+        /// <value>Highest price (quote currency).</value>
         [DataMember(Name="h")]
         public string H { get; set; }
 
         /// <summary>
-        /// Lowest price (quote currency)
+        /// Lowest price (quote currency).
         /// </summary>
-        /// <value>Lowest price (quote currency)</value>
+        /// <value>Lowest price (quote currency).</value>
         [DataMember(Name="l")]
         public string L { get; set; }
 
         /// <summary>
-        /// Open price (quote currency)
+        /// Open price (quote currency).
         /// </summary>
-        /// <value>Open price (quote currency)</value>
+        /// <value>Open price (quote currency).</value>
         [DataMember(Name="o")]
         public string O { get; set; }
 
         /// <summary>
-        /// Trading volume (unit: Quote currency)
+        /// Trading volume (unit: Quote currency).
         /// </summary>
-        /// <value>Trading volume (unit: Quote currency)</value>
+        /// <value>Trading volume (unit: Quote currency).</value>
         [DataMember(Name="sum")]
         public string Sum { get; set; }
 

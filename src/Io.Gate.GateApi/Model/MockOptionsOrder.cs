@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Option orders
+    /// Option orders.
     /// </summary>
     [DataContract]
     public partial class MockOptionsOrder :  IEquatable<MockOptionsOrder>, IValidatableObject
@@ -39,8 +39,8 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="MockOptionsOrder" /> class.
         /// </summary>
         /// <param name="optionsName">Option name, currently only supports options for BTC and ETH with USDT. (required).</param>
-        /// <param name="size">Initial order quantity, not involved in actual calculation (required).</param>
-        /// <param name="left">Unfilled contract quantity, involved in actual calculation (required).</param>
+        /// <param name="size">Initial order quantity, not involved in actual calculation. (required).</param>
+        /// <param name="left">Unfilled contract quantity, involved in actual calculation. (required).</param>
         public MockOptionsOrder(string optionsName = default(string), string size = default(string), string left = default(string))
         {
             // to ensure "optionsName" is required (not null)
@@ -59,16 +59,16 @@ namespace Io.Gate.GateApi.Model
         public string OptionsName { get; set; }
 
         /// <summary>
-        /// Initial order quantity, not involved in actual calculation
+        /// Initial order quantity, not involved in actual calculation.
         /// </summary>
-        /// <value>Initial order quantity, not involved in actual calculation</value>
+        /// <value>Initial order quantity, not involved in actual calculation.</value>
         [DataMember(Name="size")]
         public string Size { get; set; }
 
         /// <summary>
-        /// Unfilled contract quantity, involved in actual calculation
+        /// Unfilled contract quantity, involved in actual calculation.
         /// </summary>
-        /// <value>Unfilled contract quantity, involved in actual calculation</value>
+        /// <value>Unfilled contract quantity, involved in actual calculation.</value>
         [DataMember(Name="left")]
         public string Left { get; set; }
 

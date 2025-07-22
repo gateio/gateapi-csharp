@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Return of unified account collateral mode settings
+    /// Return of unified account collateral mode settings.
     /// </summary>
     [DataContract]
     public partial class UnifiedCollateralRes :  IEquatable<UnifiedCollateralRes>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedCollateralRes" /> class.
         /// </summary>
-        /// <param name="isSuccess">Whether the setting was successful.</param>
+        /// <param name="isSuccess">Whether the setting was successful..</param>
         public UnifiedCollateralRes(bool isSuccess = default(bool))
         {
             this.IsSuccess = isSuccess;
         }
 
         /// <summary>
-        /// Whether the setting was successful
+        /// Whether the setting was successful.
         /// </summary>
-        /// <value>Whether the setting was successful</value>
+        /// <value>Whether the setting was successful.</value>
         [DataMember(Name="is_success")]
         public bool IsSuccess { get; set; }
 

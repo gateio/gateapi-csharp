@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Collateral record
+    /// Collateral record.
     /// </summary>
     [DataContract]
     public partial class CollateralRecord :  IEquatable<CollateralRecord>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralRecord" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="recordId">Collateral record ID.</param>
-        /// <param name="borrowCurrency">Borrowed currency.</param>
-        /// <param name="borrowAmount">Borrowing amount.</param>
-        /// <param name="collateralCurrency">Collateral.</param>
-        /// <param name="beforeCollateral">The collateral amount before adjustment.</param>
-        /// <param name="afterCollateral">The collateral amount after adjustment.</param>
-        /// <param name="beforeLtv">The collateral ratio before adjustment.</param>
-        /// <param name="afterLtv">The collateral ratio after adjustment.</param>
-        /// <param name="operateTime">Timestamp of the operation, in seconds.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="recordId">Collateral record ID..</param>
+        /// <param name="borrowCurrency">Borrowed currency..</param>
+        /// <param name="borrowAmount">Borrowing amount..</param>
+        /// <param name="collateralCurrency">Collateral..</param>
+        /// <param name="beforeCollateral">The collateral amount before adjustment..</param>
+        /// <param name="afterCollateral">The collateral amount after adjustment..</param>
+        /// <param name="beforeLtv">The collateral ratio before adjustment..</param>
+        /// <param name="afterLtv">The collateral ratio after adjustment..</param>
+        /// <param name="operateTime">Timestamp of the operation, in seconds..</param>
         public CollateralRecord(long orderId = default(long), long recordId = default(long), string borrowCurrency = default(string), string borrowAmount = default(string), string collateralCurrency = default(string), string beforeCollateral = default(string), string afterCollateral = default(string), string beforeLtv = default(string), string afterLtv = default(string), long operateTime = default(long))
         {
             this.OrderId = orderId;
@@ -58,72 +58,72 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Collateral record ID
+        /// Collateral record ID.
         /// </summary>
-        /// <value>Collateral record ID</value>
+        /// <value>Collateral record ID.</value>
         [DataMember(Name="record_id")]
         public long RecordId { get; set; }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="borrow_currency")]
         public string BorrowCurrency { get; set; }
 
         /// <summary>
-        /// Borrowing amount
+        /// Borrowing amount.
         /// </summary>
-        /// <value>Borrowing amount</value>
+        /// <value>Borrowing amount.</value>
         [DataMember(Name="borrow_amount")]
         public string BorrowAmount { get; set; }
 
         /// <summary>
-        /// Collateral
+        /// Collateral.
         /// </summary>
-        /// <value>Collateral</value>
+        /// <value>Collateral.</value>
         [DataMember(Name="collateral_currency")]
         public string CollateralCurrency { get; set; }
 
         /// <summary>
-        /// The collateral amount before adjustment
+        /// The collateral amount before adjustment.
         /// </summary>
-        /// <value>The collateral amount before adjustment</value>
+        /// <value>The collateral amount before adjustment.</value>
         [DataMember(Name="before_collateral")]
         public string BeforeCollateral { get; set; }
 
         /// <summary>
-        /// The collateral amount after adjustment
+        /// The collateral amount after adjustment.
         /// </summary>
-        /// <value>The collateral amount after adjustment</value>
+        /// <value>The collateral amount after adjustment.</value>
         [DataMember(Name="after_collateral")]
         public string AfterCollateral { get; set; }
 
         /// <summary>
-        /// The collateral ratio before adjustment
+        /// The collateral ratio before adjustment.
         /// </summary>
-        /// <value>The collateral ratio before adjustment</value>
+        /// <value>The collateral ratio before adjustment.</value>
         [DataMember(Name="before_ltv")]
         public string BeforeLtv { get; set; }
 
         /// <summary>
-        /// The collateral ratio after adjustment
+        /// The collateral ratio after adjustment.
         /// </summary>
-        /// <value>The collateral ratio after adjustment</value>
+        /// <value>The collateral ratio after adjustment.</value>
         [DataMember(Name="after_ltv")]
         public string AfterLtv { get; set; }
 
         /// <summary>
-        /// Timestamp of the operation, in seconds
+        /// Timestamp of the operation, in seconds.
         /// </summary>
-        /// <value>Timestamp of the operation, in seconds</value>
+        /// <value>Timestamp of the operation, in seconds.</value>
         [DataMember(Name="operate_time")]
         public long OperateTime { get; set; }
 

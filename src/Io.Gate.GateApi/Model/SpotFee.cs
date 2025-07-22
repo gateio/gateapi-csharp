@@ -33,15 +33,15 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotFee" /> class.
         /// </summary>
-        /// <param name="userId">User ID.</param>
-        /// <param name="takerFee">taker fee rate.</param>
-        /// <param name="makerFee">maker fee rate.</param>
-        /// <param name="gtDiscount">If GT deduction is enabled.</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="takerFee">taker fee rate..</param>
+        /// <param name="makerFee">maker fee rate..</param>
+        /// <param name="gtDiscount">If GT deduction is enabled..</param>
         /// <param name="gtTakerFee">Taker fee rate if using GT deduction. It will be 0 if GT deduction is disabled.</param>
         /// <param name="gtMakerFee">Maker fee rate if using GT deduction. It will be 0 if GT deduction is disabled.</param>
-        /// <param name="loanFee">Loan fee rate of margin lending.</param>
-        /// <param name="pointType">Point type. 0 - Initial version. 1 - new version since 202009.</param>
-        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="loanFee">Loan fee rate of margin lending..</param>
+        /// <param name="pointType">Point type. 0 - Initial version. 1 - new version since 202009..</param>
+        /// <param name="currencyPair">Currency pair..</param>
         /// <param name="debitFee">Deduction types for rates, 1 - GT deduction, 2 - Point card deduction, 3 - VIP rates.</param>
         public SpotFee(long userId = default(long), string takerFee = default(string), string makerFee = default(string), bool gtDiscount = default(bool), string gtTakerFee = default(string), string gtMakerFee = default(string), string loanFee = default(string), string pointType = default(string), string currencyPair = default(string), int debitFee = default(int))
         {
@@ -58,30 +58,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// taker fee rate
+        /// taker fee rate.
         /// </summary>
-        /// <value>taker fee rate</value>
+        /// <value>taker fee rate.</value>
         [DataMember(Name="taker_fee")]
         public string TakerFee { get; set; }
 
         /// <summary>
-        /// maker fee rate
+        /// maker fee rate.
         /// </summary>
-        /// <value>maker fee rate</value>
+        /// <value>maker fee rate.</value>
         [DataMember(Name="maker_fee")]
         public string MakerFee { get; set; }
 
         /// <summary>
-        /// If GT deduction is enabled
+        /// If GT deduction is enabled.
         /// </summary>
-        /// <value>If GT deduction is enabled</value>
+        /// <value>If GT deduction is enabled.</value>
         [DataMember(Name="gt_discount")]
         public bool GtDiscount { get; set; }
 
@@ -100,23 +100,23 @@ namespace Io.Gate.GateApi.Model
         public string GtMakerFee { get; set; }
 
         /// <summary>
-        /// Loan fee rate of margin lending
+        /// Loan fee rate of margin lending.
         /// </summary>
-        /// <value>Loan fee rate of margin lending</value>
+        /// <value>Loan fee rate of margin lending.</value>
         [DataMember(Name="loan_fee")]
         public string LoanFee { get; set; }
 
         /// <summary>
-        /// Point type. 0 - Initial version. 1 - new version since 202009
+        /// Point type. 0 - Initial version. 1 - new version since 202009.
         /// </summary>
-        /// <value>Point type. 0 - Initial version. 1 - new version since 202009</value>
+        /// <value>Point type. 0 - Initial version. 1 - new version since 202009.</value>
         [DataMember(Name="point_type")]
         public string PointType { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Interest Record
+    /// Interest Record.
     /// </summary>
     [DataContract]
     public partial class UniLendRecord :  IEquatable<UniLendRecord>, IValidatableObject
@@ -39,51 +39,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// current amount
+        /// current amount.
         /// </summary>
-        /// <value>current amount</value>
+        /// <value>current amount.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; private set; }
 
         /// <summary>
-        /// Last wallet amount
+        /// Last wallet amount.
         /// </summary>
-        /// <value>Last wallet amount</value>
+        /// <value>Last wallet amount.</value>
         [DataMember(Name="last_wallet_amount", EmitDefaultValue=false)]
         public string LastWalletAmount { get; private set; }
 
         /// <summary>
-        /// Last lent amount
+        /// Last lent amount.
         /// </summary>
-        /// <value>Last lent amount</value>
+        /// <value>Last lent amount.</value>
         [DataMember(Name="last_lent_amount", EmitDefaultValue=false)]
         public string LastLentAmount { get; private set; }
 
         /// <summary>
-        /// Last frozen amount
+        /// Last frozen amount.
         /// </summary>
-        /// <value>Last frozen amount</value>
+        /// <value>Last frozen amount.</value>
         [DataMember(Name="last_frozen_amount", EmitDefaultValue=false)]
         public string LastFrozenAmount { get; private set; }
 
         /// <summary>
-        /// Record type: lend - lend, redeem - redeem
+        /// Record type: lend - lend, redeem - redeem.
         /// </summary>
-        /// <value>Record type: lend - lend, redeem - redeem</value>
+        /// <value>Record type: lend - lend, redeem - redeem.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

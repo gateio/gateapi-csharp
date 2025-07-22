@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiCollateralCurrency" /> class.
         /// </summary>
-        /// <param name="loanCurrencies">List of supported borrowing currencies.</param>
-        /// <param name="collateralCurrencies">List of supported collateral currencies.</param>
+        /// <param name="loanCurrencies">List of supported borrowing currencies..</param>
+        /// <param name="collateralCurrencies">List of supported collateral currencies..</param>
         public MultiCollateralCurrency(List<MultiLoanItem> loanCurrencies = default(List<MultiLoanItem>), List<MultiCollateralItem> collateralCurrencies = default(List<MultiCollateralItem>))
         {
             this.LoanCurrencies = loanCurrencies;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// List of supported borrowing currencies
+        /// List of supported borrowing currencies.
         /// </summary>
-        /// <value>List of supported borrowing currencies</value>
+        /// <value>List of supported borrowing currencies.</value>
         [DataMember(Name="loan_currencies")]
         public List<MultiLoanItem> LoanCurrencies { get; set; }
 
         /// <summary>
-        /// List of supported collateral currencies
+        /// List of supported collateral currencies.
         /// </summary>
-        /// <value>List of supported collateral currencies</value>
+        /// <value>List of supported collateral currencies.</value>
         [DataMember(Name="collateral_currencies")]
         public List<MultiCollateralItem> CollateralCurrencies { get; set; }
 

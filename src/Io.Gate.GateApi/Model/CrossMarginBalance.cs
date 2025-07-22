@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginBalance" /> class.
         /// </summary>
-        /// <param name="available">Available amount.</param>
-        /// <param name="freeze">Locked amount.</param>
-        /// <param name="borrowed">Borrowed amount.</param>
-        /// <param name="interest">Unpaid interests.</param>
+        /// <param name="available">Available amount..</param>
+        /// <param name="freeze">Locked amount..</param>
+        /// <param name="borrowed">Borrowed amount..</param>
+        /// <param name="interest">Unpaid interests..</param>
         public CrossMarginBalance(string available = default(string), string freeze = default(string), string borrowed = default(string), string interest = default(string))
         {
             this.Available = available;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Available amount
+        /// Available amount.
         /// </summary>
-        /// <value>Available amount</value>
+        /// <value>Available amount.</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
-        /// Locked amount
+        /// Locked amount.
         /// </summary>
-        /// <value>Locked amount</value>
+        /// <value>Locked amount.</value>
         [DataMember(Name="freeze")]
         public string Freeze { get; set; }
 
         /// <summary>
-        /// Borrowed amount
+        /// Borrowed amount.
         /// </summary>
-        /// <value>Borrowed amount</value>
+        /// <value>Borrowed amount.</value>
         [DataMember(Name="borrowed")]
         public string Borrowed { get; set; }
 
         /// <summary>
-        /// Unpaid interests
+        /// Unpaid interests.
         /// </summary>
-        /// <value>Unpaid interests</value>
+        /// <value>Unpaid interests.</value>
         [DataMember(Name="interest")]
         public string Interest { get; set; }
 

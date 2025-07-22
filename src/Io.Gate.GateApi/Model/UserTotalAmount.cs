@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Total borrowed amount and pledged collateral amount by the user
+    /// Total borrowed amount and pledged collateral amount by the user.
     /// </summary>
     [DataContract]
     public partial class UserTotalAmount :  IEquatable<UserTotalAmount>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserTotalAmount" /> class.
         /// </summary>
-        /// <param name="borrowAmount">Total borrowing amount, calculated in USDT.</param>
-        /// <param name="collateralAmount">Total collateral amount, calculated in USDT.</param>
+        /// <param name="borrowAmount">Total borrowing amount, calculated in USDT..</param>
+        /// <param name="collateralAmount">Total collateral amount, calculated in USDT..</param>
         public UserTotalAmount(string borrowAmount = default(string), string collateralAmount = default(string))
         {
             this.BorrowAmount = borrowAmount;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Total borrowing amount, calculated in USDT
+        /// Total borrowing amount, calculated in USDT.
         /// </summary>
-        /// <value>Total borrowing amount, calculated in USDT</value>
+        /// <value>Total borrowing amount, calculated in USDT.</value>
         [DataMember(Name="borrow_amount")]
         public string BorrowAmount { get; set; }
 
         /// <summary>
-        /// Total collateral amount, calculated in USDT
+        /// Total collateral amount, calculated in USDT.
         /// </summary>
-        /// <value>Total collateral amount, calculated in USDT</value>
+        /// <value>Total collateral amount, calculated in USDT.</value>
         [DataMember(Name="collateral_amount")]
         public string CollateralAmount { get; set; }
 

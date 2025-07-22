@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Interest Record
+    /// Interest Record.
     /// </summary>
     [DataContract]
     public partial class UniInterestRecord :  IEquatable<UniInterestRecord>, IValidatableObject
@@ -39,44 +39,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Status: 0 - fail, 1 - success
+        /// Status: 0 - fail, 1 - success.
         /// </summary>
-        /// <value>Status: 0 - fail, 1 - success</value>
+        /// <value>Status: 0 - fail, 1 - success.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public int Status { get; private set; }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// Actual Rate
+        /// Actual Rate.
         /// </summary>
-        /// <value>Actual Rate</value>
+        /// <value>Actual Rate.</value>
         [DataMember(Name="actual_rate", EmitDefaultValue=false)]
         public string ActualRate { get; private set; }
 
         /// <summary>
-        /// Interest
+        /// Interest.
         /// </summary>
-        /// <value>Interest</value>
+        /// <value>Interest.</value>
         [DataMember(Name="interest", EmitDefaultValue=false)]
         public string Interest { get; private set; }
 
         /// <summary>
-        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment
+        /// Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment
         /// </summary>
-        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment Interest reinvestment</value>
+        /// <value>Interest status: interest_dividend - Normal dividend, interest_reinvest - Interest reinvestment</value>
         [DataMember(Name="interest_status", EmitDefaultValue=false)]
         public string InterestStatus { get; private set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class OptionsPositionClose :  IEquatable<OptionsPositionClose>, IValidatableObject
     {
         /// <summary>
-        /// Position side, long or short
+        /// Position side, long or short.
         /// </summary>
-        /// <value>Position side, long or short</value>
+        /// <value>Position side, long or short.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position side, long or short
+        /// Position side, long or short.
         /// </summary>
-        /// <value>Position side, long or short</value>
+        /// <value>Position side, long or short.</value>
         [DataMember(Name="side", EmitDefaultValue=false)]
         public SideEnum? Side { get; set; }
         /// <summary>
@@ -66,37 +66,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position close time
+        /// Position close time.
         /// </summary>
-        /// <value>Position close time</value>
+        /// <value>Position close time.</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
         public double Time { get; private set; }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// PNL
+        /// PNL.
         /// </summary>
-        /// <value>PNL</value>
+        /// <value>PNL.</value>
         [DataMember(Name="pnl", EmitDefaultValue=false)]
         public string Pnl { get; private set; }
 
         /// <summary>
-        /// Text of close order
+        /// Text of close order.
         /// </summary>
-        /// <value>Text of close order</value>
+        /// <value>Text of close order.</value>
         [DataMember(Name="text", EmitDefaultValue=false)]
         public string Text { get; private set; }
 
         /// <summary>
-        /// settlement size
+        /// settlement size.
         /// </summary>
-        /// <value>settlement size</value>
+        /// <value>settlement size.</value>
         [DataMember(Name="settle_size", EmitDefaultValue=false)]
         public string SettleSize { get; private set; }
 

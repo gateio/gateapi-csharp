@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SavedAddress" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="chain">Chain name.</param>
-        /// <param name="address">Address.</param>
-        /// <param name="name">Name.</param>
-        /// <param name="tag">Tag.</param>
-        /// <param name="verified">Whether to pass the verification 0-unverified, 1-verified.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="chain">Chain name..</param>
+        /// <param name="address">Address..</param>
+        /// <param name="name">Name..</param>
+        /// <param name="tag">Tag..</param>
+        /// <param name="verified">Whether to pass the verification 0-unverified, 1-verified..</param>
         public SavedAddress(string currency = default(string), string chain = default(string), string address = default(string), string name = default(string), string tag = default(string), string verified = default(string))
         {
             this.Currency = currency;
@@ -50,44 +50,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Chain name
+        /// Chain name.
         /// </summary>
-        /// <value>Chain name</value>
+        /// <value>Chain name.</value>
         [DataMember(Name="chain")]
         public string Chain { get; set; }
 
         /// <summary>
-        /// Address
+        /// Address.
         /// </summary>
-        /// <value>Address</value>
+        /// <value>Address.</value>
         [DataMember(Name="address")]
         public string Address { get; set; }
 
         /// <summary>
-        /// Name
+        /// Name.
         /// </summary>
-        /// <value>Name</value>
+        /// <value>Name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Tag
+        /// Tag.
         /// </summary>
-        /// <value>Tag</value>
+        /// <value>Tag.</value>
         [DataMember(Name="tag")]
         public string Tag { get; set; }
 
         /// <summary>
-        /// Whether to pass the verification 0-unverified, 1-verified
+        /// Whether to pass the verification 0-unverified, 1-verified.
         /// </summary>
-        /// <value>Whether to pass the verification 0-unverified, 1-verified</value>
+        /// <value>Whether to pass the verification 0-unverified, 1-verified.</value>
         [DataMember(Name="verified")]
         public string Verified { get; set; }
 

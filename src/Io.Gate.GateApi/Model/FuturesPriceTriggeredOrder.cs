@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures order details
+    /// Futures order details.
     /// </summary>
     [DataContract]
     public partial class FuturesPriceTriggeredOrder :  IEquatable<FuturesPriceTriggeredOrder>, IValidatableObject
     {
         /// <summary>
-        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order
+        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is close-short-order
         /// </summary>
-        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order</value>
+        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is close-short-order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -64,15 +64,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order
+        /// Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is close-short-order
         /// </summary>
-        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is invalid, only for close-long-order or close-short-order</value>
+        /// <value>Auto order status  - &#x60;open&#x60;: order is active - &#x60;finished&#x60;: order is finished - &#x60;inactive&#x60;: order is not active, only for close-long-order or close-short-order - &#x60;invalid&#x60;: order is close-short-order</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// How order is finished
+        /// How order is finished.
         /// </summary>
-        /// <value>How order is finished</value>
+        /// <value>How order is finished.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FinishAsEnum
         {
@@ -103,9 +103,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// How order is finished
+        /// How order is finished.
         /// </summary>
-        /// <value>How order is finished</value>
+        /// <value>How order is finished.</value>
         [DataMember(Name="finish_as", EmitDefaultValue=false)]
         public FinishAsEnum? FinishAs { get; set; }
         /// <summary>
@@ -118,7 +118,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="initial">initial (required).</param>
         /// <param name="trigger">trigger (required).</param>
-        /// <param name="orderType">Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: Entrusted order stop profit and stop loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests.</param>
+        /// <param name="orderType">Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests.</param>
         public FuturesPriceTriggeredOrder(FuturesInitialOrder initial = default(FuturesInitialOrder), FuturesPriceTrigger trigger = default(FuturesPriceTrigger), string orderType = default(string))
         {
             // to ensure "initial" is required (not null)
@@ -141,51 +141,51 @@ namespace Io.Gate.GateApi.Model
         public FuturesPriceTrigger Trigger { get; set; }
 
         /// <summary>
-        /// Auto order ID
+        /// Auto order ID.
         /// </summary>
-        /// <value>Auto order ID</value>
+        /// <value>Auto order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public double CreateTime { get; private set; }
 
         /// <summary>
-        /// Finished time
+        /// Finished time.
         /// </summary>
-        /// <value>Finished time</value>
+        /// <value>Finished time.</value>
         [DataMember(Name="finish_time", EmitDefaultValue=false)]
         public double FinishTime { get; private set; }
 
         /// <summary>
-        /// ID of the newly created order on condition triggered
+        /// ID of the newly created order on condition triggered.
         /// </summary>
-        /// <value>ID of the newly created order on condition triggered</value>
+        /// <value>ID of the newly created order on condition triggered.</value>
         [DataMember(Name="trade_id", EmitDefaultValue=false)]
         public long TradeId { get; private set; }
 
         /// <summary>
-        /// Additional remarks on how the order was finished
+        /// Additional remarks on how the order was finished.
         /// </summary>
-        /// <value>Additional remarks on how the order was finished</value>
+        /// <value>Additional remarks on how the order was finished.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; private set; }
 
         /// <summary>
-        /// Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: Entrusted order stop profit and stop loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests
+        /// Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests
         /// </summary>
-        /// <value>Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: Entrusted order stop profit and stop loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests</value>
+        /// <value>Types of stop-profit and stop-loss, including:  - &#x60;close-long-order&#x60;: Entrusting order stop profit and stop loss, flat long position - &#x60;close-short-order&#x60;: loss, short position  - &#x60;close-long-position&#x60;: Position stop-profit stop loss, used to close long positions - &#x60;close-short-position&#x60;: Position stop-profit stop loss, used to close all short positions - &#x60;plan-close-long-position&#x60;: Position plan take profit and stop loss, used to close long positions in all or part of long positions - &#x60;plan-close-short-position&#x60;: Position plan stop-profit and stop loss, used to close all short positions or partially close short positions  The two types of entrusted order stop-profit and stop-loss are read-only and cannot be passed in through requests</value>
         [DataMember(Name="order_type")]
         public string OrderType { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Repay Multi-Collateral Loan
+    /// Repay Multi-Collateral Loan.
     /// </summary>
     [DataContract]
     public partial class MultiRepayResp :  IEquatable<MultiRepayResp>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiRepayResp" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="repaidCurrencies">Repay Currency List.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="repaidCurrencies">Repay Currency List..</param>
         public MultiRepayResp(long orderId = default(long), List<RepayCurrencyRes> repaidCurrencies = default(List<RepayCurrencyRes>))
         {
             this.OrderId = orderId;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Repay Currency List
+        /// Repay Currency List.
         /// </summary>
-        /// <value>Repay Currency List</value>
+        /// <value>Repay Currency List.</value>
         [DataMember(Name="repaid_currencies")]
         public List<RepayCurrencyRes> RepaidCurrencies { get; set; }
 

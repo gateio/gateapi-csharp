@@ -38,10 +38,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateCollateralOrder" /> class.
         /// </summary>
-        /// <param name="collateralAmount">Collateral amount (required).</param>
-        /// <param name="collateralCurrency">Collateral (required).</param>
-        /// <param name="borrowAmount">Borrowing amount (required).</param>
-        /// <param name="borrowCurrency">Borrowed currency (required).</param>
+        /// <param name="collateralAmount">Collateral amount. (required).</param>
+        /// <param name="collateralCurrency">Collateral. (required).</param>
+        /// <param name="borrowAmount">Borrowing amount. (required).</param>
+        /// <param name="borrowCurrency">Borrowed currency. (required).</param>
         public CreateCollateralOrder(string collateralAmount = default(string), string collateralCurrency = default(string), string borrowAmount = default(string), string borrowCurrency = default(string))
         {
             // to ensure "collateralAmount" is required (not null)
@@ -55,30 +55,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Collateral amount
+        /// Collateral amount.
         /// </summary>
-        /// <value>Collateral amount</value>
+        /// <value>Collateral amount.</value>
         [DataMember(Name="collateral_amount")]
         public string CollateralAmount { get; set; }
 
         /// <summary>
-        /// Collateral
+        /// Collateral.
         /// </summary>
-        /// <value>Collateral</value>
+        /// <value>Collateral.</value>
         [DataMember(Name="collateral_currency")]
         public string CollateralCurrency { get; set; }
 
         /// <summary>
-        /// Borrowing amount
+        /// Borrowing amount.
         /// </summary>
-        /// <value>Borrowing amount</value>
+        /// <value>Borrowing amount.</value>
         [DataMember(Name="borrow_amount")]
         public string BorrowAmount { get; set; }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="borrow_currency")]
         public string BorrowCurrency { get; set; }
 

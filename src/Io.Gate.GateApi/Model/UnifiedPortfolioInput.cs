@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedPortfolioInput" /> class.
         /// </summary>
-        /// <param name="spotBalances">Spot.</param>
-        /// <param name="spotOrders">Spot orders.</param>
-        /// <param name="futuresPositions">Futures positions.</param>
-        /// <param name="futuresOrders">Futures order.</param>
-        /// <param name="optionsPositions">Options positions.</param>
-        /// <param name="optionsOrders">Option orders.</param>
+        /// <param name="spotBalances">Spot..</param>
+        /// <param name="spotOrders">Spot orders..</param>
+        /// <param name="futuresPositions">Futures positions..</param>
+        /// <param name="futuresOrders">Futures order..</param>
+        /// <param name="optionsPositions">Options positions..</param>
+        /// <param name="optionsOrders">Option orders..</param>
         /// <param name="spotHedge">Whether to enable spot hedging..</param>
         public UnifiedPortfolioInput(List<MockSpotBalance> spotBalances = default(List<MockSpotBalance>), List<MockSpotOrder> spotOrders = default(List<MockSpotOrder>), List<MockFuturesPosition> futuresPositions = default(List<MockFuturesPosition>), List<MockFuturesOrder> futuresOrders = default(List<MockFuturesOrder>), List<MockOptionsPosition> optionsPositions = default(List<MockOptionsPosition>), List<MockOptionsOrder> optionsOrders = default(List<MockOptionsOrder>), bool spotHedge = default(bool))
         {
@@ -52,44 +52,44 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Spot
+        /// Spot.
         /// </summary>
-        /// <value>Spot</value>
+        /// <value>Spot.</value>
         [DataMember(Name="spot_balances")]
         public List<MockSpotBalance> SpotBalances { get; set; }
 
         /// <summary>
-        /// Spot orders
+        /// Spot orders.
         /// </summary>
-        /// <value>Spot orders</value>
+        /// <value>Spot orders.</value>
         [DataMember(Name="spot_orders")]
         public List<MockSpotOrder> SpotOrders { get; set; }
 
         /// <summary>
-        /// Futures positions
+        /// Futures positions.
         /// </summary>
-        /// <value>Futures positions</value>
+        /// <value>Futures positions.</value>
         [DataMember(Name="futures_positions")]
         public List<MockFuturesPosition> FuturesPositions { get; set; }
 
         /// <summary>
-        /// Futures order
+        /// Futures order.
         /// </summary>
-        /// <value>Futures order</value>
+        /// <value>Futures order.</value>
         [DataMember(Name="futures_orders")]
         public List<MockFuturesOrder> FuturesOrders { get; set; }
 
         /// <summary>
-        /// Options positions
+        /// Options positions.
         /// </summary>
-        /// <value>Options positions</value>
+        /// <value>Options positions.</value>
         [DataMember(Name="options_positions")]
         public List<MockOptionsPosition> OptionsPositions { get; set; }
 
         /// <summary>
-        /// Option orders
+        /// Option orders.
         /// </summary>
-        /// <value>Option orders</value>
+        /// <value>Option orders.</value>
         [DataMember(Name="options_orders")]
         public List<MockOptionsOrder> OptionsOrders { get; set; }
 

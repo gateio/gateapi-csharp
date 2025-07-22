@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Currency discount tiers
+    /// Currency discount tiers.
     /// </summary>
     [DataContract]
     public partial class UnifiedDiscount :  IEquatable<UnifiedDiscount>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedDiscount" /> class.
         /// </summary>
-        /// <param name="currency">Currency name.</param>
-        /// <param name="discountTiers">Tiered discount.</param>
+        /// <param name="currency">Currency name..</param>
+        /// <param name="discountTiers">Tiered discount..</param>
         public UnifiedDiscount(string currency = default(string), List<UnifiedDiscountTiers> discountTiers = default(List<UnifiedDiscountTiers>))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Tiered discount
+        /// Tiered discount.
         /// </summary>
-        /// <value>Tiered discount</value>
+        /// <value>Tiered discount.</value>
         [DataMember(Name="discount_tiers")]
         public List<UnifiedDiscountTiers> DiscountTiers { get; set; }
 

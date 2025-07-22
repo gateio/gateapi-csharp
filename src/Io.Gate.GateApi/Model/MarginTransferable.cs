@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginTransferable" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail.</param>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="amount">Max transferable amount.</param>
+        /// <param name="currency">Currency detail..</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="amount">Max transferable amount..</param>
         public MarginTransferable(string currency = default(string), string currencyPair = default(string), string amount = default(string))
         {
             this.Currency = currency;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Max transferable amount
+        /// Max transferable amount.
         /// </summary>
-        /// <value>Max transferable amount</value>
+        /// <value>Max transferable amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -33,18 +33,18 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithdrawStatus" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="name">Currency name.</param>
-        /// <param name="nameCn">Currency Chinese name.</param>
-        /// <param name="deposit">Deposits fee.</param>
-        /// <param name="withdrawPercent">Withdrawal fee rate percentage.</param>
-        /// <param name="withdrawFix">Fixed withdrawal fee.</param>
-        /// <param name="withdrawDayLimit">Daily allowed withdrawal amount.</param>
-        /// <param name="withdrawAmountMini">Minimum withdrawal amount.</param>
-        /// <param name="withdrawDayLimitRemain">Daily withdrawal amount left.</param>
-        /// <param name="withdrawEachtimeLimit">Maximum amount for each withdrawal.</param>
-        /// <param name="withdrawFixOnChains">Fixed withdrawal fee on multiple chains.</param>
-        /// <param name="withdrawPercentOnChains">Percentage withdrawal fee on multiple chains.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="name">Currency name..</param>
+        /// <param name="nameCn">Currency Chinese name..</param>
+        /// <param name="deposit">Deposits fee..</param>
+        /// <param name="withdrawPercent">Withdrawal fee rate percentage..</param>
+        /// <param name="withdrawFix">Fixed withdrawal fee..</param>
+        /// <param name="withdrawDayLimit">Daily allowed withdrawal amount..</param>
+        /// <param name="withdrawAmountMini">Minimum withdrawal amount..</param>
+        /// <param name="withdrawDayLimitRemain">Daily withdrawal amount left..</param>
+        /// <param name="withdrawEachtimeLimit">Maximum amount for each withdrawal..</param>
+        /// <param name="withdrawFixOnChains">Fixed withdrawal fee on multiple chains..</param>
+        /// <param name="withdrawPercentOnChains">Percentage withdrawal fee on multiple chains..</param>
         public WithdrawStatus(string currency = default(string), string name = default(string), string nameCn = default(string), string deposit = default(string), string withdrawPercent = default(string), string withdrawFix = default(string), string withdrawDayLimit = default(string), string withdrawAmountMini = default(string), string withdrawDayLimitRemain = default(string), string withdrawEachtimeLimit = default(string), Dictionary<string, string> withdrawFixOnChains = default(Dictionary<string, string>), Dictionary<string, string> withdrawPercentOnChains = default(Dictionary<string, string>))
         {
             this.Currency = currency;
@@ -62,86 +62,86 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Currency Chinese name
+        /// Currency Chinese name.
         /// </summary>
-        /// <value>Currency Chinese name</value>
+        /// <value>Currency Chinese name.</value>
         [DataMember(Name="name_cn")]
         public string NameCn { get; set; }
 
         /// <summary>
-        /// Deposits fee
+        /// Deposits fee.
         /// </summary>
-        /// <value>Deposits fee</value>
+        /// <value>Deposits fee.</value>
         [DataMember(Name="deposit")]
         public string Deposit { get; set; }
 
         /// <summary>
-        /// Withdrawal fee rate percentage
+        /// Withdrawal fee rate percentage.
         /// </summary>
-        /// <value>Withdrawal fee rate percentage</value>
+        /// <value>Withdrawal fee rate percentage.</value>
         [DataMember(Name="withdraw_percent")]
         public string WithdrawPercent { get; set; }
 
         /// <summary>
-        /// Fixed withdrawal fee
+        /// Fixed withdrawal fee.
         /// </summary>
-        /// <value>Fixed withdrawal fee</value>
+        /// <value>Fixed withdrawal fee.</value>
         [DataMember(Name="withdraw_fix")]
         public string WithdrawFix { get; set; }
 
         /// <summary>
-        /// Daily allowed withdrawal amount
+        /// Daily allowed withdrawal amount.
         /// </summary>
-        /// <value>Daily allowed withdrawal amount</value>
+        /// <value>Daily allowed withdrawal amount.</value>
         [DataMember(Name="withdraw_day_limit")]
         public string WithdrawDayLimit { get; set; }
 
         /// <summary>
-        /// Minimum withdrawal amount
+        /// Minimum withdrawal amount.
         /// </summary>
-        /// <value>Minimum withdrawal amount</value>
+        /// <value>Minimum withdrawal amount.</value>
         [DataMember(Name="withdraw_amount_mini")]
         public string WithdrawAmountMini { get; set; }
 
         /// <summary>
-        /// Daily withdrawal amount left
+        /// Daily withdrawal amount left.
         /// </summary>
-        /// <value>Daily withdrawal amount left</value>
+        /// <value>Daily withdrawal amount left.</value>
         [DataMember(Name="withdraw_day_limit_remain")]
         public string WithdrawDayLimitRemain { get; set; }
 
         /// <summary>
-        /// Maximum amount for each withdrawal
+        /// Maximum amount for each withdrawal.
         /// </summary>
-        /// <value>Maximum amount for each withdrawal</value>
+        /// <value>Maximum amount for each withdrawal.</value>
         [DataMember(Name="withdraw_eachtime_limit")]
         public string WithdrawEachtimeLimit { get; set; }
 
         /// <summary>
-        /// Fixed withdrawal fee on multiple chains
+        /// Fixed withdrawal fee on multiple chains.
         /// </summary>
-        /// <value>Fixed withdrawal fee on multiple chains</value>
+        /// <value>Fixed withdrawal fee on multiple chains.</value>
         [DataMember(Name="withdraw_fix_on_chains")]
         public Dictionary<string, string> WithdrawFixOnChains { get; set; }
 
         /// <summary>
-        /// Percentage withdrawal fee on multiple chains
+        /// Percentage withdrawal fee on multiple chains.
         /// </summary>
-        /// <value>Percentage withdrawal fee on multiple chains</value>
+        /// <value>Percentage withdrawal fee on multiple chains.</value>
         [DataMember(Name="withdraw_percent_on_chains")]
         public Dictionary<string, string> WithdrawPercentOnChains { get; set; }
 

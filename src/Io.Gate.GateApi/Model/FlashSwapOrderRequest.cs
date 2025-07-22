@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Parameters of flash swap order creation
+    /// Parameters of flash swap order creation.
     /// </summary>
     [DataContract]
     public partial class FlashSwapOrderRequest :  IEquatable<FlashSwapOrderRequest>, IValidatableObject
@@ -38,11 +38,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlashSwapOrderRequest" /> class.
         /// </summary>
-        /// <param name="previewId">Preview result ID (required).</param>
+        /// <param name="previewId">Preview result ID. (required).</param>
         /// <param name="sellCurrency">Name of the asset to be sold, obtained from the interface GET /flash_swap/currency_pairs: Query the list of all trading pairs supporting flash swap (required).</param>
-        /// <param name="sellAmount">Amount to sell (based on the preview result) (required).</param>
+        /// <param name="sellAmount">Amount to sell (based on the preview result). (required).</param>
         /// <param name="buyCurrency">Name of the asset to be bought, obtained from the interface GET /flash_swap/currency_pairs: Query the list of all trading pairs supporting flash swap (required).</param>
-        /// <param name="buyAmount">Amount to buy (based on the preview result) (required).</param>
+        /// <param name="buyAmount">Amount to buy (based on the preview result). (required).</param>
         public FlashSwapOrderRequest(string previewId = default(string), string sellCurrency = default(string), string sellAmount = default(string), string buyCurrency = default(string), string buyAmount = default(string))
         {
             // to ensure "previewId" is required (not null)
@@ -58,9 +58,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Preview result ID
+        /// Preview result ID.
         /// </summary>
-        /// <value>Preview result ID</value>
+        /// <value>Preview result ID.</value>
         [DataMember(Name="preview_id")]
         public string PreviewId { get; set; }
 
@@ -72,9 +72,9 @@ namespace Io.Gate.GateApi.Model
         public string SellCurrency { get; set; }
 
         /// <summary>
-        /// Amount to sell (based on the preview result)
+        /// Amount to sell (based on the preview result).
         /// </summary>
-        /// <value>Amount to sell (based on the preview result)</value>
+        /// <value>Amount to sell (based on the preview result).</value>
         [DataMember(Name="sell_amount")]
         public string SellAmount { get; set; }
 
@@ -86,9 +86,9 @@ namespace Io.Gate.GateApi.Model
         public string BuyCurrency { get; set; }
 
         /// <summary>
-        /// Amount to buy (based on the preview result)
+        /// Amount to buy (based on the preview result).
         /// </summary>
-        /// <value>Amount to buy (based on the preview result)</value>
+        /// <value>Amount to buy (based on the preview result).</value>
         [DataMember(Name="buy_amount")]
         public string BuyAmount { get; set; }
 

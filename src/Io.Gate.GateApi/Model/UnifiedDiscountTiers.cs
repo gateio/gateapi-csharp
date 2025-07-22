@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedDiscountTiers" /> class.
         /// </summary>
-        /// <param name="tier">Tier.</param>
-        /// <param name="discount">Discount.</param>
-        /// <param name="lowerLimit">Lower limit.</param>
-        /// <param name="upperLimit">Upper limit,＋ indicates positive infinity.</param>
-        /// <param name="leverage">Position leverage.</param>
+        /// <param name="tier">Tier..</param>
+        /// <param name="discount">Discount..</param>
+        /// <param name="lowerLimit">Lower limit..</param>
+        /// <param name="upperLimit">Upper limit,＋ indicates positive infinity..</param>
+        /// <param name="leverage">Position leverage..</param>
         public UnifiedDiscountTiers(string tier = default(string), string discount = default(string), string lowerLimit = default(string), string upperLimit = default(string), string leverage = default(string))
         {
             this.Tier = tier;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Tier
+        /// Tier.
         /// </summary>
-        /// <value>Tier</value>
+        /// <value>Tier.</value>
         [DataMember(Name="tier")]
         public string Tier { get; set; }
 
         /// <summary>
-        /// Discount
+        /// Discount.
         /// </summary>
-        /// <value>Discount</value>
+        /// <value>Discount.</value>
         [DataMember(Name="discount")]
         public string Discount { get; set; }
 
         /// <summary>
-        /// Lower limit
+        /// Lower limit.
         /// </summary>
-        /// <value>Lower limit</value>
+        /// <value>Lower limit.</value>
         [DataMember(Name="lower_limit")]
         public string LowerLimit { get; set; }
 
         /// <summary>
-        /// Upper limit,＋ indicates positive infinity
+        /// Upper limit,＋ indicates positive infinity.
         /// </summary>
-        /// <value>Upper limit,＋ indicates positive infinity</value>
+        /// <value>Upper limit,＋ indicates positive infinity.</value>
         [DataMember(Name="upper_limit")]
         public string UpperLimit { get; set; }
 
         /// <summary>
-        /// Position leverage
+        /// Position leverage.
         /// </summary>
-        /// <value>Position leverage</value>
+        /// <value>Position leverage.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 

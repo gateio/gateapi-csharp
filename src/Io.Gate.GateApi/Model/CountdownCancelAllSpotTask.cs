@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Countdown cancel task detail
+    /// Countdown cancel task detail.
     /// </summary>
     [DataContract]
     public partial class CountdownCancelAllSpotTask :  IEquatable<CountdownCancelAllSpotTask>, IValidatableObject
@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="CountdownCancelAllSpotTask" /> class.
         /// </summary>
         /// <param name="timeout">Countdown time in seconds At least 5 seconds, 0 means cancel countdown (required).</param>
-        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="currencyPair">Currency pair..</param>
         public CountdownCancelAllSpotTask(int timeout = default(int), string currencyPair = default(string))
         {
             this.Timeout = timeout;
@@ -54,9 +54,9 @@ namespace Io.Gate.GateApi.Model
         public int Timeout { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

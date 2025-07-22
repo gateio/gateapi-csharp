@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralCurrencyInfo" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="indexPrice">Currency Index Price.</param>
-        /// <param name="leftCollateral">Left Collateral Amount.</param>
-        /// <param name="leftCollateralUsdt">Value of left collateral amount in USDT.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="indexPrice">Currency Index Price..</param>
+        /// <param name="leftCollateral">Left Collateral Amount..</param>
+        /// <param name="leftCollateralUsdt">Value of left collateral amount in USDT..</param>
         public CollateralCurrencyInfo(string currency = default(string), string indexPrice = default(string), string leftCollateral = default(string), string leftCollateralUsdt = default(string))
         {
             this.Currency = currency;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Currency Index Price
+        /// Currency Index Price.
         /// </summary>
-        /// <value>Currency Index Price</value>
+        /// <value>Currency Index Price.</value>
         [DataMember(Name="index_price")]
         public string IndexPrice { get; set; }
 
         /// <summary>
-        /// Left Collateral Amount
+        /// Left Collateral Amount.
         /// </summary>
-        /// <value>Left Collateral Amount</value>
+        /// <value>Left Collateral Amount.</value>
         [DataMember(Name="left_collateral")]
         public string LeftCollateral { get; set; }
 
         /// <summary>
-        /// Value of left collateral amount in USDT
+        /// Value of left collateral amount in USDT.
         /// </summary>
-        /// <value>Value of left collateral amount in USDT</value>
+        /// <value>Value of left collateral amount in USDT.</value>
         [DataMember(Name="left_collateral_usdt")]
         public string LeftCollateralUsdt { get; set; }
 

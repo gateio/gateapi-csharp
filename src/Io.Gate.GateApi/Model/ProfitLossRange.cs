@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Profit and loss range
+    /// Profit and loss range.
     /// </summary>
     [DataContract]
     public partial class ProfitLossRange :  IEquatable<ProfitLossRange>, IValidatableObject
@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfitLossRange" /> class.
         /// </summary>
-        /// <param name="pricePercentage">Percentage change in price.</param>
-        /// <param name="impliedVolatilityPercentage">Percentage change in implied volatility.</param>
-        /// <param name="profitLoss">PNL.</param>
+        /// <param name="pricePercentage">Percentage change in price..</param>
+        /// <param name="impliedVolatilityPercentage">Percentage change in implied volatility..</param>
+        /// <param name="profitLoss">PNL..</param>
         public ProfitLossRange(string pricePercentage = default(string), string impliedVolatilityPercentage = default(string), string profitLoss = default(string))
         {
             this.PricePercentage = pricePercentage;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Percentage change in price
+        /// Percentage change in price.
         /// </summary>
-        /// <value>Percentage change in price</value>
+        /// <value>Percentage change in price.</value>
         [DataMember(Name="price_percentage")]
         public string PricePercentage { get; set; }
 
         /// <summary>
-        /// Percentage change in implied volatility
+        /// Percentage change in implied volatility.
         /// </summary>
-        /// <value>Percentage change in implied volatility</value>
+        /// <value>Percentage change in implied volatility.</value>
         [DataMember(Name="implied_volatility_percentage")]
         public string ImpliedVolatilityPercentage { get; set; }
 
         /// <summary>
-        /// PNL
+        /// PNL.
         /// </summary>
-        /// <value>PNL</value>
+        /// <value>PNL.</value>
         [DataMember(Name="profit_loss")]
         public string ProfitLoss { get; set; }
 

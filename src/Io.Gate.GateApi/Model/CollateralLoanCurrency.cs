@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Supported borrowing and collateral currencies
+    /// Supported borrowing and collateral currencies.
     /// </summary>
     [DataContract]
     public partial class CollateralLoanCurrency :  IEquatable<CollateralLoanCurrency>, IValidatableObject
@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralLoanCurrency" /> class.
         /// </summary>
-        /// <param name="loanCurrency">Borrowed currency.</param>
-        /// <param name="collateralCurrency">List of supported collateral currencies.</param>
+        /// <param name="loanCurrency">Borrowed currency..</param>
+        /// <param name="collateralCurrency">List of supported collateral currencies..</param>
         public CollateralLoanCurrency(string loanCurrency = default(string), List<string> collateralCurrency = default(List<string>))
         {
             this.LoanCurrency = loanCurrency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="loan_currency")]
         public string LoanCurrency { get; set; }
 
         /// <summary>
-        /// List of supported collateral currencies
+        /// List of supported collateral currencies.
         /// </summary>
-        /// <value>List of supported collateral currencies</value>
+        /// <value>List of supported collateral currencies.</value>
         [DataMember(Name="collateral_currency")]
         public List<string> CollateralCurrency { get; set; }
 

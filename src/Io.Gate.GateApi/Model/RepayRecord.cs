@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Repayment record
+    /// Repayment record.
     /// </summary>
     [DataContract]
     public partial class RepayRecord :  IEquatable<RepayRecord>, IValidatableObject
@@ -33,19 +33,19 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RepayRecord" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="recordId">Repayment record ID.</param>
-        /// <param name="repaidAmount">Repayment amount.</param>
-        /// <param name="borrowCurrency">Borrowed currency.</param>
-        /// <param name="collateralCurrency">Collateral.</param>
-        /// <param name="initLtv">The initial collateralization rate.</param>
-        /// <param name="borrowTime">Borrowing time, timestamp.</param>
-        /// <param name="repayTime">Repayment time, timestamp.</param>
-        /// <param name="totalInterest">Total interest.</param>
-        /// <param name="beforeLeftPrincipal">Principal to be repaid before repayment.</param>
-        /// <param name="afterLeftPrincipal">Principal to be repaid after repayment.</param>
-        /// <param name="beforeLeftCollateral">Collateral quantity before repayment.</param>
-        /// <param name="afterLeftCollateral">Collateral quantity after repayment.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="recordId">Repayment record ID..</param>
+        /// <param name="repaidAmount">Repayment amount..</param>
+        /// <param name="borrowCurrency">Borrowed currency..</param>
+        /// <param name="collateralCurrency">Collateral..</param>
+        /// <param name="initLtv">The initial collateralization rate..</param>
+        /// <param name="borrowTime">Borrowing time, timestamp..</param>
+        /// <param name="repayTime">Repayment time, timestamp..</param>
+        /// <param name="totalInterest">Total interest..</param>
+        /// <param name="beforeLeftPrincipal">Principal to be repaid before repayment..</param>
+        /// <param name="afterLeftPrincipal">Principal to be repaid after repayment..</param>
+        /// <param name="beforeLeftCollateral">Collateral quantity before repayment..</param>
+        /// <param name="afterLeftCollateral">Collateral quantity after repayment..</param>
         public RepayRecord(long orderId = default(long), long recordId = default(long), string repaidAmount = default(string), string borrowCurrency = default(string), string collateralCurrency = default(string), string initLtv = default(string), long borrowTime = default(long), long repayTime = default(long), string totalInterest = default(string), string beforeLeftPrincipal = default(string), string afterLeftPrincipal = default(string), string beforeLeftCollateral = default(string), string afterLeftCollateral = default(string))
         {
             this.OrderId = orderId;
@@ -64,93 +64,93 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Repayment record ID
+        /// Repayment record ID.
         /// </summary>
-        /// <value>Repayment record ID</value>
+        /// <value>Repayment record ID.</value>
         [DataMember(Name="record_id")]
         public long RecordId { get; set; }
 
         /// <summary>
-        /// Repayment amount
+        /// Repayment amount.
         /// </summary>
-        /// <value>Repayment amount</value>
+        /// <value>Repayment amount.</value>
         [DataMember(Name="repaid_amount")]
         public string RepaidAmount { get; set; }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="borrow_currency")]
         public string BorrowCurrency { get; set; }
 
         /// <summary>
-        /// Collateral
+        /// Collateral.
         /// </summary>
-        /// <value>Collateral</value>
+        /// <value>Collateral.</value>
         [DataMember(Name="collateral_currency")]
         public string CollateralCurrency { get; set; }
 
         /// <summary>
-        /// The initial collateralization rate
+        /// The initial collateralization rate.
         /// </summary>
-        /// <value>The initial collateralization rate</value>
+        /// <value>The initial collateralization rate.</value>
         [DataMember(Name="init_ltv")]
         public string InitLtv { get; set; }
 
         /// <summary>
-        /// Borrowing time, timestamp
+        /// Borrowing time, timestamp.
         /// </summary>
-        /// <value>Borrowing time, timestamp</value>
+        /// <value>Borrowing time, timestamp.</value>
         [DataMember(Name="borrow_time")]
         public long BorrowTime { get; set; }
 
         /// <summary>
-        /// Repayment time, timestamp
+        /// Repayment time, timestamp.
         /// </summary>
-        /// <value>Repayment time, timestamp</value>
+        /// <value>Repayment time, timestamp.</value>
         [DataMember(Name="repay_time")]
         public long RepayTime { get; set; }
 
         /// <summary>
-        /// Total interest
+        /// Total interest.
         /// </summary>
-        /// <value>Total interest</value>
+        /// <value>Total interest.</value>
         [DataMember(Name="total_interest")]
         public string TotalInterest { get; set; }
 
         /// <summary>
-        /// Principal to be repaid before repayment
+        /// Principal to be repaid before repayment.
         /// </summary>
-        /// <value>Principal to be repaid before repayment</value>
+        /// <value>Principal to be repaid before repayment.</value>
         [DataMember(Name="before_left_principal")]
         public string BeforeLeftPrincipal { get; set; }
 
         /// <summary>
-        /// Principal to be repaid after repayment
+        /// Principal to be repaid after repayment.
         /// </summary>
-        /// <value>Principal to be repaid after repayment</value>
+        /// <value>Principal to be repaid after repayment.</value>
         [DataMember(Name="after_left_principal")]
         public string AfterLeftPrincipal { get; set; }
 
         /// <summary>
-        /// Collateral quantity before repayment
+        /// Collateral quantity before repayment.
         /// </summary>
-        /// <value>Collateral quantity before repayment</value>
+        /// <value>Collateral quantity before repayment.</value>
         [DataMember(Name="before_left_collateral")]
         public string BeforeLeftCollateral { get; set; }
 
         /// <summary>
-        /// Collateral quantity after repayment
+        /// Collateral quantity after repayment.
         /// </summary>
-        /// <value>Collateral quantity after repayment</value>
+        /// <value>Collateral quantity after repayment.</value>
         [DataMember(Name="after_left_collateral")]
         public string AfterLeftCollateral { get; set; }
 

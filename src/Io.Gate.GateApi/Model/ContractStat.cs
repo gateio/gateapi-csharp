@@ -33,19 +33,19 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContractStat" /> class.
         /// </summary>
-        /// <param name="time">Stat timestamp.</param>
-        /// <param name="lsrTaker">Long/short account number ratio.</param>
-        /// <param name="lsrAccount">Long/short taker size ratio.</param>
-        /// <param name="longLiqSize">Long liquidation size.</param>
-        /// <param name="longLiqAmount">Long liquidation amount(base currency).</param>
-        /// <param name="longLiqUsd">Long liquidation volume(quote currency).</param>
-        /// <param name="shortLiqSize">Short liquidation size.</param>
-        /// <param name="shortLiqAmount">Short liquidation amount(base currency).</param>
-        /// <param name="shortLiqUsd">Short liquidation volume(quote currency).</param>
-        /// <param name="openInterest">Open interest size.</param>
-        /// <param name="openInterestUsd">Open interest volume(quote currency).</param>
-        /// <param name="topLsrAccount">Top trader long/short account ratio.</param>
-        /// <param name="topLsrSize">Top trader long/short position ratio.</param>
+        /// <param name="time">Stat timestamp..</param>
+        /// <param name="lsrTaker">Long/short account number ratio..</param>
+        /// <param name="lsrAccount">Long/short taker size ratio..</param>
+        /// <param name="longLiqSize">Long liquidation size..</param>
+        /// <param name="longLiqAmount">Long liquidation amount(base currency)..</param>
+        /// <param name="longLiqUsd">Long liquidation volume(quote currency)..</param>
+        /// <param name="shortLiqSize">Short liquidation size..</param>
+        /// <param name="shortLiqAmount">Short liquidation amount(base currency)..</param>
+        /// <param name="shortLiqUsd">Short liquidation volume(quote currency)..</param>
+        /// <param name="openInterest">Open interest size..</param>
+        /// <param name="openInterestUsd">Open interest volume(quote currency)..</param>
+        /// <param name="topLsrAccount">Top trader long/short account ratio..</param>
+        /// <param name="topLsrSize">Top trader long/short position ratio..</param>
         public ContractStat(long time = default(long), decimal lsrTaker = default(decimal), decimal lsrAccount = default(decimal), long longLiqSize = default(long), double longLiqAmount = default(double), double longLiqUsd = default(double), long shortLiqSize = default(long), double shortLiqAmount = default(double), double shortLiqUsd = default(double), long openInterest = default(long), double openInterestUsd = default(double), double topLsrAccount = default(double), double topLsrSize = default(double))
         {
             this.Time = time;
@@ -64,93 +64,93 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Stat timestamp
+        /// Stat timestamp.
         /// </summary>
-        /// <value>Stat timestamp</value>
+        /// <value>Stat timestamp.</value>
         [DataMember(Name="time")]
         public long Time { get; set; }
 
         /// <summary>
-        /// Long/short account number ratio
+        /// Long/short account number ratio.
         /// </summary>
-        /// <value>Long/short account number ratio</value>
+        /// <value>Long/short account number ratio.</value>
         [DataMember(Name="lsr_taker")]
         public decimal LsrTaker { get; set; }
 
         /// <summary>
-        /// Long/short taker size ratio
+        /// Long/short taker size ratio.
         /// </summary>
-        /// <value>Long/short taker size ratio</value>
+        /// <value>Long/short taker size ratio.</value>
         [DataMember(Name="lsr_account")]
         public decimal LsrAccount { get; set; }
 
         /// <summary>
-        /// Long liquidation size
+        /// Long liquidation size.
         /// </summary>
-        /// <value>Long liquidation size</value>
+        /// <value>Long liquidation size.</value>
         [DataMember(Name="long_liq_size")]
         public long LongLiqSize { get; set; }
 
         /// <summary>
-        /// Long liquidation amount(base currency)
+        /// Long liquidation amount(base currency).
         /// </summary>
-        /// <value>Long liquidation amount(base currency)</value>
+        /// <value>Long liquidation amount(base currency).</value>
         [DataMember(Name="long_liq_amount")]
         public double LongLiqAmount { get; set; }
 
         /// <summary>
-        /// Long liquidation volume(quote currency)
+        /// Long liquidation volume(quote currency).
         /// </summary>
-        /// <value>Long liquidation volume(quote currency)</value>
+        /// <value>Long liquidation volume(quote currency).</value>
         [DataMember(Name="long_liq_usd")]
         public double LongLiqUsd { get; set; }
 
         /// <summary>
-        /// Short liquidation size
+        /// Short liquidation size.
         /// </summary>
-        /// <value>Short liquidation size</value>
+        /// <value>Short liquidation size.</value>
         [DataMember(Name="short_liq_size")]
         public long ShortLiqSize { get; set; }
 
         /// <summary>
-        /// Short liquidation amount(base currency)
+        /// Short liquidation amount(base currency).
         /// </summary>
-        /// <value>Short liquidation amount(base currency)</value>
+        /// <value>Short liquidation amount(base currency).</value>
         [DataMember(Name="short_liq_amount")]
         public double ShortLiqAmount { get; set; }
 
         /// <summary>
-        /// Short liquidation volume(quote currency)
+        /// Short liquidation volume(quote currency).
         /// </summary>
-        /// <value>Short liquidation volume(quote currency)</value>
+        /// <value>Short liquidation volume(quote currency).</value>
         [DataMember(Name="short_liq_usd")]
         public double ShortLiqUsd { get; set; }
 
         /// <summary>
-        /// Open interest size
+        /// Open interest size.
         /// </summary>
-        /// <value>Open interest size</value>
+        /// <value>Open interest size.</value>
         [DataMember(Name="open_interest")]
         public long OpenInterest { get; set; }
 
         /// <summary>
-        /// Open interest volume(quote currency)
+        /// Open interest volume(quote currency).
         /// </summary>
-        /// <value>Open interest volume(quote currency)</value>
+        /// <value>Open interest volume(quote currency).</value>
         [DataMember(Name="open_interest_usd")]
         public double OpenInterestUsd { get; set; }
 
         /// <summary>
-        /// Top trader long/short account ratio
+        /// Top trader long/short account ratio.
         /// </summary>
-        /// <value>Top trader long/short account ratio</value>
+        /// <value>Top trader long/short account ratio.</value>
         [DataMember(Name="top_lsr_account")]
         public double TopLsrAccount { get; set; }
 
         /// <summary>
-        /// Top trader long/short position ratio
+        /// Top trader long/short position ratio.
         /// </summary>
-        /// <value>Top trader long/short position ratio</value>
+        /// <value>Top trader long/short position ratio.</value>
         [DataMember(Name="top_lsr_size")]
         public double TopLsrSize { get; set; }
 

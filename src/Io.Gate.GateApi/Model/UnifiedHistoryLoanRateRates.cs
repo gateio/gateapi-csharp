@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedHistoryLoanRateRates" /> class.
         /// </summary>
-        /// <param name="time">The hourly timestamp corresponding to the interest rate, in milliseconds.</param>
-        /// <param name="rate">Historical interest rates for this hour.</param>
+        /// <param name="time">The hourly timestamp corresponding to the interest rate, in milliseconds..</param>
+        /// <param name="rate">Historical interest rates for this hour..</param>
         public UnifiedHistoryLoanRateRates(long time = default(long), string rate = default(string))
         {
             this.Time = time;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// The hourly timestamp corresponding to the interest rate, in milliseconds
+        /// The hourly timestamp corresponding to the interest rate, in milliseconds.
         /// </summary>
-        /// <value>The hourly timestamp corresponding to the interest rate, in milliseconds</value>
+        /// <value>The hourly timestamp corresponding to the interest rate, in milliseconds.</value>
         [DataMember(Name="time")]
         public long Time { get; set; }
 
         /// <summary>
-        /// Historical interest rates for this hour
+        /// Historical interest rates for this hour.
         /// </summary>
-        /// <value>Historical interest rates for this hour</value>
+        /// <value>Historical interest rates for this hour.</value>
         [DataMember(Name="rate")]
         public string Rate { get; set; }
 

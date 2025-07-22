@@ -1,14 +1,14 @@
 
 # Io.Gate.GateApi.Model.CollateralAdjustRes
 
-Result of multi-collateral adjustment
+Result of multi-collateral adjustment.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderId** | **long** | Order ID | [optional] 
-**CollateralCurrencies** | [**List&lt;CollateralCurrencyRes&gt;**](CollateralCurrencyRes.md) | Collateral Currency Information | [optional] 
+**OrderId** | **long** | Order ID. | [optional] 
+**CollateralCurrencies** | [**List&lt;CollateralCurrencyRes&gt;**](CollateralCurrencyRes.md) | Collateral Currency Information. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

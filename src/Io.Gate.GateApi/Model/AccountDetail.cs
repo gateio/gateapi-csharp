@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Account detail
+    /// Account detail.
     /// </summary>
     [DataContract]
     public partial class AccountDetail :  IEquatable<AccountDetail>, IValidatableObject
@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountDetail" /> class.
         /// </summary>
-        /// <param name="ipWhitelist">IP whitelist.</param>
-        /// <param name="currencyPairs">CurrencyPair whitelisting.</param>
-        /// <param name="userId">User ID.</param>
-        /// <param name="tier">User VIP level.</param>
+        /// <param name="ipWhitelist">IP whitelist..</param>
+        /// <param name="currencyPairs">CurrencyPair whitelisting..</param>
+        /// <param name="userId">User ID..</param>
+        /// <param name="tier">User VIP level..</param>
         /// <param name="key">key.</param>
-        /// <param name="copyTradingRole">User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower .</param>
+        /// <param name="copyTradingRole">User role: 0 - Normal user, 1 - Copy trading leader, follower, 3 - Both leader and follower.</param>
         public AccountDetail(List<string> ipWhitelist = default(List<string>), List<string> currencyPairs = default(List<string>), long userId = default(long), long tier = default(long), AccountDetailKey key = default(AccountDetailKey), int copyTradingRole = default(int))
         {
             this.IpWhitelist = ipWhitelist;
@@ -50,30 +50,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// IP whitelist
+        /// IP whitelist.
         /// </summary>
-        /// <value>IP whitelist</value>
+        /// <value>IP whitelist.</value>
         [DataMember(Name="ip_whitelist")]
         public List<string> IpWhitelist { get; set; }
 
         /// <summary>
-        /// CurrencyPair whitelisting
+        /// CurrencyPair whitelisting.
         /// </summary>
-        /// <value>CurrencyPair whitelisting</value>
+        /// <value>CurrencyPair whitelisting.</value>
         [DataMember(Name="currency_pairs")]
         public List<string> CurrencyPairs { get; set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// User VIP level
+        /// User VIP level.
         /// </summary>
-        /// <value>User VIP level</value>
+        /// <value>User VIP level.</value>
         [DataMember(Name="tier")]
         public long Tier { get; set; }
 
@@ -84,9 +84,9 @@ namespace Io.Gate.GateApi.Model
         public AccountDetailKey Key { get; set; }
 
         /// <summary>
-        /// User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower 
+        /// User role: 0 - Normal user, 1 - Copy trading leader, follower, 3 - Both leader and follower
         /// </summary>
-        /// <value>User role: 0 - Normal user 1 - Copy trading leader 2 - Copy trading follower 3 - Both leader and follower </value>
+        /// <value>User role: 0 - Normal user, 1 - Copy trading leader, follower, 3 - Both leader and follower</value>
         [DataMember(Name="copy_trading_role")]
         public int CopyTradingRole { get; set; }
 

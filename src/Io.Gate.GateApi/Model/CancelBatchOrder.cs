@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Info of order to be cancelled
+    /// Info of order to be cancelled.
     /// </summary>
     [DataContract]
     public partial class CancelBatchOrder :  IEquatable<CancelBatchOrder>, IValidatableObject
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelBatchOrder" /> class.
         /// </summary>
-        /// <param name="currencyPair">Order currency pair (required).</param>
+        /// <param name="currencyPair">Order currency pair. (required).</param>
         /// <param name="id">Order ID or user custom ID. Custom ID are accepted only within 30 minutes after order creation (required).</param>
         /// <param name="account">If the canceled order is a unified account apikey, this field must be specified and set to &#x60;unified&#x60;.</param>
         /// <param name="actionMode">Processing Mode: When placing an order, different fields are returned based on action_mode. This field is only valid during the request and is not included in the response result ACK: Asynchronous mode, only returns key order fields RESULT: No clearing information FULL: Full mode (default).</param>
@@ -53,9 +53,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order currency pair
+        /// Order currency pair.
         /// </summary>
-        /// <value>Order currency pair</value>
+        /// <value>Order currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

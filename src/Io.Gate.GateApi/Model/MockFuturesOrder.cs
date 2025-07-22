@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Futures order
+    /// Futures order.
     /// </summary>
     [DataContract]
     public partial class MockFuturesOrder :  IEquatable<MockFuturesOrder>, IValidatableObject
@@ -40,7 +40,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="contract">Futures name, currently only supports perpetual futures for BTC and ETH with USDT. (required).</param>
         /// <param name="size">Futures quantity, representing the initial order quantity, not involved in actual settlement. (required).</param>
-        /// <param name="left">Unfilled contract quantity, involved in actual calculation (required).</param>
+        /// <param name="left">Unfilled contract quantity, involved in actual calculation. (required).</param>
         public MockFuturesOrder(string contract = default(string), string size = default(string), string left = default(string))
         {
             // to ensure "contract" is required (not null)
@@ -66,9 +66,9 @@ namespace Io.Gate.GateApi.Model
         public string Size { get; set; }
 
         /// <summary>
-        /// Unfilled contract quantity, involved in actual calculation
+        /// Unfilled contract quantity, involved in actual calculation.
         /// </summary>
-        /// <value>Unfilled contract quantity, involved in actual calculation</value>
+        /// <value>Unfilled contract quantity, involved in actual calculation.</value>
         [DataMember(Name="left")]
         public string Left { get; set; }
 

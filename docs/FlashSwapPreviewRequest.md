@@ -1,7 +1,7 @@
 
 # Io.Gate.GateApi.Model.FlashSwapPreviewRequest
 
-Parameters of flash swap order creation
+Parameters of flash swap order creation.
 
 ## Properties
 

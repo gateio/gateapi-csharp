@@ -33,23 +33,23 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ticker" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="last">Last trading price.</param>
-        /// <param name="lowestAsk">Recent lowest ask.</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="last">Last trading price..</param>
+        /// <param name="lowestAsk">Recent lowest ask..</param>
         /// <param name="lowestSize">The latest seller&#39;s lowest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data.</param>
-        /// <param name="highestBid">Recent highest bid.</param>
+        /// <param name="highestBid">Recent highest bid..</param>
         /// <param name="highestSize">The latest buyer&#39;s highest price quantity; does not exist for batch query; exists for single query, and is empty if there is no data.</param>
-        /// <param name="changePercentage">Change percentage in the last 24h.</param>
-        /// <param name="changeUtc0">utc0 timezone, the percentage change in the last 24 hours.</param>
-        /// <param name="changeUtc8">utc8 timezone, the percentage change in the last 24 hours.</param>
-        /// <param name="baseVolume">Base currency trade volume in the last 24h.</param>
-        /// <param name="quoteVolume">Quote currency trade volume in the last 24h.</param>
-        /// <param name="high24h">Highest price in 24h.</param>
-        /// <param name="low24h">Lowest price in 24h.</param>
-        /// <param name="etfNetValue">ETF net value.</param>
-        /// <param name="etfPreNetValue">ETF previous net value at re-balancing time.</param>
-        /// <param name="etfPreTimestamp">ETF previous re-balancing time.</param>
-        /// <param name="etfLeverage">ETF current leverage.</param>
+        /// <param name="changePercentage">Change percentage in the last 24h..</param>
+        /// <param name="changeUtc0">utc0 timezone, the percentage change in the last 24 hours..</param>
+        /// <param name="changeUtc8">utc8 timezone, the percentage change in the last 24 hours..</param>
+        /// <param name="baseVolume">Base currency trade volume in the last 24h..</param>
+        /// <param name="quoteVolume">Quote currency trade volume in the last 24h..</param>
+        /// <param name="high24h">Highest price in 24h..</param>
+        /// <param name="low24h">Lowest price in 24h..</param>
+        /// <param name="etfNetValue">ETF net value..</param>
+        /// <param name="etfPreNetValue">ETF previous net value at re-balancing time..</param>
+        /// <param name="etfPreTimestamp">ETF previous re-balancing time..</param>
+        /// <param name="etfLeverage">ETF current leverage..</param>
         public Ticker(string currencyPair = default(string), string last = default(string), string lowestAsk = default(string), string lowestSize = default(string), string highestBid = default(string), string highestSize = default(string), string changePercentage = default(string), string changeUtc0 = default(string), string changeUtc8 = default(string), string baseVolume = default(string), string quoteVolume = default(string), string high24h = default(string), string low24h = default(string), string etfNetValue = default(string), string etfPreNetValue = default(string), long? etfPreTimestamp = default(long?), string etfLeverage = default(string))
         {
             this.CurrencyPair = currencyPair;
@@ -72,23 +72,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Last trading price
+        /// Last trading price.
         /// </summary>
-        /// <value>Last trading price</value>
+        /// <value>Last trading price.</value>
         [DataMember(Name="last")]
         public string Last { get; set; }
 
         /// <summary>
-        /// Recent lowest ask
+        /// Recent lowest ask.
         /// </summary>
-        /// <value>Recent lowest ask</value>
+        /// <value>Recent lowest ask.</value>
         [DataMember(Name="lowest_ask")]
         public string LowestAsk { get; set; }
 
@@ -100,9 +100,9 @@ namespace Io.Gate.GateApi.Model
         public string LowestSize { get; set; }
 
         /// <summary>
-        /// Recent highest bid
+        /// Recent highest bid.
         /// </summary>
-        /// <value>Recent highest bid</value>
+        /// <value>Recent highest bid.</value>
         [DataMember(Name="highest_bid")]
         public string HighestBid { get; set; }
 
@@ -114,79 +114,79 @@ namespace Io.Gate.GateApi.Model
         public string HighestSize { get; set; }
 
         /// <summary>
-        /// Change percentage in the last 24h
+        /// Change percentage in the last 24h.
         /// </summary>
-        /// <value>Change percentage in the last 24h</value>
+        /// <value>Change percentage in the last 24h.</value>
         [DataMember(Name="change_percentage")]
         public string ChangePercentage { get; set; }
 
         /// <summary>
-        /// utc0 timezone, the percentage change in the last 24 hours
+        /// utc0 timezone, the percentage change in the last 24 hours.
         /// </summary>
-        /// <value>utc0 timezone, the percentage change in the last 24 hours</value>
+        /// <value>utc0 timezone, the percentage change in the last 24 hours.</value>
         [DataMember(Name="change_utc0")]
         public string ChangeUtc0 { get; set; }
 
         /// <summary>
-        /// utc8 timezone, the percentage change in the last 24 hours
+        /// utc8 timezone, the percentage change in the last 24 hours.
         /// </summary>
-        /// <value>utc8 timezone, the percentage change in the last 24 hours</value>
+        /// <value>utc8 timezone, the percentage change in the last 24 hours.</value>
         [DataMember(Name="change_utc8")]
         public string ChangeUtc8 { get; set; }
 
         /// <summary>
-        /// Base currency trade volume in the last 24h
+        /// Base currency trade volume in the last 24h.
         /// </summary>
-        /// <value>Base currency trade volume in the last 24h</value>
+        /// <value>Base currency trade volume in the last 24h.</value>
         [DataMember(Name="base_volume")]
         public string BaseVolume { get; set; }
 
         /// <summary>
-        /// Quote currency trade volume in the last 24h
+        /// Quote currency trade volume in the last 24h.
         /// </summary>
-        /// <value>Quote currency trade volume in the last 24h</value>
+        /// <value>Quote currency trade volume in the last 24h.</value>
         [DataMember(Name="quote_volume")]
         public string QuoteVolume { get; set; }
 
         /// <summary>
-        /// Highest price in 24h
+        /// Highest price in 24h.
         /// </summary>
-        /// <value>Highest price in 24h</value>
+        /// <value>Highest price in 24h.</value>
         [DataMember(Name="high_24h")]
         public string High24h { get; set; }
 
         /// <summary>
-        /// Lowest price in 24h
+        /// Lowest price in 24h.
         /// </summary>
-        /// <value>Lowest price in 24h</value>
+        /// <value>Lowest price in 24h.</value>
         [DataMember(Name="low_24h")]
         public string Low24h { get; set; }
 
         /// <summary>
-        /// ETF net value
+        /// ETF net value.
         /// </summary>
-        /// <value>ETF net value</value>
+        /// <value>ETF net value.</value>
         [DataMember(Name="etf_net_value")]
         public string EtfNetValue { get; set; }
 
         /// <summary>
-        /// ETF previous net value at re-balancing time
+        /// ETF previous net value at re-balancing time.
         /// </summary>
-        /// <value>ETF previous net value at re-balancing time</value>
+        /// <value>ETF previous net value at re-balancing time.</value>
         [DataMember(Name="etf_pre_net_value")]
         public string EtfPreNetValue { get; set; }
 
         /// <summary>
-        /// ETF previous re-balancing time
+        /// ETF previous re-balancing time.
         /// </summary>
-        /// <value>ETF previous re-balancing time</value>
+        /// <value>ETF previous re-balancing time.</value>
         [DataMember(Name="etf_pre_timestamp")]
         public long? EtfPreTimestamp { get; set; }
 
         /// <summary>
-        /// ETF current leverage
+        /// ETF current leverage.
         /// </summary>
-        /// <value>ETF current leverage</value>
+        /// <value>ETF current leverage.</value>
         [DataMember(Name="etf_leverage")]
         public string EtfLeverage { get; set; }
 

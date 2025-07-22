@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FuturesTrade" /> class.
         /// </summary>
-        /// <param name="id">Trade ID.</param>
-        /// <param name="createTime">Trading time.</param>
+        /// <param name="id">Trade ID..</param>
+        /// <param name="createTime">Trading time..</param>
         /// <param name="createTimeMs">Trading time, with milliseconds set to 3 decimal places..</param>
-        /// <param name="contract">Futures contract.</param>
-        /// <param name="size">Trading size.</param>
-        /// <param name="price">Trading price (quote currency).</param>
-        /// <param name="isInternal">Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned..</param>
+        /// <param name="contract">Futures contract..</param>
+        /// <param name="size">Trading size..</param>
+        /// <param name="price">Trading price (quote currency)..</param>
+        /// <param name="isInternal">Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. an internal trade, this field will not be returned..</param>
         public FuturesTrade(long id = default(long), double createTime = default(double), double createTimeMs = default(double), string contract = default(string), long size = default(long), string price = default(string), bool isInternal = default(bool))
         {
             this.Id = id;
@@ -52,16 +52,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade ID
+        /// Trade ID.
         /// </summary>
-        /// <value>Trade ID</value>
+        /// <value>Trade ID.</value>
         [DataMember(Name="id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// Trading time
+        /// Trading time.
         /// </summary>
-        /// <value>Trading time</value>
+        /// <value>Trading time.</value>
         [DataMember(Name="create_time")]
         public double CreateTime { get; set; }
 
@@ -73,30 +73,30 @@ namespace Io.Gate.GateApi.Model
         public double CreateTimeMs { get; set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract")]
         public string Contract { get; set; }
 
         /// <summary>
-        /// Trading size
+        /// Trading size.
         /// </summary>
-        /// <value>Trading size</value>
+        /// <value>Trading size.</value>
         [DataMember(Name="size")]
         public long Size { get; set; }
 
         /// <summary>
-        /// Trading price (quote currency)
+        /// Trading price (quote currency).
         /// </summary>
-        /// <value>Trading price (quote currency)</value>
+        /// <value>Trading price (quote currency).</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.
+        /// Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. an internal trade, this field will not be returned.
         /// </summary>
-        /// <value>Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. If it is not an internal trade, this field will not be returned.</value>
+        /// <value>Whether internal trade. Internal trade refers to the takeover of liquidation orders by the insurance fund and ADL users. Since it is not a normal matching on the market depth, the transaction price may deviate, and it will not be recorded in the K-line. an internal trade, this field will not be returned.</value>
         [DataMember(Name="is_internal")]
         public bool IsInternal { get; set; }
 

@@ -33,90 +33,144 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SwapCoinStruct" /> class.
         /// </summary>
-        /// <param name="id">Order ID.</param>
-        /// <param name="uid">User ID.</param>
-        /// <param name="coin">Currency.</param>
-        /// <param name="type">Type: 0-Lock, 1-Certificate.</param>
-        /// <param name="amount">Amount.</param>
-        /// <param name="exchangeRate">Exchange Ratio.</param>
-        /// <param name="pid">Plan ID.</param>
-        /// <param name="status">status 1-success.</param>
-        /// <param name="createStamp">Transaction timestamp.</param>
-        public SwapCoinStruct(int id = default(int), int uid = default(int), string coin = default(string), int type = default(int), string amount = default(string), string exchangeRate = default(string), int pid = default(int), int status = default(int), int createStamp = default(int))
+        /// <param name="id">Order ID..</param>
+        /// <param name="pid">Plan ID..</param>
+        /// <param name="uid">User ID..</param>
+        /// <param name="coin">Currency..</param>
+        /// <param name="type">类型 0-质押 1-赎回.</param>
+        /// <param name="subtype">子类型.</param>
+        /// <param name="amount">Amount..</param>
+        /// <param name="exchangeRate">Exchange Ratio..</param>
+        /// <param name="exchangeAmount">兑换金额.</param>
+        /// <param name="updateStamp">更新时间戳.</param>
+        /// <param name="createStamp">Transaction timestamp..</param>
+        /// <param name="status">status 1-success..</param>
+        /// <param name="protocolType">DEFI协议类型.</param>
+        /// <param name="clientOrderId">参考ID.</param>
+        /// <param name="source">Order source..</param>
+        public SwapCoinStruct(int id = default(int), int pid = default(int), int uid = default(int), string coin = default(string), int type = default(int), string subtype = default(string), string amount = default(string), string exchangeRate = default(string), string exchangeAmount = default(string), int updateStamp = default(int), int createStamp = default(int), int status = default(int), int protocolType = default(int), string clientOrderId = default(string), string source = default(string))
         {
             this.Id = id;
+            this.Pid = pid;
             this.Uid = uid;
             this.Coin = coin;
             this.Type = type;
+            this.Subtype = subtype;
             this.Amount = amount;
             this.ExchangeRate = exchangeRate;
-            this.Pid = pid;
-            this.Status = status;
+            this.ExchangeAmount = exchangeAmount;
+            this.UpdateStamp = updateStamp;
             this.CreateStamp = createStamp;
+            this.Status = status;
+            this.ProtocolType = protocolType;
+            this.ClientOrderId = clientOrderId;
+            this.Source = source;
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// User ID
+        /// Plan ID.
         /// </summary>
-        /// <value>User ID</value>
-        [DataMember(Name="uid")]
-        public int Uid { get; set; }
-
-        /// <summary>
-        /// Currency
-        /// </summary>
-        /// <value>Currency</value>
-        [DataMember(Name="coin")]
-        public string Coin { get; set; }
-
-        /// <summary>
-        /// Type: 0-Lock, 1-Certificate
-        /// </summary>
-        /// <value>Type: 0-Lock, 1-Certificate</value>
-        [DataMember(Name="type")]
-        public int Type { get; set; }
-
-        /// <summary>
-        /// Amount
-        /// </summary>
-        /// <value>Amount</value>
-        [DataMember(Name="amount")]
-        public string Amount { get; set; }
-
-        /// <summary>
-        /// Exchange Ratio
-        /// </summary>
-        /// <value>Exchange Ratio</value>
-        [DataMember(Name="exchange_rate")]
-        public string ExchangeRate { get; set; }
-
-        /// <summary>
-        /// Plan ID
-        /// </summary>
-        /// <value>Plan ID</value>
+        /// <value>Plan ID.</value>
         [DataMember(Name="pid")]
         public int Pid { get; set; }
 
         /// <summary>
-        /// status 1-success
+        /// User ID.
         /// </summary>
-        /// <value>status 1-success</value>
+        /// <value>User ID.</value>
+        [DataMember(Name="uid")]
+        public int Uid { get; set; }
+
+        /// <summary>
+        /// Currency.
+        /// </summary>
+        /// <value>Currency.</value>
+        [DataMember(Name="coin")]
+        public string Coin { get; set; }
+
+        /// <summary>
+        /// 类型 0-质押 1-赎回
+        /// </summary>
+        /// <value>类型 0-质押 1-赎回</value>
+        [DataMember(Name="type")]
+        public int Type { get; set; }
+
+        /// <summary>
+        /// 子类型
+        /// </summary>
+        /// <value>子类型</value>
+        [DataMember(Name="subtype")]
+        public string Subtype { get; set; }
+
+        /// <summary>
+        /// Amount.
+        /// </summary>
+        /// <value>Amount.</value>
+        [DataMember(Name="amount")]
+        public string Amount { get; set; }
+
+        /// <summary>
+        /// Exchange Ratio.
+        /// </summary>
+        /// <value>Exchange Ratio.</value>
+        [DataMember(Name="exchange_rate")]
+        public string ExchangeRate { get; set; }
+
+        /// <summary>
+        /// 兑换金额
+        /// </summary>
+        /// <value>兑换金额</value>
+        [DataMember(Name="exchange_amount")]
+        public string ExchangeAmount { get; set; }
+
+        /// <summary>
+        /// 更新时间戳
+        /// </summary>
+        /// <value>更新时间戳</value>
+        [DataMember(Name="updateStamp")]
+        public int UpdateStamp { get; set; }
+
+        /// <summary>
+        /// Transaction timestamp.
+        /// </summary>
+        /// <value>Transaction timestamp.</value>
+        [DataMember(Name="createStamp")]
+        public int CreateStamp { get; set; }
+
+        /// <summary>
+        /// status 1-success.
+        /// </summary>
+        /// <value>status 1-success.</value>
         [DataMember(Name="status")]
         public int Status { get; set; }
 
         /// <summary>
-        /// Transaction timestamp
+        /// DEFI协议类型
         /// </summary>
-        /// <value>Transaction timestamp</value>
-        [DataMember(Name="createStamp")]
-        public int CreateStamp { get; set; }
+        /// <value>DEFI协议类型</value>
+        [DataMember(Name="protocol_type")]
+        public int ProtocolType { get; set; }
+
+        /// <summary>
+        /// 参考ID
+        /// </summary>
+        /// <value>参考ID</value>
+        [DataMember(Name="client_order_id")]
+        public string ClientOrderId { get; set; }
+
+        /// <summary>
+        /// Order source.
+        /// </summary>
+        /// <value>Order source.</value>
+        [DataMember(Name="source")]
+        public string Source { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -127,14 +181,20 @@ namespace Io.Gate.GateApi.Model
             var sb = new StringBuilder();
             sb.Append("class SwapCoinStruct {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Pid: ").Append(Pid).Append("\n");
             sb.Append("  Uid: ").Append(Uid).Append("\n");
             sb.Append("  Coin: ").Append(Coin).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Subtype: ").Append(Subtype).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
-            sb.Append("  Pid: ").Append(Pid).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  ExchangeAmount: ").Append(ExchangeAmount).Append("\n");
+            sb.Append("  UpdateStamp: ").Append(UpdateStamp).Append("\n");
             sb.Append("  CreateStamp: ").Append(CreateStamp).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  ProtocolType: ").Append(ProtocolType).Append("\n");
+            sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,6 +234,10 @@ namespace Io.Gate.GateApi.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
+                    this.Pid == input.Pid ||
+                    this.Pid.Equals(input.Pid)
+                ) && 
+                (
                     this.Uid == input.Uid ||
                     this.Uid.Equals(input.Uid)
                 ) && 
@@ -187,6 +251,11 @@ namespace Io.Gate.GateApi.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
+                    this.Subtype == input.Subtype ||
+                    (this.Subtype != null &&
+                    this.Subtype.Equals(input.Subtype))
+                ) && 
+                (
                     this.Amount == input.Amount ||
                     (this.Amount != null &&
                     this.Amount.Equals(input.Amount))
@@ -197,16 +266,35 @@ namespace Io.Gate.GateApi.Model
                     this.ExchangeRate.Equals(input.ExchangeRate))
                 ) && 
                 (
-                    this.Pid == input.Pid ||
-                    this.Pid.Equals(input.Pid)
+                    this.ExchangeAmount == input.ExchangeAmount ||
+                    (this.ExchangeAmount != null &&
+                    this.ExchangeAmount.Equals(input.ExchangeAmount))
+                ) && 
+                (
+                    this.UpdateStamp == input.UpdateStamp ||
+                    this.UpdateStamp.Equals(input.UpdateStamp)
+                ) && 
+                (
+                    this.CreateStamp == input.CreateStamp ||
+                    this.CreateStamp.Equals(input.CreateStamp)
                 ) && 
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.CreateStamp == input.CreateStamp ||
-                    this.CreateStamp.Equals(input.CreateStamp)
+                    this.ProtocolType == input.ProtocolType ||
+                    this.ProtocolType.Equals(input.ProtocolType)
+                ) && 
+                (
+                    this.ClientOrderId == input.ClientOrderId ||
+                    (this.ClientOrderId != null &&
+                    this.ClientOrderId.Equals(input.ClientOrderId))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 );
         }
 
@@ -220,17 +308,27 @@ namespace Io.Gate.GateApi.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.Pid.GetHashCode();
                 hashCode = hashCode * 59 + this.Uid.GetHashCode();
                 if (this.Coin != null)
                     hashCode = hashCode * 59 + this.Coin.GetHashCode();
                 hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Subtype != null)
+                    hashCode = hashCode * 59 + this.Subtype.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.ExchangeRate != null)
                     hashCode = hashCode * 59 + this.ExchangeRate.GetHashCode();
-                hashCode = hashCode * 59 + this.Pid.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.ExchangeAmount != null)
+                    hashCode = hashCode * 59 + this.ExchangeAmount.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateStamp.GetHashCode();
                 hashCode = hashCode * 59 + this.CreateStamp.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.ProtocolType.GetHashCode();
+                if (this.ClientOrderId != null)
+                    hashCode = hashCode * 59 + this.ClientOrderId.GetHashCode();
+                if (this.Source != null)
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedTransferable" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail.</param>
-        /// <param name="amount">The maximum amount that can be transferred out.</param>
+        /// <param name="currency">Currency detail..</param>
+        /// <param name="amount">The maximum amount that can be transferred out..</param>
         public UnifiedTransferable(string currency = default(string), string amount = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The maximum amount that can be transferred out
+        /// The maximum amount that can be transferred out.
         /// </summary>
-        /// <value>The maximum amount that can be transferred out</value>
+        /// <value>The maximum amount that can be transferred out.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -38,11 +38,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsMMP" /> class.
         /// </summary>
-        /// <param name="underlying">Underlying (required).</param>
-        /// <param name="window">Time window (milliseconds), between 1-5000, 0 means disabling MMP (required).</param>
+        /// <param name="underlying">Underlying. (required).</param>
+        /// <param name="window">Time window (milliseconds), between 1-5000, 0 means disabling MMP. (required).</param>
         /// <param name="frozenPeriod">Freeze duration (milliseconds), 0 means always frozen, need to call reset API to unfreeze (required).</param>
-        /// <param name="qtyLimit">Trading volume upper limit (positive number, up to 2 decimal places) (required).</param>
-        /// <param name="deltaLimit">Upper limit of net delta value (positive number, up to 2 decimal places) (required).</param>
+        /// <param name="qtyLimit">Trading volume upper limit (positive number, up to 2 decimal places). (required).</param>
+        /// <param name="deltaLimit">Upper limit of net delta value (positive number, up to 2 decimal places). (required).</param>
         public OptionsMMP(string underlying = default(string), int window = default(int), int frozenPeriod = default(int), string qtyLimit = default(string), string deltaLimit = default(string))
         {
             // to ensure "underlying" is required (not null)
@@ -56,16 +56,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Underlying
+        /// Underlying.
         /// </summary>
-        /// <value>Underlying</value>
+        /// <value>Underlying.</value>
         [DataMember(Name="underlying")]
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Time window (milliseconds), between 1-5000, 0 means disabling MMP
+        /// Time window (milliseconds), between 1-5000, 0 means disabling MMP.
         /// </summary>
-        /// <value>Time window (milliseconds), between 1-5000, 0 means disabling MMP</value>
+        /// <value>Time window (milliseconds), between 1-5000, 0 means disabling MMP.</value>
         [DataMember(Name="window")]
         public int Window { get; set; }
 
@@ -77,23 +77,23 @@ namespace Io.Gate.GateApi.Model
         public int FrozenPeriod { get; set; }
 
         /// <summary>
-        /// Trading volume upper limit (positive number, up to 2 decimal places)
+        /// Trading volume upper limit (positive number, up to 2 decimal places).
         /// </summary>
-        /// <value>Trading volume upper limit (positive number, up to 2 decimal places)</value>
+        /// <value>Trading volume upper limit (positive number, up to 2 decimal places).</value>
         [DataMember(Name="qty_limit")]
         public string QtyLimit { get; set; }
 
         /// <summary>
-        /// Upper limit of net delta value (positive number, up to 2 decimal places)
+        /// Upper limit of net delta value (positive number, up to 2 decimal places).
         /// </summary>
-        /// <value>Upper limit of net delta value (positive number, up to 2 decimal places)</value>
+        /// <value>Upper limit of net delta value (positive number, up to 2 decimal places).</value>
         [DataMember(Name="delta_limit")]
         public string DeltaLimit { get; set; }
 
         /// <summary>
-        /// Trigger freeze time (milliseconds), 0 means no freeze is triggered
+        /// Trigger freeze time (milliseconds), 0 means no freeze is triggered.
         /// </summary>
-        /// <value>Trigger freeze time (milliseconds), 0 means no freeze is triggered</value>
+        /// <value>Trigger freeze time (milliseconds), 0 means no freeze is triggered.</value>
         [DataMember(Name="trigger_time_ms", EmitDefaultValue=false)]
         public long TriggerTimeMs { get; private set; }
 

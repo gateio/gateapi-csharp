@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IndexConstituent" /> class.
         /// </summary>
-        /// <param name="exchange">Exchange.</param>
-        /// <param name="symbols">Symbol list.</param>
+        /// <param name="exchange">Exchange..</param>
+        /// <param name="symbols">Symbol list..</param>
         public IndexConstituent(string exchange = default(string), List<string> symbols = default(List<string>))
         {
             this.Exchange = exchange;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Exchange
+        /// Exchange.
         /// </summary>
-        /// <value>Exchange</value>
+        /// <value>Exchange.</value>
         [DataMember(Name="exchange")]
         public string Exchange { get; set; }
 
         /// <summary>
-        /// Symbol list
+        /// Symbol list.
         /// </summary>
-        /// <value>Symbol list</value>
+        /// <value>Symbol list.</value>
         [DataMember(Name="symbols")]
         public List<string> Symbols { get; set; }
 

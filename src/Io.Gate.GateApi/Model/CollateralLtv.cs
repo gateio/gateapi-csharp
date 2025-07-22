@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Collateral Ratio
+    /// Collateral Ratio.
     /// </summary>
     [DataContract]
     public partial class CollateralLtv :  IEquatable<CollateralLtv>, IValidatableObject
@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralLtv" /> class.
         /// </summary>
-        /// <param name="initLtv">The initial collateralization rate.</param>
-        /// <param name="alertLtv">Warning collateralization ratio.</param>
-        /// <param name="liquidateLtv">The liquidation collateralization rate.</param>
+        /// <param name="initLtv">The initial collateralization rate..</param>
+        /// <param name="alertLtv">Warning collateralization ratio..</param>
+        /// <param name="liquidateLtv">The liquidation collateralization rate..</param>
         public CollateralLtv(string initLtv = default(string), string alertLtv = default(string), string liquidateLtv = default(string))
         {
             this.InitLtv = initLtv;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// The initial collateralization rate
+        /// The initial collateralization rate.
         /// </summary>
-        /// <value>The initial collateralization rate</value>
+        /// <value>The initial collateralization rate.</value>
         [DataMember(Name="init_ltv")]
         public string InitLtv { get; set; }
 
         /// <summary>
-        /// Warning collateralization ratio
+        /// Warning collateralization ratio.
         /// </summary>
-        /// <value>Warning collateralization ratio</value>
+        /// <value>Warning collateralization ratio.</value>
         [DataMember(Name="alert_ltv")]
         public string AlertLtv { get; set; }
 
         /// <summary>
-        /// The liquidation collateralization rate
+        /// The liquidation collateralization rate.
         /// </summary>
-        /// <value>The liquidation collateralization rate</value>
+        /// <value>The liquidation collateralization rate.</value>
         [DataMember(Name="liquidate_ltv")]
         public string LiquidateLtv { get; set; }
 

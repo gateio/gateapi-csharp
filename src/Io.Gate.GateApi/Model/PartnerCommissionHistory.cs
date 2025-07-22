@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartnerCommissionHistory" /> class.
         /// </summary>
-        /// <param name="total">Total.</param>
-        /// <param name="list">List of comission history.</param>
+        /// <param name="total">Total..</param>
+        /// <param name="list">List of comission history..</param>
         public PartnerCommissionHistory(long total = default(long), List<AgencyCommission> list = default(List<AgencyCommission>))
         {
             this.Total = total;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Total
+        /// Total.
         /// </summary>
-        /// <value>Total</value>
+        /// <value>Total.</value>
         [DataMember(Name="total")]
         public long Total { get; set; }
 
         /// <summary>
-        /// List of comission history
+        /// List of comission history.
         /// </summary>
-        /// <value>List of comission history</value>
+        /// <value>List of comission history.</value>
         [DataMember(Name="list")]
         public List<AgencyCommission> List { get; set; }
 

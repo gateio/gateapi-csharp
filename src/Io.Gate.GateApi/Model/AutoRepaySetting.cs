@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class AutoRepaySetting :  IEquatable<AutoRepaySetting>, IValidatableObject
     {
         /// <summary>
-        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
+        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.
         /// </summary>
-        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</value>
+        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -52,15 +52,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled
+        /// Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.
         /// </summary>
-        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled</value>
+        /// <value>Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.</value>
         [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoRepaySetting" /> class.
         /// </summary>
-        /// <param name="status">Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled.</param>
+        /// <param name="status">Auto repayment status. &#x60;on&#x60; - enabled, &#x60;off&#x60; - disabled..</param>
         public AutoRepaySetting(StatusEnum? status = default(StatusEnum?))
         {
             this.Status = status;

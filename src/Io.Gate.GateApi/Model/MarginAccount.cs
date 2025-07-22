@@ -33,12 +33,12 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MarginAccount" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="accountType">Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated.</param>
-        /// <param name="leverage">User current market leverage multiple.</param>
-        /// <param name="locked">Whether account is locked.</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="accountType">Account type, risk - risk rate account, mmr - maintenance margin market not activated.</param>
+        /// <param name="leverage">User current market leverage multiple..</param>
+        /// <param name="locked">Whether account is locked..</param>
         /// <param name="risk">Leveraged Account Current Risk Rate (Returned when the Account is a Risk Rate Account).</param>
-        /// <param name="mmr">Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account).</param>
+        /// <param name="mmr">Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account).</param>
         /// <param name="_base">_base.</param>
         /// <param name="quote">quote.</param>
         public MarginAccount(string currencyPair = default(string), string accountType = default(string), string leverage = default(string), bool locked = default(bool), string risk = default(string), string mmr = default(string), MarginAccountCurrency _base = default(MarginAccountCurrency), MarginAccountCurrency quote = default(MarginAccountCurrency))
@@ -54,30 +54,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated
+        /// Account type, risk - risk rate account, mmr - maintenance margin market not activated
         /// </summary>
-        /// <value>Account type, risk - risk rate account, mmr - maintenance margin rate account, inactive - market not activated</value>
+        /// <value>Account type, risk - risk rate account, mmr - maintenance margin market not activated</value>
         [DataMember(Name="account_type")]
         public string AccountType { get; set; }
 
         /// <summary>
-        /// User current market leverage multiple
+        /// User current market leverage multiple.
         /// </summary>
-        /// <value>User current market leverage multiple</value>
+        /// <value>User current market leverage multiple.</value>
         [DataMember(Name="leverage")]
         public string Leverage { get; set; }
 
         /// <summary>
-        /// Whether account is locked
+        /// Whether account is locked.
         /// </summary>
-        /// <value>Whether account is locked</value>
+        /// <value>Whether account is locked.</value>
         [DataMember(Name="locked")]
         public bool Locked { get; set; }
 
@@ -89,9 +89,9 @@ namespace Io.Gate.GateApi.Model
         public string Risk { get; set; }
 
         /// <summary>
-        /// Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)
+        /// Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)
         /// </summary>
-        /// <value>Leveraged Account Current Maintenance Margin Rate (returned when the Account is a Maintenance Margin Rate Account)</value>
+        /// <value>Leveraged Account Current Maintenance Margin Rate (returned when the Account is Account)</value>
         [DataMember(Name="mmr")]
         public string Mmr { get; set; }
 

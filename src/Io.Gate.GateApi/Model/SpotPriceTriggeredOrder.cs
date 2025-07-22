@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot order detail
+    /// Spot order detail.
     /// </summary>
     [DataContract]
     public partial class SpotPriceTriggeredOrder :  IEquatable<SpotPriceTriggeredOrder>, IValidatableObject
@@ -40,7 +40,7 @@ namespace Io.Gate.GateApi.Model
         /// </summary>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="put">put (required).</param>
-        /// <param name="market">Currency pair (required).</param>
+        /// <param name="market">Currency pair. (required).</param>
         public SpotPriceTriggeredOrder(SpotPriceTrigger trigger = default(SpotPriceTrigger), SpotPricePutOrder put = default(SpotPricePutOrder), string market = default(string))
         {
             // to ensure "trigger" is required (not null)
@@ -64,44 +64,44 @@ namespace Io.Gate.GateApi.Model
         public SpotPricePutOrder Put { get; set; }
 
         /// <summary>
-        /// Auto order ID
+        /// Auto order ID.
         /// </summary>
-        /// <value>Auto order ID</value>
+        /// <value>Auto order ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="market")]
         public string Market { get; set; }
 
         /// <summary>
-        /// Creation time
+        /// Creation time.
         /// </summary>
-        /// <value>Creation time</value>
+        /// <value>Creation time.</value>
         [DataMember(Name="ctime", EmitDefaultValue=false)]
         public long Ctime { get; private set; }
 
         /// <summary>
-        /// Finished time
+        /// Finished time.
         /// </summary>
-        /// <value>Finished time</value>
+        /// <value>Finished time.</value>
         [DataMember(Name="ftime", EmitDefaultValue=false)]
         public long Ftime { get; private set; }
 
         /// <summary>
-        /// ID of the newly created order on condition triggered
+        /// ID of the newly created order on condition triggered.
         /// </summary>
-        /// <value>ID of the newly created order on condition triggered</value>
+        /// <value>ID of the newly created order on condition triggered.</value>
         [DataMember(Name="fired_order_id", EmitDefaultValue=false)]
         public long FiredOrderId { get; private set; }
 
@@ -113,9 +113,9 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; private set; }
 
         /// <summary>
-        /// Additional remarks on how the order was finished
+        /// Additional remarks on how the order was finished.
         /// </summary>
-        /// <value>Additional remarks on how the order was finished</value>
+        /// <value>Additional remarks on how the order was finished.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; private set; }
 

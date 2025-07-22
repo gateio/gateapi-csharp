@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiCollateralRecord" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="recordId">Collateral record ID.</param>
-        /// <param name="beforeLtv">The collateral ratio before adjustment.</param>
-        /// <param name="afterLtv">The collateral ratio before adjustment.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="recordId">Collateral record ID..</param>
+        /// <param name="beforeLtv">The collateral ratio before adjustment..</param>
+        /// <param name="afterLtv">The collateral ratio before adjustment..</param>
         /// <param name="operateTime">Operation time, timestamp in seconds..</param>
-        /// <param name="borrowCurrencies">Borrowing Currency List.</param>
-        /// <param name="collateralCurrencies">Collateral Currency List.</param>
+        /// <param name="borrowCurrencies">Borrowing Currency List..</param>
+        /// <param name="collateralCurrencies">Collateral Currency List..</param>
         public MultiCollateralRecord(long orderId = default(long), long recordId = default(long), string beforeLtv = default(string), string afterLtv = default(string), long operateTime = default(long), List<MultiCollateralRecordCurrency> borrowCurrencies = default(List<MultiCollateralRecordCurrency>), List<MultiCollateralRecordCurrency> collateralCurrencies = default(List<MultiCollateralRecordCurrency>))
         {
             this.OrderId = orderId;
@@ -52,30 +52,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Collateral record ID
+        /// Collateral record ID.
         /// </summary>
-        /// <value>Collateral record ID</value>
+        /// <value>Collateral record ID.</value>
         [DataMember(Name="record_id")]
         public long RecordId { get; set; }
 
         /// <summary>
-        /// The collateral ratio before adjustment
+        /// The collateral ratio before adjustment.
         /// </summary>
-        /// <value>The collateral ratio before adjustment</value>
+        /// <value>The collateral ratio before adjustment.</value>
         [DataMember(Name="before_ltv")]
         public string BeforeLtv { get; set; }
 
         /// <summary>
-        /// The collateral ratio before adjustment
+        /// The collateral ratio before adjustment.
         /// </summary>
-        /// <value>The collateral ratio before adjustment</value>
+        /// <value>The collateral ratio before adjustment.</value>
         [DataMember(Name="after_ltv")]
         public string AfterLtv { get; set; }
 
@@ -87,16 +87,16 @@ namespace Io.Gate.GateApi.Model
         public long OperateTime { get; set; }
 
         /// <summary>
-        /// Borrowing Currency List
+        /// Borrowing Currency List.
         /// </summary>
-        /// <value>Borrowing Currency List</value>
+        /// <value>Borrowing Currency List.</value>
         [DataMember(Name="borrow_currencies")]
         public List<MultiCollateralRecordCurrency> BorrowCurrencies { get; set; }
 
         /// <summary>
-        /// Collateral Currency List
+        /// Collateral Currency List.
         /// </summary>
-        /// <value>Collateral Currency List</value>
+        /// <value>Collateral Currency List.</value>
         [DataMember(Name="collateral_currencies")]
         public List<MultiCollateralRecordCurrency> CollateralCurrencies { get; set; }
 

@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class Trade :  IEquatable<Trade>, IValidatableObject
     {
         /// <summary>
-        /// Buy or sell order
+        /// Buy or sell order.
         /// </summary>
-        /// <value>Buy or sell order</value>
+        /// <value>Buy or sell order.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -52,15 +52,15 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Buy or sell order
+        /// Buy or sell order.
         /// </summary>
-        /// <value>Buy or sell order</value>
+        /// <value>Buy or sell order.</value>
         [DataMember(Name="side")]
         public SideEnum? Side { get; set; }
         /// <summary>
-        /// Trade role. No value in public endpoints
+        /// Trade role. No value in public endpoints.
         /// </summary>
-        /// <value>Trade role. No value in public endpoints</value>
+        /// <value>Trade role. No value in public endpoints.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -79,30 +79,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade role. No value in public endpoints
+        /// Trade role. No value in public endpoints.
         /// </summary>
-        /// <value>Trade role. No value in public endpoints</value>
+        /// <value>Trade role. No value in public endpoints.</value>
         [DataMember(Name="role")]
         public RoleEnum? Role { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Trade" /> class.
         /// </summary>
-        /// <param name="id">Trade ID.</param>
-        /// <param name="createTime">Trading time.</param>
-        /// <param name="createTimeMs">Trading time, with millisecond precision.</param>
-        /// <param name="currencyPair">Currency pair.</param>
-        /// <param name="side">Buy or sell order.</param>
-        /// <param name="role">Trade role. No value in public endpoints.</param>
-        /// <param name="amount">Trade amount.</param>
-        /// <param name="price">Order price.</param>
-        /// <param name="orderId">Related order ID. No value in public endpoints.</param>
-        /// <param name="fee">Fee deducted. No value in public endpoints.</param>
-        /// <param name="feeCurrency">Fee currency unit. No value in public endpoints.</param>
-        /// <param name="pointFee">Points used to deduct fee. No value in public endpoints.</param>
-        /// <param name="gtFee">GT used to deduct fee. No value in public endpoints.</param>
-        /// <param name="amendText">The custom data that the user remarked when amending the order.</param>
+        /// <param name="id">Trade ID..</param>
+        /// <param name="createTime">Trading time..</param>
+        /// <param name="createTimeMs">Trading time, with millisecond precision..</param>
+        /// <param name="currencyPair">Currency pair..</param>
+        /// <param name="side">Buy or sell order..</param>
+        /// <param name="role">Trade role. No value in public endpoints..</param>
+        /// <param name="amount">Trade amount..</param>
+        /// <param name="price">Order price..</param>
+        /// <param name="orderId">Related order ID. No value in public endpoints..</param>
+        /// <param name="fee">Fee deducted. No value in public endpoints..</param>
+        /// <param name="feeCurrency">Fee currency unit. No value in public endpoints..</param>
+        /// <param name="pointFee">Points used to deduct fee. No value in public endpoints..</param>
+        /// <param name="gtFee">GT used to deduct fee. No value in public endpoints..</param>
+        /// <param name="amendText">The custom data that the user remarked when amending the order..</param>
         /// <param name="sequenceId">Represents a unique and consecutive trade ID within a single market. It is used to track and identify trades in the specific market.</param>
-        /// <param name="text">User defined information. No value in public endpoints.</param>
+        /// <param name="text">User defined information. No value in public endpoints..</param>
         public Trade(string id = default(string), string createTime = default(string), string createTimeMs = default(string), string currencyPair = default(string), SideEnum? side = default(SideEnum?), RoleEnum? role = default(RoleEnum?), string amount = default(string), string price = default(string), string orderId = default(string), string fee = default(string), string feeCurrency = default(string), string pointFee = default(string), string gtFee = default(string), string amendText = default(string), string sequenceId = default(string), string text = default(string))
         {
             this.Id = id;
@@ -124,86 +124,86 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Trade ID
+        /// Trade ID.
         /// </summary>
-        /// <value>Trade ID</value>
+        /// <value>Trade ID.</value>
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Trading time
+        /// Trading time.
         /// </summary>
-        /// <value>Trading time</value>
+        /// <value>Trading time.</value>
         [DataMember(Name="create_time")]
         public string CreateTime { get; set; }
 
         /// <summary>
-        /// Trading time, with millisecond precision
+        /// Trading time, with millisecond precision.
         /// </summary>
-        /// <value>Trading time, with millisecond precision</value>
+        /// <value>Trading time, with millisecond precision.</value>
         [DataMember(Name="create_time_ms")]
         public string CreateTimeMs { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 
         /// <summary>
-        /// Trade amount
+        /// Trade amount.
         /// </summary>
-        /// <value>Trade amount</value>
+        /// <value>Trade amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Order price
+        /// Order price.
         /// </summary>
-        /// <value>Order price</value>
+        /// <value>Order price.</value>
         [DataMember(Name="price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// Related order ID. No value in public endpoints
+        /// Related order ID. No value in public endpoints.
         /// </summary>
-        /// <value>Related order ID. No value in public endpoints</value>
+        /// <value>Related order ID. No value in public endpoints.</value>
         [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
-        /// Fee deducted. No value in public endpoints
+        /// Fee deducted. No value in public endpoints.
         /// </summary>
-        /// <value>Fee deducted. No value in public endpoints</value>
+        /// <value>Fee deducted. No value in public endpoints.</value>
         [DataMember(Name="fee")]
         public string Fee { get; set; }
 
         /// <summary>
-        /// Fee currency unit. No value in public endpoints
+        /// Fee currency unit. No value in public endpoints.
         /// </summary>
-        /// <value>Fee currency unit. No value in public endpoints</value>
+        /// <value>Fee currency unit. No value in public endpoints.</value>
         [DataMember(Name="fee_currency")]
         public string FeeCurrency { get; set; }
 
         /// <summary>
-        /// Points used to deduct fee. No value in public endpoints
+        /// Points used to deduct fee. No value in public endpoints.
         /// </summary>
-        /// <value>Points used to deduct fee. No value in public endpoints</value>
+        /// <value>Points used to deduct fee. No value in public endpoints.</value>
         [DataMember(Name="point_fee")]
         public string PointFee { get; set; }
 
         /// <summary>
-        /// GT used to deduct fee. No value in public endpoints
+        /// GT used to deduct fee. No value in public endpoints.
         /// </summary>
-        /// <value>GT used to deduct fee. No value in public endpoints</value>
+        /// <value>GT used to deduct fee. No value in public endpoints.</value>
         [DataMember(Name="gt_fee")]
         public string GtFee { get; set; }
 
         /// <summary>
-        /// The custom data that the user remarked when amending the order
+        /// The custom data that the user remarked when amending the order.
         /// </summary>
-        /// <value>The custom data that the user remarked when amending the order</value>
+        /// <value>The custom data that the user remarked when amending the order.</value>
         [DataMember(Name="amend_text")]
         public string AmendText { get; set; }
 
@@ -215,9 +215,9 @@ namespace Io.Gate.GateApi.Model
         public string SequenceId { get; set; }
 
         /// <summary>
-        /// User defined information. No value in public endpoints
+        /// User defined information. No value in public endpoints.
         /// </summary>
-        /// <value>User defined information. No value in public endpoints</value>
+        /// <value>User defined information. No value in public endpoints.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// The returned result is a map type, where the key represents the market and the value represents the taker and maker fee rates.
+    /// The returned result is a map type, where the key represents the market and taker and maker fee rates.
     /// </summary>
     [DataContract]
     public partial class FuturesFee :  IEquatable<FuturesFee>, IValidatableObject
@@ -39,16 +39,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Taker fee
+        /// Taker fee.
         /// </summary>
-        /// <value>Taker fee</value>
+        /// <value>Taker fee.</value>
         [DataMember(Name="taker_fee", EmitDefaultValue=false)]
         public string TakerFee { get; private set; }
 
         /// <summary>
-        /// maker fee
+        /// maker fee.
         /// </summary>
-        /// <value>maker fee</value>
+        /// <value>maker fee.</value>
         [DataMember(Name="maker_fee", EmitDefaultValue=false)]
         public string MakerFee { get; private set; }
 

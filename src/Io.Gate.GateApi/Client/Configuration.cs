@@ -32,7 +32,7 @@ namespace Io.Gate.GateApi.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "6.102.1";
+        public const string Version = "6.102.6";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -103,7 +103,7 @@ namespace Io.Gate.GateApi.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/6.102.1/csharp";
+            UserAgent = "OpenAPI-Generator/6.102.6/csharp";
             BasePath = "https://api.gateio.ws/api/v4";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
 
@@ -287,8 +287,8 @@ namespace Io.Gate.GateApi.Client
         {
             string report = "C# SDK (Io.Gate.GateApi) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
-            report += "    Version of the API: v4.102.1\n";
-            report += "    SDK Package Version: 6.102.1\n";
+            report += "    Version of the API: v4.102.6\n";
+            report += "    SDK Package Version: 6.102.6\n";
 
             return report;
         }

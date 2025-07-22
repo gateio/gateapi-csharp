@@ -31,9 +31,9 @@ namespace Io.Gate.GateApi.Model
     public partial class PositionClose :  IEquatable<PositionClose>, IValidatableObject
     {
         /// <summary>
-        /// Position side, long or short
+        /// Position side, long or short.
         /// </summary>
-        /// <value>Position side, long or short</value>
+        /// <value>Position side, long or short.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum SideEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position side, long or short
+        /// Position side, long or short.
         /// </summary>
-        /// <value>Position side, long or short</value>
+        /// <value>Position side, long or short.</value>
         [DataMember(Name="side", EmitDefaultValue=false)]
         public SideEnum? Side { get; set; }
         /// <summary>
@@ -66,86 +66,86 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Position close time
+        /// Position close time.
         /// </summary>
-        /// <value>Position close time</value>
+        /// <value>Position close time.</value>
         [DataMember(Name="time", EmitDefaultValue=false)]
         public double Time { get; private set; }
 
         /// <summary>
-        /// Futures contract
+        /// Futures contract.
         /// </summary>
-        /// <value>Futures contract</value>
+        /// <value>Futures contract.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// PNL
+        /// PNL.
         /// </summary>
-        /// <value>PNL</value>
+        /// <value>PNL.</value>
         [DataMember(Name="pnl", EmitDefaultValue=false)]
         public string Pnl { get; private set; }
 
         /// <summary>
-        /// PNL - Position P/L
+        /// PNL - Position P/L.
         /// </summary>
-        /// <value>PNL - Position P/L</value>
+        /// <value>PNL - Position P/L.</value>
         [DataMember(Name="pnl_pnl", EmitDefaultValue=false)]
         public string PnlPnl { get; private set; }
 
         /// <summary>
-        /// PNL - Funding Fees
+        /// PNL - Funding Fees.
         /// </summary>
-        /// <value>PNL - Funding Fees</value>
+        /// <value>PNL - Funding Fees.</value>
         [DataMember(Name="pnl_fund", EmitDefaultValue=false)]
         public string PnlFund { get; private set; }
 
         /// <summary>
-        /// PNL - Transaction Fees
+        /// PNL - Transaction Fees.
         /// </summary>
-        /// <value>PNL - Transaction Fees</value>
+        /// <value>PNL - Transaction Fees.</value>
         [DataMember(Name="pnl_fee", EmitDefaultValue=false)]
         public string PnlFee { get; private set; }
 
         /// <summary>
-        /// Text of close order
+        /// Text of close order.
         /// </summary>
-        /// <value>Text of close order</value>
+        /// <value>Text of close order.</value>
         [DataMember(Name="text", EmitDefaultValue=false)]
         public string Text { get; private set; }
 
         /// <summary>
-        /// Max Trade Size
+        /// Max Trade Size.
         /// </summary>
-        /// <value>Max Trade Size</value>
+        /// <value>Max Trade Size.</value>
         [DataMember(Name="max_size", EmitDefaultValue=false)]
         public string MaxSize { get; private set; }
 
         /// <summary>
-        /// Cumulative closed position volume
+        /// Cumulative closed position volume.
         /// </summary>
-        /// <value>Cumulative closed position volume</value>
+        /// <value>Cumulative closed position volume.</value>
         [DataMember(Name="accum_size", EmitDefaultValue=false)]
         public string AccumSize { get; private set; }
 
         /// <summary>
-        /// First Open Time
+        /// First Open Time.
         /// </summary>
-        /// <value>First Open Time</value>
+        /// <value>First Open Time.</value>
         [DataMember(Name="first_open_time", EmitDefaultValue=false)]
         public long FirstOpenTime { get; private set; }
 
         /// <summary>
-        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.
+        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price.
         /// </summary>
-        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price.</value>
+        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price.</value>
         [DataMember(Name="long_price", EmitDefaultValue=false)]
         public string LongPrice { get; private set; }
 
         /// <summary>
-        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price
+        /// When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price
         /// </summary>
-        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when &#39;side&#39; is &#39;short,&#39; it indicates the closing average price</value>
+        /// <value>When &#39;side&#39; is &#39;long,&#39; it indicates the opening average price; when closing average price</value>
         [DataMember(Name="short_price", EmitDefaultValue=false)]
         public string ShortPrice { get; private set; }
 

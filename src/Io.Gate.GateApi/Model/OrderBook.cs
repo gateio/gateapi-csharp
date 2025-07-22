@@ -39,10 +39,10 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="OrderBook" /> class.
         /// </summary>
         /// <param name="id">Order book ID, which is updated whenever the order book is changed. Valid only when &#x60;with_id&#x60; is set to &#x60;true&#x60;.</param>
-        /// <param name="current">The timestamp of the response data being generated (in milliseconds).</param>
-        /// <param name="update">The timestamp of when the orderbook last changed (in milliseconds).</param>
-        /// <param name="asks">Asks order depth (required).</param>
-        /// <param name="bids">Bids order depth (required).</param>
+        /// <param name="current">The timestamp of the response data being generated (in milliseconds)..</param>
+        /// <param name="update">The timestamp of when the orderbook last changed (in milliseconds)..</param>
+        /// <param name="asks">Asks order depth. (required).</param>
+        /// <param name="bids">Bids order depth. (required).</param>
         public OrderBook(long id = default(long), long current = default(long), long update = default(long), List<List<string>> asks = default(List<List<string>>), List<List<string>> bids = default(List<List<string>>))
         {
             // to ensure "asks" is required (not null)
@@ -62,30 +62,30 @@ namespace Io.Gate.GateApi.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// The timestamp of the response data being generated (in milliseconds)
+        /// The timestamp of the response data being generated (in milliseconds).
         /// </summary>
-        /// <value>The timestamp of the response data being generated (in milliseconds)</value>
+        /// <value>The timestamp of the response data being generated (in milliseconds).</value>
         [DataMember(Name="current")]
         public long Current { get; set; }
 
         /// <summary>
-        /// The timestamp of when the orderbook last changed (in milliseconds)
+        /// The timestamp of when the orderbook last changed (in milliseconds).
         /// </summary>
-        /// <value>The timestamp of when the orderbook last changed (in milliseconds)</value>
+        /// <value>The timestamp of when the orderbook last changed (in milliseconds).</value>
         [DataMember(Name="update")]
         public long Update { get; set; }
 
         /// <summary>
-        /// Asks order depth
+        /// Asks order depth.
         /// </summary>
-        /// <value>Asks order depth</value>
+        /// <value>Asks order depth.</value>
         [DataMember(Name="asks")]
         public List<List<string>> Asks { get; set; }
 
         /// <summary>
-        /// Bids order depth
+        /// Bids order depth.
         /// </summary>
-        /// <value>Bids order depth</value>
+        /// <value>Bids order depth.</value>
         [DataMember(Name="bids")]
         public List<List<string>> Bids { get; set; }
 

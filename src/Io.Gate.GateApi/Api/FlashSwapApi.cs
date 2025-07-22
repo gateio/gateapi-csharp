@@ -28,32 +28,32 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap
+        /// List All Supported Currency Pairs In Flash Swap.
         /// </summary>
         /// <remarks>
         /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
         List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap
+        /// List All Supported Currency Pairs In Flash Swap.
         /// </summary>
         /// <remarks>
         /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
         ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List all flash swap orders
+        /// List all flash swap orders.
         /// </summary>
         /// <remarks>
         /// 
@@ -62,14 +62,14 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>List&lt;FlashSwapOrder&gt;</returns>
         List<FlashSwapOrder> ListFlashSwapOrders (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?));
 
         /// <summary>
-        /// List all flash swap orders
+        /// List all flash swap orders.
         /// </summary>
         /// <remarks>
         /// 
@@ -78,13 +78,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapOrder&gt;</returns>
         ApiResponse<List<FlashSwapOrder>> ListFlashSwapOrdersWithHttpInfo (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?));
         /// <summary>
-        /// Create a flash swap order
+        /// Create a flash swap order.
         /// </summary>
         /// <remarks>
         /// Initiate a flash swap preview in advance because order creation requires a preview result
@@ -95,7 +95,7 @@ namespace Io.Gate.GateApi.Api
         FlashSwapOrder CreateFlashSwapOrder (FlashSwapOrderRequest flashSwapOrderRequest);
 
         /// <summary>
-        /// Create a flash swap order
+        /// Create a flash swap order.
         /// </summary>
         /// <remarks>
         /// Initiate a flash swap preview in advance because order creation requires a preview result
@@ -105,28 +105,28 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of FlashSwapOrder</returns>
         ApiResponse<FlashSwapOrder> CreateFlashSwapOrderWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest);
         /// <summary>
-        /// Get a single flash swap order&#39;s detail
+        /// Get a single flash swap order&#39;s detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>FlashSwapOrder</returns>
         FlashSwapOrder GetFlashSwapOrder (int orderId);
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail
+        /// Get a single flash swap order&#39;s detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>ApiResponse of FlashSwapOrder</returns>
         ApiResponse<FlashSwapOrder> GetFlashSwapOrderWithHttpInfo (int orderId);
         /// <summary>
-        /// Initiate a flash swap order preview
+        /// Initiate a flash swap order preview.
         /// </summary>
         /// <remarks>
         /// 
@@ -137,7 +137,7 @@ namespace Io.Gate.GateApi.Api
         FlashSwapOrderPreview PreviewFlashSwapOrder (FlashSwapPreviewRequest flashSwapPreviewRequest);
 
         /// <summary>
-        /// Initiate a flash swap order preview
+        /// Initiate a flash swap order preview.
         /// </summary>
         /// <remarks>
         /// 
@@ -156,32 +156,32 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap
+        /// List All Supported Currency Pairs In Flash Swap.
         /// </summary>
         /// <remarks>
         /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
         Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap
+        /// List All Supported Currency Pairs In Flash Swap.
         /// </summary>
         /// <remarks>
         /// &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
         Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List all flash swap orders
+        /// List all flash swap orders.
         /// </summary>
         /// <remarks>
         /// 
@@ -190,14 +190,14 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of List&lt;FlashSwapOrder&gt;</returns>
         Task<List<FlashSwapOrder>> ListFlashSwapOrdersAsync (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?));
 
         /// <summary>
-        /// List all flash swap orders
+        /// List all flash swap orders.
         /// </summary>
         /// <remarks>
         /// 
@@ -206,13 +206,13 @@ namespace Io.Gate.GateApi.Api
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapOrder&gt;)</returns>
         Task<ApiResponse<List<FlashSwapOrder>>> ListFlashSwapOrdersAsyncWithHttpInfo (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?));
         /// <summary>
-        /// Create a flash swap order
+        /// Create a flash swap order.
         /// </summary>
         /// <remarks>
         /// Initiate a flash swap preview in advance because order creation requires a preview result
@@ -223,7 +223,7 @@ namespace Io.Gate.GateApi.Api
         Task<FlashSwapOrder> CreateFlashSwapOrderAsync (FlashSwapOrderRequest flashSwapOrderRequest);
 
         /// <summary>
-        /// Create a flash swap order
+        /// Create a flash swap order.
         /// </summary>
         /// <remarks>
         /// Initiate a flash swap preview in advance because order creation requires a preview result
@@ -233,28 +233,28 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (FlashSwapOrder)</returns>
         Task<ApiResponse<FlashSwapOrder>> CreateFlashSwapOrderAsyncWithHttpInfo (FlashSwapOrderRequest flashSwapOrderRequest);
         /// <summary>
-        /// Get a single flash swap order&#39;s detail
+        /// Get a single flash swap order&#39;s detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>Task of FlashSwapOrder</returns>
         Task<FlashSwapOrder> GetFlashSwapOrderAsync (int orderId);
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail
+        /// Get a single flash swap order&#39;s detail.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>Task of ApiResponse (FlashSwapOrder)</returns>
         Task<ApiResponse<FlashSwapOrder>> GetFlashSwapOrderAsyncWithHttpInfo (int orderId);
         /// <summary>
-        /// Initiate a flash swap order preview
+        /// Initiate a flash swap order preview.
         /// </summary>
         /// <remarks>
         /// 
@@ -265,7 +265,7 @@ namespace Io.Gate.GateApi.Api
         Task<FlashSwapOrderPreview> PreviewFlashSwapOrderAsync (FlashSwapPreviewRequest flashSwapPreviewRequest);
 
         /// <summary>
-        /// Initiate a flash swap order preview
+        /// Initiate a flash swap order preview.
         /// </summary>
         /// <remarks>
         /// 
@@ -395,12 +395,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// List All Supported Currency Pairs In Flash Swap. &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>List&lt;FlashSwapCurrencyPair&gt;</returns>
         public List<FlashSwapCurrencyPair> ListFlashSwapCurrencyPair (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -409,12 +409,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// List All Supported Currency Pairs In Flash Swap. &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapCurrencyPair&gt;</returns>
         public ApiResponse<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -461,12 +461,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// List All Supported Currency Pairs In Flash Swap. &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>Task of List&lt;FlashSwapCurrencyPair&gt;</returns>
         public async Task<List<FlashSwapCurrencyPair>> ListFlashSwapCurrencyPairAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -476,12 +476,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List All Supported Currency Pairs In Flash Swap &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
+        /// List All Supported Currency Pairs In Flash Swap. &#x60;BTC_GT&#x60; represents selling BTC and buying GT. The limits for each currency may vary across different currency pairs.  It is not necessary that two currencies that can be swapped instantaneously can be exchanged with each other. For example, it is possible to sell BTC and buy GT, but it does not necessarily mean that GT can be sold to buy BTC.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 1000 (optional, default to 1000)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 1000. (optional, default to 1000)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapCurrencyPair&gt;)</returns>
         public async Task<ApiResponse<List<FlashSwapCurrencyPair>>> ListFlashSwapCurrencyPairAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -530,15 +530,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all flash swap orders 
+        /// List all flash swap orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>List&lt;FlashSwapOrder&gt;</returns>
         public List<FlashSwapOrder> ListFlashSwapOrders (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?))
         {
@@ -547,15 +547,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all flash swap orders 
+        /// List all flash swap orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>ApiResponse of List&lt;FlashSwapOrder&gt;</returns>
         public ApiResponse<List<FlashSwapOrder>> ListFlashSwapOrdersWithHttpInfo (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?))
         {
@@ -616,15 +616,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all flash swap orders 
+        /// List all flash swap orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of List&lt;FlashSwapOrder&gt;</returns>
         public async Task<List<FlashSwapOrder>> ListFlashSwapOrdersAsync (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?))
         {
@@ -634,15 +634,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List all flash swap orders 
+        /// List all flash swap orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">Flash swap order status  &#x60;1&#x60; - success &#x60;2&#x60; - failure (optional)</param>
         /// <param name="sellCurrency">Currency to sell which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
         /// <param name="buyCurrency">Currency to buy which can be retrieved from supported currency list API &#x60;GET /flash_swap/currencies&#x60; (optional)</param>
-        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - &#x60;false&#x60;: sort by id in ascending order(oldest first) (optional)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
+        /// <param name="reverse">If results are sorted by id in reverse order. Default to &#x60;true&#x60;  - &#x60;true&#x60;: sort by id in descending order(recent first) - ascending order(oldest first) (optional)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
         /// <returns>Task of ApiResponse (List&lt;FlashSwapOrder&gt;)</returns>
         public async Task<ApiResponse<List<FlashSwapOrder>>> ListFlashSwapOrdersAsyncWithHttpInfo (int? status = default(int?), string sellCurrency = default(string), string buyCurrency = default(string), bool? reverse = default(bool?), int? limit = default(int?), int? page = default(int?))
         {
@@ -705,7 +705,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a flash swap order Initiate a flash swap preview in advance because order creation requires a preview result
+        /// Create a flash swap order. Initiate a flash swap preview in advance because order creation requires a preview result
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapOrderRequest"></param>
@@ -717,7 +717,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a flash swap order Initiate a flash swap preview in advance because order creation requires a preview result
+        /// Create a flash swap order. Initiate a flash swap preview in advance because order creation requires a preview result
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapOrderRequest"></param>
@@ -763,7 +763,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a flash swap order Initiate a flash swap preview in advance because order creation requires a preview result
+        /// Create a flash swap order. Initiate a flash swap preview in advance because order creation requires a preview result
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapOrderRequest"></param>
@@ -776,7 +776,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create a flash swap order Initiate a flash swap preview in advance because order creation requires a preview result
+        /// Create a flash swap order. Initiate a flash swap preview in advance because order creation requires a preview result
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapOrderRequest"></param>
@@ -824,10 +824,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail 
+        /// Get a single flash swap order&#39;s detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>FlashSwapOrder</returns>
         public FlashSwapOrder GetFlashSwapOrder (int orderId)
         {
@@ -836,10 +836,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail 
+        /// Get a single flash swap order&#39;s detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>ApiResponse of FlashSwapOrder</returns>
         public ApiResponse<FlashSwapOrder> GetFlashSwapOrderWithHttpInfo (int orderId)
         {
@@ -877,10 +877,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail 
+        /// Get a single flash swap order&#39;s detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>Task of FlashSwapOrder</returns>
         public async Task<FlashSwapOrder> GetFlashSwapOrderAsync (int orderId)
         {
@@ -890,10 +890,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get a single flash swap order&#39;s detail 
+        /// Get a single flash swap order&#39;s detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="orderId">Flash swap order ID</param>
+        /// <param name="orderId">Flash swap order ID.</param>
         /// <returns>Task of ApiResponse (FlashSwapOrder)</returns>
         public async Task<ApiResponse<FlashSwapOrder>> GetFlashSwapOrderAsyncWithHttpInfo (int orderId)
         {
@@ -933,7 +933,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Initiate a flash swap order preview 
+        /// Initiate a flash swap order preview. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapPreviewRequest"></param>
@@ -945,7 +945,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Initiate a flash swap order preview 
+        /// Initiate a flash swap order preview. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapPreviewRequest"></param>
@@ -991,7 +991,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Initiate a flash swap order preview 
+        /// Initiate a flash swap order preview. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapPreviewRequest"></param>
@@ -1004,7 +1004,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Initiate a flash swap order preview 
+        /// Initiate a flash swap order preview. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flashSwapPreviewRequest"></param>

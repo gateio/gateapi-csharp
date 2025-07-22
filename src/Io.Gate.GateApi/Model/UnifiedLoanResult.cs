@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Unified account loan and repayment response results
+    /// Unified account loan and repayment response results.
     /// </summary>
     [DataContract]
     public partial class UnifiedLoanResult :  IEquatable<UnifiedLoanResult>, IValidatableObject
@@ -33,16 +33,16 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedLoanResult" /> class.
         /// </summary>
-        /// <param name="tranId">Transaction id.</param>
+        /// <param name="tranId">Transaction id..</param>
         public UnifiedLoanResult(long tranId = default(long))
         {
             this.TranId = tranId;
         }
 
         /// <summary>
-        /// Transaction id
+        /// Transaction id.
         /// </summary>
-        /// <value>Transaction id</value>
+        /// <value>Transaction id.</value>
         [DataMember(Name="tran_id")]
         public long TranId { get; set; }
 

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Multi-Collateral Order
+    /// Multi-Collateral Order.
     /// </summary>
     [DataContract]
     public partial class MultiCollateralOrder :  IEquatable<MultiCollateralOrder>, IValidatableObject
@@ -33,20 +33,20 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiCollateralOrder" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="orderType">current - current, fixed - fixed.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="orderType">current - current, fixed - fixed..</param>
         /// <param name="fixedType">Fixed interest rate loan periods: 7d - 7 days, 30d - 30 days..</param>
-        /// <param name="fixedRate">Fixed interest rate.</param>
+        /// <param name="fixedRate">Fixed interest rate..</param>
         /// <param name="expireTime">Expiration time, timestamp, unit in seconds..</param>
-        /// <param name="autoRenew">Fixed interest rate, automatic renewal.</param>
-        /// <param name="autoRepay">Fixed interest rate, automatic repayment.</param>
-        /// <param name="currentLtv">The current collateralization rate.</param>
+        /// <param name="autoRenew">Fixed interest rate, automatic renewal..</param>
+        /// <param name="autoRepay">Fixed interest rate, automatic repayment..</param>
+        /// <param name="currentLtv">The current collateralization rate..</param>
         /// <param name="status">Order status: - initial: Initial state after placing the order - collateral_deducted: Collateral deduction successful - collateral_returning: Loan failed - Collateral return pending - lent: Loan successful - repaying: Repayment in progress - liquidating: Liquidation in progress - finished: Order completed - closed_liquidated: Liquidation and repayment completed.</param>
-        /// <param name="borrowTime">Borrowing time, timestamp in seconds.</param>
-        /// <param name="totalLeftRepayUsdt">Value of Left repay amount converted in USDT.</param>
-        /// <param name="totalLeftCollateralUsdt">Value of Collateral amount in USDT.</param>
-        /// <param name="borrowCurrencies">Borrowing Currency List.</param>
-        /// <param name="collateralCurrencies">Collateral Currency List.</param>
+        /// <param name="borrowTime">Borrowing time, timestamp in seconds..</param>
+        /// <param name="totalLeftRepayUsdt">Value of Left repay amount converted in USDT..</param>
+        /// <param name="totalLeftCollateralUsdt">Value of Collateral amount in USDT..</param>
+        /// <param name="borrowCurrencies">Borrowing Currency List..</param>
+        /// <param name="collateralCurrencies">Collateral Currency List..</param>
         public MultiCollateralOrder(string orderId = default(string), string orderType = default(string), string fixedType = default(string), string fixedRate = default(string), long expireTime = default(long), bool autoRenew = default(bool), bool autoRepay = default(bool), string currentLtv = default(string), string status = default(string), long borrowTime = default(long), string totalLeftRepayUsdt = default(string), string totalLeftCollateralUsdt = default(string), List<BorrowCurrencyInfo> borrowCurrencies = default(List<BorrowCurrencyInfo>), List<CollateralCurrencyInfo> collateralCurrencies = default(List<CollateralCurrencyInfo>))
         {
             this.OrderId = orderId;
@@ -66,16 +66,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public string OrderId { get; set; }
 
         /// <summary>
-        /// current - current, fixed - fixed
+        /// current - current, fixed - fixed.
         /// </summary>
-        /// <value>current - current, fixed - fixed</value>
+        /// <value>current - current, fixed - fixed.</value>
         [DataMember(Name="order_type")]
         public string OrderType { get; set; }
 
@@ -87,9 +87,9 @@ namespace Io.Gate.GateApi.Model
         public string FixedType { get; set; }
 
         /// <summary>
-        /// Fixed interest rate
+        /// Fixed interest rate.
         /// </summary>
-        /// <value>Fixed interest rate</value>
+        /// <value>Fixed interest rate.</value>
         [DataMember(Name="fixed_rate")]
         public string FixedRate { get; set; }
 
@@ -101,23 +101,23 @@ namespace Io.Gate.GateApi.Model
         public long ExpireTime { get; set; }
 
         /// <summary>
-        /// Fixed interest rate, automatic renewal
+        /// Fixed interest rate, automatic renewal.
         /// </summary>
-        /// <value>Fixed interest rate, automatic renewal</value>
+        /// <value>Fixed interest rate, automatic renewal.</value>
         [DataMember(Name="auto_renew")]
         public bool AutoRenew { get; set; }
 
         /// <summary>
-        /// Fixed interest rate, automatic repayment
+        /// Fixed interest rate, automatic repayment.
         /// </summary>
-        /// <value>Fixed interest rate, automatic repayment</value>
+        /// <value>Fixed interest rate, automatic repayment.</value>
         [DataMember(Name="auto_repay")]
         public bool AutoRepay { get; set; }
 
         /// <summary>
-        /// The current collateralization rate
+        /// The current collateralization rate.
         /// </summary>
-        /// <value>The current collateralization rate</value>
+        /// <value>The current collateralization rate.</value>
         [DataMember(Name="current_ltv")]
         public string CurrentLtv { get; set; }
 
@@ -129,37 +129,37 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Borrowing time, timestamp in seconds
+        /// Borrowing time, timestamp in seconds.
         /// </summary>
-        /// <value>Borrowing time, timestamp in seconds</value>
+        /// <value>Borrowing time, timestamp in seconds.</value>
         [DataMember(Name="borrow_time")]
         public long BorrowTime { get; set; }
 
         /// <summary>
-        /// Value of Left repay amount converted in USDT
+        /// Value of Left repay amount converted in USDT.
         /// </summary>
-        /// <value>Value of Left repay amount converted in USDT</value>
+        /// <value>Value of Left repay amount converted in USDT.</value>
         [DataMember(Name="total_left_repay_usdt")]
         public string TotalLeftRepayUsdt { get; set; }
 
         /// <summary>
-        /// Value of Collateral amount in USDT
+        /// Value of Collateral amount in USDT.
         /// </summary>
-        /// <value>Value of Collateral amount in USDT</value>
+        /// <value>Value of Collateral amount in USDT.</value>
         [DataMember(Name="total_left_collateral_usdt")]
         public string TotalLeftCollateralUsdt { get; set; }
 
         /// <summary>
-        /// Borrowing Currency List
+        /// Borrowing Currency List.
         /// </summary>
-        /// <value>Borrowing Currency List</value>
+        /// <value>Borrowing Currency List.</value>
         [DataMember(Name="borrow_currencies")]
         public List<BorrowCurrencyInfo> BorrowCurrencies { get; set; }
 
         /// <summary>
-        /// Collateral Currency List
+        /// Collateral Currency List.
         /// </summary>
-        /// <value>Collateral Currency List</value>
+        /// <value>Collateral Currency List.</value>
         [DataMember(Name="collateral_currencies")]
         public List<CollateralCurrencyInfo> CollateralCurrencies { get; set; }
 

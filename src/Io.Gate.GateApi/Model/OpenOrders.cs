@@ -33,7 +33,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenOrders" /> class.
         /// </summary>
-        /// <param name="currencyPair">Currency pair.</param>
+        /// <param name="currencyPair">Currency pair..</param>
         /// <param name="total">The total number of pending orders for this trading pair on the current page.</param>
         /// <param name="orders">orders.</param>
         public OpenOrders(string currencyPair = default(string), int total = default(int), List<Order> orders = default(List<Order>))
@@ -44,9 +44,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

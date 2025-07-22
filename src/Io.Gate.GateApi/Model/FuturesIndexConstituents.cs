@@ -39,16 +39,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Index name
+        /// Index name.
         /// </summary>
-        /// <value>Index name</value>
+        /// <value>Index name.</value>
         [DataMember(Name="index", EmitDefaultValue=false)]
         public string Index { get; private set; }
 
         /// <summary>
-        /// Constituents
+        /// Constituents.
         /// </summary>
-        /// <value>Constituents</value>
+        /// <value>Constituents.</value>
         [DataMember(Name="constituents", EmitDefaultValue=false)]
         public List<IndexConstituent> Constituents { get; private set; }
 

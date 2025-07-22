@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderId** | **long** | Order ID | 
-**CollateralCurrency** | **string** | Collateral | 
-**CollateralAmount** | **string** | Collateral amount | 
+**OrderId** | **long** | Order ID. | 
+**CollateralCurrency** | **string** | Collateral. | 
+**CollateralAmount** | **string** | Collateral amount. | 
 **Type** | **string** | Operation types: append - for adding collateral, redeem - for withdrawing collateral | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

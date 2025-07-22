@@ -33,8 +33,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CollateralCurrency" /> class.
         /// </summary>
-        /// <param name="currency">Currency.</param>
-        /// <param name="amount">Size.</param>
+        /// <param name="currency">Currency..</param>
+        /// <param name="amount">Size..</param>
         public CollateralCurrency(string currency = default(string), string amount = default(string))
         {
             this.Currency = currency;
@@ -42,16 +42,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Size
+        /// Size.
         /// </summary>
-        /// <value>Size</value>
+        /// <value>Size.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

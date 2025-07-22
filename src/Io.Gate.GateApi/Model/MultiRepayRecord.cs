@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Mult Repay Record
+    /// Mult Repay Record.
     /// </summary>
     [DataContract]
     public partial class MultiRepayRecord :  IEquatable<MultiRepayRecord>, IValidatableObject
@@ -33,18 +33,18 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiRepayRecord" /> class.
         /// </summary>
-        /// <param name="orderId">Order ID.</param>
-        /// <param name="recordId">Repayment record ID.</param>
-        /// <param name="initLtv">The initial collateralization rate.</param>
-        /// <param name="beforeLtv">Ltv before the operation.</param>
-        /// <param name="afterLtv">Ltv after the operation.</param>
+        /// <param name="orderId">Order ID..</param>
+        /// <param name="recordId">Repayment record ID..</param>
+        /// <param name="initLtv">The initial collateralization rate..</param>
+        /// <param name="beforeLtv">Ltv before the operation..</param>
+        /// <param name="afterLtv">Ltv after the operation..</param>
         /// <param name="borrowTime">Borrowing time, timestamp in seconds..</param>
         /// <param name="repayTime">Repayment time, timestamp in seconds..</param>
-        /// <param name="borrowCurrencies">List of borrowing information.</param>
-        /// <param name="collateralCurrencies">List of collateral information.</param>
-        /// <param name="repaidCurrencies">Repay Currency List.</param>
-        /// <param name="totalInterestList">Total Interest List.</param>
-        /// <param name="leftRepayInterestList">List of left repay interest.</param>
+        /// <param name="borrowCurrencies">List of borrowing information..</param>
+        /// <param name="collateralCurrencies">List of collateral information..</param>
+        /// <param name="repaidCurrencies">Repay Currency List..</param>
+        /// <param name="totalInterestList">Total Interest List..</param>
+        /// <param name="leftRepayInterestList">List of left repay interest..</param>
         public MultiRepayRecord(long orderId = default(long), long recordId = default(long), string initLtv = default(string), string beforeLtv = default(string), string afterLtv = default(string), long borrowTime = default(long), long repayTime = default(long), List<RepayRecordCurrency> borrowCurrencies = default(List<RepayRecordCurrency>), List<RepayRecordCurrency> collateralCurrencies = default(List<RepayRecordCurrency>), List<RepayRecordRepaidCurrency> repaidCurrencies = default(List<RepayRecordRepaidCurrency>), List<RepayRecordTotalInterest> totalInterestList = default(List<RepayRecordTotalInterest>), List<RepayRecordLeftInterest> leftRepayInterestList = default(List<RepayRecordLeftInterest>))
         {
             this.OrderId = orderId;
@@ -62,37 +62,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Order ID
+        /// Order ID.
         /// </summary>
-        /// <value>Order ID</value>
+        /// <value>Order ID.</value>
         [DataMember(Name="order_id")]
         public long OrderId { get; set; }
 
         /// <summary>
-        /// Repayment record ID
+        /// Repayment record ID.
         /// </summary>
-        /// <value>Repayment record ID</value>
+        /// <value>Repayment record ID.</value>
         [DataMember(Name="record_id")]
         public long RecordId { get; set; }
 
         /// <summary>
-        /// The initial collateralization rate
+        /// The initial collateralization rate.
         /// </summary>
-        /// <value>The initial collateralization rate</value>
+        /// <value>The initial collateralization rate.</value>
         [DataMember(Name="init_ltv")]
         public string InitLtv { get; set; }
 
         /// <summary>
-        /// Ltv before the operation
+        /// Ltv before the operation.
         /// </summary>
-        /// <value>Ltv before the operation</value>
+        /// <value>Ltv before the operation.</value>
         [DataMember(Name="before_ltv")]
         public string BeforeLtv { get; set; }
 
         /// <summary>
-        /// Ltv after the operation
+        /// Ltv after the operation.
         /// </summary>
-        /// <value>Ltv after the operation</value>
+        /// <value>Ltv after the operation.</value>
         [DataMember(Name="after_ltv")]
         public string AfterLtv { get; set; }
 
@@ -111,37 +111,37 @@ namespace Io.Gate.GateApi.Model
         public long RepayTime { get; set; }
 
         /// <summary>
-        /// List of borrowing information
+        /// List of borrowing information.
         /// </summary>
-        /// <value>List of borrowing information</value>
+        /// <value>List of borrowing information.</value>
         [DataMember(Name="borrow_currencies")]
         public List<RepayRecordCurrency> BorrowCurrencies { get; set; }
 
         /// <summary>
-        /// List of collateral information
+        /// List of collateral information.
         /// </summary>
-        /// <value>List of collateral information</value>
+        /// <value>List of collateral information.</value>
         [DataMember(Name="collateral_currencies")]
         public List<RepayRecordCurrency> CollateralCurrencies { get; set; }
 
         /// <summary>
-        /// Repay Currency List
+        /// Repay Currency List.
         /// </summary>
-        /// <value>Repay Currency List</value>
+        /// <value>Repay Currency List.</value>
         [DataMember(Name="repaid_currencies")]
         public List<RepayRecordRepaidCurrency> RepaidCurrencies { get; set; }
 
         /// <summary>
-        /// Total Interest List
+        /// Total Interest List.
         /// </summary>
-        /// <value>Total Interest List</value>
+        /// <value>Total Interest List.</value>
         [DataMember(Name="total_interest_list")]
         public List<RepayRecordTotalInterest> TotalInterestList { get; set; }
 
         /// <summary>
-        /// List of left repay interest
+        /// List of left repay interest.
         /// </summary>
-        /// <value>List of left repay interest</value>
+        /// <value>List of left repay interest.</value>
         [DataMember(Name="left_repay_interest_list")]
         public List<RepayRecordLeftInterest> LeftRepayInterestList { get; set; }
 

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw
-[**WithdrawPushOrder**](WithdrawalApi.md#withdrawpushorder) | **POST** /withdrawals/push | UID transfer
-[**CancelWithdrawal**](WithdrawalApi.md#cancelwithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID
+[**Withdraw**](WithdrawalApi.md#withdraw) | **POST** /withdrawals | Withdraw.
+[**WithdrawPushOrder**](WithdrawalApi.md#withdrawpushorder) | **POST** /withdrawals/push | UID transfer.
+[**CancelWithdrawal**](WithdrawalApi.md#cancelwithdrawal) | **DELETE** /withdrawals/{withdrawal_id} | Cancel withdrawal with specified ID.
 
 
 <a name="withdraw"></a>
 # **Withdraw**
 > LedgerRecord Withdraw (LedgerRecord ledgerRecord)
 
-Withdraw
+Withdraw.
 
 Withdrawals to Gate addresses do not incur transaction fees.
 
@@ -40,7 +40,7 @@ namespace Example
 
             try
             {
-                // Withdraw
+                // Withdraw.
                 LedgerRecord result = apiInstance.Withdraw(ledgerRecord);
                 Debug.WriteLine(result);
             }
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Withdraw request is accepted. Refer to withdrawal records for status |  -  |
+| **200** | Withdraw request is accepted. Refer to withdrawal records for status. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 # **WithdrawPushOrder**
 > UidPushWithdrawalResp WithdrawPushOrder (UidPushWithdrawal uidPushWithdrawal)
 
-UID transfer
+UID transfer.
 
 Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
 
@@ -113,7 +113,7 @@ namespace Example
 
             try
             {
-                // UID transfer
+                // UID transfer.
                 UidPushWithdrawalResp result = apiInstance.WithdrawPushOrder(uidPushWithdrawal);
                 Debug.WriteLine(result);
             }
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 # **CancelWithdrawal**
 > LedgerRecord CancelWithdrawal (string withdrawalId)
 
-Cancel withdrawal with specified ID
+Cancel withdrawal with specified ID.
 
 ### Example
 ```csharp
@@ -184,7 +184,7 @@ namespace Example
 
             try
             {
-                // Cancel withdrawal with specified ID
+                // Cancel withdrawal with specified ID.
                 LedgerRecord result = apiInstance.CancelWithdrawal(withdrawalId);
                 Debug.WriteLine(result);
             }
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **202** | Cancellation accepted. Refer to record status for the cancellation result |  -  |
+| **202** | Cancellation accepted. Refer to record status for the cancellation result. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

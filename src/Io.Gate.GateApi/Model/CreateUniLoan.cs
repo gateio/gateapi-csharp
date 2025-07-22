@@ -25,15 +25,15 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Borrow or repay
+    /// Borrow or repay.
     /// </summary>
     [DataContract]
     public partial class CreateUniLoan :  IEquatable<CreateUniLoan>, IValidatableObject
     {
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -52,9 +52,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [DataMember(Name="type")]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -65,11 +65,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateUniLoan" /> class.
         /// </summary>
-        /// <param name="currency">Currency (required).</param>
-        /// <param name="type">type: borrow - borrow, repay - repay (required).</param>
-        /// <param name="amount">The amount of lending or repaying (required).</param>
-        /// <param name="repaidAll">Full repayment.  Repay operation only.  If the value is &#x60;true&#x60;, the amount will be ignored and the loan will be repaid in full..</param>
-        /// <param name="currencyPair">Currency pair (required).</param>
+        /// <param name="currency">Currency. (required).</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (required).</param>
+        /// <param name="amount">The amount of lending or repaying. (required).</param>
+        /// <param name="repaidAll">Full repayment. Repay operation only. If the value is &#x60;true&#x60;, the amount will be ignored and repaid in full..</param>
+        /// <param name="currencyPair">Currency pair. (required).</param>
         public CreateUniLoan(string currency = default(string), TypeEnum type = default(TypeEnum), string amount = default(string), bool repaidAll = default(bool), string currencyPair = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -83,30 +83,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The amount of lending or repaying
+        /// The amount of lending or repaying.
         /// </summary>
-        /// <value>The amount of lending or repaying</value>
+        /// <value>The amount of lending or repaying.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Full repayment.  Repay operation only.  If the value is &#x60;true&#x60;, the amount will be ignored and the loan will be repaid in full.
+        /// Full repayment. Repay operation only. If the value is &#x60;true&#x60;, the amount will be ignored and repaid in full.
         /// </summary>
-        /// <value>Full repayment.  Repay operation only.  If the value is &#x60;true&#x60;, the amount will be ignored and the loan will be repaid in full.</value>
+        /// <value>Full repayment. Repay operation only. If the value is &#x60;true&#x60;, the amount will be ignored and repaid in full.</value>
         [DataMember(Name="repaid_all")]
         public bool RepaidAll { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair")]
         public string CurrencyPair { get; set; }
 

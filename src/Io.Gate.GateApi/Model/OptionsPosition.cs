@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options position information
+    /// Options position information.
     /// </summary>
     [DataContract]
     public partial class OptionsPosition :  IEquatable<OptionsPosition>, IValidatableObject
@@ -40,79 +40,79 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// User ID
+        /// User ID.
         /// </summary>
-        /// <value>User ID</value>
+        /// <value>User ID.</value>
         [DataMember(Name="user", EmitDefaultValue=false)]
         public int User { get; private set; }
 
         /// <summary>
-        /// Underlying
+        /// Underlying.
         /// </summary>
-        /// <value>Underlying</value>
+        /// <value>Underlying.</value>
         [DataMember(Name="underlying", EmitDefaultValue=false)]
         public string Underlying { get; private set; }
 
         /// <summary>
-        /// Underlying price (quote currency)
+        /// Underlying price (quote currency).
         /// </summary>
-        /// <value>Underlying price (quote currency)</value>
+        /// <value>Underlying price (quote currency).</value>
         [DataMember(Name="underlying_price", EmitDefaultValue=false)]
         public string UnderlyingPrice { get; private set; }
 
         /// <summary>
-        /// Options contract name
+        /// Options contract name.
         /// </summary>
-        /// <value>Options contract name</value>
+        /// <value>Options contract name.</value>
         [DataMember(Name="contract", EmitDefaultValue=false)]
         public string Contract { get; private set; }
 
         /// <summary>
-        /// Position size (contract size)
+        /// Position size (contract size).
         /// </summary>
-        /// <value>Position size (contract size)</value>
+        /// <value>Position size (contract size).</value>
         [DataMember(Name="size", EmitDefaultValue=false)]
         public long Size { get; private set; }
 
         /// <summary>
-        /// Entry size (quote currency)
+        /// Entry size (quote currency).
         /// </summary>
-        /// <value>Entry size (quote currency)</value>
+        /// <value>Entry size (quote currency).</value>
         [DataMember(Name="entry_price", EmitDefaultValue=false)]
         public string EntryPrice { get; private set; }
 
         /// <summary>
-        /// Current mark price (quote currency)
+        /// Current mark price (quote currency).
         /// </summary>
-        /// <value>Current mark price (quote currency)</value>
+        /// <value>Current mark price (quote currency).</value>
         [DataMember(Name="mark_price", EmitDefaultValue=false)]
         public string MarkPrice { get; private set; }
 
         /// <summary>
-        /// Implied volatility
+        /// Implied volatility.
         /// </summary>
-        /// <value>Implied volatility</value>
+        /// <value>Implied volatility.</value>
         [DataMember(Name="mark_iv", EmitDefaultValue=false)]
         public string MarkIv { get; private set; }
 
         /// <summary>
-        /// Realized PNL
+        /// Realized PNL.
         /// </summary>
-        /// <value>Realized PNL</value>
+        /// <value>Realized PNL.</value>
         [DataMember(Name="realised_pnl", EmitDefaultValue=false)]
         public string RealisedPnl { get; private set; }
 
         /// <summary>
-        /// Unrealized PNL
+        /// Unrealized PNL.
         /// </summary>
-        /// <value>Unrealized PNL</value>
+        /// <value>Unrealized PNL.</value>
         [DataMember(Name="unrealised_pnl", EmitDefaultValue=false)]
         public string UnrealisedPnl { get; private set; }
 
         /// <summary>
-        /// Current open orders
+        /// Current open orders.
         /// </summary>
-        /// <value>Current open orders</value>
+        /// <value>Current open orders.</value>
         [DataMember(Name="pending_orders", EmitDefaultValue=false)]
         public int PendingOrders { get; private set; }
 
@@ -123,30 +123,30 @@ namespace Io.Gate.GateApi.Model
         public OptionsPositionCloseOrder CloseOrder { get; set; }
 
         /// <summary>
-        /// Delta
+        /// Delta.
         /// </summary>
-        /// <value>Delta</value>
+        /// <value>Delta.</value>
         [DataMember(Name="delta", EmitDefaultValue=false)]
         public string Delta { get; private set; }
 
         /// <summary>
-        /// Gamma
+        /// Gamma.
         /// </summary>
-        /// <value>Gamma</value>
+        /// <value>Gamma.</value>
         [DataMember(Name="gamma", EmitDefaultValue=false)]
         public string Gamma { get; private set; }
 
         /// <summary>
-        /// Vega
+        /// Vega.
         /// </summary>
-        /// <value>Vega</value>
+        /// <value>Vega.</value>
         [DataMember(Name="vega", EmitDefaultValue=false)]
         public string Vega { get; private set; }
 
         /// <summary>
-        /// Theta
+        /// Theta.
         /// </summary>
-        /// <value>Theta</value>
+        /// <value>Theta.</value>
         [DataMember(Name="theta", EmitDefaultValue=false)]
         public string Theta { get; private set; }
 

@@ -39,13 +39,13 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="WithdrawalRecord" /> class.
         /// </summary>
         /// <param name="withdrawOrderId">Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.) .</param>
-        /// <param name="amount">Currency amount (required).</param>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="address">Withdrawal address.</param>
+        /// <param name="amount">Currency amount. (required).</param>
+        /// <param name="currency">Currency name. (required).</param>
+        /// <param name="address">Withdrawal address..</param>
         /// <param name="failReason">The reason for withdrawal failure is that there is a value when status &#x3D; CANCEL, and the rest of the state is empty.</param>
-        /// <param name="timestamp2">The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the time to withdrawal success.</param>
-        /// <param name="memo">Additional remarks with regards to the withdrawal.</param>
-        /// <param name="chain">Name of the chain used in withdrawals (required).</param>
+        /// <param name="timestamp2">The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the.</param>
+        /// <param name="memo">Additional remarks with regards to the withdrawal..</param>
+        /// <param name="chain">Name of the chain used in withdrawals. (required).</param>
         public WithdrawalRecord(string withdrawOrderId = default(string), string amount = default(string), string currency = default(string), string address = default(string), string failReason = default(string), string timestamp2 = default(string), string memo = default(string), string chain = default(string))
         {
             // to ensure "amount" is required (not null)
@@ -62,23 +62,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Record ID
+        /// Record ID.
         /// </summary>
-        /// <value>Record ID</value>
+        /// <value>Record ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
-        /// Hash record of the withdrawal
+        /// Hash record of the withdrawal.
         /// </summary>
-        /// <value>Hash record of the withdrawal</value>
+        /// <value>Hash record of the withdrawal.</value>
         [DataMember(Name="txid", EmitDefaultValue=false)]
         public string Txid { get; private set; }
 
         /// <summary>
-        /// Block Number
+        /// Block Number.
         /// </summary>
-        /// <value>Block Number</value>
+        /// <value>Block Number.</value>
         [DataMember(Name="block_number", EmitDefaultValue=false)]
         public string BlockNumber { get; private set; }
 
@@ -90,37 +90,37 @@ namespace Io.Gate.GateApi.Model
         public string WithdrawOrderId { get; set; }
 
         /// <summary>
-        /// Operation time
+        /// Operation time.
         /// </summary>
-        /// <value>Operation time</value>
+        /// <value>Operation time.</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public string Timestamp { get; private set; }
 
         /// <summary>
-        /// Currency amount
+        /// Currency amount.
         /// </summary>
-        /// <value>Currency amount</value>
+        /// <value>Currency amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// fee
+        /// fee.
         /// </summary>
-        /// <value>fee</value>
+        /// <value>fee.</value>
         [DataMember(Name="fee", EmitDefaultValue=false)]
         public string Fee { get; private set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Withdrawal address
+        /// Withdrawal address.
         /// </summary>
-        /// <value>Withdrawal address</value>
+        /// <value>Withdrawal address.</value>
         [DataMember(Name="address")]
         public string Address { get; set; }
 
@@ -132,16 +132,16 @@ namespace Io.Gate.GateApi.Model
         public string FailReason { get; set; }
 
         /// <summary>
-        /// The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the time to withdrawal success
+        /// The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the
         /// </summary>
-        /// <value>The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the time to withdrawal success</value>
+        /// <value>The withdrawal end time, i.e.: withdrawal cancel time or withdrawal success time When status &#x3D; CANCEL, the corresponding cancel time When status &#x3D; DONE and block_number &gt; 0, it is the</value>
         [DataMember(Name="timestamp2")]
         public string Timestamp2 { get; set; }
 
         /// <summary>
-        /// Additional remarks with regards to the withdrawal
+        /// Additional remarks with regards to the withdrawal.
         /// </summary>
-        /// <value>Additional remarks with regards to the withdrawal</value>
+        /// <value>Additional remarks with regards to the withdrawal.</value>
         [DataMember(Name="memo")]
         public string Memo { get; set; }
 
@@ -153,9 +153,9 @@ namespace Io.Gate.GateApi.Model
         public string Status { get; private set; }
 
         /// <summary>
-        /// Name of the chain used in withdrawals
+        /// Name of the chain used in withdrawals.
         /// </summary>
-        /// <value>Name of the chain used in withdrawals</value>
+        /// <value>Name of the chain used in withdrawals.</value>
         [DataMember(Name="chain")]
         public string Chain { get; set; }
 

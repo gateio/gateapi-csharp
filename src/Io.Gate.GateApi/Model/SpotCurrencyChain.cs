@@ -33,11 +33,11 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotCurrencyChain" /> class.
         /// </summary>
-        /// <param name="name">Chain name.</param>
-        /// <param name="addr">token address.</param>
-        /// <param name="withdrawDisabled">Whether currency&#39;s withdrawal is disabled.</param>
-        /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed.</param>
-        /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled.</param>
+        /// <param name="name">Chain name..</param>
+        /// <param name="addr">token address..</param>
+        /// <param name="withdrawDisabled">Whether currency&#39;s withdrawal is disabled..</param>
+        /// <param name="withdrawDelayed">Whether currency&#39;s withdrawal is delayed..</param>
+        /// <param name="depositDisabled">Whether currency&#39;s deposit is disabled..</param>
         public SpotCurrencyChain(string name = default(string), string addr = default(string), bool withdrawDisabled = default(bool), bool withdrawDelayed = default(bool), bool depositDisabled = default(bool))
         {
             this.Name = name;
@@ -48,37 +48,37 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Chain name
+        /// Chain name.
         /// </summary>
-        /// <value>Chain name</value>
+        /// <value>Chain name.</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// token address
+        /// token address.
         /// </summary>
-        /// <value>token address</value>
+        /// <value>token address.</value>
         [DataMember(Name="addr")]
         public string Addr { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s withdrawal is disabled
+        /// Whether currency&#39;s withdrawal is disabled.
         /// </summary>
-        /// <value>Whether currency&#39;s withdrawal is disabled</value>
+        /// <value>Whether currency&#39;s withdrawal is disabled.</value>
         [DataMember(Name="withdraw_disabled")]
         public bool WithdrawDisabled { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s withdrawal is delayed
+        /// Whether currency&#39;s withdrawal is delayed.
         /// </summary>
-        /// <value>Whether currency&#39;s withdrawal is delayed</value>
+        /// <value>Whether currency&#39;s withdrawal is delayed.</value>
         [DataMember(Name="withdraw_delayed")]
         public bool WithdrawDelayed { get; set; }
 
         /// <summary>
-        /// Whether currency&#39;s deposit is disabled
+        /// Whether currency&#39;s deposit is disabled.
         /// </summary>
-        /// <value>Whether currency&#39;s deposit is disabled</value>
+        /// <value>Whether currency&#39;s deposit is disabled.</value>
         [DataMember(Name="deposit_disabled")]
         public bool DepositDisabled { get; set; }
 

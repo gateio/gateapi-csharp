@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpotAccount" /> class.
         /// </summary>
-        /// <param name="currency">Currency detail.</param>
-        /// <param name="available">Available amount.</param>
-        /// <param name="locked">Locked amount, used in trading.</param>
-        /// <param name="updateId">Version number.</param>
+        /// <param name="currency">Currency detail..</param>
+        /// <param name="available">Available amount..</param>
+        /// <param name="locked">Locked amount, used in trading..</param>
+        /// <param name="updateId">Version number..</param>
         public SpotAccount(string currency = default(string), string available = default(string), string locked = default(string), long updateId = default(long))
         {
             this.Currency = currency;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency detail
+        /// Currency detail.
         /// </summary>
-        /// <value>Currency detail</value>
+        /// <value>Currency detail.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Available amount
+        /// Available amount.
         /// </summary>
-        /// <value>Available amount</value>
+        /// <value>Available amount.</value>
         [DataMember(Name="available")]
         public string Available { get; set; }
 
         /// <summary>
-        /// Locked amount, used in trading
+        /// Locked amount, used in trading.
         /// </summary>
-        /// <value>Locked amount, used in trading</value>
+        /// <value>Locked amount, used in trading.</value>
         [DataMember(Name="locked")]
         public string Locked { get; set; }
 
         /// <summary>
-        /// Version number
+        /// Version number.
         /// </summary>
-        /// <value>Version number</value>
+        /// <value>Version number.</value>
         [DataMember(Name="update_id")]
         public long UpdateId { get; set; }
 

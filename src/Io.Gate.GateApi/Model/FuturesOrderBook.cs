@@ -39,10 +39,10 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="FuturesOrderBook" /> class.
         /// </summary>
         /// <param name="id">Order Book ID. Increases by 1 on every order book change. Set &#x60;with_id&#x3D;true&#x60; to include this field in response.</param>
-        /// <param name="current">Response data generation timestamp.</param>
-        /// <param name="update">Order book changed timestamp.</param>
-        /// <param name="asks">Asks order depth (required).</param>
-        /// <param name="bids">Bids order depth (required).</param>
+        /// <param name="current">Response data generation timestamp..</param>
+        /// <param name="update">Order book changed timestamp..</param>
+        /// <param name="asks">Asks order depth. (required).</param>
+        /// <param name="bids">Bids order depth. (required).</param>
         public FuturesOrderBook(long id = default(long), double current = default(double), double update = default(double), List<FuturesOrderBookItem> asks = default(List<FuturesOrderBookItem>), List<FuturesOrderBookItem> bids = default(List<FuturesOrderBookItem>))
         {
             // to ensure "asks" is required (not null)
@@ -62,30 +62,30 @@ namespace Io.Gate.GateApi.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// Response data generation timestamp
+        /// Response data generation timestamp.
         /// </summary>
-        /// <value>Response data generation timestamp</value>
+        /// <value>Response data generation timestamp.</value>
         [DataMember(Name="current")]
         public double Current { get; set; }
 
         /// <summary>
-        /// Order book changed timestamp
+        /// Order book changed timestamp.
         /// </summary>
-        /// <value>Order book changed timestamp</value>
+        /// <value>Order book changed timestamp.</value>
         [DataMember(Name="update")]
         public double Update { get; set; }
 
         /// <summary>
-        /// Asks order depth
+        /// Asks order depth.
         /// </summary>
-        /// <value>Asks order depth</value>
+        /// <value>Asks order depth.</value>
         [DataMember(Name="asks")]
         public List<FuturesOrderBookItem> Asks { get; set; }
 
         /// <summary>
-        /// Bids order depth
+        /// Bids order depth.
         /// </summary>
-        /// <value>Bids order depth</value>
+        /// <value>Bids order depth.</value>
         [DataMember(Name="bids")]
         public List<FuturesOrderBookItem> Bids { get; set; }
 

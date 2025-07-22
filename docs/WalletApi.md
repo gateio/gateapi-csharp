@@ -4,34 +4,34 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListCurrencyChains**](WalletApi.md#listcurrencychains) | **GET** /wallet/currency_chains | List chains supported for specified currency
-[**GetDepositAddress**](WalletApi.md#getdepositaddress) | **GET** /wallet/deposit_address | Generate currency deposit address
-[**ListWithdrawals**](WalletApi.md#listwithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records
-[**ListDeposits**](WalletApi.md#listdeposits) | **GET** /wallet/deposits | Retrieve deposit records
-[**Transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts
-[**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts
-[**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts
-[**SubAccountToSubAccount**](WalletApi.md#subaccounttosubaccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account
-[**GetTransferOrderStatus**](WalletApi.md#gettransferorderstatus) | **GET** /wallet/order_status | Transfer status query
-[**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status
-[**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances
-[**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances
-[**ListSubAccountFuturesBalances**](WalletApi.md#listsubaccountfuturesbalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances
-[**ListSubAccountCrossMarginBalances**](WalletApi.md#listsubaccountcrossmarginbalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info
-[**ListSavedAddress**](WalletApi.md#listsavedaddress) | **GET** /wallet/saved_address | Query saved address
-[**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee
-[**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances
-[**ListSmallBalance**](WalletApi.md#listsmallbalance) | **GET** /wallet/small_balance | List small balance
-[**ConvertSmallBalance**](WalletApi.md#convertsmallbalance) | **POST** /wallet/small_balance | Convert small balance
-[**ListSmallBalanceHistory**](WalletApi.md#listsmallbalancehistory) | **GET** /wallet/small_balance_history | List small balance history
-[**ListPushOrders**](WalletApi.md#listpushorders) | **GET** /wallet/push | Retrieve the UID transfer history
+[**ListCurrencyChains**](WalletApi.md#listcurrencychains) | **GET** /wallet/currency_chains | List chains supported for specified currency.
+[**GetDepositAddress**](WalletApi.md#getdepositaddress) | **GET** /wallet/deposit_address | Generate currency deposit address.
+[**ListWithdrawals**](WalletApi.md#listwithdrawals) | **GET** /wallet/withdrawals | Retrieve withdrawal records.
+[**ListDeposits**](WalletApi.md#listdeposits) | **GET** /wallet/deposits | Retrieve deposit records.
+[**Transfer**](WalletApi.md#transfer) | **POST** /wallet/transfers | Transfer between trading accounts.
+[**ListSubAccountTransfers**](WalletApi.md#listsubaccounttransfers) | **GET** /wallet/sub_account_transfers | Retrieve transfer records between main and sub accounts.
+[**TransferWithSubAccount**](WalletApi.md#transferwithsubaccount) | **POST** /wallet/sub_account_transfers | Transfer between main and sub accounts.
+[**SubAccountToSubAccount**](WalletApi.md#subaccounttosubaccount) | **POST** /wallet/sub_account_to_sub_account | Sub-account transfers to sub-account.
+[**GetTransferOrderStatus**](WalletApi.md#gettransferorderstatus) | **GET** /wallet/order_status | Transfer status query.
+[**ListWithdrawStatus**](WalletApi.md#listwithdrawstatus) | **GET** /wallet/withdraw_status | Retrieve withdrawal status.
+[**ListSubAccountBalances**](WalletApi.md#listsubaccountbalances) | **GET** /wallet/sub_account_balances | Retrieve sub account balances.
+[**ListSubAccountMarginBalances**](WalletApi.md#listsubaccountmarginbalances) | **GET** /wallet/sub_account_margin_balances | Query sub accounts&#39; margin balances.
+[**ListSubAccountFuturesBalances**](WalletApi.md#listsubaccountfuturesbalances) | **GET** /wallet/sub_account_futures_balances | Query sub accounts&#39; futures account balances.
+[**ListSubAccountCrossMarginBalances**](WalletApi.md#listsubaccountcrossmarginbalances) | **GET** /wallet/sub_account_cross_margin_balances | Query subaccount&#39;s cross_margin account info.
+[**ListSavedAddress**](WalletApi.md#listsavedaddress) | **GET** /wallet/saved_address | Query saved address.
+[**GetTradeFee**](WalletApi.md#gettradefee) | **GET** /wallet/fee | Retrieve personal trading fee.
+[**GetTotalBalance**](WalletApi.md#gettotalbalance) | **GET** /wallet/total_balance | Retrieve user&#39;s total balances.
+[**ListSmallBalance**](WalletApi.md#listsmallbalance) | **GET** /wallet/small_balance | List small balance.
+[**ConvertSmallBalance**](WalletApi.md#convertsmallbalance) | **POST** /wallet/small_balance | Convert small balance.
+[**ListSmallBalanceHistory**](WalletApi.md#listsmallbalancehistory) | **GET** /wallet/small_balance_history | List small balance history.
+[**ListPushOrders**](WalletApi.md#listpushorders) | **GET** /wallet/push | Retrieve the UID transfer history.
 
 
 <a name="listcurrencychains"></a>
 # **ListCurrencyChains**
 > List&lt;CurrencyChain&gt; ListCurrencyChains (string currency)
 
-List chains supported for specified currency
+List chains supported for specified currency.
 
 ### Example
 ```csharp
@@ -50,11 +50,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new WalletApi(config);
-            var currency = "GT";  // string | Currency name
+            var currency = "GT";  // string | Currency name.
 
             try
             {
-                // List chains supported for specified currency
+                // List chains supported for specified currency.
                 List<CurrencyChain> result = apiInstance.ListCurrencyChains(currency);
                 Debug.WriteLine(result);
             }
@@ -74,7 +74,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name | 
+ **currency** | **string**| Currency name. | 
 
 ### Return type
 
@@ -92,7 +92,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -100,7 +100,7 @@ No authorization required
 # **GetDepositAddress**
 > DepositAddress GetDepositAddress (string currency)
 
-Generate currency deposit address
+Generate currency deposit address.
 
 ### Example
 ```csharp
@@ -121,11 +121,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "USDT";  // string | Currency name
+            var currency = "USDT";  // string | Currency name.
 
             try
             {
-                // Generate currency deposit address
+                // Generate currency deposit address.
                 DepositAddress result = apiInstance.GetDepositAddress(currency);
                 Debug.WriteLine(result);
             }
@@ -145,7 +145,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency name | 
+ **currency** | **string**| Currency name. | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Address successfully generated |  -  |
+| **200** | Address successfully generated. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -171,9 +171,9 @@ Name | Type | Description  | Notes
 # **ListWithdrawals**
 > List&lt;WithdrawalRecord&gt; ListWithdrawals (string currency = null, string withdrawId = null, string assetClass = null, string withdrawOrderId = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Retrieve withdrawal records
+Retrieve withdrawal records.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -194,18 +194,18 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
+            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified. (optional) 
             var withdrawId = "withdrawId_example";  // string | The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time (optional) 
             var assetClass = "assetClass_example";  // string | The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone (optional) 
             var withdrawOrderId = "withdrawOrderId_example";  // string | User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Retrieve withdrawal records
+                // Retrieve withdrawal records.
                 List<WithdrawalRecord> result = apiInstance.ListWithdrawals(currency, withdrawId, assetClass, withdrawOrderId, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -225,14 +225,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
+ **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional] 
  **withdrawId** | **string**| The withdrawal record id starts with w, such as: w1879219868. When withdraw_id is not empty, the value querys this withdrawal record and no longer querys according to time | [optional] 
  **assetClass** | **string**| The currency type of withdrawal record is empty by default. It supports users to query the withdrawal records in the main and innovation areas on demand. Value range: SPOT, PILOT  SPOT: Main Zone  PILOT: Innovation Zone | [optional] 
  **withdrawOrderId** | **string**| User-defined order number when withdrawing. Default is empty. When not empty, the specified user-defined order number record will be queried | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -258,9 +258,9 @@ Name | Type | Description  | Notes
 # **ListDeposits**
 > List&lt;DepositRecord&gt; ListDeposits (string currency = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Retrieve deposit records
+Retrieve deposit records.
 
-Record time range cannot exceed 30 days
+Record time range cannot exceed 30 days.
 
 ### Example
 ```csharp
@@ -281,15 +281,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
+            var currency = "BTC";  // string | Filter by currency. Return all currency records if not specified. (optional) 
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
             var limit = 100;  // int? | The maximum number of entries returned in the list is limited to 500 transactions. (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Retrieve deposit records
+                // Retrieve deposit records.
                 List<DepositRecord> result = apiInstance.ListDeposits(currency, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -309,11 +309,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Filter by currency. Return all currency records if not specified | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
+ **currency** | **string**| Filter by currency. Return all currency records if not specified. | [optional] 
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
  **limit** | **int?**| The maximum number of entries returned in the list is limited to 500 transactions. | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -339,9 +339,9 @@ Name | Type | Description  | Notes
 # **Transfer**
 > TransactionID Transfer (Transfer transfer)
 
-Transfer between trading accounts
+Transfer between trading accounts.
 
-Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. spot - delivery 4. spot - options
+Transfer between different accounts. Currently support transfers between the following:  1. spot - margin 2. spot - futures(perpetual) 3. options
 
 ### Example
 ```csharp
@@ -366,7 +366,7 @@ namespace Example
 
             try
             {
-                // Transfer between trading accounts
+                // Transfer between trading accounts.
                 TransactionID result = apiInstance.Transfer(transfer);
                 Debug.WriteLine(result);
             }
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Balance transferred |  -  |
+| **200** | Balance transferred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountTransfers**
 > List&lt;SubAccountTransferRecordItem&gt; ListSubAccountTransfers (string subUid = null, long? from = null, long? to = null, int? limit = null, int? offset = null)
 
-Retrieve transfer records between main and sub accounts
+Retrieve transfer records between main and sub accounts.
 
 Record time range cannot exceed 30 days  > Note: only records after 20-04-10can be retrieved
 
@@ -436,14 +436,14 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
-            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time (optional) 
-            var to = 1602123600;  // long? | Time range ending, default to current time (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var from = 1602120000;  // long? | Time range beginning, default to 7 days before current time. (optional) 
+            var to = 1602123600;  // long? | Time range ending, default to current time. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // Retrieve transfer records between main and sub accounts
+                // Retrieve transfer records between main and sub accounts.
                 List<SubAccountTransferRecordItem> result = apiInstance.ListSubAccountTransfers(subUid, from, to, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -464,10 +464,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
- **from** | **long?**| Time range beginning, default to 7 days before current time | [optional] 
- **to** | **long?**| Time range ending, default to current time | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **from** | **long?**| Time range beginning, default to 7 days before current time. | [optional] 
+ **to** | **long?**| Time range ending, default to current time. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 # **TransferWithSubAccount**
 > TransactionID TransferWithSubAccount (SubAccountTransfer subAccountTransfer)
 
-Transfer between main and sub accounts
+Transfer between main and sub accounts.
 
 Support transferring with sub user's spot or futures account. Note that only main user's spot account is used no matter which sub user's account is operated.
 
@@ -520,7 +520,7 @@ namespace Example
 
             try
             {
-                // Transfer between main and sub accounts
+                // Transfer between main and sub accounts.
                 TransactionID result = apiInstance.TransferWithSubAccount(subAccountTransfer);
                 Debug.WriteLine(result);
             }
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Balance transferred |  -  |
+| **200** | Balance transferred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -566,9 +566,9 @@ Name | Type | Description  | Notes
 # **SubAccountToSubAccount**
 > TransactionID SubAccountToSubAccount (SubAccountToSubAccount subAccountToSubAccount)
 
-Sub-account transfers to sub-account
+Sub-account transfers to sub-account.
 
-It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account or the API Key of the sub-account to initiate the transfer.
+It is possible to perform balance transfers between two sub-accounts under the same main account. You can use either the API Key of the main account sub-account to initiate the transfer.
 
 ### Example
 ```csharp
@@ -593,7 +593,7 @@ namespace Example
 
             try
             {
-                // Sub-account transfers to sub-account
+                // Sub-account transfers to sub-account.
                 TransactionID result = apiInstance.SubAccountToSubAccount(subAccountToSubAccount);
                 Debug.WriteLine(result);
             }
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Balance transferred |  -  |
+| **200** | Balance transferred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 # **GetTransferOrderStatus**
 > TransferOrderStatus GetTransferOrderStatus (string clientOrderId = null, string txId = null)
 
-Transfer status query
+Transfer status query.
 
 Support querying transfer status based on user-defined client_order_id or tx_id returned by the transfer interface
 
@@ -667,7 +667,7 @@ namespace Example
 
             try
             {
-                // Transfer status query
+                // Transfer status query.
                 TransferOrderStatus result = apiInstance.GetTransferOrderStatus(clientOrderId, txId);
                 Debug.WriteLine(result);
             }
@@ -706,7 +706,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Transfer status obtained successfully |  -  |
+| **200** | Transfer status obtained successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -714,7 +714,7 @@ Name | Type | Description  | Notes
 # **ListWithdrawStatus**
 > List&lt;WithdrawStatus&gt; ListWithdrawStatus (string currency = null)
 
-Retrieve withdrawal status
+Retrieve withdrawal status.
 
 ### Example
 ```csharp
@@ -735,11 +735,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "BTC";  // string | Retrieve data of the specified currency (optional) 
+            var currency = "BTC";  // string | Retrieve data of the specified currency. (optional) 
 
             try
             {
-                // Retrieve withdrawal status
+                // Retrieve withdrawal status.
                 List<WithdrawStatus> result = apiInstance.ListWithdrawStatus(currency);
                 Debug.WriteLine(result);
             }
@@ -759,7 +759,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Retrieve data of the specified currency | [optional] 
+ **currency** | **string**| Retrieve data of the specified currency. | [optional] 
 
 ### Return type
 
@@ -777,7 +777,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountBalances**
 > List&lt;SubAccountBalance&gt; ListSubAccountBalances (string subUid = null)
 
-Retrieve sub account balances
+Retrieve sub account balances.
 
 ### Example
 ```csharp
@@ -810,7 +810,7 @@ namespace Example
 
             try
             {
-                // Retrieve sub account balances
+                // Retrieve sub account balances.
                 List<SubAccountBalance> result = apiInstance.ListSubAccountBalances(subUid);
                 Debug.WriteLine(result);
             }
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountMarginBalances**
 > List&lt;SubAccountMarginBalance&gt; ListSubAccountMarginBalances (string subUid = null)
 
-Query sub accounts' margin balances
+Query sub accounts' margin balances.
 
 ### Example
 ```csharp
@@ -881,7 +881,7 @@ namespace Example
 
             try
             {
-                // Query sub accounts' margin balances
+                // Query sub accounts' margin balances.
                 List<SubAccountMarginBalance> result = apiInstance.ListSubAccountMarginBalances(subUid);
                 Debug.WriteLine(result);
             }
@@ -919,7 +919,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -927,7 +927,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountFuturesBalances**
 > List&lt;SubAccountFuturesBalance&gt; ListSubAccountFuturesBalances (string subUid = null, string settle = null)
 
-Query sub accounts' futures account balances
+Query sub accounts' futures account balances.
 
 ### Example
 ```csharp
@@ -949,11 +949,11 @@ namespace Example
 
             var apiInstance = new WalletApi(config);
             var subUid = "10003";  // string | User ID of sub-account, you can query multiple records separated by `,`. If not specified, it will return the records of all sub accounts (optional) 
-            var settle = "usdt";  // string | Query only balances of specified settle currency (optional) 
+            var settle = "usdt";  // string | Query only balances of specified settle currency. (optional) 
 
             try
             {
-                // Query sub accounts' futures account balances
+                // Query sub accounts' futures account balances.
                 List<SubAccountFuturesBalance> result = apiInstance.ListSubAccountFuturesBalances(subUid, settle);
                 Debug.WriteLine(result);
             }
@@ -974,7 +974,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subUid** | **string**| User ID of sub-account, you can query multiple records separated by &#x60;,&#x60;. If not specified, it will return the records of all sub accounts | [optional] 
- **settle** | **string**| Query only balances of specified settle currency | [optional] 
+ **settle** | **string**| Query only balances of specified settle currency. | [optional] 
 
 ### Return type
 
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1000,7 +1000,7 @@ Name | Type | Description  | Notes
 # **ListSubAccountCrossMarginBalances**
 > List&lt;SubAccountCrossMarginBalance&gt; ListSubAccountCrossMarginBalances (string subUid = null)
 
-Query subaccount's cross_margin account info
+Query subaccount's cross_margin account info.
 
 ### Example
 ```csharp
@@ -1025,7 +1025,7 @@ namespace Example
 
             try
             {
-                // Query subaccount's cross_margin account info
+                // Query subaccount's cross_margin account info.
                 List<SubAccountCrossMarginBalance> result = apiInstance.ListSubAccountCrossMarginBalances(subUid);
                 Debug.WriteLine(result);
             }
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1071,7 +1071,7 @@ Name | Type | Description  | Notes
 # **ListSavedAddress**
 > List&lt;SavedAddress&gt; ListSavedAddress (string currency, string chain = null, string limit = null, int? page = null)
 
-Query saved address
+Query saved address.
 
 ### Example
 ```csharp
@@ -1092,14 +1092,14 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "USDT";  // string | Currency
-            var chain = "\"\"";  // string | Chain name (optional)  (default to "")
-            var limit = "\"50\"";  // string | Maximum number returned, 100 at most (optional)  (default to "50")
-            var page = 1;  // int? | Page number (optional)  (default to 1)
+            var currency = "USDT";  // string | Currency.
+            var chain = "\"\"";  // string | Chain name. (optional)  (default to "")
+            var limit = "\"50\"";  // string | Maximum number returned, 100 at most. (optional)  (default to "50")
+            var page = 1;  // int? | Page number. (optional)  (default to 1)
 
             try
             {
-                // Query saved address
+                // Query saved address.
                 List<SavedAddress> result = apiInstance.ListSavedAddress(currency, chain, limit, page);
                 Debug.WriteLine(result);
             }
@@ -1119,10 +1119,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency | 
- **chain** | **string**| Chain name | [optional] [default to &quot;&quot;]
- **limit** | **string**| Maximum number returned, 100 at most | [optional] [default to &quot;50&quot;]
- **page** | **int?**| Page number | [optional] [default to 1]
+ **currency** | **string**| Currency. | 
+ **chain** | **string**| Chain name. | [optional] [default to &quot;&quot;]
+ **limit** | **string**| Maximum number returned, 100 at most. | [optional] [default to &quot;50&quot;]
+ **page** | **int?**| Page number. | [optional] [default to 1]
 
 ### Return type
 
@@ -1140,7 +1140,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1148,7 +1148,7 @@ Name | Type | Description  | Notes
 # **GetTradeFee**
 > TradeFee GetTradeFee (string currencyPair = null, string settle = null)
 
-Retrieve personal trading fee
+Retrieve personal trading fee.
 
 ### Example
 ```csharp
@@ -1174,7 +1174,7 @@ namespace Example
 
             try
             {
-                // Retrieve personal trading fee
+                // Retrieve personal trading fee.
                 TradeFee result = apiInstance.GetTradeFee(currencyPair, settle);
                 Debug.WriteLine(result);
             }
@@ -1213,7 +1213,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1221,9 +1221,9 @@ Name | Type | Description  | Notes
 # **GetTotalBalance**
 > TotalBalance GetTotalBalance (string currency = null)
 
-Retrieve user's total balances
+Retrieve user's total balances.
 
-This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - `GET /spot/accounts` to query spot account balance - `GET /margin/accounts` to query margin account balance - `GET /futures/{settle}/accounts` to query futures account balance
+This endpoint returns an approximate sum of exchanged amount from all currencies to input currency for each account.The exchange rate and account balance could have been cached for at most 1 minute. It is not recommended to use its result for any trading calculation.  For trading calculation, use the corresponding account query endpoint for each account type. For example:   - `GET /spot/accounts` to query spot account balance - `GET /margin/accounts` /futures/{settle}/accounts` to query futures account balance
 
 ### Example
 ```csharp
@@ -1248,7 +1248,7 @@ namespace Example
 
             try
             {
-                // Retrieve user's total balances
+                // Retrieve user's total balances.
                 TotalBalance result = apiInstance.GetTotalBalance(currency);
                 Debug.WriteLine(result);
             }
@@ -1286,7 +1286,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Request is valid and is successfully responded |  -  |
+| **200** | Request is valid and is successfully responded. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1294,7 +1294,7 @@ Name | Type | Description  | Notes
 # **ListSmallBalance**
 > List&lt;SmallBalance&gt; ListSmallBalance ()
 
-List small balance
+List small balance.
 
 ### Example
 ```csharp
@@ -1318,7 +1318,7 @@ namespace Example
 
             try
             {
-                // List small balance
+                // List small balance.
                 List<SmallBalance> result = apiInstance.ListSmallBalance();
                 Debug.WriteLine(result);
             }
@@ -1353,7 +1353,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1361,7 +1361,7 @@ This endpoint does not need any parameter.
 # **ConvertSmallBalance**
 > void ConvertSmallBalance (ConvertSmallBalance convertSmallBalance)
 
-Convert small balance
+Convert small balance.
 
 ### Example
 ```csharp
@@ -1386,7 +1386,7 @@ namespace Example
 
             try
             {
-                // Convert small balance
+                // Convert small balance.
                 apiInstance.ConvertSmallBalance(convertSmallBalance);
             }
             catch (GateApiException e)
@@ -1423,7 +1423,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1431,7 +1431,7 @@ void (empty response body)
 # **ListSmallBalanceHistory**
 > List&lt;SmallBalanceHistory&gt; ListSmallBalanceHistory (string currency = null, int? page = null, int? limit = null)
 
-List small balance history
+List small balance history.
 
 ### Example
 ```csharp
@@ -1452,13 +1452,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var currency = "currency_example";  // string | Currency (optional) 
-            var page = 1;  // int? | Page number (optional)  (default to 1)
-            var limit = 100;  // int? | Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional)  (default to 100)
+            var currency = "currency_example";  // string | Currency. (optional) 
+            var page = 1;  // int? | Page number. (optional)  (default to 1)
+            var limit = 100;  // int? | Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional)  (default to 100)
 
             try
             {
-                // List small balance history
+                // List small balance history.
                 List<SmallBalanceHistory> result = apiInstance.ListSmallBalanceHistory(currency, page, limit);
                 Debug.WriteLine(result);
             }
@@ -1478,9 +1478,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency** | **string**| Currency | [optional] 
- **page** | **int?**| Page number | [optional] [default to 1]
- **limit** | **int?**| Maximum response items.  Default: 100, minimum: 1, Maximum: 100 | [optional] [default to 100]
+ **currency** | **string**| Currency. | [optional] 
+ **page** | **int?**| Page number. | [optional] [default to 1]
+ **limit** | **int?**| Maximum response items. Default: 100, minimum: 1, Maximum: 100. | [optional] [default to 100]
 
 ### Return type
 
@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1506,7 +1506,7 @@ Name | Type | Description  | Notes
 # **ListPushOrders**
 > List&lt;UidPushOrder&gt; ListPushOrders (int? id = null, int? from = null, int? to = null, int? limit = null, int? offset = null, string transactionType = null)
 
-Retrieve the UID transfer history
+Retrieve the UID transfer history.
 
 ### Example
 ```csharp
@@ -1527,16 +1527,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new WalletApi(config);
-            var id = 56;  // int? | Order ID (optional) 
+            var id = 56;  // int? | Order ID. (optional) 
             var from = 56;  // int? | The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp (optional) 
             var to = 56;  // int? | The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. (optional) 
-            var limit = 100;  // int? | The maximum number of items returned in the list, the default value is 100 (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var limit = 100;  // int? | The maximum number of items returned in the list, the default value is 100. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var transactionType = "\"withdraw\"";  // string | The list returns the order type `withdraw`, `deposit`, the default is `withdraw`. (optional)  (default to "withdraw")
 
             try
             {
-                // Retrieve the UID transfer history
+                // Retrieve the UID transfer history.
                 List<UidPushOrder> result = apiInstance.ListPushOrders(id, from, to, limit, offset, transactionType);
                 Debug.WriteLine(result);
             }
@@ -1556,11 +1556,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int?**| Order ID | [optional] 
+ **id** | **int?**| Order ID. | [optional] 
  **from** | **int?**| The start time of the query record. If not specified, it defaults to 7 days forward from the current time, in seconds Unix timestamp | [optional] 
  **to** | **int?**| The end time of the query record. If not specified, the default is the current time, which is a Unix timestamp in seconds. | [optional] 
- **limit** | **int?**| The maximum number of items returned in the list, the default value is 100 | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **limit** | **int?**| The maximum number of items returned in the list, the default value is 100. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **transactionType** | **string**| The list returns the order type &#x60;withdraw&#x60;, &#x60;deposit&#x60;, the default is &#x60;withdraw&#x60;. | [optional] [default to &quot;withdraw&quot;]
 
 ### Return type
@@ -1579,7 +1579,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | Success. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

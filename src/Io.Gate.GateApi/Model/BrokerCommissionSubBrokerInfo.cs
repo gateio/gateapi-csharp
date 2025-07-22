@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// The sub broker info
+    /// The sub broker info.
     /// </summary>
     [DataContract]
     public partial class BrokerCommissionSubBrokerInfo :  IEquatable<BrokerCommissionSubBrokerInfo>, IValidatableObject
@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrokerCommissionSubBrokerInfo" /> class.
         /// </summary>
-        /// <param name="userId">The sub broker user ID.</param>
-        /// <param name="originalCommissionRate">The sub broker original commission rate.</param>
-        /// <param name="relativeCommissionRate">The sub broker relative commission rate.</param>
-        /// <param name="commissionRate">The sub broker actual commission rate.</param>
+        /// <param name="userId">The sub broker user ID..</param>
+        /// <param name="originalCommissionRate">The sub broker original commission rate..</param>
+        /// <param name="relativeCommissionRate">The sub broker relative commission rate..</param>
+        /// <param name="commissionRate">The sub broker actual commission rate..</param>
         public BrokerCommissionSubBrokerInfo(long userId = default(long), string originalCommissionRate = default(string), string relativeCommissionRate = default(string), string commissionRate = default(string))
         {
             this.UserId = userId;
@@ -46,30 +46,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// The sub broker user ID
+        /// The sub broker user ID.
         /// </summary>
-        /// <value>The sub broker user ID</value>
+        /// <value>The sub broker user ID.</value>
         [DataMember(Name="user_id")]
         public long UserId { get; set; }
 
         /// <summary>
-        /// The sub broker original commission rate
+        /// The sub broker original commission rate.
         /// </summary>
-        /// <value>The sub broker original commission rate</value>
+        /// <value>The sub broker original commission rate.</value>
         [DataMember(Name="original_commission_rate")]
         public string OriginalCommissionRate { get; set; }
 
         /// <summary>
-        /// The sub broker relative commission rate
+        /// The sub broker relative commission rate.
         /// </summary>
-        /// <value>The sub broker relative commission rate</value>
+        /// <value>The sub broker relative commission rate.</value>
         [DataMember(Name="relative_commission_rate")]
         public string RelativeCommissionRate { get; set; }
 
         /// <summary>
-        /// The sub broker actual commission rate
+        /// The sub broker actual commission rate.
         /// </summary>
-        /// <value>The sub broker actual commission rate</value>
+        /// <value>The sub broker actual commission rate.</value>
         [DataMember(Name="commission_rate")]
         public string CommissionRate { get; set; }
 

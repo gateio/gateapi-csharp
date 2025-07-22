@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Loan records
+    /// Loan records.
     /// </summary>
     [DataContract]
     public partial class UnifiedLoanRecord :  IEquatable<UnifiedLoanRecord>, IValidatableObject
@@ -40,23 +40,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// ID
+        /// ID.
         /// </summary>
-        /// <value>ID</value>
+        /// <value>ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; private set; }
 
         /// <summary>
-        /// type: borrow - borrow, repay - repay
+        /// type: borrow - borrow, repay - repay.
         /// </summary>
-        /// <value>type: borrow - borrow, repay - repay</value>
+        /// <value>type: borrow - borrow, repay - repay.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
         /// <summary>
-        /// Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
+        /// Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment
         /// </summary>
-        /// <value>Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment, cancel_auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment</value>
+        /// <value>Repayment type, none - No repayment type, manual_repay - Manual repayment, auto_repay - Automatic repayment after withdrawal, different_currencies_repayment - Different currency repayment</value>
         [DataMember(Name="repayment_type", EmitDefaultValue=false)]
         public string RepaymentType { get; private set; }
 
@@ -68,30 +68,30 @@ namespace Io.Gate.GateApi.Model
         public string BorrowType { get; set; }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pair", EmitDefaultValue=false)]
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// Currency
+        /// Currency.
         /// </summary>
-        /// <value>Currency</value>
+        /// <value>Currency.</value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; private set; }
 
         /// <summary>
-        /// The amount of lending or repaying
+        /// The amount of lending or repaying.
         /// </summary>
-        /// <value>The amount of lending or repaying</value>
+        /// <value>The amount of lending or repaying.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; private set; }
 
         /// <summary>
-        /// Created time
+        /// Created time.
         /// </summary>
-        /// <value>Created time</value>
+        /// <value>Created time.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 

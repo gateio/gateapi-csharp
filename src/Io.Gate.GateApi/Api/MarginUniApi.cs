@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List lending markets
+        /// List lending markets.
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<UniCurrencyPair> ListUniCurrencyPairs ();
 
         /// <summary>
-        /// List lending markets
+        /// List lending markets.
         /// </summary>
         /// <remarks>
         /// 
@@ -47,76 +47,76 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UniCurrencyPair&gt;</returns>
         ApiResponse<List<UniCurrencyPair>> ListUniCurrencyPairsWithHttpInfo ();
         /// <summary>
-        /// Get detail of lending market
+        /// Get detail of lending market.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>UniCurrencyPair</returns>
         UniCurrencyPair GetUniCurrencyPair (string currencyPair);
 
         /// <summary>
-        /// Get detail of lending market
+        /// Get detail of lending market.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of UniCurrencyPair</returns>
         ApiResponse<UniCurrencyPair> GetUniCurrencyPairWithHttpInfo (string currencyPair);
         /// <summary>
-        /// Estimate interest Rate
+        /// Estimate interest Rate.
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Dictionary&lt;string, string&gt;</returns>
         Dictionary<string, string> GetMarginUniEstimateRate (List<string> currencies);
 
         /// <summary>
-        /// Estimate interest Rate
+        /// Estimate interest Rate.
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
         ApiResponse<Dictionary<string, string>> GetMarginUniEstimateRateWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLoan&gt;</returns>
         List<UniLoan> ListUniLoans (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLoan&gt;</returns>
         ApiResponse<List<UniLoan>> ListUniLoansWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
         /// 
@@ -127,7 +127,7 @@ namespace Io.Gate.GateApi.Api
         void CreateUniLoan (CreateUniLoan createUniLoan);
 
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
         /// 
@@ -137,86 +137,86 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateUniLoanWithHttpInfo (CreateUniLoan createUniLoan);
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLoanRecord&gt;</returns>
         List<UniLoanRecord> ListUniLoanRecords (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLoanRecord&gt;</returns>
         ApiResponse<List<UniLoanRecord>> ListUniLoanRecordsWithHttpInfo (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
         List<UniLoanInterestRecord> ListUniLoanInterestRecords (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
         ApiResponse<List<UniLoanInterestRecord>> ListUniLoanInterestRecordsWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get maximum borrowable
+        /// Get maximum borrowable.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>MaxUniBorrowable</returns>
         MaxUniBorrowable GetUniBorrowable (string currency, string currencyPair);
 
         /// <summary>
-        /// Get maximum borrowable
+        /// Get maximum borrowable.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of MaxUniBorrowable</returns>
         ApiResponse<MaxUniBorrowable> GetUniBorrowableWithHttpInfo (string currency, string currencyPair);
         #endregion Synchronous Operations
@@ -229,7 +229,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List lending markets
+        /// List lending markets.
         /// </summary>
         /// <remarks>
         /// 
@@ -239,7 +239,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UniCurrencyPair>> ListUniCurrencyPairsAsync ();
 
         /// <summary>
-        /// List lending markets
+        /// List lending markets.
         /// </summary>
         /// <remarks>
         /// 
@@ -248,76 +248,76 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UniCurrencyPair&gt;)</returns>
         Task<ApiResponse<List<UniCurrencyPair>>> ListUniCurrencyPairsAsyncWithHttpInfo ();
         /// <summary>
-        /// Get detail of lending market
+        /// Get detail of lending market.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of UniCurrencyPair</returns>
         Task<UniCurrencyPair> GetUniCurrencyPairAsync (string currencyPair);
 
         /// <summary>
-        /// Get detail of lending market
+        /// Get detail of lending market.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (UniCurrencyPair)</returns>
         Task<ApiResponse<UniCurrencyPair>> GetUniCurrencyPairAsyncWithHttpInfo (string currencyPair);
         /// <summary>
-        /// Estimate interest Rate
+        /// Estimate interest Rate.
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
         Task<Dictionary<string, string>> GetMarginUniEstimateRateAsync (List<string> currencies);
 
         /// <summary>
-        /// Estimate interest Rate
+        /// Estimate interest Rate.
         /// </summary>
         /// <remarks>
         /// Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
         Task<ApiResponse<Dictionary<string, string>>> GetMarginUniEstimateRateAsyncWithHttpInfo (List<string> currencies);
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLoan&gt;</returns>
         Task<List<UniLoan>> ListUniLoansAsync (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List loans
+        /// List loans.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoan&gt;)</returns>
         Task<ApiResponse<List<UniLoan>>> ListUniLoansAsyncWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
         /// 
@@ -328,7 +328,7 @@ namespace Io.Gate.GateApi.Api
         Task CreateUniLoanAsync (CreateUniLoan createUniLoan);
 
         /// <summary>
-        /// Borrow or repay
+        /// Borrow or repay.
         /// </summary>
         /// <remarks>
         /// 
@@ -338,86 +338,86 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> CreateUniLoanAsyncWithHttpInfo (CreateUniLoan createUniLoan);
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLoanRecord&gt;</returns>
         Task<List<UniLoanRecord>> ListUniLoanRecordsAsync (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// Get load records
+        /// Get load records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanRecord&gt;)</returns>
         Task<ApiResponse<List<UniLoanRecord>>> ListUniLoanRecordsAsyncWithHttpInfo (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
         Task<List<UniLoanInterestRecord>> ListUniLoanInterestRecordsAsync (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
         Task<ApiResponse<List<UniLoanInterestRecord>>> ListUniLoanInterestRecordsAsyncWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// Get maximum borrowable
+        /// Get maximum borrowable.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of MaxUniBorrowable</returns>
         Task<MaxUniBorrowable> GetUniBorrowableAsync (string currency, string currencyPair);
 
         /// <summary>
-        /// Get maximum borrowable
+        /// Get maximum borrowable.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (MaxUniBorrowable)</returns>
         Task<ApiResponse<MaxUniBorrowable>> GetUniBorrowableAsyncWithHttpInfo (string currency, string currencyPair);
         #endregion Asynchronous Operations
@@ -541,7 +541,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List lending markets 
+        /// List lending markets. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UniCurrencyPair&gt;</returns>
@@ -552,7 +552,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List lending markets 
+        /// List lending markets. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UniCurrencyPair&gt;</returns>
@@ -589,7 +589,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List lending markets 
+        /// List lending markets. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;UniCurrencyPair&gt;</returns>
@@ -601,7 +601,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List lending markets 
+        /// List lending markets. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;UniCurrencyPair&gt;)</returns>
@@ -640,10 +640,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of lending market 
+        /// Get detail of lending market. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>UniCurrencyPair</returns>
         public UniCurrencyPair GetUniCurrencyPair (string currencyPair)
         {
@@ -652,10 +652,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of lending market 
+        /// Get detail of lending market. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of UniCurrencyPair</returns>
         public ApiResponse<UniCurrencyPair> GetUniCurrencyPairWithHttpInfo (string currencyPair)
         {
@@ -695,10 +695,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of lending market 
+        /// Get detail of lending market. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of UniCurrencyPair</returns>
         public async Task<UniCurrencyPair> GetUniCurrencyPairAsync (string currencyPair)
         {
@@ -708,10 +708,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get detail of lending market 
+        /// Get detail of lending market. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (UniCurrencyPair)</returns>
         public async Task<ApiResponse<UniCurrencyPair>> GetUniCurrencyPairAsyncWithHttpInfo (string currencyPair)
         {
@@ -753,10 +753,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimate interest Rate. Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Dictionary&lt;string, string&gt;</returns>
         public Dictionary<string, string> GetMarginUniEstimateRate (List<string> currencies)
         {
@@ -765,10 +765,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimate interest Rate. Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, string&gt;</returns>
         public ApiResponse<Dictionary<string, string>> GetMarginUniEstimateRateWithHttpInfo (List<string> currencies)
         {
@@ -810,10 +810,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimate interest Rate. Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Task of Dictionary&lt;string, string&gt;</returns>
         public async Task<Dictionary<string, string>> GetMarginUniEstimateRateAsync (List<string> currencies)
         {
@@ -823,10 +823,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Estimate interest Rate Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
+        /// Estimate interest Rate. Please note that the interest rates are subject to change based on the borrowing and lending demand, and therefore, the provided rates may not be entirely accurate.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencies">An array of up to 10 specifying the currency name</param>
+        /// <param name="currencies">An array of up to 10 specifying the currency name.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, string&gt;)</returns>
         public async Task<ApiResponse<Dictionary<string, string>>> GetMarginUniEstimateRateAsyncWithHttpInfo (List<string> currencies)
         {
@@ -870,13 +870,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLoan&gt;</returns>
         public List<UniLoan> ListUniLoans (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -885,13 +885,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLoan&gt;</returns>
         public ApiResponse<List<UniLoan>> ListUniLoansWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -944,13 +944,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLoan&gt;</returns>
         public async Task<List<UniLoan>> ListUniLoansAsync (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -960,13 +960,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List loans 
+        /// List loans. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoan&gt;)</returns>
         public async Task<ApiResponse<List<UniLoan>>> ListUniLoansAsyncWithHttpInfo (string currencyPair = default(string), string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1021,7 +1021,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay 
+        /// Borrow or repay. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLoan"></param>
@@ -1032,7 +1032,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay 
+        /// Borrow or repay. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLoan"></param>
@@ -1077,7 +1077,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay 
+        /// Borrow or repay. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLoan"></param>
@@ -1089,7 +1089,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Borrow or repay 
+        /// Borrow or repay. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLoan"></param>
@@ -1136,14 +1136,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLoanRecord&gt;</returns>
         public List<UniLoanRecord> ListUniLoanRecords (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1152,14 +1152,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLoanRecord&gt;</returns>
         public ApiResponse<List<UniLoanRecord>> ListUniLoanRecordsWithHttpInfo (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1216,14 +1216,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLoanRecord&gt;</returns>
         public async Task<List<UniLoanRecord>> ListUniLoanRecordsAsync (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1233,14 +1233,14 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get load records 
+        /// Get load records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="type">type: borrow - borrow, repay - repay (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="type">type: borrow - borrow, repay - repay. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanRecord&gt;)</returns>
         public async Task<ApiResponse<List<UniLoanRecord>>> ListUniLoanRecordsAsyncWithHttpInfo (string type = default(string), string currency = default(string), string currencyPair = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1299,13 +1299,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;UniLoanInterestRecord&gt;</returns>
@@ -1316,13 +1316,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLoanInterestRecord&gt;</returns>
@@ -1385,13 +1385,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;UniLoanInterestRecord&gt;</returns>
@@ -1403,13 +1403,13 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currencyPair">Currency pair (optional)</param>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum number of records to be returned in a single list (optional, default to 100)</param>
+        /// <param name="currencyPair">Currency pair. (optional)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum number of records to be returned in a single list. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLoanInterestRecord&gt;)</returns>
@@ -1474,11 +1474,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get maximum borrowable 
+        /// Get maximum borrowable. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>MaxUniBorrowable</returns>
         public MaxUniBorrowable GetUniBorrowable (string currency, string currencyPair)
         {
@@ -1487,11 +1487,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get maximum borrowable 
+        /// Get maximum borrowable. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>ApiResponse of MaxUniBorrowable</returns>
         public ApiResponse<MaxUniBorrowable> GetUniBorrowableWithHttpInfo (string currency, string currencyPair)
         {
@@ -1538,11 +1538,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get maximum borrowable 
+        /// Get maximum borrowable. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of MaxUniBorrowable</returns>
         public async Task<MaxUniBorrowable> GetUniBorrowableAsync (string currency, string currencyPair)
         {
@@ -1552,11 +1552,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get maximum borrowable 
+        /// Get maximum borrowable. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency</param>
-        /// <param name="currencyPair">Currency pair</param>
+        /// <param name="currency">Retrieve data of the specified currency.</param>
+        /// <param name="currencyPair">Currency pair.</param>
         /// <returns>Task of ApiResponse (MaxUniBorrowable)</returns>
         public async Task<ApiResponse<MaxUniBorrowable>> GetUniBorrowableAsyncWithHttpInfo (string currency, string currencyPair)
         {

@@ -4,42 +4,42 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListDeliveryContracts**](DeliveryApi.md#listdeliverycontracts) | **GET** /delivery/{settle}/contracts | List all futures contracts
-[**GetDeliveryContract**](DeliveryApi.md#getdeliverycontract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract
-[**ListDeliveryOrderBook**](DeliveryApi.md#listdeliveryorderbook) | **GET** /delivery/{settle}/order_book | Futures order book
-[**ListDeliveryTrades**](DeliveryApi.md#listdeliverytrades) | **GET** /delivery/{settle}/trades | Futures trading history
-[**ListDeliveryCandlesticks**](DeliveryApi.md#listdeliverycandlesticks) | **GET** /delivery/{settle}/candlesticks | Get futures candlesticks
-[**ListDeliveryTickers**](DeliveryApi.md#listdeliverytickers) | **GET** /delivery/{settle}/tickers | List futures tickers
-[**ListDeliveryInsuranceLedger**](DeliveryApi.md#listdeliveryinsuranceledger) | **GET** /delivery/{settle}/insurance | Futures insurance balance history
-[**ListDeliveryAccounts**](DeliveryApi.md#listdeliveryaccounts) | **GET** /delivery/{settle}/accounts | Query futures account
-[**ListDeliveryAccountBook**](DeliveryApi.md#listdeliveryaccountbook) | **GET** /delivery/{settle}/account_book | Query account book
-[**ListDeliveryPositions**](DeliveryApi.md#listdeliverypositions) | **GET** /delivery/{settle}/positions | List all positions of a user
-[**GetDeliveryPosition**](DeliveryApi.md#getdeliveryposition) | **GET** /delivery/{settle}/positions/{contract} | Get single position
-[**UpdateDeliveryPositionMargin**](DeliveryApi.md#updatedeliverypositionmargin) | **POST** /delivery/{settle}/positions/{contract}/margin | Update position margin
-[**UpdateDeliveryPositionLeverage**](DeliveryApi.md#updatedeliverypositionleverage) | **POST** /delivery/{settle}/positions/{contract}/leverage | Update position leverage
-[**UpdateDeliveryPositionRiskLimit**](DeliveryApi.md#updatedeliverypositionrisklimit) | **POST** /delivery/{settle}/positions/{contract}/risk_limit | Update position risk limit
-[**ListDeliveryOrders**](DeliveryApi.md#listdeliveryorders) | **GET** /delivery/{settle}/orders | List futures orders
-[**CreateDeliveryOrder**](DeliveryApi.md#createdeliveryorder) | **POST** /delivery/{settle}/orders | Create a futures order
-[**CancelDeliveryOrders**](DeliveryApi.md#canceldeliveryorders) | **DELETE** /delivery/{settle}/orders | Cancel all &#x60;open&#x60; orders matched
-[**GetDeliveryOrder**](DeliveryApi.md#getdeliveryorder) | **GET** /delivery/{settle}/orders/{order_id} | Get a single order
-[**CancelDeliveryOrder**](DeliveryApi.md#canceldeliveryorder) | **DELETE** /delivery/{settle}/orders/{order_id} | Cancel a single order
-[**GetMyDeliveryTrades**](DeliveryApi.md#getmydeliverytrades) | **GET** /delivery/{settle}/my_trades | List personal trading history
-[**ListDeliveryPositionClose**](DeliveryApi.md#listdeliverypositionclose) | **GET** /delivery/{settle}/position_close | List position close history
-[**ListDeliveryLiquidates**](DeliveryApi.md#listdeliveryliquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history
-[**ListDeliverySettlements**](DeliveryApi.md#listdeliverysettlements) | **GET** /delivery/{settle}/settlements | List settlement history
-[**ListDeliveryRiskLimitTiers**](DeliveryApi.md#listdeliveryrisklimittiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers
-[**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List All Price-triggered Orders
-[**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order
-[**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel All Price-triggered Orders
-[**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order
-[**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order
+[**ListDeliveryContracts**](DeliveryApi.md#listdeliverycontracts) | **GET** /delivery/{settle}/contracts | List all futures contracts.
+[**GetDeliveryContract**](DeliveryApi.md#getdeliverycontract) | **GET** /delivery/{settle}/contracts/{contract} | Get a single contract.
+[**ListDeliveryOrderBook**](DeliveryApi.md#listdeliveryorderbook) | **GET** /delivery/{settle}/order_book | Futures order book.
+[**ListDeliveryTrades**](DeliveryApi.md#listdeliverytrades) | **GET** /delivery/{settle}/trades | Futures trading history.
+[**ListDeliveryCandlesticks**](DeliveryApi.md#listdeliverycandlesticks) | **GET** /delivery/{settle}/candlesticks | Get futures candlesticks.
+[**ListDeliveryTickers**](DeliveryApi.md#listdeliverytickers) | **GET** /delivery/{settle}/tickers | List futures tickers.
+[**ListDeliveryInsuranceLedger**](DeliveryApi.md#listdeliveryinsuranceledger) | **GET** /delivery/{settle}/insurance | Futures insurance balance history.
+[**ListDeliveryAccounts**](DeliveryApi.md#listdeliveryaccounts) | **GET** /delivery/{settle}/accounts | Query futures account.
+[**ListDeliveryAccountBook**](DeliveryApi.md#listdeliveryaccountbook) | **GET** /delivery/{settle}/account_book | Query account book.
+[**ListDeliveryPositions**](DeliveryApi.md#listdeliverypositions) | **GET** /delivery/{settle}/positions | List all positions of a user.
+[**GetDeliveryPosition**](DeliveryApi.md#getdeliveryposition) | **GET** /delivery/{settle}/positions/{contract} | Get single position.
+[**UpdateDeliveryPositionMargin**](DeliveryApi.md#updatedeliverypositionmargin) | **POST** /delivery/{settle}/positions/{contract}/margin | Update position margin.
+[**UpdateDeliveryPositionLeverage**](DeliveryApi.md#updatedeliverypositionleverage) | **POST** /delivery/{settle}/positions/{contract}/leverage | Update position leverage.
+[**UpdateDeliveryPositionRiskLimit**](DeliveryApi.md#updatedeliverypositionrisklimit) | **POST** /delivery/{settle}/positions/{contract}/risk_limit | Update position risk limit.
+[**ListDeliveryOrders**](DeliveryApi.md#listdeliveryorders) | **GET** /delivery/{settle}/orders | List futures orders.
+[**CreateDeliveryOrder**](DeliveryApi.md#createdeliveryorder) | **POST** /delivery/{settle}/orders | Create a futures order.
+[**CancelDeliveryOrders**](DeliveryApi.md#canceldeliveryorders) | **DELETE** /delivery/{settle}/orders | Cancel all &#x60;open&#x60; orders matched.
+[**GetDeliveryOrder**](DeliveryApi.md#getdeliveryorder) | **GET** /delivery/{settle}/orders/{order_id} | Get a single order.
+[**CancelDeliveryOrder**](DeliveryApi.md#canceldeliveryorder) | **DELETE** /delivery/{settle}/orders/{order_id} | Cancel a single order.
+[**GetMyDeliveryTrades**](DeliveryApi.md#getmydeliverytrades) | **GET** /delivery/{settle}/my_trades | List personal trading history.
+[**ListDeliveryPositionClose**](DeliveryApi.md#listdeliverypositionclose) | **GET** /delivery/{settle}/position_close | List position close history.
+[**ListDeliveryLiquidates**](DeliveryApi.md#listdeliveryliquidates) | **GET** /delivery/{settle}/liquidates | List liquidation history.
+[**ListDeliverySettlements**](DeliveryApi.md#listdeliverysettlements) | **GET** /delivery/{settle}/settlements | List settlement history.
+[**ListDeliveryRiskLimitTiers**](DeliveryApi.md#listdeliveryrisklimittiers) | **GET** /delivery/{settle}/risk_limit_tiers | List risk limit tiers.
+[**ListPriceTriggeredDeliveryOrders**](DeliveryApi.md#listpricetriggereddeliveryorders) | **GET** /delivery/{settle}/price_orders | List All Price-triggered Orders.
+[**CreatePriceTriggeredDeliveryOrder**](DeliveryApi.md#createpricetriggereddeliveryorder) | **POST** /delivery/{settle}/price_orders | Create a price-triggered order.
+[**CancelPriceTriggeredDeliveryOrderList**](DeliveryApi.md#cancelpricetriggereddeliveryorderlist) | **DELETE** /delivery/{settle}/price_orders | Cancel All Price-triggered Orders.
+[**GetPriceTriggeredDeliveryOrder**](DeliveryApi.md#getpricetriggereddeliveryorder) | **GET** /delivery/{settle}/price_orders/{order_id} | Get a price-triggered order.
+[**CancelPriceTriggeredDeliveryOrder**](DeliveryApi.md#cancelpricetriggereddeliveryorder) | **DELETE** /delivery/{settle}/price_orders/{order_id} | cancel a price-triggered order.
 
 
 <a name="listdeliverycontracts"></a>
 # **ListDeliveryContracts**
 > List&lt;DeliveryContract&gt; ListDeliveryContracts (string settle)
 
-List all futures contracts
+List all futures contracts.
 
 ### Example
 ```csharp
@@ -58,11 +58,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
+            var settle = "usdt";  // string | Settle currency.
 
             try
             {
-                // List all futures contracts
+                // List all futures contracts.
                 List<DeliveryContract> result = apiInstance.ListDeliveryContracts(settle);
                 Debug.WriteLine(result);
             }
@@ -82,7 +82,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
+ **settle** | **string**| Settle currency. | 
 
 ### Return type
 
@@ -100,7 +100,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -108,7 +108,7 @@ No authorization required
 # **GetDeliveryContract**
 > DeliveryContract GetDeliveryContract (string settle, string contract)
 
-Get a single contract
+Get a single contract.
 
 ### Example
 ```csharp
@@ -127,12 +127,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
 
             try
             {
-                // Get a single contract
+                // Get a single contract.
                 DeliveryContract result = apiInstance.GetDeliveryContract(settle, contract);
                 Debug.WriteLine(result);
             }
@@ -152,8 +152,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
 
 ### Return type
 
@@ -171,7 +171,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Contract information |  -  |
+| **200** | Contract information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -179,9 +179,9 @@ No authorization required
 # **ListDeliveryOrderBook**
 > FuturesOrderBook ListDeliveryOrderBook (string settle, string contract, string interval = null, int? limit = null, bool? withId = null)
 
-Futures order book
+Futures order book.
 
-Bids will be sorted by price from high to low, while asks sorted reversely
+Bids will be sorted by price from high to low, while asks sorted reversely.
 
 ### Example
 ```csharp
@@ -200,15 +200,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
-            var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0. (optional)  (default to 0)
+            var limit = 10;  // int? | Maximum number of order depth data in asks or bids. (optional)  (default to 10)
             var withId = false;  // bool? | Whether to return depth update ID. This ID increments by 1 each time. (optional)  (default to false)
 
             try
             {
-                // Futures order book
+                // Futures order book.
                 FuturesOrderBook result = apiInstance.ListDeliveryOrderBook(settle, contract, interval, limit, withId);
                 Debug.WriteLine(result);
             }
@@ -228,10 +228,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
- **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0. | [optional] [default to 0]
+ **limit** | **int?**| Maximum number of order depth data in asks or bids. | [optional] [default to 10]
  **withId** | **bool?**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
@@ -250,7 +250,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Depth query successful |  -  |
+| **200** | Depth query successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -258,7 +258,7 @@ No authorization required
 # **ListDeliveryTrades**
 > List&lt;FuturesTrade&gt; ListDeliveryTrades (string settle, string contract, int? limit = null, string lastId = null, long? from = null, long? to = null)
 
-Futures trading history
+Futures trading history.
 
 ### Example
 ```csharp
@@ -277,16 +277,16 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
             var lastId = "12345";  // string | 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 `from` 和 `to` 字段来限定时间范围 (optional) 
             var from = 1546905600;  // long? | Specify starting time in Unix seconds. If not specified, `to` and `limit` will be used to limit response items. If items between `from` and `to` are more than `limit`, only `limit` number will be returned.  (optional) 
-            var to = 1546935600;  // long? | Specify end time in Unix seconds, default to current time (optional) 
+            var to = 1546935600;  // long? | Specify end time in Unix seconds, default to current time. (optional) 
 
             try
             {
-                // Futures trading history
+                // Futures trading history.
                 List<FuturesTrade> result = apiInstance.ListDeliveryTrades(settle, contract, limit, lastId, from, to);
                 Debug.WriteLine(result);
             }
@@ -306,12 +306,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
  **lastId** | **string**| 以上个列表的最后一条记录的 ID 作为下个列表的起点。 该字段不再继续支持，新的请求请使用 &#x60;from&#x60; 和 &#x60;to&#x60; 字段来限定时间范围 | [optional] 
  **from** | **long?**| Specify starting time in Unix seconds. If not specified, &#x60;to&#x60; and &#x60;limit&#x60; will be used to limit response items. If items between &#x60;from&#x60; and &#x60;to&#x60; are more than &#x60;limit&#x60;, only &#x60;limit&#x60; number will be returned.  | [optional] 
- **to** | **long?**| Specify end time in Unix seconds, default to current time | [optional] 
+ **to** | **long?**| Specify end time in Unix seconds, default to current time. | [optional] 
 
 ### Return type
 
@@ -329,7 +329,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -337,7 +337,7 @@ No authorization required
 # **ListDeliveryCandlesticks**
 > List&lt;DeliveryCandlestick&gt; ListDeliveryCandlesticks (string settle, string contract, long? from = null, long? to = null, int? limit = null, string interval = null)
 
-Get futures candlesticks
+Get futures candlesticks.
 
 Return specified contract candlesticks. If prefix `contract` with `mark_`, the contract's mark price candlesticks are returned; if prefix with `index_`, index price candlesticks will be returned.  Maximum of 2000 points are returned in one query. Be sure not to exceed the limit when specifying `from`, `to` and `interval`
 
@@ -358,16 +358,16 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
-            var to = 1546935600;  // long? | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  (optional) 
+            var to = 1546935600;  // long? | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "5m";  // string | Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek  (optional)  (default to 5m)
+            var interval = "5m";  // string | Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time (optional)  (default to 5m)
 
             try
             {
-                // Get futures candlesticks
+                // Get futures candlesticks.
                 List<DeliveryCandlestick> result = apiInstance.ListDeliveryCandlesticks(settle, contract, from, to, limit, interval);
                 Debug.WriteLine(result);
             }
@@ -387,12 +387,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
- **to** | **long?**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second  | [optional] 
+ **to** | **long?**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek  | [optional] [default to 5m]
+ **interval** | **string**| Time interval between data points, note that 1w represents a natural week, 7d time is aligned with Unix initial timeweek, 7d time is aligned with Unix initial time | [optional] [default to 5m]
 
 ### Return type
 
@@ -410,7 +410,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -418,7 +418,7 @@ No authorization required
 # **ListDeliveryTickers**
 > List&lt;DeliveryTicker&gt; ListDeliveryTickers (string settle, string contract = null)
 
-List futures tickers
+List futures tickers.
 
 ### Example
 ```csharp
@@ -437,12 +437,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
 
             try
             {
-                // List futures tickers
+                // List futures tickers.
                 List<DeliveryTicker> result = apiInstance.ListDeliveryTickers(settle, contract);
                 Debug.WriteLine(result);
             }
@@ -462,8 +462,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
 
 ### Return type
 
@@ -481,7 +481,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -489,7 +489,7 @@ No authorization required
 # **ListDeliveryInsuranceLedger**
 > List&lt;InsuranceRecord&gt; ListDeliveryInsuranceLedger (string settle, int? limit = null)
 
-Futures insurance balance history
+Futures insurance balance history.
 
 ### Example
 ```csharp
@@ -508,12 +508,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var settle = "usdt";  // string | Settle currency.
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
 
             try
             {
-                // Futures insurance balance history
+                // Futures insurance balance history.
                 List<InsuranceRecord> result = apiInstance.ListDeliveryInsuranceLedger(settle, limit);
                 Debug.WriteLine(result);
             }
@@ -533,8 +533,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **settle** | **string**| Settle currency. | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -552,7 +552,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -560,7 +560,7 @@ No authorization required
 # **ListDeliveryAccounts**
 > FuturesAccount ListDeliveryAccounts (string settle)
 
-Query futures account
+Query futures account.
 
 ### Example
 ```csharp
@@ -581,11 +581,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
+            var settle = "usdt";  // string | Settle currency.
 
             try
             {
-                // Query futures account
+                // Query futures account.
                 FuturesAccount result = apiInstance.ListDeliveryAccounts(settle);
                 Debug.WriteLine(result);
             }
@@ -605,7 +605,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
+ **settle** | **string**| Settle currency. | 
 
 ### Return type
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 # **ListDeliveryAccountBook**
 > List&lt;FuturesAccountBook&gt; ListDeliveryAccountBook (string settle, int? limit = null, long? from = null, long? to = null, string type = null)
 
-Query account book
+Query account book.
 
 ### Example
 ```csharp
@@ -652,15 +652,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var settle = "usdt";  // string | Settle currency.
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
-            var type = "dnw";  // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit & Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional) 
+            var type = "dnw";  // string | Changing Type: - dnw: Deposit & Withdraw - pnl: Profit & Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate (optional) 
 
             try
             {
-                // Query account book
+                // Query account book.
                 List<FuturesAccountBook> result = apiInstance.ListDeliveryAccountBook(settle, limit, from, to, type);
                 Debug.WriteLine(result);
             }
@@ -680,11 +680,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **settle** | **string**| Settle currency. | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: POINT Deposit &amp; Withdraw - point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] 
+ **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - pnl: Profit &amp; Loss by reducing position - fee: Trading fee - refr: Referrer rebate - fund: Funding - point_dnw: point_fee: POINT Trading fee - point_refr: POINT Referrer rebate | [optional] 
 
 ### Return type
 
@@ -702,7 +702,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 # **ListDeliveryPositions**
 > List&lt;Position&gt; ListDeliveryPositions (string settle)
 
-List all positions of a user
+List all positions of a user.
 
 ### Example
 ```csharp
@@ -731,11 +731,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
+            var settle = "usdt";  // string | Settle currency.
 
             try
             {
-                // List all positions of a user
+                // List all positions of a user.
                 List<Position> result = apiInstance.ListDeliveryPositions(settle);
                 Debug.WriteLine(result);
             }
@@ -755,7 +755,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
+ **settle** | **string**| Settle currency. | 
 
 ### Return type
 
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 # **GetDeliveryPosition**
 > Position GetDeliveryPosition (string settle, string contract)
 
-Get single position
+Get single position.
 
 ### Example
 ```csharp
@@ -802,12 +802,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
 
             try
             {
-                // Get single position
+                // Get single position.
                 Position result = apiInstance.GetDeliveryPosition(settle, contract);
                 Debug.WriteLine(result);
             }
@@ -827,8 +827,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
 
 ### Return type
 
@@ -846,7 +846,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Position information |  -  |
+| **200** | Position information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 # **UpdateDeliveryPositionMargin**
 > Position UpdateDeliveryPositionMargin (string settle, string contract, string change)
 
-Update position margin
+Update position margin.
 
 ### Example
 ```csharp
@@ -875,13 +875,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var change = "0.01";  // string | Margin change amount, positive number increases, negative number 
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var change = "0.01";  // string | Margin change amount, positive number increases, negative number.
 
             try
             {
-                // Update position margin
+                // Update position margin.
                 Position result = apiInstance.UpdateDeliveryPositionMargin(settle, contract, change);
                 Debug.WriteLine(result);
             }
@@ -901,9 +901,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **change** | **string**| Margin change amount, positive number increases, negative number  | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **change** | **string**| Margin change amount, positive number increases, negative number. | 
 
 ### Return type
 
@@ -921,7 +921,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Position information |  -  |
+| **200** | Position information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 # **UpdateDeliveryPositionLeverage**
 > Position UpdateDeliveryPositionLeverage (string settle, string contract, string leverage)
 
-Update position leverage
+Update position leverage.
 
 ### Example
 ```csharp
@@ -950,13 +950,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var leverage = "10";  // string | New position leverage
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var leverage = "10";  // string | New position leverage.
 
             try
             {
-                // Update position leverage
+                // Update position leverage.
                 Position result = apiInstance.UpdateDeliveryPositionLeverage(settle, contract, leverage);
                 Debug.WriteLine(result);
             }
@@ -976,9 +976,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **leverage** | **string**| New position leverage | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **leverage** | **string**| New position leverage. | 
 
 ### Return type
 
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Position information |  -  |
+| **200** | Position information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1004,7 +1004,7 @@ Name | Type | Description  | Notes
 # **UpdateDeliveryPositionRiskLimit**
 > Position UpdateDeliveryPositionRiskLimit (string settle, string contract, string riskLimit)
 
-Update position risk limit
+Update position risk limit.
 
 ### Example
 ```csharp
@@ -1025,13 +1025,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var riskLimit = "10";  // string | New position risk limit
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var riskLimit = "10";  // string | New position risk limit.
 
             try
             {
-                // Update position risk limit
+                // Update position risk limit.
                 Position result = apiInstance.UpdateDeliveryPositionRiskLimit(settle, contract, riskLimit);
                 Debug.WriteLine(result);
             }
@@ -1051,9 +1051,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **riskLimit** | **string**| New position risk limit | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **riskLimit** | **string**| New position risk limit. | 
 
 ### Return type
 
@@ -1071,7 +1071,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Position information |  -  |
+| **200** | Position information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1079,9 +1079,9 @@ Name | Type | Description  | Notes
 # **ListDeliveryOrders**
 > List&lt;FuturesOrder&gt; ListDeliveryOrders (string settle, string status, string contract = null, int? limit = null, int? offset = null, string lastId = null, int? countTotal = null)
 
-List futures orders
+List futures orders.
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation.
 
 ### Example
 ```csharp
@@ -1102,17 +1102,17 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var status = "open";  // string | Only list the orders with this status
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var status = "open";  // string | Only list the orders with this status.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var lastId = "12345";  // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional) 
-            var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return) (optional)  (default to 0)
+            var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return). (optional)  (default to 0)
 
             try
             {
-                // List futures orders
+                // List futures orders.
                 List<FuturesOrder> result = apiInstance.ListDeliveryOrders(settle, status, contract, limit, offset, lastId, countTotal);
                 Debug.WriteLine(result);
             }
@@ -1132,13 +1132,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **status** | **string**| Only list the orders with this status | 
- **contract** | **string**| Futures contract | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **status** | **string**| Only list the orders with this status. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **lastId** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional] 
- **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
+ **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return). | [optional] [default to 0]
 
 ### Return type
 
@@ -1156,7 +1156,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  |
+| **200** | List retrieved. |  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1164,9 +1164,9 @@ Name | Type | Description  | Notes
 # **CreateDeliveryOrder**
 > FuturesOrder CreateDeliveryOrder (string settle, FuturesOrder futuresOrder)
 
-Create a futures order
+Create a futures order.
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation.
 
 ### Example
 ```csharp
@@ -1187,12 +1187,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
+            var settle = "usdt";  // string | Settle currency.
             var futuresOrder = new FuturesOrder(); // FuturesOrder | 
 
             try
             {
-                // Create a futures order
+                // Create a futures order.
                 FuturesOrder result = apiInstance.CreateDeliveryOrder(settle, futuresOrder);
                 Debug.WriteLine(result);
             }
@@ -1212,7 +1212,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
+ **settle** | **string**| Settle currency. | 
  **futuresOrder** | [**FuturesOrder**](FuturesOrder.md)|  | 
 
 ### Return type
@@ -1231,7 +1231,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Order details |  -  |
+| **201** | Order details. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1239,9 +1239,9 @@ Name | Type | Description  | Notes
 # **CancelDeliveryOrders**
 > List&lt;FuturesOrder&gt; CancelDeliveryOrders (string settle, string contract, string side = null)
 
-Cancel all `open` orders matched
+Cancel all `open` orders matched.
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation.
 
 ### Example
 ```csharp
@@ -1262,13 +1262,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract
-            var side = "ask";  // string | All bids or asks. Both included if not specified (optional) 
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract.
+            var side = "ask";  // string | All bids or asks. Both included if not specified. (optional) 
 
             try
             {
-                // Cancel all `open` orders matched
+                // Cancel all `open` orders matched.
                 List<FuturesOrder> result = apiInstance.CancelDeliveryOrders(settle, contract, side);
                 Debug.WriteLine(result);
             }
@@ -1288,9 +1288,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
- **side** | **string**| All bids or asks. Both included if not specified | [optional] 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
+ **side** | **string**| All bids or asks. Both included if not specified. | [optional] 
 
 ### Return type
 
@@ -1308,7 +1308,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | All orders matched cancelled |  -  |
+| **200** | All orders matched cancelled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1316,9 +1316,9 @@ Name | Type | Description  | Notes
 # **GetDeliveryOrder**
 > FuturesOrder GetDeliveryOrder (string settle, string orderId)
 
-Get a single order
+Get a single order.
 
-Zero-filled order cannot be retrieved 10 minutes after order cancellation
+Zero-filled order cannot be retrieved 10 minutes after order cancellation.
 
 ### Example
 ```csharp
@@ -1339,12 +1339,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var orderId = "12345";  // string | Retrieve the data of the order with the specified ID
+            var settle = "usdt";  // string | Settle currency.
+            var orderId = "12345";  // string | Retrieve the data of the order with the specified ID.
 
             try
             {
-                // Get a single order
+                // Get a single order.
                 FuturesOrder result = apiInstance.GetDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }
@@ -1364,8 +1364,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **orderId** | **string**| Retrieve the data of the order with the specified ID | 
+ **settle** | **string**| Settle currency. | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID. | 
 
 ### Return type
 
@@ -1383,7 +1383,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order details |  -  |
+| **200** | Order details. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1391,7 +1391,7 @@ Name | Type | Description  | Notes
 # **CancelDeliveryOrder**
 > FuturesOrder CancelDeliveryOrder (string settle, string orderId)
 
-Cancel a single order
+Cancel a single order.
 
 ### Example
 ```csharp
@@ -1412,12 +1412,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var orderId = "12345";  // string | Retrieve the data of the order with the specified ID
+            var settle = "usdt";  // string | Settle currency.
+            var orderId = "12345";  // string | Retrieve the data of the order with the specified ID.
 
             try
             {
-                // Cancel a single order
+                // Cancel a single order.
                 FuturesOrder result = apiInstance.CancelDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }
@@ -1437,8 +1437,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **orderId** | **string**| Retrieve the data of the order with the specified ID | 
+ **settle** | **string**| Settle currency. | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID. | 
 
 ### Return type
 
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order details |  -  |
+| **200** | Order details. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1464,7 +1464,7 @@ Name | Type | Description  | Notes
 # **GetMyDeliveryTrades**
 > List&lt;MyFuturesTrade&gt; GetMyDeliveryTrades (string settle, string contract = null, long? order = null, int? limit = null, int? offset = null, string lastId = null, int? countTotal = null)
 
-List personal trading history
+List personal trading history.
 
 ### Example
 ```csharp
@@ -1485,17 +1485,17 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var order = 12345;  // long? | Futures order ID, return related data only if specified (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var order = 12345;  // long? | Futures order ID, return related data only if specified. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var lastId = "12345";  // string | Specify the currency name to query in batches, and support up to 100 pass parameters at a time. (optional) 
-            var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return) (optional)  (default to 0)
+            var countTotal = 0;  // int? | Whether to return total number matched. Default to 0(no return). (optional)  (default to 0)
 
             try
             {
-                // List personal trading history
+                // List personal trading history.
                 List<MyFuturesTrade> result = apiInstance.GetMyDeliveryTrades(settle, contract, order, limit, offset, lastId, countTotal);
                 Debug.WriteLine(result);
             }
@@ -1515,13 +1515,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
- **order** | **long?**| Futures order ID, return related data only if specified | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **order** | **long?**| Futures order ID, return related data only if specified. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **lastId** | **string**| Specify the currency name to query in batches, and support up to 100 pass parameters at a time. | [optional] 
- **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return) | [optional] [default to 0]
+ **countTotal** | **int?**| Whether to return total number matched. Default to 0(no return). | [optional] [default to 0]
 
 ### Return type
 
@@ -1539,7 +1539,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  * X-Pagination-Limit - Request limit specified <br>  * X-Pagination-Offset - Request offset specified <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1 <br>  |
+| **200** | List retrieved. |  * X-Pagination-Limit - Request limit specified. <br>  * X-Pagination-Offset - Request offset specified. <br>  * X-Pagination-Total - Total number matched. Only returned if &#x60;count_total&#x60; set to 1. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1547,7 +1547,7 @@ Name | Type | Description  | Notes
 # **ListDeliveryPositionClose**
 > List&lt;PositionClose&gt; ListDeliveryPositionClose (string settle, string contract = null, int? limit = null)
 
-List position close history
+List position close history.
 
 ### Example
 ```csharp
@@ -1568,13 +1568,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
 
             try
             {
-                // List position close history
+                // List position close history.
                 List<PositionClose> result = apiInstance.ListDeliveryPositionClose(settle, contract, limit);
                 Debug.WriteLine(result);
             }
@@ -1594,9 +1594,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
 
 ### Return type
 
@@ -1614,7 +1614,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1622,7 +1622,7 @@ Name | Type | Description  | Notes
 # **ListDeliveryLiquidates**
 > List&lt;FuturesLiquidate&gt; ListDeliveryLiquidates (string settle, string contract = null, int? limit = null, int? at = null)
 
-List liquidation history
+List liquidation history.
 
 ### Example
 ```csharp
@@ -1643,14 +1643,14 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var at = 0;  // int? | Specify a liquidation timestamp (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var at = 0;  // int? | Specify a liquidation timestamp. (optional)  (default to 0)
 
             try
             {
-                // List liquidation history
+                // List liquidation history.
                 List<FuturesLiquidate> result = apiInstance.ListDeliveryLiquidates(settle, contract, limit, at);
                 Debug.WriteLine(result);
             }
@@ -1670,10 +1670,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **at** | **int?**| Specify a liquidation timestamp | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **at** | **int?**| Specify a liquidation timestamp. | [optional] [default to 0]
 
 ### Return type
 
@@ -1691,7 +1691,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1699,7 +1699,7 @@ Name | Type | Description  | Notes
 # **ListDeliverySettlements**
 > List&lt;DeliverySettlement&gt; ListDeliverySettlements (string settle, string contract = null, int? limit = null, int? at = null)
 
-List settlement history
+List settlement history.
 
 ### Example
 ```csharp
@@ -1720,14 +1720,14 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var at = 0;  // int? | Specify a settlement timestamp (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var at = 0;  // int? | Specify a settlement timestamp. (optional)  (default to 0)
 
             try
             {
-                // List settlement history
+                // List settlement history.
                 List<DeliverySettlement> result = apiInstance.ListDeliverySettlements(settle, contract, limit, at);
                 Debug.WriteLine(result);
             }
@@ -1747,10 +1747,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **at** | **int?**| Specify a settlement timestamp | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **at** | **int?**| Specify a settlement timestamp. | [optional] [default to 0]
 
 ### Return type
 
@@ -1768,7 +1768,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1776,9 +1776,9 @@ Name | Type | Description  | Notes
 # **ListDeliveryRiskLimitTiers**
 > List&lt;FuturesLimitRiskTiers&gt; ListDeliveryRiskLimitTiers (string settle, string contract = null, int? limit = null, int? offset = null)
 
-List risk limit tiers
+List risk limit tiers.
 
-When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect when the 'contract' parameter is empty.
+When the 'contract' parameter is not passed, the default is to query the risk limits for the top 100 markets.'Limit' and 'offset' correspond to pagination queries at the market level, not to the length of the returned array. This only takes effect empty.
 
 ### Example
 ```csharp
@@ -1797,14 +1797,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT_20200814";  // string | Futures contract (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT_20200814";  // string | Futures contract. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // List risk limit tiers
+                // List risk limit tiers.
                 List<FuturesLimitRiskTiers> result = apiInstance.ListDeliveryRiskLimitTiers(settle, contract, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -1824,10 +1824,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -1845,7 +1845,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1853,7 +1853,7 @@ No authorization required
 # **ListPriceTriggeredDeliveryOrders**
 > List&lt;FuturesPriceTriggeredOrder&gt; ListPriceTriggeredDeliveryOrders (string settle, string status, string contract = null, int? limit = null, int? offset = null)
 
-List All Price-triggered Orders
+List All Price-triggered Orders.
 
 ### Example
 ```csharp
@@ -1874,15 +1874,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var status = "status_example";  // string | Only list the orders with this status
-            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var settle = "usdt";  // string | Settle currency.
+            var status = "status_example";  // string | Only list the orders with this status.
+            var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
 
             try
             {
-                // List All Price-triggered Orders
+                // List All Price-triggered Orders.
                 List<FuturesPriceTriggeredOrder> result = apiInstance.ListPriceTriggeredDeliveryOrders(settle, status, contract, limit, offset);
                 Debug.WriteLine(result);
             }
@@ -1902,11 +1902,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **status** | **string**| Only list the orders with this status | 
- **contract** | **string**| Futures contract, return related data only if specified | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **settle** | **string**| Settle currency. | 
+ **status** | **string**| Only list the orders with this status. | 
+ **contract** | **string**| Futures contract, return related data only if specified. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
 
 ### Return type
 
@@ -1924,7 +1924,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1932,7 +1932,7 @@ Name | Type | Description  | Notes
 # **CreatePriceTriggeredDeliveryOrder**
 > TriggerOrderResponse CreatePriceTriggeredDeliveryOrder (string settle, FuturesPriceTriggeredOrder futuresPriceTriggeredOrder)
 
-Create a price-triggered order
+Create a price-triggered order.
 
 ### Example
 ```csharp
@@ -1953,12 +1953,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
+            var settle = "usdt";  // string | Settle currency.
             var futuresPriceTriggeredOrder = new FuturesPriceTriggeredOrder(); // FuturesPriceTriggeredOrder | 
 
             try
             {
-                // Create a price-triggered order
+                // Create a price-triggered order.
                 TriggerOrderResponse result = apiInstance.CreatePriceTriggeredDeliveryOrder(settle, futuresPriceTriggeredOrder);
                 Debug.WriteLine(result);
             }
@@ -1978,7 +1978,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
+ **settle** | **string**| Settle currency. | 
  **futuresPriceTriggeredOrder** | [**FuturesPriceTriggeredOrder**](FuturesPriceTriggeredOrder.md)|  | 
 
 ### Return type
@@ -1997,7 +1997,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Order created |  -  |
+| **201** | Order created. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2005,7 +2005,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredDeliveryOrderList**
 > List&lt;FuturesPriceTriggeredOrder&gt; CancelPriceTriggeredDeliveryOrderList (string settle, string contract)
 
-Cancel All Price-triggered Orders
+Cancel All Price-triggered Orders.
 
 ### Example
 ```csharp
@@ -2026,12 +2026,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var contract = "BTC_USDT";  // string | Futures contract
+            var settle = "usdt";  // string | Settle currency.
+            var contract = "BTC_USDT";  // string | Futures contract.
 
             try
             {
-                // Cancel All Price-triggered Orders
+                // Cancel All Price-triggered Orders.
                 List<FuturesPriceTriggeredOrder> result = apiInstance.CancelPriceTriggeredDeliveryOrderList(settle, contract);
                 Debug.WriteLine(result);
             }
@@ -2051,8 +2051,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **contract** | **string**| Futures contract | 
+ **settle** | **string**| Settle currency. | 
+ **contract** | **string**| Futures contract. | 
 
 ### Return type
 
@@ -2070,7 +2070,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Batch cancellation request accepted. Query order status by listing orders |  -  |
+| **200** | Batch cancellation request accepted. Query order status by listing orders. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2078,7 +2078,7 @@ Name | Type | Description  | Notes
 # **GetPriceTriggeredDeliveryOrder**
 > FuturesPriceTriggeredOrder GetPriceTriggeredDeliveryOrder (string settle, string orderId)
 
-Get a price-triggered order
+Get a price-triggered order.
 
 ### Example
 ```csharp
@@ -2099,12 +2099,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID
+            var settle = "usdt";  // string | Settle currency.
+            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID.
 
             try
             {
-                // Get a price-triggered order
+                // Get a price-triggered order.
                 FuturesPriceTriggeredOrder result = apiInstance.GetPriceTriggeredDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }
@@ -2124,8 +2124,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **orderId** | **string**| Retrieve the data of the order with the specified ID | 
+ **settle** | **string**| Settle currency. | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID. | 
 
 ### Return type
 
@@ -2143,7 +2143,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Auto order detail |  -  |
+| **200** | Auto order detail. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2151,7 +2151,7 @@ Name | Type | Description  | Notes
 # **CancelPriceTriggeredDeliveryOrder**
 > FuturesPriceTriggeredOrder CancelPriceTriggeredDeliveryOrder (string settle, string orderId)
 
-cancel a price-triggered order
+cancel a price-triggered order.
 
 ### Example
 ```csharp
@@ -2172,12 +2172,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new DeliveryApi(config);
-            var settle = "usdt";  // string | Settle currency
-            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID
+            var settle = "usdt";  // string | Settle currency.
+            var orderId = "orderId_example";  // string | Retrieve the data of the order with the specified ID.
 
             try
             {
-                // cancel a price-triggered order
+                // cancel a price-triggered order.
                 FuturesPriceTriggeredOrder result = apiInstance.CancelPriceTriggeredDeliveryOrder(settle, orderId);
                 Debug.WriteLine(result);
             }
@@ -2197,8 +2197,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settle** | **string**| Settle currency | 
- **orderId** | **string**| Retrieve the data of the order with the specified ID | 
+ **settle** | **string**| Settle currency. | 
+ **orderId** | **string**| Retrieve the data of the order with the specified ID. | 
 
 ### Return type
 
@@ -2216,7 +2216,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Auto order detail |  -  |
+| **200** | Auto order detail. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

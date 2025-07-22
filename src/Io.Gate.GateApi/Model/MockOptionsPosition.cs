@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Options positions
+    /// Options positions.
     /// </summary>
     [DataContract]
     public partial class MockOptionsPosition :  IEquatable<MockOptionsPosition>, IValidatableObject

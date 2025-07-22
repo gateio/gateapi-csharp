@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// Spot orders
+    /// Spot orders.
     /// </summary>
     [DataContract]
     public partial class MockSpotOrder :  IEquatable<MockSpotOrder>, IValidatableObject
@@ -38,8 +38,8 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MockSpotOrder" /> class.
         /// </summary>
-        /// <param name="currencyPairs">Currency pair (required).</param>
-        /// <param name="orderPrice">Price (required).</param>
+        /// <param name="currencyPairs">Currency pair. (required).</param>
+        /// <param name="orderPrice">Price. (required).</param>
         /// <param name="count">Initial order quantity for spot trading pairs, not involved in actual calculation.  Currently only supports three currencies: BTC, ETH..</param>
         /// <param name="left">Unfilled quantity, involved in actual calculation. (required).</param>
         /// <param name="type">Order type, sell - sell order, buy - buy order. (required).</param>
@@ -57,16 +57,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Currency pair
+        /// Currency pair.
         /// </summary>
-        /// <value>Currency pair</value>
+        /// <value>Currency pair.</value>
         [DataMember(Name="currency_pairs")]
         public string CurrencyPairs { get; set; }
 
         /// <summary>
-        /// Price
+        /// Price.
         /// </summary>
-        /// <value>Price</value>
+        /// <value>Price.</value>
         [DataMember(Name="order_price")]
         public string OrderPrice { get; set; }
 

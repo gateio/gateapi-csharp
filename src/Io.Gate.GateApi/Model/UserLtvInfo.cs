@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// User&#39;s currency statistics data
+    /// User&#39;s currency statistics data.
     /// </summary>
     [DataContract]
     public partial class UserLtvInfo :  IEquatable<UserLtvInfo>, IValidatableObject
@@ -33,13 +33,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserLtvInfo" /> class.
         /// </summary>
-        /// <param name="collateralCurrency">Collateral.</param>
-        /// <param name="borrowCurrency">Borrowed currency.</param>
-        /// <param name="initLtv">The initial collateralization rate.</param>
-        /// <param name="alertLtv">Warning collateralization ratio.</param>
-        /// <param name="liquidateLtv">The liquidation collateralization rate.</param>
-        /// <param name="minBorrowAmount">Minimum borrowable amount for the loan currency.</param>
-        /// <param name="leftBorrowableAmount">Remaining borrowable amount for the loan currency.</param>
+        /// <param name="collateralCurrency">Collateral..</param>
+        /// <param name="borrowCurrency">Borrowed currency..</param>
+        /// <param name="initLtv">The initial collateralization rate..</param>
+        /// <param name="alertLtv">Warning collateralization ratio..</param>
+        /// <param name="liquidateLtv">The liquidation collateralization rate..</param>
+        /// <param name="minBorrowAmount">Minimum borrowable amount for the loan currency..</param>
+        /// <param name="leftBorrowableAmount">Remaining borrowable amount for the loan currency..</param>
         public UserLtvInfo(string collateralCurrency = default(string), string borrowCurrency = default(string), string initLtv = default(string), string alertLtv = default(string), string liquidateLtv = default(string), string minBorrowAmount = default(string), string leftBorrowableAmount = default(string))
         {
             this.CollateralCurrency = collateralCurrency;
@@ -52,51 +52,51 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Collateral
+        /// Collateral.
         /// </summary>
-        /// <value>Collateral</value>
+        /// <value>Collateral.</value>
         [DataMember(Name="collateral_currency")]
         public string CollateralCurrency { get; set; }
 
         /// <summary>
-        /// Borrowed currency
+        /// Borrowed currency.
         /// </summary>
-        /// <value>Borrowed currency</value>
+        /// <value>Borrowed currency.</value>
         [DataMember(Name="borrow_currency")]
         public string BorrowCurrency { get; set; }
 
         /// <summary>
-        /// The initial collateralization rate
+        /// The initial collateralization rate.
         /// </summary>
-        /// <value>The initial collateralization rate</value>
+        /// <value>The initial collateralization rate.</value>
         [DataMember(Name="init_ltv")]
         public string InitLtv { get; set; }
 
         /// <summary>
-        /// Warning collateralization ratio
+        /// Warning collateralization ratio.
         /// </summary>
-        /// <value>Warning collateralization ratio</value>
+        /// <value>Warning collateralization ratio.</value>
         [DataMember(Name="alert_ltv")]
         public string AlertLtv { get; set; }
 
         /// <summary>
-        /// The liquidation collateralization rate
+        /// The liquidation collateralization rate.
         /// </summary>
-        /// <value>The liquidation collateralization rate</value>
+        /// <value>The liquidation collateralization rate.</value>
         [DataMember(Name="liquidate_ltv")]
         public string LiquidateLtv { get; set; }
 
         /// <summary>
-        /// Minimum borrowable amount for the loan currency
+        /// Minimum borrowable amount for the loan currency.
         /// </summary>
-        /// <value>Minimum borrowable amount for the loan currency</value>
+        /// <value>Minimum borrowable amount for the loan currency.</value>
         [DataMember(Name="min_borrow_amount")]
         public string MinBorrowAmount { get; set; }
 
         /// <summary>
-        /// Remaining borrowable amount for the loan currency
+        /// Remaining borrowable amount for the loan currency.
         /// </summary>
-        /// <value>Remaining borrowable amount for the loan currency</value>
+        /// <value>Remaining borrowable amount for the loan currency.</value>
         [DataMember(Name="left_borrowable_amount")]
         public string LeftBorrowableAmount { get; set; }
 

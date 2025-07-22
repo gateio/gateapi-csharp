@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// List currencies for lending
+        /// List currencies for lending.
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         List<UniCurrency> ListUniCurrencies ();
 
         /// <summary>
-        /// List currencies for lending
+        /// List currencies for lending.
         /// </summary>
         /// <remarks>
         /// 
@@ -47,56 +47,56 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;UniCurrency&gt;</returns>
         ApiResponse<List<UniCurrency>> ListUniCurrenciesWithHttpInfo ();
         /// <summary>
-        /// Get currency detail for lending
+        /// Get currency detail for lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniCurrency</returns>
         UniCurrency GetUniCurrency (string currency);
 
         /// <summary>
-        /// Get currency detail for lending
+        /// Get currency detail for lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniCurrency</returns>
         ApiResponse<UniCurrency> GetUniCurrencyWithHttpInfo (string currency);
         /// <summary>
-        /// List user&#39;s lending orders
+        /// List user&#39;s lending orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLend&gt;</returns>
         List<UniLend> ListUserUniLends (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List user&#39;s lending orders
+        /// List user&#39;s lending orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLend&gt;</returns>
         ApiResponse<List<UniLend>> ListUserUniLendsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Lend or redeem
+        /// Lend or redeem.
         /// </summary>
         /// <remarks>
-        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -104,20 +104,20 @@ namespace Io.Gate.GateApi.Api
         void CreateUniLend (CreateUniLend createUniLend);
 
         /// <summary>
-        /// Lend or redeem
+        /// Lend or redeem.
         /// </summary>
         /// <remarks>
-        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CreateUniLendWithHttpInfo (CreateUniLend createUniLend);
         /// <summary>
-        /// Amend lending order
+        /// Amend lending order.
         /// </summary>
         /// <remarks>
-        /// Currently only supports amending the minimum interest rate (hour)
+        /// Currently only supports amending the minimum interest rate (hour).
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -125,157 +125,157 @@ namespace Io.Gate.GateApi.Api
         void ChangeUniLend (PatchUniLend patchUniLend);
 
         /// <summary>
-        /// Amend lending order
+        /// Amend lending order.
         /// </summary>
         /// <remarks>
-        /// Currently only supports amending the minimum interest rate (hour)
+        /// Currently only supports amending the minimum interest rate (hour).
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ChangeUniLendWithHttpInfo (PatchUniLend patchUniLend);
         /// <summary>
-        /// List records of lending
+        /// List records of lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>List&lt;UniLendRecord&gt;</returns>
         List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List records of lending
+        /// List records of lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLendRecord&gt;</returns>
         ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency
+        /// Get the user&#39;s total interest income of specified currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniLendInterest</returns>
         UniLendInterest GetUniInterest (string currency);
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency
+        /// Get the user&#39;s total interest income of specified currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniLendInterest</returns>
         ApiResponse<UniLendInterest> GetUniInterestWithHttpInfo (string currency);
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;UniInterestRecord&gt;</returns>
         List<UniInterestRecord> ListUniInterestRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniInterestRecord&gt;</returns>
         ApiResponse<List<UniInterestRecord>> ListUniInterestRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// query currency interest compounding status
+        /// query currency interest compounding status.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniCurrencyInterest</returns>
         UniCurrencyInterest GetUniInterestStatus (string currency);
 
         /// <summary>
-        /// query currency interest compounding status
+        /// query currency interest compounding status.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniCurrencyInterest</returns>
         ApiResponse<UniCurrencyInterest> GetUniInterestStatusWithHttpInfo (string currency);
         /// <summary>
-        /// UniLoan currency annualized trend chart
+        /// UniLoan currency annualized trend chart.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>List&lt;InlineResponse200&gt;</returns>
         List<InlineResponse200> ListUniChart (long from, long to, string asset);
 
         /// <summary>
-        /// UniLoan currency annualized trend chart
+        /// UniLoan currency annualized trend chart.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse200&gt;</returns>
         ApiResponse<List<InlineResponse200>> ListUniChartWithHttpInfo (long from, long to, string asset);
         /// <summary>
-        /// Currency estimate annualized interest rate
+        /// Currency estimate annualized interest rate.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;InlineResponse2001&gt;</returns>
         List<InlineResponse2001> ListUniRate ();
 
         /// <summary>
-        /// Currency estimate annualized interest rate
+        /// Currency estimate annualized interest rate.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;InlineResponse2001&gt;</returns>
@@ -290,7 +290,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// List currencies for lending
+        /// List currencies for lending.
         /// </summary>
         /// <remarks>
         /// 
@@ -300,7 +300,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<UniCurrency>> ListUniCurrenciesAsync ();
 
         /// <summary>
-        /// List currencies for lending
+        /// List currencies for lending.
         /// </summary>
         /// <remarks>
         /// 
@@ -309,56 +309,56 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;UniCurrency&gt;)</returns>
         Task<ApiResponse<List<UniCurrency>>> ListUniCurrenciesAsyncWithHttpInfo ();
         /// <summary>
-        /// Get currency detail for lending
+        /// Get currency detail for lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniCurrency</returns>
         Task<UniCurrency> GetUniCurrencyAsync (string currency);
 
         /// <summary>
-        /// Get currency detail for lending
+        /// Get currency detail for lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniCurrency)</returns>
         Task<ApiResponse<UniCurrency>> GetUniCurrencyAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// List user&#39;s lending orders
+        /// List user&#39;s lending orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLend&gt;</returns>
         Task<List<UniLend>> ListUserUniLendsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?));
 
         /// <summary>
-        /// List user&#39;s lending orders
+        /// List user&#39;s lending orders.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLend&gt;)</returns>
         Task<ApiResponse<List<UniLend>>> ListUserUniLendsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?));
         /// <summary>
-        /// Lend or redeem
+        /// Lend or redeem.
         /// </summary>
         /// <remarks>
-        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -366,20 +366,20 @@ namespace Io.Gate.GateApi.Api
         Task CreateUniLendAsync (CreateUniLend createUniLend);
 
         /// <summary>
-        /// Lend or redeem
+        /// Lend or redeem.
         /// </summary>
         /// <remarks>
-        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> CreateUniLendAsyncWithHttpInfo (CreateUniLend createUniLend);
         /// <summary>
-        /// Amend lending order
+        /// Amend lending order.
         /// </summary>
         /// <remarks>
-        /// Currently only supports amending the minimum interest rate (hour)
+        /// Currently only supports amending the minimum interest rate (hour).
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -387,157 +387,157 @@ namespace Io.Gate.GateApi.Api
         Task ChangeUniLendAsync (PatchUniLend patchUniLend);
 
         /// <summary>
-        /// Amend lending order
+        /// Amend lending order.
         /// </summary>
         /// <remarks>
-        /// Currently only supports amending the minimum interest rate (hour)
+        /// Currently only supports amending the minimum interest rate (hour).
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ChangeUniLendAsyncWithHttpInfo (PatchUniLend patchUniLend);
         /// <summary>
-        /// List records of lending
+        /// List records of lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>Task of List&lt;UniLendRecord&gt;</returns>
         Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
 
         /// <summary>
-        /// List records of lending
+        /// List records of lending.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLendRecord&gt;)</returns>
         Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string));
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency
+        /// Get the user&#39;s total interest income of specified currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniLendInterest</returns>
         Task<UniLendInterest> GetUniInterestAsync (string currency);
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency
+        /// Get the user&#39;s total interest income of specified currency.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniLendInterest)</returns>
         Task<ApiResponse<UniLendInterest>> GetUniInterestAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;UniInterestRecord&gt;</returns>
         Task<List<UniInterestRecord>> ListUniInterestRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
 
         /// <summary>
-        /// List interest records
+        /// List interest records.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniInterestRecord&gt;)</returns>
         Task<ApiResponse<List<UniInterestRecord>>> ListUniInterestRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?));
         /// <summary>
-        /// query currency interest compounding status
+        /// query currency interest compounding status.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniCurrencyInterest</returns>
         Task<UniCurrencyInterest> GetUniInterestStatusAsync (string currency);
 
         /// <summary>
-        /// query currency interest compounding status
+        /// query currency interest compounding status.
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniCurrencyInterest)</returns>
         Task<ApiResponse<UniCurrencyInterest>> GetUniInterestStatusAsyncWithHttpInfo (string currency);
         /// <summary>
-        /// UniLoan currency annualized trend chart
+        /// UniLoan currency annualized trend chart.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>Task of List&lt;InlineResponse200&gt;</returns>
         Task<List<InlineResponse200>> ListUniChartAsync (long from, long to, string asset);
 
         /// <summary>
-        /// UniLoan currency annualized trend chart
+        /// UniLoan currency annualized trend chart.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse200&gt;)</returns>
         Task<ApiResponse<List<InlineResponse200>>> ListUniChartAsyncWithHttpInfo (long from, long to, string asset);
         /// <summary>
-        /// Currency estimate annualized interest rate
+        /// Currency estimate annualized interest rate.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;InlineResponse2001&gt;</returns>
         Task<List<InlineResponse2001>> ListUniRateAsync ();
 
         /// <summary>
-        /// Currency estimate annualized interest rate
+        /// Currency estimate annualized interest rate.
         /// </summary>
         /// <remarks>
-        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2001&gt;)</returns>
@@ -663,7 +663,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currencies for lending 
+        /// List currencies for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UniCurrency&gt;</returns>
@@ -674,7 +674,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currencies for lending 
+        /// List currencies for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UniCurrency&gt;</returns>
@@ -711,7 +711,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currencies for lending 
+        /// List currencies for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;UniCurrency&gt;</returns>
@@ -723,7 +723,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List currencies for lending 
+        /// List currencies for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;UniCurrency&gt;)</returns>
@@ -762,10 +762,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get currency detail for lending 
+        /// Get currency detail for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniCurrency</returns>
         public UniCurrency GetUniCurrency (string currency)
         {
@@ -774,10 +774,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get currency detail for lending 
+        /// Get currency detail for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniCurrency</returns>
         public ApiResponse<UniCurrency> GetUniCurrencyWithHttpInfo (string currency)
         {
@@ -817,10 +817,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get currency detail for lending 
+        /// Get currency detail for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniCurrency</returns>
         public async Task<UniCurrency> GetUniCurrencyAsync (string currency)
         {
@@ -830,10 +830,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get currency detail for lending 
+        /// Get currency detail for lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniCurrency)</returns>
         public async Task<ApiResponse<UniCurrency>> GetUniCurrencyAsyncWithHttpInfo (string currency)
         {
@@ -875,12 +875,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s lending orders 
+        /// List user&#39;s lending orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>List&lt;UniLend&gt;</returns>
         public List<UniLend> ListUserUniLends (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -889,12 +889,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s lending orders 
+        /// List user&#39;s lending orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>ApiResponse of List&lt;UniLend&gt;</returns>
         public ApiResponse<List<UniLend>> ListUserUniLendsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -943,12 +943,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s lending orders 
+        /// List user&#39;s lending orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of List&lt;UniLend&gt;</returns>
         public async Task<List<UniLend>> ListUserUniLendsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -958,12 +958,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List user&#39;s lending orders 
+        /// List user&#39;s lending orders. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLend&gt;)</returns>
         public async Task<ApiResponse<List<UniLend>>> ListUserUniLendsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?))
         {
@@ -1014,7 +1014,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lend or redeem Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lend or redeem. Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -1025,7 +1025,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lend or redeem Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lend or redeem. Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -1070,7 +1070,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lend or redeem Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lend or redeem. Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -1082,7 +1082,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Lend or redeem Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.   If funds are redeemed before the hourly determination, no interest will be earned for that hour.   Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
+        /// Lend or redeem. Lending: When lending, a minimum lending rate must be set. After successful lending is determined on an hourly basis, earnings will be calculated based on the determined rate.  Earnings for each hour will be settled at the top of the hour. If lending fails due to an excessively high interest rate, no interest will be earned for that hour.  If funds are redeemed before the hourly for that hour.  Priority: Under the same interest rate, wealth management products created or modified earlier will be prioritized for lending.  Redemption: For funds that failed to be lent, redemption will be credited immediately. For funds successfully lent, they are entitled to the earnings for that hour, and redemption will be credited in the next hourly interval.  Note: The two minutes before and after the hourly mark are the settlement period, during which lending and redemption are prohibited. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniLend"></param>
@@ -1129,7 +1129,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend lending order Currently only supports amending the minimum interest rate (hour)
+        /// Amend lending order. Currently only supports amending the minimum interest rate (hour).
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -1140,7 +1140,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend lending order Currently only supports amending the minimum interest rate (hour)
+        /// Amend lending order. Currently only supports amending the minimum interest rate (hour).
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -1185,7 +1185,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend lending order Currently only supports amending the minimum interest rate (hour)
+        /// Amend lending order. Currently only supports amending the minimum interest rate (hour).
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -1197,7 +1197,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Amend lending order Currently only supports amending the minimum interest rate (hour)
+        /// Amend lending order. Currently only supports amending the minimum interest rate (hour).
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="patchUniLend"></param>
@@ -1244,15 +1244,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List records of lending 
+        /// List records of lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>List&lt;UniLendRecord&gt;</returns>
         public List<UniLendRecord> ListUniLendRecords (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
@@ -1261,15 +1261,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List records of lending 
+        /// List records of lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>ApiResponse of List&lt;UniLendRecord&gt;</returns>
         public ApiResponse<List<UniLendRecord>> ListUniLendRecordsWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
@@ -1330,15 +1330,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List records of lending 
+        /// List records of lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>Task of List&lt;UniLendRecord&gt;</returns>
         public async Task<List<UniLendRecord>> ListUniLendRecordsAsync (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
@@ -1348,15 +1348,15 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List records of lending 
+        /// List records of lending. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
-        /// <param name="type">type: lend - lend, redeem - redeem (optional)</param>
+        /// <param name="type">type: lend - lend, redeem - redeem. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniLendRecord&gt;)</returns>
         public async Task<ApiResponse<List<UniLendRecord>>> ListUniLendRecordsAsyncWithHttpInfo (string currency = default(string), int? page = default(int?), int? limit = default(int?), long? from = default(long?), long? to = default(long?), string type = default(string))
         {
@@ -1419,10 +1419,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency 
+        /// Get the user&#39;s total interest income of specified currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniLendInterest</returns>
         public UniLendInterest GetUniInterest (string currency)
         {
@@ -1431,10 +1431,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency 
+        /// Get the user&#39;s total interest income of specified currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniLendInterest</returns>
         public ApiResponse<UniLendInterest> GetUniInterestWithHttpInfo (string currency)
         {
@@ -1476,10 +1476,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency 
+        /// Get the user&#39;s total interest income of specified currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniLendInterest</returns>
         public async Task<UniLendInterest> GetUniInterestAsync (string currency)
         {
@@ -1489,10 +1489,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get the user&#39;s total interest income of specified currency 
+        /// Get the user&#39;s total interest income of specified currency. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniLendInterest)</returns>
         public async Task<ApiResponse<UniLendInterest>> GetUniInterestAsyncWithHttpInfo (string currency)
         {
@@ -1536,12 +1536,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>List&lt;UniInterestRecord&gt;</returns>
@@ -1552,12 +1552,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>ApiResponse of List&lt;UniInterestRecord&gt;</returns>
@@ -1616,12 +1616,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of List&lt;UniInterestRecord&gt;</returns>
@@ -1633,12 +1633,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List interest records 
+        /// List interest records. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Retrieve data of the specified currency (optional)</param>
-        /// <param name="page">Page number (optional, default to 1)</param>
-        /// <param name="limit">Maximum response items.  Default: 100, minimum: 1, Maximum: 100 (optional, default to 100)</param>
+        /// <param name="currency">Retrieve data of the specified currency. (optional)</param>
+        /// <param name="page">Page number. (optional, default to 1)</param>
+        /// <param name="limit">Maximum response items. Default: 100, minimum: 1, Maximum: 100. (optional, default to 100)</param>
         /// <param name="from">Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional)</param>
         /// <param name="to">Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;UniInterestRecord&gt;)</returns>
@@ -1699,10 +1699,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// query currency interest compounding status 
+        /// query currency interest compounding status. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>UniCurrencyInterest</returns>
         public UniCurrencyInterest GetUniInterestStatus (string currency)
         {
@@ -1711,10 +1711,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// query currency interest compounding status 
+        /// query currency interest compounding status. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>ApiResponse of UniCurrencyInterest</returns>
         public ApiResponse<UniCurrencyInterest> GetUniInterestStatusWithHttpInfo (string currency)
         {
@@ -1756,10 +1756,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// query currency interest compounding status 
+        /// query currency interest compounding status. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of UniCurrencyInterest</returns>
         public async Task<UniCurrencyInterest> GetUniInterestStatusAsync (string currency)
         {
@@ -1769,10 +1769,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// query currency interest compounding status 
+        /// query currency interest compounding status. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currency">Currency</param>
+        /// <param name="currency">Currency.</param>
         /// <returns>Task of ApiResponse (UniCurrencyInterest)</returns>
         public async Task<ApiResponse<UniCurrencyInterest>> GetUniInterestStatusAsyncWithHttpInfo (string currency)
         {
@@ -1816,12 +1816,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UniLoan currency annualized trend chart Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// UniLoan currency annualized trend chart. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>List&lt;InlineResponse200&gt;</returns>
         public List<InlineResponse200> ListUniChart (long from, long to, string asset)
         {
@@ -1830,12 +1830,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UniLoan currency annualized trend chart Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// UniLoan currency annualized trend chart. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>ApiResponse of List&lt;InlineResponse200&gt;</returns>
         public ApiResponse<List<InlineResponse200>> ListUniChartWithHttpInfo (long from, long to, string asset)
         {
@@ -1879,12 +1879,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UniLoan currency annualized trend chart Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// UniLoan currency annualized trend chart. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>Task of List&lt;InlineResponse200&gt;</returns>
         public async Task<List<InlineResponse200>> ListUniChartAsync (long from, long to, string asset)
         {
@@ -1894,12 +1894,12 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UniLoan currency annualized trend chart Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// UniLoan currency annualized trend chart. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="from">Start timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="to">End timestamp, unit s, maximum span of 30 days</param>
-        /// <param name="asset">Currency name</param>
+        /// <param name="from">Start timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="to">End timestamp, unit s, maximum span of 30 days.</param>
+        /// <param name="asset">Currency name.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse200&gt;)</returns>
         public async Task<ApiResponse<List<InlineResponse200>>> ListUniChartAsyncWithHttpInfo (long from, long to, string asset)
         {
@@ -1945,7 +1945,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currency estimate annualized interest rate Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Currency estimate annualized interest rate. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;InlineResponse2001&gt;</returns>
@@ -1956,7 +1956,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currency estimate annualized interest rate Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Currency estimate annualized interest rate. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;InlineResponse2001&gt;</returns>
@@ -1995,7 +1995,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currency estimate annualized interest rate Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Currency estimate annualized interest rate. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;InlineResponse2001&gt;</returns>
@@ -2007,7 +2007,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Currency estimate annualized interest rate Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-15 06:49+0000 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
+        /// Currency estimate annualized interest rate. Project-Id-Version: GateApiTools 1.0.0 Report-Msgid-Bugs-To: EMAIL@ADDRESS POT-Creation-Date: 2025-07-17 21:35+0800 PO-Revision-Date: 2019-01-02 17:30+0800 Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt; Language: en Language-Team: en &lt;L@li.org&gt; Plural-Forms: nplurals&#x3D;2; plural&#x3D;(n !&#x3D;1) MIME-Version: 1.0 Content-Type: text/plain; charset&#x3D;utf-8 Content-Transfer-Encoding: 8bit Generated-By: Babel 2.8.0 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;InlineResponse2001&gt;)</returns>

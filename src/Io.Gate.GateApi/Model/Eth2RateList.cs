@@ -33,9 +33,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Eth2RateList" /> class.
         /// </summary>
-        /// <param name="dateTime">Date and Time Stamp.</param>
-        /// <param name="date">Date.</param>
-        /// <param name="rate">percentage.</param>
+        /// <param name="dateTime">Date and Time Stamp..</param>
+        /// <param name="date">Date..</param>
+        /// <param name="rate">percentage..</param>
         public Eth2RateList(long dateTime = default(long), string date = default(string), string rate = default(string))
         {
             this.DateTime = dateTime;
@@ -44,23 +44,23 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Date and Time Stamp
+        /// Date and Time Stamp.
         /// </summary>
-        /// <value>Date and Time Stamp</value>
+        /// <value>Date and Time Stamp.</value>
         [DataMember(Name="date_time")]
         public long DateTime { get; set; }
 
         /// <summary>
-        /// Date
+        /// Date.
         /// </summary>
-        /// <value>Date</value>
+        /// <value>Date.</value>
         [DataMember(Name="date")]
         public string Date { get; set; }
 
         /// <summary>
-        /// percentage
+        /// percentage.
         /// </summary>
-        /// <value>percentage</value>
+        /// <value>percentage.</value>
         [DataMember(Name="rate")]
         public string Rate { get; set; }
 

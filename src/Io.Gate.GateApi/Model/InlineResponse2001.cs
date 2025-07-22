@@ -34,7 +34,7 @@ namespace Io.Gate.GateApi.Model
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
         /// <param name="currency">currency.</param>
-        /// <param name="estRate">Unconverted percentage.</param>
+        /// <param name="estRate">Unconverted percentage..</param>
         public InlineResponse2001(string currency = default(string), string estRate = default(string))
         {
             this.Currency = currency;
@@ -48,9 +48,9 @@ namespace Io.Gate.GateApi.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Unconverted percentage
+        /// Unconverted percentage.
         /// </summary>
-        /// <value>Unconverted percentage</value>
+        /// <value>Unconverted percentage.</value>
         [DataMember(Name="est_rate")]
         public string EstRate { get; set; }
 

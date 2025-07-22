@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Io.Gate.GateApi.Client.OpenAPIDateConverter;
 namespace Io.Gate.GateApi.Model
 {
     /// <summary>
-    /// List all supported currencies in flash swap
+    /// List all supported currencies in flash swap.
     /// </summary>
     [DataContract]
     public partial class FlashSwapCurrencyPair :  IEquatable<FlashSwapCurrencyPair>, IValidatableObject
@@ -46,44 +46,44 @@ namespace Io.Gate.GateApi.Model
         public string CurrencyPair { get; private set; }
 
         /// <summary>
-        /// The currency to be sold
+        /// The currency to be sold.
         /// </summary>
-        /// <value>The currency to be sold</value>
+        /// <value>The currency to be sold.</value>
         [DataMember(Name="sell_currency", EmitDefaultValue=false)]
         public string SellCurrency { get; private set; }
 
         /// <summary>
-        /// The currency to be bought
+        /// The currency to be bought.
         /// </summary>
-        /// <value>The currency to be bought</value>
+        /// <value>The currency to be bought.</value>
         [DataMember(Name="buy_currency", EmitDefaultValue=false)]
         public string BuyCurrency { get; private set; }
 
         /// <summary>
-        /// The minimum quantity required for selling
+        /// The minimum quantity required for selling.
         /// </summary>
-        /// <value>The minimum quantity required for selling</value>
+        /// <value>The minimum quantity required for selling.</value>
         [DataMember(Name="sell_min_amount", EmitDefaultValue=false)]
         public string SellMinAmount { get; private set; }
 
         /// <summary>
-        /// The maximum quantity allowed for selling
+        /// The maximum quantity allowed for selling.
         /// </summary>
-        /// <value>The maximum quantity allowed for selling</value>
+        /// <value>The maximum quantity allowed for selling.</value>
         [DataMember(Name="sell_max_amount", EmitDefaultValue=false)]
         public string SellMaxAmount { get; private set; }
 
         /// <summary>
-        /// The minimum quantity required for buying
+        /// The minimum quantity required for buying.
         /// </summary>
-        /// <value>The minimum quantity required for buying</value>
+        /// <value>The minimum quantity required for buying.</value>
         [DataMember(Name="buy_min_amount", EmitDefaultValue=false)]
         public string BuyMinAmount { get; private set; }
 
         /// <summary>
-        /// The maximum quantity allowed for buying
+        /// The maximum quantity allowed for buying.
         /// </summary>
-        /// <value>The maximum quantity allowed for buying</value>
+        /// <value>The maximum quantity allowed for buying.</value>
         [DataMember(Name="buy_max_amount", EmitDefaultValue=false)]
         public string BuyMaxAmount { get; private set; }
 

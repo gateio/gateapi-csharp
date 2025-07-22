@@ -38,13 +38,13 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccountToSubAccount" /> class.
         /// </summary>
-        /// <param name="currency">Transfer currency name (required).</param>
+        /// <param name="currency">Transfer currency name. (required).</param>
         /// <param name="subAccountType">Transfer from the account. (deprecate, use &#x60;sub_account_from_type&#x60; and &#x60;sub_account_to_type&#x60; instead).</param>
-        /// <param name="subAccountFrom">Transfer from the user id of the sub-account (required).</param>
+        /// <param name="subAccountFrom">Transfer from the user id of the sub-account. (required).</param>
         /// <param name="subAccountFromType">The sub-account&#39;s outgoing trading account, spot - spot account, futures - perpetual contract account, delivery - delivery contract account. (required).</param>
-        /// <param name="subAccountTo">Transfer to the user id of the sub-account (required).</param>
+        /// <param name="subAccountTo">Transfer to the user id of the sub-account. (required).</param>
         /// <param name="subAccountToType">Transferred sub-account trading account: spot - spot account, futures - perpetual contract account, delivery - delivery contract account (required).</param>
-        /// <param name="amount">Transfer amount (required).</param>
+        /// <param name="amount">Transfer amount. (required).</param>
         public SubAccountToSubAccount(string currency = default(string), string subAccountType = default(string), string subAccountFrom = default(string), string subAccountFromType = default(string), string subAccountTo = default(string), string subAccountToType = default(string), string amount = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -63,9 +63,9 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Transfer currency name
+        /// Transfer currency name.
         /// </summary>
-        /// <value>Transfer currency name</value>
+        /// <value>Transfer currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
@@ -77,9 +77,9 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountType { get; set; }
 
         /// <summary>
-        /// Transfer from the user id of the sub-account
+        /// Transfer from the user id of the sub-account.
         /// </summary>
-        /// <value>Transfer from the user id of the sub-account</value>
+        /// <value>Transfer from the user id of the sub-account.</value>
         [DataMember(Name="sub_account_from")]
         public string SubAccountFrom { get; set; }
 
@@ -91,9 +91,9 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountFromType { get; set; }
 
         /// <summary>
-        /// Transfer to the user id of the sub-account
+        /// Transfer to the user id of the sub-account.
         /// </summary>
-        /// <value>Transfer to the user id of the sub-account</value>
+        /// <value>Transfer to the user id of the sub-account.</value>
         [DataMember(Name="sub_account_to")]
         public string SubAccountTo { get; set; }
 
@@ -105,9 +105,9 @@ namespace Io.Gate.GateApi.Model
         public string SubAccountToType { get; set; }
 
         /// <summary>
-        /// Transfer amount
+        /// Transfer amount.
         /// </summary>
-        /// <value>Transfer amount</value>
+        /// <value>Transfer amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 

@@ -4,32 +4,32 @@ All URIs are relative to *https://api.gateio.ws/api/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListOptionsUnderlyings**](OptionsApi.md#listoptionsunderlyings) | **GET** /options/underlyings | List all underlyings
-[**ListOptionsExpirations**](OptionsApi.md#listoptionsexpirations) | **GET** /options/expirations | List all expiration times
-[**ListOptionsContracts**](OptionsApi.md#listoptionscontracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time
-[**GetOptionsContract**](OptionsApi.md#getoptionscontract) | **GET** /options/contracts/{contract} | Query specified contract detail
-[**ListOptionsSettlements**](OptionsApi.md#listoptionssettlements) | **GET** /options/settlements | List settlement history
-[**GetOptionsSettlement**](OptionsApi.md#getoptionssettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement
-[**ListMyOptionsSettlements**](OptionsApi.md#listmyoptionssettlements) | **GET** /options/my_settlements | List my options settlements
-[**ListOptionsOrderBook**](OptionsApi.md#listoptionsorderbook) | **GET** /options/order_book | Options order book
-[**ListOptionsTickers**](OptionsApi.md#listoptionstickers) | **GET** /options/tickers | List tickers of options contracts
-[**ListOptionsUnderlyingTickers**](OptionsApi.md#listoptionsunderlyingtickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker
-[**ListOptionsCandlesticks**](OptionsApi.md#listoptionscandlesticks) | **GET** /options/candlesticks | Get options candlesticks
-[**ListOptionsUnderlyingCandlesticks**](OptionsApi.md#listoptionsunderlyingcandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying
-[**ListOptionsTrades**](OptionsApi.md#listoptionstrades) | **GET** /options/trades | Options trade history
-[**ListOptionsAccount**](OptionsApi.md#listoptionsaccount) | **GET** /options/accounts | List options account
-[**ListOptionsAccountBook**](OptionsApi.md#listoptionsaccountbook) | **GET** /options/account_book | List account changing history
-[**ListOptionsPositions**](OptionsApi.md#listoptionspositions) | **GET** /options/positions | List user&#39;s positions of specified underlying
-[**GetOptionsPosition**](OptionsApi.md#getoptionsposition) | **GET** /options/positions/{contract} | Get specified contract position
-[**ListOptionsPositionClose**](OptionsApi.md#listoptionspositionclose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying
-[**ListOptionsOrders**](OptionsApi.md#listoptionsorders) | **GET** /options/orders | List options orders
-[**CreateOptionsOrder**](OptionsApi.md#createoptionsorder) | **POST** /options/orders | Create an options order
-[**CancelOptionsOrders**](OptionsApi.md#canceloptionsorders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched
-[**GetOptionsOrder**](OptionsApi.md#getoptionsorder) | **GET** /options/orders/{order_id} | Get a single order
-[**CancelOptionsOrder**](OptionsApi.md#canceloptionsorder) | **DELETE** /options/orders/{order_id} | Cancel a single order
-[**CountdownCancelAllOptions**](OptionsApi.md#countdowncancelalloptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders
-[**ListMyOptionsTrades**](OptionsApi.md#listmyoptionstrades) | **GET** /options/my_trades | List personal trading history
-[**GetOptionsMMP**](OptionsApi.md#getoptionsmmp) | **GET** /options/mmp | MMP Query
+[**ListOptionsUnderlyings**](OptionsApi.md#listoptionsunderlyings) | **GET** /options/underlyings | List all underlyings.
+[**ListOptionsExpirations**](OptionsApi.md#listoptionsexpirations) | **GET** /options/expirations | List all expiration times.
+[**ListOptionsContracts**](OptionsApi.md#listoptionscontracts) | **GET** /options/contracts | List all the contracts with specified underlying and expiration time.
+[**GetOptionsContract**](OptionsApi.md#getoptionscontract) | **GET** /options/contracts/{contract} | Query specified contract detail.
+[**ListOptionsSettlements**](OptionsApi.md#listoptionssettlements) | **GET** /options/settlements | List settlement history.
+[**GetOptionsSettlement**](OptionsApi.md#getoptionssettlement) | **GET** /options/settlements/{contract} | Get specified contract&#39;s settlement.
+[**ListMyOptionsSettlements**](OptionsApi.md#listmyoptionssettlements) | **GET** /options/my_settlements | List my options settlements.
+[**ListOptionsOrderBook**](OptionsApi.md#listoptionsorderbook) | **GET** /options/order_book | Options order book.
+[**ListOptionsTickers**](OptionsApi.md#listoptionstickers) | **GET** /options/tickers | List tickers of options contracts.
+[**ListOptionsUnderlyingTickers**](OptionsApi.md#listoptionsunderlyingtickers) | **GET** /options/underlying/tickers/{underlying} | Get underlying ticker.
+[**ListOptionsCandlesticks**](OptionsApi.md#listoptionscandlesticks) | **GET** /options/candlesticks | Get options candlesticks.
+[**ListOptionsUnderlyingCandlesticks**](OptionsApi.md#listoptionsunderlyingcandlesticks) | **GET** /options/underlying/candlesticks | Mark price candlesticks of an underlying.
+[**ListOptionsTrades**](OptionsApi.md#listoptionstrades) | **GET** /options/trades | Options trade history.
+[**ListOptionsAccount**](OptionsApi.md#listoptionsaccount) | **GET** /options/accounts | List options account.
+[**ListOptionsAccountBook**](OptionsApi.md#listoptionsaccountbook) | **GET** /options/account_book | List account changing history.
+[**ListOptionsPositions**](OptionsApi.md#listoptionspositions) | **GET** /options/positions | List user&#39;s positions of specified underlying.
+[**GetOptionsPosition**](OptionsApi.md#getoptionsposition) | **GET** /options/positions/{contract} | Get specified contract position.
+[**ListOptionsPositionClose**](OptionsApi.md#listoptionspositionclose) | **GET** /options/position_close | List user&#39;s liquidation history of specified underlying.
+[**ListOptionsOrders**](OptionsApi.md#listoptionsorders) | **GET** /options/orders | List options orders.
+[**CreateOptionsOrder**](OptionsApi.md#createoptionsorder) | **POST** /options/orders | Create an options order.
+[**CancelOptionsOrders**](OptionsApi.md#canceloptionsorders) | **DELETE** /options/orders | Cancel all &#x60;open&#x60; orders matched.
+[**GetOptionsOrder**](OptionsApi.md#getoptionsorder) | **GET** /options/orders/{order_id} | Get a single order.
+[**CancelOptionsOrder**](OptionsApi.md#canceloptionsorder) | **DELETE** /options/orders/{order_id} | Cancel a single order.
+[**CountdownCancelAllOptions**](OptionsApi.md#countdowncancelalloptions) | **POST** /options/countdown_cancel_all | Countdown cancel orders.
+[**ListMyOptionsTrades**](OptionsApi.md#listmyoptionstrades) | **GET** /options/my_trades | List personal trading history.
+[**GetOptionsMMP**](OptionsApi.md#getoptionsmmp) | **GET** /options/mmp | MMP Query.
 [**SetOptionsMMP**](OptionsApi.md#setoptionsmmp) | **POST** /options/mmp | MMP Settings
 [**ResetOptionsMMP**](OptionsApi.md#resetoptionsmmp) | **POST** /options/mmp/reset | MMP Reset
 
@@ -38,7 +38,7 @@ Method | HTTP request | Description
 # **ListOptionsUnderlyings**
 > List&lt;OptionsUnderlying&gt; ListOptionsUnderlyings ()
 
-List all underlyings
+List all underlyings.
 
 ### Example
 ```csharp
@@ -60,7 +60,7 @@ namespace Example
 
             try
             {
-                // List all underlyings
+                // List all underlyings.
                 List<OptionsUnderlying> result = apiInstance.ListOptionsUnderlyings();
                 Debug.WriteLine(result);
             }
@@ -95,7 +95,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -103,7 +103,7 @@ No authorization required
 # **ListOptionsExpirations**
 > List&lt;long&gt; ListOptionsExpirations (string underlying)
 
-List all expiration times
+List all expiration times.
 
 ### Example
 ```csharp
@@ -122,11 +122,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
 
             try
             {
-                // List all expiration times
+                // List all expiration times.
                 List<long> result = apiInstance.ListOptionsExpirations(underlying);
                 Debug.WriteLine(result);
             }
@@ -146,7 +146,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
 
 ### Return type
 
@@ -164,7 +164,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List expiration times of specified underlying |  -  |
+| **200** | List expiration times of specified underlying. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -172,7 +172,7 @@ No authorization required
 # **ListOptionsContracts**
 > List&lt;OptionsContract&gt; ListOptionsContracts (string underlying, long? expiration = null)
 
-List all the contracts with specified underlying and expiration time
+List all the contracts with specified underlying and expiration time.
 
 ### Example
 ```csharp
@@ -191,12 +191,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var expiration = 1636588800;  // long? | Unix timestamp of the expiration time (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var expiration = 1636588800;  // long? | Unix timestamp of the expiration time. (optional) 
 
             try
             {
-                // List all the contracts with specified underlying and expiration time
+                // List all the contracts with specified underlying and expiration time.
                 List<OptionsContract> result = apiInstance.ListOptionsContracts(underlying, expiration);
                 Debug.WriteLine(result);
             }
@@ -216,8 +216,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **expiration** | **long?**| Unix timestamp of the expiration time | [optional] 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **expiration** | **long?**| Unix timestamp of the expiration time. | [optional] 
 
 ### Return type
 
@@ -235,7 +235,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -243,7 +243,7 @@ No authorization required
 # **GetOptionsContract**
 > OptionsContract GetOptionsContract (string contract)
 
-Query specified contract detail
+Query specified contract detail.
 
 ### Example
 ```csharp
@@ -266,7 +266,7 @@ namespace Example
 
             try
             {
-                // Query specified contract detail
+                // Query specified contract detail.
                 OptionsContract result = apiInstance.GetOptionsContract(contract);
                 Debug.WriteLine(result);
             }
@@ -304,7 +304,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -312,7 +312,7 @@ No authorization required
 # **ListOptionsSettlements**
 > List&lt;OptionsSettlement&gt; ListOptionsSettlements (string underlying, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-List settlement history
+List settlement history.
 
 ### Example
 ```csharp
@@ -331,15 +331,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
-                // List settlement history
+                // List settlement history.
                 List<OptionsSettlement> result = apiInstance.ListOptionsSettlements(underlying, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -359,9 +359,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
@@ -381,7 +381,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -389,7 +389,7 @@ No authorization required
 # **GetOptionsSettlement**
 > OptionsSettlement GetOptionsSettlement (string contract, string underlying, long at)
 
-Get specified contract's settlement
+Get specified contract's settlement.
 
 ### Example
 ```csharp
@@ -409,12 +409,12 @@ namespace Example
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
             var contract = "BTC_USDT-20211130-65000-C";  // string | 
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
             var at = 56;  // long | 
 
             try
             {
-                // Get specified contract's settlement
+                // Get specified contract's settlement.
                 OptionsSettlement result = apiInstance.GetOptionsSettlement(contract, underlying, at);
                 Debug.WriteLine(result);
             }
@@ -435,7 +435,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contract** | **string**|  | 
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
  **at** | **long**|  | 
 
 ### Return type
@@ -454,7 +454,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -462,7 +462,7 @@ No authorization required
 # **ListMyOptionsSettlements**
 > List&lt;OptionsMySettlements&gt; ListMyOptionsSettlements (string underlying, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-List my options settlements
+List my options settlements.
 
 ### Example
 ```csharp
@@ -483,16 +483,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
-                // List my options settlements
+                // List my options settlements.
                 List<OptionsMySettlements> result = apiInstance.ListMyOptionsSettlements(underlying, contract, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -512,10 +512,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **contract** | **string**| Options contract name | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **contract** | **string**| Options contract name. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -543,9 +543,9 @@ Name | Type | Description  | Notes
 # **ListOptionsOrderBook**
 > FuturesOrderBook ListOptionsOrderBook (string contract, string interval = null, int? limit = null, bool? withId = null)
 
-Options order book
+Options order book.
 
-Bids will be sorted by price from high to low, while asks sorted reversely
+Bids will be sorted by price from high to low, while asks sorted reversely.
 
 ### Example
 ```csharp
@@ -564,14 +564,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name
-            var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0 (optional)  (default to 0)
-            var limit = 10;  // int? | Maximum number of order depth data in asks or bids (optional)  (default to 10)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name.
+            var interval = "0";  // string | Order depth. 0 means no aggregation is applied. default to 0. (optional)  (default to 0)
+            var limit = 10;  // int? | Maximum number of order depth data in asks or bids. (optional)  (default to 10)
             var withId = false;  // bool? | Whether to return depth update ID. This ID increments by 1 each time. (optional)  (default to false)
 
             try
             {
-                // Options order book
+                // Options order book.
                 FuturesOrderBook result = apiInstance.ListOptionsOrderBook(contract, interval, limit, withId);
                 Debug.WriteLine(result);
             }
@@ -591,9 +591,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name | 
- **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0 | [optional] [default to 0]
- **limit** | **int?**| Maximum number of order depth data in asks or bids | [optional] [default to 10]
+ **contract** | **string**| Options contract name. | 
+ **interval** | **string**| Order depth. 0 means no aggregation is applied. default to 0. | [optional] [default to 0]
+ **limit** | **int?**| Maximum number of order depth data in asks or bids. | [optional] [default to 10]
  **withId** | **bool?**| Whether to return depth update ID. This ID increments by 1 each time. | [optional] [default to false]
 
 ### Return type
@@ -612,7 +612,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Depth query successful |  -  |
+| **200** | Depth query successful. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -620,7 +620,7 @@ No authorization required
 # **ListOptionsTickers**
 > List&lt;OptionsTicker&gt; ListOptionsTickers (string underlying)
 
-List tickers of options contracts
+List tickers of options contracts.
 
 ### Example
 ```csharp
@@ -639,11 +639,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
 
             try
             {
-                // List tickers of options contracts
+                // List tickers of options contracts.
                 List<OptionsTicker> result = apiInstance.ListOptionsTickers(underlying);
                 Debug.WriteLine(result);
             }
@@ -663,7 +663,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
 
 ### Return type
 
@@ -681,7 +681,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -689,7 +689,7 @@ No authorization required
 # **ListOptionsUnderlyingTickers**
 > OptionsUnderlyingTicker ListOptionsUnderlyingTickers (string underlying)
 
-Get underlying ticker
+Get underlying ticker.
 
 ### Example
 ```csharp
@@ -708,11 +708,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying
+            var underlying = "BTC_USDT";  // string | Underlying.
 
             try
             {
-                // Get underlying ticker
+                // Get underlying ticker.
                 OptionsUnderlyingTicker result = apiInstance.ListOptionsUnderlyingTickers(underlying);
                 Debug.WriteLine(result);
             }
@@ -732,7 +732,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | 
+ **underlying** | **string**| Underlying. | 
 
 ### Return type
 
@@ -750,7 +750,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -758,7 +758,7 @@ No authorization required
 # **ListOptionsCandlesticks**
 > List&lt;OptionsCandlestick&gt; ListOptionsCandlesticks (string contract, int? limit = null, long? from = null, long? to = null, string interval = null)
 
-Get options candlesticks
+Get options candlesticks.
 
 ### Example
 ```csharp
@@ -777,15 +777,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name.
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
-            var interval = "5m";  // string | Interval time between data points (optional)  (default to 5m)
+            var interval = "5m";  // string | Interval time between data points. (optional)  (default to 5m)
 
             try
             {
-                // Get options candlesticks
+                // Get options candlesticks.
                 List<OptionsCandlestick> result = apiInstance.ListOptionsCandlesticks(contract, limit, from, to, interval);
                 Debug.WriteLine(result);
             }
@@ -805,11 +805,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **contract** | **string**| Options contract name. | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **interval** | **string**| Interval time between data points | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points. | [optional] [default to 5m]
 
 ### Return type
 
@@ -827,7 +827,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -835,7 +835,7 @@ No authorization required
 # **ListOptionsUnderlyingCandlesticks**
 > List&lt;FuturesCandlestick&gt; ListOptionsUnderlyingCandlesticks (string underlying, int? limit = null, long? from = null, long? to = null, string interval = null)
 
-Mark price candlesticks of an underlying
+Mark price candlesticks of an underlying.
 
 ### Example
 ```csharp
@@ -854,15 +854,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
-            var interval = "5m";  // string | Interval time between data points (optional)  (default to 5m)
+            var interval = "5m";  // string | Interval time between data points. (optional)  (default to 5m)
 
             try
             {
-                // Mark price candlesticks of an underlying
+                // Mark price candlesticks of an underlying.
                 List<FuturesCandlestick> result = apiInstance.ListOptionsUnderlyingCandlesticks(underlying, limit, from, to, interval);
                 Debug.WriteLine(result);
             }
@@ -882,11 +882,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
- **interval** | **string**| Interval time between data points | [optional] [default to 5m]
+ **interval** | **string**| Interval time between data points. | [optional] [default to 5m]
 
 ### Return type
 
@@ -904,7 +904,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -912,7 +912,7 @@ No authorization required
 # **ListOptionsTrades**
 > List&lt;FuturesTrade&gt; ListOptionsTrades (string contract = null, string type = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-Options trade history
+Options trade history.
 
 ### Example
 ```csharp
@@ -931,16 +931,16 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.gateio.ws/api/v4";
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
-            var type = "1546935600";  // string | `C` is call, while `P` is put (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
+            var type = "1546935600";  // string | `C` is call, while `P` is put. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
-                // Options trade history
+                // Options trade history.
                 List<FuturesTrade> result = apiInstance.ListOptionsTrades(contract, type, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -960,10 +960,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name | [optional] 
- **type** | **string**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **contract** | **string**| Options contract name. | [optional] 
+ **type** | **string**| &#x60;C&#x60; is call, while &#x60;P&#x60; is put. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
@@ -983,7 +983,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -991,7 +991,7 @@ No authorization required
 # **ListOptionsAccount**
 > OptionsAccount ListOptionsAccount ()
 
-List options account
+List options account.
 
 ### Example
 ```csharp
@@ -1015,7 +1015,7 @@ namespace Example
 
             try
             {
-                // List options account
+                // List options account.
                 OptionsAccount result = apiInstance.ListOptionsAccount();
                 Debug.WriteLine(result);
             }
@@ -1050,7 +1050,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1058,7 +1058,7 @@ This endpoint does not need any parameter.
 # **ListOptionsAccountBook**
 > List&lt;OptionsAccountBook&gt; ListOptionsAccountBook (int? limit = null, int? offset = null, long? from = null, long? to = null, string type = null)
 
-List account changing history
+List account changing history.
 
 ### Example
 ```csharp
@@ -1079,15 +1079,15 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
             var type = "dnw";  // string | Changing Type: - dnw: Deposit & Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  (optional) 
 
             try
             {
-                // List account changing history
+                // List account changing history.
                 List<OptionsAccountBook> result = apiInstance.ListOptionsAccountBook(limit, offset, from, to, type);
                 Debug.WriteLine(result);
             }
@@ -1107,8 +1107,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
  **type** | **string**| Changing Type: - dnw: Deposit &amp; Withdraw - prem: Trading premium - fee: Trading fee - refr: Referrer rebate - set: settlement PNL  | [optional] 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1137,7 +1137,7 @@ Name | Type | Description  | Notes
 # **ListOptionsPositions**
 > List&lt;OptionsPosition&gt; ListOptionsPositions (string underlying = null)
 
-List user's positions of specified underlying
+List user's positions of specified underlying.
 
 ### Example
 ```csharp
@@ -1158,11 +1158,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying. (optional) 
 
             try
             {
-                // List user's positions of specified underlying
+                // List user's positions of specified underlying.
                 List<OptionsPosition> result = apiInstance.ListOptionsPositions(underlying);
                 Debug.WriteLine(result);
             }
@@ -1182,7 +1182,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | [optional] 
+ **underlying** | **string**| Underlying. | [optional] 
 
 ### Return type
 
@@ -1200,7 +1200,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1208,7 +1208,7 @@ Name | Type | Description  | Notes
 # **GetOptionsPosition**
 > OptionsPosition GetOptionsPosition (string contract)
 
-Get specified contract position
+Get specified contract position.
 
 ### Example
 ```csharp
@@ -1233,7 +1233,7 @@ namespace Example
 
             try
             {
-                // Get specified contract position
+                // Get specified contract position.
                 OptionsPosition result = apiInstance.GetOptionsPosition(contract);
                 Debug.WriteLine(result);
             }
@@ -1271,7 +1271,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1279,7 +1279,7 @@ Name | Type | Description  | Notes
 # **ListOptionsPositionClose**
 > List&lt;OptionsPositionClose&gt; ListOptionsPositionClose (string underlying, string contract = null)
 
-List user's liquidation history of specified underlying
+List user's liquidation history of specified underlying.
 
 ### Example
 ```csharp
@@ -1300,12 +1300,12 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
 
             try
             {
-                // List user's liquidation history of specified underlying
+                // List user's liquidation history of specified underlying.
                 List<OptionsPositionClose> result = apiInstance.ListOptionsPositionClose(underlying, contract);
                 Debug.WriteLine(result);
             }
@@ -1325,8 +1325,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **contract** | **string**| Options contract name | [optional] 
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **contract** | **string**| Options contract name. | [optional] 
 
 ### Return type
 
@@ -1344,7 +1344,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1352,7 +1352,7 @@ Name | Type | Description  | Notes
 # **ListOptionsOrders**
 > List&lt;OptionsOrder&gt; ListOptionsOrders (string status, string contract = null, string underlying = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-List options orders
+List options orders.
 
 ### Example
 ```csharp
@@ -1373,17 +1373,17 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var status = "open";  // string | Only list the orders with this status
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
-            var underlying = "BTC_USDT";  // string | Underlying (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var status = "open";  // string | Only list the orders with this status.
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
-                // List options orders
+                // List options orders.
                 List<OptionsOrder> result = apiInstance.ListOptionsOrders(status, contract, underlying, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -1403,11 +1403,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **string**| Only list the orders with this status | 
- **contract** | **string**| Options contract name | [optional] 
- **underlying** | **string**| Underlying | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **status** | **string**| Only list the orders with this status. | 
+ **contract** | **string**| Options contract name. | [optional] 
+ **underlying** | **string**| Underlying. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
@@ -1427,7 +1427,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1435,7 +1435,7 @@ Name | Type | Description  | Notes
 # **CreateOptionsOrder**
 > OptionsOrder CreateOptionsOrder (OptionsOrder optionsOrder)
 
-Create an options order
+Create an options order.
 
 ### Example
 ```csharp
@@ -1460,7 +1460,7 @@ namespace Example
 
             try
             {
-                // Create an options order
+                // Create an options order.
                 OptionsOrder result = apiInstance.CreateOptionsOrder(optionsOrder);
                 Debug.WriteLine(result);
             }
@@ -1498,7 +1498,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Order detail |  -  |
+| **201** | Order detail. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1506,7 +1506,7 @@ Name | Type | Description  | Notes
 # **CancelOptionsOrders**
 > List&lt;OptionsOrder&gt; CancelOptionsOrders (string contract = null, string underlying = null, string side = null)
 
-Cancel all `open` orders matched
+Cancel all `open` orders matched.
 
 ### Example
 ```csharp
@@ -1527,13 +1527,13 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
-            var underlying = "BTC_USDT";  // string | Underlying (optional) 
-            var side = "ask";  // string | All bids or asks. Both included if not specified (optional) 
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying. (optional) 
+            var side = "ask";  // string | All bids or asks. Both included if not specified. (optional) 
 
             try
             {
-                // Cancel all `open` orders matched
+                // Cancel all `open` orders matched.
                 List<OptionsOrder> result = apiInstance.CancelOptionsOrders(contract, underlying, side);
                 Debug.WriteLine(result);
             }
@@ -1553,9 +1553,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract** | **string**| Options contract name | [optional] 
- **underlying** | **string**| Underlying | [optional] 
- **side** | **string**| All bids or asks. Both included if not specified | [optional] 
+ **contract** | **string**| Options contract name. | [optional] 
+ **underlying** | **string**| Underlying. | [optional] 
+ **side** | **string**| All bids or asks. Both included if not specified. | [optional] 
 
 ### Return type
 
@@ -1573,7 +1573,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | All orders matched cancelled |  -  |
+| **200** | All orders matched cancelled. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1581,7 +1581,7 @@ Name | Type | Description  | Notes
 # **GetOptionsOrder**
 > OptionsOrder GetOptionsOrder (long orderId)
 
-Get a single order
+Get a single order.
 
 ### Example
 ```csharp
@@ -1602,11 +1602,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var orderId = 12345;  // long | Order ID returned on successful order creation
+            var orderId = 12345;  // long | Order ID returned on successful order creation.
 
             try
             {
-                // Get a single order
+                // Get a single order.
                 OptionsOrder result = apiInstance.GetOptionsOrder(orderId);
                 Debug.WriteLine(result);
             }
@@ -1626,7 +1626,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **long**| Order ID returned on successful order creation | 
+ **orderId** | **long**| Order ID returned on successful order creation. | 
 
 ### Return type
 
@@ -1644,7 +1644,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order detail |  -  |
+| **200** | Order detail. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1652,7 +1652,7 @@ Name | Type | Description  | Notes
 # **CancelOptionsOrder**
 > OptionsOrder CancelOptionsOrder (long orderId)
 
-Cancel a single order
+Cancel a single order.
 
 ### Example
 ```csharp
@@ -1673,11 +1673,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var orderId = 12345;  // long | Order ID returned on successful order creation
+            var orderId = 12345;  // long | Order ID returned on successful order creation.
 
             try
             {
-                // Cancel a single order
+                // Cancel a single order.
                 OptionsOrder result = apiInstance.CancelOptionsOrder(orderId);
                 Debug.WriteLine(result);
             }
@@ -1697,7 +1697,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | **long**| Order ID returned on successful order creation | 
+ **orderId** | **long**| Order ID returned on successful order creation. | 
 
 ### Return type
 
@@ -1715,7 +1715,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Order detail |  -  |
+| **200** | Order detail. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1723,9 +1723,9 @@ Name | Type | Description  | Notes
 # **CountdownCancelAllOptions**
 > TriggerTime CountdownCancelAllOptions (CountdownCancelAllOptionsTask countdownCancelAllOptionsTask)
 
-Countdown cancel orders
+Countdown cancel orders.
 
-Option order heartbeat detection, when the `timeout` time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related `option pending order` will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown `timeout` set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the `underlying` `contract` you specified will be automatically cancelled. If `underlying` `contract` is not specified, all pending orders of the user will be automatically cancelled  If `timeout` is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
+Option order heartbeat detection, when the `timeout` time set by the user is reached, if the existing countdown is not canceled or a new countdown is set, the related `option pending order` will be automatically canceled.  This interface can be called repeatedly to set a new countdown or cancel the countdown.  Usage example: Repeat this interface at intervals of 30 seconds, with each countdown `timeout` set to 30 (seconds).  If this interface is not called again within 30 seconds, all pending orders on the `underlying` `contract` you specified will be automatically cancelled. If `underlying` `contract` is not specified, user will be automatically cancelled  If `timeout` is set to 0 within 30 seconds, the countdown timer will expire and the automatic order cancellation function will be cancelled.
 
 ### Example
 ```csharp
@@ -1750,7 +1750,7 @@ namespace Example
 
             try
             {
-                // Countdown cancel orders
+                // Countdown cancel orders.
                 TriggerTime result = apiInstance.CountdownCancelAllOptions(countdownCancelAllOptionsTask);
                 Debug.WriteLine(result);
             }
@@ -1788,7 +1788,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Set countdown successfully |  -  |
+| **200** | Set countdown successfully. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1796,7 +1796,7 @@ Name | Type | Description  | Notes
 # **ListMyOptionsTrades**
 > List&lt;OptionsMyTrade&gt; ListMyOptionsTrades (string underlying, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null)
 
-List personal trading history
+List personal trading history.
 
 ### Example
 ```csharp
@@ -1817,16 +1817,16 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint)
-            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name (optional) 
-            var limit = 100;  // int? | Maximum number of records to be returned in a single list (optional)  (default to 100)
-            var offset = 0;  // int? | List offset, starting from 0 (optional)  (default to 0)
+            var underlying = "BTC_USDT";  // string | Underlying (Obtained by listing underlying endpoint).
+            var contract = "BTC_USDT-20210916-5000-C";  // string | Options contract name. (optional) 
+            var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
             var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
             var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
 
             try
             {
-                // List personal trading history
+                // List personal trading history.
                 List<OptionsMyTrade> result = apiInstance.ListMyOptionsTrades(underlying, contract, limit, offset, from, to);
                 Debug.WriteLine(result);
             }
@@ -1846,10 +1846,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying (Obtained by listing underlying endpoint) | 
- **contract** | **string**| Options contract name | [optional] 
- **limit** | **int?**| Maximum number of records to be returned in a single list | [optional] [default to 100]
- **offset** | **int?**| List offset, starting from 0 | [optional] [default to 0]
+ **underlying** | **string**| Underlying (Obtained by listing underlying endpoint). | 
+ **contract** | **string**| Options contract name. | [optional] 
+ **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
  **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
  **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
 
@@ -1869,7 +1869,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List retrieved |  -  |
+| **200** | List retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1877,7 +1877,7 @@ Name | Type | Description  | Notes
 # **GetOptionsMMP**
 > List&lt;OptionsMMP&gt; GetOptionsMMP (string underlying = null)
 
-MMP Query
+MMP Query.
 
 ### Example
 ```csharp
@@ -1898,11 +1898,11 @@ namespace Example
             config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
 
             var apiInstance = new OptionsApi(config);
-            var underlying = "BTC_USDT";  // string | Underlying (optional) 
+            var underlying = "BTC_USDT";  // string | Underlying. (optional) 
 
             try
             {
-                // MMP Query
+                // MMP Query.
                 List<OptionsMMP> result = apiInstance.GetOptionsMMP(underlying);
                 Debug.WriteLine(result);
             }
@@ -1922,7 +1922,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underlying** | **string**| Underlying | [optional] 
+ **underlying** | **string**| Underlying. | [optional] 
 
 ### Return type
 
@@ -1940,7 +1940,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successfully retrieved |  -  |
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2011,7 +2011,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | MMP Information |  -  |
+| **200** | MMP Information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2082,7 +2082,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | MMP Information |  -  |
+| **200** | MMP Information. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

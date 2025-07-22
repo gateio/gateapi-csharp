@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get account detail
+        /// Get account detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Api
         AccountDetail GetAccountDetail ();
 
         /// <summary>
-        /// Get account detail
+        /// Get account detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -47,7 +47,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of AccountDetail</returns>
         ApiResponse<AccountDetail> GetAccountDetailWithHttpInfo ();
         /// <summary>
-        /// Get user transaction rate limit information
+        /// Get user transaction rate limit information.
         /// </summary>
         /// <remarks>
         /// 
@@ -57,7 +57,7 @@ namespace Io.Gate.GateApi.Api
         List<AccountRateLimit> GetAccountRateLimit ();
 
         /// <summary>
-        /// Get user transaction rate limit information
+        /// Get user transaction rate limit information.
         /// </summary>
         /// <remarks>
         /// 
@@ -66,31 +66,31 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of List&lt;AccountRateLimit&gt;</returns>
         ApiResponse<List<AccountRateLimit>> GetAccountRateLimitWithHttpInfo ();
         /// <summary>
-        /// List STP Groups
+        /// List STP Groups.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of STP groups created by the main account user only
+        /// Retrieve the list of STP groups created by the main account user only.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>List&lt;StpGroup&gt;</returns>
         List<StpGroup> ListSTPGroups (string name = default(string));
 
         /// <summary>
-        /// List STP Groups
+        /// List STP Groups.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of STP groups created by the main account user only
+        /// Retrieve the list of STP groups created by the main account user only.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>ApiResponse of List&lt;StpGroup&gt;</returns>
         ApiResponse<List<StpGroup>> ListSTPGroupsWithHttpInfo (string name = default(string));
         /// <summary>
-        /// Create STP Group
+        /// Create STP Group.
         /// </summary>
         /// <remarks>
-        /// Only the main account is allowed to create a new STP user group
+        /// Only the main account is allowed to create a new STP user group.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -98,80 +98,80 @@ namespace Io.Gate.GateApi.Api
         StpGroup CreateSTPGroup (StpGroup stpGroup);
 
         /// <summary>
-        /// Create STP Group
+        /// Create STP Group.
         /// </summary>
         /// <remarks>
-        /// Only the main account is allowed to create a new STP user group
+        /// Only the main account is allowed to create a new STP user group.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
         /// <returns>ApiResponse of StpGroup</returns>
         ApiResponse<StpGroup> CreateSTPGroupWithHttpInfo (StpGroup stpGroup);
         /// <summary>
-        /// List users of the STP group
+        /// List users of the STP group.
         /// </summary>
         /// <remarks>
-        /// Only the main account that created this STP group can query the account 
+        /// Only the main account that created this STP group can query the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         List<StpGroupUser> ListSTPGroupsUsers (long stpId);
 
         /// <summary>
-        /// List users of the STP group
+        /// List users of the STP group.
         /// </summary>
         /// <remarks>
-        /// Only the main account that created this STP group can query the account 
+        /// Only the main account that created this STP group can query the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         ApiResponse<List<StpGroupUser>> ListSTPGroupsUsersWithHttpInfo (long stpId);
         /// <summary>
-        /// Add users to the STP group
+        /// Add users to the STP group.
         /// </summary>
         /// <remarks>
-        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         List<StpGroupUser> AddSTPGroupUsers (long stpId, List<long> requestBody);
 
         /// <summary>
-        /// Add users to the STP group
+        /// Add users to the STP group.
         /// </summary>
         /// <remarks>
-        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         ApiResponse<List<StpGroupUser>> AddSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody);
         /// <summary>
-        /// Delete the user in the STP group
+        /// Delete the user in the STP group.
         /// </summary>
         /// <remarks>
         /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         List<StpGroupUser> DeleteSTPGroupUsers (long stpId, long userId);
 
         /// <summary>
-        /// Delete the user in the STP group
+        /// Delete the user in the STP group.
         /// </summary>
         /// <remarks>
         /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, long userId);
         /// <summary>
@@ -224,7 +224,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get account detail
+        /// Get account detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -234,7 +234,7 @@ namespace Io.Gate.GateApi.Api
         Task<AccountDetail> GetAccountDetailAsync ();
 
         /// <summary>
-        /// Get account detail
+        /// Get account detail.
         /// </summary>
         /// <remarks>
         /// 
@@ -243,7 +243,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (AccountDetail)</returns>
         Task<ApiResponse<AccountDetail>> GetAccountDetailAsyncWithHttpInfo ();
         /// <summary>
-        /// Get user transaction rate limit information
+        /// Get user transaction rate limit information.
         /// </summary>
         /// <remarks>
         /// 
@@ -253,7 +253,7 @@ namespace Io.Gate.GateApi.Api
         Task<List<AccountRateLimit>> GetAccountRateLimitAsync ();
 
         /// <summary>
-        /// Get user transaction rate limit information
+        /// Get user transaction rate limit information.
         /// </summary>
         /// <remarks>
         /// 
@@ -262,31 +262,31 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (List&lt;AccountRateLimit&gt;)</returns>
         Task<ApiResponse<List<AccountRateLimit>>> GetAccountRateLimitAsyncWithHttpInfo ();
         /// <summary>
-        /// List STP Groups
+        /// List STP Groups.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of STP groups created by the main account user only
+        /// Retrieve the list of STP groups created by the main account user only.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>Task of List&lt;StpGroup&gt;</returns>
         Task<List<StpGroup>> ListSTPGroupsAsync (string name = default(string));
 
         /// <summary>
-        /// List STP Groups
+        /// List STP Groups.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of STP groups created by the main account user only
+        /// Retrieve the list of STP groups created by the main account user only.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroup&gt;)</returns>
         Task<ApiResponse<List<StpGroup>>> ListSTPGroupsAsyncWithHttpInfo (string name = default(string));
         /// <summary>
-        /// Create STP Group
+        /// Create STP Group.
         /// </summary>
         /// <remarks>
-        /// Only the main account is allowed to create a new STP user group
+        /// Only the main account is allowed to create a new STP user group.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -294,80 +294,80 @@ namespace Io.Gate.GateApi.Api
         Task<StpGroup> CreateSTPGroupAsync (StpGroup stpGroup);
 
         /// <summary>
-        /// Create STP Group
+        /// Create STP Group.
         /// </summary>
         /// <remarks>
-        /// Only the main account is allowed to create a new STP user group
+        /// Only the main account is allowed to create a new STP user group.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
         /// <returns>Task of ApiResponse (StpGroup)</returns>
         Task<ApiResponse<StpGroup>> CreateSTPGroupAsyncWithHttpInfo (StpGroup stpGroup);
         /// <summary>
-        /// List users of the STP group
+        /// List users of the STP group.
         /// </summary>
         /// <remarks>
-        /// Only the main account that created this STP group can query the account 
+        /// Only the main account that created this STP group can query the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         Task<List<StpGroupUser>> ListSTPGroupsUsersAsync (long stpId);
 
         /// <summary>
-        /// List users of the STP group
+        /// List users of the STP group.
         /// </summary>
         /// <remarks>
-        /// Only the main account that created this STP group can query the account 
+        /// Only the main account that created this STP group can query the account.
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         Task<ApiResponse<List<StpGroupUser>>> ListSTPGroupsUsersAsyncWithHttpInfo (long stpId);
         /// <summary>
-        /// Add users to the STP group
+        /// Add users to the STP group.
         /// </summary>
         /// <remarks>
-        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         Task<List<StpGroupUser>> AddSTPGroupUsersAsync (long stpId, List<long> requestBody);
 
         /// <summary>
-        /// Add users to the STP group
+        /// Add users to the STP group.
         /// </summary>
         /// <remarks>
-        /// - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         Task<ApiResponse<List<StpGroupUser>>> AddSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody);
         /// <summary>
-        /// Delete the user in the STP group
+        /// Delete the user in the STP group.
         /// </summary>
         /// <remarks>
         /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, long userId);
 
         /// <summary>
-        /// Delete the user in the STP group
+        /// Delete the user in the STP group.
         /// </summary>
         /// <remarks>
         /// - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </remarks>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, long userId);
         /// <summary>
@@ -531,7 +531,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get account detail 
+        /// Get account detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>AccountDetail</returns>
@@ -542,7 +542,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get account detail 
+        /// Get account detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of AccountDetail</returns>
@@ -581,7 +581,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get account detail 
+        /// Get account detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of AccountDetail</returns>
@@ -593,7 +593,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get account detail 
+        /// Get account detail. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (AccountDetail)</returns>
@@ -634,7 +634,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user transaction rate limit information 
+        /// Get user transaction rate limit information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;AccountRateLimit&gt;</returns>
@@ -645,7 +645,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user transaction rate limit information 
+        /// Get user transaction rate limit information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;AccountRateLimit&gt;</returns>
@@ -684,7 +684,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user transaction rate limit information 
+        /// Get user transaction rate limit information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;AccountRateLimit&gt;</returns>
@@ -696,7 +696,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Get user transaction rate limit information 
+        /// Get user transaction rate limit information. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;AccountRateLimit&gt;)</returns>
@@ -737,10 +737,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// List STP Groups. Retrieve the list of STP groups created by the main account user only.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>List&lt;StpGroup&gt;</returns>
         public List<StpGroup> ListSTPGroups (string name = default(string))
         {
@@ -749,10 +749,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// List STP Groups. Retrieve the list of STP groups created by the main account user only.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>ApiResponse of List&lt;StpGroup&gt;</returns>
         public ApiResponse<List<StpGroup>> ListSTPGroupsWithHttpInfo (string name = default(string))
         {
@@ -793,10 +793,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// List STP Groups. Retrieve the list of STP groups created by the main account user only.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>Task of List&lt;StpGroup&gt;</returns>
         public async Task<List<StpGroup>> ListSTPGroupsAsync (string name = default(string))
         {
@@ -806,10 +806,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List STP Groups Retrieve the list of STP groups created by the main account user only
+        /// List STP Groups. Retrieve the list of STP groups created by the main account user only.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name">Perform a fuzzy search based on the name (optional)</param>
+        /// <param name="name">Perform a fuzzy search based on the name. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroup&gt;)</returns>
         public async Task<ApiResponse<List<StpGroup>>> ListSTPGroupsAsyncWithHttpInfo (string name = default(string))
         {
@@ -852,7 +852,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// Create STP Group. Only the main account is allowed to create a new STP user group.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -864,7 +864,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// Create STP Group. Only the main account is allowed to create a new STP user group.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -910,7 +910,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// Create STP Group. Only the main account is allowed to create a new STP user group.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -923,7 +923,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Create STP Group Only the main account is allowed to create a new STP user group
+        /// Create STP Group. Only the main account is allowed to create a new STP user group.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stpGroup"></param>
@@ -971,10 +971,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List users of the STP group Only the main account that created this STP group can query the account 
+        /// List users of the STP group. Only the main account that created this STP group can query the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         public List<StpGroupUser> ListSTPGroupsUsers (long stpId)
         {
@@ -983,10 +983,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List users of the STP group Only the main account that created this STP group can query the account 
+        /// List users of the STP group. Only the main account that created this STP group can query the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         public ApiResponse<List<StpGroupUser>> ListSTPGroupsUsersWithHttpInfo (long stpId)
         {
@@ -1024,10 +1024,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List users of the STP group Only the main account that created this STP group can query the account 
+        /// List users of the STP group. Only the main account that created this STP group can query the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         public async Task<List<StpGroupUser>> ListSTPGroupsUsersAsync (long stpId)
         {
@@ -1037,10 +1037,10 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// List users of the STP group Only the main account that created this STP group can query the account 
+        /// List users of the STP group. Only the main account that created this STP group can query the account.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
+        /// <param name="stpId">STP Group ID.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         public async Task<ApiResponse<List<StpGroupUser>>> ListSTPGroupsUsersAsyncWithHttpInfo (long stpId)
         {
@@ -1080,11 +1080,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// Add users to the STP group. - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         public List<StpGroupUser> AddSTPGroupUsers (long stpId, List<long> requestBody)
         {
@@ -1093,11 +1093,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// Add users to the STP group. - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         public ApiResponse<List<StpGroupUser>> AddSTPGroupUsersWithHttpInfo (long stpId, List<long> requestBody)
         {
@@ -1141,11 +1141,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// Add users to the STP group. - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         public async Task<List<StpGroupUser>> AddSTPGroupUsersAsync (long stpId, List<long> requestBody)
         {
@@ -1155,11 +1155,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Add users to the STP group - Only the master account that created the STP user group is allowed to add users to the STP user group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
+        /// Add users to the STP group. - Only the master account that created the STP user group is allowed to add users group.- Only accounts under the main account are allowed to be added. Cross-account is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="requestBody">User ID</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="requestBody">User ID.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         public async Task<ApiResponse<List<StpGroupUser>>> AddSTPGroupUsersAsyncWithHttpInfo (long stpId, List<long> requestBody)
         {
@@ -1205,11 +1205,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// Delete the user in the STP group. - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>List&lt;StpGroupUser&gt;</returns>
         public List<StpGroupUser> DeleteSTPGroupUsers (long stpId, long userId)
         {
@@ -1218,11 +1218,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// Delete the user in the STP group. - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>ApiResponse of List&lt;StpGroupUser&gt;</returns>
         public ApiResponse<List<StpGroupUser>> DeleteSTPGroupUsersWithHttpInfo (long stpId, long userId)
         {
@@ -1261,11 +1261,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// Delete the user in the STP group. - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>Task of List&lt;StpGroupUser&gt;</returns>
         public async Task<List<StpGroupUser>> DeleteSTPGroupUsersAsync (long stpId, long userId)
         {
@@ -1275,11 +1275,11 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Delete the user in the STP group - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
+        /// Delete the user in the STP group. - Only the main account that created this STP group is allowed to delete users from the STP user group - Deletion is limited to accounts under the current main account; cross-account deletion is not permitted
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="stpId">STP Group ID</param>
-        /// <param name="userId">STP user ID, multiple can be separated by commas</param>
+        /// <param name="stpId">STP Group ID.</param>
+        /// <param name="userId">STP user ID, multiple can be separated by commas.</param>
         /// <returns>Task of ApiResponse (List&lt;StpGroupUser&gt;)</returns>
         public async Task<ApiResponse<List<StpGroupUser>>> DeleteSTPGroupUsersAsyncWithHttpInfo (long stpId, long userId)
         {

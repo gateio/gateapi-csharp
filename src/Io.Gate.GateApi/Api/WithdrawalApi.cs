@@ -28,7 +28,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Withdraw
+        /// Withdraw.
         /// </summary>
         /// <remarks>
         /// Withdrawals to Gate addresses do not incur transaction fees.
@@ -39,7 +39,7 @@ namespace Io.Gate.GateApi.Api
         LedgerRecord Withdraw (LedgerRecord ledgerRecord);
 
         /// <summary>
-        /// Withdraw
+        /// Withdraw.
         /// </summary>
         /// <remarks>
         /// Withdrawals to Gate addresses do not incur transaction fees.
@@ -49,7 +49,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of LedgerRecord</returns>
         ApiResponse<LedgerRecord> WithdrawWithHttpInfo (LedgerRecord ledgerRecord);
         /// <summary>
-        /// UID transfer
+        /// UID transfer.
         /// </summary>
         /// <remarks>
         /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
@@ -60,7 +60,7 @@ namespace Io.Gate.GateApi.Api
         UidPushWithdrawalResp WithdrawPushOrder (UidPushWithdrawal uidPushWithdrawal);
 
         /// <summary>
-        /// UID transfer
+        /// UID transfer.
         /// </summary>
         /// <remarks>
         /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
@@ -70,7 +70,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>ApiResponse of UidPushWithdrawalResp</returns>
         ApiResponse<UidPushWithdrawalResp> WithdrawPushOrderWithHttpInfo (UidPushWithdrawal uidPushWithdrawal);
         /// <summary>
-        /// Cancel withdrawal with specified ID
+        /// Cancel withdrawal with specified ID.
         /// </summary>
         /// <remarks>
         /// 
@@ -81,7 +81,7 @@ namespace Io.Gate.GateApi.Api
         LedgerRecord CancelWithdrawal (string withdrawalId);
 
         /// <summary>
-        /// Cancel withdrawal with specified ID
+        /// Cancel withdrawal with specified ID.
         /// </summary>
         /// <remarks>
         /// 
@@ -100,7 +100,7 @@ namespace Io.Gate.GateApi.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Withdraw
+        /// Withdraw.
         /// </summary>
         /// <remarks>
         /// Withdrawals to Gate addresses do not incur transaction fees.
@@ -111,7 +111,7 @@ namespace Io.Gate.GateApi.Api
         Task<LedgerRecord> WithdrawAsync (LedgerRecord ledgerRecord);
 
         /// <summary>
-        /// Withdraw
+        /// Withdraw.
         /// </summary>
         /// <remarks>
         /// Withdrawals to Gate addresses do not incur transaction fees.
@@ -121,7 +121,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (LedgerRecord)</returns>
         Task<ApiResponse<LedgerRecord>> WithdrawAsyncWithHttpInfo (LedgerRecord ledgerRecord);
         /// <summary>
-        /// UID transfer
+        /// UID transfer.
         /// </summary>
         /// <remarks>
         /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
@@ -132,7 +132,7 @@ namespace Io.Gate.GateApi.Api
         Task<UidPushWithdrawalResp> WithdrawPushOrderAsync (UidPushWithdrawal uidPushWithdrawal);
 
         /// <summary>
-        /// UID transfer
+        /// UID transfer.
         /// </summary>
         /// <remarks>
         /// Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
@@ -142,7 +142,7 @@ namespace Io.Gate.GateApi.Api
         /// <returns>Task of ApiResponse (UidPushWithdrawalResp)</returns>
         Task<ApiResponse<UidPushWithdrawalResp>> WithdrawPushOrderAsyncWithHttpInfo (UidPushWithdrawal uidPushWithdrawal);
         /// <summary>
-        /// Cancel withdrawal with specified ID
+        /// Cancel withdrawal with specified ID.
         /// </summary>
         /// <remarks>
         /// 
@@ -153,7 +153,7 @@ namespace Io.Gate.GateApi.Api
         Task<LedgerRecord> CancelWithdrawalAsync (string withdrawalId);
 
         /// <summary>
-        /// Cancel withdrawal with specified ID
+        /// Cancel withdrawal with specified ID.
         /// </summary>
         /// <remarks>
         /// 
@@ -283,7 +283,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
+        /// Withdraw. Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -295,7 +295,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
+        /// Withdraw. Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -341,7 +341,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
+        /// Withdraw. Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -354,7 +354,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Withdraw Withdrawals to Gate addresses do not incur transaction fees.
+        /// Withdraw. Withdrawals to Gate addresses do not incur transaction fees.
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ledgerRecord"></param>
@@ -402,7 +402,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// UID transfer. Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uidPushWithdrawal"></param>
@@ -414,7 +414,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// UID transfer. Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uidPushWithdrawal"></param>
@@ -460,7 +460,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// UID transfer. Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uidPushWithdrawal"></param>
@@ -473,7 +473,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// UID transfer Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
+        /// UID transfer. Transfers between main spot accounts are allowed; however, both parties cannot be sub-accounts
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="uidPushWithdrawal"></param>
@@ -521,7 +521,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel withdrawal with specified ID 
+        /// Cancel withdrawal with specified ID. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withdrawalId"></param>
@@ -533,7 +533,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel withdrawal with specified ID 
+        /// Cancel withdrawal with specified ID. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withdrawalId"></param>
@@ -578,7 +578,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel withdrawal with specified ID 
+        /// Cancel withdrawal with specified ID. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withdrawalId"></param>
@@ -591,7 +591,7 @@ namespace Io.Gate.GateApi.Api
         }
 
         /// <summary>
-        /// Cancel withdrawal with specified ID 
+        /// Cancel withdrawal with specified ID. 
         /// </summary>
         /// <exception cref="Io.Gate.GateApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="withdrawalId"></param>

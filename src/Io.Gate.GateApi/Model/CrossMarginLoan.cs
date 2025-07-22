@@ -67,9 +67,9 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarginLoan" /> class.
         /// </summary>
-        /// <param name="currency">Currency name (required).</param>
-        /// <param name="amount">Borrowed amount (required).</param>
-        /// <param name="text">User defined custom ID.</param>
+        /// <param name="currency">Currency name. (required).</param>
+        /// <param name="amount">Borrowed amount. (required).</param>
+        /// <param name="text">User defined custom ID..</param>
         public CrossMarginLoan(string currency = default(string), string amount = default(string), string text = default(string))
         {
             // to ensure "currency" is required (not null)
@@ -80,65 +80,65 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Loan record ID
+        /// Loan record ID.
         /// </summary>
-        /// <value>Loan record ID</value>
+        /// <value>Loan record ID.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
 
         /// <summary>
-        /// Creation timestamp, in milliseconds
+        /// Creation timestamp, in milliseconds.
         /// </summary>
-        /// <value>Creation timestamp, in milliseconds</value>
+        /// <value>Creation timestamp, in milliseconds.</value>
         [DataMember(Name="create_time", EmitDefaultValue=false)]
         public long CreateTime { get; private set; }
 
         /// <summary>
-        /// Update timestamp, in milliseconds
+        /// Update timestamp, in milliseconds.
         /// </summary>
-        /// <value>Update timestamp, in milliseconds</value>
+        /// <value>Update timestamp, in milliseconds.</value>
         [DataMember(Name="update_time", EmitDefaultValue=false)]
         public long UpdateTime { get; private set; }
 
         /// <summary>
-        /// Currency name
+        /// Currency name.
         /// </summary>
-        /// <value>Currency name</value>
+        /// <value>Currency name.</value>
         [DataMember(Name="currency")]
         public string Currency { get; set; }
 
         /// <summary>
-        /// Borrowed amount
+        /// Borrowed amount.
         /// </summary>
-        /// <value>Borrowed amount</value>
+        /// <value>Borrowed amount.</value>
         [DataMember(Name="amount")]
         public string Amount { get; set; }
 
         /// <summary>
-        /// User defined custom ID
+        /// User defined custom ID.
         /// </summary>
-        /// <value>User defined custom ID</value>
+        /// <value>User defined custom ID.</value>
         [DataMember(Name="text")]
         public string Text { get; set; }
 
         /// <summary>
-        /// Repaid amount
+        /// Repaid amount.
         /// </summary>
-        /// <value>Repaid amount</value>
+        /// <value>Repaid amount.</value>
         [DataMember(Name="repaid", EmitDefaultValue=false)]
         public string Repaid { get; private set; }
 
         /// <summary>
-        /// Repaid interest
+        /// Repaid interest.
         /// </summary>
-        /// <value>Repaid interest</value>
+        /// <value>Repaid interest.</value>
         [DataMember(Name="repaid_interest", EmitDefaultValue=false)]
         public string RepaidInterest { get; private set; }
 
         /// <summary>
-        /// Outstanding interest yet to be paid
+        /// Outstanding interest yet to be paid.
         /// </summary>
-        /// <value>Outstanding interest yet to be paid</value>
+        /// <value>Outstanding interest yet to be paid.</value>
         [DataMember(Name="unpaid_interest", EmitDefaultValue=false)]
         public string UnpaidInterest { get; private set; }
 

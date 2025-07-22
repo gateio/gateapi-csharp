@@ -33,10 +33,10 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiChainAddressItem" /> class.
         /// </summary>
-        /// <param name="chain">Name of the chain.</param>
-        /// <param name="address">Deposit address.</param>
-        /// <param name="paymentId">Notes that some currencies required(e.g., Tag, Memo) when depositing.</param>
-        /// <param name="paymentName">Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;.</param>
+        /// <param name="chain">Name of the chain..</param>
+        /// <param name="address">Deposit address..</param>
+        /// <param name="paymentId">Notes that some currencies required(e.g., Tag, Memo) when depositing..</param>
+        /// <param name="paymentName">Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;..</param>
         /// <param name="obtainFailed">The obtain failed status- 0: address successfully obtained- 1: failed to obtain address.</param>
         public MultiChainAddressItem(string chain = default(string), string address = default(string), string paymentId = default(string), string paymentName = default(string), int obtainFailed = default(int))
         {
@@ -48,30 +48,30 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Name of the chain
+        /// Name of the chain.
         /// </summary>
-        /// <value>Name of the chain</value>
+        /// <value>Name of the chain.</value>
         [DataMember(Name="chain")]
         public string Chain { get; set; }
 
         /// <summary>
-        /// Deposit address
+        /// Deposit address.
         /// </summary>
-        /// <value>Deposit address</value>
+        /// <value>Deposit address.</value>
         [DataMember(Name="address")]
         public string Address { get; set; }
 
         /// <summary>
-        /// Notes that some currencies required(e.g., Tag, Memo) when depositing
+        /// Notes that some currencies required(e.g., Tag, Memo) when depositing.
         /// </summary>
-        /// <value>Notes that some currencies required(e.g., Tag, Memo) when depositing</value>
+        /// <value>Notes that some currencies required(e.g., Tag, Memo) when depositing.</value>
         [DataMember(Name="payment_id")]
         public string PaymentId { get; set; }
 
         /// <summary>
-        /// Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;
+        /// Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;.
         /// </summary>
-        /// <value>Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;</value>
+        /// <value>Note type, &#x60;Tag&#x60; or &#x60;Memo&#x60;.</value>
         [DataMember(Name="payment_name")]
         public string PaymentName { get; set; }
 

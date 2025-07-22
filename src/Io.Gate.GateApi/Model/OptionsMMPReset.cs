@@ -38,7 +38,7 @@ namespace Io.Gate.GateApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionsMMPReset" /> class.
         /// </summary>
-        /// <param name="underlying">Underlying (required).</param>
+        /// <param name="underlying">Underlying. (required).</param>
         public OptionsMMPReset(string underlying = default(string))
         {
             // to ensure "underlying" is required (not null)
@@ -46,16 +46,16 @@ namespace Io.Gate.GateApi.Model
         }
 
         /// <summary>
-        /// Underlying
+        /// Underlying.
         /// </summary>
-        /// <value>Underlying</value>
+        /// <value>Underlying.</value>
         [DataMember(Name="underlying")]
         public string Underlying { get; set; }
 
         /// <summary>
-        /// Time window (milliseconds), between 1-5000, 0 means disabling MMP
+        /// Time window (milliseconds), between 1-5000, 0 means disabling MMP.
         /// </summary>
-        /// <value>Time window (milliseconds), between 1-5000, 0 means disabling MMP</value>
+        /// <value>Time window (milliseconds), between 1-5000, 0 means disabling MMP.</value>
         [DataMember(Name="window", EmitDefaultValue=false)]
         public int Window { get; private set; }
 
@@ -67,23 +67,23 @@ namespace Io.Gate.GateApi.Model
         public int FrozenPeriod { get; private set; }
 
         /// <summary>
-        /// Trading volume upper limit (positive number, up to 2 decimal places)
+        /// Trading volume upper limit (positive number, up to 2 decimal places).
         /// </summary>
-        /// <value>Trading volume upper limit (positive number, up to 2 decimal places)</value>
+        /// <value>Trading volume upper limit (positive number, up to 2 decimal places).</value>
         [DataMember(Name="qty_limit", EmitDefaultValue=false)]
         public string QtyLimit { get; private set; }
 
         /// <summary>
-        /// Upper limit of net delta value (positive number, up to 2 decimal places)
+        /// Upper limit of net delta value (positive number, up to 2 decimal places).
         /// </summary>
-        /// <value>Upper limit of net delta value (positive number, up to 2 decimal places)</value>
+        /// <value>Upper limit of net delta value (positive number, up to 2 decimal places).</value>
         [DataMember(Name="delta_limit", EmitDefaultValue=false)]
         public string DeltaLimit { get; private set; }
 
         /// <summary>
-        /// Trigger freeze time (milliseconds), 0 means no freeze is triggered
+        /// Trigger freeze time (milliseconds), 0 means no freeze is triggered.
         /// </summary>
-        /// <value>Trigger freeze time (milliseconds), 0 means no freeze is triggered</value>
+        /// <value>Trigger freeze time (milliseconds), 0 means no freeze is triggered.</value>
         [DataMember(Name="trigger_time_ms", EmitDefaultValue=false)]
         public long TriggerTimeMs { get; private set; }
 
