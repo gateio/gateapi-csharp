@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**UpdatePositionMargin**](FuturesApi.md#updatepositionmargin) | **POST** /futures/{settle}/positions/{contract}/margin | Update position margin.
 [**UpdatePositionLeverage**](FuturesApi.md#updatepositionleverage) | **POST** /futures/{settle}/positions/{contract}/leverage | Update position leverage.
 [**UpdatePositionCrossMode**](FuturesApi.md#updatepositioncrossmode) | **POST** /futures/{settle}/positions/cross_mode | Switch to the full position-by-store mode.
+[**UpdateDualCompPositionCrossMode**](FuturesApi.md#updatedualcomppositioncrossmode) | **POST** /futures/{settle}/dual_comp/positions/cross_mode | 双仓模式下切换全逐仓模式
 [**UpdatePositionRiskLimit**](FuturesApi.md#updatepositionrisklimit) | **POST** /futures/{settle}/positions/{contract}/risk_limit | Update position risk limit.
 [**SetDualMode**](FuturesApi.md#setdualmode) | **POST** /futures/{settle}/dual_mode | Enable or disable dual mode.
 [**GetDualModePosition**](FuturesApi.md#getdualmodeposition) | **GET** /futures/{settle}/dual_comp/positions/{contract} | Retrieve position detail in dual mode.
@@ -389,7 +390,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "\"5m\"";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0. 1 natual month, not 30 days (optional)  (default to "5m")
+            var interval = "5m";  // string | Interval time between data points. Note that `1w` means natual week(Mon-Sun), while `7d` means every 7d since unix 0. 1 natual month, not 30 days (optional)  (default to 5m)
 
             try
             {
@@ -418,7 +419,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days | [optional] [default to &quot;5m&quot;]
+ **interval** | **string**| Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0. 1 natual month, not 30 days | [optional] [default to 5m]
 
 ### Return type
 
@@ -470,7 +471,7 @@ namespace Example
             var from = 1546905600;  // long? | Start time of candlesticks, formatted in Unix timestamp in seconds. Default to`to - 100 * interval` if not specified (optional) 
             var to = 1546935600;  // long? | Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified (optional) 
             var limit = 100;  // int? | Maximum recent data points to return. `limit` is conflicted with `from` and `to`. If either `from` or `to` is specified, request will be rejected. (optional)  (default to 100)
-            var interval = "\"5m\"";  // string | Interval time between data points. (optional)  (default to "5m")
+            var interval = "5m";  // string | Interval time between data points. (optional)  (default to 5m)
 
             try
             {
@@ -499,7 +500,7 @@ Name | Type | Description  | Notes
  **from** | **long?**| Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified | [optional] 
  **to** | **long?**| Specify the end time of the K-line chart, defaults to current time if not specified, note that the time format is Unix timestamp with second precision specified | [optional] 
  **limit** | **int?**| Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. | [optional] [default to 100]
- **interval** | **string**| Interval time between data points. | [optional] [default to &quot;5m&quot;]
+ **interval** | **string**| Interval time between data points. | [optional] [default to 5m]
 
 ### Return type
 
@@ -1572,6 +1573,79 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Position information. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatedualcomppositioncrossmode"></a>
+# **UpdateDualCompPositionCrossMode**
+> List&lt;Position&gt; UpdateDualCompPositionCrossMode (string settle, InlineObject inlineObject)
+
+双仓模式下切换全逐仓模式
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Io.Gate.GateApi.Api;
+using Io.Gate.GateApi.Client;
+using Io.Gate.GateApi.Model;
+
+namespace Example
+{
+    public class UpdateDualCompPositionCrossModeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.gateio.ws/api/v4";
+            config.SetGateApiV4KeyPair("YOUR_API_KEY", "YOUR_API_SECRET");
+
+            var apiInstance = new FuturesApi(config);
+            var settle = "usdt";  // string | Settle currency.
+            var inlineObject = new InlineObject(); // InlineObject | 
+
+            try
+            {
+                // 双仓模式下切换全逐仓模式
+                List<Position> result = apiInstance.UpdateDualCompPositionCrossMode(settle, inlineObject);
+                Debug.WriteLine(result);
+            }
+            catch (GateApiException e)
+            {
+                Debug.Print("Exception when calling FuturesApi.UpdateDualCompPositionCrossMode: " + e.Message);
+                Debug.Print("Exception label: {0}, message: {1}", e.ErrorLabel, e.ErrorMessage);
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settle** | **string**| Settle currency. | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+
+### Return type
+
+[**List&lt;Position&gt;**](Position.md)
+
+### Authorization
+
+[apiv4](../README.md#apiv4)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2904,7 +2978,7 @@ Name | Type | Description  | Notes
 
 <a name="listliquidates"></a>
 # **ListLiquidates**
-> List&lt;FuturesLiquidate&gt; ListLiquidates (string settle, string contract = null, int? limit = null, int? at = null)
+> List&lt;FuturesLiquidate&gt; ListLiquidates (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null, int? at = null)
 
 List liquidation history.
 
@@ -2930,12 +3004,15 @@ namespace Example
             var settle = "usdt";  // string | Settle currency.
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified. (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
+            var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
+            var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
             var at = 0;  // int? | Specify a liquidation timestamp. (optional)  (default to 0)
 
             try
             {
                 // List liquidation history.
-                List<FuturesLiquidate> result = apiInstance.ListLiquidates(settle, contract, limit, at);
+                List<FuturesLiquidate> result = apiInstance.ListLiquidates(settle, contract, limit, offset, from, to, at);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -2957,6 +3034,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency. | 
  **contract** | **string**| Futures contract, return related data only if specified. | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
+ **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
  **at** | **int?**| Specify a liquidation timestamp. | [optional] [default to 0]
 
 ### Return type
@@ -2981,7 +3061,7 @@ Name | Type | Description  | Notes
 
 <a name="listautodeleverages"></a>
 # **ListAutoDeleverages**
-> List&lt;FuturesAutoDeleverage&gt; ListAutoDeleverages (string settle, string contract = null, int? limit = null, int? at = null)
+> List&lt;FuturesAutoDeleverage&gt; ListAutoDeleverages (string settle, string contract = null, int? limit = null, int? offset = null, long? from = null, long? to = null, int? at = null)
 
 List Auto-Deleveraging History.
 
@@ -3007,12 +3087,15 @@ namespace Example
             var settle = "usdt";  // string | Settle currency.
             var contract = "BTC_USDT";  // string | Futures contract, return related data only if specified. (optional) 
             var limit = 100;  // int? | Maximum number of records to be returned in a single list. (optional)  (default to 100)
+            var offset = 0;  // int? | List offset, starting from 0. (optional)  (default to 0)
+            var from = 1547706332;  // long? | Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) (optional) 
+            var to = 1547706332;  // long? | Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp (optional) 
             var at = 0;  // int? | Specify an auto-deleveraging timestamp. (optional)  (default to 0)
 
             try
             {
                 // List Auto-Deleveraging History.
-                List<FuturesAutoDeleverage> result = apiInstance.ListAutoDeleverages(settle, contract, limit, at);
+                List<FuturesAutoDeleverage> result = apiInstance.ListAutoDeleverages(settle, contract, limit, offset, from, to, at);
                 Debug.WriteLine(result);
             }
             catch (GateApiException e)
@@ -3034,6 +3117,9 @@ Name | Type | Description  | Notes
  **settle** | **string**| Settle currency. | 
  **contract** | **string**| Futures contract, return related data only if specified. | [optional] 
  **limit** | **int?**| Maximum number of records to be returned in a single list. | [optional] [default to 100]
+ **offset** | **int?**| List offset, starting from 0. | [optional] [default to 0]
+ **from** | **long?**| Start timestamp  Specify start time, time format is Unix timestamp. If not specified, it defaults to (the data start time of the time range actually returned by to and limit) | [optional] 
+ **to** | **long?**| Termination Timestamp  Specify the end time. If not specified, it defaults to the current time, and the time format is a Unix timestamp | [optional] 
  **at** | **int?**| Specify an auto-deleveraging timestamp. | [optional] [default to 0]
 
 ### Return type
