@@ -87,6 +87,12 @@ namespace Io.Gate.GateApi.Client
         string ApiV4Secret { get; }
 
         /// <summary>
+        /// Gets the Gate Broker Channel-Id.
+        /// </summary>
+        /// <value>Broker Channel-Id.</value>
+        string ChannelId { get; }
+
+        /// <summary>
         /// helper method to update Gate APIv4 key and secret
         /// </summary>
         /// <param name="key">APIv4 key</param>
